@@ -1,0 +1,207 @@
+
+// INFO ========================================================================
+
+/*
+    Striking fear in the Kafir, with no flowers for the Twin Towers - this is
+    Jihad on steroids.
+*/
+
+_factionID = "MUJAHIDEEN";
+_factionName = "Mujahideen";
+_factionStructure = "LOW-TIER";
+
+_factionCallsigns = _defaultCallsignOPFOR;
+
+_defaultSide = EAST;
+_defaultVoice = [_voiceFARSI];
+_defaultFace = [_facePERSIAN];
+_defaultName = [_nameARABIC];
+_defaultInsignia = "none";
+_defaultColor = "black";
+
+// WEAPONS =====================================================================
+
+_commonRIFLE = _AKM;
+_commonRIFLEGL = _AKMGL;
+_commonPISTOL = _Makarov;
+_commonMG = _PKM;
+_commonMARKSMAN = _SVDCAMO;
+_commonSNIPER = _SVDCAMO;
+_commonAT = _RPG26;
+_specAT = _RPG26;
+_commonSMG = _AKS74U;
+_commonRCO = "HLC_Optic_PSO1";
+_commonCCO = "hlc_optic_kobra";
+_commonMAGNIFIED = "HLC_Optic_1p29";
+_commonSUPPRESSOR = "hlc_muzzle_762SUP_AK";
+_commonPISTOLSUPPRESSOR = "RH_pmsd";
+_NVG = _NVGEN1;
+
+// AMMO COUNT ==================================================================
+
+_countRIFLE = 6;
+_countRIFLELOW = 4;
+_countPISTOL = 2;
+_countMG = 3;
+_countSNIPER = 4;
+_countAT = 3;
+_countGRENADES = 3;
+_count40mm = 10;
+
+_countTracerRIFLE = 2;
+_countTracerMG = 1;
+_countHE = 1;
+
+_countRifleCARGO = 30;
+_countPistolCARGO = 10;
+_countMgCARGO = 20;
+_countSniperCARGO = 30;
+_countATCARGO = 15;
+_countGrenadesCARGO = 20;
+_count40mmCARGO = 40;
+
+// MEDICAL =====================================================================
+
+_countBANDAGE = 15;
+_countMORPHINE = 5;
+_countEPI = 5;
+_countCAT = 3;
+_countBLOODBAG = 3;
+_countPAK = 1;
+
+_countBandageCARGO = 20;
+_countMorphineCARGO = 30;
+_countEpiCARGO = 20;
+_countBloodbagCARGO = 20;
+_countPAKCARGO = 10;
+
+// UNIFORMS ====================================================================
+
+_headsLIST = [
+    "TRYK_H_pakol2",
+    "LOP_H_Turban",
+    "LOP_H_Turban_mask",
+    "LOP_H_Pakol",
+    "H_ShemagOpen_tan",
+    "H_ShemagOpen_khk",
+    "LOP_H_Shemag_BLK"
+];
+
+_uniformsLIST = [
+    "TRYK_ZARATAKI",
+    "TRYK_ZARATAKI2",
+    "TRYK_ZARATAKI3",
+    "LOP_U_TAK_Civ_Fatigue_01",
+    "LOP_U_TAK_Civ_Fatigue_02",
+    "LOP_U_TAK_Civ_Fatigue_04",
+    "LOP_U_AM_Fatigue_01",
+    "LOP_U_AM_Fatigue_02",
+    "LOP_U_AM_Fatigue_03",
+    "LOP_U_AM_Fatigue_04"
+];
+
+_vestsLIST = [
+    "TRYK_V_ChestRig",
+    "TRYK_V_ChestRig_L",
+    "TRYK_LOC_AK_chestrig_TAN",
+    "TRYK_LOC_AK_chestrig_OD"
+];
+
+_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
+_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+
+_commonUNIFORM = _randomUNIFORM;
+_officerUNIFORM = _randomUNIFORM;
+
+_commonVEST = _randomVEST;
+_officerVEST = _randomVEST;
+_ftlVEST = _randomVEST;
+_slVEST = _randomVEST;
+_mgVEST = _randomVEST;
+_grenadierVEST = _randomVEST;
+_medicVEST = _randomVEST;
+
+_commonHEAD = _randomHEAD;
+_leaderHEAD = "TRYK_H_pakol2";
+_officerHEAD = "TRYK_H_pakol2";
+_medicHEAD = _commonHEAD;
+_crewmanHEAD = "rhs_tsh4";
+_pilotHEAD = "rhs_tsh4";
+_helicrewHEAD = "rhs_tsh4";
+_helipilotHEAD = "rhs_tsh4";
+_sniperHEAD = _commonHEAD;
+_demoHEAD = _commonHEAD;
+_reconHEAD = "LOP_H_Turban_mask";
+
+_commonUNIFORM = _randomUNIFORM;
+_officerUNIFORM = _randomUNIFORM;
+_pilotUNIFORM = _randomUNIFORM;
+_sniperUNIFORM = _randomUNIFORM;
+_marksmanUNIFORM = _commonUNIFORM;
+_helicrewUNIFORM = _commonUNIFORM;
+_crewUNIFORM = _commonUNIFORM;
+_mgUNIFORM = _commonUNIFORM;
+_medicUNIFORM = _randomUNIFORM;
+_demoUNIFORM = _commonUNIFORM;
+_reconUNIFORM = _commonUNIFORM;
+
+_commonVEST = _randomVEST;
+_officerVEST = _commonVEST;
+_ftlVEST = _commonVEST;
+_slVEST = _commonVEST;
+_mgVEST = _commonVEST;
+_grenadierVEST = _commonVEST;
+_medicVEST = _commonVEST;
+_demoVEST = _commonVEST;
+_marksmanVEST = _commonVEST;
+_reconVEST = _commonVEST;
+
+_commonBACKPACK = "TRYK_B_Alicepack";
+_bigBACKPACK = "TRYK_B_Alicepack";
+
+// EXTRA EQUIPMENT =============================================================
+
+_HMG = "RHS_NSV_Gun_Bag";
+_HMGTripod = "RHS_NSV_Tripod_Bag";
+
+_StaticAT = "RHS_SPG9_Gun_Bag";
+_ATTripod = "RHS_SPG9_Tripod_Bag";
+
+_mortar = "RHS_Podnos_Gun_Bag";
+_mortarTripod = "RHS_Podnos_Bipod_Bag";
+
+_UAVBag = "auto";
+_UAVTerminal = "auto";
+
+// VEHICLES ====================================================================
+
+_factionVehicles = [
+/* 0 - Anti Air Vehicles */	 ["rhsgref_ins_zsu234"]
+/* 1 - Attack Helos      */	,["rhsgref_b_mi24g_CAS","rhsgref_b_mi24g_FAB","rhsgref_cdf_b_Mi35","rhsgref_cdf_b_Mi35_UPK"]
+/* 2 - Attack Planes     */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
+/* 3 - Heavy Vehicles    */	,["rhs_sprut_vdv", "rhs_t72bd_tv"]
+/* 4 - Light Vehicles    */	,["rhsgref_ins_reg_uaz", "rhsgref_ins_reg_uaz_dshkm", "rhsgref_ins_reg_uaz_open", "rhsgref_ins_reg_uaz_spg9"]
+/* 5 - Medium Vehicles   */	,["rhsgref_ins_bmd1", "rhsgref_ins_bmd1k", "rhsgref_ins_bmd1p", "rhsgref_ins_bmd1","rhsgref_ins_bmd1k","rhsgref_ins_bmd1p","rhsgref_ins_bmd1pk","rhsgref_ins_bmd2","rhsgref_ins_bmd2k","rhsgref_ins_bmp1","rhsgref_ins_bmp1d","rhsgref_ins_bmp1k","rhsgref_ins_bmp1p","rhsgref_ins_bmp2e","rhsgref_ins_bmp2","rhsgref_ins_bmp2d","rhsgref_ins_bmp2k", "rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
+/* 6 - Mobile Artillery  */	,["rhsgref_ins_reg_BM21", "rhsgref_ins_reg_BM21"]
+/* 7 - Transport Helos   */	,["rhsgref_ins_Mi8amt", "rhsgref_ins_Mi8amt"]
+/* 8 - Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
+/* 9 - Transport Trucks  */	,["rhsgref_ins_gaz66", "rhsgref_ins_gaz66o", "rhsgref_ins_ural", "rhsgref_ins_ural_Zu23"]
+/*10 - Static Defence    */	,["rhsgref_ins_reg_d30", "rhsgref_ins_reg_d30", "rhsgref_ins_Igla_AA_pod", "rhsgref_ins_DSHKM", "rhsgref_ins_DSHKM_Mini_TriPod", "rhsgref_ins_NSV_TriPod", "rhsgref_ins_SPG9", "rhsgref_ins_SPG9M", "rhsgref_ins_ZU23"]
+/*11 - Boats 		 */	,["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
+/*12 - UAV 		 */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*13 - UGV		 */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*14 - Support 		 */	,["B_APC_Tracked_01_CRV_F","rhsgref_ins_gaz66_ammo","rhsgref_ins_ural_fuel"]
+/*15 - Submarines 	 */	,["B_SDV_01_F"]
+];
+
+// OBJECTS =====================================================================
+
+_factionObjects = [
+/* Flag         */ "FlagCarrierTKMilitia_EP1",
+/* Objects      */ ["rhs_weapon_crate"],
+/* Walls        */ ["Land_BagFence_Long_F"],
+/* Structures   */ ["Land_Fort_Watchtower"]
+];
+
+// =============================================================================

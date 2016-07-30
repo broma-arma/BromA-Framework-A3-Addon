@@ -1,0 +1,218 @@
+
+// INFO ========================================================================
+/*
+
+    The United States Army (USA), officially designated as the "Army of the United States" is the largest branch of the
+	United States Armed Forces with the primary task of performing land-based military operations in armed conflict and
+	peacetime operations.
+
+*/
+
+_factionID = "USARMY";
+_factionName = "United States Army";
+_factionStructure = "HIGH-TIER";
+
+_factionCallsigns = _defaultCallsignBLUFOR;
+
+_defaultSide = WEST;
+_defaultVoice = [_voiceAMERICAN];
+_defaultFace = [_faceWHITE, _faceBLACK];
+_defaultName = [_nameAMERICAN];
+_defaultInsignia = "USP_PATCH_USA_TAB_RANGER_1BN_UCP";
+_defaultColor = "blue";
+
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_USArmyCammo
+	"ucp"
+	"ocp"
+*/
+
+_camo = "ucp";
+
+// WEAPONS =====================================================================
+
+_commonRIFLE = _RHSM4;
+_commonRIFLEGL = _RHSM4GL203;
+_commonPISTOL = _M9;
+_commonMG = _M249S;
+_commonMARKSMAN = _M14SOPMOD;
+_commonSNIPER = _M200;
+_commonAT = _AT4CSHEAT;
+_specAT = _MAAWS;
+_commonSMG = _RHSM4;
+_commonRCO = "rhsusf_acc_ACOG3";
+_commonCCO = "rhsusf_acc_eotech_552";
+_commonMAGNIFIED = "optic_LRPS";
+_commonSUPPRESSOR = "rhsusf_acc_rotex5_grey";
+_commonPISTOLSUPPRESSOR = "RH_m9qd";
+_NVG = "rhsusf_ANPVS_15";
+
+// AMMO COUNT ==================================================================
+
+_countRIFLE = 9;
+_countRIFLELOW = 6;
+_countPISTOL = 2;
+_countMG = 5;
+_countSNIPER = 5;
+_countAT = 3;
+_countGRENADES = 3;
+_count40mm = 15;
+
+_countTracerRIFLE = 2;
+_countTracerMG = 1;
+_countHE = 1;
+
+_countRifleCARGO = 30;
+_countPistolCARGO = 10;
+_countMgCARGO = 20;
+_countSniperCARGO = 30;
+_countATCARGO = 15;
+_countGrenadesCARGO = 20;
+_count40mmCARGO = 40;
+
+// MEDICAL =====================================================================
+
+_countBANDAGE = 20;
+_countMORPHINE = 10;
+_countEPI = 5;
+_countCAT = 3;
+_countBLOODBAG = 5;
+_countPAK = 2;
+
+_countBandageCARGO = 40;
+_countMorphineCARGO = 30;
+_countEpiCARGO = 20;
+_countBloodbagCARGO = 20;
+_countPAKCARGO = 10;
+
+// UNIFORMS ====================================================================
+if(!isNil "BRM_FMK_UNIFORMS_USArmyCammo")then{_camo=BRM_FMK_UNIFORMS_USArmyCammo};
+
+_headsLIST = [
+    "rhsusf_ach_helmet_"+_camo,
+    "rhsusf_ach_helmet_ESS_"+_camo,
+    "rhsusf_ach_helmet_headset_"+_camo
+];
+
+_vestsLIST = [
+    "rhsusf_iotv_"+_camo+"_SAW",
+    "rhsusf_iotv_"+_camo+"_Rifleman"
+];
+
+_goggleLIST = [
+    "TRYK_Shemagh_shade",
+    "TRYK_Shemagh",
+    "empty"
+];
+
+_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
+
+_commonHEAD = _randomHEAD;
+_leaderHEAD = "rhsusf_ach_helmet_headset_ess_"+_camo;
+_officerHEAD = "rhsusf_patrolcap_"+_camo;
+_medicHEAD = _commonHEAD;
+_crewmanHEAD = "rhsusf_cvc_green_ess";
+_pilotHEAD = "rhsusf_hgu56p";
+_helicrewHEAD = "rhsusf_hgu56p";
+_helipilotHEAD = "rhsusf_hgu56p";
+_sniperHEAD = _commonHEAD;
+_demoHEAD = _commonHEAD;
+_reconHEAD = "rhs_Booniehat_"+_camo;
+
+_commonUNIFORM = "rhs_uniform_cu_"+_camo;
+_officerUNIFORM = _commonUNIFORM;
+_pilotUNIFORM = "TRYK_OVERALL_SAGE";
+_sniperUNIFORM = "U_B_GhillieSuit";
+_marksmanUNIFORM = _commonUNIFORM;
+_helicrewUNIFORM = "TRYK_OVERALL_SAGE";
+_crewUNIFORM = _commonUNIFORM;
+_mgUNIFORM = _commonUNIFORM;
+_medicUNIFORM = _commonUNIFORM;
+_demoUNIFORM = _commonUNIFORM;
+_reconUNIFORM = _commonUNIFORM;
+
+_commonVEST = "rhsusf_iotv_"+_camo+"_Rifleman";
+_officerVEST = "rhsusf_iotv_"+_camo+"_Squadleader";
+_ftlVEST = "rhsusf_iotv_"+_camo+"_Squadleader";
+_slVEST = "rhsusf_iotv_"+_camo+"_Squadleader";
+_mgVEST = _commonVEST;
+_grenadierVEST = "rhsusf_iotv_"+_camo+"_Grenadier";
+_medicVEST = "rhsusf_iotv_"+_camo+"_Medic";
+_demoVEST = _commonVEST;
+_marksmanVEST = _commonVEST;
+_reconVEST = _commonVEST;
+
+_commonBACKPACK = "rhsusf_assault_eagleaiii_"+_camo;
+_bigBACKPACK = "rhsusf_assault_eagleaiii_"+_camo;
+
+if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE };
+
+// EXTRA EQUIPMENT =============================================================
+
+_HMG = "RHS_M2_Gun_Bag";
+_HMGTripod = "RHS_M2_Tripod_Bag";
+
+_StaticAT = "rhs_Tow_Gun_Bag";
+_ATTripod = "rhs_TOW_Tripod_Bag";
+
+_mortar = "rhs_M252_Gun_Bag";
+_mortarTripod = "rhs_M252_Bipod_Bag";
+
+_UAVBag = "auto";
+_UAVTerminal = "auto";
+
+// VEHICLES ====================================================================
+
+if (_camo == "ucp") then {
+    _factionVehicles = [
+    /* 0 - Anti Air Vehicles */	 ["B_APC_Tracked_01_AA_F", "RHS_M6"]
+    /* 1 - Attack Helos      */	,["RHS_AH64D_AA", "RHS_AH64D_CS", "RHS_AH64D_GS", "RHS_AH64D", "RHS_AH64DGrey"]
+    /* 2 - Attack Planes     */	,["RHS_A10_AT", "RHS_A10", "rhsusf_f22"]
+    /* 3 - Heavy Vehicles    */	,["rhsusf_m1a1aimd_usarmy", "rhsusf_m1a1aim_tuski_d", "rhsusf_m1a2sep1d_usarmy", "rhsusf_m1a2sep1tuskid_usarmy", "rhsusf_m1a2sep1tuskiid_usarmy"]
+    /* 4 - Light Vehicles    */	,["rhsusf_m1025_d_m2", "rhsusf_m1025_d", "rhsusf_m998_d_2dr_fulltop", "rhsusf_m998_d_4dr_fulltop", "rhsusf_m998_d_4dr", "rhsusf_rg33_d", "rhsusf_rg33_m2_d", "rhsusf_M1117_D"]
+    /* 5 - Medium Vehicles   */	,["RHS_M2A2", "RHS_M2A2_BUSKI", "RHS_M2A3", "RHS_M2A3_BUSKI", "RHS_M2A3_BUSKIII", "rhsusf_m113d_usarmy", "rhsusf_m113d_usarmy_M240"]
+    /* 6 - Mobile Artillery  */	,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
+    /* 7 - Transport Helos   */	,["RHS_CH_47F_10", "RHS_CH_47F_light", "RHS_UH60M_d", "RHS_UH60M_MEV2_d", "RHS_UH60M_MEV_d", "RHS_MELB_MH6M", "RHS_MELB_H6M"]
+    /* 8 - Transport Planes  */	,["RHS_C130J", "RHS_C130J"]
+    /* 9 - Transport Trucks  */	,["rhsusf_M1078A1P2_d_fmtv_usarmy", "rhsusf_M1078A1P2_d_flatbed_fmtv_usarmy", "rhsusf_M977A4_usarmy_d"]
+    /*10 - Static Defence    */	,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+    /*11 - Boats             */	,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
+    /*12 - UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
+    /*13 - UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
+    /*14 - Support           */	,["rhsusf_M977A4_REPAIR_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d", "B_Truck_01_fuel_F"]
+    /*15 - Submarines        */	,["B_SDV_01_F"]
+    ];
+} else {
+    _factionVehicles = [
+    /* 0 - Anti Air Vehicles */	 ["B_APC_Tracked_01_AA_F", "RHS_M6_wd"]
+    /* 1 - Attack Helos      */	,["RHS_AH64D_wd_AA", "RHS_AH64D_wd_CS", "RHS_AH64D_wd_GS", "RHS_AH64D_wd", "RHS_AH64DGrey"]
+    /* 2 - Attack Planes     */	,["RHS_A10_AT", "RHS_A10", "rhsusf_f22"]
+    /* 3 - Heavy Vehicles    */	,["rhsusf_m1a1aimwd_usarmy", "rhsusf_m1a1aim_tuski_wd", "rhsusf_m1a2sep1wd_usarmy", "rhsusf_m1a2sep1tuskiwd_usarmy", "rhsusf_m1a2sep1tuskiiwd_usarmy"]
+    /* 4 - Light Vehicles    */	,["rhsusf_m1025_w_m2", "rhsusf_m1025_w", "rhsusf_m998_w_2dr_fulltop", "rhsusf_m998_w_4dr_fulltop", "rhsusf_m998_w_4dr", "rhsusf_rg33_w", "rhsusf_rg33_m2_w", "rhsusf_M1117_W"]
+    /* 5 - Medium Vehicles   */	,["RHS_M2A2_wd", "RHS_M2A2_BUSKI_WD", "RHS_M2A3_wd", "RHS_M2A3_BUSKI_wd", "RHS_M2A3_BUSKIII_wd", "rhsusf_m113_usarmy", "rhsusf_m113_usarmy_M240"]
+    /* 6 - Mobile Artillery  */	,["rhsusf_m109_usarmy", "rhsusf_m109_usarmy"]
+    /* 7 - Transport Helos   */	,["RHS_CH_47F_10", "RHS_CH_47F_light", "RHS_UH60M_d", "RHS_UH60M_MEV2_d", "RHS_UH60M_MEV_d", "RHS_MELB_MH6M", "RHS_MELB_H6M"]
+    /* 8 - Transport Planes  */	,["RHS_C130J", "RHS_C130J"]
+    /* 9 - Transport Trucks  */	,["rhsusf_M1078A1P2_wd_fmtv_usarmy", "rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy", "rhsusf_M977A4_usarmy_wd"]
+    /*10 - Static Defence    */	,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+    /*11 - Boats             */	,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
+    /*12 - UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
+    /*13 - UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
+    /*14 - Support           */	,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd", "B_Truck_01_fuel_F"]
+    /*15 - Submarines        */	,["B_SDV_01_F"]
+    ];
+};
+
+// OBJECTS =====================================================================
+
+_factionObjects = [
+/* Flag         */ "Flag_US_F",
+/* Objects      */ ["B_CargoNet_01_ammo_F"],
+/* Walls        */ ["Land_HBarrierWall4_F"],
+/* Structures   */ ["Land_Cargo_House_V3_F"]
+];
+
+// =============================================================================

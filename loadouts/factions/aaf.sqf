@@ -1,0 +1,173 @@
+
+// INFO ========================================================================
+/*
+    In the wake of civil war, the Jerusalem Cease Fire of 2030 mandated the
+    creation of an armed defence force to secure the sovereign territory of
+    The Republic of Altis and Stratis.
+*/
+
+_factionID = "AAF";
+_factionName = "AAF Units";
+_factionStructure = "HIGH-TIER";
+
+_factionCallsigns = _defaultCallsignINDFOR;
+
+_defaultSide = RESISTANCE;
+_defaultVoice = [_voiceALTIAN];
+_defaultFace = [_faceGREEK];
+_defaultName = [_nameAMERICAN];
+_defaultColor = "green";
+_defaultInsignia = "";
+
+// WEAPONS =====================================================================
+
+// Set in mission with BRM_FMK_UNIFORMS_AAFMKCamo
+_MKCamo = true;
+
+_rr=_Mk20;_rg=_Mk20GL;_rc=_MK20C;
+if(!isNil"BRM_FMK_UNIFORMS_AAFMKCamo")then{_MKCAmo=BRM_FMK_UNIFORMS_AAFMKCamo};
+if (_MKCamo) then { _rr=_Mk20Camo;_rg=_Mk20GLCamo;_rc=_MK20CCamo; };
+
+_commonRIFLE = _rr;
+_commonRIFLEGL = _rg;
+_commonPISTOL = _ACP45;
+_commonMG = _Mk200;
+_commonMARKSMAN = _Mk18;
+_commonSNIPER = _GM6;
+_commonAT = _PCML;
+_specAT = _PCML;
+_commonSMG = _rc;
+_commonRCO = "optic_MRCO";
+_commonCCO = "optic_ACO_grn";
+_commonMAGNIFIED = _SOS;
+_commonSUPPRESSOR = "muzzle_snds_M";
+_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_NVG = _NVGEN3IND;
+
+// AMMO COUNT ==================================================================
+
+_countRIFLE = 7;
+_countRIFLELOW = 4;
+_countPISTOL = 2;
+_countMG = 3;
+_countSNIPER = 5;
+_countAT = 3;
+_countGRENADES = 3;
+_count40mm = 20;
+
+_countTracerRIFLE = 2;
+_countTracerMG = 1;
+_countHE = 1;
+
+_countRifleCARGO = 30;
+_countPistolCARGO = 10;
+_countMgCARGO = 20;
+_countSniperCARGO = 30;
+_countATCARGO = 15;
+_countGrenadesCARGO = 20;
+_count40mmCARGO = 40;
+
+// MEDICAL =====================================================================
+
+_countBANDAGE = 20;
+_countMORPHINE = 10;
+_countEPI = 5;
+_countCAT = 3;
+_countBLOODBAG = 5;
+_countPAK = 2;
+
+_countTracerRIFLE = 2;
+_countTracerMG = 1;
+_countHE = 1;
+
+_countBandageCARGO = 40;
+_countMorphineCARGO = 30;
+_countEpiCARGO = 20;
+_countBloodbagCARGO = 20;
+_countPAKCARGO = 10;
+
+// UNIFORMS ====================================================================
+
+_commonHEAD = "H_HelmetIA";
+_leaderHEAD = _commonHEAD;
+_officerHEAD = "H_MilCap_dgtl";
+_medicHEAD = _commonHEAD;
+_crewmanHEAD = "H_HelmetCrew_I";
+_pilotHEAD = "H_PilotHelmetFighter_I";
+_helicrewHEAD = "H_CrewHelmetHeli_I";
+_helipilotHEAD = "H_PilotHelmetHeli_I";
+_sniperHEAD = _commonHEAD;
+_demoHEAD = _commonHEAD;
+_reconHEAD = "H_Booniehat_dgtl";
+
+_commonUNIFORM = "U_I_CombatUniform";
+_officerUNIFORM = "U_I_OfficerUniform";
+_pilotUNIFORM = "U_I_PilotCoveralls";
+_sniperUNIFORM = "U_I_GhillieSuit";
+_marksmanUNIFORM = _officerUNIFORM;
+_helicrewUNIFORM = "U_I_PilotCoveralls";
+_crewUNIFORM = _commonUNIFORM;
+_mgUNIFORM = _commonUNIFORM;
+_medicUNIFORM = _commonUNIFORM;
+_demoUNIFORM = _commonUNIFORM;
+_reconUNIFORM = "U_I_CombatUniform_shortsleeve";
+
+_commonVEST = "V_Chestrig_oli";
+_officerVEST = "V_BandollierB_oli";
+_ftlVEST = _commonVEST;
+_slVEST = _commonVEST;
+_mgVEST = _commonVEST;
+_grenadierVEST = "V_PlateCarrierIA2_dgtl";
+_medicVEST = _commonVEST;
+_demoVEST = _commonVEST;
+_marksmanVEST = _commonVEST;
+_reconVEST = "V_PlateCarrierIA1_dgtl";
+
+_commonBACKPACK = "B_AssaultPack_dgtl";
+_bigBACKPACK = "B_Carryall_oli";
+
+// EXTRA EQUIPMENT =============================================================
+
+_HMG = "I_HMG_01_A_high_weapon_F";
+_HMGTripod = "I_HMG_01_support_F";
+
+_StaticAT = "I_AT_01_weapon_F";
+_ATTripod = "I_HMG_01_support_F";
+
+_mortar = "I_Mortar_01_weapon_F";
+_mortarTripod = "I_Mortar_01_support_F";
+
+_UAVBag = "auto";
+_UAVTerminal = "auto";
+
+// VEHICLES ====================================================================
+
+_factionVehicles = [
+/* 0 - Anti Air Vehicles */	 ["I_APC_Wheeled_03_cannon_F"]
+/* 1 - Attack Helos	 */	,["I_Heli_light_03_F", "I_Heli_light_03_F"]
+/* 2 - Attack Planes 	 */	,["I_Plane_Fighter_03_AA_F","I_Plane_Fighter_03_CAS_F"]
+/* 3 - Heavy Vehicles 	 */	,["I_MBT_03_cannon_F","I_APC_tracked_03_cannon_F"]
+/* 4 - Light Vehicles 	 */	,["I_MRAP_03_hmg_F"]
+/* 5 - Medium Vehicles 	 */	,["I_APC_Wheeled_03_cannon_F","I_APC_Wheeled_03_cannon_F"]
+/* 6 - Mobile Artillery  */	,["I_Mortar_01_F"]
+/* 7 - Transport Helos 	 */	,["I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F"]
+/* 8 - Transport Planes  */	,[]
+/* 9 - Transport Trucks  */	,["I_Truck_02_covered_F","I_Truck_02_transport_F"]
+/*10 - Static Defence 	 */	,["I_HMG_01_high_F","I_static_AA_F","I_static_AT_F","I_Mortar_01_F"]
+/*11 - Boats 		 */	,["I_Boat_Armed_01_minigun_F"]
+/*12 - UAV 		 */	,["I_UAV_02_CAS_F","I_UAV_02_F"]
+/*13 - UGV 		 */	,["I_UGV_01_F","I_UGV_01_rcws_F"]
+/*14 - Support 		 */	,["I_Truck_02_ammo_F","I_Truck_02_fuel_F", "I_Truck_02_medical_F", "I_Truck_02_box_F"]
+/*15 - Submarines 	 */	,["I_SDV_01_F"]
+];
+
+// OBJECTS =====================================================================
+
+_factionObjects = [
+/* Flag         */ "Flag_AAF_F",
+/* Objects      */ ["I_CargoNet_01_ammo_F"],
+/* Walls        */ ["Land_BagFence_Long_F"],
+/* Structures   */ ["Land_Cargo_HQ_V1_F"]
+];
+
+// =============================================================================
