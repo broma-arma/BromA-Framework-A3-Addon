@@ -14,6 +14,8 @@ if (isServer) then {
             _mkPos = getMarkerPos _mkName;
             _mkDir = markerDir _mkname;
 
+            _mkName setMarkerAlpha 0;
+
             _find = [_mkName, "_"] call CBA_fnc_find;
 
             if (_find > -1) then {
