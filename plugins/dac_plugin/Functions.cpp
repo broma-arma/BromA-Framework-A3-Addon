@@ -14,5 +14,6 @@ class BRM_FMK_DAC {
 		class generateCampInfo {};
 		class DACZone {};
 		class createZone {};
+		class initVehicleCrew {};
 	};
 }; 
