@@ -10,6 +10,7 @@ if (isServer) then {
         if (getText(_allMarkers select _i >> "dataType") == "Marker") then {
 
             _mkName = getText(_allMarkers select _i >> "name");
+            _originalMarker = _mkName;
 
             _mkPos = getMarkerPos _mkName;
             _mkDir = markerDir _mkname;
@@ -21,8 +22,8 @@ if (isServer) then {
 
                 if (([(_mkName select 0), 0, 3] call CBA_fnc_substr) == "veh") then {
                     ["LOCAL", "F_LOG", format ["[MARKER VEHICLE]: Valid marker %1 @%2", _mkName, _mkPos]] call BRM_FMK_fnc_doLog;
-                    
-                    _mkName setMarkerAlpha 0;
+
+                    _originalMarker setMarkerAlpha 0;
 
                     _index = -1;
 
