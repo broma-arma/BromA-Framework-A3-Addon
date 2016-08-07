@@ -14,15 +14,15 @@ if (isServer) then {
             _mkPos = getMarkerPos _mkName;
             _mkDir = markerDir _mkname;
 
-            _mkName setMarkerAlpha 0;
-
             _find = [_mkName, "_"] call CBA_fnc_find;
 
             if (_find > -1) then {
                 _mkName = [_mkName, "_"] call CBA_fnc_split;
 
                 if (([(_mkName select 0), 0, 3] call CBA_fnc_substr) == "veh") then {
-                    diag_log format ["=== [MARKER VEHICLE]: Valid marker %1 @%2", _mkName, _mkPos];
+                    ["LOCAL", "F_LOG", format ["[MARKER VEHICLE]: Valid marker %1 @%2", _mkName, _mkPos]] call BRM_FMK_fnc_doLog;
+                    
+                    _mkName setMarkerAlpha 0;
 
                     _index = -1;
 
