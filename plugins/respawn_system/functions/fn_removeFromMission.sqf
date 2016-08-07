@@ -27,6 +27,8 @@ _unit setVariable ["isDead", true, true];
 
 [_unit] call BRM_FMK_fnc_initSpectator;
 
+sleep 10;
+
 waitUntil
     {
         sleep 5;
@@ -35,6 +37,7 @@ waitUntil
 
 player setVariable ["isDead", false, true];
 
+detach _unit;
 _unit enableSimulation true;
 
 _rGear = player getVariable ["unit_respawn_gear", []];

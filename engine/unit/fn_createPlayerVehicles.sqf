@@ -1,3 +1,4 @@
+
 if (isServer) then {
     _allMarkers = (missionConfigFile >> "Mission" >> "Mission" >> "Entities");
 
@@ -74,27 +75,33 @@ if (isServer) then {
 
                             private ["_vehicle"];
 
-                            if (_vehName == "") then {
-                                _vehicle = createVehicle [_vehicleClass, [0 + (random(150)), 0 + (random(150)),50 + 0 + (random(150))], [], 0, "NONE"];
+                            _vehicleExists = isClass((configFile >> "CfgVehicles" >> _vehicleClass));
+
+                            if (_vehicleExists) then {
+                                if (_vehName == "") then {
+                                    _vehicle = createVehicle [_vehicleClass, [0 + (random(150)), 0 + (random(150)),50 + 0 + (random(150))], [], 0, "NONE"];
+                                } else {
+                                    call compile format ["%1 = createVehicle [_vehicleClass, [0 + (random(150)), 0 + (random(150)),50 + 0 + (random(150))], [], 0, 'NONE']; _vehicle = %1; publicVariable '%1';", _vehName];
+                                };
+
+                                [_vehicle, _faction, _cargo] call BRM_fnc_assignCargo;
+
+                                _vehicle enableSimulation false;
+                                _vehicle allowDamage false;
+
+                                _mkPos set [2, 0.1];
+
+                                _vehicle setVectorUp [0,0,0];
+                                _vehicle setPosATL _mkPos;
+                                _vehicle setDir _mkDir;
+
+                                _vehicle enableSimulation true;
+                                _vehicle allowDamage true;
+
+                                ["LOCAL", "F_LOG", format ["[MARKER VEHICLE]: Created vehicle %1.", _vehicle]] call BRM_FMK_fnc_doLog;
                             } else {
-                                call compile format ["%1 = createVehicle [_vehicleClass, [0 + (random(150)), 0 + (random(150)),50 + 0 + (random(150))], [], 0, 'NONE']; _vehicle = %1; publicVariable '%1';", _vehName];
+                                ["LOCAL", "F_LOG", format["[!!!! ERROR ON MARKER VEHICLE !!!!]: '%1' is not a valid vehicle.", _vehicleClass]] call BRM_FMK_fnc_doLog;
                             };
-
-                            [_vehicle, _faction, _cargo] call BRM_fnc_assignCargo;
-
-                            _vehicle enableSimulation false;
-                            _vehicle allowDamage false;
-
-                            _mkPos set [2, 0.1];
-
-                            _vehicle setVectorUp [0,0,0];
-                            _vehicle setPosATL _mkPos;
-                            _vehicle setDir _mkDir;
-
-                            _vehicle enableSimulation true;
-                            _vehicle allowDamage true;
-
-                            diag_log format ["=== [MARKER VEHICLE]: Created vehicle %1.", _vehicle];
                         };
                     };
                 };

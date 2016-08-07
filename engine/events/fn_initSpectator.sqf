@@ -5,9 +5,9 @@
 */
 
 (_this select 0) spawn {
+    _this attachTo [Headless_Client, [0,0,50]];
     _this enableSimulation false;
     _this allowDamage false;
-    _this setPos [0,0,30];
 
     sleep 1;
 
