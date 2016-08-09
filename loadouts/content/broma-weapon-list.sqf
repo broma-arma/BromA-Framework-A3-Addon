@@ -347,6 +347,10 @@ _30rnd556STANAGT = "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red";
 _100rnd762 = "rhsusf_100Rnd_762x51";
 _100rnd556 = "rhsusf_100Rnd_556x45_soft_pouch";
 
+_40rnd46x30FMJ = "rhsusf_mag_40Rnd_46x30_FMJ";
+_40rnd46x30JHP = "rhsusf_mag_40Rnd_46x30_JHP";
+_40rnd46x30AP = "rhsusf_mag_40Rnd_46x30_AP";
+
 _30rnd762AKM = "rhs_30Rnd_762x39mm";
 
 _5rnd300win = "rhsusf_5Rnd_300winmag_xm2010";
@@ -378,6 +382,17 @@ _RHSM16A4GL = ["rhs_weap_m16a4_carryhandle_M203", _30rnd556STANAG,_40mm];
 _RHSM4 = ["rhs_weap_m4_carryhandle",_30rnd556STANAG];
 _RHSM4GL = ["rhs_m4_m320",_30rnd556STANAG,_40mm];
 _RHSM4GL203 = ["rhs_weap_m4_m203",_30rnd556STANAG,_40mm];
+
+_RHSHK416D10 = ["rhs_weap_hk416d10",_30rnd556STANAG];
+_RHSHK416D10M320 = ["rhs_weap_hk416d10_m320",_30rnd556STANAG];
+_RHSHK416D10SOPMOD = ["rhs_weap_hk416d10_LMT",_30rnd556STANAG];
+_RHSHK416D145 = ["rhs_weap_hk416d145",_30rnd556STANAG];
+_RHSHK416D145M320 = ["rhs_weap_hk416d145_m320",_30rnd556STANAG];
+
+_RHSMP7 = ["rhsusf_weap_MP7A1_base_f",_40rnd46x30FMJ];
+_RHSMP7AOR1 = ["rhsusf_weap_MP7A1_aor1",_40rnd46x30FMJ];
+_RHSMP7DESERT = ["rhsusf_weap_MP7A1_desert",_40rnd46x30FMJ];
+_RHSMP7WINTER = ["rhsusf_weap_MP7A1_winter",_40rnd46x30FMJ];
 
 // ALIAS FOR OLD RH WEAPONS ====================================================
 
