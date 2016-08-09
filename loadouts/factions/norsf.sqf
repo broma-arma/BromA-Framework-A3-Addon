@@ -21,15 +21,15 @@ _defaultColor = "blue";
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _RHSM4;
-_commonRIFLEGL = _RHSM4GL203;
-_commonPISTOL = _Fiveseven;
+_commonRIFLE = _RHSHK416D145;
+_commonRIFLEGL = _RHSHK416D145M320;
+_commonPISTOL = _G17;
 _commonMG = _M249S;
-_commonMARKSMAN = _SAMR;
-_commonSNIPER = _SAMR;
+_commonMARKSMAN = _SPARDMR; //APEX required to use
+_commonSNIPER = _L115A3;
 _commonAT = _AT4CSHEAT;
 _specAT = _MAAWS;
-_commonSMG = _RHSM4;
+_commonSMG = _RHSMP7;
 _commonRCO = "RH_ta31rmr";
 _commonCCO = "RH_eotech553";
 _commonMAGNIFIED = _SOS;
