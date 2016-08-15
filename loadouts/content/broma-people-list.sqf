@@ -9,11 +9,12 @@ _voiceRUSSIAN = ["rhs_Male01RUS","rhs_Male02RUS","rhs_Male03RUS","rhs_Male04RUS"
 _voiceFRENCH = ["Male01FRE", "Male02FRE", "Male03FRE"];
 _voiceFRENCHENGLISH = ["Male01ENGFRE", "Male02ENGFRE"];
 _voiceCHINESE = ["Male01CHI", "Male02CHI", "Male03CHI"];
+_voiceCZECH = ["RHS_Male01CZ", "RHS_Male02CZ", "RHS_Male03CZ", "RHS_Male04CZ", "RHS_Male05CZ"];
 
 _allVoices = [
     _voiceALTIAN, _voiceAMERICAN, _voiceBRITISH,
     _voiceFARSI, _voiceRUSSIAN, _voiceFRENCH,
-    _voiceFRENCHENGLISH, _voiceCHINESE
+    _voiceFRENCHENGLISH, _voiceCHINESE, _voiceCZECH
 ];
 
 // FACES ========================================================================

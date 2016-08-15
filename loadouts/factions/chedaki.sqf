@@ -37,7 +37,7 @@ _commonCCO = "hlc_optic_kobra";
 _commonMAGNIFIED = "HLC_Optic_PSO1";
 _commonSUPPRESSOR = "hlc_muzzle_762SUP_AK";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
-_NVG = _NVGEN1;
+_NVG = "rhs_1PN138";
 
 // AMMO COUNT ==================================================================
 
@@ -168,21 +168,21 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/* 0 - Anti Air Vehicles */	 ["rhsgref_ins_zsu234"]
+/* 0 - Anti Air Vehicles */	 ["rhsgref_ins_g_g_zsu234"]
 /* 1 - Attack Helos      */	,["rhsgref_b_mi24g_CAS","rhsgref_b_mi24g_FAB","rhsgref_cdf_b_Mi35","rhsgref_cdf_b_Mi35_UPK"]
 /* 2 - Attack Planes     */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
-/* 3 - Heavy Vehicles    */	,["rhsgref_ins_t72bc", "rhsgref_ins_t72ba"]
-/* 4 - Light Vehicles    */	,["rhsgref_ins_reg_uaz", "rhsgref_ins_reg_uaz_dshkm", "rhsgref_ins_reg_uaz_open", "rhsgref_ins_reg_uaz_spg9"]
-/* 5 - Medium Vehicles   */	,["rhsgref_ins_bmd1", "rhsgref_ins_bmd1k", "rhsgref_ins_bmd1p", "rhsgref_ins_bmd1","rhsgref_ins_bmd1k","rhsgref_ins_bmd1p","rhsgref_ins_bmd1pk","rhsgref_ins_bmd2","rhsgref_ins_bmd2k","rhsgref_ins_bmp1","rhsgref_ins_bmp1d","rhsgref_ins_bmp1k","rhsgref_ins_bmp1p","rhsgref_ins_bmp2e","rhsgref_ins_bmp2","rhsgref_ins_bmp2d","rhsgref_ins_bmp2k", "rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
-/* 6 - Mobile Artillery  */	,["rhsgref_ins_reg_BM21", "rhsgref_ins_reg_BM21"]
-/* 7 - Transport Helos   */	,["rhsgref_ins_Mi8amt", "rhsgref_ins_Mi8amt"]
+/* 3 - Heavy Vehicles    */	,["rhsgref_ins_g_t72ba", "rhsgref_ins_g_t72bb", "rhsgref_ins_g_t72bc"]
+/* 4 - Light Vehicles    */	,["rhsgref_ins_g_uaz", "rhsgref_ins_g_uaz_dshkm_chdkz", "rhsgref_ins_g_uaz_spg9", "rhsgref_ins_g_uaz_open"]
+/* 5 - Medium Vehicles   */	,["rhsgref_BRDM2_ins_g", "rhsgref_BRDM2_ATGM_ins_g", "rhsgref_BRDM2UM_ins_g", "rhsgref_BRDM2_HQ_ins_g", "rhsgref_ins_g_ural_Zu23"]
+/* 6 - Mobile Artillery  */	,["rhsgref_ins_g_reg_BM21", "rhsgref_ins_g_reg_BM21"]
+/* 7 - Transport Helos   */	,["rhsgref_ins_g_Mi8amt", "rhsgref_ins_g_Mi8amt"]
 /* 8 - Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
-/* 9 - Transport Trucks  */	,["rhsgref_ins_gaz66", "rhsgref_ins_gaz66o", "rhsgref_ins_ural", "rhsgref_ins_ural_Zu23"]
-/*10 - Static Defence    */	,["rhsgref_ins_reg_d30", "rhsgref_ins_reg_d30", "rhsgref_ins_Igla_AA_pod", "rhsgref_ins_DSHKM", "rhsgref_ins_DSHKM_Mini_TriPod", "rhsgref_ins_NSV_TriPod", "rhsgref_ins_SPG9", "rhsgref_ins_SPG9M", "rhsgref_ins_ZU23"]
+/* 9 - Transport Trucks  */	,["rhsgref_ins_g_ural", "rhsgref_ins_g_ural_open", "rhsgref_ins_g_ural_work"]
+/*10 - Static Defence    */	,["rhsgref_ins_g_reg_d30", "rhsgref_ins_g_reg_d30", "rhsgref_ins_g_Igla_AA_pod", "rhsgref_ins_g_DSHKM", "rhsgref_ins_g_DSHKM_Mini_TriPod", "rhsgref_ins_g_NSV_TriPod", "rhsgref_ins_g_SPG9", "rhsgref_ins_g_SPG9M", "rhsgref_ins_g_ZU23"]
 /*11 - Boats 		 */	,["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
 /*12 - UAV 		 */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
 /*13 - UGV		 */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-/*14 - Support 		 */	,["B_APC_Tracked_01_CRV_F","rhsgref_ins_gaz66_ammo","rhsgref_ins_ural_fuel"]
+/*14 - Support 		 */	,["rhs_gaz66_repair_vv","rhsgref_ins_g_gaz66_ammo","RHS_Ural_Fuel_VV_01"]
 /*15 - Submarines 	 */	,["B_SDV_01_F"]
 ];
 

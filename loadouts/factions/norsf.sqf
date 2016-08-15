@@ -25,17 +25,17 @@ _commonRIFLE = _RHSHK416D145;
 _commonRIFLEGL = _RHSHK416D145M320;
 _commonPISTOL = _G17;
 _commonMG = _M249S;
-_commonMARKSMAN = _SPARDMR; //APEX required to use
+_commonMARKSMAN = _RHSHK416D145; // waiting for a HK417
 _commonSNIPER = _L115A3;
 _commonAT = _AT4CSHEAT;
 _specAT = _MAAWS;
 _commonSMG = _RHSMP7;
-_commonRCO = "RH_ta31rmr";
-_commonCCO = "RH_eotech553";
+_commonRCO = "rhsusf_acc_ACOG_USMC";
+_commonCCO = "rhsusf_acc_eotech_552";
 _commonMAGNIFIED = _SOS;
-_commonSUPPRESSOR = "RH_qdss_nt4";
+_commonSUPPRESSOR = "rhsusf_acc_nt4_black";
 _commonPISTOLSUPPRESSOR = "RH_sfn57";
-_NVG = _NVGEN4;
+_NVG = "A3_GPNVG18_BLK_TI";
 
 // AMMO COUNT ==================================================================
 

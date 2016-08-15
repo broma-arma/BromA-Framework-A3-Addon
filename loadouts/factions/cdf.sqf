@@ -38,7 +38,7 @@ _commonCCO = "rhs_acc_ekp1";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "";
-_NVG = "rhsusf_ANPVS_15";
+_NVG = "rhs_1PN138";
 
 // AMMO COUNT ==================================================================
 
