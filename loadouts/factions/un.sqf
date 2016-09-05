@@ -23,6 +23,9 @@ _defaultName = [_nameAMERICAN]; // incomplete list
 _defaultInsignia = "USP_PATCH_UN_BELIEVE";
 _defaultColor = "blue";
 
+/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
+_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+
 // WEAPONS =====================================================================
 
 _commonRIFLE = _FNFAL;
@@ -137,22 +140,23 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/* 0 - Anti Air Vehicles */      ["LOP_UN_ZSU234"]
-/* 1 - Attack Helos 	 */	,["rhsgref_un_Mi24V","rhsgref_un_Mi24V_UPK", "LOP_UN_Mi8MTV3_FAB"]
-/* 2 - Attack Planes     */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
-/* 3 - Heavy Vehicles 	 */	,[]
-/* 4 - Light Vehicles 	 */	,["rhsgref_un_uaz", "LOP_UN_UAZ_DshKM", "LOP_UN_UAZ_Open", "LOP_UN_UAZ_SPG"]
-/* 5 - Medium Vehicles 	 */	,["rhsgref_un_m1117","rhsgref_un_btr70", "LOP_UN_BTR70", "LOP_UN_BTR60", "LOP_UN_BMP1","LOP_UN_BMP1","LOP_UN_BMP2","LOP_UN_BMP2D"]
-/* 6 - Mobile Artillery  */	,["LOP_UN_BM21"]
-/* 7 - Transport Helos 	 */	,["B_Heli_Light_01_F","B_Heli_Transport_01_F","B_Heli_Transport_01_camo_F"]
-/* 8 - Transport Planes  */	,[]
-/* 9 - Transport Trucks  */	,["rhsgref_un_ural","LOP_UN_Ural"]
-/*10 - Static Defence	 */	,["rhsgref_ins_g_Igla_AA_pod","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","rhsgref_ins_g_SPG9","rhsgref_ins_g_ZU23"]
-/*11 - Boats 		 */	,["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
-/*12 - UAV 		 */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*13 - UGV		 */	,["B_UGV_01_F"]
-/*14 - Support 		 */	,["B_APC_Tracked_01_CRV_F","B_Truck_01_ammo_F","B_Truck_01_fuel_F"]
-/*15 - Submarines 	 */	,["B_SDV_01_F"]
+/*  Anti Air Vehicles    */      ["LOP_UN_ZSU234"]
+/*  Attack Helos 	 */	,["rhsgref_un_Mi24V","rhsgref_un_Mi24V_UPK", "LOP_UN_Mi8MTV3_FAB"]
+/*  Attack Planes        */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
+/*  Heavy Vehicles 	 */	,[]
+/*  Light Vehicles 	 */	,["rhsgref_un_uaz", "LOP_UN_UAZ_DshKM", "LOP_UN_UAZ_Open", "LOP_UN_UAZ_SPG"]
+/*  Medium Vehicles 	 */	,["rhsgref_un_btr70", "LOP_UN_BTR70", "LOP_UN_BTR60", "LOP_UN_BMP1","LOP_UN_BMP1","LOP_UN_BMP2","LOP_UN_BMP2D"]
+/*  Mobile Artillery     */	,["LOP_UN_BM21"]
+/*  Transport Helos      */	,["B_Heli_Light_01_F","B_Heli_Transport_01_F","B_Heli_Transport_01_camo_F"]
+/*  Transport Planes     */	,[]
+/*  Transport Trucks     */	,["rhsgref_un_ural","LOP_UN_Ural"]
+/*  Static Defence       */	,["rhsgref_ins_g_Igla_AA_pod","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","rhsgref_ins_g_SPG9","rhsgref_ins_g_ZU23"]
+/*  Boats                */	,["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
+/*  UAV                  */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV                  */	,["B_UGV_01_F"]
+/*  Support              */	,["B_APC_Tracked_01_CRV_F","B_Truck_01_ammo_F","B_Truck_01_fuel_F"]
+/*  Submarines           */	,["B_SDV_01_F"]
+/*  MRAP Vehicles        */     ,["rhsgref_un_m1117"]
 ];
 
 // OBJECTS =====================================================================

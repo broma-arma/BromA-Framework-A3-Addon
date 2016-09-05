@@ -23,6 +23,9 @@ _defaultColor = "red";
 // Set in mission with: BRM_FMK_UNIFORMS_CSATUrban
 _enableUrbanUniforms = false;
 
+/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
+_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+
 // WEAPONS =====================================================================
 
 _commonRIFLE = _Katiba;
@@ -138,22 +141,23 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/* 0 - Anti Air Vehicles */	 ["O_APC_Tracked_02_AA_F", "O_APC_Tracked_02_AA_F"]
-/* 1 - Attack Helos      */     ,["O_Heli_Attack_02_black_F","O_Heli_Attack_02_F"]
-/* 2 - Attack Planes     */	,["O_Plane_CAS_02_F"]
-/* 3 - Heavy Vehicles    */	,["O_MBT_02_cannon_F","O_APC_Tracked_02_cannon_F"]
-/* 4 - Light Vehicles    */	,["O_MRAP_02_hmg_F", "O_MRAP_02_hmg_F"]
-/* 5 - Medium Vehicles   */	,["O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F"]
-/* 6 - Mobile Artillery  */	,["O_MBT_02_arty_F", "O_MBT_02_arty_F"]
-/* 7 - Transport Helos   */	,["O_Heli_Light_02_F","O_Heli_Light_02_unarmed_F"]
-/* 8 - Transport Planes  */	,[]
-/* 9 - Transport Trucks  */	,["O_Truck_03_transport_F", "O_Truck_03_covered_F"]
-/*10 - Static Defence    */	,["O_HMG_01_high_F","O_static_AA_F","O_static_AT_F","O_Mortar_01_F"]
-/*11 - Boats             */	,["O_Boat_Armed_01_hmg_F"]
-/*12 - UAV               */	,["O_UAV_02_CAS_F","O_UAV_02_F"]
-/*13 - UGV               */	,["O_UGV_01_F","O_UGV_01_rcws_F"]
-/*14 - Support           */	,["O_Truck_03_ammo_F","O_Truck_03_fuel_F", "O_Truck_03_medical_F", "O_Truck_03_repair_F"]
-/*15 - Submarines        */	,["O_SDV_01_F", "O_SDV_01_F"]
+/*  Anti Air Vehicles */	 ["O_APC_Tracked_02_AA_F", "O_APC_Tracked_02_AA_F"]
+/*  Attack Helos      */        ,["O_Heli_Attack_02_black_F","O_Heli_Attack_02_F"]
+/*  Attack Planes     */	,["O_Plane_CAS_02_F"]
+/*  Heavy Vehicles    */	,["O_MBT_02_cannon_F","O_APC_Tracked_02_cannon_F"]
+/*  Light Vehicles    */	,["O_MRAP_02_hmg_F", "O_MRAP_02_hmg_F"]
+/*  Medium Vehicles   */	,["O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F"]
+/*  Mobile Artillery  */	,["O_MBT_02_arty_F", "O_MBT_02_arty_F"]
+/*  Transport Helos   */	,["O_Heli_Light_02_F","O_Heli_Light_02_unarmed_F"]
+/*  Transport Planes  */	,[]
+/*  Transport Trucks  */	,["O_Truck_03_transport_F", "O_Truck_03_covered_F"]
+/*  Static Defence    */	,["O_HMG_01_high_F","O_static_AA_F","O_static_AT_F","O_Mortar_01_F"]
+/*  Boats             */	,["O_Boat_Armed_01_hmg_F"]
+/*  UAV               */	,["O_UAV_02_CAS_F","O_UAV_02_F"]
+/*  UGV               */	,["O_UGV_01_F","O_UGV_01_rcws_F"]
+/*  Support           */	,["O_Truck_03_ammo_F","O_Truck_03_fuel_F", "O_Truck_03_medical_F", "O_Truck_03_repair_F"]
+/*  Submarines        */	,["O_SDV_01_F"]
+/*  MRAP Vehicles     */        ,["O_MRAP_02_hmg_F", "O_MRAP_02_hmg_F"]
 ];
 
 // OBJECTS =====================================================================

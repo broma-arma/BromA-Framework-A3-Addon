@@ -19,6 +19,9 @@ _defaultName = [_nameAMERICAN];
 _defaultInsignia = "";
 _defaultColor = "blue";
 
+/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
+_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+
 // WEAPONS =====================================================================
 
 _rifleList = [_TRG, _Mk20, _Mk20Camo, _Mk20C, _Mk20CCamo];
@@ -176,22 +179,23 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/* 0 - Anti Air Vehicles */	 ["rhsgref_cdf_b_zsu234"]
-/* 1 - Attack Helos      */	,["rhsgref_b_mi24g_CAS","rhsgref_b_mi24g_FAB","rhsgref_cdf_b_Mi35","rhsgref_cdf_b_Mi35_UPK"]
-/* 2 - Attack Planes     */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
-/* 3 - Heavy Vehicles    */	,["rhsgref_cdf_b_t72ba_tv", "rhsgref_cdf_b_t72ba_tv"]
-/* 4 - Light Vehicles    */	,["B_G_Offroad_01_armed_F", "B_G_Offroad_01_armed_F", "rhsgref_cdf_b_reg_uaz_open", "rhsgref_cdf_b_reg_uaz_spg9"]
-/* 5 - Medium Vehicles   */	,["rhsgref_cdf_b_bmd1", "rhsgref_cdf_b_bmd1k", "rhsgref_cdf_b_bmd1p", "rhsgref_cdf_b_bmd1","rhsgref_cdf_b_bmd1k","rhsgref_cdf_b_bmd1p","rhsgref_cdf_b_bmd1pk","rhsgref_cdf_b_bmd2","rhsgref_cdf_b_bmd2k","rhsgref_cdf_b_bmp1","rhsgref_cdf_b_bmp1d","rhsgref_cdf_b_bmp1k","rhsgref_cdf_b_bmp1p","rhsgref_cdf_b_bmp2e","rhsgref_cdf_b_bmp2","rhsgref_cdf_b_bmp2d","rhsgref_cdf_b_bmp2k", "rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
-/* 6 - Mobile Artillery  */	,["rhsgref_cdf_b_reg_BM21", "rhsgref_cdf_b_reg_BM21"]
-/* 7 - Transport Helos   */	,["rhsgref_cdf_b_reg_Mi8amt", "rhsgref_cdf_b_reg_Mi17Sh"]
-/* 8 - Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
-/* 9 - Transport Trucks  */	,["B_G_Van_01_transport_F", "rhsgref_cdf_b_ural_Zu23"]
-/*10 - Static Defence    */	,["B_HMG_01_high_F","B_static_AA_F","B_static_AT_F","B_G_Mortar_01_F", "rhsgref_cdf_b_Igla_AA_pod", "rhsgref_cdf_b_DSHKM", "rhsgref_cdf_b_DSHKM_Mini_TriPod", "rhsgref_cdf_b_NSV_TriPod", "rhsgref_cdf_b_SPG9", "rhsgref_cdf_b_SPG9M", "rhsgref_cdf_b_ZU23"]
-/*11 - Boats 		 */	,["B_G_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
-/*12 - UAV 		 */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*13 - UGV		 */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-/*14 - Support 		 */	,["B_G_Van_01_fuel_F","rhsgref_cdf_b_gaz66_ammo","B_G_Offroad_01_repair_F"]
-/*15 - Submarines 	 */	,["B_SDV_01_F"]
+/*  Anti Air Vehicles */	 ["rhsgref_cdf_b_zsu234"]
+/*  Attack Helos      */	,["rhsgref_b_mi24g_CAS","rhsgref_b_mi24g_FAB","rhsgref_cdf_b_Mi35","rhsgref_cdf_b_Mi35_UPK"]
+/*  Attack Planes     */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
+/*  Heavy Vehicles    */	,["rhsgref_cdf_b_t72ba_tv", "rhsgref_cdf_b_t72ba_tv"]
+/*  Light Vehicles    */	,["B_G_Offroad_01_armed_F", "B_G_Offroad_01_armed_F", "rhsgref_cdf_b_reg_uaz_open", "rhsgref_cdf_b_reg_uaz_spg9"]
+/*  Medium Vehicles   */	,["rhsgref_cdf_b_bmd1", "rhsgref_cdf_b_bmd1k", "rhsgref_cdf_b_bmd1p", "rhsgref_cdf_b_bmd1","rhsgref_cdf_b_bmd1k","rhsgref_cdf_b_bmd1p","rhsgref_cdf_b_bmd1pk","rhsgref_cdf_b_bmd2","rhsgref_cdf_b_bmd2k","rhsgref_cdf_b_bmp1","rhsgref_cdf_b_bmp1d","rhsgref_cdf_b_bmp1k","rhsgref_cdf_b_bmp1p","rhsgref_cdf_b_bmp2e","rhsgref_cdf_b_bmp2","rhsgref_cdf_b_bmp2d","rhsgref_cdf_b_bmp2k", "rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
+/*  Mobile Artillery  */	,["rhsgref_cdf_b_reg_BM21", "rhsgref_cdf_b_reg_BM21"]
+/*  Transport Helos   */	,["rhsgref_cdf_b_reg_Mi8amt", "rhsgref_cdf_b_reg_Mi17Sh"]
+/*  Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
+/*  Transport Trucks  */	,["B_G_Van_01_transport_F", "rhsgref_cdf_b_ural_Zu23"]
+/*  Static Defence    */	,["B_HMG_01_high_F","B_static_AA_F","B_static_AT_F","B_G_Mortar_01_F", "rhsgref_cdf_b_Igla_AA_pod", "rhsgref_cdf_b_DSHKM", "rhsgref_cdf_b_DSHKM_Mini_TriPod", "rhsgref_cdf_b_NSV_TriPod", "rhsgref_cdf_b_SPG9", "rhsgref_cdf_b_SPG9M", "rhsgref_cdf_b_ZU23"]
+/*  Boats             */	,["B_G_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
+/*  UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*  Support           */	,["B_G_Van_01_fuel_F","rhsgref_cdf_b_gaz66_ammo","B_G_Offroad_01_repair_F"]
+/*  Submarines        */	,["B_SDV_01_F"]
+/*  MRAP Vehicles     */        ,[]
 ];
 
 // OBJECTS =====================================================================

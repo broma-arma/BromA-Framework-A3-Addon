@@ -19,6 +19,9 @@ _defaultName = [_nameAMERICAN];
 _defaultColor = "green";
 _defaultInsignia = "";
 
+/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
+_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+
 // WEAPONS =====================================================================
 
 // Set in mission with BRM_FMK_UNIFORMS_AAFMKCamo
@@ -143,22 +146,23 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/* 0 - Anti Air Vehicles */	 ["I_APC_Wheeled_03_cannon_F"]
-/* 1 - Attack Helos	 */	,["I_Heli_light_03_F", "I_Heli_light_03_F"]
-/* 2 - Attack Planes 	 */	,["I_Plane_Fighter_03_AA_F","I_Plane_Fighter_03_CAS_F"]
-/* 3 - Heavy Vehicles 	 */	,["I_MBT_03_cannon_F","I_APC_tracked_03_cannon_F"]
-/* 4 - Light Vehicles 	 */	,["I_MRAP_03_hmg_F"]
-/* 5 - Medium Vehicles 	 */	,["I_APC_Wheeled_03_cannon_F","I_APC_Wheeled_03_cannon_F"]
-/* 6 - Mobile Artillery  */	,["I_Mortar_01_F"]
-/* 7 - Transport Helos 	 */	,["I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F"]
-/* 8 - Transport Planes  */	,[]
-/* 9 - Transport Trucks  */	,["I_Truck_02_covered_F","I_Truck_02_transport_F"]
-/*10 - Static Defence 	 */	,["I_HMG_01_high_F","I_static_AA_F","I_static_AT_F","I_Mortar_01_F"]
-/*11 - Boats 		 */	,["I_Boat_Armed_01_minigun_F"]
-/*12 - UAV 		 */	,["I_UAV_02_CAS_F","I_UAV_02_F"]
-/*13 - UGV 		 */	,["I_UGV_01_F","I_UGV_01_rcws_F"]
-/*14 - Support 		 */	,["I_Truck_02_ammo_F","I_Truck_02_fuel_F", "I_Truck_02_medical_F", "I_Truck_02_box_F"]
-/*15 - Submarines 	 */	,["I_SDV_01_F"]
+/*  Anti Air Vehicles    */	 ["I_APC_Wheeled_03_cannon_F"]
+/*  Attack Helos	 */	,["I_Heli_light_03_F", "I_Heli_light_03_F"]
+/*  Attack Planes 	 */	,["I_Plane_Fighter_03_AA_F","I_Plane_Fighter_03_CAS_F"]
+/*  Heavy Vehicles 	 */	,["I_MBT_03_cannon_F","I_APC_tracked_03_cannon_F"]
+/*  Light Vehicles 	 */	,["I_MRAP_03_hmg_F", "I_MRAP_03_hmg_F"]
+/*  Medium Vehicles 	 */	,["I_APC_Wheeled_03_cannon_F","I_APC_Wheeled_03_cannon_F"]
+/*  Mobile Artillery     */	,["I_Mortar_01_F"]
+/*  Transport Helos      */	,["I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F"]
+/*  Transport Planes     */	,[]
+/*  Transport Trucks     */	,["I_Truck_02_covered_F","I_Truck_02_transport_F"]
+/*  Static Defence 	 */	,["I_HMG_01_high_F","I_static_AA_F","I_static_AT_F","I_Mortar_01_F"]
+/*  Boats                */	,["I_Boat_Armed_01_minigun_F"]
+/*  UAV                  */	,["I_UAV_02_CAS_F","I_UAV_02_F"]
+/*  UGV 		 */	,["I_UGV_01_F","I_UGV_01_rcws_F"]
+/*  Support              */	,["I_Truck_02_ammo_F","I_Truck_02_fuel_F", "I_Truck_02_medical_F", "I_Truck_02_box_F"]
+/*  Submarines           */	,["I_SDV_01_F"]
+/*  MRAP Vehicles        */     ,["I_MRAP_03_hmg_F", "I_MRAP_03_hmg_F"]
 ];
 
 // OBJECTS =====================================================================

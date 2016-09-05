@@ -3,7 +3,7 @@ private [
     "_unit","_type","_cond","_done","_defaultName", "_defaultColor", "_doFirstName","_doLastName",
     "_doFinalName", "_defaultInsignia", "_isMan", "_factionObjects", "_factionDACCamps",
     "_defaultSide","_commonRIFLE","_commonRIFLEGL","_commonPISTOL","_commonMG", "_factionName",
-    "_factionID", "_factionCallsigns", "_factionVehicles", "_defaultFace", "_defaultVoice",
+    "_factionID", "_factionCallsigns", "_factionVehicles", "_factionSkill", "_defaultFace", "_defaultVoice",
     "_factionStructure", "_countTracerRIFLE", "_countTracerMG", "_StaticAT",
     "_commonVEST", "_commonRIFLE", "_commonRIFLEGL", "_commonPISTOL", "_UAVBag", "_UAVTerminal",
     "_commonMG", "_commonMARKSMAN", "_commonSNIPER", "_commonAT", "_specAT",

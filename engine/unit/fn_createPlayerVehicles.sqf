@@ -1,5 +1,8 @@
 
 if (isServer) then {
+
+    #include "\broma_framework\loadouts\includes\vehicles-index.sqf"
+
     _allMarkers = (missionConfigFile >> "Mission" >> "Mission" >> "Entities");
 
     _center = createCenter sideLogic;
@@ -36,20 +39,21 @@ if (isServer) then {
                     };
 
                     switch (_mkName select 2) do {
-                        case "AntiAir": { _index = 0 };
-                        case "AttackHelo": { _index = 1; _cargo = ["parachutes"] };
-                        case "AttackPlane": { _index = 2; _cargo = ["parachutes"] };
-                        case "HeavyVehicle": { _index = 3 };
-                        case "LightVehicle": { _index = 4; _cargo = ["ammo","AT"] };
-                        case "MediumVehicle": { _index = 5; _cargo = ["ammo_big"] };
-                        case "MobileArty": { _index = 6 };
-                        case "TransportHelo": { _index = 7; _cargo = ["ammo","parachutes", "medical","medical_adv"] };
-                        case "TransportPlane": { _index = 8; _cargo = ["parachutes"] };
-                        case "Truck": { _index = 9; _cargo = ["ammo_big"] };
-                        case "Static": { _index = 10 };
-                        case "Boat": { _index = 11; _cargo = ["ammo"] };
-                        case "Support": { _index = 14; ["ammo","medical","medical_adv"] };
-                        case "Submarine": { _index = 15 };
+                        case "AntiAir": { _index = AA_VEHICLES };
+                        case "AttackHelo": { _index = ATTACK_HELOS; _cargo = ["parachutes"] };
+                        case "AttackPlane": { _index = ATTACK_PLANES; _cargo = ["parachutes"] };
+                        case "HeavyVehicle": { _index = HEAVY_VEHICLES };
+                        case "LightVehicle": { _index = LIGHT_VEHICLES; _cargo = ["ammo","AT"] };
+                        case "MediumVehicle": { _index = MEDIUM_VEHICLES; _cargo = ["ammo_big"] };
+                        case "MobileArty": { _index = MOBILE_ARTILLERY };
+                        case "TransportHelo": { _index = TRANSPORT_HELOS; _cargo = ["ammo","parachutes", "medical","medical_adv"] };
+                        case "TransportPlane": { _index = TRANSPORT_PLANES; _cargo = ["parachutes"] };
+                        case "Truck": { _index = TRANSPORT_TRUCKS; _cargo = ["ammo_big"] };
+                        case "Static": { _index = STATIC_DEFENSE };
+                        case "Boat": { _index = BOATS; _cargo = ["ammo"] };
+                        case "Support": { _index = SUPPORT; ["ammo","medical","medical_adv"] };
+                        case "Submarine": { _index = SUBMARINES };
+                        case "MRAPVehicle": { _index = MRAP_VEHICLES; _cargo = ["ammo","AT"] };
                     };
 
                     if (_index > -1) then {

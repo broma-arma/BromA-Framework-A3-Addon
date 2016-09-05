@@ -6,7 +6,7 @@
 */
 
 _factionID = "IONPMC";
-_factionName = "ION PMC";
+_factionName = "I.O.N. PMC";
 _factionStructure = "MID-TIER";
 
 _factionCallsigns = _defaultCallsignINDFOR;
@@ -17,6 +17,9 @@ _defaultFace = [_faceGREEK, _faceWHITE, _faceBLACK, _faceASIAN, _facePERSIAN];
 _defaultName = [_nameAMERICAN, _nameAFRICAN ,_nameARABIC, _nameRUSSIAN];
 _defaultInsignia = "";
 _defaultColor = "white";
+
+/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
+_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
 // WEAPONS =====================================================================
 
@@ -29,12 +32,12 @@ _commonSNIPER = _SR25;
 _commonAT = _AT4;
 _specAT = _MAAWS;
 _commonSMG = _PDW;
-_commonRCO = "RH_ta31rco";
+_commonRCO = "rhsusf_acc_ACOG2";
 _commonCCO = "FHQ_optic_AIM";
-_commonMAGNIFIED = "RH_leu_mk4";
+_commonMAGNIFIED = "rhsusf_acc_premier_low";
 _commonSUPPRESSOR = "muzzle_snds_M";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
-_NVG = _NVGEN3IND;
+_NVG = "rhs_1PN138";
 
 // AMMO COUNT ==================================================================
 
@@ -103,9 +106,9 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "TRYK_V_tacv1_BK",
-    "TRYK_V_tacv1_CY",
-    "TRYK_V_tacv1"
+    "TAC_V_tacv1_BK",
+    "TAC_V_tacv1EP_CY",
+    "TAC_V_tacv1"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
@@ -147,7 +150,7 @@ _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "TRYK_B_Belt_BLK";
+_commonBACKPACK = "B_AssaultPack_blk";
 _bigBACKPACK = "TRYK_B_Kitbag_blk";
 
 // EXTRA EQUIPMENT =============================================================
@@ -167,22 +170,23 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/* 0 - Anti Air Vehicles */	 ["rhs_zsu234_aa"]
-/* 1 - Attack Helos      */	,["LOP_PMC_MH9_armed", "RHS_Mi24V_AT_vvsc","RHS_Mi24V_vvsc","RHS_Mi24P_CAS_vvsc"]
-/* 2 - Attack Planes     */	,["RHS_Su25SM_vvsc"]
-/* 3 - Heavy Vehicles    */	,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv"]
-/* 4 - Light Vehicles    */	,["LOP_PMC_Offroad_M2","rhs_uaz_open_vmf"]
-/* 5 - Medium Vehicles   */	,["rhs_bmp2_tv","rhs_bmp2e_tv","rhs_bmp2d_tv","rhs_bmp2k_tv","rhs_brm1k_tv","rhs_btr60_vmf"]
-/* 6 - Mobile Artillery  */	,["rhs_9k79_B","rhs_9k79_K","rhs_9k79","rhs_2s3_tv"]
-/* 7 - Transport Helos   */	,["LOP_PMC_MH9", "LOP_PMC_M900", "LOP_PMC_Mi8AMT","RHS_Mi8mt_vv"]
-/* 8 - Transport Planes  */	,[]
-/* 9 - Transport Trucks  */	,["RHS_Ural_VDV_01","RHS_Ural_Flat_VDV_01","RHS_Ural_Open_VDV_01","RHS_Ural_Open_Flat_VDV_01"]
-/*10 - Static Defence    */	,["rhsgref_ins_g_Igla_AA_pod","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","rhsgref_ins_g_SPG9","rhsgref_ins_g_ZU23"]
-/*11 - Boats 		 */	,["O_Boat_Armed_01_minigun_F"]
-/*12 - UAV 		 */	,["rhs_pchela1t_vvsc"]
-/*13 - UGV               */	,["O_UGV_01_F","O_UGV_01_rcws_F"]
-/*14 - Support           */	,["rhs_gaz66_ammo_vdv","RHS_Ural_Fuel_VDV_01"]
-/*15 - Submarines        */	,["O_SDV_01_F"]
+/*  Anti Air Vehicles */	 ["rhs_zsu234_aa"]
+/*  Attack Helos      */	,["LOP_PMC_MH9_armed", "RHS_Mi24V_AT_vvsc","RHS_Mi24V_vvsc","RHS_Mi24P_CAS_vvsc"]
+/*  Attack Planes     */	,["RHS_Su25SM_vvsc"]
+/*  Heavy Vehicles    */	,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv"]
+/*  Light Vehicles    */	,["LOP_PMC_Offroad_M2","rhs_uaz_open_vmf"]
+/*  Medium Vehicles   */	,["rhs_bmp2_tv","rhs_bmp2e_tv","rhs_bmp2d_tv","rhs_bmp2k_tv","rhs_brm1k_tv","rhs_btr60_vmf"]
+/*  Mobile Artillery  */	,["rhs_9k79_B","rhs_9k79_K","rhs_9k79","rhs_2s3_tv"]
+/*  Transport Helos   */	,["LOP_PMC_MH9", "LOP_PMC_M900", "LOP_PMC_Mi8AMT","RHS_Mi8mt_vv"]
+/*  Transport Planes  */	,[]
+/*  Transport Trucks  */	,["RHS_Ural_VDV_01","RHS_Ural_Flat_VDV_01","RHS_Ural_Open_VDV_01","RHS_Ural_Open_Flat_VDV_01"]
+/*  Static Defence    */	,["rhsgref_ins_g_Igla_AA_pod","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","rhsgref_ins_g_SPG9","rhsgref_ins_g_ZU23"]
+/*  Boats             */	,["O_Boat_Armed_01_minigun_F"]
+/*  UAV               */	,["rhs_pchela1t_vvsc"]
+/*  UGV               */	,["O_UGV_01_F","O_UGV_01_rcws_F"]
+/*  Support           */	,["rhs_gaz66_ammo_vdv","RHS_Ural_Fuel_VDV_01"]
+/*  Submarines        */	,["O_SDV_01_F"]
+/*  MRAP Vehicles     */        ,["rhsusf_rg33_o", "rhsusf_rg33_m2_o", "rhsusf_M1117_O"]
 ];
 
 // OBJECTS =====================================================================

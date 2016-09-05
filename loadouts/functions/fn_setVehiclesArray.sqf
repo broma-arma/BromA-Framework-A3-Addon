@@ -21,5 +21,6 @@ _returnArray set [UAV, _vehicles select UAV];
 _returnArray set [UGV, _vehicles select UGV];
 _returnArray set [SUPPORT, _vehicles select SUPPORT];
 _returnArray set [SUBMARINES, _vehicles select SUBMARINES];
+_returnArray set [MRAP_VEHICLES, _vehicles select MRAP_VEHICLES];
 
 _returnArray

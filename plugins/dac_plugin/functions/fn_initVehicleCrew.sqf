@@ -12,6 +12,6 @@ if (!_vehicleInit) then {
                 [_x, _loadout] call BRM_fnc_initAI;
             };
         } forEach (crew _vehicle);
-        sleep 30;
+        sleep 15;
     };
 };

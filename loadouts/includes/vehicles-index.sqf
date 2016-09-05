@@ -15,3 +15,4 @@
 #define UGV 13
 #define SUPPORT 14
 #define SUBMARINES 15
+#define MRAP_VEHICLES 16

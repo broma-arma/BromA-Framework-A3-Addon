@@ -151,6 +151,10 @@ player addEventHandler ["Killed", BRM_fnc_onPlayerKilled];
 
 if (mission_game_mode == "tvt") then { disableRemoteSensors true };
 
+// Makes sure text channels are disabled. ======================================
+
+0 spawn { sleep 1; { _x enableChannel [false, false] } forEach (getArray(missionConfigFile >> "disableChannels")) };
+
 // Finishes initialization sequence. ===========================================
 
 ["LOCAL", "F_LOG", "PLAYER INITIALIZED"] call BRM_FMK_fnc_doLog;
