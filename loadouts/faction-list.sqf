@@ -96,8 +96,8 @@ switch (toUpper(_faction)) do {
         #include "factions\baf.sqf"
     };
 
-    case "FIA2": {
-        #include "factions\fia2.sqf"
+    case "OFPFIA": {
+        #include "factions\ofpfia.sqf"
     };
 
     case "DEFAULT": {

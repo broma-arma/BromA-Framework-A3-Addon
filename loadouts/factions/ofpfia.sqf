@@ -10,7 +10,7 @@
 */
 // =============================================================================
 
-_factionID        = "FIA";
+_factionID        = "OFPFIA";
 _factionName      = "FIA forces";
 _factionStructure = "HIGH-TIER-CCO";
 
