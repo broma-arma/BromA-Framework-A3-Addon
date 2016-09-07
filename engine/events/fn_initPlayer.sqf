@@ -153,7 +153,7 @@ if (mission_game_mode == "tvt") then { disableRemoteSensors true };
 
 // Makes sure text channels are disabled. ======================================
 
-0 spawn { sleep 1; { _x enableChannel [false, false] } forEach (getArray(missionConfigFile >> "disableChannels")) };
+0 spawn { sleep 10; { _x enableChannel [false, false] } forEach [0, 1, 2] };
 
 // Finishes initialization sequence. ===========================================
 
