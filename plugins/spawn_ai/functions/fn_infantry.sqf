@@ -340,6 +340,7 @@ for "_i" from 1 to _amount do {
                 case "ATTACK": { [_group, _endPos, 50] call CBA_fnc_taskAttack };
                 case "DEFEND": { [_group, _endPos, 50, 2, true] call CBA_fnc_taskDefend };
                 case "PATROL": { [_group, _endPos, (_radius select 2), 7, "MOVE", _behavior, _combat, "FULL", "NO CHANGE", "", [3,6,9]] call CBA_fnc_taskPatrol };
+                case "MOVE": { [_group, _endPos, _radius select 2, "MOVE", _behavior, _combat, "FULL", "COLUMN"] call CBA_fnc_addWaypoint };
             };
         };
 
@@ -348,6 +349,7 @@ for "_i" from 1 to _amount do {
             case "ATTACK": { [_group, _endPos, 50] call CBA_fnc_taskAttack };
             case "DEFEND": { [_group, _endPos, 50, 2, true] call CBA_fnc_taskDefend };
             case "PATROL": { [_group, _endPos, (_radius select 2), 7, "MOVE", _behavior, _combat, "FULL", "NO CHANGE", "", [3,6,9]] call CBA_fnc_taskPatrol };
+            case "MOVE": { [_group, _endPos, _radius select 2, "MOVE", _behavior, _combat, "FULL", "COLUMN"] call CBA_fnc_addWaypoint };
         };
 
         _group setBehaviour _behavior;
