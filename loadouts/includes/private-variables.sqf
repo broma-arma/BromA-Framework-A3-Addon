@@ -10,12 +10,15 @@ private [
     "_commonSMG","_commonRCO", "_commonCCO", "_commonMAGNIFIED", "_commonSUPPRESSOR",
     "_commonPISTOLSUPPRESSOR", "_NVG", "_countRIFLE", "_countRIFLELOW", "_countPISTOL",
     "_countMG", "_countSNIPER", "_countAT", "_countGRENADES", "_count40mm", "_countRifleCARGO",
+    "_commonRifleATTACHMENTS", "_commonHandgunATTACHMENTS", "_commonMGATTACHMENTS",
+    "_commonMarksmanATTACHMENTS", "_commonSniperATTACHMENTS", "_commonSpecATATTACHMENTS",
+    "_commonRifleGLATTACHMENTS", "_commonSMGATTACHMENTS",
     "_countPistolCARGO", "_countMgCARGO", "_countSniperCARGO", "_countATCARGO",
     "_countGrenadesCARGO", "_count40mmCARGO", "_commonHEAD", "_leaderHEAD",
     "_officerHEAD", "_medicHEAD", "_crewmanHEAD", "_pilotHEAD", "_helicrewHEAD",
     "_helipilotHEAD", "_sniperHEAD", "_demoHEAD", "_reconHEAD", "_commonUNIFORM",
     "_officerUNIFORM", "_pilotUNIFORM", "_sniperUNIFORM", "_marksmanUNIFORM",
-    "_countPAKCARGO", "_countPAK",
+    "_countPAKCARGO", "_countPAK", "_commonMMG", "_countMMGCARGO", "_countMMG",
     "_helicrewUNIFORM", "_crewUNIFORM", "_mgUNIFORM", "_medicUNIFORM", "_demoUNIFORM",
     "_reconUNIFORM", "_commonVEST", "_officerVEST", "_ftlVEST", "_slVEST", "_mgVEST",
     "_grenadierVEST", "_medicVEST", "_demoVEST", "_marksmanVEST", "_reconVEST",
@@ -40,6 +43,11 @@ private [
 #define GUN 0
 #define RAMMO 1
 #define GL 2
+
+#define CCO 0
+#define RCO 1
+#define RAIL 2
+#define BIPOD 3
 
 _defaultCallsignBLUFOR =
 ["Zero",

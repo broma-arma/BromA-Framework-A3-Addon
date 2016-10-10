@@ -5,5 +5,6 @@ _kind = _this select 2;
 
 switch (_type) do {
     case "primary": { _unit addPrimaryWeaponItem _kind };
-    case "secondary": { _unit addHandgunItem _kind };
+    case "secondary": { _unit addSecondaryWeaponItem _kind };
+    case "handgun": { _unit addHandgunItem _kind };
 };

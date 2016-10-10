@@ -27,4 +27,5 @@ class loadouts_functions {
 	class useUniform {};
 	class setUnitIdentity {};
 	class getSideUAV {};
+	class addWeaponAttachments{};
 };	

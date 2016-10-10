@@ -91,7 +91,7 @@ switch (true) do {
         [_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonRCO] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, "secondary", _commonPISTOLSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
+        [_unit, "handgun", _commonPISTOLSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "LR"] call BRM_FMK_fnc_addRadio;
         [_unit, "BP"] call BRM_FMK_fnc_addRadio;
     };
