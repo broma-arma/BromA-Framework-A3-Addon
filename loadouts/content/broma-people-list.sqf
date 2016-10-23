@@ -203,6 +203,27 @@ _nameRUSSIAN = [
     ]
 ];
 
+_nameFRENCH = [
+
+    // NAMES
+    [
+    "Henri", "Joel", "Jacques", "Adrien", "Michel", "Jean-Michel", "Paul", "Thomas",
+    "Ivan", "Boris", "Michael", "Jonas", "Raphael", "Laurent", "Gustave", "Loris",
+    "Mathieu", "Jean-Jacques", "Clement", "Leon", "Gerard", "Steffane", "Bernard",
+    "Martin", "Simon", "Laurent", "Nicolas", "Gauthier", "Robin", "Andre", "François",
+    "David", "Richard", "Renaud", "Benoit"
+    ]
+    ,
+    // SURNAMES
+    [
+    "Le gall", "Blanchard", "Leclerc", "Lacroix", "Cologna", "Da silva", "De pardieu",
+    "Picard", "Roche", "Meyer", "Charpentier", "Le roux", "Schneider", "Cousin", "Cordier",
+    "Lebrun", "Boulanger", "Maillard", "Jacquet", "Dupuy", "Delattre", "Fernandes", "Guichard"
+    "Perret", "Devaux", "Bleuet", "Lamy", "Tanguy", "Barthelemy", "Guillou", "Navarro",
+    "Delorme", "Buisson"
+    ]
+];
+
 
 _name = [
 

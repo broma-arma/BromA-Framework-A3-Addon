@@ -100,6 +100,10 @@ switch (toUpper(_faction)) do {
         #include "factions\ofpfia.sqf"
     };
 
+    case "AFRENIAN": {
+        #include "factions\afrenian.sqf"
+    };
+
     case "DEFAULT": {
         #include "factions\template.sqf"
     };

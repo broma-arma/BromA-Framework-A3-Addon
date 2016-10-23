@@ -3,13 +3,17 @@ switch (toUpper(_factionStructure)) do {
     case "HIGH-TIER": {
         #include "factions\structures\high_tier_army.sqf"
     };
-    
+
     case "HIGH-TIER-CCO": {
         #include "factions\structures\high_tier_army_riflemanCCO.sqf"
     };
 
     case "MID-TIER": {
         #include "factions\structures\mid_tier_army.sqf"
+    };
+
+    case "AFRENIAN-ARMY": {
+        #include "factions\structures\afrenian_army.sqf"
     };
 
     case "LOW-TIER": {
