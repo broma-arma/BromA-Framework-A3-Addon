@@ -104,10 +104,11 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "TRYK_V_ChestRig",
-    "TRYK_V_ChestRig_L",
-    "TRYK_LOC_AK_chestrig_TAN",
-    "TRYK_LOC_AK_chestrig_OD"
+    "V_BandollierB_blk",
+    "V_BandollierB_cbr",
+    "V_BandollierB_rgr",
+    "V_BandollierB_khk",
+    "V_BandollierB_oli"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
@@ -189,7 +190,7 @@ _factionVehicles = [
 /*  Mobile Artillery  */	,["rhsgref_cdf_reg_BM21", "rhsgref_cdf_reg_BM21"]
 /*  Transport Helos   */	,["rhsgref_cdf_reg_Mi8amt", "rhsgref_cdf_reg_Mi17Sh"]
 /*  Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
-/*  Transport Trucks  */	,["rhsgref_cdf_gaz66", "rhsgref_cdf_gaz66o", "rhsgref_cdf_ural", "rhsgref_cdf_ural_Zu23"]
+/*  Transport Trucks  */	,["rhsgref_cdf_gaz66", "rhsgref_cdf_gaz66o", "rhsgref_cdf_ural", "rhsgref_cdf_ural", "rhsgref_cdf_ural"]
 /*  Static Defence    */	,["rhsgref_cdf_reg_d30", "rhsgref_cdf_reg_d30", "rhsgref_cdf_Igla_AA_pod", "rhsgref_cdf_DSHKM", "rhsgref_cdf_DSHKM_Mini_TriPod", "rhsgref_cdf_NSV_TriPod", "rhsgref_cdf_SPG9", "rhsgref_cdf_SPG9M", "rhsgref_cdf_ZU23"]
 /*  Boats             */	,["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
 /*  UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]

@@ -218,7 +218,7 @@ _nameFRENCH = [
     [
     "Le gall", "Blanchard", "Leclerc", "Lacroix", "Cologna", "Da silva", "De pardieu",
     "Picard", "Roche", "Meyer", "Charpentier", "Le roux", "Schneider", "Cousin", "Cordier",
-    "Lebrun", "Boulanger", "Maillard", "Jacquet", "Dupuy", "Delattre", "Fernandes", "Guichard"
+    "Lebrun", "Boulanger", "Maillard", "Jacquet", "Dupuy", "Delattre", "Fernandes", "Guichard",
     "Perret", "Devaux", "Bleuet", "Lamy", "Tanguy", "Barthelemy", "Guillou", "Navarro",
     "Delorme", "Buisson"
     ]

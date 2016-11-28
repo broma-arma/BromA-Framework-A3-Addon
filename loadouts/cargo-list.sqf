@@ -86,6 +86,26 @@ switch(_x) do {
         ]] call BRM_FMK_fnc_addtoCargo;
     };
 
+    case "explosives": {
+        [[_object, "magazine",
+            ["DemoCharge_Remote_Mag", 10],
+            ["SatchelCharge_Remote_Mag", 10]
+        ]] call BRM_FMK_fnc_addtoCargo;
+    };
+
+    case "mines": {
+        [[_object, "magazine",
+            ["APERSTripMine_Wire_Mag", 30],
+            ["ClaymoreDirectionalMine_Remote_Mag", 20]
+        ]] call BRM_FMK_fnc_addtoCargo;
+    };
+
+    case "handcuffs": {
+        [[_object, "item",
+            ["ACE_CableTie", 10]
+        ]] call BRM_FMK_fnc_addtoCargo;
+    };
+
     case "radio": {
         [_object, "SR", _factionSide, 50] call BRM_FMK_fnc_addRadioToCargo;
         [_object, "LR", _factionSide, 20] call BRM_FMK_fnc_addRadioToCargo;
