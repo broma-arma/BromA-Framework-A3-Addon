@@ -15,6 +15,7 @@ ace_medical_amountOfReviveLives = mission_ace3_revive_lives;
 
 ace_medical_level = mission_ace3_medical_level;
 ace_medical_medicSetting = mission_ace3_medical_level;
+ace_medical_increaseTrainingInLocations = true;
 ace_medical_allowLitterCreation = ACE_medicalTreatment_allowLitter;
 ace_medical_litterCleanUpDelay = ACE_medicalTreatment_litterRemove;
 ace_medical_enableScreams = ACE_Medical_screams;
