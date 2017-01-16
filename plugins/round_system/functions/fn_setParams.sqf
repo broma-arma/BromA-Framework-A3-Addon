@@ -8,5 +8,6 @@ BRM_round_system_rounds_needed = (_this select 0);
 //  Time Limit per round
 // =============================================================================
 BRM_round_system_time_limit = (_this select 1);
+BRM_round_system_time_limit = (BRM_round_system_time_limit * 60);
 
 // =============================================================================

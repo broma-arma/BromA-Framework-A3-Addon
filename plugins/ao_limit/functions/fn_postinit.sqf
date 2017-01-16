@@ -25,8 +25,7 @@ while {(alive player)} do {
 
     if (!_isDead) then {
         if (_player isKindOf "Land") then {
-
-            if (!([getPos _player, "ao"] call CBA_fnc_inArea)) then {
+            if (!((getPos _player) inArea "ao")) then {
                 _pos = [getPos _player, 1, ([_player, _aoPos] call BIS_fnc_dirTo)] call BIS_fnc_relPos;
                 _sleep = 0.1;
 

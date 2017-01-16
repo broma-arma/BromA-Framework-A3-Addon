@@ -3,19 +3,19 @@
 
 NAME:
    BRM_FMK_ACE3_fnc_ACE_RevivePlayer
-    
+
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
     Revives a unit's ACE parameters.
-    
+
 PARAMETERS:
     0 - Player (OBJECT)
 
 USAGE:
     [player] spawn BRM_FMK_ACE3_fnc_ACE_RevivePlayer;
-    
+
 RETURNS:
     Nothing.
 
@@ -23,8 +23,6 @@ RETURNS:
 */
 
 _unit = _this select 0;
-
-
 
 _unit switchMove "";
 _unit setVariable ["ACE_medical_pain", 0, true];
@@ -58,3 +56,5 @@ _unit setVariable ["ACE_medical_hasPain", false, true];
 _unit setVariable ["ACE_medical_painSuppress", 0, true];
 _parts = ["hitHead","hitBody","hitHands","hitLegs"];
 {_unit setHitPointDamage [_x, 0]}count _parts;
+
+[_unit, _unit] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;
