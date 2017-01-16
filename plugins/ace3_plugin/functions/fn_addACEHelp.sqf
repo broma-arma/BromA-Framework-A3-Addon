@@ -82,7 +82,7 @@ player createDiaryRecord ["ACE 3",["
 Wounds which are bleeding are treated by bandages, which will stop the bleeding. Wounds which are not bleeding can only be treated with PAK's, but are not required to be treated.<br/>
 There are two basic types of wounds: 									<br/><br/>
 - x <font color='#ff0000'>Gunshot / Explosion Wounds</font color> 		<br/>
-    Bandaged with <font color='#FFFF00'>Packing Bandages</font color>	<br/>
+    Bandaged with <font color='#FFFF00'>Elastic Bandages</font color>	<br/>
     Caused by projectile impacts and explosions							<br/>
     These wounds bleed fast and should be bandaged ASAP.				<br/>
 - x <font color='#00FFFF'>Non-Gunshot Wounds</font color>  				<br/>
@@ -182,8 +182,8 @@ Use Surgical Kits to sew up wounds if they re-open after bandaging<br/><br/></fo
 <br/>
 CONSCIOUS Patient:<br/><font color='#00FF00'>
 1. - Stop the bleeding:<br/></font color>
-    -  Packing bandages for avulsions and velocity wounds<br/>
-    -  Elastic bandages for everything else<br/>
+    -  Elastic bandages are the most effective at stopping any bleeding<br/>
+    -  QuickClot bandages however have the smallest chance of reopening<br/>
     -  All bandages work, but these work best<br/>
     -  Use a tourniquet on limbs if bleeding is pronounced<br/>
     -  Remove the tourniquet once bleeding has stopped<br/><font color='#00FFFF'>
@@ -216,6 +216,6 @@ CARDIAC ARREST/HEART ATTACK:<br/>
 I am still not 100% sure how things work and if some things are either features or bugs<br/>
 If you have any information about the ACE 3 Advanced Medical System then contact me.<br/>
                     Made by nigel<br/>
-                    22.June.2015<br/>
+                    11.January.2016<br/>
 "]];
 // =============================================================================
