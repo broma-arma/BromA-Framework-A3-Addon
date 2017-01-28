@@ -13,8 +13,8 @@ if (!_validSlot) exitWith {};
 private 
 ["_tfarGlobalVolume", "_tfarVoiceVolume", "_tfarAbleUseRadio", 
 "_acreIsDisabled", "_acreGlobalVolume",
-"_agmCaptive","_agmIsDiagnosed","_agmCanTreat","_agmIsTreatable","_agmBlood",
-"_agmIsBleeding","_agmPainkiller","_agmPain","_agmIsUnconscious","_agmIsOverdosing","_agmTransporting",
+"_aceCaptive","_aceBlood","_aceWounds","_aceMorphine","_acePain",
+"_aceIsUnconscious","_aceMedication","_aceEarplugs",
 "_playerVehicleSeat"];
 
 _packetPlayer = [];
@@ -40,26 +40,26 @@ if (mission_ACRE2_enabled) then {
     _packetPlayer pushBack _acreGlobalVolume;
 };
 
-if (mission_AGM_enabled) then {
-    _agmCaptive = _unit getVariable ["AGM_isCaptive", false];
+if (mission_ACE3_enabled) then {
+    _aceCaptive = _unit getVariable ["ACE_captives_isHandcuffed", false];
 
-    _agmBlood = _unit getVariable ["AGM_Blood", 1];
-    _agmIsBleeding = _unit getVariable ["AGM_isBleeding", false];
-    _agmPainkiller = _unit getVariable ["AGM_Painkiller", 1];
-    _agmPain = _unit getVariable ["AGM_Pain", 0];
+    _aceBlood = _unit getVariable ["ACE_medical_bloodVolume",100];
+    _aceWounds =  _unit getVariable["ACE_medical_openWounds",[]];
+	_acePain = _unit getVariable ["ACE_medical_pain", 0];
+	_aceMorphine = _unit getVariable ["ACE_medical_morphine", 0];
+	
+	_aceIsUnconscious = _unit getVariable ["ACE_isUnconscious", false];
+	_aceMedication = _unit getVariable ["ACE_medical_allUsedMedication", []];
+	_aceEarplugs = _unit getVariable ["ACE_hasEarPlugsin", false];
 
-    _agmIsUnconscious = _unit getVariable ["AGM_isUnconscious", false];
-    _agmIsOverdosing = _unit getVariable ["AGM_isOverdosing", false];
-    _agmEarplugs = _unit getVariable ["AGM_hasEarPlugsIn", false];
-
-    _packetPlayer pushBack _agmCaptive;
-    _packetPlayer pushBack _agmBlood;
-    _packetPlayer pushBack _agmIsBleeding;
-    _packetPlayer pushBack _agmPainkiller;
-    _packetPlayer pushBack _agmPain;
-    _packetPlayer pushBack _agmIsUnconscious;
-    _packetPlayer pushBack _agmIsOverdosing;
-    _packetPlayer pushBack _agmEarplugs;
+    _packetPlayer pushBack _aceCaptive;
+    _packetPlayer pushBack _aceBlood;
+    _packetPlayer pushBack _aceWounds;
+    _packetPlayer pushBack _acePain;
+    _packetPlayer pushBack _aceMorphine;
+    _packetPlayer pushBack _aceIsUnconscious;
+    _packetPlayer pushBack _aceMedication;
+    _packetPlayer pushBack _aceEarplugs;
 };
 
 _playerDir = getDir _unit;
