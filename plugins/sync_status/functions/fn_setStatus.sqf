@@ -19,23 +19,17 @@ if (_index >= 0) then {
         player setVariable ["acre_sys_core_globalVolume", (_stats select _count)]; _count = _count + 1;
     };
 
-    if (mission_AGM_enabled) then {
-        [player, (_stats select _count)] spawn AGM_Captives_fnc_setCaptive; _count = _count + 1;
-        player setVariable ["AGM_Blood", (_stats select _count), true]; _count = _count + 1;
-        player setVariable ["AGM_isBleeding", (_stats select _count), true]; _count = _count + 1;
-        player setVariable ["AGM_Painkiller", (_stats select _count), true]; _count = _count + 1;
-        player setVariable ["AGM_Pain", (_stats select _count), true]; _count = _count + 1;
-
-        _isUncon = (_stats select _count); _count = _count + 1;
-        
-        if (_isUncon) then {
-            [player] call AGM_Medical_fnc_knockOut;
-        } else {
-            [player] call AGM_Medical_fnc_wakeUp;
-        };
-        
-        player setVariable ["AGM_isOverdosing", (_stats select _count), true]; _count = _count + 1;
-        player setVariable ["AGM_hasEarPlugsIn", (_stats select _count), true]; _count = _count + 1;
+    if (mission_ACE3_enabled) then {
+		[player, (_stats select _count)] call ACE_captives_fnc_setHandcuffed;_count = _count + 1;
+		
+		player setVariable ["ACE_medical_bloodVolume",(_stats select _count)];_count = _count + 1;
+		player setVariable["ACE_medical_openWounds",(_stats select _count)];_count = _count + 1;
+		player setVariable ["ACE_medical_pain", (_stats select _count)];_count = _count + 1;
+		player getVariable ["ACE_medical_morphine", (_stats select _count)];_count = _count + 1;
+		
+		player getVariable ["ACE_isUnconscious", (_stats select _count)];_count = _count + 1;
+		player getVariable ["ACE_medical_allUsedMedication", (_stats select _count)];_count = _count + 1;
+		player getVariable ["ACE_hasEarPlugsin", (_stats select _count)];_count = _count + 1;
     };
 
     player setDir (_stats select _count); _count = _count + 1;
