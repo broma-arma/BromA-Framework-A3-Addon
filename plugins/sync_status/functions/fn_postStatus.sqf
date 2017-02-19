@@ -5,7 +5,7 @@ _unit = _this select 0;
 _uid = _this select 2;
 _name = _this select 3;
 
-_validSlot = _unit getVariable ["unit_valid_slot", false];
+_validSlot = _unit getVariable ["unit_valid_slot", true];
 
 if ([_uid, _name] in mission_dead_players) exitWith {};
 if (!_validSlot) exitWith {};
