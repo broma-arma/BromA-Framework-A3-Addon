@@ -57,7 +57,7 @@ if (hasInterface) then {
             _unit = (mission_player_slots select _index) select 1;
             _unitName = (mission_player_slots select _index) select 3;
             _match = (str player == _unit);
-
+            
             if (!_match) then {
                 player setVariable ["unit_valid_slot", false, true];
                 player enableSimulation false;
@@ -68,7 +68,7 @@ if (hasInterface) then {
                 titleText [ format ["You are choosing a different slot from your original one.\n\nPlease reslot as %1.", _unitName], "BLACK FADED"];
                 sleep 10;
                 findDisplay 46 closeDisplay 0;
-            };        
+            } else {player setVariable ["unit_valid_slot", true, true];};        
         };
     };
 };
