@@ -52,6 +52,10 @@ switch (toUpper(_faction)) do {
         #include "factions\nato.sqf"
     };
 
+    case "NATOP": {
+        #include "factions\natop.sqf"
+    };
+
     case "AAF": {
         #include "factions\aaf.sqf"
     };
