@@ -22,14 +22,18 @@ if (_index >= 0) then {
     if (mission_ACE3_enabled) then {
 		[player, (_stats select _count)] call ACE_captives_fnc_setHandcuffed;_count = _count + 1;
 		
-		player setVariable ["ACE_medical_bloodVolume",(_stats select _count)];_count = _count + 1;
-		player setVariable["ACE_medical_openWounds",(_stats select _count)];_count = _count + 1;
-		player setVariable ["ACE_medical_pain", (_stats select _count)];_count = _count + 1;
-		player getVariable ["ACE_medical_morphine", (_stats select _count)];_count = _count + 1;
+		player setVariable ["ACE_medical_bloodVolume",(_stats select _count),true];_count = _count + 1;
+		player setVariable["ACE_medical_openWounds",(_stats select _count),true];_count = _count + 1;
+		player setVariable ["ACE_medical_pain", (_stats select _count),true];_count = _count + 1;
+		player setVariable ["ACE_medical_morphine", (_stats select _count),true];_count = _count + 1;
 		
-		player getVariable ["ACE_isUnconscious", (_stats select _count)];_count = _count + 1;
-		player getVariable ["ACE_medical_allUsedMedication", (_stats select _count)];_count = _count + 1;
-		player getVariable ["ACE_hasEarPlugsin", (_stats select _count)];_count = _count + 1;
+		if((_stats select _count)) then {
+			[player, true] call ace_medical_fnc_setUnconscious;
+		};_count = _count + 1;
+		player setVariable ["ACE_medical_allUsedMedication", (_stats select _count),true];_count = _count + 1;
+		if ((_stats select _count)) then {
+			[player] call ace_hearing_fnc_putInEarplugs;
+		};_count = _count + 1;
     };
 
     player setDir (_stats select _count); _count = _count + 1;
@@ -41,6 +45,9 @@ if (_index >= 0) then {
     _vehicle = (_stats select _count); _count = _count + 1;
     _vehicleSeat = (_stats select _count); _count = _count + 1;
     _playerGear = (_stats select _count); _count = _count + 1;
+    _stashedNVG = (_stats select _count); _count = _count + 1;
+	
+	player setVariable ["ACE_stashed_NVG", _stashedNVG, true];
     
     if (_playerUnit == str player) then {
         [player, _playerGear] call BRM_FMK_fnc_setGear;
