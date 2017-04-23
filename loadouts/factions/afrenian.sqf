@@ -28,12 +28,12 @@ _commonRIFLEGL          = _M320;
 _commonPISTOL           = _CZ75;
 _commonMG               = ["hlc_rifle_aughbar_B", "hlc_40Rnd_556x45_B_AUG"];
 _commonMARKSMAN         = _STG58;
-_commonSNIPER           = ["UK3CB_BAF_L115A3_DE", "UK3CB_BAF_338_5Rnd"];
+_commonSNIPER           = _SVD;
 _commonAT               = _AT4;
 _specAT                 = ["rhs_weap_smaw", "rhs_mag_smaw_HEAA"];
 _commonSMG              = _AUGA1PARA;
 _commonMMG              = _M60;
-_commonRCO              = "UK3CB_BAF_TA648_308";
+_commonRCO              = "rhs_acc_1p78";
 _commonCCO              = _FHQMICROCCOLOW;
 _commonMAGNIFIED        = "RKSL_optic_PMII_312_sunshade";
 _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
@@ -96,8 +96,8 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-     "rhsgref_6b23_ttsko_digi_rifleman",
-     "rhsgref_6b23_ttsko_digi"
+    "rhsgref_6b23_ttsko_digi_rifleman",
+    "rhsgref_6b23_ttsko_digi"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
@@ -126,7 +126,7 @@ _crewUNIFORM     = _commonUNIFORM;
 _mgUNIFORM       = _commonUNIFORM;
 _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
-_reconUNIFORM    = "UK3CB_BAF_U_Smock_DPMW_DDPM";
+_reconUNIFORM    = _commonUNIFORM;
 
 _commonVEST    = _randomVEST;
 _officerVEST   = "rhsgref_6b23_ttsko_digi_officer";
@@ -137,7 +137,7 @@ _grenadierVEST = "rhs_6b23_6sh116_vog_od";
 _medicVEST     = "rhsgref_6b23_ttsko_digi_medic";
 _demoVEST      = _commonVEST;
 _marksmanVEST  = "rhsgref_6b23_ttsko_digi_sniper";
-_reconVEST     = "UK3CB_BAF_V_Osprey_DPMW8";
+_reconVEST     = _commonVEST;
 
 _commonBACKPACK = "TRYK_B_Coyotebackpack";
 _bigBACKPACK = "TRYK_B_Carryall_JSDF";
@@ -166,7 +166,7 @@ _factionVehicles = [
 /*  Light Vehicles       */ ,["LOP_AM_Landrover", "LOP_AM_Landrover_M2", "rhsusf_m1025_w_m2", "rhsusf_m998_w_2dr"]
 /*  Medium Vehicles      */ ,["RHS_M2A2_wd", "RHS_M2A2_BUSKI_WD"]
 /*  Mobile Artillery     */ ,["rhsusf_m109_usarmy"]
-/*  Transport Helos      */ ,["UK3CB_BAF_Merlin_HC3_18_GPMG"]
+/*  Transport Helos      */ ,["RHS_Mi8mt_Cargo_vvs"]
 /*  Transport Planes     */ ,["RHS_C130J"]
 /*  Transport Trucks     */ ,["LOP_US_Ural","LOP_US_Ural_open"]
 /*  Static Defence       */ ,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]

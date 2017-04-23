@@ -95,8 +95,8 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "TRYK_V_ChestRig",
-    "TRYK_V_ChestRig_L"
+    "TAC_LBT_H_Khaki",
+    "TAC_LBT_H2_Khaki"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;

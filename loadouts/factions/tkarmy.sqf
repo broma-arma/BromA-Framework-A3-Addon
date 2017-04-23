@@ -109,15 +109,15 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "TRYK_V_ChestRig_L";
-_officerVEST = "TRYK_V_ChestRig";
-_ftlVEST = _commonVEST;
-_slVEST = "TRYK_V_ChestRig";
-_mgVEST = "TRYK_V_ChestRig";
+_commonVEST = "rhs_6b23_ML_6sh92";
+_officerVEST = "rhs_6b23_ML_6sh92_headset_mapcase";
+_ftlVEST = "rhs_6b23_ML_6sh92_radio";
+_slVEST = "rhs_6b23_ML_6sh92_headset_mapcase";
+_mgVEST = _commonVEST;
 _grenadierVEST = _commonVEST;
-_medicVEST = "TRYK_V_ChestRig";
+_medicVEST = "rhs_6b23_ML_medic";
 _demoVEST = _commonVEST;
-_marksmanVEST = "TRYK_V_ChestRig";
+_marksmanVEST = "rhs_6b23_ML_sniper";
 _reconVEST = _commonVEST;
 
 _commonBACKPACK = "TRYK_B_Alicepack";

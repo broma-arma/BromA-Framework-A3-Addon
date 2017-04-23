@@ -93,8 +93,8 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "TRYK_V_ChestRig",
-    "TRYK_V_ChestRig_L"
+    "LOP_V_6B23_6Sh92_IDPM_OLV",
+    "LOP_V_6B23_Rifleman_IDPM"
 ];
 
 _gogglesLIST = [
@@ -131,12 +131,12 @@ _reconUNIFORM = _commonUNIFORM;
 _commonVEST = _randomVEST;
 _officerVEST = _commonVEST;
 _ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
+_slVEST = "LOP_V_6B23_headset_mapcase_IDPM";
 _mgVEST = _commonVEST;
 _grenadierVEST = _commonVEST;
-_medicVEST = _commonVEST;
+_medicVEST = "LOP_V_6B23_Medic_IDPM";
 _demoVEST = _commonVEST;
-_marksmanVEST = _commonVEST;
+_marksmanVEST = "LOP_V_6B23_sniper_IDPM";
 _reconVEST = _commonVEST;
 
 _commonBACKPACK = "TRYK_B_Alicepack";
