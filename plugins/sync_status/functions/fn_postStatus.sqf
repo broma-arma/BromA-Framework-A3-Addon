@@ -78,6 +78,8 @@ switch (true) do {
 
 _playerGear = [_unit] call BRM_FMK_fnc_getGear;
 
+_stashedNVG = player getVariable ["ACE_stashed_NVG",""];
+
 _packetPlayer pushBack _playerDir;
 _packetPlayer pushBack _playerPos;
 _packetPlayer pushBack _playerDamage;
@@ -86,6 +88,8 @@ _packetPlayer pushBack str _playerUnit;
 _packetPlayer pushBack _playerVehicle;
 _packetPlayer pushBack _playerVehicleSeat;
 _packetPlayer pushBack _playerGear;
+
+_packetPlayer pushBack _stashedNVG;
 
  _index = (count mission_player_status);
 
