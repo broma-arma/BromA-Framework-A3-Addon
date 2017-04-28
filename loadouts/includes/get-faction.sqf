@@ -21,4 +21,4 @@ switch (true) do {
     };
 };
 
-if (typeName _factionSide == "STRING") then { _factionSide = _defaultSide };
+if (typeName _factionSide == "STRING") then {_factionSide = _defaultSide};
