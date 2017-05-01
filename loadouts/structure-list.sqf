@@ -1,5 +1,9 @@
 
 switch (toUpper(_factionStructure)) do {
+    case "GERMAN-TIER": {
+        #include "factions\structures\german_tier_army.sqf"
+    };
+
     case "HIGH-TIER": {
         #include "factions\structures\high_tier_army.sqf"
     };
