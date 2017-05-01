@@ -1,4 +1,7 @@
 switch (toUpper(_faction)) do {
+	case "GERMAN": {
+		#include "factions\german.sqf"
+	};
 
     case "RACS": {
         #include "factions\racs.sqf"
