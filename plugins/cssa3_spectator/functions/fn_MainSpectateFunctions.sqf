@@ -710,6 +710,11 @@ switch _mode do {
 			"task_force_radio",
 			"[player, false] call TFAR_fnc_forceSpectator;"
 		] spawn CSSA3_fnc_classExists;
+		[
+			"CfgPatches",
+			"tfar_core",
+			"[player, false] call TFAR_fnc_forceSpectator;"
+		] spawn CSSA3_fnc_classExists;
 
 		//If ACRE2 is enabled, turn off spectator mode.
 		[

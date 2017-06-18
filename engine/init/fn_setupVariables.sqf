@@ -2,7 +2,7 @@
 if (isNil "mission_AGM_enabled") then { mission_AGM_enabled = (isClass(configFile >> "CfgPatches" >> "AGM_CORE")) };
 if (isNil "mission_ACE3_enabled") then { mission_ACE3_enabled = (isClass(configFile>>"CfgPatches">>"ACE_COMMON")) };
 
-if (isNil "mission_TFAR_enabled") then { mission_TFAR_enabled = (isClass(configFile>>"CfgPatches">>"task_force_radio")) };
+if (isNil "mission_TFAR_enabled") then { mission_TFAR_enabled = (isClass(configFile>>"CfgPatches">>"task_force_radio") || isClass(configFile>>"CfgPatches">>"tfar_core")) };
 if (isNil "mission_ACRE2_enabled") then { mission_ACRE2_enabled = (isClass(configFile>>"CfgPatches">>"acre_api")) };
 
 if (isNil "mission_AI_controller") then { mission_AI_controller = false };
