@@ -37,9 +37,6 @@ waitUntil
 
 player setVariable ["isDead", false, true];
 
-detach _unit;
-_unit enableSimulation true;
-
 _rGear = player getVariable ["unit_respawn_gear", []];
 
 [player, _rGear] call BRM_FMK_fnc_setGear;

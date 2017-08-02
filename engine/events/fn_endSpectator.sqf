@@ -23,6 +23,8 @@
     sleep 3;
     titletext ["", "PLAIN",0];
 
+	[_this, false] remoteExec ["hideObjectGlobal", 2];
+	_this enableSimulation true;
     _this allowDamage true;
 
     closeDialog 0;
