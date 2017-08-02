@@ -17,7 +17,7 @@ PARAMETERS:
     2 - (OPTIONAL) Number of lives to give to players revived
     
 USAGE:
-    [west, 5] spawnBRM_FMK_RespawnSystem_fnc_callRespawnSide;
+    [west, 5] spawn BRM_FMK_RespawnSystem_fnc_callRespawnSide;
     
     [side_a_side, 10, 1] spawn BRM_FMK_RespawnSystem_fnc_callRespawnSide;
     
