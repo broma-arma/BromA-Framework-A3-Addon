@@ -12,3 +12,7 @@
 #ifdef BRM_PLUGIN_FUNCTIONS
 	#include "Functions.cpp"
 #endif
+
+#ifdef BRM_PLUGIN_DIALOGS
+	#include "dialogs\dialog.hpp"
+#endif
