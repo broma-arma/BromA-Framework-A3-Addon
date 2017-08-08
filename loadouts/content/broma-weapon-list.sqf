@@ -300,34 +300,42 @@ _ERYX = ["R3F_ERYX","R3F_ERYX_Mag"];
 // =============================================================================
 // =============================================================================
 
-_Bull = ["RH_bullb","RH_6Rnd_454_Mag"];
-_CZ75 = ["RH_cz75","RH_16Rnd_9x19_cz"];
-_Deagle = ["RH_deaglem","RH_7Rnd_50_AE"];
-_SW659 = ["RH_sw659","RH_14Rnd_9x19_sw"];
-_USP = ["RH_usp","RH_12Rnd_45cal_usp"];
-_Makarov = ["RH_mak","RH_8Rnd_9x18_Mak"];
-_M1911 = ["RH_m1911","RH_7Rnd_45cal_m1911"];
-_MP412 = ["RH_mp412","RH_6Rnd_357_Mag"];
-_Kimber = ["RH_kimber_nw","RH_7Rnd_45cal_m1911"];
-_M9 = ["RH_m9","RH_15Rnd_9x19_M9"];
-_Skorpion = ["RH_vz61","RH_20Rnd_32cal_vz61"];
-_G18 = ["RH_g18","RH_33Rnd_9x19_g18"];
-_G17 = ["RH_g17","RH_17Rnd_9x19_g17"];
-_G19 = ["RH_g19","RH_17Rnd_9x19_g17"];
-_Mateba = ["RH_mateba","RH_6Rnd_44_Mag"];
-_Python = ["RH_python","RH_6Rnd_357_Mag"];
-_TEC9 = ["RH_tec9","RH_32Rnd_9x19_tec"];
-_UZI = ["RH_muzi","RH_30Rnd_9x19_UZI"];
-_FNP45 = ["RH_fnp45","RH_15Rnd_45cal_fnp"];
-_GSH18 = ["RH_gsh18","RH_18Rnd_9x19_gsh"];
-_PAMAS = ["R3F_PAMAS","R3F_15Rnd_9x19_PAMAS"];
+_M9 = ["rhsusf_weap_m9", "rhsusf_mag_15Rnd_9x19_JHP"];
+_Makarov = ["rhs_weap_makarov_pm", "rhs_mag_9x18_8_57N181S"];
 _PMM = ["rhs_weap_makarov_pmm","rhs_mag_9x18_12_57N181S"];
-_RUGER = ["RH_mk2","RH_10Rnd_22LR_mk2"];
-_P226 = ["RH_p226","RH_15Rnd_9x19_SIG"];
-_SW569 = ["RH_sw659","RH_14Rnd_9x19_sw"];
-_TT33 = ["RH_tt33","RH_8Rnd_762_tt33"];
-_VP70 = ["RH_vp70","RH_18Rnd_9x19_VP"];
-_Fiveseven = ["RH_fn57","RH_20Rnd_57x28_FN"];
+_MP443 = ["rhs_mag_9x19_17", "rhs_weap_pya"];
+_PP2000 = ["rhs_weap_pp2000_folded", "rhs_mag_9x19mm_7n21_20"];
+_M1911 = ["rhsusf_weap_m1911a1", "rhsusf_mag_7x45acp_MHP"];
+_G17 = ["rhsusf_weap_glock17g4", "rhsusf_mag_17Rnd_9x19_JHP"];
+
+_G18 = _G17;
+_G19 = _G17;
+
+_Bull = _Zubr;
+_Mateba = _Zubr;
+_Python = _Zubr;
+_Deagle =_Zubr;
+_MP412 = _Zubr;
+
+_CZ75 = _M1911; // "rhsusf_acc_omega9k"
+_SW659 = _G17;
+_USP = _M9;
+_Kimber = _M1911;
+_PAMAS = _M9;
+
+_Skorpion = _PP2000;
+_TEC9 = _PP2000;
+_UZI = _PP2000;
+
+_GSH18 = _MP443;
+_FNP45 = _4Five;
+
+_RUGER = _G17;
+_P226 = _PMM;
+_SW569 = _G17;
+_TT33 = _Makarov;
+_VP70 = _Makarov;
+_Fiveseven = _M9;
 
 // =============================================================================
 // =============================================================================

@@ -39,7 +39,7 @@ _commonRCO = _ZFSG1;
 _commonCCO = _ACOred;
 _commonMAGNIFIED = _M14SCOPE;
 _commonSUPPRESSOR = "hlc_muzzle_snds_g3";
-_commonPISTOLSUPPRESSOR = "RH_aacusp";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_14";
 
 // AMMO COUNT ==================================================================

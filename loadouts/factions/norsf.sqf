@@ -37,7 +37,7 @@ _commonRCO = "rhsusf_acc_ACOG_USMC";
 _commonCCO = "rhsusf_acc_eotech_552";
 _commonMAGNIFIED = _SOS;
 _commonSUPPRESSOR = "rhsusf_acc_nt4_black";
-_commonPISTOLSUPPRESSOR = "RH_sfn57";
+_commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
 _NVG = "A3_GPNVG18_BLK_TI";
 
 // AMMO COUNT ==================================================================

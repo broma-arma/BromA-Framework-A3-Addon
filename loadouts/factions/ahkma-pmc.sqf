@@ -45,7 +45,7 @@ _commonRCO = "optic_Arco";
 _commonCCO = "FHQ_optic_MicroCCO_low";
 _commonMAGNIFIED = "FHQ_optic_ACOG";
 _commonSUPPRESSOR = "muzzle_snds_B";
-_commonPISTOLSUPPRESSOR = "RH_gemtech9";
+_commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
 _NVG = _NVGEN3IND;
 
 // AMMO COUNT ==================================================================

@@ -172,6 +172,10 @@ switch (true) do {
         _mapTools = "ACE_MapTools";
         _uavBattery = "ACE_UAVBattery";
         _kestrel = "ACE_Kestrel";
+        _rangeCard = "ACE_RangeCard";
+        _spottingScope = "ACE_SpottingScope";
+        _flashlight = "ACE_Flashlight_XL50";
+        _ATragMX = "ACE_ATragMX";
     };
     default {
         _spareBarrel = "";

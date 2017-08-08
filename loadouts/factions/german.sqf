@@ -37,7 +37,7 @@ _commonRCO              = "ACE_optic_Hamr_PIP";
 _commonCCO              = "optic_Aco";
 _commonMAGNIFIED        = "HLC_Optic_G36Dualoptic15x2d";
 _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
-_commonPISTOLSUPPRESSOR = "RH_gemtech45";
+_commonPISTOLSUPPRESSOR = "";
 _NVG                    = "rhsusf_ANPVS_14";
 
 // AMMO COUNT ==================================================================
