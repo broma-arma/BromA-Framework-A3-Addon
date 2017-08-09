@@ -1,84 +1,68 @@
-if !(hasInterface) exitWith {};
-if !(player_is_jip) exitWith {};
+#define MIN_DISTANCE_SQD	10000	// Min distance, squared, to teleport.
+#define TIMEOUT				300		// Amount of time, in seconds, the player has to teleport.
+
+if !(hasInterface && player_is_jip) exitWith {};
 
 0 spawn {
-    
-if ("prevent_reslot" in usedPlugins) then {
-    waitUntil{(player getVariable ["unit_valid_slot", false])};
-};
-
-Revive_TelepSquad = {
-	Private["_revive_Keypressed"];
-	if (alive player) then {
-		_revive_Keypressed = (findDisplay 46) displayAddEventHandler ["KeyUp","_this call Revive_Keypressedcode"];
-                cutText ["Press the SPACE BAR within the next 5 minutes to teleport with your squad/allies.","PLAIN DOWN",2];
-		Sleep 400;
-		(findDisplay 46) displayRemoveEventHandler ["KeyUp",_revive_Keypressed]
+	if ("prevent_reslot" in usedPlugins) then {
+		waitUntil { player getVariable ["unit_valid_slot", false] };
 	};
-};
 
-Revive_Keypressedcode = {
-	Private["_target","_Escuadra","_Lider","_tmpos","_tmposALT","_tmposX","_tmposY","_tmposZ","_done"];
-	if ((_this select 1) == 57) then{
-		_Lider = (leader player);
-		_target= objnull; // Not valid leader
-		if (_Lider == player) then
-		{
-			_Escuadra = units (group player);
-			{
-				if ((alive _x)&&(_x!=player)) then {
-                                    _target= _x;
-				};
-			} foreach _Escuadra;
-			if (isnull _target) then
-			{
-				_Escuadra = allunits;
-				{
-					if ((alive _x) && (isplayer _x)&&(_x!=player)) then {
-						if ((side _x) == playerside) then {
-							_target = _x;
-						};
-					};
-				} foreach _Escuadra;
-			};
-		} else { _target= _Lider};
-		if (!isnull _target) then
-		{
-			_tmpos= getPosATL _target;
-			_tmposX=_tmpos select 0; _tmposY=_tmpos select 1; _tmposZ=_tmpos select 2;
-			_tmpos set[0,(_tmposX+ (random 2) -1)];
-			_tmpos set[1,(_tmposY+ (random 2) -1)];
-			
-			if (_tmposZ > 1) then {
-			
-				//Detect buildings
-				_tmposALT=_tmpos findEmptyPosition [1,30, typeof player];
-				if ((count _tmposALT) > 1) then {_tmpos=_tmposALT};
-			};
-			
-                        _vehtg = (vehicle _target);
+	BRM_FMK_jipTP_timeout = TIMEOUT;
 
-                        if (_vehtg == _target) then { player setPosATL _tmpos; _done = true } else {
-                            _vehtg engineOn true;
-                            switch(true) do {
-                                case (_vehtg emptyPositions "driver" > 0) : { player moveinDriver _vehtg; _done = true };
-                                case (_vehtg emptyPositions "commander" > 0) : { player moveinCommander _vehtg; _done = true };
-                                case (_vehtg emptyPositions "gunner" > 0) : { player moveinGunner _vehtg; _done = true };
-                                case (_vehtg emptyPositions "cargo" > 0) : { player moveinCargo _vehtg; _done = true };
-                                case (_vehtg emptyPositions "cargo" == 0) : { 
-                                    cutText ["You squad leader is in a full vehicle - wait for an empty seat.","PLAIN DOWN",2];
-                                    _done = false; 
-                                };
-                            };
-                        };
-                        if (_done) then {
-                        cutText [" ","PLAIN DOWN",2];
-			Revive_Keypressedcode = {false};
-                        };
+	private _actionId = player addAction ["Teleport to squad/allies", {
+		params ["_target", "_caller", "_id", "_args"];
+
+		private _targets = (
+			([leader player] + (units player) + (allPlayers - entities "HeadlessClient_F")) select {
+				_x != player
+				&& alive _x
+				&& side _x == playerSide
+				&& player distanceSqr _x >= MIN_DISTANCE_SQD
+				&& !(_x getVariable ["isDead", false])
+				&& !(_target getVariable ["ACE_isUnconscious", false])
+			}
+		);
+		_targets = _targets arrayIntersect _targets; // Unique
+
+		if (count _targets == 0) exitWith {
+			BRM_FMK_jipTP_timeout = 0;
+			["Nobody to teleport to.", "Teleport"] spawn BIS_fnc_guiMessage;
 		};
-	};
-	false;
-};
 
-    [] spawn Revive_TelepSquad;
+		private _teleported = {
+			private _vehicle = vehicle _x;
+			private _moved = if (_x != _vehicle) then {
+				player moveInAny _vehicle
+			} else {
+				private _position = getPosATL _x findEmptyPosition [1, 30, typeOf player];
+				if (count _position > 0) exitWith {
+					player setPosATL _position;
+					true
+				};
+
+				false
+			};
+
+			if (_moved) exitWith {true};
+
+			false
+		} forEach _targets;
+
+		BRM_FMK_jipTP_timeout = if (_teleported) then {
+			0
+		} else {
+			["Failed to teleport, try again later.", "Teleport"] spawn BIS_fnc_guiMessage;
+
+			TIMEOUT
+		};
+	}, nil, 1.5, false, true, "", "BRM_FMK_jipTP_timeout > 0"];
+
+	cutText ["Use the action menu within the next 5 minutes to teleport to your squad/allies.", "PLAIN DOWN", 0.3];
+	while {BRM_FMK_jipTP_timeout > 0} do {
+		sleep 5;
+		BRM_FMK_jipTP_timeout = BRM_FMK_jipTP_timeout - 5;
+	};
+	player removeAction _actionId;
+	BRM_FMK_jipTP_timeout = nil;
 };
