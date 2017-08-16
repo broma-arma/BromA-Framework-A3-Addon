@@ -4,13 +4,10 @@ if (!isServer) exitWith {};
 //  Date                                                                       |
 // ============================================================================
 
-_year = (date) select 0;
-_month = (date) select 1;
-_day = (date) select 2;
+date params ["_year", "_month", "_day"];
+_this params ["_paramTimeOfDay", "_paramWeatherValues", "_paramFogValues", "_paramWindValues"];
 
-_paramTimeOfDay = (_this select 0);
-
-if ((_paramTimeOfDay > 1) && (_paramTimeOfDay <= 26)) then {
+if ((_paramTimeOfDay > 1) && (_paramTimeOfDay < 26)) then {
     setDate [_year, _month, _day, (_paramTimeOfDay) - 2, 00];
 } else {
     switch (_paramTimeOfDay) do {
@@ -58,7 +55,7 @@ _weatherValues = [0, 0, 0, 0];
 _fogValues = [0, 0, 0];
 _windValues = [0, 0, 0];
 
-switch ((_this select 1)) do {
+switch (_paramWeatherValues) do {
 
     // overcast, rain, lightnings, rainbow
 
@@ -81,7 +78,7 @@ switch ((_this select 1)) do {
     case 10: { _weatherValues = missionCustomWeather };
 };
 
-switch ((_this select 2)) do {
+switch (_paramFogValues) do {
 
     // base value, decay, altitude
 
@@ -119,7 +116,7 @@ switch ((_this select 2)) do {
     case 15: { _fogValues = missionCustomFog };
 };
 
-switch ((_this select 3)) do {
+switch (_paramWindValues) do {
 
     // windStr, gusts, waves
 
