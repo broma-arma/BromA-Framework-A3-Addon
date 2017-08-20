@@ -81,7 +81,7 @@ switch (_mode) do {
 				disableSerialization;
 
 				while {visibleMap && !isNull (uiNamespace getVariable ["BRM_FMK_TeamRoster_control", controlNull])} do {
-					sleep 1;
+					uiSleep 1;
 					["Update"] call BRM_FMK_TeamRoster_fnc_roster;
 				};
 			};
