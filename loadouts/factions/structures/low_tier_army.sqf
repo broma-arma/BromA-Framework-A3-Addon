@@ -132,12 +132,32 @@ switch (true) do {
         [_unit, _commonMARKSMAN select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
         [_unit, "primary", _commonRCO] call BRM_FMK_fnc_attachToWeapon;
     };
-
+    
     case (_isAutorifleman): {
         [_unit, _commonHEAD, _mgUNIFORM, _mgVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_spareBarrel,1]]] call BRM_FMK_fnc_addtoVest;
+        [_unit, _commonAR, _countAR] call BRM_FMK_fnc_addWeaponKit;
+        [_unit, _commonAR select GUN, (_countTracerRIFLE), ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
+    };
+
+    case (_isAutoriflemanAsst): {
+        [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
+        [_unit,[[_grenade,2],[_spareBarrel,1]]] call BRM_FMK_fnc_addtoVest;
+        [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
+        [_unit, _commonAR select GUN, _countAR/2] call BRM_FMK_fnc_addAmmo;
+    };
+
+    case (_isMMG): {
+        [_unit, _commonHEAD, _mgUNIFORM, _mgVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
+        [_unit,[[_wsmoke,2],[_spareBarrel,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonMG, _countMG] call BRM_FMK_fnc_addWeaponKit;
-        [_unit, _commonMG select GUN, _countTracerMG, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
+    };
+
+    case (_isMMGAsst): {
+        [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
+        [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
+        [_unit,[[_wsmoke,2]]] call BRM_FMK_fnc_addtoVest;
+        [_unit,[[_commonMG select RAMMO, (_countMG)]]] call BRM_FMK_fnc_addtoBackpack;
     };
 
     case (_isGrenadier): {

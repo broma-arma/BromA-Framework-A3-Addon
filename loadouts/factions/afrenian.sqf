@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
     Located on Island Duala, Afrenia is the neighbour country of Molatia, the two
@@ -28,7 +27,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 _commonRIFLE            = _AUGAA1;
 _commonRIFLEGL          = _M320;
 _commonPISTOL           = _CZ75;
-_commonMG               = ["hlc_rifle_aughbar_B", "hlc_40Rnd_556x45_B_AUG"];
+_commonAR               = ["hlc_rifle_aughbar_B", "hlc_40Rnd_556x45_B_AUG"];
+_commonMG               = _M249L;
 _commonMARKSMAN         = _STG58;
 _commonSNIPER           = ["rhs_weap_t5000", "rhs_5Rnd_338lapua_t5000"];
 _commonAT               = ["rhs_weap_m72a7", "rhs_m72a7_mag"];
@@ -47,6 +47,7 @@ _NVG                    = _NVGEN2;
 _countRIFLE    = 10;
 _countRIFLELOW = 6;
 _countPISTOL   = 3;
+_countAR       = 7;
 _countMG       = 4;
 _countSNIPER   = 9;
 _countAT       = 3;
@@ -60,6 +61,7 @@ _countHE = 1;
 
 _countRifleCARGO    = 30;
 _countPistolCARGO   = 10;
+_countArCARGO       = 20;
 _countMgCARGO       = 20;
 _countSniperCARGO   = 30;
 _countATCARGO       = 15;

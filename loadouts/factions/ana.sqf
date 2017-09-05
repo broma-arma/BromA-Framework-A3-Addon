@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
     The Afghanistan National Army, tasked with defending the country from
@@ -28,6 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 _commonRIFLE = _RHSM16A4;
 _commonRIFLEGL = _RHSM16A4GL;
 _commonPISTOL = _USP;
+_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
 _commonMG = _PKM;
 _commonSNIPER = _SVD;
 _commonSNIPER = _SVD;
@@ -46,6 +46,7 @@ _NVG = "rhsusf_ANPVS_14";
 _countRIFLE = 7;
 _countRIFLELOW = 4;
 _countPISTOL = 2;
+_countAR = 7;
 _countMG = 3;
 _countSNIPER = 5;
 _countAT = 3;
@@ -58,6 +59,7 @@ _countHE = 1;
 
 _countRifleCARGO = 30;
 _countPistolCARGO = 10;
+-countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
 _countATCARGO = 15;

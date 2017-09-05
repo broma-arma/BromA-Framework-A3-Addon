@@ -13,7 +13,7 @@ _factionStructure = "HIGH-TIER";
 _factionCallsigns = _defaultCallsignBLUFOR;
 
 _defaultSide = WEST;
-_defaultVoice = [_voiceALTIAN, _voiceAMERICAN, _voiceBRITISH, _voiceFARSI, _voiceRUSSIAN, _voiceCHINESE, _voiceTANOAN];
+_defaultVoice = [_voiceALTIAN, _voiceAMERICAN, _voiceBRITISH, _voiceFARSI, _voiceRUSSIAN, _voiceCHINESE];
 _defaultFace = [_faceGREEK, _faceWHITE, _faceBLACK, _faceASIAN, _facePERSIAN, _faceTANOAN];
 _defaultName = [_nameAMERICAN];
 _defaultInsignia = "";
@@ -27,6 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 _commonRIFLE = _Mk20;
 _commonRIFLEGL = _Mk20GL;
 _commonPISTOL = _Rook;
+_commonAR = _Zafir;
 _commonMG = _Zafir;
 _commonMARKSMAN = _Mk20;
 _commonSNIPER = _GM6;
@@ -42,14 +43,15 @@ _NVG = _NVGEN1;
 
 // AMMO COUNT ==================================================================
 
-_countRIFLE = 7;
+_countRIFLE = 6;
 _countRIFLELOW = 4;
 _countPISTOL = 2;
+_countAR = 5;
 _countMG = 3;
-_countSNIPER = 5;
+_countSNIPER = 4;
 _countAT = 3;
 _countGRENADES = 3;
-_count40mm = 20;
+_count40mm = 10;
 
 _countTracerRIFLE = 2;
 _countTracerMG = 1;
@@ -57,6 +59,7 @@ _countHE = 1;
 
 _countRifleCARGO = 30;
 _countPistolCARGO = 10;
+_countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
 _countATCARGO = 15;
