@@ -34,7 +34,8 @@ if (_blackMX) then { _rr=_MXBlack;_rg=_MXGLBlack;_rm=_MXSWBlack;_rk=_MXMBlack;_r
 _commonRIFLE = _rr;
 _commonRIFLEGL = _rg;
 _commonPISTOL = _P07;
-_commonMG = _rm;
+_commonAR = _rm;
+_commonMG = _M240B;
 _commonMARKSMAN = _rk;
 _commonSNIPER = _M200;
 _commonAT = _PCML;
@@ -52,6 +53,7 @@ _NVG = _NVGEN3BLU;
 _countRIFLE = 7;
 _countRIFLELOW = 4;
 _countPISTOL = 2;
+_countAR = 3;
 _countMG = 3;
 _countSNIPER = 5;
 _countAT = 3;
@@ -64,6 +66,7 @@ _countHE = 1;
 
 _countRifleCARGO = 30;
 _countPistolCARGO = 10;
+_countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
 _countATCARGO = 15;
