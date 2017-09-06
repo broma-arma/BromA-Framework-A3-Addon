@@ -4,6 +4,8 @@ _aliasOPFOR = ["opfor","redfor","east"];
 _aliasRESISTANCE = ["independent","resistance","indfor","guerilla"];
 _aliasCIVILIAN = ["civilian","civilians","civies"];
 
+_factionSide = "";
+
 switch (true) do {
     case (_faction == "side_a"): { _faction = side_a_faction; _factionSide = side_a_side };
     case (_faction == "side_b"): { _faction = side_b_faction; _factionSide = side_b_side };
@@ -16,7 +18,6 @@ switch (true) do {
             case (_faction == side_a_faction): { _factionSide = side_a_side };
             case (_faction == side_b_faction): { _factionSide = side_b_side };
             case (_faction == side_c_faction): { _factionSide = side_c_side };
-            default { _factionSide = "" };
         };
     };
 };
