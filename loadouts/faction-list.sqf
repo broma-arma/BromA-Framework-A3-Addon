@@ -1,7 +1,8 @@
 switch (toUpper(_faction)) do {
-	case "GERMAN": {
-		#include "factions\german.sqf"
-	};
+
+    case "GERMAN": {
+        #include "factions\german.sqf"
+    };
 
     case "RACS": {
         #include "factions\racs.sqf"
@@ -100,7 +101,8 @@ switch (toUpper(_faction)) do {
     };
 
     case "BAF": {
-        #include "factions\baf.sqf"
+        // TBD 3CB
+        #include "factions\usarmy.sqf"
     };
 
     case "OFPFIA": {
