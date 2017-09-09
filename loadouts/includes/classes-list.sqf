@@ -1,12 +1,12 @@
 
-_isOfficer = (_type == "CO")||(_type == "Officer");
-_isSquadLeader = (_type == "SL")||(_type == "Squad Leader");
-_isTeamLeader = (_type == "FTL")||(_type == "Team Leader");
+_isOfficer = (_type == "co")||(_type == "Officer");
+_isSquadLeader = (_type == "sl")||(_type == "Squad Leader");
+_isTeamLeader = (_type == "ftl")||(_type == "Team Leader");
 _isRifleman = (_type == "rifleman")||(_type == "Rifleman");
 _isRiflemanAT = (_type == "at")||(_type == "Rifleman (AT)");
 _isMarksman = (_type == "marksman")||(_type == "Marksman")||(_type == "Sharpshooter");
-_isAutorifleman = (_type == "mg")||(_type == "Autorifleman");
-_isAutoriflemanAsst = (_type == "Asst. Autorifleman");
+_isAutorifleman = (_type == "ar")||(_type == "Autorifleman");
+_isAutoriflemanAsst = (_type == "asstar")||(_type == "Asst. Autorifleman");
 _isLifeSaver = (_type == "medic")||(_type == "Combat Life Saver");
 _isGrenadier = (_type == "grenadier")||(_type == "Grenadier");
 _isHelicopterPilot = (_type == "helipilot")||(_type == "Helicopter Pilot");

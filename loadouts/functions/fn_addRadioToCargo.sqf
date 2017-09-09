@@ -15,7 +15,7 @@ switch (true) do {
                 switch(_kind) do {
                     case "SR": { _radio = "tf_rf7800str" };
                     case "LR": { _radio = "tf_anprc152" };
-                    case "BP": { _radio = "tf_rt1523g"; _isBP = true };
+                    case "BP": { _radio = "TFAR_rt1523g_big_bwmod"; _isBP = true };
                 };
             };
             case EAST: {

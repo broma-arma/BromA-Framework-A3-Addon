@@ -8,4 +8,5 @@ class unit {
 	class setAlias {};
 	class defineGroups {};
 	class createPlayerVehicles {};
+	class generateRadioStructure {};
 };

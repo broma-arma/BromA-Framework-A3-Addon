@@ -18,6 +18,7 @@ class api {
 	class playGlobal{};	
 	class getUnitsArray{};
 	class getFactionVehicles{};
+	class teamsExist{};
 }
 
 class api_zeus {

@@ -1,4 +1,13 @@
 
+if (((_restoreDisplay) || (_restoreType)) && (isPlayer _unit)) then {
+    private "_chosenRestore";
+    if (_restoreType) then { _chosenRestore = _originalType };
+    if (_restoreDisplay) then { _chosenRestore = _displayName };
+    private _prevUnitInit = _unit getVariable ["unitInit", ["white", "*", "*", "*", "*"]];
+    _prevUnitInit set [3, _chosenRestore];
+    _unit setVariable ["unitInit", _prevUnitInit];
+};
+
 _defaultVoice = _defaultVoice call BIS_fnc_selectRandom;
 _defaultFace = _defaultFace call BIS_fnc_selectRandom;
 
