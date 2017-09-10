@@ -14,13 +14,13 @@ switch (true) do {
                         [{(time > 6)}, {
                             params ["_unit", "_radio"];
                             if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
-                        }, [_unit, "tf_rf7800str"]] call CBA_fnc_waitUntilAndExecute;
+                        }, [_unit, "TFAR_rf7800str"]] call CBA_fnc_waitUntilAndExecute;
                     };
                     case "LR": {
                         [{(time > 3)}, {
                             params ["_unit", "_radio"];
                             if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
-                        }, [_unit, "tf_anprc152"]] call CBA_fnc_waitUntilAndExecute;
+                        }, [_unit, "TFAR_anprc152"]] call CBA_fnc_waitUntilAndExecute;
                     };
                     case "BP": { removeBackpack _unit; _unit addBackPack "TFAR_rt1523g_big_bwmod" };
                 };
@@ -31,15 +31,15 @@ switch (true) do {
                         [{(time > 6)}, {
                             params ["_unit", "_radio"];
                             if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
-                        }, [_unit, "tf_pnr1000a"]] call CBA_fnc_waitUntilAndExecute;
+                        }, [_unit, "TFAR_pnr1000a"]] call CBA_fnc_waitUntilAndExecute;
                     };
                     case "LR": {
                         [{(time > 3)}, {
                             params ["_unit", "_radio"];
                             if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
-                        }, [_unit, "tf_fadak"]] call CBA_fnc_waitUntilAndExecute;
+                        }, [_unit, "TFAR_fadak"]] call CBA_fnc_waitUntilAndExecute;
                     };
-                    case "BP": { removeBackpack _unit; _unit addBackPack "tf_mr3000" };
+                    case "BP": { removeBackpack _unit; _unit addBackPack "TFAR_mr3000" };
                 };
             };
             case RESISTANCE: {
@@ -48,15 +48,15 @@ switch (true) do {
                         [{(time > 6)}, {
                             params ["_unit", "_radio"];
                             if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
-                        }, [_unit, "tf_anprc154"]] call CBA_fnc_waitUntilAndExecute;
+                        }, [_unit, "TFAR_anprc154"]] call CBA_fnc_waitUntilAndExecute;
                     };
                     case "LR": {
                         [{(time > 3)}, {
                             params ["_unit", "_radio"];
                             if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
-                        }, [_unit, "tf_anprc148jem"]] call CBA_fnc_waitUntilAndExecute;
+                        }, [_unit, "TFAR_anprc148jem"]] call CBA_fnc_waitUntilAndExecute;
                     };
-                    case "BP": { removeBackpack _unit; _unit addBackPack "tf_anprc155" };
+                    case "BP": { removeBackpack _unit; _unit addBackPack "TFAR_anprc155" };
                 };
             };
         };

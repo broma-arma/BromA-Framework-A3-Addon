@@ -72,10 +72,12 @@ switch (true) do {
 
     case (_isTeamLeader): {
         [_unit, _leaderHEAD, _commonUNIFORM, _ftlVEST, "empty"] call BRM_FMK_fnc_useUniform;
-        [_unit,[[_wsmoke,1],[_rsmoke,1],[_flashlight,1]]] call BRM_FMK_fnc_addtoVest;
-        [_unit, _commonRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
+        [_unit,[[_wsmoke,2],[_rsmoke,2],[_flashlight,1]]] call BRM_FMK_fnc_addtoVest;
+        [_unit, _commonRIFLEGL, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
+        [_unit,[[_commonRIFLEGL select GL, (_count40mm / 3)]]] call BRM_FMK_fnc_addtVest;
+        [_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
         [_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
-        [_unit, "primary", _commonRCO] call BRM_FMK_fnc_attachToWeapon;
+        [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "binoc"] call BRM_FMK_fnc_addOptics;
         [_unit, "LR"] call BRM_FMK_fnc_addRadio;
     };
