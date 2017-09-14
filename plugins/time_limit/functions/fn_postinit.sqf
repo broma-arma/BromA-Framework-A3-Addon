@@ -1,37 +1,46 @@
-
 if (!isServer) exitWith {};
+
+waitUntil { !isNil "mission_time_limit" };
 
 if (mission_time_limit == -1) exitWith {};
 
-{ time_alerted_minutes set [_forEachIndex, (time_alerted_minutes select _forEachIndex) * 60] } forEach time_alerted_minutes;
+if (isNil "time_alerted_minutes") then { time_alerted_minutes = [120, 60, 15, 1] };
+
+time_alerted_minutes = time_alerted_minutes apply { _x * 60 };
+
+BrmFmk_TimeLimit_countdown = mission_time_limit;
 
 0 spawn {
+	while {BrmFmk_TimeLimit_countdown > 0} do {
+		if (BrmFmk_TimeLimit_countdown <= 10 || {BrmFmk_TimeLimit_countdown in time_alerted_minutes}) then {
+			private _time = BrmFmk_TimeLimit_countdown;
+			private _timeUnit = if (_time >= 60) then {
+				_time = floor (_time / 60);
 
-    #include "includes\settings.sqf"
+				"minute"
+			} else {
+				"second"
+			};
+			if (_time != 1) then {
+				_timeUnit = _timeUnit + "s";
+			};
 
-    mission_countdown = mission_time_limit;
+			if (BrmFmk_TimeLimit_countdown <= 10) then {
+				["CLIENTS", "HINT", format ["%1 %2 remaining in the mission!", _time, _timeUnit]] call BRM_FMK_fnc_doLog;
+			} else {
+				["Timer", [format ["%1 %2 remaining in the mission!", _time, _timeUnit]]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
+			};
+		};
 
-    waitUntil {
-        sleep 1; 
-        mission_countdown = (mission_countdown - 1);
-        mission_countdown_minutes = floor(mission_countdown / 60);
+		sleep 1;
+		BrmFmk_TimeLimit_countdown = BrmFmk_TimeLimit_countdown - 1;
+	};
 
-        if (mission_countdown in time_alerted_minutes) then {    
-            ["CLIENTS", "HINT", format ["%1 minutes remaining in the mission!", mission_countdown_minutes]] call BRM_FMK_fnc_doLog;
-        };
+	["Timer", ["Time's up!"]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
 
-        if (mission_countdown <= 10) then {
-            ["CLIENTS", "HINT", format ["%1 seconds remaining in the mission!", mission_countdown]] call BRM_FMK_fnc_doLog;
-        };
-
-    (mission_countdown <= 0) };
-
-    ["Timer",["Time's up!"]] call BIS_fnc_showNotification;
-
-    if (mission_game_mode == "COOP") then {
-        ["defeat"] call BRM_fnc_callEnding;
-    } else {
-        ["side_a_defeat"] call BRM_fnc_callEnding;
-    };
-
+	if (mission_game_mode == "coop") then {
+		["defeat"] call BRM_fnc_callEnding;
+	} else {
+		["tvt_end"] call BRM_fnc_callEnding;
+	};
 };
