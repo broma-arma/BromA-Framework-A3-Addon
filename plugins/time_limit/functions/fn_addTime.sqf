@@ -1,17 +1,27 @@
+if (!isServer) exitWith {
+	_this remoteExec ["BRM_FMK_TimeLimit_fnc_addTime", 2];
+};
 
-_time = _this select 0;
+params ["_time"];
 
 if (_time == 0) exitWith {};
 
-[0, { mission_countdown = mission_countdown + _this }, _time] call CBA_fnc_globalExecute;
+BrmFmk_TimeLimit_countdown = BrmFmk_TimeLimit_countdown + _time;
 
-private ["_message"];
+private _action = if (_time > 0) then { "added to" } else { "removed from" };
 
-if (_time >= 60) then {
-    _message = "%1 minute(s) have been added to time limit!";
-    _time = floor(_time)/60;
+_time = abs _time;
+
+private _timeUnit = if (_time >= 60) then {
+	_time = floor (_time / 60);
+
+	"minute"
 } else {
-    _message = "%1 seconds have been added to time limit!";
+	"second"
 };
 
-[-1, { ["Timer",[format [_this select 0, _this select 1]]] call BIS_fnc_showNotification }, [_message, _time]] call CBA_fnc_globalExecute;
+if (_time != 1) then {
+	_timeUnit = _timeUnit + "s";
+};
+
+["Timer", [format ["%1 %2 has been %3 the time limit!", _time, _timeUnit, _action]]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
