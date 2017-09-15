@@ -4,8 +4,4 @@ class BRM_FMK_TFAR {
 		class postInit {};
 		class autoSetupRadios {};
 	};
-	class Functions {
-		file = "\broma_framework\plugins\tfar_plugin\functions";
-		class AIHearsTFAR {};
-	};
 }; 
