@@ -1,17 +1,6 @@
-0 spawn {
 #include "includes\settings.sqf"
 
 call compile format ["co_lock_units = %1", co_lock_units];
-
-if (co_lock_tvt_mode) then { co_lock_text_select = 1 } else { co_lock_text_select = 0 };
-
-co_lock_text_start = ["Start the mission.", "Ready your side."];
-co_lock_text_started = ["The commander declares the mission as go!", "All sides are ready - mission start."];
-co_lock_text_wait = ["Please wait until the commander clears the mission to begin.", "Please wait until all teams are ready."];
-
-co_lock_text_start = co_lock_text_start select co_lock_text_select;
-co_lock_text_started = co_lock_text_started select co_lock_text_select;
-co_lock_text_wait = co_lock_text_wait select co_lock_text_select;
 
 if (isServer) then {
     locked_sides = [];
@@ -24,63 +13,82 @@ if (isServer) then {
         };
     } forEach co_lock_units;
     publicVariable "locked_sides";
-} else {
-    waitUntil{(!isNil "locked_sides") && (!isNil "co_lock_allSidesReady")};
 };
 
-if ( (!(side player in locked_sides)) || !(hasInterface) ) exitWith {};
+if (hasInterface) then {
+    [{(!isNil "co_lock_allSidesReady") && (!isNil "locked_sides")}, {
+        if (!(side player in locked_sides)) exitWith {};
 
-player_co_locked = true;
+        params ["_coLockTextStart", "_coLockTextStarted"];
+        private _coLockTextSelect = if (co_lock_tvt_mode) then {1} else {0};
 
-if (player in co_lock_units) then {
-    
-    alertColor = "Alert";
-    _color = "#FF0000";
-    switch (side player) do {
-        case WEST: { alertColor = "AlertBLU"; _color = ["blue"] call BRM_FMK_fnc_colorToHex; };
-        case EAST: { alertColor = "AlertOP"; _color = ["red"] call BRM_FMK_fnc_colorToHex; };
-        case RESISTANCE: { alertColor = "AlertIND"; _color = ["green"] call BRM_FMK_fnc_colorToHex; };
-    };         
+        if !(player in co_lock_units) then {
+            private _coLockTextStart = ["Start the mission.", "Ready your side."];
+            private _coLockTextStarted = ["The commander declares the mission as go!", "All sides are ready - mission start."];
+            private _coLockActionCondition = "(player in co_lock_units)&&(side player in locked_sides)";
 
-    player addAction ["<t color='"+_color+"'>"+ co_lock_text_start + "</t>", {   
-        
-        locked_sides = locked_sides - [side player]; publicVariable "locked_sides";
-        if (count locked_sides <= 0) then { co_lock_allSidesReady = true; publicVariable "co_lock_allSidesReady" };
+            _coLockTextStart = _coLockTextStart select _coLockTextSelect;
+            _coLockTextStarted = _coLockTextStarted select _coLockTextSelect;
 
-        if (co_lock_tvt_mode) then {
-            if (co_lock_allSidesReady) then {
-                [-1, { ["Alert",[co_lock_text_started]] call bis_fnc_showNotification }] call CBA_fnc_globalExecute;
-            } else {
-                _sidename = [(side player), "name"] call BRM_FMK_fnc_getSideInfo;
-                _msg = format ["%1 is ready to begin the mission.", _sidename];
-                [-1, { [_this select 1,[_this select 0]] call bis_fnc_showNotification }, [_msg, alertColor]] call CBA_fnc_globalExecute;
+            private _coLockAlertColorValues = switch (side player) do {
+                case WEST: { ["AlertBLU", ["blue"] call BRM_FMK_fnc_colorToHex] };
+                case EAST: { ["AlertOP", ["red"] call BRM_FMK_fnc_colorToHex] };
+                case RESISTANCE: { ["AlertIND", ["green"] call BRM_FMK_fnc_colorToHex] };
+                default { ["AlertBLU", ["blue"] call BRM_FMK_fnc_colorToHex] }
             };
+
+            _coLockAlertColorValues params ["_alertNotificationColor", "_alertTextColor"];
+
+            private _addActionText = format["<t color='%1'>%2</t>", _alertTextColor, _coLockTextStart];
+
+            player addAction [_addActionText, {
+                params ["_caller", "_target", "_index", "_arguments"];
+                _arguments params ["_alertNotificationColor", "_coLockTextStarted"];
+
+                locked_sides = locked_sides - [side player]; publicVariable "locked_sides";
+                if (count locked_sides <= 0) then { co_lock_allSidesReady = true; publicVariable "co_lock_allSidesReady" };
+
+                private _coLockNotificationParameters = if (co_lock_tvt_mode) then {
+                    private _returnValues = [_alertNotificationColor, 0];
+
+                    if !(co_lock_allSidesReady) then {
+                        private _sideName = [(side player), "name"] call BRM_FMK_fnc_getSideInfo;
+                        private _readyText = format["%1 is ready to begin the mission.", _sideName];
+                        _returnValues set [0, "Alert"];
+                        _returnValues pushBack _readyText;
+                    };
+                    _returnValues
+                } else { ["Alert", (side player)] };
+
+                _coLockNotificationParameters params ["_coLockNotificationColor", "_notificationCondition", ["_coLockNotificationText", _coLockTextStarted]];
+
+                [_coLockNotificationColor, [_coLockNotificationText]] remoteExec ["BIS_fnc_showNotification", _notificationCondition];
+
+            }, [_alertNotificationColor, _coLockTextStarted], 0.5, true, true,"'", _coLockActionCondition];
+
         } else {
-            [-1, {
-                if (_this == side player) then {
-                    ["Alert",[co_lock_text_started]] call bis_fnc_showNotification;                    
+            private ["_removeBulletsEH"];
+
+            private _coLockTextWait = ["Please wait until the Commander clears the mission to begin.", "Please wait until all teams are ready."];
+           _coLockTextWait = _coLockTextWait select _coLockTextSelect;
+
+            private _coLockPlayerFreeCondition = (((!co_lock_tvt_mode) && (side player in locked_sides)) || ((co_lock_tvt_mode) && (!co_lock_allSidesReady)));
+
+            if (_coLockPlayerFreeCondition) then { _removeBulletsEH = player addEventHandler ["Fired", { deleteVehicle (_this select 6) }] };
+
+            _perFrameHandlePlayer = [{
+                params ["_coLockTextWait"];
+                if (typeof (vehicle player) != (typeof player)) then {
+                    player action ["getout", (vehicle player)];
+                    hint _coLockTextWait;
                 };
-            }, side player] call CBA_fnc_globalExecute;        
+            }, 0.5, _coLockTextWait] call CBA_fnc_addPerFrameHandler;
+
+            [{!(((!co_lock_tvt_mode) && (side player in locked_sides)) || ((co_lock_tvt_mode) && (!co_lock_allSidesReady)))}, {
+                params["_removeBulletsEH", "_perFrameHandlePlayer"];
+                player removeEventHandler ["Fired", _removeBulletsEH];
+                [_perFrameHandlePlayer] call CBA_fnc_removePerFrameHandler;
+            },[_removeBulletsEH, _perFrameHandlePlayer]] call CBA_fnc_waitUntilAndExecute;
         };
-
-    }, nil, 0.5, true, true,"'", "(player in co_lock_units)&&(side player in locked_sides)"];
-
-} else {
-    if (((!co_lock_tvt_mode) && (side player in locked_sides)) || ((co_lock_tvt_mode) && (!co_lock_allSidesReady))) then {
-        removeBulletsEH = player addEventHandler ["Fired", { deleteVehicle (_this select 6) }];
-    };
-
-    player spawn {
-        while {((!co_lock_tvt_mode) && (side player in locked_sides)) || ((co_lock_tvt_mode) && (!co_lock_allSidesReady))} do {
-
-            if ( typeof vehicle player != typeof _this ) then {
-                player action ["getout", vehicle player];
-                hint co_lock_text_wait;
-            };
-            sleep 0.5;
-        };
-        player_co_locked = false;
-        player removeEventHandler ["Fired", removeBulletsEH];
-    };
-};
+    }] call CBA_fnc_waitUntilAndExecute;
 };
