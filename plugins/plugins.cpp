@@ -26,6 +26,7 @@
 #include "friendly_fire\main.cpp"
 #include "jip_teleport\main.cpp"
 #include "loading_screen\main.cpp"
+#include "intros\main.cpp"
 #include "mission_maker_tools\main.cpp"
 #include "respawn_system\main.cpp"
 #include "setup_zone\main.cpp"
