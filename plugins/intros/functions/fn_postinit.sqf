@@ -1,4 +1,4 @@
-if !(hasInterface) exitWith {};
+if !(hasInterface) exitWith { intro_cutscene_over = true; };
 
 intro_cutscene_over = false;
 
