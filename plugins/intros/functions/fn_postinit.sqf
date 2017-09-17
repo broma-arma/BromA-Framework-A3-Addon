@@ -10,7 +10,7 @@ intro_cutscene_over = false;
 	if (isNil "intro_cutscene") then { intro_cutscene = "ESTABLISHING" };
 
 	if ("loading_screen" in usedPlugins) then {
-		waitUntil { !isNil "loading_screen_finished" };
+		waitUntil { !isNil "loading_screen_finished" && { loading_screen_finished } };
 	} else {
 		sleep 0.1;
 	};
