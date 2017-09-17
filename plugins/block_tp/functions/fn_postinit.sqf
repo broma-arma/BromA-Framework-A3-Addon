@@ -1,24 +1,28 @@
+if !(hasInterface) exitWith {};
 
-if ((difficultyOption "thirdPersonView") == 1) then {
-    0 spawn {
-        #include "includes\settings.sqf"
+0 spawn {
+	waitUntil { !isNil "BrmFmk_blockTP_allow" };
 
-        while {((mission_allow_tp_veh != "everyone")&&!(player in tp_allowed_units))} do {
-            _veh = (vehicle player);
-            _inVeh = (_veh != player);
-            _isTP = (cameraView == "EXTERNAL");
-            _isDriving = (((player == commander _veh) || (player == driver _veh)) && (_inVeh));
+	if (isNil "tp_allowed_units") then { tp_allowed_units = [] };
 
-            if (_isTP) then {
-                if (mission_allow_tp_veh == "disabled") then {
-                    _veh switchCamera "INTERNAL";
-                } else {
-                    if (!(_isDriving)) then {
-                        _veh switchCamera "INTERNAL";
-                    };
-                };
-            };
-            sleep 0.01;
-        };
-    };
+	if (difficultyOption "thirdPersonView" != 1 || BrmFmk_blockTP_allow == 1 || player in tp_allowed_units) exitWith {};
+
+	addMissionEventHandler ["EachFrame", {
+		if (cameraView == "EXTERNAL") then {
+			switch (BrmFmk_blockTP_allow) do {
+				case 0: { // 3rd Person Disabled
+					player switchCamera "INTERNAL";
+				};
+				case 1: { // 3rd Person Enabled
+					removeMissionEventHandler ["EachFrame", _thisEventHandler];
+				};
+				case 2: { // 3rd Person Drivers/Commanders Only
+					private _vehicle = objectParent player;
+					if (isNull _vehicle || {player != driver _vehicle && player != commander _vehicle}) then {
+						player switchCamera "INTERNAL";
+					};
+				};
+			};
+		};
+	}];
 };
