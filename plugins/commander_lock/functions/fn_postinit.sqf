@@ -19,10 +19,9 @@ if (hasInterface) then {
     [{(!isNil "co_lock_allSidesReady") && (!isNil "locked_sides")}, {
         if (!(side player in locked_sides)) exitWith {};
 
-        params ["_coLockTextStart", "_coLockTextStarted"];
         private _coLockTextSelect = if (co_lock_tvt_mode) then {1} else {0};
 
-        if !(player in co_lock_units) then {
+        if (player in co_lock_units) then {
             private _coLockTextStart = ["Start the mission.", "Ready your side."];
             private _coLockTextStarted = ["The commander declares the mission as go!", "All sides are ready - mission start."];
             private _coLockActionCondition = "(player in co_lock_units)&&(side player in locked_sides)";
@@ -61,34 +60,39 @@ if (hasInterface) then {
                 } else { ["Alert", (side player)] };
 
                 _coLockNotificationParameters params ["_coLockNotificationColor", "_notificationCondition", ["_coLockNotificationText", _coLockTextStarted]];
-
                 [_coLockNotificationColor, [_coLockNotificationText]] remoteExec ["BIS_fnc_showNotification", _notificationCondition];
-
             }, [_alertNotificationColor, _coLockTextStarted], 0.5, true, true,"'", _coLockActionCondition];
 
         } else {
-            private ["_removeBulletsEH"];
-
-            private _coLockTextWait = ["Please wait until the Commander clears the mission to begin.", "Please wait until all teams are ready."];
-           _coLockTextWait = _coLockTextWait select _coLockTextSelect;
-
             private _coLockPlayerFreeCondition = (((!co_lock_tvt_mode) && (side player in locked_sides)) || ((co_lock_tvt_mode) && (!co_lock_allSidesReady)));
 
-            if (_coLockPlayerFreeCondition) then { _removeBulletsEH = player addEventHandler ["Fired", { deleteVehicle (_this select 6) }] };
+            if (_coLockPlayerFreeCondition) then {
+                private _coLockTextWait = ["Please wait until the Commander clears the mission to begin.", "Please wait until all teams are ready."];
+                _coLockTextWait = _coLockTextWait select _coLockTextSelect;
 
-            _perFrameHandlePlayer = [{
-                params ["_coLockTextWait"];
-                if (typeof (vehicle player) != (typeof player)) then {
-                    player action ["getout", (vehicle player)];
-                    hint _coLockTextWait;
-                };
-            }, 0.5, _coLockTextWait] call CBA_fnc_addPerFrameHandler;
+                private _deleteProjectile = { deleteVehicle (_this select 6) };
 
-            [{!(((!co_lock_tvt_mode) && (side player in locked_sides)) || ((co_lock_tvt_mode) && (!co_lock_allSidesReady)))}, {
-                params["_removeBulletsEH", "_perFrameHandlePlayer"];
-                player removeEventHandler ["Fired", _removeBulletsEH];
-                [_perFrameHandlePlayer] call CBA_fnc_removePerFrameHandler;
-            },[_removeBulletsEH, _perFrameHandlePlayer]] call CBA_fnc_waitUntilAndExecute;
+                _removeBulletsEH = player addEventHandler ["Fired", _deleteProjectile];
+                _removeACEThrowingEH = ["ACE_advanced_throwing_throwFiredXEH", _deleteProjectile] call CBA_fnc_addEventHandler;
+                _removeExplosivesEH = ["ACE_Explosives_place", { deleteVehicle (_this select 0) }] call CBA_fnc_addEventHandler;
+
+                _perFrameHandlePlayer = [{
+                    params ["_coLockTextWait"];
+                    if (typeof (vehicle player) != (typeof player)) then {
+                        player action ["getout", (vehicle player)];
+                        hint _coLockTextWait;
+                    };
+                }, 0.5, _coLockTextWait] call CBA_fnc_addPerFrameHandler;
+
+                [{!(((!co_lock_tvt_mode) && (side player in locked_sides)) || ((co_lock_tvt_mode) && (!co_lock_allSidesReady)))}, {
+                    params["_removeBulletsEH", "_perFrameHandlePlayer", "_removeACEThrowingEH", "_removeExplosivesEH"];
+
+                    player removeEventHandler ["Fired", _removeBulletsEH];
+                    [_perFrameHandlePlayer] call CBA_fnc_removePerFrameHandler;
+                    ["ACE_advanced_throwing_throwFiredXEH", _removeACEThrowingEH] call CBA_fnc_removeEventHandler;
+                    ["ACE_explosives_place", _removeExplosivesEH] call CBA_fnc_removeEventHandler;
+                },[_removeBulletsEH, _perFrameHandlePlayer, _removeACEThrowingEH, _removeExplosivesEH]] call CBA_fnc_waitUntilAndExecute;
+            };
         };
     }] call CBA_fnc_waitUntilAndExecute;
 };
