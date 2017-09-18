@@ -104,6 +104,10 @@ if ((!(_faction in _aliasNONE)) && (!units_player_useVanillaGear)) then {
     [player, _faction, _role] call BRM_fnc_assignLoadout;
 };
 
+// Holster player's weapon. ====================================================
+
+0 spawn { player action ["SwitchWeapon", vehicle player, vehicle player, -1]; };
+
 // Assigns alias to other units and groups. ====================================
 
 if (player_is_jip) then {
