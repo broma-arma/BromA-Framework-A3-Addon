@@ -3,4 +3,9 @@ class BRM_FMK_LoadingScreen {
 		file = "\broma_framework\plugins\loading_screen\functions";
 		class postinit {};
 	};
-}; 
+	class functions {
+		file = "\broma_framework\plugins\loading_screen\functions";
+		class clientLoaded {};
+		class load {};
+	};
+};
