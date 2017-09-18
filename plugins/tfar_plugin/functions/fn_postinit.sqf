@@ -1,4 +1,3 @@
-
 if !(isClass(configFile>>"CfgPatches">>"task_force_radio")) exitWith {};
 
 TF_same_sw_frequencies_for_side = true; publicVariable "TF_same_sw_frequencies_for_side";
@@ -19,4 +18,4 @@ TF_defaultWestBackpack = "TFAR_rt1523g_big_bwmod"; publicVariable "TF_defaultWes
 ["TFAR_spectatorCanHearEnemyUnits", true, true, "server", true] call CBA_settings_fnc_set;
 ["TFAR_spectatorCanHearFriendlies", true, true, "server", true] call CBA_settings_fnc_set;
 
-[] call BRM_FMK_TFAR_fnc_autoSetupRadios;
+["redoFrequencies", "OnRadiosReceived", BRM_FMK_TFAR_fnc_autoSetupRadios, player] call TFAR_fnc_addEventHandler;
