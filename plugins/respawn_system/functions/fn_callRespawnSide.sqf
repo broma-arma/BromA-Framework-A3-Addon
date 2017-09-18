@@ -32,13 +32,6 @@ _am = _amount;
 
 if (_amount == 0) exitWith {};
 
-for "_i" from 0 to (_target - 1) do {
-    if (_i >= (count _currentDeadList)) exitWith {};
-    [((_currentDeadList select _i) select 1), _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
-    _amount = (_amount + 1);
-};
-mission_dead_players deleteRange [0, _target];
-
 {
     _x params["_deadUID", "_deadName", "_deadSide"];
     if (_deadSide == _side) then {
