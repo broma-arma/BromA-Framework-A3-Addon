@@ -1,12 +1,9 @@
-private["_lives","_target"];
+params["_target", ["_lives", mission_player_lives]];
 
-_target = _this select 0;
-_lives = _this select 1;
+private _found = false;
+private _index = -1;
 
-_found = false;
-_index = -1;
-
-if (typeName _target == "OBJECT") then { _target = name _target };
+_target = if (typeName _target == "OBJECT") then { (name _target) } else { _target };
 
 {
     if ( ((_x select 1) == (_target)) ) exitWith { _found = true; _index = _forEachindex };

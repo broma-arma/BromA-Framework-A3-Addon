@@ -5,7 +5,9 @@
 */
 
 (_this select 0) spawn {
-    _this attachTo [Headless_Client, [0,0,50]];
+    if (isNil "Headless_Client") then { _this setPosATL [0,0, 200] }
+    else { _this attachTo [Headless_Client, [0,0,50]] };
+
     _this enableSimulation false;
     _this allowDamage false;
 
