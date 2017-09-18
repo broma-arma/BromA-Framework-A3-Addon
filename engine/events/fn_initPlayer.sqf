@@ -106,7 +106,7 @@ if ((!(_faction in _aliasNONE)) && (!units_player_useVanillaGear)) then {
 
 // Holster player's weapon. ====================================================
 
-0 spawn { player action ["SwitchWeapon", vehicle player, vehicle player, -1]; };
+[player] spawn BRM_FMK_fnc_weaponAway;
 
 // Assigns alias to other units and groups. ====================================
 

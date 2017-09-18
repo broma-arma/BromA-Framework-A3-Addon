@@ -25,4 +25,4 @@ RETURNS:
 _unit = _this select 0;
 _vehicle = vehicle _unit;
 
-_unit action ["SwitchWeapon", _vehicle, _vehicle, 99];
+_unit action ["SwitchWeapon", _vehicle, _vehicle, -1];
