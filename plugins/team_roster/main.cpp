@@ -4,7 +4,7 @@
 	{
 		name = "Team Roster";
 		version = 1;
-		authors[] = {"Nife"};
+		authors[] = {"Coryf88"};
 		description = "Creates a handy list of all friendly units separated by group name and position.";
 	};
 #endif
