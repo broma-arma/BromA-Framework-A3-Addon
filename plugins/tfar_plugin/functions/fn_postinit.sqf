@@ -1,4 +1,4 @@
-if !(isClass(configFile>>"CfgPatches">>"task_force_radio")) exitWith {};
+if !(isClass(configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
 
 TF_same_sw_frequencies_for_side = true; publicVariable "TF_same_sw_frequencies_for_side";
 TF_same_lr_frequencies_for_side = true; publicVariable "TF_same_lr_frequencies_for_side";

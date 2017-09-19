@@ -40,11 +40,9 @@ switch (typeName _target) do {
     };
     case "SCALAR": {
         private _amount = 0;
-        private _currentDeadList = mission_dead_players;
 
-        for "_i" from 0 to (_target - 1) do {
-            if (_i >= (count _currentDeadList)) exitWith {};
-            [((_currentDeadList select _i) select 1), _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
+        for "_i" from 0 to ((_target min (count mission_dead_players)) - 1) do {
+            [((mission_dead_players select _i) select 1), _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
             _amount = (_amount + 1);
         };
         mission_dead_players deleteRange [0, _target];

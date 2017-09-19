@@ -1,19 +1,17 @@
 if !(isServer) exitWith {};
 
-_center = createCenter sideLogic;
-_group = createGroup _center;
-_pos = getMarkerPos "ao";
-_size = getMarkerSize "ao";
-_rot = markerDir "ao";
+private _center = createCenter sideLogic;
+private _group = createGroup _center;
+private _pos = getMarkerPos "ao";
+private _size = getMarkerSize "ao";
+private _rot = markerDir "ao";
 
-_area = _group createUnit ["LocationArea_F", _pos,[],0.5,"NONE"];
-
-_trg = createTrigger["EmptyDetector", _pos]; 
-_trg setTriggerArea [_size select 0, _size select 1, _rot, true];
-
-_logic = _group createUnit ["Logic", [0,0,0],[],0.5,"NONE"];
-
-_area synchronizeObjectsAdd [_trg];
-_logic synchronizeObjectsAdd [_area];
+private _logic = _group createUnit ["Logic", _pos, [], 0, "CAN_COLLIDE"];
+_logic setVariable ["objectArea", [_size select 0, _size select 1, _rot, true, 0]];
 
 [_logic, nil, true] call BIS_fnc_moduleCoverMap;
+
+for "_i" from 0 to 270 step 90 do {
+    (format ["bis_fnc_moduleCoverMap_%1", _i]) setMarkerBrush "SolidFull";
+    (format ["bis_fnc_moduleCoverMap_%1", _i]) setMarkerAlpha 0.8;
+};

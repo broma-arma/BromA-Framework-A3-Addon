@@ -28,11 +28,14 @@ RETURNS:
 */
 
 params["_side", ["_amount", mission_respawn_objective], ["_lives", mission_player_lives]];
-_am = _amount;
 
 if (_amount == 0) exitWith {};
 
+private _am = _amount;
+
 {
+    if (_amount == 0) exitWith {};
+
     _x params["_deadUID", "_deadName", "_deadSide"];
     if (_deadSide == _side) then {
         [_deadName, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
@@ -42,17 +45,18 @@ if (_amount == 0) exitWith {};
 
 private _totalRespawned = (_am -_amount);
 
-mission_dead_players deleteRange [0, _totalRespawned];
-
-private _alertProperties = switch (_side) do {
-    case WEST: { ["%1 %2 units have respawned.", "AlertBLU"] };
-    case EAST: { ["%1 %2 units have respawned.", "AlertOP"] };
-    case RESISTANCE: { ["%1 %2 units have respawned.", "AlertIND"] };
-    case CIVILIAN: { ["%1 %2 units have respawned.", "Alert"] };
-    default { ["%1 units have respawned.", "Alert"] }
-};
-
 if (_totalRespawned > 0) then {
+
+    mission_dead_players deleteRange [0, _totalRespawned];
+
+    private _alertProperties = switch (_side) do {
+        case WEST: { ["%1 %2 units have respawned.", "AlertBLU"] };
+        case EAST: { ["%1 %2 units have respawned.", "AlertOP"] };
+        case RESISTANCE: { ["%1 %2 units have respawned.", "AlertIND"] };
+        case CIVILIAN: { ["%1 %2 units have respawned.", "Alert"] };
+        default { ["%1 units have respawned.", "Alert"] }
+    };
+
     [-1, {
         params["_side", "_totalRespawned", "_alertProperties"];
         _alertProperties params["_alertText", "_alertNotification"];
