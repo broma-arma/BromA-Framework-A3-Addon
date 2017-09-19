@@ -17,7 +17,6 @@
 #include "f_evade_escape\main.cpp"
 #include "acre2_plugin\main.cpp"
 #include "radiofreq\main.cpp"
-#include "chair_plugin\main.cpp"
 #include "team_roster\main.cpp"
 #include "tfar_plugin\main.cpp"
 #include "time_accel\main.cpp"
