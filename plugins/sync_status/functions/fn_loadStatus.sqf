@@ -1,0 +1,67 @@
+params ["_uid", ["_status", []]];
+
+if (count _status == 0) exitWith {
+	if (isServer) then {
+		if (isRemoteExecuted) then {
+			// Send status information to the client.
+			private _index = -1;
+			{ if (_uid == (_x select 0)) exitWith { _index = _forEachIndex }; } forEach BrmFmk_SyncStatus_status;
+			if (_index != -1) then {
+				[_uid, BrmFmk_SyncStatus_status select _index] remoteExec ["BRM_FMK_SyncStatus_fnc_loadStatus", remoteExecutedOwner];
+			};
+		} else {
+			diag_log text "[BrmFmk.SyncStatus.loadStatus] Error: Function must be remoteExec'd.";
+		};
+	} else {
+		// Request status data from the server.
+		[_uid] remoteExec ["BRM_FMK_SyncStatus_fnc_loadStatus", 2];
+	};
+};
+
+if !(hasInterface) exitWith {
+	diag_log text "[BrmFmk.SyncStatus.loadStatus] Error: Attempted to load status for non-client.";
+};
+
+_status params ["_uid", "_playerUnit", "_playerDir", "_playerPos", "_playerDamage", "_vehicle", "_vehicleSeat", "_playerGear", "_playerVars"];
+
+if (_playerUnit == str player) then {
+	[player, _playerGear] call BRM_FMK_fnc_setGear;
+};
+
+player setDir _playerDir;
+player setDamage _playerDamage;
+
+private _defaultHandler = { player setVariable [_name, _value, true] };
+{
+	private _varValues = _playerVars select _forEachIndex; // [false, 1]
+	{
+		params ["_name", "_defaultValue", ["_handler", _defaultHandler]];
+		private _value = _varValues select _forEachIndex;
+		call _handler;
+	} forEach _x;
+} forEach call BRM_FMK_SyncStatus_fnc_playerVars;
+
+if (!isNull _vehicle && {alive _vehicle}) then {
+	private _seats = [toLower _vehicleSeat];
+	{ _seats pushBackUnique _x } forEach ["cargo", "gunner", "driver", "commander", "any"];
+
+	while {vehicle player != _vehicle && alive _vehicle} do {
+		{
+			switch (_x) do {
+				case "cargo": { player moveInCargo _vehicle; };
+				case "gunner": { player moveInGunner _vehicle; };
+				case "driver": { player moveInDriver _vehicle; };
+				case "commander": { player moveInCommander _vehicle; };
+				case "any": { player moveInAny _vehicle; };
+			};
+			if !(isNull objectParent player) exitWith {};
+		} forEach _seats;
+
+		sleep 1;
+	};
+	if (isNull objectParent player) then {
+		player setPosATL _playerPos;
+	};
+} else {
+	player setPosATL _playerPos;
+};

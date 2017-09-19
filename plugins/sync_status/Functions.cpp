@@ -5,8 +5,8 @@ class BRM_FMK_SyncStatus {
 	};
 	class Functions {
 		file = "\broma_framework\plugins\sync_status\functions";
-		class postStatus {};
-		class setStatus {};
-		class moveToVehicle {};
+		class saveStatus {};
+		class loadStatus {};
+		class playerVars {};
 	};
 };
