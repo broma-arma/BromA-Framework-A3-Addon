@@ -1,5 +1,5 @@
 
-if (!(isMultiplayer) && !(isServer) && (mission_cas_cap == -1)) exitWith {};
+if !(isMultiplayer && isServer && mission_cas_cap != -1) exitWith {};
 
 #include "includes\settings.sqf"
 
