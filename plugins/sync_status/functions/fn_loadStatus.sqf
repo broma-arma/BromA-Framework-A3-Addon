@@ -33,9 +33,9 @@ player setDamage _playerDamage;
 
 private _defaultHandler = { player setVariable [_name, _value, true] };
 {
-	private _varValues = _playerVars select _forEachIndex; // [false, 1]
+	private _varValues = _playerVars select _forEachIndex;
 	{
-		params ["_name", "_defaultValue", ["_handler", _defaultHandler]];
+		_x params ["_name", "_defaultValue", ["_handler", _defaultHandler]];
 		private _value = _varValues select _forEachIndex;
 		call _handler;
 	} forEach _x;
