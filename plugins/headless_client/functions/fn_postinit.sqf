@@ -19,27 +19,29 @@ if (mission_AI_controller) then {
 [{!(isNil "mission_AI_controller_name")}, {
     ["LOCAL","CHAT", format ["AI Controller is currently enabled as %1.", mission_AI_controller_name]] call BRM_FMK_fnc_doLog;
 
-    if (mission_AI_controller && mission_HC_enabled) then {
+    if (isServer && mission_HC_enabled) then {
         if (isClass(configFile >> "CfgPatches" >> "Werthles_WHK")) then {
-            if ((count (nearestObjects [player, ["Werthles_moduleWHM"], 2000])) <= 0) then {
+            if ((count (nearestObjects [player, ["Werthles_moduleWHM"], 10000])) <= 0) then {
                 private _center = createCenter sideLogic;
                 private _group = createGroup _center;
 
-                _module = _group createUnit ["Werthles_moduleWHM", [0,0,0],[],0.5,"NONE"];
-                _module setVariable ["Advanced", false];
-                _module setVariable ["Debug", false];
-                _module setVariable ["DebugOnly", false];
-                _module setVariable ["Delay", 30];
-                _module setVariable ["Ignores", ""];
-                _module setVariable ["NoDebug", true];
-                _module setVariable ["Pause", 3];
-                _module setVariable ["Repeating", true];
-                _module setVariable ["Report", true];
-                _module setVariable ["Units", -666];
-                _module setVariable ["UseServer", false];
-                _module setVariable ["Wait", 30];
+                WHMModule = _group createUnit ["Werthles_moduleWHM", [0,0,0],[],0.5,"NONE"];
+                WHMModule setVariable ["Advanced", false];
+                WHMModule setVariable ["Debug", false];
+                WHMModule setVariable ["DebugOnly", false];
+                WHMModule setVariable ["Delay", 30];
+                WHMModule setVariable ["Ignores", ""];
+                WHMModule setVariable ["NoDebug", true];
+                WHMModule setVariable ["Pause", 3];
+                WHMModule setVariable ["Repeating", true];
+                WHMModule setVariable ["Report", true];
+                WHMModule setVariable ["Units", -666];
+                WHMModule setVariable ["UseServer", false];
+                WHMModule setVariable ["Wait", 30];
 
-                [_module] spawn Werthles_fnc_moduleWHM;
+                [WHMModule] spawn Werthles_fnc_moduleWHM;
+
+                publicVariable "WHMModule";
             };
         };
     };
