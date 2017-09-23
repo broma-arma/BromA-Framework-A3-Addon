@@ -1,7 +1,5 @@
-
 #ifdef BRM_PLUGIN_META
-	class f_remove_body
-	{
+	class f_remove_body {
 		name = "Automatic body removal";
 		authors[] = {"Headspace", "Wolfenswan", "Raedor", "Fer"};
 		version = 1;
