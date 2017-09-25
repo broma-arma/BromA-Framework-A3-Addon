@@ -40,9 +40,11 @@ if (mission_AI_controller) then {
                 WHMModule setVariable ["UseServer", false];
                 WHMModule setVariable ["Wait", 30];
 
-                [WHMModule] spawn Werthles_fnc_moduleWHM;
+                WHMModule synchronizeObjectsAdd [Headless_Client];
 
                 publicVariable "WHMModule";
+
+                [WHMModule] remoteExec ["Werthles_fnc_moduleWHM", Headless_Client];
             };
         };
     };
