@@ -7,10 +7,27 @@ _playerInfo params ["_side", "_squad", "_team", "_unit"];
 
 if (!(_side in ["op", "blu", "ind"])) exitWith {};
 
-private _startCondition = {(call TFAR_fnc_haveSWRadio)};
+private _startCondition = {(call TFAR_fnc_haveSWRadio)
+	&& !isNil {group player getVariable "tf_sw_frequency"} && !isNil {group player getVariable "tf_lr_frequency"} // Workaround https://github.com/michail-nikolaev/task-force-arma-3-radio/issues/1314
+};
 
 [_startCondition, {
     params ["_side", "_squad", "_team", "_unit"];
+
+	{ // Workaround https://github.com/michail-nikolaev/task-force-arma-3-radio/issues/1314
+		_x params ["_groupVarName", "_fnc_getSettings", "_fnc_setSettings", "_fnc_radioList"];
+		private _groupFrequencies = (group player getVariable _groupVarName) select 2;
+		{
+			private _settings = _x call _fnc_getSettings;
+			if !((_settings select 2) isEqualTo _groupFrequencies) then {
+				_settings set [2, _groupFrequencies];
+				[_x, _settings] call _fnc_setSettings;
+			};
+		} forEach (player call _fnc_radioList);
+	} forEach [
+		["tf_sw_frequency", TFAR_fnc_getSwSettings, TFAR_fnc_setSwSettings, TFAR_fnc_radiosList],
+		["tf_lr_frequency", TFAR_fnc_getLrSettings, TFAR_fnc_setLrSettings, TFAR_fnc_lrRadiosList]
+	];
 
     private _unitID = format["%1_%2_%3", _squad, _team, _unit];
     private _squadNumber = (call compile _squad);
