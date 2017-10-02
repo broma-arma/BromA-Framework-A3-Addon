@@ -16,7 +16,6 @@
 
     if (mission_TFAR_enabled) then {
         _this setVariable ["tf_unable_to_use_radio", false];
-        [_this, false] call TFAR_fnc_forceSpectator;
     };
 
     titletext ["You are respawning...", "BLACK FADED",0];
