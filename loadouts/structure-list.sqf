@@ -1,4 +1,6 @@
 
+#include "includes\default-equipment.sqf"
+
 switch (toUpper(_factionStructure)) do {
     case "GERMAN-TIER": {
         #include "factions\structures\german_tier_army.sqf"

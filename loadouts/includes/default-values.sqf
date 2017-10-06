@@ -72,3 +72,9 @@ if (isNil "_factionDACCamps") then {
         /* Ammo     */ ["medical", "medical_adv" ,"ammo"]
     ];
 };
+
+if (isNil "_isATDisposable") then { _isATDisposable = false };
+
+if (_isATDisposable) then {
+    _countATCARGO = 0;
+};

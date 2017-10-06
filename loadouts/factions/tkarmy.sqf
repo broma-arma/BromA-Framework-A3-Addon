@@ -123,7 +123,7 @@ _demoVEST = _commonVEST;
 _marksmanVEST = "rhs_6b23_ML_sniper";
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "TRYK_B_Alicepack";
+_commonBACKPACK = "rhs_sidor";
 _bigBACKPACK = "B_Carryall_oli";
 
 // EXTRA EQUIPMENT =============================================================

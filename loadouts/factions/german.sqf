@@ -32,7 +32,7 @@ _commonMG               = ["hlc_lmg_MG3", "hlc_100Rnd_762x51_M_MG3","hlc_50Rnd_7
 _commonMARKSMAN         = ["hlc_rifle_G36A1", "hlc_30rnd_556x45_SPR_G36","hlc_30rnd_556x45_Tracers_G36"];
 _commonSNIPER           = ["hlc_rifle_G36A1", "hlc_30rnd_556x45_SPR_G36"];
 _commonAT               = _M136;
-_specAT                 = _MAAWS;
+_specAT                 = _SMAW;
 _commonSMG              = ["hlc_rifle_G36C", "hlc_30rnd_556x45_EPR_G36"];
 _commonRCO              = "ACE_optic_Hamr_PIP";
 _commonCCO              = "optic_Aco";
@@ -85,23 +85,23 @@ _countPAKCARGO = 10;
 
 _headsLIST = [
     "rhsusf_mich_helmet_marpatwd",
-"rhsusf_mich_helmet_marpatwd_alt",
-"rhsusf_mich_helmet_marpatwd_alt_headset",
-"rhsusf_mich_helmet_marpatwd_headset",
-"rhsusf_mich_helmet_marpatwd_norotos",
-"rhsusf_mich_helmet_marpatwd_norotos_arc",
-"rhsusf_mich_helmet_marpatwd_norotos_arc_headset",
-"rhsusf_mich_helmet_marpatwd_norotos_headset"
+    "rhsusf_mich_helmet_marpatwd_alt",
+    "rhsusf_mich_helmet_marpatwd_alt_headset",
+    "rhsusf_mich_helmet_marpatwd_headset",
+    "rhsusf_mich_helmet_marpatwd_norotos",
+    "rhsusf_mich_helmet_marpatwd_norotos_arc",
+    "rhsusf_mich_helmet_marpatwd_norotos_arc_headset",
+    "rhsusf_mich_helmet_marpatwd_norotos_headset"
 ];
 
 _uniformsLIST = [
     "MNP_CombatUniform_Germany",
-"MNP_CombatUniform_Germany_S"
+    "MNP_CombatUniform_Germany_S"
 ];
 
 _vestsLIST = [
     "MNP_Vest_Germany",
-"MNP_Vest_Germany_2"
+    "MNP_Vest_Germany_2"
 ];
 
 _gogglesLIST = [
@@ -119,7 +119,7 @@ _crewmanHEAD   = "rhsusf_cvc_ess";
 _pilotHEAD     = "rhsusf_hgu56p";
 _helicrewHEAD  = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
-_sniperHEAD    = "TRYK_H_ghillie_over";
+_sniperHEAD    = "U_B_GhillieSuit";
 _demoHEAD      = _randomHEAD;
 _reconHEAD     = "rhsusf_opscore_paint_pelt_nsw_cam";
 

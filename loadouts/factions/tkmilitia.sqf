@@ -86,7 +86,7 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "TRYK_H_pakol2",
+    "LOP_H_Pakol",
     "H_ShemagOpen_tan",
     "H_ShemagOpen_khk"
 ];

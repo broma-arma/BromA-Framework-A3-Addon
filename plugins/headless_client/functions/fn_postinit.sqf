@@ -27,22 +27,22 @@ if (mission_AI_controller) then {
                 private _group = createGroup _center;
 
                 WHMModule = _group createUnit ["Werthles_moduleWHM", [0,0,0],[],0.5,"NONE"];
-                WHMModule setVariable ["Advanced", false];
-                WHMModule setVariable ["Debug", false];
-                WHMModule setVariable ["DebugOnly", false];
-                WHMModule setVariable ["Delay", 30];
-                WHMModule setVariable ["Ignores", ""];
-                WHMModule setVariable ["NoDebug", true];
-                WHMModule setVariable ["Pause", 3];
-                WHMModule setVariable ["Repeating", true];
-                WHMModule setVariable ["Report", true];
-                WHMModule setVariable ["Units", -666];
-                WHMModule setVariable ["UseServer", false];
-                WHMModule setVariable ["Wait", 30];
+                publicVariable "WHMModule";
+
+                WHMModule setVariable ["Advanced", false, true];
+                WHMModule setVariable ["Debug", false, true];
+                WHMModule setVariable ["DebugOnly", false, true];
+                WHMModule setVariable ["Delay", 30, true];
+                WHMModule setVariable ["Ignores", "", true];
+                WHMModule setVariable ["NoDebug", true, true];
+                WHMModule setVariable ["Pause", 3, true];
+                WHMModule setVariable ["Repeating", true, true];
+                WHMModule setVariable ["Report", true, true];
+                WHMModule setVariable ["Units", -666, true];
+                WHMModule setVariable ["UseServer", false, true];
+                WHMModule setVariable ["Wait", 30, true];
 
                 WHMModule synchronizeObjectsAdd [Headless_Client];
-
-                publicVariable "WHMModule";
 
                 [WHMModule] remoteExec ["Werthles_fnc_moduleWHM", Headless_Client];
             };

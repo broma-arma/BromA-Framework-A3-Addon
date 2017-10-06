@@ -439,6 +439,7 @@ _M4A6wdl = _M4;
 // =============================================================================
 
 _SR25 = ["rhs_weap_sr25", "rhsusf_20Rnd_762x51_m993_Mag"];
+_M14EBR = ["rhs_weap_m14ebrri", "rhsusf_20Rnd_762x51_m62_Mag"];
 
 _RHSAKM = ["rhs_weap_akm",_30rnd762AKM];
 _RHSAKMGL = ["rhs_weap_akm_gp25",_30rnd762AKM,_VOG25];
@@ -515,6 +516,10 @@ _RPG26 = ["rhs_weap_rpg26","rhs_rpg26_mag"];
 _AT4 = ["rhs_weap_M136","rhs_m136_mag"];
 _AT4HEDP = ["rhs_weap_M136_hedp","rhs_m136_mag"];
 _AT4HP = ["rhs_weap_M136_hp","rhs_m136_mag"];
+
+//                                SMAW
+
+_SMAW = ["rhs_weap_smaw", "rhs_mag_smaw_HEAA", "rhs_mag_smaw_HEDP"];
 
 // =============================================================================
 // =============================================================================

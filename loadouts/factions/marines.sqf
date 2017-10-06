@@ -32,10 +32,10 @@ _commonRIFLEGL = _RHSM16A4GL;
 _commonPISTOL = _M9;
 _commonAR = _M249S;
 _commonMG = _M240B;
-_commonMARKSMAN = _M14SOPMOD;
+_commonMARKSMAN = _M14EBR;
 _commonSNIPER = _M200;
-_commonAT = _AT4CSHEAT;
-_specAT = _MAAWS;
+_commonAT = _AT4;
+_specAT = _SMAW;
 _commonSMG = _RHSM4;
 _commonRCO = "rhsusf_acc_ACOG_USMC";
 _commonCCO = "rhsusf_acc_eotech_552";
@@ -94,7 +94,7 @@ _headsLIST = [
 ];
 
 _goggleLIST = [
-    "TRYK_SPGEAR_Glasses",
+    "rhs_googles_black",
     "empty"
 ];
 
@@ -115,10 +115,10 @@ _reconHEAD = "rhs_Booniehat_marpat"+_lp;
 
 _commonUNIFORM = "rhs_uniform_FROG01_"+_lp;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE";
+_pilotUNIFORM = "U_B_PilotCoveralls";
 _sniperUNIFORM = "U_B_FullGhillie_lsh";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE";
+_helicrewUNIFORM = "U_B_PilotCoveralls";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
@@ -127,7 +127,7 @@ _reconUNIFORM = _commonUNIFORM;
 
 _commonVEST = "rhsusf_spc_rifleman";
 _officerVEST = "rhsusf_spc";
-_ftlVEST = "rhsusf_spc_teamleader"	;
+_ftlVEST = "rhsusf_spc_teamleader";
 _slVEST = "rhsusf_spc_squadleader";
 _mgVEST = "rhsusf_spc_mg";
 _grenadierVEST = _commonVEST;

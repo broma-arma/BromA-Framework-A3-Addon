@@ -1,4 +1,4 @@
-if !(isClass(configFile>>"CfgPatches">>"ACE_MEDICAL")) exitWith {};
+if !(isClass(configFile >> "CfgPatches" >> "ACE_MEDICAL")) exitWith {};
 
 #include "includes\settings.sqf"
 
@@ -10,8 +10,9 @@ if !(isClass(configFile>>"CfgPatches">>"ACE_MEDICAL")) exitWith {};
 ace_medical_enableRevive = mission_ace3_revive_enable;
 ace_medical_maxReviveTime = mission_ace3_revive_time;
 ace_medical_amountOfReviveLives = mission_ace3_revive_lives;
+
 if (hasInterface) then {
-    player setVariable ["ace_medical_amountOfReviveLives",mission_ace3_revive_lives];
+    player setVariable ["ace_medical_amountOfReviveLives", mission_ace3_revive_lives];
 };
 
 //ACE 3 Medical ================================================================
@@ -29,6 +30,9 @@ ace_medical_preventInstaDeath = ACE_Medical_preventInstaDeath;
 ace_medical_bleedingcoefficient = ACE_Medical_bleeding;
 ace_medical_painCoefficient = ACE_Medical_pain;
 ace_medical_keepLocalSettingsSynced = true;
+
+// Last ditch attempt to make these fuckers die when shot.
+ACE_Medical_aiDamage = 20;
 
 //ACE 3 Advanced Medical =======================================================
 

@@ -113,6 +113,18 @@ switch (toUpper(_faction)) do {
         #include "factions\afrenian.sqf"
     };
 
+    case "EMPIRE": {
+        #include "factions\empire.sqf"
+    };
+
+    case "UNION": {
+        #include "factions\union.sqf"
+    };
+
+    case "JSDF": {
+        #include "factions\jsdf.sqf"
+    };
+
     case "DEFAULT": {
         #include "factions\template.sqf"
     };

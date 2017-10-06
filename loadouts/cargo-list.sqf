@@ -81,10 +81,12 @@ switch(_x) do {
     case "at":
     {
         [[_object,"magazine",
-            [_specAT select RAMMO,_countATCARGO]
+            [_specAT select RAMMO, _countATCARGO],
+            [_weaponsAT select RAMMO, _countWeaponsATCARGO],
+            [_weaponsAA select RAMMO, _countWeaponsAACARGO]
         ]] call BRM_FMK_fnc_addtoCargo;
         [[_object,"weapon",
-            [_specAT select GUN, 3]
+            [_commonAT select GUN, 10]
         ]] call BRM_FMK_fnc_addtoCargo;
     };
 
