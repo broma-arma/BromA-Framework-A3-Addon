@@ -68,7 +68,7 @@ _logPlugins = [];
 reverse _logPlugins;
 
 [{!isNil "framework_init_time"}, {
-    _frameworkVersion = call compile preprocessFile "\broma_framework\version.txt";
+    _frameworkVersion = format ["%1 - v%2", getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "versionDesc"), getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "version")];
     _localVersion = call compile preprocessFile "framework\local_version.txt";
 
     { player createDiaryRecord [FRAMEWORK_DIARY, ["Framework", _x]] } forEach _this;

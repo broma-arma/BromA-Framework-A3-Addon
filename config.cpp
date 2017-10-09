@@ -1,3 +1,11 @@
+#define MAJOR 0
+#define MINOR 80
+#define REVISION 9
+
+#define VERSION MAJOR.MINOR.REVISION
+#define VERSION_AR MAJOR,MINOR,REVISION
+
+#define QUOTE(var1) #var1
 
 class CfgPatches {
 	class BRM_FRAMEWORK {
@@ -5,8 +13,21 @@ class CfgPatches {
 		weapons[] = {};
 		requiredVersion = 1;
 		requiredAddons[] = {};
-		version = 1;
 		author = "Nife";
+		versionDesc = "Broma Framework MK 4 APEX";
+		version = VERSION;
+		versionStr = QUOTE(VERSION);
+		versionAr[] = {VERSION_AR};
+	};
+};
+
+class CfgSettings {
+	class CBA {
+		class Versioning {
+			class BRM_FRAMEWORK {
+				main_addon = "BRM_FRAMEWORK";
+			};
+		};
 	};
 };
 
