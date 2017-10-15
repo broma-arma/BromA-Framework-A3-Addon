@@ -10,3 +10,5 @@
 #include "broma-weapon-list.sqf"
 #include "broma-misc-list.sqf"
 #include "broma-people-list.sqf"
+
+#include "\broma_framework\loadouts\includes\default-equipment.sqf"
