@@ -60,7 +60,6 @@ if (!_initialized) then {
 
     // Adds the relevant Event Handlers. =======================================
 
-    _unit addEventHandler ["Hit", BRM_FMK_fnc_setHitFace];
     _unit addEventHandler ["Hit", {(_this select 0)setVariable["last_damage", (_this select 1)]}];
     _unit addEventHandler ["Killed", BRM_fnc_onAIKilled];
 

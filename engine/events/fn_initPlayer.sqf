@@ -139,6 +139,12 @@ player addEventHandler ["Respawn", BRM_fnc_onPlayerRespawn];
 player addEventHandler ["Hit", {(_this select 0)setVariable["last_damage",(_this select 1)]}];
 player addEventHandler ["Killed", BRM_fnc_onPlayerKilled];
 
+addMissionEventHandler ["EntityKilled", {
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+
+	_unit setMimic "dead";
+}];
+
 // Changes the player's assigned color within its group. =======================
 
 [player, _role, toUpper(_groupColor)] spawn {
