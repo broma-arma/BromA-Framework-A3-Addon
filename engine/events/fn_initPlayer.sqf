@@ -118,7 +118,7 @@ if (player_is_jip) then {
 
 _score = 0;
 
-{ if ((_x select 0) == name player) then { _score = (_x select 2) } } forEach mission_unit_score;
+{ if ((_x select 0) == name player) then { _score = (_x select 1) } } forEach mission_unit_score;
 
 player setVariable ["unit_score", player getVariable ["unit_score", _score]];
 player setVariable ["unit_deaths", player getVariable ["unit_deaths",0]];

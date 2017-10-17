@@ -8,6 +8,7 @@ AUTHOR(s):
     Nife
 
 DESCRIPTION:
+    DEPRECATED - setGroupIdGlobal
     Changes a group's ID globally.
 
 PARAMETERS:

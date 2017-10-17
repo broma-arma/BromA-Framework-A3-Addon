@@ -16,7 +16,7 @@ PARAMETERS:
     2 - Unit's role. (STRING)
     
 USAGE:
-    [] call BRM_FMK_fnc_setAlias
+    [blu_0_0_1] call BRM_FMK_fnc_setAlias
     
 RETURNS:
     Nothing.
@@ -24,66 +24,55 @@ RETURNS:
 ================================================================================
 */
 
-private ["_side","_number","_sideGroup","_role","_groupName","_groupNameNumber"];
+params ["_unit", ["_group", "*"], ["_role", "*"]];
 
-_aliasAUTO = ["*","AUTO","ANY"];
+private _aliasAUTO = ["*", "AUTO", "ANY"];
 
-_unit = _this select 0;
-_group = _this select 1;
-_role = _this select 2;
+((str _unit) splitString "_") params ["_unitSide", "_groupCallsign", "_groupNumber", "_unitNumber"];
 
-_playerUnit = [str(_unit), "_"] call CBA_fnc_split;
+private _isLeader = isFormationLeader _unit;
 
-_unitSide = _playerUnit select 0;
-_groupCallsign = _playerUnit select 1;
-_groupNumber = _playerUnit select 2;
-_unitNumber = _playerUnit select 3;
-
-_isLeader = (isFormationLeader _unit);
-_groupName = _group;
-_actualGroup = (_groupNumber == "0");
-_autoNamed = (_group in _aliasAUTO);
-
-if (!_autoNamed) then { _groupNumber = "" };
+private _groupName = _group;
+private _autoNamed = _group in _aliasAUTO;
+private _actualGroup = _groupNumber == "0";
 
 if (_autoNamed) then {
+	private _side = switch (_unitSide) do {
+		case "blu": { WEST };
+		case "op":  { EAST };
+		case "ind": { RESISTANCE };
+		case "civ": { CIVILIAN };
+	};
 
-    switch (_unitSide) do {
-        case ("blu"): { _side = WEST };
-        case ("op"): { _side = EAST };
-        case ("ind"): { _side = RESISTANCE };
-        case ("civ"): { _side = CIVILIAN };
-    };
-    
-    switch (true) do {
-        case (_side == side_a_side): { _group = side_a_callsigns select (parseNumber(_groupCallsign)) };
-        case (_side == side_b_side): { _group = side_b_callsigns select (parseNumber(_groupCallsign)) };
-        case (_side == side_c_side): { _group = side_c_callsigns select (parseNumber(_groupCallsign)) };
-    };
-
-    if (_actualGroup) then { _groupNameNumber = "" } else { _groupNameNumber = " " + _groupNumber };
-    _groupName = _group + _groupNameNumber;
+	_group = ([_side, "callsigns"] call BRM_FMK_fnc_getSideInfo) select (parseNumber _groupCallsign);
+	private _groupNameNumber = if (_actualGroup) then { "" } else { " " + _groupNumber };
+	_groupName = _group + _groupNameNumber;
+} else {
+	_groupNumber = "";
 };
 
-if (_actualGroup) then { _groupNumber = "" };
-if ( (_isLeader) && !(_actualGroup) && (_autoNamed) ) then { _groupNumber = _groupNumber + " " };
-if (_isLeader) then { _unitNumber = "" } else { _unitNumber = "'"+(_unitNumber) };
+if (_actualGroup) then {
+	_groupNumber = "";
+} else {
+	if (_isLeader && _autoNamed) then {
+		_groupNumber = _groupNumber + " ";
+	};
+};
+_unitNumber = if (_isLeader) then { "" } else { "'" + _unitNumber };
 
-_aliasACTUAL = ["CO", "Officer", "SL", "Squad Leader"];
-_aliasFTL = ["FTL", "Team Leader"];
+if ((toUpper _role) in _aliasAUTO) then {
+	_role = getText (configFile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
+};
 
 switch (true) do {
-    case (_actualGroup && _isLeader): { _role = "Actual" };
-    case (_role in _aliasACTUAL): { _role = "Actual" };
-    case (_role in _aliasFTL): { _role = "FTL" };
-    case (_isLeader): { _role = "Leader" };    
+	case (_actualGroup && _isLeader):                        { _role = "Actual" };
+	case (_role in ["CO", "Officer", "SL", "Squad Leader"]): { _role = "Actual" };
+	case (_role in ["FTL", "Team Leader"]):                  { _role = "FTL" };
+	case (_isLeader):                                        { _role = "Leader" };    
 };
 
 if (_unitNumber != "") then { _unitNumber = _unitNumber + " " };
 
-_rosterAlias = format ["%1 %2%3%4", _group, _groupNumber, _unitNumber, _role];
+(group _unit) setGroupIdGlobal [_groupName];
 
-(group _unit) setGroupId [_groupName];
-[[(group _unit), _groupName],"BRM_FMK_fnc_setGrpIDGlobal",true,true] call BIS_fnc_MP;
-
-_unit setVariable ["rosterAlias", _rosterAlias, true];
+_unit setVariable ["rosterAlias", format ["%1 %2%3%4", _group, _groupNumber, _unitNumber, _role], true];

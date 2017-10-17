@@ -25,36 +25,24 @@ RETURNS:
 
 if (!isServer) exitWith {};
 
-waitUntil{(!isNil "mission_settings_loaded")};
-waitUntil{(mission_settings_loaded)};
+waitUntil { !isNil "mission_settings_loaded" && {mission_settings_loaded} };
 
 mission_groups_init = false; publicVariable "mission_groups_init";
 
-private["_unitstoCheck"];
-
-if (isMultiplayer) then { _unitstoCheck = playableUnits } else { _unitstoCheck = allUnits };
+private _unitsToCheck = if (isMultiplayer) then { playableUnits } else { allUnits };
 
 {
-    _unitInit = _x getVariable ["unitInit", ["skip"]];
-    _find = [str(_x), "_"] call CBA_fnc_find;
-    
-    if ( ((_unitInit select 0) != "skip") && (_find > -1)) then {
-        _aliasAUTO = ["*","AUTO","ANY"];
-        
-        _role = _unitInit select 2;
-        _groupName = _unitInit select 3;
-        _unitName = [str(_x), "_"] call CBA_fnc_split;
-        
-        _newGroup = (_unitName select 0) + "_" + (_unitName select 1) + "_" +  (_unitName select 2);
-        
-        call compile format ["%1 = group _x; publicVariable '%1'", _newGroup];
-        
-        if (toUpper(_role) in _aliasAUTO) then {
-            _role = getText (configfile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
-        };
-        
-        [_x, _groupName, _role] call BRM_FMK_fnc_setAlias;
-    };
-} forEach _unitstoCheck;
+	private _unitInit = _x getVariable "unitInit";
+	if !(isNil "_unitInit") then {
+		private _unitName = str _x splitString "_";
+		if (count _unitName == 4) then {
+			_unitInit params ["_color", "_loadout", "_role", "_groupName"];
+
+			missionNamespace setVariable [(_unitName select [0, 3]) joinString "_", group _x, true];
+
+			[_x, _groupName, _role] call BRM_FMK_fnc_setAlias;
+		};
+	};
+} forEach _unitsToCheck;
 
 mission_groups_init = true; publicVariable "mission_groups_init";
