@@ -154,7 +154,7 @@ addMissionEventHandler ["EntityKilled", {
 
     sleep 5;
 
-    [-1, { (_this select 0) assignTeam (_this select 1)}, [_player, _color]] call CBA_fnc_globalExecute;
+	_player assignTeam _color;
 };
 
 // Disables object recognition to save performance. ============================
