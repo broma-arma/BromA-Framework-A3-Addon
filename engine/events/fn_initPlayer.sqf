@@ -118,7 +118,7 @@ if (player_is_jip) then {
 
 _score = 0;
 
-{ if ((_x select 0) == name player) then { _score = (_x select 2) } } forEach mission_unit_score;
+{ if ((_x select 0) == name player) then { _score = (_x select 1) } } forEach mission_unit_score;
 
 player setVariable ["unit_score", player getVariable ["unit_score", _score]];
 player setVariable ["unit_deaths", player getVariable ["unit_deaths",0]];
@@ -139,6 +139,12 @@ player addEventHandler ["Respawn", BRM_fnc_onPlayerRespawn];
 player addEventHandler ["Hit", {(_this select 0)setVariable["last_damage",(_this select 1)]}];
 player addEventHandler ["Killed", BRM_fnc_onPlayerKilled];
 
+addMissionEventHandler ["EntityKilled", {
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+
+	_unit setMimic "dead";
+}];
+
 // Changes the player's assigned color within its group. =======================
 
 [player, _role, toUpper(_groupColor)] spawn {
@@ -148,7 +154,7 @@ player addEventHandler ["Killed", BRM_fnc_onPlayerKilled];
 
     sleep 5;
 
-    [-1, { (_this select 0) assignTeam (_this select 1)}, [_player, _color]] call CBA_fnc_globalExecute;
+	_player assignTeam _color;
 };
 
 // Disables object recognition to save performance. ============================

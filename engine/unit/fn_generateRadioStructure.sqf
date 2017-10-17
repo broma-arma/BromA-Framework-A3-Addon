@@ -14,10 +14,10 @@ PARAMETERS:
     0 - Side (SIDE)
 
 USAGE:
-    [] call BRM_fnc_defineGroups
+    [west] call BRM_fnc_generateRadioStructure
 
 RETURNS:
-    0 - The structured ORBAT with radio frequencies.
+    The structured ORBAT with radio frequencies. (STRING)
 
 ================================================================================
 */
@@ -28,7 +28,7 @@ private _sideCallsigns = [_side, "callsigns"] call BRM_FMK_fnc_getSideInfo;
 
 _sideCallsigns params [
 "_z","_a", "_b", "_c", "_d",
-"_r", "_s", "_w", "_s", "_p", "_m",
+"_r", "_s", "_w", "_sh", "_p", "_m",
 "_l", "_t", "_h", "_pe"];
 
 private _longRangeFrequenciesList = format["
@@ -84,7 +84,7 @@ private _longRangeFrequenciesList = format["
         <font color='#0f93db'>%10</font color>: 39.9<br/>
         <font color='#0f93db'>%14 - Transport</font color>: 43<br/>
             <font color='#50ba0e'>%14 '1</font color>: 43.1<br/>
-            <font color='#50ba0e'>%12 '2</font color>: 43.2<br/>
+            <font color='#50ba0e'>%14 '2</font color>: 43.2<br/>
         <br/>
         <font color='#0f93db'>%14 - CAS</font color>: 43<br/>
             <font color='#50ba0e'>%14 '3</font color>: 43.3<br/>
@@ -92,7 +92,7 @@ private _longRangeFrequenciesList = format["
         <font color='#0f93db'>%15</font color>: 44<br/>
             <font color='#50ba0e'>%15 '3</font color>: 44.1<br/>
             <font color='#50ba0e'>%15 '4</font color>: 44.1
-", _z,_a,_b,_c,_d,_r,_s,_w,_s,_p,_m,_l,_t,_h,_pe];
+", _z,_a,_b,_c,_d,_r,_s,_w,_sh,_p,_m,_l,_t,_h,_pe];
 //      1  2  3  4  5  6  7  8  9 10 11 12 13  14 15
 
 _longRangeFrequenciesList
