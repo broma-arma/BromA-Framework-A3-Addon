@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_setTask
-    
+
 AUTHOR(s):
     Nife
 
@@ -13,31 +13,36 @@ DESCRIPTION:
 PARAMETERS:
     0 - Task ID (STRING)
     1 - Desired state (STRING)
-    
+
 USAGE:
     ["myTaskID", "FAILED"] call BRM_FMK_fnc_setTask
-    
+
 RETURNS:
     Nothing.
 
 ================================================================================
 */
 
-_task = _this select 0;
-_state = _this select 1;
+params ["_task", "_state"];
 
-if (!(([_task] call BIS_fnc_taskState) == _state)) then {
-    [_task, _state, true] call BIS_fnc_taskSetState;
-    
-    _index = -1;
-    
-    { if (_task == (_x select 0)) exitWith { _index = _forEachIndex } } forEach tasks_callbacks;
-    
-    if (_index > -1) then {
-        switch (toUpper(_state)) do {
-            case "SUCCEEDED": { call compile (((tasks_callbacks select _index) select 1) select 1) };
-            case "FAILED": { call compile (((tasks_callbacks select _index) select 1) select 2) };
-            case "CANCELED": { call compile (((tasks_callbacks select _index) select 1) select 2) };
-        };
-    };
+_state = toUpper _state;
+
+if (([_task] call BIS_fnc_taskState) != _state) then {
+	[_task, _state, true] call BIS_fnc_taskSetState;
+
+	{
+		{
+			if (_x select 0 == _task) exitWith {
+				private _index = switch (_state) do {
+					case "SUCCEEDED": { 4 };
+					case "FAILED";
+					case "CANCELED":  { 5 };
+					default           { -1 };
+				};
+				if (_index != -1) then {
+					call (_x select _index);
+				};
+			};
+		} forEach _x;
+	} forEach BRM_FMK_tasks;
 };
