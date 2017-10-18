@@ -18,31 +18,23 @@ USAGE:
     [] call BRM_fnc_warnConflict;
 
 RETURNS:
-    Plugins with conflicts. [framework_plugin_conflicts](ARRAY)
+    Nothing.
 
 ================================================================================
 */
 
-framework_plugin_conflicts = [];
+0 spawn {
+	waitUntil { !isNil "plugins_loaded" && {plugins_loaded} };
 
-{
-    private["_errors"];
+	{
+		private _conflicts = getArray (configFile >> "CfgBRMPlugins" >> _x >> "conflict_plugins") select { _x in usedPlugins };
 
-    _path = (missionConfigFile >> "CfgPlugins" >> configName(_x));
-    _name = getText( _path >> "name");
-    _version = str(getNumber( _path >> "version"));
-    _conflictPlugins = getArray(_path >> "conflict_plugins");
-
-    _errors = [format["The plugin %1(v%2) has a conflicted with some currently enabled Plugins. Please disable the following:", _name, _version]];
-
-    { if (_x in usedPlugins) then { _errors pushBack _x } } forEach _conflictPlugins;
-
-    if (count _errors > 1) then {
-        framework_plugin_conflicts pushBack _name;
-
-        _errors spawn {
-            sleep (random(1)+0.5);
-            "FRAMEWORK PLUGIN CONFLICT:" hintC _this;
-        };
-    };
-} forEach ENGINE_plugins;
+		if (count _conflicts > 0) then {
+			sleep 0.1;
+			private _title = "ERROR - Framework Plugin Conflict";
+			private _message = format ["The plugin %1 has a conflict with the following plugins:", _x];
+			_title hintC ([_message] + _conflicts);
+			["LOCAL", "LOG", format ["%1: %2 %3", _title, _message, [_conflicts] call BRM_FMK_fnc_verboseArray]] call BRM_FMK_fnc_doLog;
+		};
+	} forEach usedPlugins;
+};
