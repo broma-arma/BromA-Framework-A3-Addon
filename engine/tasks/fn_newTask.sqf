@@ -56,8 +56,6 @@ RETURNS:
 
 if (!isServer) exitWith {};
 
-diag_log text format ["fn_newTask: %1", _this];
-
 params ["_side", "_id", "_details", "_cond", "_priority", "_callback"];
 
 _details params ["_title", "_desc", "_type", ["_position", objNull, [[]]]];
