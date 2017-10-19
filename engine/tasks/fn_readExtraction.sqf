@@ -38,7 +38,6 @@ private _extractionPoints = [[], [], [], []]; // Blu, Op, Ind, Civ
 {
 	private _extName = str _x splitString "_";
 	if (count _extName > 2 && {_extName select 1 == "extraction"}) then {
-		systemChat format ["_extName: %1", _extName];
 		private _index = _sideStrs find (_extName select 0);
 		private _color = if (_index != -1) then {
 			_extractionPoints select _index pushBackUnique _x;
