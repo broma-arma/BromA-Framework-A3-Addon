@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_getSideInfo
-    
+
 AUTHOR(s):
     Nife
 
@@ -13,34 +13,27 @@ DESCRIPTION:
 PARAMETERS:
     0 - Side whose information should be returned. (SIDE)
     1 - The type of information. (STRING)
-    
+
 USAGE:
     [west, "callsigns"] call BRM_FMK_fnc_getSideInfo;
     [east, "name"] call BRM_FMK_fnc_getSideInfo;
     [resistance, "faction"] call BRM_FMK_fnc_getSideInfo;
-    
+
 RETURNS:
     The requested information. (ANY)
 
 ================================================================================
 */
 
+params ["_side", "_info"];
 
-private ["_ret","_side"];
+if (_side == CIVILIAN) exitWith { "CIVILIAN" };
 
-_side = _this select 0;
-_info = _this select 1;
-
-if (_side == civilian) then {
-    _ret = "CIVILIAN";
-} else {
-    switch (true) do {
-        case (_side == side_a_side): { _side = "side_a" + "_" + _info };
-        case (_side == side_b_side): { _side = "side_b" + "_" + _info };
-        case (_side == side_c_side): { _side = "side_c" + "_" + _info };
-    };    
-        
-    call compile format ["_ret = %1", _side];
+_side = switch (_side) do {
+	case side_a_side: { "a" };
+	case side_b_side: { "b" };
+	case side_c_side: { "c" };
+	default           { "a" };
 };
 
-_ret
+missionNamespace getVariable format ["side_%1_%2", _side, _info]
