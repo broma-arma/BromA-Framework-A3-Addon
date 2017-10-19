@@ -1,4 +1,4 @@
-if (!hasInterface || player_is_spectator) exitWith {};
+if !(hasInterface && {!player_is_spectator}) exitWith {};
 
 #include "includes\settings.sqf"
 
