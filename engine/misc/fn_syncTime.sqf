@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_syncTime
-    
+
 AUTHOR(s):
     Nife
 
@@ -12,29 +12,36 @@ DESCRIPTION:
 
 PARAMETERS:
     None.
-    
+
 USAGE:
     [] spawn BRM_FMK_fnc_syncTime.
-    
+
 RETURNS:
     Nothing.
 
 ================================================================================
 */
 
-waitUntil{!(isNil "player_is_jip")};
+waitUntil { !isNil "player_is_jip" };
 if !(player_is_jip) exitWith {};
 
-waitUntil {!isNil "current_server_time"};
+if (isRemoteExecuted) then {
+	private _names = ["DATE", "FOG", "RAIN", "GUSTS", "LIGHTNINGS", "OVERCAST", "RAINBOW", "WIND STRENGTH", "WIND FORCE", "WAVES"];
+	private _i = -1;
+	["LOCAL", "LOG", format ["=== PLAYER SYNCHRONIZED TIME @ %1: %2", time, _this apply { _i = _i + 1; format ["%1: %2", _names select _i, _x] } joinString " | "]] call BRM_FMK_fnc_doLog;
 
-sleep 1;
+	params ["_date", "_fogParams", "_rain", "_gusts", "_lightnings", "_overcast", "_rainbow", "_windStr", "_wind", "_waves"];
 
-["LOCAL", "LOG", format ["=== PLAYER SYNCRONIZING TIME @ %8: DATE: %1 | FOG: %2 | RAIN: %3 | OVERCAST %4 | RAINBOW: %5 | WIND STRENGTH: %6 | WIND FORCE: %7 | WAVES: %8",current_server_time,current_server_fog,current_server_rain,current_server_overcast,current_server_rainbow,current_server_windstr,current_server_windforce,current_server_waves]] call BRM_FMK_fnc_doLog;
-
-setDate current_server_time;
-0 setFog current_server_fog;
-0 setOvercast current_server_overcast;
-0 setRain current_server_rain;
-0 setRainbow current_server_rainbow;
-0 setWindStr current_server_windstr;
-0 setWaves current_server_waves;
+	setDate _date;
+	0 setFog _fogParams;
+	0 setRain _rain;
+	0 setGusts _gusts;
+	0 setLightnings _lightnings;
+	0 setOvercast _overcast;
+	0 setRainbow _rainbow;
+	0 setWindStr _windStr;
+	setWind _wind;
+	0 setWaves _waves;
+} else {
+	0 remoteExec ["BRM_FMK_fnc_stampTime", 2];
+};

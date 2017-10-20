@@ -153,5 +153,3 @@ switch (_paramWindValues) do {
 0 setWaves (_windValues select 2);
 
 0 setFog _fogValues;
-
-[] spawn BRM_FMK_fnc_stampTime;
