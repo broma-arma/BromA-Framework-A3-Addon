@@ -28,60 +28,42 @@ RETURNS:
 ================================================================================
 */
 
-private ["_scope","_type","_msg","_cond"];
+params ["_scope", "_type", "_msg", ["_cond", true]];
 
-_scope = _this select 0;
-_type = _this select 1;
-_msg = _this select 2;
+if (!_cond || (_scope == "SERVER_ONLY" && !isServer) || (_scope == "CLIENT_ONLY" && isDedicated)) exitWith {};
 
-_cond = true;
-
-if (count _this > 3) then {
-    _cond = _this select 3;
+private _target = switch (toUpper _scope) do {
+	case "SERVER_ONLY";
+	case "CLIENT_ONLY";
+	case "LOCAL"  : { 1 };
+	case "SERVER" : { if (isServer) then { 1 } else { 2 } };
+	case "CLIENTS";
+	case "ALL"    : { 0 };
+	default       { 1 };
 };
 
-if (!_cond) exitWith {};
+if !(_msg isEqualType "") then { _msg = str _msg };
 
-if (!(typeName _msg == "STRING")) then { _msg = str _msg };
+if (_target == 1) then {
+	switch (toUpper _type) do {
+		case "HINT" : { hint _msg; };
+		case "CHAT" : { systemChat _msg; };
+		case "LOG"  : { diag_log text _msg; };
+		case "F_LOG": {
+			private _padding = "==========================================================================================================";
+			if (count _msg > 0) then {
+				_msg = "=== " + _msg;
+				private _pad = (count _padding) - (count _msg);
+				if (_pad > 1) then {
+					_msg = _msg + " " + (_padding select [0, _pad - 1]);
+				};
+			} else {
+				_msg = _padding;
+			};
 
-switch (toUpper(_scope)) do {
-    case "LOCAL" : { _scope = 1 };
-    case "SERVER" : { _scope = 0 };
-    case "SERVER_ONLY": { _scope = 2 };
-    case "CLIENTS" : { _scope = -1 };
-    case "ALL" : { _scope = -2 };
-    default { _scope = 1 };
-};
-
-if ( (_scope == 2) && !isServer) exitWith {};
-
-switch (toUpper(_type)) do {
-    case "HINT" : {
-        if (_scope < 1) then {
-            [_scope, { hint _this }, _msg] call CBA_fnc_globalExecute;
-        } else { hint _msg };
-    };
-    case "CHAT" : {
-        if (_scope < 1) then {
-            [_scope, { player globalChat _this }, _msg] call CBA_fnc_globalExecute;
-        } else { player globalChat _msg };
-    };
-    case "LOG" : {
-        if (_scope < 1) then {
-            [_scope, { diag_log _this }, _msg] call CBA_fnc_globalExecute;
-        } else { diag_log _msg };
-    };
-    case "F_LOG" : {
-        _padding = ( 100 - (count _msg) );
-        _msg = "=== " + _msg + " ";
-
-        if (_padding > 0) then {
-            for "_i" from 0 to _padding do {
-                _msg = _msg + "=";
-            };
-        };
-        if (_scope < 1) then {
-            [_scope, { diag_log _this }, _msg] call CBA_fnc_globalExecute;
-        } else { diag_log _msg };
-    };
+			diag_log text _msg;
+		};
+	};
+} else {
+	[if (_scope == "CLIENTS") then { "CLIENT_ONLY" } else { "LOCAL" }, _type, _msg] remoteExec ["BRM_FMK_fnc_doLog", _target];
 };
