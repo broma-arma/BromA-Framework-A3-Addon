@@ -26,26 +26,24 @@ RETURNS:
 
 if (!hasInterface) exitWith {};
 finishMissionInit;
-waitUntil {(player == player)};
-waitUntil{!(isNull player)};
+waitUntil { player == player && !isNull player };
 
-_playerLog = format ["INITIALIZING PLAYER '%1' (%2)", name player, player];
-
+private _playerLog = format ["INITIALIZING PLAYER '%1' (%2)", name player, player];
 ["LOCAL", "F_LOG", _playerLog] call BRM_FMK_fnc_doLog;
 ["SERVER", "F_LOG", _playerLog] call BRM_FMK_fnc_doLog;
 
 // Assigns JIP status. =========================================================
 
-player_is_jip = (time > 0.1);
-
-player_is_spectator = (player getVariable ["is_spectator", false]);
-
-if ((!mission_allow_jip) && player_is_jip && (!player_is_spectator)) exitWith {
-    [player] spawn BRM_FMK_fnc_removeJIP;
-    player setVariable ["unit_initialized", true, true];
-};
+player_is_jip = didJIP;
 
 ["LOCAL", "F_LOG", format ["JIP STATUS: %1 | TIME: %2", player_is_jip, time]] call BRM_FMK_fnc_doLog;
+
+player_is_spectator = player getVariable ["is_spectator", false];
+
+if (!mission_allow_jip && player_is_jip && !player_is_spectator) exitWith {
+	[player] spawn BRM_FMK_fnc_removeJIP;
+	player setVariable ["unit_initialized", true, true];
+};
 
 // Synchronize time with the server. ===========================================
 
@@ -57,51 +55,44 @@ if (player_is_spectator) exitWith { [player] call BRM_FMK_fnc_initSpectator };
 
 // Checks if player hasn't already been initialized. ===========================
 
-_initialized = player getVariable ["unit_initialized",false];
-
-if (_initialized) exitWith {};
-
-private["_faction","_role"];
+if (player getVariable ["unit_initialized", false]) exitWith {};
 
 // Reads player's init line. ===================================================
 
-_initUnit = player getVariable ["unitInit", ["white", "*", "*", "*", "*"]];
-_aliasAUTO = ["*","AUTO","ANY"];
-_aliasNONE = ["-","NONE","VANILLA"];
-
-_groupColor = _initUnit select 0;
-_faction = _initUnit select 1;
-_role = _initUnit select 2;
-_groupName = _initUnit select 3;
+(player getVariable ["unitInit", ["white", "*", "*", "*"]]) params ["_groupColor", "_faction", "_role", "_groupName"];
 
 // Adds player to relevant lists and registers its original side. ==============
 
-player setVariable ["unit_side", (side player), true];
+player setVariable ["unit_side", side player, true];
 
-switch (true) do {
-    case (side player == side_a_side): { if !(player in mission_players_A) then { mission_players_A pushBack player; publicVariable "mission_players_A" } };
-    case (side player == side_b_side): { if !(player in mission_players_B) then { mission_players_B pushBack player; publicVariable "mission_players_B" } };
-    case (side player == side_c_side): { if !(player in mission_players_C) then { mission_players_C pushBack player; publicVariable "mission_players_C" } };
+switch (side player) do {
+	case side_a_side: { if !(player in mission_players_A) then { mission_players_A pushBack player; publicVariable "mission_players_A" }; };
+	case side_b_side: { if !(player in mission_players_B) then { mission_players_B pushBack player; publicVariable "mission_players_B" }; };
+	case side_c_side: { if !(player in mission_players_C) then { mission_players_C pushBack player; publicVariable "mission_players_C" }; };
 };
 
 // Reads player faction and assigns the unit loadout. ==========================
 
-switch (true) do {
-    case (_faction == "side_a"): { _faction = side_a_faction };
-    case (_faction == "side_b"): { _faction = side_b_faction };
-    case (_faction == "side_c"): { _faction = side_c_faction };
+_faction = switch (_faction) do {
+	case "side_a": { side_a_faction };
+	case "side_b": { side_b_faction };
+	case "side_c": { side_c_faction };
+	default        { _faction };
 };
 
-if (toUpper(_faction) in _aliasAUTO) then {
-    _faction = [(side player), "faction"] call BRM_FMK_fnc_getSideInfo;
+private _aliasAUTO = ["*", "AUTO", "ANY"];
+private _aliasNONE = ["-", "NONE", "VANILLA"];
+
+if (toUpper _faction in _aliasAUTO) then {
+	_faction = [side player, "faction"] call BRM_FMK_fnc_getSideInfo;
 };
 
-if (toUpper(_role) in _aliasAUTO) then {
-    _role = getText (configfile >> "CfgVehicles" >> typeOf player >> "displayName");
+if (toUpper _role in _aliasAUTO) then {
+	_role = getText (configfile >> "CfgVehicles" >> typeOf player >> "displayName");
 };
 
-if ((!(_faction in _aliasNONE)) && (!units_player_useVanillaGear)) then {
-    [player, _faction, _role] call BRM_fnc_assignLoadout;
+if (!(_faction in _aliasNONE) && !units_player_useVanillaGear) then {
+	[player, _faction, _role] call BRM_fnc_assignLoadout;
 };
 
 // Holster player's weapon. ====================================================
@@ -111,32 +102,34 @@ if ((!(_faction in _aliasNONE)) && (!units_player_useVanillaGear)) then {
 // Assigns alias to other units and groups. ====================================
 
 if (player_is_jip) then {
-    [player, _groupName, _role] call BRM_FMK_fnc_setAlias;
+	[player, _groupName, _role] call BRM_FMK_fnc_setAlias;
 };
 
 // Initializes score related variables. ========================================
 
-_score = 0;
-
-{ if ((_x select 0) == name player) then { _score = (_x select 1) } } forEach mission_unit_score;
-
-player setVariable ["unit_score", player getVariable ["unit_score", _score]];
-player setVariable ["unit_deaths", player getVariable ["unit_deaths",0]];
+if (isNil {player getVariable "unit_score"}) then {
+	private _score = 0;
+	{ if (_x select 0 == name player) exitWith { _score = _x select 1; }; } forEach mission_unit_score;
+	player setVariable ["unit_score", _score];
+};
+if (isNil {player getVariable "unit_deaths"}) then {
+	player setVariable ["unit_deaths", 0];
+};
 
 // Assigns AGM related variables. ==============================================
 
 if (mission_AGM_enabled) then {
-    switch (_role) do {
-        case "medic": { player setVariable ["AGM_IsMedic", true, true] };
-        case "pilot": { player setVariable ["AGM_GForceCoef", 0.75, true] };
-        case "engineer": { player setVariable ["AGM_IsEOD", true, true] };
-    };
+	switch (_role) do {
+		case "medic":    { player setVariable ["AGM_IsMedic",    true, true] };
+		case "pilot":    { player setVariable ["AGM_GForceCoef", 0.75, true] };
+		case "engineer": { player setVariable ["AGM_IsEOD",      true, true] };
+	};
 };
 
 // Adds Event Handlers with pre-configured functions. ==========================
 
 player addEventHandler ["Respawn", BRM_fnc_onPlayerRespawn];
-player addEventHandler ["Hit", {(_this select 0)setVariable["last_damage",(_this select 1)]}];
+player addEventHandler ["Hit", { (_this select 0) setVariable ["last_damage", _this select 1] }];
 player addEventHandler ["Killed", BRM_fnc_onPlayerKilled];
 
 addMissionEventHandler ["EntityKilled", {
@@ -147,14 +140,12 @@ addMissionEventHandler ["EntityKilled", {
 
 // Changes the player's assigned color within its group. =======================
 
-[player, _role, toUpper(_groupColor)] spawn {
-    _player = _this select 0;
-    _role = _this select 1;
-    _color = _this select 2;
+[toUpper _groupColor] spawn {
+	params ["_color"];
 
-    sleep 5;
+	sleep 5;
 
-	_player assignTeam _color;
+	player assignTeam _color;
 };
 
 // Disables object recognition to save performance. ============================
@@ -163,7 +154,10 @@ if (mission_game_mode == "tvt") then { disableRemoteSensors true };
 
 // Makes sure text channels are disabled. ======================================
 
-0 spawn { sleep 10; { _x enableChannel [false, false] } forEach [0, 1, 2] };
+0 spawn {
+	sleep 10;
+	{ _x enableChannel false; } forEach getArray (missionConfigFile >> "disableChannels")
+};
 
 // Finishes initialization sequence. ===========================================
 

@@ -24,47 +24,47 @@ RETURNS:
 ================================================================================
 */
 
-[{(pluginsLoaded)}, {
+[{pluginsLoaded}, {
+	params ["_unit", "_faction"];
 
-params ["_unit", "_faction"];
+	if !(_unit isKindOf "CAManBase") exitWith {};
 
-if !(_unit isKindOf "CAManBase") exitWith {};
+	// Check if the unit already hasn't been initialized. ==========================
 
-// Check if the unit already hasn't been initialized. ==========================
+	if (_unit getVariable ["unit_initialized", false]) exitWith {};
 
-_initialized = _unit getVariable ["unit_initialized", false];
+	// Determines the unit's faction. ==========================================
 
-if (!_initialized) then {
+	_unit setVariable ["unit_side", side _unit, true];
 
-    // Determines the unit's faction. ==========================================
+	_faction = switch (_faction) do {
+		case "side_a": { side_a_faction };
+		case "side_b": { side_b_faction };
+		case "side_c": { side_c_faction };
+		default        { _faction };
+	};
 
-    _unit setVariable ["unit_side", (side _unit), true];
+	private _aliasAUTO = ["*", "AUTO", "ANY"];
+	private _aliasNONE = ["-", "NONE", "VANILLA"];
 
-    switch (true) do {
-        case (_faction == "side_a"): { _faction = side_a_faction };
-        case (_faction == "side_b"): { _faction = side_b_faction };
-        case (_faction == "side_c"): { _faction = side_c_faction };
-    };
+	if (toUpper _faction in _aliasAUTO) then {
+		_faction = [side _unit, "FACTION"] call BRM_FMK_fnc_getSideInfo;
+	};
 
-    if (toUpper(_faction) == "AUTO") then {
-        _faction = [(side _unit), "FACTION"] call BRM_FMK_fnc_getSideInfo;
-    };
+	if !(_faction isEqualType "") then { _faction = str _faction };
 
-    if (typeName _faction != "STRING") then { _faction = str _faction };
+	// Assigns the Unit's loadout depending on mission settings. ===============
 
-    // Assigns the Unit's loadout depending on mission settings. ===============
+	if (!(_faction in _aliasNONE) && !units_AI_useVanillaGear) then {
+		[_unit, _faction] call BRM_fnc_assignLoadout;
+	};
 
-    if (!(_faction == "VANILLA") && !units_AI_useVanillaGear) then {
-        [_unit, _faction] call BRM_fnc_assignLoadout;
-    };
+	// Adds the relevant Event Handlers. =======================================
 
-    // Adds the relevant Event Handlers. =======================================
+	_unit addEventHandler ["Hit", { (_this select 0) setVariable ["last_damage", _this select 1] }];
+	_unit addEventHandler ["Killed", BRM_fnc_onAIKilled];
 
-    _unit addEventHandler ["Hit", {(_this select 0)setVariable["last_damage", (_this select 1)]}];
-    _unit addEventHandler ["Killed", BRM_fnc_onAIKilled];
+	// Finishes loading. =======================================================
 
-    // Finishes loading. =======================================================
-
-    _unit setVariable ["unit_initialized", true, true];
-};
+	_unit setVariable ["unit_initialized", true, true];
 }, _this] call CBA_fnc_waitUntilAndExecute;
