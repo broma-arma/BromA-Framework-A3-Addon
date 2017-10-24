@@ -32,9 +32,9 @@ if (side _unit == civilian) then {
 
 			if (_deadCivilians >= mission_dead_civilian_limit) then {
 				if (mission_game_mode == "coop" && _sideIndex == 0) then {
-					["defeat"] spawn BRM_fnc_callEnding;
+					["defeat"] spawn BRM_FMK_fnc_callEnding;
 				} else {
-					(["side_a_defeat", "side_b_defeat", "side_c_defeat"] select _sideIndex) spawn BRM_fnc_callEnding;
+					(["side_a_defeat", "side_b_defeat", "side_c_defeat"] select _sideIndex) spawn BRM_FMK_fnc_callEnding;
 				};
 			};
 		};
