@@ -40,10 +40,10 @@ while { mission_running } do {
 					call _cbFailed;
 					if (_priority == 2) then {
 						if (mission_game_mode != "coop") then {
-							[missionNamespace getVariable format ["endings_tvt_side_%1_defeat", _sideChar]] call BRM_fnc_callEnding;
+							[missionNamespace getVariable format ["endings_tvt_side_%1_defeat", _sideChar]] call BRM_FMK_fnc_callEnding;
 						} else {
 							if (_sideChar == "a") then {
-								[endings_defeat] call BRM_fnc_callEnding;
+								[endings_defeat] call BRM_FMK_fnc_callEnding;
 							};
 						};
 					};
@@ -86,10 +86,10 @@ while { mission_running } do {
 				[_extraction select 0, _extraction select 1, 100, format ["mission_require_extraction = mission_require_extraction - [side_%1_side];", _sideChar]] spawn BRM_FMK_f_evade_escape_fnc_reachObject;
 			} else {
 				if (mission_game_mode != "coop") then {
-					[missionNamespace getVariable format ["endings_tvt_side_%1_victory", _sideChar]] call BRM_fnc_callEnding;
+					[missionNamespace getVariable format ["endings_tvt_side_%1_victory", _sideChar]] call BRM_FMK_fnc_callEnding;
 				} else {
 					if (_sideChar == "a") then {
-						[endings_victory] call BRM_fnc_callEnding;
+						[endings_victory] call BRM_FMK_fnc_callEnding;
 					};
 				};
 			};

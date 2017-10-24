@@ -41,7 +41,7 @@ if (isServer) then {
                 (((_started - _remaining) / _started) >= (_pc / 100))
             ) exitWith {
                 [_PFHhandle] call CBA_fnc_removePerFrameHandler;
-                [_end] call BRM_fnc_callEnding;
+                [_end] call BRM_FMK_fnc_callEnding;
             };
         }, 5, [_grps, _grpsel, _started, _pc, _end]] call CBA_fnc_addPerFrameHandler;
     }, _this, 5] call CBA_fnc_waitAndExecute;
