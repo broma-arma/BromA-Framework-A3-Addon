@@ -38,7 +38,7 @@ player_is_jip = didJIP;
 
 ["LOCAL", "F_LOG", format ["JIP STATUS: %1 | TIME: %2", player_is_jip, time]] call BRM_FMK_fnc_doLog;
 
-player_is_spectator = player getVariable ["is_spectator", false];
+player_is_spectator = player getVariable ["is_spectator", false] || player isKindOf "VirtualSpectator_F";
 
 if (!mission_allow_jip && player_is_jip && !player_is_spectator) exitWith {
 	[player] spawn BRM_FMK_fnc_removeJIP;

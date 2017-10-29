@@ -10,11 +10,12 @@ if (!(isDedicated)) then {
                 case (side player == side_b_side): { _vehicleArray = plank_objects_side_b };
                 case (side player == side_c_side): { _vehicleArray = plank_objects_side_c };
             };
-            _return = "&& ";
+            _return = "";
 
             if (count _vehicleArray == 0) then {
                 _return = "&& false";
             } else {
+                _return = "&& ";
                 {
                     _vehicle = _x select 0;
                     _distance = _x select 1;
