@@ -125,6 +125,14 @@ switch (toUpper(_faction)) do {
         #include "factions\jsdf.sqf"
     };
 
+    case "FRWINTER": {
+        #include "factions\frwinter.sqf"
+    };
+
+    case "MEC": {
+        #include "factions\mec.sqf"
+    };
+
     case "DEFAULT": {
         #include "factions\template.sqf"
     };

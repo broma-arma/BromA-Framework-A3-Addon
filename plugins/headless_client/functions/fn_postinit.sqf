@@ -21,31 +21,31 @@ if (mission_AI_controller) then {
     ["LOCAL","CHAT", format ["AI Controller is currently enabled as %1.", mission_AI_controller_name]] call BRM_FMK_fnc_doLog;
 
     if (isServer && mission_HC_enabled) then {
-        if (isClass(configFile >> "CfgPatches" >> "Werthles_WHK")) then {
-            if ((count (nearestObjects [player, ["Werthles_moduleWHM"], 10000])) <= 0) then {
-                private _center = createCenter sideLogic;
-                private _group = createGroup _center;
-
-                WHMModule = _group createUnit ["Werthles_moduleWHM", [0,0,0],[],0.5,"NONE"];
-                publicVariable "WHMModule";
-
-                WHMModule setVariable ["Advanced", false, true];
-                WHMModule setVariable ["Debug", false, true];
-                WHMModule setVariable ["DebugOnly", false, true];
-                WHMModule setVariable ["Delay", 30, true];
-                WHMModule setVariable ["Ignores", "", true];
-                WHMModule setVariable ["NoDebug", true, true];
-                WHMModule setVariable ["Pause", 3, true];
-                WHMModule setVariable ["Repeating", true, true];
-                WHMModule setVariable ["Report", true, true];
-                WHMModule setVariable ["Units", -666, true];
-                WHMModule setVariable ["UseServer", false, true];
-                WHMModule setVariable ["Wait", 30, true];
-
-                WHMModule synchronizeObjectsAdd [Headless_Client];
-
-                [WHMModule] remoteExec ["Werthles_fnc_moduleWHM", Headless_Client];
-            };
-        };
+//        if (isClass(configFile >> "CfgPatches" >> "Werthles_WHK")) then {
+//            if ((count (nearestObjects [player, ["Werthles_moduleWHM"], 10000])) <= 0) then {
+//                private _center = createCenter sideLogic;
+//                private _group = createGroup _center;
+//
+//                WHMModule = _group createUnit ["Werthles_moduleWHM", [0,0,0],[],0.5,"NONE"];
+//                publicVariable "WHMModule";
+//
+//                WHMModule setVariable ["Advanced", false, true];
+//                WHMModule setVariable ["Debug", false, true];
+//                WHMModule setVariable ["DebugOnly", false, true];
+//                WHMModule setVariable ["Delay", 30, true];
+//                WHMModule setVariable ["Ignores", "", true];
+//                WHMModule setVariable ["NoDebug", true, true];
+//                WHMModule setVariable ["Pause", 3, true];
+//                WHMModule setVariable ["Repeating", true, true];
+//                WHMModule setVariable ["Report", true, true];
+//                WHMModule setVariable ["Units", -666, true];
+//                WHMModule setVariable ["UseServer", false, true];
+//                WHMModule setVariable ["Wait", 30, true];
+//
+//                WHMModule synchronizeObjectsAdd [Headless_Client];
+//
+//                [WHMModule] remoteExec ["Werthles_fnc_moduleWHM", Headless_Client];
+//            };
+//        };
     };
 },[]] call CBA_fnc_waitUntilAndExecute;

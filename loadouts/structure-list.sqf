@@ -23,6 +23,10 @@ switch (toUpper(_factionStructure)) do {
         #include "factions\structures\low_tier_army.sqf"
     };
 
+    case "FRASTRUCT": {
+        #include "factions\structures\frastruct.sqf"
+    };
+
     default {
         #include "factions\structures\high_tier_army.sqf"
     };
