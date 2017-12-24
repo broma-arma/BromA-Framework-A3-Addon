@@ -32,7 +32,7 @@ ace_medical_painCoefficient = ACE_Medical_pain;
 ace_medical_keepLocalSettingsSynced = true;
 
 // Last ditch attempt to make these fuckers die when shot.
-ACE_Medical_aiDamage = 20;
+ACE_Medical_aiDamage = 0.25;
 
 //ACE 3 Advanced Medical =======================================================
 
