@@ -49,6 +49,10 @@ if (!mission_allow_jip && player_is_jip && !player_is_spectator) exitWith {
 
 [] spawn BRM_FMK_fnc_syncTime;
 
+// Hacky shit to try to stop low FPS. ==========================================
+
+enableSentences false;
+
 // Removes spectators from the game. ===========================================
 
 if (player_is_spectator) exitWith { [player] call BRM_FMK_fnc_initSpectator };
