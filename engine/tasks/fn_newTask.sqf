@@ -54,67 +54,42 @@ RETURNS:
 ================================================================================
 */
 
-_side = _this select 0;
-_id = _this select 1;
-_details = _this select 2;
-_cond = _this select 3;
-_priority = _this select 4;
-_callback = _this select 5;
+if (!isServer) exitWith {};
 
-_type = _details select 2;
-_position = _details select 3;
+params ["_side", "_id", "_details", "_cond", "_priority", "_callback"];
 
-_assign = _cond select 0;
-_wincond = _cond select 1;
-_losecond = "false";
+_details params ["_title", "_desc", "_type", ["_position", objNull, [[]]]];
+if (count _position == 0) then { _position = objNull; };
 
-tasks_callbacks pushBack [_id, _callback];
+_cond = _cond apply { compile _x };
+_cond params ["_condAssign", "_condWin", ["_condLose", {false}]];
 
-call compile format ["waitUntil{%1}", _assign];
+_callback = _callback apply { compile _x };
+_callback params ["_cbAssigned", "_cbCompleted", "_cbFailed"];
 
-call compile (_callback select 0);
-
-if (count _cond > 2) then {
-    _losecond = _cond select 2;
-};
+waitUntil { call _condAssign };
+call _cbAssigned;
 
 switch (_priority) do {
-    case 0: { _details set [0, format ["(OPTIONAL) %1", (_details select 0)]]; };
-    case 2: { _details set [0, format ["(!) %1", (_details select 0)]]; }
+	case 0: { _title = format ["(OPTIONAL) %1", _title]; };
+	case 2: { _title = format ["(!) %1", _title]; }
 };
 
-_ndetails = [];
-_ndetails set [0, _details select 1];
-_ndetails set [1, _details select 0];
-_ndetails set [2, ""];
+[_side, _id, [_desc, _title, ""], _position, false, 0, true, _type, true] call BIS_fnc_taskCreate;
 
-_newTask = [_side, _id, _ndetails, nil, false, 0, true, _type, true] call BIS_fnc_taskCreate;
-
-if (count _position > 0) then { [_newTask, _position] call BIS_fnc_taskSetDestination };
-_newTask = [_newTask] call BIS_fnc_taskReal;
-
-if (typeName _side == "OBJECT") then { _side = side _side };
-
-switch (true) do {
-    case (_side == side_a_side): {
-        tasks_a pushBack [_id, _wincond, _losecond]; publicVariable "tasks_a";
-        switch (_priority) do {
-            case 1: { tasks_secondary_a pushBack _id; publicVariable "tasks_secondary_a" };
-            case 2: { tasks_primary_a pushBack _id; publicVariable "tasks_primary_a" };
-        };
-    };
-    case (_side == side_b_side): {
-        tasks_b pushBack [_id, _wincond, _losecond]; publicVariable "tasks_b";
-        switch (_priority) do {
-            case 1: { tasks_secondary_b pushBack _id; publicVariable "tasks_secondary_b" };
-            case 2: { tasks_primary_b pushBack _id; publicVariable "tasks_primary_b" };
-        };
-    };
-    case (_side == side_c_side): {
-        tasks_c pushBack [_id, _wincond, _losecond]; publicVariable "tasks_c";
-        switch (_priority) do {
-            case 1: { tasks_secondary_c pushBack _id; publicVariable "tasks_secondary_c" };
-            case 2: { tasks_primary_c pushBack _id; publicVariable "tasks_primary_c" };
-        };
-    };
+_side = switch (typeName _side) do {
+	case "GROUP":  { side _side };
+	case "OBJECT": { _side getVariable ["unit_side", side _side] };
+	case "SIDE":   { _side };
+	default        { side_a_side };
 };
+
+private _sideId = switch (_side) do {
+	case side_a_side: { 0 };
+	case side_b_side: { 1 };
+	case side_c_side: { 2 };
+	default           { 0 };
+};
+
+if (isNil "BRM_FMK_tasks") then { BRM_FMK_tasks = [[], [], []]; };
+(BRM_FMK_tasks select _sideId) pushBack [_id, _priority, _condWin, _condLose, _cbCompleted, _cbFailed];

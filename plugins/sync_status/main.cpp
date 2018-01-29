@@ -1,7 +1,5 @@
-
 #ifdef BRM_PLUGIN_META
-	class sync_status
-	{
+	class sync_status {
 		name = "Synchronize Status";
 		version = 1;
 		authors[] = {"Nife"};

@@ -1,26 +1,12 @@
-
 #include "\broma_framework\loadouts\includes\faction-info-index.sqf"
 
-_sideAProperties = [side_a_faction] call BRM_fnc_getLoadoutProperty;
-_factionInfo = _sideAProperties select FACTION_INFO;
+{
+	private _sideProperties = [missionNamespace getVariable format ["side_%1_faction", _x]] call BRM_fnc_getLoadoutProperty;
 
-side_a_color = ((_factionInfo) select FACTION_COLOR);
-side_a_name = ((_factionInfo) select FACTION_NAME);
-side_a_callsigns = ((_factionInfo) select FACTION_CALLSIGNS);
-side_a_vehicles = ((_sideAProperties) select FACTION_VEHICLES);
+	private _factionInfo = _sideProperties select FACTION_INFO;
+	missionNamespace setVariable [format ["side_%1_color", _x], _factionInfo select FACTION_COLOR];
+	missionNamespace setVariable [format ["side_%1_name", _x], _factionInfo select FACTION_NAME];
+	missionNamespace setVariable [format ["side_%1_callsigns", _x], _factionInfo select FACTION_CALLSIGNS];
 
-_sideBProperties = [side_b_faction] call BRM_fnc_getLoadoutProperty;
-_factionInfo = _sideBProperties select FACTION_INFO;
-
-side_b_color = ((_factionInfo) select FACTION_COLOR);
-side_b_name = ((_factionInfo) select FACTION_NAME);
-side_b_callsigns = ((_factionInfo) select FACTION_CALLSIGNS);
-side_b_vehicles = ((_sideBProperties) select FACTION_VEHICLES);
-
-_sideCProperties = [side_c_faction] call BRM_fnc_getLoadoutProperty;
-_factionInfo = _sideCProperties select FACTION_INFO;
-
-side_c_color = ((_factionInfo) select FACTION_COLOR);
-side_c_name = ((_factionInfo) select FACTION_NAME);
-side_c_callsigns = ((_factionInfo) select FACTION_CALLSIGNS);
-side_c_vehicles = ((_sideCProperties) select FACTION_VEHICLES);
+	missionNamespace setVariable [format ["side_%1_vehicles", _x], _sideProperties select FACTION_VEHICLES];
+} forEach ["a", "b", "c"];

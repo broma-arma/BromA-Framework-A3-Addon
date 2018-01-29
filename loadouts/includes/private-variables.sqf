@@ -37,7 +37,8 @@ private [
     "_deadManSwitch", "_earBuds", "_cellphone", "_microDAGR", "_NVGEN1", "_NVGEN2",
     "_NVGEN4", "_NVWIDE", "_suppliesMEDIC", "_suppliesNORMAL", "_countBANDAGE",
     "_countMORPHINE", "_countEPI", "_countBLOODBAG", "_countBandageCARGO",
-    "_countMorphineCARGO", "_countEpiCARGO", "_countBloodbagCARGO", "_countBANDAGEPACKING"
+    "_countMorphineCARGO", "_countEpiCARGO", "_countBloodbagCARGO", "_countBANDAGEPACKING",
+    "_isATDisposable", "_weaponsAA", "_weaponsAT", "_countWeaponsAA", "_countWeaponsAACARGO", "_countWeaponsAT", "_countWeaponsATCARGO"
 ];
 
 #define GUN 0

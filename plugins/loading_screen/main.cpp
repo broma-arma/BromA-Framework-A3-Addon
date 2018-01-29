@@ -1,7 +1,5 @@
-
 #ifdef BRM_PLUGIN_META
-	class loading_screen
-	{
+	class loading_screen {
 		name = "Loading screen";
 		version = 1.5;
 		authors[] = {"Nife"};

@@ -1,7 +1,5 @@
-
 #ifdef BRM_PLUGIN_META
-	class prevent_reslot
-	{
+	class prevent_reslot {
 		name = "Prevent Reslotting";
 		version = 1;
 		authors[] = {"Nife"};

@@ -40,10 +40,10 @@ _commonRIFLEGL = _RHSM4GL203;
 _commonPISTOL = _M9;
 _commonAR = _M249S;
 _commonMG = _M240B;
-_commonMARKSMAN = _M14SOPMOD;
+_commonMARKSMAN = _M14EBR;
 _commonSNIPER = _M200;
-_commonAT = _AT4CSHEAT;
-_specAT = _MAAWS;
+_commonAT = _AT4;
+_specAT = _SMAW;
 _commonSMG = _RHSM4;
 _commonRCO = "rhsusf_acc_ACOG3";
 _commonCCO = "rhsusf_acc_eotech_552";
@@ -107,8 +107,8 @@ _vestsLIST = [
 ];
 
 _goggleLIST = [
-    "TRYK_Shemagh_shade",
-    "TRYK_Shemagh",
+    "rhsusf_shemagh_grn",
+    "rhsusf_shemagh_gogg_grn",
     "empty"
 ];
 
@@ -130,10 +130,10 @@ _reconHEAD = "rhs_Booniehat_"+_camo;
 
 _commonUNIFORM = "rhs_uniform_cu_"+_camo;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE";
+_pilotUNIFORM = "U_B_PilotCoveralls";
 _sniperUNIFORM = "U_B_GhillieSuit";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE";
+_helicrewUNIFORM = "U_B_PilotCoveralls";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;

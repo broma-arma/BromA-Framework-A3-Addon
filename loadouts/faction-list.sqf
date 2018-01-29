@@ -1,7 +1,8 @@
 switch (toUpper(_faction)) do {
-	case "GERMAN": {
-		#include "factions\german.sqf"
-	};
+
+    case "GERMAN": {
+        #include "factions\german.sqf"
+    };
 
     case "RACS": {
         #include "factions\racs.sqf"
@@ -100,7 +101,8 @@ switch (toUpper(_faction)) do {
     };
 
     case "BAF": {
-        #include "factions\baf.sqf"
+        // TBD 3CB
+        #include "factions\usarmy.sqf"
     };
 
     case "OFPFIA": {
@@ -109,6 +111,26 @@ switch (toUpper(_faction)) do {
 
     case "AFRENIAN": {
         #include "factions\afrenian.sqf"
+    };
+
+    case "EMPIRE": {
+        #include "factions\empire.sqf"
+    };
+
+    case "UNION": {
+        #include "factions\union.sqf"
+    };
+
+    case "JSDF": {
+        #include "factions\jsdf.sqf"
+    };
+
+    case "FRWINTER": {
+        #include "factions\frwinter.sqf"
+    };
+
+    case "MEC": {
+        #include "factions\mec.sqf"
     };
 
     case "DEFAULT": {

@@ -41,6 +41,8 @@ _commonSUPPRESSOR = "hlc_muzzle_762SUP_AK";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "";
 
+_isATDisposable = true;
+
 // AMMO COUNT ==================================================================
 
 _countRIFLE = 6;
@@ -84,7 +86,6 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "TRYK_H_pakol2",
     "LOP_H_Turban",
     "LOP_H_Turban_mask",
     "LOP_H_Pakol",
@@ -94,9 +95,6 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "TRYK_ZARATAKI",
-    "TRYK_ZARATAKI2",
-    "TRYK_ZARATAKI3",
     "LOP_U_TAK_Civ_Fatigue_01",
     "LOP_U_TAK_Civ_Fatigue_02",
     "LOP_U_TAK_Civ_Fatigue_04",
@@ -130,8 +128,8 @@ _grenadierVEST = _randomVEST;
 _medicVEST = _randomVEST;
 
 _commonHEAD = _randomHEAD;
-_leaderHEAD = "TRYK_H_pakol2";
-_officerHEAD = "TRYK_H_pakol2";
+_leaderHEAD = "LOP_H_Shemag_BLK";
+_officerHEAD = "LOP_H_Shemag_BLK";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4";
 _pilotHEAD = "rhs_tsh4";
@@ -164,8 +162,8 @@ _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "TRYK_B_Alicepack";
-_bigBACKPACK = "TRYK_B_Alicepack";
+_commonBACKPACK = "rhs_sidor";
+_bigBACKPACK = "rhs_assault_umbts";
 
 // EXTRA EQUIPMENT =============================================================
 

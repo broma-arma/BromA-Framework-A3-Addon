@@ -2,12 +2,10 @@
 //  Mission setup time parameter
 // =============================================================================
 
-switch ((_this select 0)) do {
-    case 0: { mission_setup_time = 15 };
-    case 1: { mission_setup_time = 60*1 };
-    case 2: { mission_setup_time = 60*3 };
-    case 3: { mission_setup_time = 60*5 };
-    case 4: { mission_setup_time = 60*10 };
-};
+params [
+	"_setupTime" // Setup time index. 0: 15 seconds, 1: 1 minutes, 2: 3 minutes, 3: 5 minutes, 4: 10 minutes
+];
+
+mission_setup_time = [15, 60, 180, 300, 600] select _setupTime;
 
 // =============================================================================

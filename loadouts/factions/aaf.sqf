@@ -48,6 +48,8 @@ _commonSUPPRESSOR = "muzzle_snds_M";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = _NVGEN3IND;
 
+_isATDisposable = true;
+
 // AMMO COUNT ==================================================================
 
 _countRIFLE = 7;

@@ -1,41 +1,22 @@
-/*
-    Ideas from Sandiford
-    Written by beta
-    Enhanced by Nife
-    Does not allow a player to leave the AO
-*/
-
-if !(hasInterface) exitWith {};
-
-0 spawn {
-
-if (player_is_spectator) exitWith {};
-
-private ["_sleep", "_pos", "_aoPos", "_player"];
-
-_pos = [0,0,0];
-_aoPos = [(getMarkerPos "ao") select 0, (getMarkerPos "ao") select 1, 0];
-_sleep = 1;
+if !(hasInterface && {!player_is_spectator}) exitWith {};
 
 #include "includes\settings.sqf"
 
-while {(alive player)} do {
-    _player = vehicle player;
-    _isDead = player getVariable ["isDead",false];
+private _aoMarker = "ao";
+private _aoPos = [(getMarkerPos _aoMarker) select 0, (getMarkerPos _aoMarker) select 1, 0];
+
+[{
+    (_this select 0) params["_aoMarker", "_aoPos"];
+
+    private _targetObject = (vehicle player);
+    private _isDead = player getVariable ["isDead", false];
 
     if (!_isDead) then {
-        if (_player isKindOf "Land") then {
-            if (!((getPos _player) inArea "ao")) then {
-                _pos = [getPos _player, 1, ([_player, _aoPos] call BIS_fnc_dirTo)] call BIS_fnc_relPos;
-                _sleep = 0.1;
-
-                call left_ao_do;
-            }
-            else { _sleep = 1 };
+        if (_targetObject isKindOf "Land") then {
+            if (!((getPos _targetObject) inArea "ao")) then {
+                private _pos = [getPos _targetObject, 1, ([_targetObject, _aoPos] call BIS_fnc_dirTo)] call BIS_fnc_relPos;
+                [] call left_ao_do;
+            };
         };
     };
-
-    sleep _sleep;
-};
-
-};
+}, 0.1, [_aoMarker, _aoPos]] call CBA_fnc_addPerFrameHandler;

@@ -1,44 +1,27 @@
-private["_unit","_playerid","_found","_index","_return"];
+params["_unit"];
 
-waitUntil{!(isNil"mission_player_lives")};
+private _playerID = getPlayerUID _unit;
+private _found = false;
+private _index = 0;
 
-_unit = _this select 0;
-
-_playerID = getPlayerUID _unit;
-
-_found = false;
-_index = 0;
-
-_unitLives = mission_player_lives;
-
-switch (side _unit) do {
-    case (side_a_side): {
-        if (mission_lives_side_a > -1) then {
-            _unitLives = mission_lives_side_a;
-        };
-    };
-    case (side_b_side): {
-        if (mission_lives_side_b > -1) then {
-            _unitLives = mission_lives_side_b;
-        };
-    };
-    case (side_c_side): {
-        if (mission_lives_side_c > -1) then {
-            _unitLives = mission_lives_side_c;
-        };
-    };     
+private _unitLives = switch (true) do {
+    case ((side _unit == side_a_side) && (mission_lives_side_a > -1)): { mission_lives_side_a };
+    case ((side _unit == side_b_side) && (mission_lives_side_b > -1)): { mission_lives_side_b };
+    case ((side _unit == side_c_side) && (mission_lives_side_c > -1)): { mission_lives_side_c };
+    default { mission_player_lives };
 };
 
 {
     if ((_x select 0) == (_playerID)) exitWith { _found = true; _index = _forEachindex };
 } forEach mission_players_lives;
 
-if (_found) then {
-    _return = (((mission_players_lives) select _index) select 2);
-    _return
+private _returnValue = if (_found) then {
+    (((mission_players_lives) select _index) select 2)
 } else {
     mission_players_lives pushBack [_playerID, name _unit, _unitLives];
     publicVariable "mission_players_lives";
-    _return = ((mission_players_lives select _index) select 2);
-    _return
+
+    ((mission_players_lives select _index) select 2);
 };
+
+_returnValue

@@ -44,6 +44,8 @@ _commonSUPPRESSOR = "rhs_acc_pkas";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
+_isATDisposable = true;
+
 // AMMO COUNT ==================================================================
 
 _countRIFLE = 9;

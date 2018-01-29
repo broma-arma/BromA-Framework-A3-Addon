@@ -1,57 +1,26 @@
-// F3 - Automatic Body Removal
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-// ====================================================================================
+params [["_unit", objNull]];
 
-// DECLARE VARIABLES AND FUNCTIONS
+if (isNull _unit) exitWith {};
 
-private ["_body","_wait","_group","_distance","_pos","_nearPlayers","_nearUnits","_check"];
+BrmFmk_RemoveBody_queue pushBack [diag_tickTime + f_var_removeBodyDelay, _unit];
+BrmFmk_RemoveBody_queue sort true;
 
-// ====================================================================================
+if (isNil "BrmFmk_RemoveBody_handler" || {scriptDone BrmFmk_RemoveBody_handler}) then {
+	BrmFmk_RemoveBody_handler = 0 spawn {
+		while {count BrmFmk_RemoveBody_queue > 0} do {
+			for [{private _i = 0}, {_i < count BrmFmk_RemoveBody_queue}, {_i = _i + 1}] do {
+				(BrmFmk_RemoveBody_queue select _i) params ["_delay", "_unit"];
+				if (_delay >= diag_tickTime) exitWith {
+					sleep 1;
+				};
 
-// SET KEY VARIABLES
-// The body to remove is passed to this script by the event handler itself. The time to sleep and minimal distance to remove are defined by global variables
+				if (f_var_removeBodyDistance <= 0 || { {alive _x && _x distanceSqr _unit < f_var_removeBodyDistance ^ 2} count allPlayers == 0 }) then {
+					hideBody _unit;
 
-_body = _this;
-_group = group _this;
-
-#include "includes\settings.sqf"
-
-if (isNil "f_var_removeBodyDelay") then {f_var_removeBodyDelay = 20};
-if (isNil "f_var_removeBodyDistance") then {f_var_removeBodyDistance = 20};
-
-_wait = f_var_removeBodyDelay;
-_distance = f_var_removeBodyDistance;
-
-waitUntil  {!isNull _body};
-
-_pos = getPos _body;
-_nearPlayers = [objNull];
-
-// ====================================================================================
-
-// WAITING UNTIL ALL CONDITIONS ARE MET
-// While there's at least 1 player within the minimal radius around the body the script sleeps the designated time.
-
-_loop = true;
-while {_loop} do {
-	sleep _wait;
-	_loop = [_body,_distance] call BRM_FMK_f_remove_body_fnc_nearPlayer;
+					BrmFmk_RemoveBody_queue deleteAt _i;
+					_i = _i - 1;
+				};
+			};
+		};
+	};
 };
-
-
-// ====================================================================================
-
-// REMOVE BODY
-// Hide and remove the body from the game
-
-hideBody _body;
-sleep 5;
-deleteVehicle _body;
-
-// ====================================================================================
-
-// REMOVE BODY'S GROUP IF EMPTY
-// We wait a while to make sure the body has been removed from the group. Then we count the living units in it and remove the group if it is empty
-sleep 30;
-_check = count (units (_group));
-if (_check == 0) then {deleteGroup _group};

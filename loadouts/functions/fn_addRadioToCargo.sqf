@@ -13,23 +13,23 @@ switch (true) do {
         switch(_side) do {
             case WEST: {
                 switch(_kind) do {
-                    case "SR": { _radio = "tf_rf7800str" };
-                    case "LR": { _radio = "tf_anprc152" };
-                    case "BP": { _radio = "tf_rt1523g"; _isBP = true };
+                    case "SR": { _radio = "TFAR_rf7800str" };
+                    case "LR": { _radio = "TFAR_anprc152" };
+                    case "BP": { _radio = "TFAR_rt1523g_big_bwmod"; _isBP = true };
                 };
             };
             case EAST: {
                 switch(_kind) do {
-                    case "SR": { _radio = "tf_pnr1000a" };
-                    case "LR": { _radio = "tf_fadak" };
-                    case "BP": { _radio = "tf_mr3000"; _isBP = true };
+                    case "SR": { _radio = "TFAR_pnr1000a" };
+                    case "LR": { _radio = "TFAR_fadak" };
+                    case "BP": { _radio = "TFAR_mr3000"; _isBP = true };
                 };
             };
             case RESISTANCE: {
                 switch(_kind) do {
-                    case "SR": { _radio = "tf_anprc154" };
-                    case "LR": { _radio = "tf_anprc148jem" };
-                    case "BP": { _radio = "tf_anprc155"; _isBP = true };
+                    case "SR": { _radio = "TFAR_anprc154" };
+                    case "LR": { _radio = "TFAR_anprc148jem" };
+                    case "BP": { _radio = "TFAR_anprc155"; _isBP = true };
                 };
             };
         };

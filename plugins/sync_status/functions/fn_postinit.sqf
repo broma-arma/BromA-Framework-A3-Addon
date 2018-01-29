@@ -1,23 +1,21 @@
+if !(isMultiplayer) exitWith {};
 
 if (isServer) then {
-    mission_player_status = [];
-    
-    addMissionEventHandler ["HandleDisconnect", BRM_FMK_SyncStatus_fnc_postStatus];
+	BrmFmk_SyncStatus_status = [];
+	addMissionEventHandler ["HandleDisconnect", BRM_FMK_SyncStatus_fnc_saveStatus];
 };
 
-0 spawn {
-    if (hasInterface) then {
-        
-        if (player_is_spectator) exitWith {};
+if (hasInterface) then {
+	0 spawn {
+		waitUntil { !isNil "player_is_jip" && !isNil "player_is_spectator" };
+		if (!player_is_jip || player_is_spectator) exitWith {};
 
-        sleep 3;
+		sleep 3;
 
-        if (player_is_jip) then {
-            waitUntil{!(isNil "mission_player_status")};
-            player allowDamage false;            
-            [] spawn BRM_FMK_SyncStatus_fnc_setStatus;
-            sleep 3;
-            player allowDamage true;
-        };
-    };
+		player allowDamage false;
+		[getPlayerUID player] call BRM_FMK_SyncStatus_fnc_loadStatus;
+		sleep 3;
+		player allowDamage true;
+	};
 };
+

@@ -42,6 +42,8 @@ _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
 _commonPISTOLSUPPRESSOR = "RH_gemtech9";
 _NVG                    = _NVGEN2;
 
+_isATDisposable = true;
+
 // AMMO COUNT ==================================================================
 
 _countRIFLE    = 10;

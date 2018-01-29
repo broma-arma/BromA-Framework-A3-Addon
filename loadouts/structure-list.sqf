@@ -1,4 +1,3 @@
-
 switch (toUpper(_factionStructure)) do {
     case "GERMAN-TIER": {
         #include "factions\structures\german_tier_army.sqf"
@@ -22,6 +21,10 @@ switch (toUpper(_factionStructure)) do {
 
     case "LOW-TIER": {
         #include "factions\structures\low_tier_army.sqf"
+    };
+
+    case "FRASTRUCT": {
+        #include "factions\structures\frastruct.sqf"
     };
 
     default {

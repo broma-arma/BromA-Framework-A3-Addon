@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_getSpawnPoint
-    
+
 AUTHOR(s):
     Nife
 
@@ -12,26 +12,22 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Unit (OBJECT)
-    
+
 USAGE:
     _myRespawn = [player] call BRM_FMK_fnc_getSpawnPoint
-    
+
 RETURNS:
     Respawn point name. (STRING)
 
 ================================================================================
 */
 
-private["_ret"];
+params ["_unit"];
 
-_unit = _this select 0;
-_side = _unit getVariable ["unit_side", (side player)];
-
-switch (_side) do {
-    case WEST: { _ret = "respawn_west" };
-    case EAST: { _ret = "respawn_east" };
-    case RESISTANCE: { _ret = "respawn_resistance" };
-    case CIVILIAN: { _ret = "respawn_civilian" };
+switch (_unit getVariable ["unit_side", side _unit]) do {
+    case WEST:       { "respawn_west" };
+    case EAST:       { "respawn_east" };
+    case RESISTANCE: { "respawn_resistance" };
+    case CIVILIAN:   { "respawn_civilian" };
+    default          { "respawn_west" };
 };
-
-_ret

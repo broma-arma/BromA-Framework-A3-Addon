@@ -9,10 +9,10 @@
 //                        and mission version below!                           |
 // ============================================================================
 
-mission_author_name = [mission_author_name] call BRM_FMK_fnc_verboseArray;
+private _missionAuthorNameVerbose = [mission_author_name] call BRM_FMK_fnc_verboseArray;
 
 player createDiaryRecord ["Diary", ["Credits","
-Current mission version " + mission_version + " made by " + mission_author_name + ".
+Current mission version " + mission_version + " made by " + _missionAuthorNameVerbose + ".
 <br/>
 <br/>
 <img image='\broma_framework\assets\images\framework-logo.paa' width='512' height='128'/><br/>

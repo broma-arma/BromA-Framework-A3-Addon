@@ -59,7 +59,7 @@ _countHE = 1;
 
 _countRifleCARGO = 30;
 _countPistolCARGO = 10;
--countArCARGO = 20;
+_countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
 _countATCARGO = 15;

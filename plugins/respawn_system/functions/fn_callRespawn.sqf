@@ -16,51 +16,43 @@ PARAMETERS:
     or the amount of players who will be revived.
     1 - (OPTIONAL) How many lives they will get. If left blank
     default parameter number will be used. (NUMBER)
-    
+
 USAGE:
     ["Nife",2"] spawn BRM_FMK_RespawnSystem_fnc_callRespawn;
-    
+
     [4] spawn BRM_FMK_RespawnSystem_fnc_callRespawn;
-    
+
 RETURNS:
     Nothing.
 
 ================================================================================
 */
-
-private["_lives"];
-
-_target = _this select 0;
-
-if (count _this > 1) then {
-    _lives = _this select 1;
-} else {
-    _lives = mission_player_lives;
-};
+params["_target", ["_lives", mission_player_lives]];
 
 switch (typeName _target) do {
     case "STRING": {
-        _index = [_target, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
-        mission_dead_players = mission_dead_players - [[(mission_players_lives select _index) select 0, _target, (mission_dead_players select _index) select 2]];
-        publicVariable "mission_dead_players";
+        if (!(isNull ([_target] call BRM_FMK_fnc_unitFromName))) then {
+            _index = [_target, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
+            mission_dead_players deleteAt _index;
+
+            publicVariable "mission_dead_players";
+        };
     };
     case "SCALAR": {
-        _amount = 0;
-        for "_i" from 0 to (_target-1) do {
-            if (_i < count mission_dead_players) then {
-                [(mission_dead_players select _i) select 1, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;                
-                    
-                mission_dead_players = mission_dead_players - [[(mission_dead_players select _i) select 0, (mission_dead_players select _i) select 1, (mission_dead_players select _i) select 2]];
-                publicVariable "mission_dead_players";      
-                _amount = _amount + 1;
-            };
-        };
-        if (_amount > 0) then {
-            _message = "%1 units have respawned.";
+        private _amount = 0;
 
-            [-1, {
-                ["Alert",[format [_this select 0, _this select 1]]] call BIS_fnc_showNotification 
-            }, [_message, _amount]] call CBA_fnc_globalExecute;        
+        for "_i" from 0 to ((_target min (count mission_dead_players)) - 1) do {
+            [((mission_dead_players select _i) select 1), _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
+            _amount = (_amount + 1);
         };
+        mission_dead_players deleteRange [0, _target];
+
+        if (_amount > 0) then {
+            [-1, {
+                ["Alert",[format ["%1 units have respawned.", _this]]] call BIS_fnc_showNotification
+            }, _amount] call CBA_fnc_globalExecute;
+        };
+
+        [{ publicVariable "mission_dead_players" },[], 5] call CBA_fnc_waitAndExecute;
     };
 };

@@ -1,30 +1,33 @@
-if ((!isMultiplayer)||(!hasInterface)) exitWith {};
+#define CLIENT_FPS_METRIC 10
+#define CLIENT_TIMEOUT 5
+#define CLIENT_SERVER_TIMEOUT 10
+
+loading_screen_finished = false;
+
+if !(hasInterface && isMultiplayer) exitWith { loading_screen_finished = true; };
 
 0 spawn {
-    // Credits to Cephei for the improvement idea.
+	sleep 1; // After briefing
 
-    //==============================================================================
-    // Here we declare what text will be shown to the player when the game is loading.
+	if (dialog) then { closeDialog 0; };
+	if (visibleMap) then { openMap false; };
 
-    _loadingScreen =
-        "Please wait in order to allow the game to load properly.";
-    //==============================================================================
+	disableUserInput true;
 
-    #include "includes\settings.sqf"
+	[[
+		{ diag_fpsMin >= CLIENT_FPS_METRIC }
+	], CLIENT_TIMEOUT] call BRM_FMK_LoadingScreen_fnc_load;
 
-    player spawn { player action ["SwitchWeapon", vehicle player, vehicle player, 99] };
+	if (isNil "BrmFmk_LoadingScreen_loaded" || {!BrmFmk_LoadingScreen_loaded}) then {
+		call BRM_FMK_LoadingScreen_fnc_clientLoaded;
 
-    _fps = round(diag_fps);
+		[[
+			{ !isNil "BrmFmk_LoadingScreen_loaded" && {BrmFmk_LoadingScreen_loaded} }
+		], CLIENT_SERVER_TIMEOUT] call BRM_FMK_LoadingScreen_fnc_load;
+	};
 
-    while {(_fps < _reqFPS)&&!(_timeout == 0)} do {
-      titletext [_loadingScreen, "BLACK FADED",0];
-      sleep 1;
-      _fps = round(diag_fps);
-      _timeout = _timeout - 1;
-    };
-    sleep 1;
+	disableUserInput false;
+	titleFadeOut 0.1;
 
-    titleText ["", "PLAIN"];
-
-    loading_screen_finished = true;
+	loading_screen_finished = true;
 };

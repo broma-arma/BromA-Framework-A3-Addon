@@ -6,26 +6,57 @@ _commonBACKPACK = _this select 2;
 switch (true) do {
     case (mission_TFAR_enabled): {
         _side = side _unit;
+
         switch(_side) do {
             case WEST: {
                 switch(_kind) do {
-                    case "SR": { _unit linkItem "tf_rf7800str" };
-                    case "LR": { _unit addItem "tf_anprc152" };
-                    case "BP": { removeBackpack _unit; _unit addBackPack "tf_rt1523g" };
+                    case "SR": {
+                        [{(time > 6)}, {
+                            params ["_unit", "_radio"];
+                            if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
+                        }, [_unit, "TFAR_rf7800str"]] call CBA_fnc_waitUntilAndExecute;
+                    };
+                    case "LR": {
+                        [{(time > 3)}, {
+                            params ["_unit", "_radio"];
+                            if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
+                        }, [_unit, "TFAR_anprc152"]] call CBA_fnc_waitUntilAndExecute;
+                    };
+                    case "BP": { removeBackpack _unit; _unit addBackPack "TFAR_rt1523g_big_bwmod" };
                 };
             };
             case EAST: {
                 switch(_kind) do {
-                    case "SR": { _unit linkItem "tf_pnr1000a" };
-                    case "LR": { _unit addItem "tf_fadak" };
-                    case "BP": { removeBackpack _unit; _unit addBackPack "tf_mr3000" };
+                    case "SR": {
+                        [{(time > 6)}, {
+                            params ["_unit", "_radio"];
+                            if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
+                        }, [_unit, "TFAR_pnr1000a"]] call CBA_fnc_waitUntilAndExecute;
+                    };
+                    case "LR": {
+                        [{(time > 3)}, {
+                            params ["_unit", "_radio"];
+                            if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
+                        }, [_unit, "TFAR_fadak"]] call CBA_fnc_waitUntilAndExecute;
+                    };
+                    case "BP": { removeBackpack _unit; _unit addBackPack "TFAR_mr3000" };
                 };
             };
             case RESISTANCE: {
                 switch(_kind) do {
-                    case "SR": { _unit linkItem "tf_anprc154" };
-                    case "LR": { _unit addItem "tf_anprc148jem" };
-                    case "BP": { removeBackpack _unit; _unit addBackPack "tf_anprc155" };
+                    case "SR": {
+                        [{(time > 6)}, {
+                            params ["_unit", "_radio"];
+                            if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
+                        }, [_unit, "TFAR_anprc154"]] call CBA_fnc_waitUntilAndExecute;
+                    };
+                    case "LR": {
+                        [{(time > 3)}, {
+                            params ["_unit", "_radio"];
+                            if !(call TFAR_fnc_haveSWRadio) then { _unit linkItem _radio };
+                        }, [_unit, "TFAR_anprc148jem"]] call CBA_fnc_waitUntilAndExecute;
+                    };
+                    case "BP": { removeBackpack _unit; _unit addBackPack "TFAR_anprc155" };
                 };
             };
         };
