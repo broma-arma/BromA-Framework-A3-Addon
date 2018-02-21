@@ -2,7 +2,7 @@
 // INFO ========================================================================
 /*
 
-    The Middle Eastern Coalition (Arabic: ????? ????? ??????), commonly
+    The Middle Eastern Coalition (Arabic: تحالف الشرق الأوسط), commonly 
     abbreviated to MEC, is a military alliance of Middle Eastern states.
 
 */
@@ -85,26 +85,22 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "MNP_Helmet_PAGST_US6co",
-    "TRYK_H_PASGT_TAN"
+    "rhsgref_helmet_pasgt_3color_desert",
+    "rhsgref_helmet_pasgt_3color_desert_rhino"
 ];
 
 _uniformsLIST = [
-    "MNP_CombatUniform_6CO",
-    "MNP_CombatUniform_6CO_B",
-    "MNP_CombatUniform_US6co_A",
-    "MNP_CombatUniform_US6co_B"
+    "rhsgref_uniform_3color_desert"
 ];
 
 _vestsLIST = [
-    "MNP_Vest_6co_A",
-    "MNP_Vest_6co_B"
+    "TAC_EI_RRVS_SPR_CY",
+    "TAC_EI_RRVS_SPR2_CY"
 ];
 
 _goggleLIST = [
-    "TRYK_SBeard_BK6",
-    "shemagh_goggclr_tan",
-    "shemagh2_goggylw_tan"
+    "TRYK_Shemagh",
+    "TRYK_Shemagh_ESS"
 ];
 
 
