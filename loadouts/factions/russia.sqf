@@ -27,16 +27,16 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 _commonRIFLE = _AK74M;
 _commonRIFLEGL = _AK74GP;
-_commonPISTOL = _PMM;
+_commonPISTOL = ["rhs_weap_pya", "rhs_mag_9x19_17"];
 _commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
 _commonMG = _PKP;
 _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _RPG26;
 _specAT = _RPG7PGO;
-_commonSMG = _AK74FOLDED;
+_commonSMG = ["rhs_weap_aks74un", "rhs_30Rnd_545x39_AK"];
 _commonRCO = "rhs_acc_1p78";
-_commonCCO = "rhs_acc_ekp1";
+_commonCCO = "rhs_acc_1p63";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "";
@@ -85,17 +85,18 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhs_6b26",
-    "rhs_6b26_bala",
-    "rhs_6b26_ess",
-    "rhs_6b26_ess_bala"
+    "rhs_6b7_1m_emr",
+    "rhs_6b7_1m_bala1_emr",
+    "rhs_6b7_1m_bala2_emr",
+    "rhs_6b7_1m_emr_ess",
+    "rhs_6b7_1m_emr_ess_bala"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _randomHEAD;
-_officerHEAD = "rhs_fieldcap";
+_officerHEAD = "rhs_fieldcap_digi";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4_ess";
 _pilotHEAD = "rhs_zsh7a";
@@ -103,9 +104,9 @@ _helicrewHEAD = "rhs_zsh7a_mike";
 _helipilotHEAD = "rhs_zsh7a_mike";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "rhs_beanie_green";
+_reconHEAD = "rhs_Booniehat_digi";
 
-_commonUNIFORM = "rhs_uniform_flora_patchless";
+_commonUNIFORM = "rhs_uniform_emr_patchless";
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15";
 _sniperUNIFORM = "U_O_FullGhillie_ard";
@@ -117,24 +118,24 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhs_6b23_6sh92";
-_officerVEST = "rhs_6b23_6sh92_headset_mapcase";
-_ftlVEST = "rhs_6b23_6sh92_radio";
-_slVEST = "rhs_6b23_6sh92_headset";
-_mgVEST = "rhs_6b23_rifleman";
-_grenadierVEST = "rhs_6b23_6sh92_vog";
-_medicVEST = "rhs_6b23_medic";
+_commonVEST = "rhs_6b23_digi_6sh92";
+_officerVEST = "rhs_6b23_digi_6sh92_headset_mapcase";
+_ftlVEST = "rhs_6b23_digi_6sh92_vog_headset";
+_slVEST = "rhs_6b23_digi_6sh92_radio";
+_mgVEST = "rhs_6b23_digi_rifleman";
+_grenadierVEST = "rhs_6b23_digi_6sh92_vog";
+_medicVEST = "rhs_6b23_digi_medic";
 _demoVEST = _commonVEST;
-_marksmanVEST = _commonVEST;
-_reconVEST = _commonVEST;
+_marksmanVEST = "rhs_6b23_digi_sniper";
+_reconVEST = "rhs_6b23_6sh116";
 
 _commonBACKPACK = "rhs_sidor";
 _bigBACKPACK = "rhs_assault_umbts";
 
 // EXTRA EQUIPMENT =============================================================
 
-_HMG = "RHS_NSV_Gun_Bag";
-_HMGTripod = "RHS_NSV_Tripod_Bag";
+_HMG = "RHS_Kord_Gun_Bag";
+_HMGTripod = "RHS_Kord_Tripod_Bag";
 
 _StaticAT = "RHS_Kornet_Gun_Bag";
 _ATTripod = "RHS_Kornet_Tripod_Bag";
@@ -149,11 +150,11 @@ _UAVTerminal = "auto";
 
 _factionVehicles = [
 /*  Anti Air Vehicles */	 ["rhs_zsu234_aa", "rhs_zsu234_aa"]
-/*  Attack Helos      */	,["RHS_Ka52_vvs", "RHS_Ka52_UPK23_vvs", "RHS_Ka52_UPK23_vvs", "RHS_Mi24P_AT_vvs", "RHS_Mi24P_vvs", "RHS_Mi24V_AT_vvs"]
-/*  Attack Planes     */	,["RHS_Su25SM_vvs", "RHS_Su25SM_CAS_vvs", "RHS_Su25SM_KH29_vvs", "RHS_T50_vvs_generic", "RHS_T50_vvs_blueonblue", "RHS_T50_vvs_054"]
+/*  Attack Helos      */	,["RHS_Ka52_vvs", "RHS_Ka52_UPK23_vvs", "RHS_Ka52_UPK23_vvs", "RHS_Mi24P_AT_vvs", "RHS_Mi24P_vvs", "RHS_Mi24V_AT_vvs", "rhs_mi28n_vvs"]
+/*  Attack Planes     */	,["RHS_Su25SM_vvs", "RHS_Su25SM_CAS_vvs", "RHS_Su25SM_KH29_vvs", "RHS_T50_vvs_generic", "RHS_T50_vvs_blueonblue", "RHS_T50_vvs_054", "rhs_mig29sm_vvs"]
 /*  Heavy Vehicles    */	,["rhs_sprut_vdv", "rhs_t90a_tv", "rhs_t90_tv", "rhs_t80um", "rhs_t80uk", "rhs_t72bd_tv"]
 /*  Light Vehicles    */	,["rhs_tigr_vdv", "rhs_tigr_sts_vdv", "rhs_tigr_m_vdv", "rhs_uaz_vdv", "rhs_uaz_open_vdv"]
-/*  Medium Vehicles   */	,["rhs_btr60_vdv", "rhs_btr70_vdv", "rhs_btr80_vdv", "rhs_btr80a_vdv", "rhs_bmp2d_vdv", "rhs_bmp2_vdv"]
+/*  Medium Vehicles   */	,["rhs_btr70_vdv", "rhs_btr80_vdv", "rhs_btr80a_vdv", "rhs_bmp2d_vdv", "rhs_bmp2_vdv", "rhs_bmp3m_msv", "rhs_bmp3mera_msv"]
 /*  Mobile Artillery  */	,["rhs_2s3_tv", "rhs_9k79_B", "RHS_BM21_VV_01"]
 /*  Transport Helos   */	,["RHS_Mi8mt_Cargo_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8MTV3_UPK23_vvs", "RHS_Mi8MTV3_FAB_vvs"]
 /*  Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
