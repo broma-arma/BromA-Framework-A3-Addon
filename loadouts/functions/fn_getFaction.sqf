@@ -29,8 +29,8 @@ params ["_faction", ["_defaultSide", WEST]];
 
 private _aliasBLUFOR = ["blufor", "west"];
 private _aliasOPFOR = ["opfor", "redfor", "east"];
-private _aliasRESISTANCE = ["independent", "resistance", "indfor", "guerilla"];
-//private _aliasCIVILIAN = ["civilian", "civilians", "civies"];
+private _aliasRESISTANCE = ["independent", "resistance", "indfor", "guerilla", "guer"];
+//private _aliasCIVILIAN = ["civilian", "civilians", "civies", "civ"];
 
 private _factionSide = _defaultSide;
 switch (true) do {
