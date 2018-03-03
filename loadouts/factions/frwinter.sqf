@@ -4,7 +4,7 @@
 */
 
 _factionID        = "FRWINTER";
-_factionName      = "French armed forces (Winter)";
+_factionName      = "French armed forces (winter)";
 _factionStructure = "FRASTRUCT";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
@@ -21,20 +21,20 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE            = ["R3F_Famas_F1_HG","R3F_25Rnd_556x45_FAMAS"];
-_commonRIFLEGL          = ["R3F_Famas_F1_M203","R3F_25Rnd_556x45_FAMAS","1Rnd_HE_Grenade_shell"];
+_commonRIFLE            = ["R3F_Famas_G2_HG","30Rnd_556x45_Stanag"];
+_commonRIFLEGL          = ["R3F_Famas_G2_M203","30Rnd_556x45_Stanag","1Rnd_HE_Grenade_shell"];
 _commonPISTOL           = ["R3F_PAMAS","R3F_15Rnd_9x19_PAMAS"];
-_commonAR               = ["rhs_weap_minimi_para_railed","rhs_200rnd_556x45_M_SAW"];
+_commonAR               = ["hlc_lmg_minimipara_railed","rhs_200rnd_556x45_M_SAW"];
 _commonMG               = _M240G;
 _commonMARKSMAN         = ["arifle_SPAR_03_blk_F","20Rnd_762x51_Mag"];
-_commonSNIPER           = ["rhs_weap_M107","rhsusf_mag_10Rnd_STD_50BMG_M33"];
+_commonSNIPER           = ["R3F_PGM_Hecate_II_POLY","R3F_7Rnd_127x99_PEI_PGM"];
 _commonAT               = ["rhs_weap_M136","rhs_m136_mag"];
 _specAT                 = ["R3F_ERYX","R3F_ERYX_mag"];
 _commonSMG              = ["hlc_smg_MP5N","hlc_30Rnd_9x19_B_MP5"];
 _commonRCO              = "R3F_J4";
 _commonCCO              = "R3F_AIMPOINT";
 _commonMAGNIFIED        = "optic_LRPS";
-_commonSUPPRESSOR       = "R3F_SILENCIEUX_HK416";
+_commonSUPPRESSOR       = "rhsusf_acc_rotex5_grey";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG                    = "rhsusf_ANPVS_14";
 
@@ -87,14 +87,16 @@ _headsLIST = [
 
 _uniformsLIST = [
     "TRYK_U_Bts_Wood_PCUs",
-    "TRYK_U_Bts_GRYGRY_PCUs"
-
+    "TRYK_U_Bts_GRYGRY_PCUs",
+    "TRYK_U_B_GRY_PCUs",
+    "TRYK_U_B_Wood_PCUs"
+    
 ];
 
 _vestsLIST = [
     "TRYK_V_ArmorVest_coyo",
     "V_PlateCarrier1_rgr_noflag_F"
-
+    
 ];
 
 _gogglesLIST = [
@@ -121,8 +123,8 @@ _officerUNIFORM  = _randomUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _randomUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = _commonUNIFORM;
-_crewUNIFORM     = _commonUNIFORM;
+_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _mgUNIFORM       = _commonUNIFORM;
 _medicUNIFORM    = _randomUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
