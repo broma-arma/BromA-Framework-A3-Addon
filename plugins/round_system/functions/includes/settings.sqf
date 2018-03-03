@@ -24,3 +24,18 @@ if (isNil "round_setup_size") then { round_setup_size = 10 };
 if (isNil "respawn_markers_A") then { respawn_markers_A = [format["respawn_%1", toLower(str(side_a_side))]] };
 if (isNil "respawn_markers_B") then { respawn_markers_B = [format["respawn_%1", toLower(str(side_b_side))]] };
 if (isNil "respawn_markers_C") then { respawn_markers_C = [format["respawn_%1", toLower(str(side_c_side))]] };
+
+// Change non-existing "respawn_guer" marker to "respawn_resistance".
+if (getMarkerType "respawn_guer" == "") then {
+	{
+		private _respawnMarkers = missionNamespace getVariable ("respawn_markers_" + _x);
+		private _guerIndex = _respawnMarkers find "respawn_guer";
+		if (_guerIndex != -1) then {
+			if !("respawn_resistance" in _respawnMarkers) then {
+				_respawnMarkers set [_guerIndex, "respawn_resistance"];
+			} else {
+				_respawnMarkers deleteAt _guerIndex;
+			};
+		};
+	} forEach ["A", "B", "C"];
+};
