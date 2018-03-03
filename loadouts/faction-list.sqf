@@ -134,7 +134,7 @@ switch (toUpper(_faction)) do {
     };
     
     case "FRWOOD": {
-        #include "factions\frwinter.sqf"
+        #include "factions\frwood.sqf"
     };
 
     case "MEC": {
