@@ -92,15 +92,15 @@ _AEK971WORN = ["hlc_rifle_aek971worn",_30rnd545];
 _SLR107    = ["hlc_rifle_slr107u",_30rnd762AK];
 _SLR107RIS = ["hlc_rifle_slr107u_MTK",_30rnd762AK];
 
-_AK12   = ["hlc_rifle_ak12",_30rnd545];
-_AK12GL = ["hlc_rifle_ak12GL",_30rnd545,_GPHE];
-_AK12U  = ["hlc_rifle_aku12",_30rnd545];
-_RPK12  = ["hlc_rifle_RPK12_60rnd",_60rnd545RPK];
+_HLCAK12   = ["hlc_rifle_ak12",_30rnd545];
+_HLCAK12GL = ["hlc_rifle_ak12GL",_30rnd545,_GPHE];
+_AK12U     = ["hlc_rifle_aku12",_30rnd545];
+_RPK12     = ["hlc_rifle_RPK12_60rnd",_60rnd545RPK];
 
-_AK47   = ["hlc_rifle_ak47",_30rnd762AK];
-_AKM    = ["hlc_rifle_akm",_30rnd762AK];
-_AKMRIS = ["hlc_rifle_akm_MTK",_30rnd762AK];
-_AKMGL  = ["hlc_rifle_akmgl",_30rnd762AK,_GPHE];
+_AK47      = ["hlc_rifle_ak47",_30rnd762AK];
+_HLCAKM    = ["hlc_rifle_akm",_30rnd762AK];
+_AKMRIS    = ["hlc_rifle_akm_MTK",_30rnd762AK];
+_AKMGL     = ["hlc_rifle_akmgl",_30rnd762AK,_GPHE];
 
 _AK74      = ["hlc_rifle_ak74",_30rnd545];
 _AK474RIS  = ["hlc_rifle_ak74_MTK",_30rnd545];
@@ -327,7 +327,7 @@ _MP5A5 = ["hlc_smg_MP5N",_30rnd9mmMP5];
 _MP5SD5 = ["hlc_smg_mp5sd5",_30rnd9mmMP5];
 _MP5SD6 = ["hlc_smg_mp5sd6",_30rnd9mmMP5];
 
-_MP5K = ["hlc_smg_mp5k_PDW",_30rnd9mmMP5];
+_HLCMP5K = ["hlc_smg_mp5k_PDW",_30rnd9mmMP5];
 
 // ========== ACR PACK =========================================================
 _ACRCOMPACTB = ["hlc_rifle_ACR_SBR_black",_30rnd556AR15];
