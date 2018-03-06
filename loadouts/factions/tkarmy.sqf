@@ -27,7 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _FNFAL;
-_commonRIFLEGL = _M16A2GL;
+_commonRIFLEGL = ["gst_m16a2_gl","rhs_mag_30Rnd_556x45_M855_Stanag","rhs_mag_M441_HE"];
 _commonPISTOL = _Makarov;
 _commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
 _commonMG = _PKM;
@@ -88,9 +88,9 @@ _countPAKCARGO = 10;
 _gogglesLIST = [
 ];
 
-_commonHEAD = "LOP_H_SSh68Helmet_OLV";
+_commonHEAD = "LOP_H_SSh68Helmet_BLK";
 _leaderHEAD = _commonHEAD;
-_officerHEAD = "tf47_beret";
+_officerHEAD = "rhssaf_beret_black";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4";
 _pilotHEAD = "rhs_zsh7a";
@@ -98,10 +98,10 @@ _helicrewHEAD = "rhs_zsh7a_mike";
 _helipilotHEAD = "rhs_zsh7a_mike";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = _commonHEAD;
+_reconHEAD = "LOP_H_Turban_mask";
 
-_commonUNIFORM = "LOP_U_AFR_Fatigue_02";
-_officerUNIFORM = "MNP_CombatUniform_Rebel_B";
+_commonUNIFORM = "LOP_U_TKA_Fatigue_02";
+_officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = _commonUNIFORM;
 _sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
@@ -112,19 +112,19 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhs_6b23_ML_6sh92";
-_officerVEST = "rhs_6b23_ML_6sh92_headset_mapcase";
-_ftlVEST = "rhs_6b23_ML_6sh92_radio";
-_slVEST = "rhs_6b23_ML_6sh92_headset_mapcase";
-_mgVEST = _commonVEST;
+_commonVEST = "LOP_V_6Sh92_OLV";
+_officerVEST = "LOP_V_6Sh92_Radio_OLV";
+_ftlVEST = "LOP_V_6Sh92_Radio_OLV";
+_slVEST = "LOP_V_6Sh92_Radio_OLV";
+_mgVEST = "LOP_V_6Sh92_Vog_OLV";
 _grenadierVEST = _commonVEST;
-_medicVEST = "rhs_6b23_ML_medic";
+_medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
-_marksmanVEST = "rhs_6b23_ML_sniper";
+_marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
 _commonBACKPACK = "rhs_sidor";
-_bigBACKPACK = "B_Carryall_oli";
+_bigBACKPACK = "TRYK_B_Alicepack";
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -148,7 +148,7 @@ _factionVehicles = [
 /*  Attack Planes     */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
 /*  Heavy Vehicles    */	,["rhs_sprut_vdv", "rhs_t72bd_tv"]
 /*  Light Vehicles    */	,["rhsgref_cdf_reg_uaz", "rhsgref_cdf_reg_uaz_dshkm", "rhsgref_cdf_reg_uaz_open", "rhsgref_cdf_reg_uaz_spg9"]
-/*  Medium Vehicles   */	,["rhs_btr60_vdv", "rhs_btr70_vdv", "rhs_btr80_vdv", "rhs_btr80a_vdv", "rhs_bmp2d_vdv", "rhs_bmp2_vdv"]
+/*  Medium Vehicles   */	,["rhs_btr60_vdv", "rhs_btr70_vdv","rhs_bmp2d_vdv", "rhs_bmp2_vdv"]
 /*  Mobile Artillery  */	,["rhsgref_cdf_reg_BM21", "rhsgref_cdf_reg_BM21"]
 /*  Transport Helos   */	,["rhsgref_cdf_reg_Mi8amt", "rhsgref_cdf_reg_Mi17Sh"]
 /*  Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
