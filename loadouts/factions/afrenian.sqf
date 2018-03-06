@@ -2,8 +2,6 @@
 /*
     Located on Island Duala, Afrenia is the neighbour country of Molatia, the two
     of them has been at war for a long time, their border is considered as a "DMZ".
-
-
 */
 
 _factionID        = "AFRENIAN";
@@ -26,20 +24,19 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 _commonRIFLE            = _AUGAA1;
 _commonRIFLEGL          = _M320;
-_commonPISTOL           = _CZ75;
+_commonPISTOL           = ["hlc_pistol_P226R_Combat","hlc_15Rnd_9x19_B_P226"];
 _commonAR               = ["hlc_rifle_aughbar_B", "hlc_40Rnd_556x45_B_AUG"];
-_commonMG               = _M249L;
+_commonMG               = _M60E4;
 _commonMARKSMAN         = _STG58;
 _commonSNIPER           = ["rhs_weap_t5000", "rhs_5Rnd_338lapua_t5000"];
 _commonAT               = ["rhs_weap_m72a7", "rhs_m72a7_mag"];
 _specAT                 = ["rhs_weap_smaw", "rhs_mag_smaw_HEAA"];
 _commonSMG              = _AUGA1PARA;
-_commonMMG              = _M60;
-_commonRCO              = "rhsusf_acc_ACOG_RMR";
+_commonRCO              = "rhsusf_acc_ACOG";
 _commonCCO              = _FHQMICROCCOLOW;
 _commonMAGNIFIED        = "rhsusf_acc_premier_low";
 _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
-_commonPISTOLSUPPRESSOR = "RH_gemtech9";
+_commonPISTOLSUPPRESSOR = "hlc_muzzle_TiRant9";
 _NVG                    = _NVGEN2;
 
 _isATDisposable = true;
@@ -55,7 +52,6 @@ _countSNIPER   = 9;
 _countAT       = 3;
 _countGRENADES = 3;
 _count40mm     = 20;
-_countMMG      = 3;
 
 _countTracerRIFLE = 2;
 _countTracerMG = 1;
@@ -69,7 +65,6 @@ _countSniperCARGO   = 30;
 _countATCARGO       = 15;
 _countGrenadesCARGO = 20;
 _count40mmCARGO     = 40;
-_countMMGCARGO      = 30;
 
 // MEDICAL =====================================================================
 
