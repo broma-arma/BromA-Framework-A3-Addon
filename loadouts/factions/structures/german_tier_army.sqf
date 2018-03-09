@@ -129,6 +129,7 @@ switch (true) do {
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
         [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
+        [_unit, "secondary", "rhs_weap_optic_smaw"] call BRM_FMK_fnc_attachToWeapon;
     };
 
     case (_isWeaponsAT): {
@@ -179,8 +180,8 @@ switch (true) do {
         [_unit,[[_wsmoke,1], [_grenade,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonMARKSMAN, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _commonMARKSMAN select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
+        [_unit, "primary", "optic_AMS_snd"] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "rhsusf_acc_harris_bipod"] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
     };
 
     case (_isAutorifleman): {
@@ -225,7 +226,7 @@ switch (true) do {
         [_unit, _medicHEAD, _medicUNIFORM, _medicVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,1], [_gsmoke,2]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _suppliesMEDIC] call BRM_FMK_fnc_addtoBackpack;
-        [_unit, _commonSMG, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
+        [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         _defaultInsignia = "MedB";
     };
