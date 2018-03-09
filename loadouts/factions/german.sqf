@@ -15,7 +15,7 @@ _factionCallsigns = _defaultCallsignBLUFOR;
 _defaultSide     = WEST;
 _defaultVoice    = [_voiceAMERICAN];
 _defaultFace     = [_faceWHITE];
-_defaultName     = [_nameARABIC];
+_defaultName     = [_nameENGLISH];
 _defaultInsignia = "";
 _defaultColor    = "blue";
 
@@ -24,29 +24,29 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE            = ["hlc_rifle_G36V", "hlc_30rnd_556x45_EPR_G36"];
-_commonRIFLEGL          = ["hlc_rifle_G36VAG36", "hlc_30rnd_556x45_EPR_G36", _40mm];
-_commonPISTOL           = _USP;
-_commonAR               = ["hlc_rifle_MG36", "hlc_100rnd_556x45_M_G36"];
-_commonMG               = ["hlc_lmg_MG3", "hlc_100Rnd_762x51_M_MG3","hlc_50Rnd_762x51_T_MG3"];
-_commonMARKSMAN         = ["hlc_rifle_G36A1", "hlc_30rnd_556x45_SPR_G36","hlc_30rnd_556x45_Tracers_G36"];
-_commonSNIPER           = ["hlc_rifle_G36A1", "hlc_30rnd_556x45_SPR_G36"];
+_commonRIFLE            = _G36V;
+_commonRIFLEGL          = _G36VGL;
+_commonPISTOL           = ["hlc_pistol_P226WestGerman","hlc_15Rnd_9x19_B_P226"];
+_commonAR               = _MG36;
+_commonMG               = _MG3;
+_commonMARKSMAN         = ["arifle_SPAR_03_snd_F","20Rnd_762x51_Mag"];
+_commonSNIPER           = _AWMCAMO;
 _commonAT               = _M136;
 _specAT                 = _SMAW;
-_commonSMG              = ["hlc_rifle_G36C", "hlc_30rnd_556x45_EPR_G36"];
+_commonSMG              = _G36C;
 _commonRCO              = "ACE_optic_Hamr_PIP";
-_commonCCO              = "optic_Aco";
-_commonMAGNIFIED        = "HLC_Optic_G36Dualoptic15x2d";
+_commonCCO              = "rhsusf_acc_RX01";
+_commonMAGNIFIED        = "rhsusf_acc_M8541";
 _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
 _commonPISTOLSUPPRESSOR = "";
 _NVG                    = "rhsusf_ANPVS_14";
 
 // AMMO COUNT ==================================================================
 
-_countRIFLE = 7;
-_countRIFLELOW = 4;
-_countPISTOL = 2;
-_countAR = 4;
+_countRIFLE = 9;
+_countRIFLELOW = 6;
+_countPISTOL = 4;
+_countAR = 5;
 _countMG = 4;
 _countSNIPER = 5;
 _countAT = 3;
@@ -84,24 +84,22 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhsusf_mich_helmet_marpatwd",
-    "rhsusf_mich_helmet_marpatwd_alt",
-    "rhsusf_mich_helmet_marpatwd_alt_headset",
-    "rhsusf_mich_helmet_marpatwd_headset",
-    "rhsusf_mich_helmet_marpatwd_norotos",
-    "rhsusf_mich_helmet_marpatwd_norotos_arc",
-    "rhsusf_mich_helmet_marpatwd_norotos_arc_headset",
-    "rhsusf_mich_helmet_marpatwd_norotos_headset"
+    "rhsusf_opscore_rg_cover_pelt",
+    "rhsusf_opscore_fg_pelt_nsw",
+    "rhsusf_opscore_fg_pelt_cam",
+    "rhsusf_opscore_paint_pelt_nsw_cam"
 ];
 
 _uniformsLIST = [
-    "MNP_CombatUniform_Germany",
-    "MNP_CombatUniform_Germany_S"
+    "rhs_uniform_g3_m81",
+    "rhs_uniform_g3_rgr"
+    
 ];
 
 _vestsLIST = [
-    "MNP_Vest_Germany",
-    "MNP_Vest_Germany_2"
+    "rhsusf_spc_patchless_radio",
+    "rhsusf_mbav_rifleman",
+    "TAC_EI_RRVS_SPR_RG"
 ];
 
 _gogglesLIST = [
@@ -111,43 +109,43 @@ _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
 _randomVEST = _vestsLIST call BIS_fnc_selectRandom;
 
-_commonHEAD    = _randomHEAD;
-_leaderHEAD    = _randomHEAD;
-_officerHEAD   = "MNP_Boonie_GER_T";
-_medicHEAD     = _randomHEAD;
+_commonHEAD    = "rhsgref_helmet_pasgt_flecktarn";
+_leaderHEAD    = _commonHEAD;
+_officerHEAD   = _commonHEAD;
+_medicHEAD     = _commonHEAD;
 _crewmanHEAD   = "rhsusf_cvc_ess";
 _pilotHEAD     = "rhsusf_hgu56p";
 _helicrewHEAD  = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
-_sniperHEAD    = "U_B_GhillieSuit";
-_demoHEAD      = _randomHEAD;
-_reconHEAD     = "rhsusf_opscore_paint_pelt_nsw_cam";
+_sniperHEAD    = "H_Booniehat_oli";
+_demoHEAD      = _commonHEAD;
+_reconHEAD     = _randomHEAD;
 
-_commonUNIFORM   = _randomUNIFORM;
-_officerUNIFORM  = _randomUNIFORM;
+_commonUNIFORM   = "rhsgref_uniform_flecktarn_full";
+_officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _randomUNIFORM;
-_marksmanUNIFORM = _randomUNIFORM;
+_marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = _randomUNIFORM;
-_crewUNIFORM     = _randomUNIFORM;
-_mgUNIFORM       = _randomUNIFORM;
-_medicUNIFORM    = _randomUNIFORM;
-_demoUNIFORM     = _randomUNIFORM;
+_crewUNIFORM     = _commonUNIFORM;
+_mgUNIFORM       = _commonUNIFORM;
+_medicUNIFORM    = _commonUNIFORM;
+_demoUNIFORM     = _commonUNIFORM;
 _reconUNIFORM    = _randomUNIFORM;
 
-_commonVEST = _randomVEST;
-_officerVEST = _randomVEST;
-_ftlVEST = _randomVEST;
-_slVEST = _randomVEST;
-_mgVEST = _randomVEST;
-_grenadierVEST = _randomVEST;
-_medicVEST = _randomVEST;
-_demoVEST = _randomVEST;
-_marksmanVEST = _randomVEST;
+_commonVEST = "TAC_V_Sheriff_BA_T";
+_officerVEST = "TAC_V_Sheriff_BA_T2";
+_ftlVEST = "TAC_V_Sheriff_BA_TL";
+_slVEST = "TAC_V_Sheriff_BA_TL4";
+_mgVEST = "TAC_V_Sheriff_BA_T5";
+_grenadierVEST = "TAC_V_Sheriff_BA_T7";
+_medicVEST = "TAC_V_Sheriff_BA_T4";
+_demoVEST = _commonVEST;
+_marksmanVEST = _commonVEST;
 _reconVEST = _randomVEST;
 
-_commonBACKPACK = "MNP_B_FieldPack_PLA_Basic_D";
-_bigBACKPACK = "MNP_B_Carryall_PLA_Basic_D";
+_commonBACKPACK = "rhs_assault_umbts";
+_bigBACKPACK = "rhsgref_hidf_alicepack";
 
 // EXTRA EQUIPMENT =============================================================
 
