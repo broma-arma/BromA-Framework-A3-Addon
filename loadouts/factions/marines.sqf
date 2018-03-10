@@ -89,8 +89,9 @@ if(!isNil"BRM_FMK_UNIFORMS_MarinesWoodland")then{_enableWoodlandCammo=BRM_FMK_UN
 _lp="d";_camo="ucp"; if(_enableWoodlandCammo)then{_lp ="wd";_camo="ocp"};
 
 _headsLIST = [
-    "rhsusf_mich_helmet_marpat"+_lp,
-    "rhsusf_mich_helmet_marpat"+_lp+"_alt"
+	"rhsusf_lwh_helmet_marpat"+_lp,
+	"rhsusf_lwh_helmet_marpat"+_lp+"_headset",
+	"rhsusf_lwh_helmet_marpat"+_lp+"_ess"
 ];
 
 _goggleLIST = [
@@ -102,8 +103,8 @@ _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 _randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = _randomHEAD;
-_leaderHEAD = "rhsusf_mich_helmet_marpat"+_lp+"_alt_headset";
-_officerHEAD = "rhsusf_mich_helmet_marpat"+_lp+"_alt_headset";
+_leaderHEAD = "rhsusf_lwh_helmet_marpat"+_lp+"_headset";
+_officerHEAD = "rhs_8point_marpat"+_lp;
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhsusf_cvc_green_ess";
 _pilotHEAD = "rhsusf_hgu56p";
@@ -111,14 +112,14 @@ _helicrewHEAD = "rhsusf_hgu56p";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "rhs_Booniehat_marpat"+_lp;
+_reconHEAD = "rhs_booniehat2_marpat"+_lp;
 
 _commonUNIFORM = "rhs_uniform_FROG01_"+_lp;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "U_B_PilotCoveralls";
+_pilotUNIFORM = "U_B_HeliPilotCoveralls";
 _sniperUNIFORM = "U_B_FullGhillie_lsh";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "U_B_PilotCoveralls";
+_helicrewUNIFORM = "U_B_HeliPilotCoveralls";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
@@ -126,7 +127,7 @@ _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
 _commonVEST = "rhsusf_spc_rifleman";
-_officerVEST = "rhsusf_spc";
+_officerVEST = "rhsusf_spc_light";
 _ftlVEST = "rhsusf_spc_teamleader";
 _slVEST = "rhsusf_spc_squadleader";
 _mgVEST = "rhsusf_spc_mg";
@@ -134,7 +135,7 @@ _grenadierVEST = _commonVEST;
 _medicVEST = "rhsusf_spc_corpsman";
 _demoVEST = _commonVEST;
 _marksmanVEST = "rhsusf_spc_marksman";
-_reconVEST = "rhsusf_spc_light";
+_reconVEST = "rhsusf_spc_rifleman";
 
 _commonBACKPACK = "rhsusf_assault_eagleaiii_coy";
 _bigBACKPACK = "rhsusf_assault_eagleaiii_coy";
