@@ -26,19 +26,10 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_rifleLIST = [
-	[["rhs_weap_ak74","rhs_30Rnd_545x39_AK"],["rhs_weap_ak74_gp25","rhs_30Rnd_545x39_AK","rhs_VOG25"]],
-	[["rhs_weap_aks74","rhs_30Rnd_545x39_AK"],["rhs_weap_ak74_gp25","rhs_30Rnd_545x39_AK","rhs_VOG25"]],
-	[["rhs_weap_akms","rhs_30Rnd_762x39mm"],["rhs_weap_akm_gp25","rhs_30Rnd_545x39_AK","rhs_VOG25"]],
-	[["rhs_weap_akm","rhs_30Rnd_762x39mm"],["rhs_weap_akm_gp25","rhs_30Rnd_545x39_AK","rhs_VOG25"]]
-];
-
-_randomRIFLE = _rifleLIST call BIS_fnc_selectRandom;
-
-_commonRIFLE = (_randomRIFLE select 0);
-_commonRIFLEGL = (_randomRIFLE select 1);
+_commonRIFLE = _AKM;
+_commonRIFLEGL = _AKMGL;
 _commonPISTOL = _Makarov;
-_commonAR = ["hlc_rifle_rpk", "hlc_75Rnd_762x39_m_rpk"];
+_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
 _commonMG = _PKM;
 _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
@@ -51,6 +42,7 @@ _commonMAGNIFIED = "HLC_Optic_PSO1";
 _commonSUPPRESSOR = "hlc_muzzle_762SUP_AK";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
+
 
 // AMMO COUNT ==================================================================
 
