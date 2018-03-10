@@ -29,9 +29,9 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _FNFAL;
-_commonRIFLEGL = _M16A2GL;
+_commonRIFLEGL = ["gst_m16a2_gl","rhs_mag_30Rnd_556x45_M855_Stanag","rhs_mag_M441_HE"];
 _commonPISTOL = _Makarov;
-_commonAR = _M249L;
+_commonAR = ["hlc_lmg_M60E4","hlc_100Rnd_762x51_M_M60E4"];
 _commonMG = _M240B;
 _commonMARKSMAN = _SVDS;
 _commonSNIPER = _SVDS;
@@ -87,11 +87,11 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_commonHEAD = "MNP_Helmet_PAGST_UN";
-_leaderHEAD = _commonHEAD;
-_officerHEAD = "H_MilCap_blue";
+_commonHEAD = "LOP_H_6B27M_UN";
+_leaderHEAD = "rhssaf_beret_blue_un";
+_officerHEAD = "rhssaf_beret_blue_un";
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhsusf_cvc_green_helmet";
+_crewmanHEAD = "rhs_tsh4";
 _pilotHEAD = "rhs_zsh7a";
 _helicrewHEAD = "rhs_zsh7a_mike";
 _helipilotHEAD = "rhs_zsh7a_mike";
@@ -99,10 +99,10 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = _commonHEAD;
 
-_commonUNIFORM = "LOP_U_US_Fatigue_02";
+_commonUNIFORM = "LOP_U_CDF_Fatigue_01";
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
-_sniperUNIFORM = "U_B_GhillieSuit";
+_sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _crewUNIFORM = _commonUNIFORM;
@@ -111,14 +111,14 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "LOP_V_6B23_6Sh92_UN";
-_officerVEST = "LOP_V_6B23_CrewOfficer_UN";
+_commonVEST = "rhsgref_6b23_khaki_rifleman";
+_officerVEST = "rhsgref_6b23_khaki_nco";
 _ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
+_slVEST = "rhsgref_6b23_khaki_nco";
 _mgVEST = _commonVEST;
 _heliVEST = _commonVEST;
 _grenadierVEST = _commonVEST;
-_medicVEST = _commonVEST;
+_medicVEST = "rhsgref_6b23_khaki_medic";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
@@ -150,7 +150,7 @@ _factionVehicles = [
 /*  Light Vehicles 	 */	,["rhsgref_un_uaz", "LOP_UN_UAZ_DshKM", "LOP_UN_UAZ_Open", "LOP_UN_UAZ_SPG"]
 /*  Medium Vehicles 	 */	,["rhsgref_un_btr70", "LOP_UN_BTR70", "LOP_UN_BTR60", "LOP_UN_BMP1","LOP_UN_BMP1","LOP_UN_BMP2","LOP_UN_BMP2D"]
 /*  Mobile Artillery     */	,["LOP_UN_BM21"]
-/*  Transport Helos      */	,["B_Heli_Light_01_F","B_Heli_Transport_01_F","B_Heli_Transport_01_camo_F"]
+/*  Transport Helos      */	,["LOP_UN_Mi8MTV3_FAB"]
 /*  Transport Planes     */	,[]
 /*  Transport Trucks     */	,["rhsgref_un_ural","LOP_UN_Ural"]
 /*  Static Defence       */	,["rhsgref_ins_g_Igla_AA_pod","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","rhsgref_ins_g_SPG9","rhsgref_ins_g_ZU23"]
