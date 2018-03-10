@@ -1,6 +1,6 @@
 switch (toUpper(_faction)) do {
     case "PMC": {
-        #include "factions\pmc.sqf"
+        #include "factions\pmc.sqf";
     };
     case "NAPA": {
         #include "factions\napa.sqf"
