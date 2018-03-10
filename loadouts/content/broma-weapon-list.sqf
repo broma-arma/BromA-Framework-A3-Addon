@@ -25,6 +25,20 @@ _10rnd7623011 = "hlc_10Rnd_762x51_mk316_fal";
 _12rndBUCKSAIGA = "hlc_10rnd_12g_buck_S12";
 _12rndSLUGSAIGA = "hlc_10rnd_12g_slug_S12";
 
+_8rnd357SIG = "hlc_8Rnd_357SIG_B_P239";
+_8rnd40SIG  = "hlc_8Rnd_40SW_B_P239";
+
+_10rnd9mmSIG = "hlc_10Rnd_9x19_B_P239";
+_10rnd357SIG = "hlc_10Rnd_357SIG_B_P229";
+_10rnd40SIG  = "hlc_10Rnd_40SW_B_P229";
+
+_12rnd357SIG = "hlc_12Rnd_357SIG_B_P226";
+_12rnd40SIG  = "hlc_12Rnd_40SW_B_P226";
+
+_13rnd9mmSIG = "hlc_13Rnd_9x19_B_P228";
+
+_15rnd9mmSIG = "hlc_15Rnd_9x19_B_P226";
+
 _20rnd762FAL  = "hlc_20rnd_762x51_b_fal";
 _20rnd762FALS = "hlc_20rnd_762x51_s_fal";
 _20rnd762FALT = "hlc_20rnd_762x51_t_fal";
@@ -391,7 +405,57 @@ _STG57COM = ["hlc_rifle_stgw57_commando",_24rnd75STGW];
 _SIGAMT  = ["hlc_rifle_amt",_20rnd762AMT];
 _SIG5104 = ["hlc_rifle_sig5104",_20rnd762AMT];
 
+// ========== P226 PACK ======================================================
+_M11    = ["hlc_Pistol_M11",_13rnd9mmSIG];
+_M11A1  = ["hlc_Pistol_M11A1",_13rnd9mmSIG];
+_M11A1D = ["hlc_Pistol_M11A1D",_13rnd9mmSIG];
 
+_P228 = ["hlc_Pistol_P228",_13rnd9mmSIG];
+
+_MK25   = ["hlc_pistol_Mk25",_15rnd9mmSIG];
+_MK25D  = ["hlc_pistol_Mk25D",_15rnd9mmSIG];
+_MK25TR = ["hlc_pistol_Mk25TR",_15rnd9mmSIG];
+
+_P226WG    = ["hlc_pistol_P226WestGerman",_15rnd9mmSIG];
+_P226      = ["hlc_pistol_P226US",_15rnd9mmSIG];
+_P226R     = ["hlc_pistol_P226R",_15rnd9mmSIG];
+_P226RC    = ["hlc_pistol_P226R_Combat",_15rnd9mmSIG];
+_P226RE    = ["hlc_pistol_P226R_Elite",_15rnd9mmSIG];
+_P226RC357 = ["hlc_pistol_P226R_357Combat",_12rnd357SIG];
+_P226RE357 = ["hlc_pistol_P226R_357Elite",_12rnd357SIG];
+_P226R357  = ["hlc_pistol_P226R_357",_12rnd357SIG];
+_P226S     = ["hlc_pistol_P226R_Stainless",_12rnd357SIG];
+_p226RC40  = ["hlc_pistol_P226R_40Combat",_12rnd40SIG];
+_p226RE40  = ["hlc_pistol_P226R_40Elite",_12rnd40SIG];
+_p226E40   = ["hlc_pistol_P226R_40Enox",_12rnd40SIG];
+_p226R40   = ["hlc_pistol_P226R_40",_12rnd40SIG];
+
+
+_P229R     = ["hlc_pistol_P229R",_13rnd9mmSIG];
+_P229RC    = ["hlc_pistol_P229R_Combat",_13rnd9mmSIG];
+_P229RE    = ["hlc_pistol_P229R_Elite",_13rnd9mmSIG];
+_P229RC357 = ["hlc_pistol_P229R_357Combat",_10rnd357SIG];
+_P229RE357 = ["hlc_pistol_P229R_357Elite",_10rnd357SIG];
+_P229R357  = ["hlc_pistol_P229R_357",_10rnd357SIG];
+_P229S     = ["hlc_pistol_P229R_357Stainless",_10rnd357SIG];
+_P229RC40  = ["hlc_pistol_P229R_40Combat",_10rnd40SIG];
+_P229RE40  = ["hlc_pistol_P229R_40Elite",_10rnd40SIG];
+_P229E40   = ["hlc_pistol_P229R_40Enox",_10rnd40SIG];
+_P229R40   = ["hlc_pistol_P229R_40",_10rnd40SIG];
+
+_8rnd357SIG = "hlc_8Rnd_357SIG_B_P239";
+_8rnd40SIG  = "hlc_8Rnd_40SW_B_P239";
+
+_10rnd9mmSIG = "hlc_10Rnd_9x19_B_P239";
+_10rnd357SIG = "hlc_10Rnd_357SIG_B_P229";
+_10rnd40SIG  = "hlc_10Rnd_40SW_B_P229";
+
+_12rnd357SIG = "hlc_12Rnd_357SIG_B_P226";
+_12rnd40SIG  = "hlc_12Rnd_40SW_B_P226";
+
+_P239  = ["hlc_pistol_P239",_10rnd9mmSIG];
+_P239B = ["hlc_pistol_P239_357",_8rnd357SIG];
+_P239C = ["hlc_pistol_P239_40",_8rnd357SIG];
 // =============================================================================
 // =============================================================================
 //                               RH ARMALITES
