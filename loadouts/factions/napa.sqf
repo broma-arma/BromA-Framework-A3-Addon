@@ -1,21 +1,19 @@
 
 // INFO ========================================================================
 /*
-
-    Chernarussian military has been trained by Western armies in past years,
-    but it retains weapons and equipment of the Soviet Army, its direct predecessor.
-    Its main task during the past years for was to fight challenging counter-insurgecy
-    campaign in the mountaineous regions of Northern Chernarus.
-
+	Nationalist guerillas of the National Party is an underground movement lacking
+	sophisticated weapons, but their knowledge of the country, military expertise from
+	civil war and underground network make them serious opponents to both communist 
+	guerillas and government forces
 */
 
-_factionID = "CDF";
-_factionName = "Chernarus Defense Force";
-_factionStructure = "MID-TIER";
+_factionID = "NAPA";
+_factionName = "NAPA";
+_factionStructure = "LOW-TIER";
 
-_factionCallsigns = _defaultCallsignBLUFOR;
+_factionCallsigns = _defaultCallsignINDFOR;
 
-_defaultSide = WEST;
+_defaultSide = RESISTANCE;
 _defaultVoice = [_voiceRUSSIAN];
 _defaultFace = [_faceWHITE];
 _defaultName = [_nameRUSSIAN];
@@ -27,34 +25,33 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AKS74;
-_commonRIFLEGL = _AKS74GL;
+_commonRIFLE = _AKM;
+_commonRIFLEGL = _AKMGL;
 _commonPISTOL = _Makarov;
 _commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
 _commonMG = _PKM;
 _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _RPG26;
-_specAT = _RPG7PGO;
+_specAT = _RPG7;
 _commonSMG = _AKS74U;
-_commonRCO = "rhs_acc_1p29";
-_commonCCO = "rhs_acc_ekp1";
-_commonMAGNIFIED = "rhs_acc_pso1m2";
-_commonSUPPRESSOR = "rhs_acc_tgpa";
-_commonPISTOLSUPPRESSOR = "";
+_commonRCO = "HLC_Optic_1p29";
+_commonCCO = "hlc_optic_kobra";
+_commonMAGNIFIED = "HLC_Optic_PSO1";
+_commonSUPPRESSOR = "hlc_muzzle_762SUP_AK";
+_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
 
 // AMMO COUNT ==================================================================
 
-_countRIFLE = 9;
-_countRIFLELOW = 6;
+_countRIFLE = 7;
+_countRIFLELOW = 4;
 _countPISTOL = 2;
-_countAR = 7;
-_countMG = 5;
+_countMG = 3;
 _countSNIPER = 5;
 _countAT = 3;
 _countGRENADES = 3;
-_count40mm = 15;
+_count40mm = 20;
 
 _countTracerRIFLE = 2;
 _countTracerMG = 1;
@@ -62,7 +59,6 @@ _countHE = 1;
 
 _countRifleCARGO = 30;
 _countPistolCARGO = 10;
-_countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
 _countATCARGO = 15;
@@ -86,44 +82,61 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_headsLIST = [
-    "LOP_H_6B27M_ess_CDF",
-    "LOP_H_6B27M_CDF"
+_uniformsLIST = [
+    "LOP_U_NAPA_Fatigue_01",
+    "LOP_U_NAPA_Fatigue_02",
+	"LOP_U_NAPA_Fatigue_03"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+_vestsLIST = [
+    "V_TacChestrig_grn_F",
+	"V_TacChestrig_oli_F"
+];
 
-_commonHEAD = _randomHEAD;
-_leaderHEAD = "LOP_H_Fieldcap_CDF";
-_officerHEAD = "LOP_H_Fieldcap_CDF";
+_goggleLIST = [
+    "empty",
+    "G_Balaclava_blk",
+    "G_Balaclava_oli",
+    "empty"
+];
+
+_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
+_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
+
+if (_assignLoadoutMode) then { if !(_isLeader) then { _unit addGoggles _randomGOGGLE }};
+
+_commonHEAD = "empty";
+_leaderHEAD = _commonHEAD;
+_officerHEAD = "LOP_H_Cowboy_hat";
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhs_tsh4_ess";
-_pilotHEAD = "rhs_zsh7a";
-_helicrewHEAD = "rhs_zsh7a_mike";
-_helipilotHEAD = "rhs_zsh7a_mike";
+_crewmanHEAD = "rhs_tsh4";
+_pilotHEAD = _commonHEAD;
+_helicrewHEAD = _commonHEAD;
+_helipilotHEAD = _commonHEAD;
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "H_Booniehat_khk";
+_reconHEAD = _commonHEAD;
 
-_commonUNIFORM = "LOP_U_CDF_Fatigue_01";
-_officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "rhs_uniform_df15";
-_sniperUNIFORM = "U_O_FullGhillie_ard";
+_commonUNIFORM = _randomUNIFORM;
+_officerUNIFORM = "LOP_U_NAPA_Fatigue_04";
+_pilotUNIFORM = _commonUNIFORM;
+_sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "rhs_uniform_df15";
+_helicrewUNIFORM = _commonUNIFORM;
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "LOP_V_6B23_6Sh92_CDF";
-_officerVEST = "LOP_V_6B23_CrewOfficer_CDF";
+_commonVEST = _randomVEST;
+_officerVEST = _commonVEST;
 _ftlVEST = _commonVEST;
-_slVEST = "LOP_V_6B23_CrewOfficer_CDF";
+_slVEST = _commonVEST;
 _mgVEST = _commonVEST;
 _grenadierVEST = _commonVEST;
-_medicVEST = "LOP_V_6B23_Medic_CDF";
+_medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
@@ -133,17 +146,18 @@ _bigBACKPACK = "TRYK_B_Alicepack";
 
 // EXTRA EQUIPMENT =============================================================
 
-_HMG = "RHS_M2_Gun_Bag";
-_HMGTripod = "RHS_M2_Tripod_Bag";
+_HMG = "RHS_NSV_Gun_Bag";
+_HMGTripod = "RHS_NSV_Tripod_Bag";
 
-_StaticAT = "rhs_Tow_Gun_Bag";
-_ATTripod = "rhs_TOW_Tripod_Bag";
+_StaticAT = "RHS_SPG9_Gun_Bag";
+_ATTripod = "RHS_SPG9_Tripod_Bag";
 
-_mortar = "rhs_M252_Gun_Bag";
-_mortarTripod = "rhs_M252_Bipod_Bag";
+_mortar = "RHS_Podnos_Gun_Bag";
+_mortarTripod = "RHS_Podnos_Bipod_Bag";
 
 _UAVBag = "auto";
 _UAVTerminal = "auto";
+
 
 // VEHICLES ====================================================================
 
@@ -175,5 +189,3 @@ _factionObjects = [
 /* Walls        */ ["Land_BagFence_Long_F"],
 /* Structures   */ ["CDF_WarfareBLightFactory"]
 ];
-
-// =============================================================================
