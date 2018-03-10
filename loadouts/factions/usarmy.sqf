@@ -130,10 +130,10 @@ _reconHEAD = "rhs_Booniehat_"+_camo;
 
 _commonUNIFORM = "rhs_uniform_cu_"+_camo;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "U_B_PilotCoveralls";
+_pilotUNIFORM = "U_B_HeliPilotCoveralls";
 _sniperUNIFORM = "U_B_GhillieSuit";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "U_B_PilotCoveralls";
+_helicrewUNIFORM = "U_B_HeliPilotCoveralls";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
