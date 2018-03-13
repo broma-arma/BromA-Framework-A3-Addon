@@ -17,6 +17,6 @@ if !(isPlayer _unit) then {
         _unit setName _name;
     };
 };
-if (isClass(configFile >> "CfgUnitInsignia" >> _insignia )) then {
+if (!isNull ([["CfgUnitInsignia", _insignia], configNull] call BIS_fnc_loadClass)) then {
     [_unit, _insignia] call BIS_fnc_setUnitInsignia;
 };
