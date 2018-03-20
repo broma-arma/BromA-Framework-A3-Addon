@@ -26,7 +26,7 @@ _factionSkill = [[0.7,0.8],   [0.7,0.8],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = ["hlc_rifle_hk33a2RIS","hlc_30rnd_556x45_b_HK33"];
-_commonRIFLEGL = ["hlc_rifle_hk33a2RIS_GL","hlc_20rnd_762x51_b_G3","1Rnd_HE_Grenade_shell"];
+_commonRIFLEGL = ["hlc_rifle_hk33a2RIS_GL","hlc_30rnd_556x45_b_HK33","1Rnd_HE_Grenade_shell"];
 _commonPISTOL = ["rhsusf_weap_glock17g4","rhsusf_mag_17Rnd_9x19_JHP"];
 _commonAR = ["hlc_lmg_MG3","hlc_100Rnd_762x51_B_MG3"];
 _commonMG = ["hlc_lmg_MG3","hlc_100Rnd_762x51_B_MG3"];
