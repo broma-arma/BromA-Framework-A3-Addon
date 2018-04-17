@@ -149,7 +149,7 @@ _COLTCARBINEGL = ["hlc_rifle_Colt727_GL",_30rnd556AR15,_40mm];
 _COLTCOMMANDO  = ["hlc_rifle_CQBR",_30rnd556AR15];
 _COLTM4A1CH    = ["hlc_rifle_M4a1carryhandle",_30rnd556AR15];
 _COLTM4A1      = ["hlc_rifle_M4",_30rnd556AR15];
-_COLTM4A1      = ["hlc_rifle_m4m203",_30rnd556AR15,_40mm];
+_COLTM4A1GL      = ["hlc_rifle_m4m203",_30rnd556AR15,_40mm];
 
 _MK18MOD0 = ["hlc_rifle_mk18mod0",_30rnd556AR15];
 
@@ -222,7 +222,7 @@ _M21RIS = ["hlc_rifle_M21_Rail",_20rnd762M14];
 
 // ========== FAL PACK =========================================================
 _FALOSW = ["hlc_rifle_falosw",_20rnd762FAL];
-_FALOSW = ["hlc_rifle_osw_GL",_20rnd762FAL,_40mm];
+_FALOSWGL = ["hlc_rifle_osw_GL",_20rnd762FAL,_40mm];
 
 _FNC1A1         = ["hlc_rifle_c1A1",_20rnd762FAL];
 _L1A1           = ["hlc_rifle_L1A1SLR",_20rnd762FAL];
