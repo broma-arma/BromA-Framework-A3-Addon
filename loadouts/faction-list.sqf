@@ -145,6 +145,10 @@ switch (toUpper(_faction)) do {
     case "MEC": {
         #include "factions\mec.sqf"
     };
+    
+    case "RUSSIA_AFGHAN": {
+        #include "factions\russia-afghan.sqf"
+    };    
 
     case "DEFAULT": {
         #include "factions\template.sqf"
