@@ -140,6 +140,10 @@ switch (toUpper(_faction)) do {
     case "MEC": {
         #include "factions\mec.sqf"
     };
+    
+    case "USFS": {
+        #include "factions\usarmyfuture.sqf"
+    };
 
     case "DEFAULT": {
         #include "factions\template.sqf"
