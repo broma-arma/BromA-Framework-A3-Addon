@@ -146,6 +146,10 @@ switch (toUpper(_faction)) do {
         #include "factions\mec.sqf"
     };
     
+    case "USFS": {
+        #include "factions\usarmyfuture.sqf"
+    };
+
     case "RUSSIA_AFGHAN": {
         #include "factions\russia-afghan.sqf"
     };    
