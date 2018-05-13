@@ -5,7 +5,7 @@
 */
 
 _factionID = "USARMYFUTURE";
-_factionName = "US FS";
+_factionName = "USFS";
 _factionStructure = "HIGH-TIER-CCO";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
