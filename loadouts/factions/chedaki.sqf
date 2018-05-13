@@ -85,44 +85,30 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_headsLIST = [
-    "H_Booniehat_oli",
-    "H_Bandanna_khk",
-    "rhs_beanie_green",
-    "empty"
-];
-
 _uniformsLIST = [
     "LOP_U_ChDKZ_Fatigue_04",
     "LOP_U_ChDKZ_Fatigue_01"
 ];
 
-_vestsLIST = [
-    "rhsgref_6b23_khaki_rifleman",
-    "rhsgref_6b23_khaki",
-    "rhsgref_6b23_khaki_nco"
-];
-
 _goggleLIST = [
-    "rhs_balaclava",
+    "empty",
     "G_Balaclava_blk",
-    "G_Balaclava_oli"
+    "G_Balaclava_oli",
+    "empty"
 ];
 
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
 _randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = "empty";
-_leaderHEAD = "rhs_fieldcap_digi";
+_leaderHEAD = "rhs_fieldcap_khk";
 _officerHEAD = "LOP_H_ChDKZ_Beret";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4_bala";
-_pilotHEAD = _commonHEAD;
-_helicrewHEAD = _commonHEAD;
-_helipilotHEAD = _commonHEAD;
+_pilotHEAD = "rhs_zsh7a_alt";
+_helicrewHEAD = "rhs_zsh7a_mike";
+_helipilotHEAD = "rhs_zsh7a_mike";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = _commonHEAD;
@@ -141,11 +127,11 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = "LOP_U_ChDKZ_Fatigue_03";
 
-_commonVEST = _randomVEST;
-_officerVEST = _commonVEST;
-_ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
-_mgVEST = _commonVEST;
+_commonVEST = "LOP_V_6Sh92_OLV";
+_officerVEST = "LOP_V_6Sh92_Radio_OLV";
+_ftlVEST = "LOP_V_6Sh92_Radio_OLV";
+_slVEST = "LOP_V_6Sh92_Radio_OLV";
+_mgVEST = "LOP_V_6Sh92_Vog_OLV";
 _grenadierVEST = _commonVEST;
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;

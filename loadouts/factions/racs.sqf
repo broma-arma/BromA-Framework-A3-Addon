@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
     The Royal Army Corps of Sahrani is the main military force of the
@@ -22,23 +21,23 @@ _defaultInsignia = "USP_PATCH_MORALE_LAMBDA_OCP";
 _defaultColor = "white";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+_factionSkill = [[0.7,0.8],   [0.7,0.8],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _G3SG1;
-_commonRIFLEGL = _G3KA4GL;
-_commonPISTOL = _USP;
-_commonAR = _M249S;
-_commonMG = _M240B;
-_commonMARKSMAN = _G3SG1;
-_commonSNIPER = _M14;
+_commonRIFLE = ["hlc_rifle_hk33a2RIS","hlc_30rnd_556x45_b_HK33"];
+_commonRIFLEGL = ["hlc_rifle_hk33a2RIS_GL","hlc_30rnd_556x45_b_HK33","1Rnd_HE_Grenade_shell"];
+_commonPISTOL = ["rhsusf_weap_glock17g4","rhsusf_mag_17Rnd_9x19_JHP"];
+_commonAR = ["hlc_lmg_MG3","hlc_100Rnd_762x51_B_MG3"];
+_commonMG = ["hlc_lmg_MG3","hlc_100Rnd_762x51_B_MG3"];
+_commonMARKSMAN = ["hlc_rifle_hk33a2RIS","hlc_30rnd_556x45_b_HK33"];
+_commonSNIPER = ["hlc_rifle_m14dmr","hlc_20Rnd_762x51_B_M14"];
 _commonAT = _AT4;
-_specAT = _MAAWS;
-_commonSMG = _SBR9;
-_commonRCO = _ZFSG1;
-_commonCCO = _ACOred;
-_commonMAGNIFIED = _M14SCOPE;
+_specAT = ["rhs_weap_maaws","rhs_mag_maaws_HEAT"];
+_commonSMG = ["hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5"];
+_commonRCO = "FHQ_optic_ACOG";
+_commonCCO = "rhsusf_acc_RX01";
+_commonMAGNIFIED = "hlc_optic_LRT_m14";
 _commonSUPPRESSOR = "hlc_muzzle_snds_g3";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_14";
@@ -85,50 +84,56 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
+_headsLIST = [
+	"LOP_H_6B27M_RACS",
+	"LOP_H_6B27M_ess_RACS"
+];
+
 _uniformsLIST = [
     "LOP_U_RACS_Fatigue_01",
     "LOP_U_RACS_Fatigue_01_slv"
 ];
 
 _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
+_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 
-_commonHEAD = "rhsusf_ach_bare_semi_ess";
-_leaderHEAD = "rhsusf_ach_bare_semi_headset_ess";
-_officerHEAD = "rhsusf_patrolcap_ocp";
-_medicHEAD = "H_Bandanna_cbr";
+_commonHEAD = _randomHEAD;
+_leaderHEAD = "rhssaf_beret_green";
+_officerHEAD = "rhssaf_beret_green";
+_medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhsusf_cvc_ess";
 _pilotHEAD = "rhsusf_hgu56p";
 _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "rhs_Booniehat_marpatd";
+_reconHEAD = "H_Booniehat_tan";
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "U_B_PilotCoveralls";
-_sniperUNIFORM = "U_B_GhillieSuit";
+_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_sniperUNIFORM = "U_I_FullGhillie_sard";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = _commonUNIFORM;
+_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhsusf_iotv_ocp_Rifleman";
-_officerVEST = "rhsusf_iotv_ocp";
-_ftlVEST = "rhsusf_iotv_ocp_Teamleader";
-_slVEST = "rhsusf_iotv_ocp_Squadleader";
-_mgVEST = "rhsusf_iotv_ocp_SAW";
-_grenadierVEST = "rhsusf_iotv_ocp_Grenadier";
-_medicVEST = "rhsusf_iotv_ocp_Medic";
+_commonVEST = "rhsusf_mbav_light";
+_officerVEST = "rhsusf_mbav_rifleman";
+_ftlVEST = "rhsusf_mbav_rifleman";
+_slVEST = "rhsusf_mbav_rifleman";
+_mgVEST = "rhsusf_mbav_mg";
+_grenadierVEST = "rhsusf_mbav_mg";
+_medicVEST = "rhsusf_mbav_medic";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "B_AssaultPack_rgr";
-_bigBACKPACK = "B_Carryall_ocamo";
+_commonBACKPACK = "B_AssaultPack_cbr";
+_bigBACKPACK = "B_Kitbag_cbr";
 
 // EXTRA EQUIPMENT =============================================================
 
