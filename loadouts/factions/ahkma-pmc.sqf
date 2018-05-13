@@ -33,10 +33,10 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _G3KA4;
-_commonRIFLEGL = _G3KA4;
+_commonRIFLEGL = _G3KA4GL;
 _commonPISTOL = _G17;
 _commonAR = _M249L;
-_commonMG = ["hlc_lmg_MG3", "hlc_50Rnd_762x51_M_MG3"];
+_commonMG = _MG3;
 _commonMARKSMAN = _G3KA4;
 _commonSNIPER = _SVDS;
 _commonAT = _AT4;
@@ -44,8 +44,8 @@ _specAT = _RPG42;
 _commonSMG = _G3A3;
 _commonRCO = "optic_Arco";
 _commonCCO = "FHQ_optic_MicroCCO_low";
-_commonMAGNIFIED = "FHQ_optic_ACOG";
-_commonSUPPRESSOR = "muzzle_snds_B";
+_commonMAGNIFIED = "rhs_acc_pso1m2";
+_commonSUPPRESSOR = _supG3;
 _commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
 _NVG = _NVGEN3IND;
 
@@ -77,13 +77,10 @@ _count40mmCARGO = 40;
 // UNIFORMS ====================================================================
 
 _uniformsLIST = [
-    "MNP_CombatUniform_Militia_DB",
-    "MNP_CombatUniform_Militia_C",
-    "MNP_CombatUniform_Militia_DA",
-    "MNP_CombatUniform_Militia_C",
-    "MNP_CombatUniform_Militia_DE",
-    "MNP_CombatUniform_Militia_F",
-    "MNP_CombatUniform_Militia_DB"
+    "TRYK_U_pad_hood_CSATBlk",
+    "TRYK_U_pad_hood_Cl_blk",
+    "TRYK_U_pad_hood_odBK",
+    "TRYK_U_pad_hood_Cl"
 ];
 
 _vestsLIST = [
@@ -97,19 +94,19 @@ _randomVEST = _vestsLIST call BIS_fnc_selectRandom;
 _commonHEAD = "TRYK_H_woolhat";
 _leaderHEAD = "H_Cap_blk";
 _officerHEAD = "H_Beret_blk";
-_medicHEAD = "MNP_Boonie_Jigsaw";
+_medicHEAD = "LOP_H_Beanie_dpmw";
 _crewmanHEAD = "rhsusf_cvc_ess";
 _pilotHEAD = "rhsusf_hgu56p";
 _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
-_sniperHEAD = _commonHEAD;
+_sniperHEAD = "H_Hat_Safari_sand_F";
 _demoHEAD = _commonHEAD;
-_reconHEAD = "MNP_Boonie_6CO";
+_reconHEAD = "TRYK_H_headset2";
 
 _commonUNIFORM = _randomUNIFORM;
-_officerUNIFORM = _randomUNIFORM;
+_officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "U_B_PilotCoveralls";
-_sniperUNIFORM = _randomUNIFORM;
+_sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = _commonUNIFORM;
 _crewUNIFORM = _commonUNIFORM;

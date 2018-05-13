@@ -111,12 +111,12 @@ _randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _randomHEAD;
-_officerHEAD = _randomHEAD;
+_officerHEAD = "rhssaf_beret_black";
 _medicHEAD = _randomHEAD;
-_crewmanHEAD = _randomHEAD;
-_pilotHEAD = _randomHEAD;
-_helicrewHEAD = _randomHEAD;
-_helipilotHEAD = _randomHEAD;
+_crewmanHEAD = "rhs_tsh4_ess";
+_pilotHEAD = "rhs_zsh7a";
+_helicrewHEAD = "rhs_zsh7a_mike_green";
+_helipilotHEAD = "rhs_zsh7a_mike_green";
 _sniperHEAD = _randomHEAD;
 _demoHEAD = _randomHEAD;
 _reconHEAD = _randomHEAD;

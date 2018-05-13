@@ -1,5 +1,10 @@
 switch (toUpper(_faction)) do {
-
+    case "PMC": {
+        #include "factions\pmc.sqf";
+    };
+    case "NAPA": {
+        #include "factions\napa.sqf"
+    };
     case "GERMAN": {
         #include "factions\german.sqf"
     };
@@ -132,10 +137,22 @@ switch (toUpper(_faction)) do {
     case "FRWINTER": {
         #include "factions\frwinter.sqf"
     };
+    
+    case "FRWOOD": {
+        #include "factions\frwood.sqf"
+    };
 
     case "MEC": {
         #include "factions\mec.sqf"
     };
+    
+    case "USFS": {
+        #include "factions\usarmyfuture.sqf"
+    };
+
+    case "RUSSIA_AFGHAN": {
+        #include "factions\russia-afghan.sqf"
+    };    
 
     case "DEFAULT": {
         #include "factions\template.sqf"

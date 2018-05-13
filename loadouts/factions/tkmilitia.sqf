@@ -29,7 +29,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 _commonRIFLE = _AKM;
 _commonRIFLEGL = _AKMGL;
 _commonPISTOL = _Makarov;
-_commonAR = ["hlc_rifle_rpk", "hlc_75Rnd_762x39_m_rpk"];
+_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
 _commonMG = _PKM;
 _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
@@ -41,7 +41,8 @@ _commonCCO = "hlc_optic_kobra";
 _commonMAGNIFIED = "HLC_Optic_PSO1";
 _commonSUPPRESSOR = "hlc_muzzle_762SUP_AK";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
-_NVG = "";
+_NVG = "rhs_1PN138";
+
 
 // AMMO COUNT ==================================================================
 
@@ -86,20 +87,30 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
+	"LOP_H_Turban",
+	"LOP_H_Turban_mask",
     "LOP_H_Pakol",
     "H_ShemagOpen_tan",
-    "H_ShemagOpen_khk"
+    "H_ShemagOpen_khk",
+	"empty"
 ];
 
 _uniformsLIST = [
-    "MNP_CombatUniform_Militia_DC",
-    "MNP_CombatUniform_Militia_DE",
-    "MNP_CombatUniform_Militia_DB"
+    "LOP_U_AM_Fatigue_01",
+    "LOP_U_AM_Fatigue_01_3",
+    "LOP_U_AM_Fatigue_02_2",
+	"LOP_U_AM_Fatigue_02",
+	"LOP_U_AM_Fatigue_03_3",
+	"LOP_U_AM_Fatigue_03_2",
+	"LOP_U_AM_Fatigue_03",
+	"LOP_U_AM_Fatigue_04_2",
+	"LOP_U_AM_Fatigue_04_3",
+	"LOP_U_AM_Fatigue_04"
 ];
 
 _vestsLIST = [
-    "TAC_LBT_H_Khaki",
-    "TAC_LBT_H2_Khaki"
+    "V_TacChestrig_grn_F",
+    "V_TacChestrig_oli_F"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
@@ -166,7 +177,7 @@ _factionVehicles = [
 /*  Attack Planes     */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
 /*  Heavy Vehicles    */	,["rhs_sprut_vdv", "rhs_t72bd_tv"]
 /*  Light Vehicles    */	,["LOP_AM_Landrover_M2", "LOP_AM_Offroad_M2", "LOP_AM_Offroad", "LOP_AM_Landrover", "rhsgref_cdf_reg_uaz", "rhsgref_cdf_reg_uaz_dshkm", "rhsgref_cdf_reg_uaz_open", "rhsgref_cdf_reg_uaz_spg9"]
-/*  Medium Vehicles   */	,["rhs_btr60_vdv", "rhs_btr70_vdv", "rhs_btr80_vdv", "rhs_btr80a_vdv", "rhs_bmp2d_vdv", "rhs_bmp2_vdv"]
+/*  Medium Vehicles   */	,["rhs_btr60_vdv", "rhs_btr70_vdv","rhs_bmp2d_vdv", "rhs_bmp2_vdv"]
 /*  Mobile Artillery  */	,["rhsgref_cdf_reg_BM21", "rhsgref_cdf_reg_BM21"]
 /*  Transport Helos   */	,["rhsgref_cdf_reg_Mi8amt", "rhsgref_cdf_reg_Mi17Sh"]
 /*  Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
