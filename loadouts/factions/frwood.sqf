@@ -34,7 +34,7 @@ _commonSMG              = ["hlc_smg_MP5N","hlc_30Rnd_9x19_B_MP5"];
 _commonRCO              = "R3F_J4";
 _commonCCO              = "R3F_AIMPOINT";
 _commonMAGNIFIED        = "optic_LRPS";
-_commonSUPPRESSOR       = "R3F_SILENCIEUX_HK416";
+_commonSUPPRESSOR       = "rhsusf_acc_rotex5_grey";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG                    = "rhsusf_ANPVS_14";
 
