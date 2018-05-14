@@ -123,4 +123,12 @@ switch(_x) do {
             [_parachute , 15]
         ]] call BRM_FMK_fnc_addtoCargo;
     };
+    
+    case "rifle_grenades": {
+       [[_object, "item",
+            ["R3F_APAV40", 40],
+            ["R3F_AC58", 40],
+            ["R3F_FUM40", 40]
+        ]] call BRM_FMK_fnc_addtoCargo;
+    };
 };
