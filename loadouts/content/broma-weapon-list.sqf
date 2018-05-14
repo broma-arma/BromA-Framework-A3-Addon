@@ -637,6 +637,9 @@ _MP443 = ["rhs_mag_9x19_17", "rhs_weap_pya"];
 _PP2000 = ["rhs_weap_pp2000_folded", "rhs_mag_9x19mm_7n21_20"];
 _M1911 = ["rhsusf_weap_m1911a1", "rhsusf_mag_7x45acp_MHP"];
 _G17 = ["rhsusf_weap_glock17g4", "rhsusf_mag_17Rnd_9x19_JHP"];
+_PAMAS = ["R3F_PAMAS","R3F_15Rnd_9x19_PAMAS"];
+_TT33 = ["rhs_weap_tt33","rhs_mag_762x25_8"];
+_Skorpion = ["rhs_weap_savz61_folded","rhsgref_20rnd_765x17_vz61"];
 
 _G18 = _G17;
 _G19 = _G17;
@@ -647,13 +650,11 @@ _Python = _Zubr;
 _Deagle =_Zubr;
 _MP412 = _Zubr;
 
-_CZ75 = _M1911; // "rhsusf_acc_omega9k"
+_CZ75 = _P226; // "rhsusf_acc_omega9k"
 _SW659 = _G17;
 _USP = _M9;
 _Kimber = _M1911;
-_PAMAS = _M9;
 
-_Skorpion = _PP2000;
 _TEC9 = _PP2000;
 _UZI = _PP2000;
 
@@ -661,9 +662,7 @@ _GSH18 = _MP443;
 _FNP45 = _4Five;
 
 _RUGER = _G17;
-_P226 = _PMM;
 _SW569 = _G17;
-_TT33 = _Makarov;
 _VP70 = _Makarov;
 _Fiveseven = _M9;
 
