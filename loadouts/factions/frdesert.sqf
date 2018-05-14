@@ -21,8 +21,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE            = _FAMASG2Desert;
-_commonRIFLEGL          = _FAMASG2DesertGL;
+_commonRIFLE            = ["R3F_Famas_G2_HG_DES","30Rnd_556x45_Stanag"];
+_commonRIFLEGL          = ["R3F_Famas_G2_M203_DES","30Rnd_556x45_Stanag","1Rnd_HE_Grenade_shell"];
 _commonPISTOL           = ["R3F_PAMAS","R3F_15Rnd_9x19_PAMAS"];
 _commonAR               = _FNMINIMIRIS;
 _commonMG               = _M240G;
