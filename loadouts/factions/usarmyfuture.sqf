@@ -101,7 +101,7 @@ _randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = "rhsusf_opscore_mc_cover_pelt_nsw";
 _leaderHEAD = "rhsusf_opscore_mc_cover_pelt_cam";
-_officerHEAD = "rhsusf_patrolcap_ocp;
+_officerHEAD = "rhsusf_patrolcap_ocp";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhsusf_cvc_green_ess";
 _pilotHEAD = "RHS_jetpilot_usaf";
