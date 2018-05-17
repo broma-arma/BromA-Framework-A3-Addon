@@ -151,13 +151,13 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */	 ["I_APC_Wheeled_03_cannon_F"]
+/*  Anti Air Vehicles    */	 ["I_LT_01_AA_F"]
 /*  Attack Helos	 */	,["I_Heli_light_03_F", "I_Heli_light_03_F"]
 /*  Attack Planes 	 */	,["I_Plane_Fighter_03_AA_F","I_Plane_Fighter_03_CAS_F"]
 /*  Heavy Vehicles 	 */	,["I_MBT_03_cannon_F","I_APC_tracked_03_cannon_F"]
-/*  Light Vehicles 	 */	,["I_MRAP_03_hmg_F", "I_MRAP_03_hmg_F"]
-/*  Medium Vehicles 	 */	,["I_APC_Wheeled_03_cannon_F","I_APC_Wheeled_03_cannon_F"]
-/*  Mobile Artillery     */	,["I_Mortar_01_F"]
+/*  Light Vehicles 	 */	,["I_MRAP_03_F", "I_MRAP_03_hmg_F"]
+/*  Medium Vehicles 	 */	,["I_APC_Wheeled_03_cannon_F","I_LT_01_AT_F","I_LT_01_cannon_F"]
+/*  Mobile Artillery     */	,["I_Mortar_01_F","I_Truck_02_MRL_F"]
 /*  Transport Helos      */	,["I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F"]
 /*  Transport Planes     */	,[]
 /*  Transport Trucks     */	,["I_Truck_02_covered_F","I_Truck_02_transport_F"]
@@ -167,7 +167,7 @@ _factionVehicles = [
 /*  UGV 		 */	,["I_UGV_01_F","I_UGV_01_rcws_F"]
 /*  Support              */	,["I_Truck_02_ammo_F","I_Truck_02_fuel_F", "I_Truck_02_medical_F", "I_Truck_02_box_F"]
 /*  Submarines           */	,["I_SDV_01_F"]
-/*  MRAP Vehicles        */     ,["I_MRAP_03_hmg_F", "I_MRAP_03_hmg_F"]
+/*  MRAP Vehicles        */     ,["I_MRAP_03_F","I_MRAP_03_hmg_F", "I_MRAP_03_gmg_F"]
 ];
 
 // OBJECTS =====================================================================
