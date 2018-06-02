@@ -117,13 +117,13 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "LOP_V_6B23_6Sh92_CDF";
-_officerVEST = "LOP_V_6B23_CrewOfficer_CDF";
+_commonVEST = "rhsgref_6b23_khaki_rifleman";
+_officerVEST = "rhsgref_6b23_khaki_nco";
 _ftlVEST = _commonVEST;
-_slVEST = "LOP_V_6B23_CrewOfficer_CDF";
+_slVEST = "rhsgref_6b23_khaki_nco";
 _mgVEST = _commonVEST;
 _grenadierVEST = _commonVEST;
-_medicVEST = "LOP_V_6B23_Medic_CDF";
+_medicVEST = "rhsgref_6b23_khaki_medic";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;

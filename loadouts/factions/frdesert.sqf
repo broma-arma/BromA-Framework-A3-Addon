@@ -1,9 +1,9 @@
 // INFO ========================================================================
 /*
-    French armed forces ready for woodland environement.
+    French armed forces ready for arid environement.
 */
 
-_factionID        = "FRWOOD";
+_factionID        = "FRDESERT";
 _factionName      = "French armed forces";
 _factionStructure = "FRASTRUCT";
 
@@ -21,16 +21,16 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE            = ["R3F_Famas_G2_HG","30Rnd_556x45_Stanag"];
-_commonRIFLEGL          = ["R3F_Famas_G2_M203","30Rnd_556x45_Stanag","1Rnd_HE_Grenade_shell"];
+_commonRIFLE            = ["R3F_Famas_G2_HG_DES","30Rnd_556x45_Stanag"];
+_commonRIFLEGL          = ["R3F_Famas_G2_M203_DES","30Rnd_556x45_Stanag","1Rnd_HE_Grenade_shell"];
 _commonPISTOL           = ["R3F_PAMAS","R3F_15Rnd_9x19_PAMAS"];
-_commonAR               = ["hlc_lmg_minimipara_railed","rhs_200rnd_556x45_M_SAW"];
+_commonAR               = _FNMINIMIRIS;
 _commonMG               = _M240G;
 _commonMARKSMAN         = ["arifle_SPAR_03_blk_F","20Rnd_762x51_Mag"];
 _commonSNIPER           = ["R3F_PGM_Hecate_II_POLY","R3F_7Rnd_127x99_PEI_PGM"];
-_commonAT               = ["rhs_weap_M136","rhs_m136_mag"];
-_specAT                 = ["R3F_ERYX","R3F_ERYX_mag"];
-_commonSMG              = ["hlc_smg_MP5N","hlc_30Rnd_9x19_B_MP5"];
+_commonAT               = _AT4;
+_specAT                 = _ERYX;
+_commonSMG              = _MP5A5;
 _commonRCO              = "R3F_J4";
 _commonCCO              = "R3F_AIMPOINT";
 _commonMAGNIFIED        = "optic_LRPS";
@@ -81,16 +81,20 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhsusf_ach_bare_headset",
-    "rhsusf_ach_bare_wood_headset"
+    "rhsusf_ach_bare_des_headset",
+    "rhsusf_ach_bare_des_headset_ess",
+    "rhsusf_ach_bare_semi_headset",
+    "rhsusf_ach_bare_semi_headset_ess"
 ];
 
 _uniformsLIST = [
-    "TRYK_U_B_Woodland",
-    "TRYK_U_B_Woodland_Tshirt",
-    "TRYK_U_B_WDL_GRY_CombatUniform",
-    "TRYK_U_B_WDL_GRY_R_CombatUniform",
-    "TRYK_U_B_Wood_T"
+    "TRYK_U_B_3c",
+    "TRYK_U_B_3cr",
+    "TRYK_B_TRYK_3C_T",
+    "TRYK_T_camo_3c",
+    "TRYK_T_PAD",
+    "TRYK_U_B_BLK3CD",
+    "TRYK_U_B_BLK3CD_Tshirt"
     
 ];
 
