@@ -151,7 +151,7 @@ _factionVehicles = [
 /*  Attack Planes     */	,["RHS_Su25SM_vvsc"]
 /*  Heavy Vehicles    */	,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv"]
 /*  Light Vehicles    */	,["LOP_PMC_Offroad_M2","rhs_uaz_open_vmf"]
-/*  Medium Vehicles   */	,["rhs_bmp2_tv","rhs_bmp2e_tv","rhs_bmp2d_tv","rhs_bmp2k_tv","rhs_brm1k_tv","rhs_btr60_vmf"]
+/*  Medium Vehicles   */	,["rhs_bmp2_tv","rhs_bmp2d_tv","rhs_bmp2k_tv","rhs_brm1k_tv","rhs_btr60_vmf"]
 /*  Mobile Artillery  */	,["rhs_9k79_B","rhs_9k79_K","rhs_9k79","rhs_2s3_tv"]
 /*  Transport Helos   */	,["LOP_PMC_MH9", "LOP_PMC_M900", "LOP_PMC_Mi8AMT","RHS_Mi8mt_vv"]
 /*  Transport Planes  */	,[]
