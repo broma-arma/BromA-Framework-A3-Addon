@@ -878,7 +878,7 @@ _NLAW_3CB = ["UK3CB_BAF_NLAW_Launcher"];
 
 _STINGER = ["rhs_weap_fim92",_FIM92];
 _JAVELIN = ["rhs_weap_fgm148",_FGM8Jav];
-_M136 = ["rhs_weap_M136","rhs_m136_mag"];
+_M136 = _AT4;
 _IGLA = ["rhs_weap_igla",_Igla9K38];
 _RPG7PGO = ["rhs_weap_rpg7_pgo",_RPGVL];
 _RPG7 = ["rhs_weap_rpg7",_RPGVL];
@@ -893,6 +893,15 @@ _AT4HP = ["rhs_weap_M136_hp","rhs_m136_mag"];
 //                                SMAW
 
 _SMAW = ["rhs_weap_smaw", "rhs_mag_smaw_HEAA", "rhs_mag_smaw_HEDP"];
+
+//                             CARL GUSTAV
+
+_GUSTAV = ["rhs_weap_maaws","rhs_mag_maaws_HEAT","rhs_mag_maaws_HE"]
+
+//                             M72A7 LAW
+
+_M72A7 = ["rhs_weap_m72a7","rhs_m72a7_mag"]
+
 
 // =============================================================================
 // =============================================================================
