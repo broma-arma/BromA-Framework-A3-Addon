@@ -909,7 +909,7 @@ _NLAW_3CB = ["UK3CB_BAF_NLAW_Launcher"];
 
 _STINGER = ["rhs_weap_fim92",_FIM92];
 _JAVELIN = ["rhs_weap_fgm148",_FGM8Jav];
-_M136 = _AT4;
+_M136 = ["rhs_weap_M136","rhs_m136_mag"];
 _IGLA = ["rhs_weap_igla",_Igla9K38];
 _RPG7PGO = ["rhs_weap_rpg7_pgo",_RPGVL];
 _RPG7 = ["rhs_weap_rpg7",_RPGVL];
