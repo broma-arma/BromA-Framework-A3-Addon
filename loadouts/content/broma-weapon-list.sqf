@@ -927,11 +927,11 @@ _SMAW = ["rhs_weap_smaw", "rhs_mag_smaw_HEAA", "rhs_mag_smaw_HEDP"];
 
 //                             CARL GUSTAV
 
-_GUSTAV = ["rhs_weap_maaws","rhs_mag_maaws_HEAT","rhs_mag_maaws_HE"]
+_GUSTAV = ["rhs_weap_maaws","rhs_mag_maaws_HEAT","rhs_mag_maaws_HE"];
 
 //                             M72A7 LAW
 
-_M72A7 = ["rhs_weap_m72a7","rhs_m72a7_mag"]
+_M72A7 = ["rhs_weap_m72a7","rhs_m72a7_mag"];
 
 
 // =============================================================================
