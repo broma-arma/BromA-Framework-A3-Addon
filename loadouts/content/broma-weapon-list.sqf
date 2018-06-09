@@ -72,6 +72,7 @@ _30rnd762AKT     = "hlc_30Rnd_762x39_t_ak";
 _30rnd556G36     = "hlc_30rnd_556x45_EPR_G36";
 _30rnd556G36T    = "hlc_30rnd_556x45_Tracers_G36";
 _30rnd68ACR      = "hlc_30rnd_68x43_FMJ";
+_30rnd556SIG550  = "hlc_30Rnd_556x45_EPR_sg550";
 
 _30rnd10mmMP5 = "hlc_30Rnd_10mm_B_MP5";
 _30rnd9mmMP5  = "hlc_30Rnd_9x19_B_MP5";
@@ -456,6 +457,36 @@ _12rnd40SIG  = "hlc_12Rnd_40SW_B_P226";
 _P239  = ["hlc_pistol_P239",_10rnd9mmSIG];
 _P239B = ["hlc_pistol_P239_357",_8rnd357SIG];
 _P239C = ["hlc_pistol_P239_40",_8rnd357SIG];
+
+//========== SIG55X PACK =======================================================
+_SIG550           = ["hlc_rifle_SG550",_30rnd556SIG550];
+_SIG550SP         = ["hlc_rifle_SG550Sniper",_30rnd556SIG550];
+_SIG550SPRIS      = ["hlc_rifle_SG550Sniper_RIS",_30rnd556SIG550];
+_SIG550GL         = ["hlc_rifle_SG550_GL",_30rnd556SIG550,_40mm];
+_SIG550RIS        = ["hlc_rifle_SG550_RIS",_30rnd556SIG550];
+_SIG550TACTICAL   = ["hlc_rifle_SG550_TAC",_30rnd556SIG550];
+_SIG550TACTICALGL = ["hlc_rifle_SG550_TAC_GL",_30rnd556SIG550,_40mm];
+
+_SIG551             = ["hlc_rifle_SG551LB",_30rnd556SIG550];
+_SIG551RIS          = ["hlc_rifle_SG551LB_RIS",_30rnd556SIG550];
+_SIG551TACTICAL     = ["hlc_rifle_SG551LB_TAC",_30rnd556SIG550];
+_SIG551TACTICALGL   = ["hlc_rifle_SG551LB_TAC_GL",_30rnd556SIG550,_40mm];
+_SIG551SB           = ["hlc_rifle_SG551SB",_30rnd556SIG550];
+_SIG551SBRIS        = ["hlc_rifle_SG551SB_RIS",_30rnd556SIG550];
+_SIG551SBTACTICAL   = ["hlc_rifle_SG551SB_TAC",_30rnd556SIG550];
+_SIG551SBTACTICALGL = ["hlc_rifle_SG551SB_TAC_GL",_30rnd556SIG550,_40mm];
+
+_SIG553             = ["hlc_rifle_SG553LB",_30rnd556SIG550];
+_SIG553RIS          = ["hlc_rifle_SG553LB_RIS",_30rnd556SIG550];
+_SIG553TACTICAL     = ["hlc_rifle_SG553LB_TAC",_30rnd556SIG550];
+_SIG553SB           = ["hlc_rifle_SG553SB",_30rnd556SIG550];
+_SIG553SBRIS        = ["hlc_rifle_SG553SB_RIS",_30rnd556SIG550];
+_SIG553SBTACTICAL   = ["hlc_rifle_SG553SB_TAC",_30rnd556SIG550];
+_SIG553R            = ["hlc_rifle_SG553RLB",_30rnd762AK];
+_SIG553RTACTICAL    = ["hlc_rifle_SG553RLB_TAC",_30rnd762AK];
+_SIG553RSB          = ["hlc_rifle_SG553RSB",_30rnd762AK];
+_SIG553RSBTACTICAL  = ["hlc_rifle_SG553RSB_TAC",_30rnd762AK];
+
 // =============================================================================
 // =============================================================================
 //                               RH ARMALITES
@@ -878,7 +909,7 @@ _NLAW_3CB = ["UK3CB_BAF_NLAW_Launcher"];
 
 _STINGER = ["rhs_weap_fim92",_FIM92];
 _JAVELIN = ["rhs_weap_fgm148",_FGM8Jav];
-_M136 = ["rhs_weap_M136","rhs_m136_mag"];
+_M136 = _AT4;
 _IGLA = ["rhs_weap_igla",_Igla9K38];
 _RPG7PGO = ["rhs_weap_rpg7_pgo",_RPGVL];
 _RPG7 = ["rhs_weap_rpg7",_RPGVL];
@@ -893,6 +924,15 @@ _AT4HP = ["rhs_weap_M136_hp","rhs_m136_mag"];
 //                                SMAW
 
 _SMAW = ["rhs_weap_smaw", "rhs_mag_smaw_HEAA", "rhs_mag_smaw_HEDP"];
+
+//                             CARL GUSTAV
+
+_GUSTAV = ["rhs_weap_maaws","rhs_mag_maaws_HEAT","rhs_mag_maaws_HE"]
+
+//                             M72A7 LAW
+
+_M72A7 = ["rhs_weap_m72a7","rhs_m72a7_mag"]
+
 
 // =============================================================================
 // =============================================================================
