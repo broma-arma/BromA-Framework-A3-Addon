@@ -26,7 +26,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AKM;
+_commonRIFLE = _HLCAKM;
 _commonRIFLEGL = _AKMGL;
 _commonPISTOL = _Makarov;
 _commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
