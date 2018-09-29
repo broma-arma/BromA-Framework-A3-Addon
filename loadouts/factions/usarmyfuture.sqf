@@ -4,8 +4,8 @@
     new vehicles and new gear for today's soldier.    
 */
 
-_factionID = "USARMYFUTURE";
-_factionName = "USFS";
+_factionID = "USFS";
+_factionName = "US Future Soldier Program Unit";
 _factionStructure = "HIGH-TIER-CCO";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
