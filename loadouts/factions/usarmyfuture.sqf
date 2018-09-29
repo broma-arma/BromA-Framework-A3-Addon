@@ -80,8 +80,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_USArmyCammo")then{_camo=BRM_FMK_UNIFORMS_USArmyCammo};
-
 _headsLIST = [
     "rhsusf_opscore_mc_cover_pelt_cam",
     "rhsusf_opscore_coy_cover_pelt",
@@ -93,6 +91,11 @@ _goggleLIST = [
     "rhsusf_shemagh_grn",
     "rhsusf_shemagh_gogg_grn",
     "empty"
+];
+
+_vestsLIST = [
+     "rhsusf_spcs_ocp_rifleman_alt",
+     "rhsusf_spcs_ocp_rifleman"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
@@ -123,15 +126,15 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhsusf_spcs_ocp_rifleman";
-_officerVEST = _commonVEST;
-_ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
-_mgVEST = "rhsusf_iotv_ocp_SAW";
-_grenadierVEST = _commonVEST;
-_medicVEST = _commonVEST;
+_commonVEST = _randomVEST;
+_officerVEST = "rhsusf_spcs_ocp_teamleader_alt";
+_ftlVEST = "rhsusf_spcs_ocp_teamleader";
+_slVEST = "rhsusf_spcs_ocp_squadleader";
+_mgVEST = "rhsusf_spcs_ocp_saw";
+_grenadierVEST = "rhsusf_spcs_ocp_grenadier";
+_medicVEST = "rhsusf_spcs_ocp_medic";
 _demoVEST = _commonVEST;
-_marksmanVEST = _commonVEST;
+_marksmanVEST = "rhsusf_spcs_ocp_sniper";
 _reconVEST = _commonVEST;
 
 _commonBACKPACK = "rhsusf_assault_eagleaiii_ocp";
