@@ -487,6 +487,37 @@ _SIG553RTACTICAL    = ["hlc_rifle_SG553RLB_TAC",_30rnd762AK];
 _SIG553RSB          = ["hlc_rifle_SG553RSB",_30rnd762AK];
 _SIG553RSBTACTICAL  = ["hlc_rifle_SG553RSB_TAC",_30rnd762AK];
 
+//========== HLC HK416 PACK =======================================================
+
+_HLC416D10 = ["hlc_rifle_416D10",_30rnd556AR15];
+_HLC416D10ST6 = ["hlc_rifle_416D10_st6",_30rnd556AR15];
+_HLC416D10GL = ["hlc_rifle_416D10_gl",_30rnd556AR15,_40mm];
+_HLC416D10RAHG = ["hlc_rifle_416D10_RAHG",_30rnd556AR15];
+_HLC416D10SMR = ["hlc_rifle_416D10_geissele",_30rnd556AR15];
+_HLC416D10TAN = ["hlc_rifle_416D10_tan",_30rnd556AR15];
+_HLC416D10WOOD = ["hlc_rifle_416D10_wdl",_30rnd556AR15];
+_HLC416D10C = ["hlc_rifle_416D10C",_30rnd556AR15];
+
+_HLC416D145 = ["hlc_rifle_416D145",_30rnd556AR15];
+_HLC416D145CAG = ["hlc_rifle_416D145_CAG",_30rnd556AR15];
+_HLC416D145GL = ["hlc_rifle_416D145_gl",_30rnd556AR15,_40mm];
+_HLC416D145TAN = ["hlc_rifle_416D145_tan",_30rnd556AR15];
+_HLC416D145WOOD = ["hlc_rifle_416D145_wdl",_30rnd556AR15];
+_HLC416D145C = ["hlc_rifle_416D145C",_30rnd556AR15];
+
+_HLC416D165 = ["hlc_rifle_416D165",_30rnd556AR15];
+_HLC416D165GL = ["hlc_rifle_416D165_gl",_30rnd556AR15,_40mm];
+_HLC416D165TAN = ["hlc_rifle_416D165_tan",_30rnd556AR15];
+_HLC416D165WOOD = ["hlc_rifle_416D165_wdl",_30rnd556AR15];
+
+_HLC416D20 = ["hlc_rifle_416D20",_30rnd556AR15];
+_HLC416D20TAN = ["hlc_rifle_416D20_tan",_30rnd556AR15];
+_HLC416D20WOOD = ["hlc_rifle_416D20_wdl",_30rnd556AR15];
+
+_HLC416C = ["hlc_rifle_416C",_30rnd556AR15];
+_HLC416N = ["hlc_rifle_416N",_30rnd556AR15];
+_HLC416NGL = ["hlc_rifle_416N_gl",_30rnd556AR15,_40mm];
+
 // =============================================================================
 // =============================================================================
 //                               RH ARMALITES
