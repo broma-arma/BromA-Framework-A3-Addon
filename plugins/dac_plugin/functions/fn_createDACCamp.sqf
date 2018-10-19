@@ -19,11 +19,11 @@ _as = _area select 3;
 _pos = _this select 10;
 
 call compile format ["
-%1 = createTrigger ['EmptyDetector', %13];
-%1 setTriggerArea [%9, %10, %11, %12];
+%1 = createTrigger ['EmptyDetector', %14];
+%1 setTriggerArea [%10, %11, %12, %13];
 %1 setTriggerActivation ['NONE', 'NOT PRESENT', false];
-_statement = ""null=['%1',[%2,0,%4],[],[],[],[%3,3,50,0,100,%5,[%6]],[%7,%7,%8,%7]] call BRM_FMK_DAC_fnc_DACZone"";
-%1 setTriggerStatements ['(true)', _statement, ''];", _name, _id, _status, _faction, _respawns, _reinforce, _side, _skill, _ax, _ay, _aa, _as, _pos];
+_statement = ""null=['%1',[%2,0,%4],[],[],[],[%3,3,50,%6,100,%5,[%7]],[%8,%8,%9,%8]] call BRM_FMK_DAC_fnc_DACZone"";
+%1 setTriggerStatements ['(true)', _statement, ''];", _name, _id, _status, _faction, _respawns, _units, _reinforce, _side, _skill, _ax, _ay, _aa, _as, _pos];
 
 mission_dac_camps pushBack [_name, _id];
 
