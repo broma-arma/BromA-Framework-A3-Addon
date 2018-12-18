@@ -76,7 +76,7 @@ _GRENADEopfor = "rhs_mag_rgd5";
 _miniGRENADE = "MiniGrenade";
 _m67GRENADE = "rhs_mag_m67";
 
-_FLASHBANGblufor = "AGM_M84";
+_FLASHBANGblufor = "ACE_M84";
 _rhsFLASHBANGblufor = "rhs_mag_mk84";
 _FLASHBANGopfor = "rhs_mag_fakel";
 _FLASHBANGopforS = "rhs_mag_fakels";
@@ -171,7 +171,7 @@ switch (true) do {
         _microDAGR = "ACE_microDAGR";
         _mapTools = "ACE_MapTools";
         _uavBattery = "ACE_UAVBattery";
-        _kestrel = "ACE_Kestrel";
+        _kestrel = "ACE_Kestrel4500";
         _rangeCard = "ACE_RangeCard";
         _spottingScope = "ACE_SpottingScope";
         _flashlight = "ACE_Flashlight_XL50";
