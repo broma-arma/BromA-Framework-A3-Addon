@@ -110,8 +110,7 @@ switch (toUpper(_faction)) do {
     };
 
     case "BAF": {
-        // TBD 3CB
-        #include "factions\usarmy.sqf"
+        #include "factions\baf.sqf"
     };
 
     case "OFPFIA": {
