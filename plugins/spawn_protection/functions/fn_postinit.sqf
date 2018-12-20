@@ -19,13 +19,15 @@ if (!isServer) exitWith {};
 			case CIVILIAN:		{ "civilian" };
 		};
 
-		private _respawnMarker = "respawn_" + _sideStr;
+		if (isNil "_sideStr") then {
+			private _errorMsg = format ["ERROR [Spawn Protection] Invalid trigger side ""%1"", using ""CIV""", _side];
+			systemChat _errorMsg;
+			diag_log text _errorMsg;
 
-		if (isNil "_respawnMarker") exitWith {
-			objNull
+			_sideStr = "civilian";
 		};
 
-		private _pos = getMarkerPos _respawnMarker;
+		private _pos = getMarkerPos ("respawn_" + _sideStr);
 		private _area = [spawn_protection_area, spawn_protection_area, 0, true];
 
 		// Create marker on clients.
@@ -40,24 +42,24 @@ if (!isServer) exitWith {};
 			// Condition
 			"private _result = false;
 			if (!triggerActivated thisTrigger) then {
-				private _thisList = thisList select { side _x == " + _sideStr + " || (_x isKindOf ""AllVehicles"" && !(_x isKindOf ""Man"") && {alive _x} count crew _x == 0) };
-				private _protected = (thisTrigger getVariable ""BRM_FMK_SpawnProtection_protected"") - [objNull];
-				_result = (count (_thisList - _protected) + count (_protected - _thisList)) > 0;
+				private _inTrigger = thisList select { side _x == " + _sideStr + " || (side _x == CIVILIAN && {_x isKindOf ""AllVehicles"" && {!(_x isKindOf ""Man"")}}) };
+				private _protected = thisTrigger getVariable ""BRM_FMK_SpawnProtection_protected"";
+				_result = (count (_inTrigger - _protected) + count (_protected - _inTrigger)) > 0;
 			};
 
 			_result",
 
 			// Activation
-			"private _thisList = thisList select { side _x == " + _sideStr + " || (_x isKindOf ""AllVehicles"" && !(_x isKindOf ""Man"") && {alive _x} count crew _x == 0) };
+			"private _inTrigger = thisList select { side _x == " + _sideStr + " || (side _x == CIVILIAN && {_x isKindOf ""AllVehicles"" && {!(_x isKindOf ""Man"")}}) };
 			private _protected = (thisTrigger getVariable ""BRM_FMK_SpawnProtection_protected"") - [objNull];
 
-			private _added = (_thisList - _protected);
+			private _added = (_inTrigger - _protected);
 			if (count _added > 0) then {
 				[_added, false] remoteExec [""BRM_FMK_SpawnProtection_fnc_allowDamage"", 0];
 			};
 			_protected append _added;
 
-			private _removed = (_protected - _thisList);
+			private _removed = (_protected - _inTrigger);
 			if (count _removed > 0) then {
 				[_removed, true] remoteExec [""BRM_FMK_SpawnProtection_fnc_allowDamage"", 0];
 			};
@@ -71,11 +73,10 @@ if (!isServer) exitWith {};
 	};
 
 	// Create triggers for the sides
-	private _triggers = [
-		side_a_side call _fnc_createTrigger,
-		if (mission_game_mode != "coop") then { side_b_side call _fnc_createTrigger } else { false },
-		if (mission_enable_side_c) then { side_c_side call _fnc_createTrigger } else { false }
-	];
+	private _triggers = [side_a_side call _fnc_createTrigger];
+
+	if (mission_game_mode != "coop") then { _triggers pushBack (side_b_side call _fnc_createTrigger); };
+	if (mission_enable_side_c) then {       _triggers pushBack (side_c_side call _fnc_createTrigger); };
 
 	if (mission_spawn_protection_time > 0) then { // Finite
 		// Wait until spawn protection expires.
@@ -86,16 +87,14 @@ if (!isServer) exitWith {};
 
 		// Remove JIP remoteExec, disable protection, and delete triggers
 		{
-			if !(_x isEqualType false) then {
-				_x params ["_trigger", "_sideStr"];
+			_x params ["_trigger", "_sideStr"];
 
-				remoteExec ["", "BRM_FMK_SpawnProtection_" + _sideStr];
-				[(_trigger getVariable "BRM_FMK_SpawnProtection_protected") - [objNull], true] remoteExec ["BRM_FMK_SpawnProtection_fnc_allowDamage", 0];
-				deleteVehicle _trigger;
-			};
+			remoteExec ["", "BRM_FMK_SpawnProtection_" + _sideStr];
+			[(_trigger getVariable "BRM_FMK_SpawnProtection_protected") - [objNull], true] remoteExec ["BRM_FMK_SpawnProtection_fnc_allowDamage", 0];
+			deleteVehicle _trigger;
 		} forEach _triggers;
 
 		// Delete the marker.
-		[] remoteExec ["BRM_FMK_SpawnProtection_fnc_clientMarker", [0, -2] select isDedicated];
+		[] remoteExec ["BRM_FMK_SpawnProtection_fnc_clientMarker", 0];
 	};
 };

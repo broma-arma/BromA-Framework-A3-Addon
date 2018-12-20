@@ -1,6 +1,6 @@
 if (!hasInterface) exitWith {};
 
-params [["_pos", []], "_a", "_b", "_angle", "_isRectangle", ["_c", 0]];
+params [["_pos", []], ["_a", 50], ["_b", 50], ["_angle", 0], ["_isRectangle", true], ["_c", 0]];
 
 if (count _pos == 0) exitWith {
 	["Alert", ["Spawn protection is disabled!"]] call BIS_fnc_showNotification;
