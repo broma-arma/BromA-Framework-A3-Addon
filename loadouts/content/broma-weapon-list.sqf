@@ -285,7 +285,7 @@ _G36E   = ["hlc_rifle_G36E1",_30rnd556G36];
 _G36KE1 = ["hlc_rifle_G36KE1",_30rnd556G36];
 
 _G36KA1      = ["hlc_rifle_G36KA1",_30rnd556G36];
-_G36KA1KSK   = ["hlc_rifle_G36A1KSK",_30rnd556G36];
+_G36KA1KSK   = ["hlc_rifle_G36KA1KSK",_30rnd556G36];
 _G36KA1KSKGL = ["HLC_Rifle_G36KSKAG36",_30rnd556G36,_40mm];
 _G36KV       = ["hlc_rifle_G36KV",_30rnd556G36];
 _G36KKAC     = ["hlc_rifle_g36KTac",_30rnd556G36];
@@ -487,6 +487,37 @@ _SIG553RTACTICAL    = ["hlc_rifle_SG553RLB_TAC",_30rnd762AK];
 _SIG553RSB          = ["hlc_rifle_SG553RSB",_30rnd762AK];
 _SIG553RSBTACTICAL  = ["hlc_rifle_SG553RSB_TAC",_30rnd762AK];
 
+//========== HLC HK416 PACK =======================================================
+
+_HLC416D10 = ["hlc_rifle_416D10",_30rnd556AR15];
+_HLC416D10ST6 = ["hlc_rifle_416D10_st6",_30rnd556AR15];
+_HLC416D10GL = ["hlc_rifle_416D10_gl",_30rnd556AR15,_40mm];
+_HLC416D10RAHG = ["hlc_rifle_416D10_RAHG",_30rnd556AR15];
+_HLC416D10SMR = ["hlc_rifle_416D10_geissele",_30rnd556AR15];
+_HLC416D10TAN = ["hlc_rifle_416D10_tan",_30rnd556AR15];
+_HLC416D10WOOD = ["hlc_rifle_416D10_wdl",_30rnd556AR15];
+_HLC416D10C = ["hlc_rifle_416D10C",_30rnd556AR15];
+
+_HLC416D145 = ["hlc_rifle_416D145",_30rnd556AR15];
+_HLC416D145CAG = ["hlc_rifle_416D145_CAG",_30rnd556AR15];
+_HLC416D145GL = ["hlc_rifle_416D145_gl",_30rnd556AR15,_40mm];
+_HLC416D145TAN = ["hlc_rifle_416D145_tan",_30rnd556AR15];
+_HLC416D145WOOD = ["hlc_rifle_416D145_wdl",_30rnd556AR15];
+_HLC416D145C = ["hlc_rifle_416D145C",_30rnd556AR15];
+
+_HLC416D165 = ["hlc_rifle_416D165",_30rnd556AR15];
+_HLC416D165GL = ["hlc_rifle_416D165_gl",_30rnd556AR15,_40mm];
+_HLC416D165TAN = ["hlc_rifle_416D165_tan",_30rnd556AR15];
+_HLC416D165WOOD = ["hlc_rifle_416D165_wdl",_30rnd556AR15];
+
+_HLC416D20 = ["hlc_rifle_416D20",_30rnd556AR15];
+_HLC416D20TAN = ["hlc_rifle_416D20_tan",_30rnd556AR15];
+_HLC416D20WOOD = ["hlc_rifle_416D20_wdl",_30rnd556AR15];
+
+_HLC416C = ["hlc_rifle_416C",_30rnd556AR15];
+_HLC416N = ["hlc_rifle_416N",_30rnd556AR15];
+_HLC416NGL = ["hlc_rifle_416N_gl",_30rnd556AR15,_40mm];
+
 // =============================================================================
 // =============================================================================
 //                               RH ARMALITES
@@ -609,7 +640,7 @@ _FAMASG2GL = ["R3F_Famas_G2_M203",_30rnd556FAMAS,_40mm];
 
 _FAMASSurb = ["R3F_Famas_surb",_30rnd556FAMAS];
 _FAMASSurbDesert = ["R3F_Famas_surb_DES",_30rnd556FAMAS];
-_FAMASSurbDesertGL = ["R3F_Famas_surb_DES_M203",_30rnd556FAMAS,_40mm];
+_FAMASSurbDesertGL = ["R3F_Famas_surb_M203_DES",_30rnd556FAMAS,_40mm];
 _FAMASSurbGL = ["R3F_Famas_surb_M203",_30rnd556FAMAS,_40mm];
 
 _FRF2 = ["R3F_FRF2",_10rnd127frf];
@@ -878,28 +909,28 @@ _M4A6wdl = _M4;
 // =============================================================================
 // =============================================================================
 
-_L110A2 = ["UK3CB_BAF_L110A2","UK3CB_BAF_100Rnd"];
-_L110A2GRIP = ["UK3CB_BAF_L110A2_FIST","UK3CB_BAF_100Rnd"];
-_L115A3 = ["UK3CB_BAF_L115A3","UK3CB_BAF_L115A3_Mag"];
-_L115A3CAMO = ["UK3CB_BAF_L115A3_Ghillie","UK3CB_BAF_L115A3_Mag"];
-_L128A1 = ["UK3CB_BAF_L128A1","UK3CB_BAF_L128A1_Slugs"];
-_L129A1 = ["UK3CB_BAF_L129A1_AFG","UK3CB_BAF_20Rnd"];
-_L129A1GRIP = ["UK3CB_BAF_L129A1_Grippod","UK3CB_BAF_20Rnd"];
-_L22 = ["UK3CB_BAF_L22","UK3CB_BAF_30Rnd"];
-_L22A2 = ["UK3CB_BAF_L22A2","UK3CB_BAF_30Rnd"];
-_L7A2 = ["UK3CB_BAF_L7A2","UK3CB_BAF_75Rnd"];
-_L82A1 = ["UK3CB_BAF_L82A1","UK3CB_BAF_10Rnd_127x99mm"];
-_L85A2 = ["UK3CB_BAF_L85A2","UK3CB_BAF_30Rnd"];
-_L85A2AFG = ["UK3CB_BAF_L85A2_RIS_AFG","UK3CB_BAF_30Rnd"];
-_L85A2EMAG = ["UK3CB_BAF_L85A2_EMAG","UK3CB_BAF_30Rnd"];
-_L85A2RIS = ["UK3CB_BAF_L85A2_RIS","UK3CB_BAF_30Rnd"];
-_L85A2GL = ["UK3CB_BAF_L85A2_UGL","UK3CB_BAF_30Rnd",_40mm];
-_L86A2 = ["UK3CB_BAF_L86A2","UK3CB_BAF_30Rnd"];
-_L86A3 = ["UK3CB_BAF_L86A3","UK3CB_BAF_30Rnd"];
-_L91A1 = ["UK3CB_BAF_L91A1","UK3CB_BAF_30Rnd_9mm"];
-_L92A1 = ["UK3CB_BAF_L92A1","UK3CB_BAF_30Rnd_9mm"];
+_L110A2 = ["UK3CB_BAF_L110A2","UK3CB_BAF_556_100Rnd"];
+_L110A2GRIP = ["UK3CB_BAF_L110A2_FIST","UK3CB_BAF_556_100Rnd"];
+_L115A3 = ["UK3CB_BAF_L115A3","UK3CB_BAF_338_5Rnd"];
+_L115A3CAMO = ["UK3CB_BAF_L115A3_Ghillie","UK3CB_BAF_338_5Rnd"];
+_L128A1 = ["UK3CB_BAF_L128A1","UK3CB_BAF_12G_Slugs"];
+_L129A1 = ["UK3CB_BAF_L129A1_AFG","UK3CB_BAF_762_L42A1_20Rnd"];
+_L129A1GRIP = ["UK3CB_BAF_L129A1_Grippod","UK3CB_BAF_762_L42A1_20Rnd"];
+_L22 = ["UK3CB_BAF_L22","UK3CB_BAF_556_30Rnd"];
+_L22A2 = ["UK3CB_BAF_L22A2","UK3CB_BAF_556_30Rnd"];
+_L7A2 = ["UK3CB_BAF_L7A2","UK3CB_BAF_762_100Rnd"];
+_L82A1 = ["UK3CB_BAF_L82A1","UK3CB_BAF_127_10Rnd"];
+_L85A2 = ["UK3CB_BAF_L85A2","UK3CB_BAF_556_30Rnd"];
+_L85A2AFG = ["UK3CB_BAF_L85A2_RIS_AFG","UK3CB_BAF_556_30Rnd"];
+_L85A2EMAG = ["UK3CB_BAF_L85A2_EMAG","UK3CB_BAF_556_30Rnd"];
+_L85A2RIS = ["UK3CB_BAF_L85A2_RIS","UK3CB_BAF_556_30Rnd"];
+_L85A2GL = ["UK3CB_BAF_L85A2_UGL","UK3CB_BAF_556_30Rnd",_40mm];
+_L86A2 = ["UK3CB_BAF_L86A2","UK3CB_BAF_556_30Rnd"];
+_L86A3 = ["UK3CB_BAF_L86A3","UK3CB_BAF_556_30Rnd"];
+_L91A1 = ["UK3CB_BAF_L91A1","UK3CB_BAF_9_30Rnd"];
+_L92A1 = ["UK3CB_BAF_L92A1","UK3CB_BAF_9_30Rnd"];
 
-_L131A1 = ["UK3CB_BAF_L131A1","UK3CB_BAF_17Rnd_9mm"];
+_L131A1 = ["UK3CB_BAF_L131A1","UK3CB_BAF_9_17Rnd"];
 
 _NLAW_3CB = ["UK3CB_BAF_NLAW_Launcher"];
 
