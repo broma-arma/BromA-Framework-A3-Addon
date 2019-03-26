@@ -87,8 +87,6 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "U_BRM_M10_CEDAG",
-    "U_BRM_M10_DAGUET",
     "U_BRM_U_DAGUET",
     "U_BRM_Shirt_DAGUET",
     "U_BRM_RS_DAGUET"
@@ -110,17 +108,17 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = "BRM_OPSCORE_DAGUET_NSW";
 
-_commonUNIFORM   = _randomUNIFORM;
-_officerUNIFORM  = _randomUNIFORM;
+_commonUNIFORM   = ["U_BRM_M10_CEDAG","U_BRM_M10_DAGUET"] call BIS_fnc_selectRandom;
+_officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
-_sniperUNIFORM   = _randomUNIFORM;
+_sniperUNIFORM   = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _mgUNIFORM       = _commonUNIFORM;
-_medicUNIFORM    = _randomUNIFORM;
+_medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
-_reconUNIFORM    = "U_BRM_RS_DAGUET";
+_reconUNIFORM    = _randomUNIFORM;
 
 _commonVEST    = "BRM_IOTV_brown_RFL";
 _officerVEST   = "BRM_IOTV_brown_REPAIR";
