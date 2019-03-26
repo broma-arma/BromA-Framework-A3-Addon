@@ -87,7 +87,6 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "U_BRM_M10_CCE",
     "U_BRM_U_CCE",
     "U_BRM_RS_CCE",
     "U_BRM_Shirt_CCE"
@@ -108,7 +107,7 @@ _sniperHEAD = "BRM_Booniehat_CCE";
 _demoHEAD = _commonHEAD;
 _reconHEAD = "BRM_OPSCORE_CCE_NSW";
 
-_commonUNIFORM   = _commonUNIFORM;
+_commonUNIFORM   = "U_BRM_M10_CCE";
 _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _commonUNIFORM;
@@ -118,7 +117,7 @@ _crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _mgUNIFORM       = _commonUNIFORM;
 _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
-_reconUNIFORM    = "U_BRM_U_CCE";
+_reconUNIFORM    = _randomUNIFORM;
 
 _commonVEST    = "BRM_IOTV_brown_RFL";
 _officerVEST   = "BRM_IOTV_brown_REPAIR";
