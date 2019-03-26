@@ -827,8 +827,8 @@ _RHSMP7AOR1 = ["rhsusf_weap_MP7A2_aor1_grip3",_40rnd46x30FMJ];
 _RHSMP7DESERT = ["rhsusf_weap_MP7A2_desert_grip3",_40rnd46x30FMJ];
 _RHSMP7WINTER = ["rhsusf_weap_MP7A2_winter_grip3",_40rnd46x30FMJ];
 
-_SR25 = ["rhs_weap_sr25", "rhsusf_20Rnd_762x51_m993_Mag"];
-_SR25EC = ["rhs_weap_sr25_ec", "rhsusf_20Rnd_762x51_m993_Mag"];
+_SR25 = ["rhs_weap_sr25", "rhsusf_20Rnd_762x51_SR25_m118_special_Mag"];
+_SR25EC = ["rhs_weap_sr25_ec", "rhsusf_20Rnd_762x51_SR25_m118_special_Mag"];
 
 _M14EBR = ["rhs_weap_m14ebrri", "rhsusf_20Rnd_762x51_m62_Mag"];
 
