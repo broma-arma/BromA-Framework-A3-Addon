@@ -4,7 +4,7 @@
 */
 
 _factionID        = "GERMANDES";
-_factionName      = "Bundeswehr (Desert)";
+_factionName      = "Bundeswehr";
 _factionStructure = "GERMAN-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
