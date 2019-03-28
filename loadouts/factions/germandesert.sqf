@@ -107,7 +107,7 @@ _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
 _randomVEST = _vestsLIST call BIS_fnc_selectRandom;
 
-_commonHEAD    = "rhsgref_helmet_pasgt_flecktarn";
+_commonHEAD    = "BRM_PASGT_TROPEN_RHINO";
 _leaderHEAD    = _commonHEAD;
 _officerHEAD   = _commonHEAD;
 _medicHEAD     = _commonHEAD;
@@ -119,7 +119,7 @@ _sniperHEAD    = "H_Booniehat_oli";
 _demoHEAD      = _commonHEAD;
 _reconHEAD     = _randomHEAD;
 
-_commonUNIFORM   = "rhsgref_uniform_flecktarn_full";
+_commonUNIFORM   = "BRM_TROPEN_M93";
 _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _commonUNIFORM;
