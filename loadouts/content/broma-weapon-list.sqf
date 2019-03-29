@@ -551,6 +551,9 @@ _M110 = ["RH_m110",_20rnd762M110];
 
 _M16A1 = ["RH_m16a1",_30rnd556];
 _M16A1GL = ["RH_m16a1gl",_30rnd556,_40mm];
+_M16A2 = ["RH_m16a2",_30rnd556];
+_M16A2GL = ["RH_m16a2gl",_30rnd556,_40mm];
+_M16A3 = ["RH_m16a3",_30rnd556];
 _M16A4 = ["RH_m16a4",_30rnd556];
 _M16A4GL = ["RH_m16a4gl",_30rnd556,_40mm];
 _M16A4M = ["RH_m16a4_m",_30rnd556];
@@ -866,6 +869,9 @@ _PKM = ["rhs_weap_pkm",_100rnd762PKP];
 
 _M16A1 = _RHSM16A4;
 _M16A1GL = _RHSM16A4GL;
+_M16A2 = _RHSM16A4;
+_M16A2GL = _RHSM16A4GL;
+_M16A3 = _RHSM16A4;
 _M16A4 = _RHSM16A4;
 _M16A4GL = _RHSM16A4GL;
 _M16A4M = _RHSM16A4;
