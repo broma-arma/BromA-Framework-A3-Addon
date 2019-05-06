@@ -196,7 +196,7 @@ switch (true) do {
         [_unit,[[_grenade,2],[_spareBarrel,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, _commonAR select GUN, _countAR] call BRM_FMK_fnc_addAmmo;
+        [_unit, _commonAR select RAMMO, _countAR] call BRM_FMK_fnc_addAmmo;
     };
 
     case (_isMMG): {
