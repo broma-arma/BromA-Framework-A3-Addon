@@ -46,10 +46,10 @@ _bipodIND = "bipod_03_F_oli";
 // HLC 
 
 // Suppressors
-_supG3 = "hlc_muzzle_snds_g3";
-_supHK33 = "hlc_muzzle_snds_HK33";
-_supFAL = "hlc_muzzle_snds_fal";
-_supM14 = "hlc_muzzle_snds_M14";
+_supG3 = "hlc_muzzle_300blk_kac"; // QD .300BLK Suppressor
+_supHK33 = "hlc_muzzle_556nato_m42000"; // AAC M4-2000
+_supFAL = "hlc_muzzle_300blk_kac"; // QD .300BLK Suppressor
+_supM14 = "hlc_muzzle_300blk_kac"; // QD .300BLK Suppressor
 _sup545AK = "hlc_muzzle_545SUP_AK";
 _sup762AK = "hlc_muzzle_762SUP_AK";
 

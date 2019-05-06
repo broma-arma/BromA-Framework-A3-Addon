@@ -456,7 +456,7 @@ _12rnd40SIG  = "hlc_12Rnd_40SW_B_P226";
 
 _P239  = ["hlc_pistol_P239",_10rnd9mmSIG];
 _P239B = ["hlc_pistol_P239_357",_8rnd357SIG];
-_P239C = ["hlc_pistol_P239_40",_8rnd357SIG];
+_P239C = ["hlc_pistol_P239_40",_8rnd40SIG];
 
 //========== SIG55X PACK =======================================================
 _SIG550           = ["hlc_rifle_SG550",_30rnd556SIG550];
@@ -694,8 +694,8 @@ _ERYX = ["R3F_ERYX","R3F_ERYX_Mag"];
 
 _M9 = ["rhsusf_weap_m9", "rhsusf_mag_15Rnd_9x19_JHP"];
 _Makarov = ["rhs_weap_makarov_pm", "rhs_mag_9x18_8_57N181S"];
-_PMM = ["rhs_weap_makarov_pmm","rhs_mag_9x18_12_57N181S"];
-_MP443 = ["rhs_mag_9x19_17", "rhs_weap_pya"];
+_PMM = ["rhs_weap_makarov_pm","rhs_mag_9x18_12_57N181S"];
+_MP443 = ["rhs_weap_pya", "rhs_mag_9x19_17"];
 _PP2000 = ["rhs_weap_pp2000_folded", "rhs_mag_9x19mm_7n21_20"];
 _M1911 = ["rhsusf_weap_m1911a1", "rhsusf_mag_7x45acp_MHP"];
 _G17 = ["rhsusf_weap_glock17g4", "rhsusf_mag_17Rnd_9x19_JHP"];
@@ -740,7 +740,7 @@ _Fiveseven = _M9;
 _5rnd338T5000 = "rhs_5Rnd_338lapua_t5000";
 _5rnd762M24   = "rhsusf_5Rnd_762x51_m993_Mag";
 _10rnd762M40  = "rhsusf_10Rnd_762x51_m993_Mag";
-_30rnd545AK   = "rhs_30Rnd_545x39_AK";
+_30rnd545AK   = "rhs_30Rnd_545x39_7N10_AK";
 _100rnd762PKP = "rhs_100Rnd_762x54mmR";
 _10rnd762SVD  = "rhs_10Rnd_762x54mmR_7N1";
 
@@ -805,7 +805,7 @@ _RHSM16A42 = ["rhs_weap_m16a4_grip",_30rnd556STANAG];
 _RHSM16A4GL = ["rhs_weap_m16a4_carryhandle_M203", _30rnd556STANAG,_40mm];
 _RHSM4 = ["rhs_weap_m4_carryhandle",_30rnd556STANAG];
 _RHSM42 = ["rhs_weap_m4_carryhandle_grip3",_30rnd556STANAG];
-_RHSM4GL = ["rhs_m4_m320",_30rnd556STANAG,_40mm];
+_RHSM4GL = ["rhs_weap_m4_m320",_30rnd556STANAG,_40mm];
 _RHSM4GL203 = ["rhs_weap_m4_m203",_30rnd556STANAG,_40mm];
 _RHSM4BLOCKII = ["rhs_weap_m4a1_blockII_grip2",_30rnd556STANAG];
 _RHSM4BLOCKIIGL = ["rhs_weap_m4a1_blockII_M203",_30rnd556STANAG,_40mm];
@@ -847,7 +847,7 @@ _T5000 = ["rhs_weap_t5000",_5rnd338T5000];
 
 _M2010 = ["rhs_weap_XM2010",_5rnd300win];
 
-_M24   = ["rhs_weap_m24sws_blk",_5rnd762M24];
+_M24   = ["rhs_weap_m24sws",_5rnd762M24];
 _M40A5 = ["rhs_weap_m40a5",_10rnd762M40];
 
 _M240B = ["rhs_weap_m240B",_100rnd762];
@@ -919,7 +919,7 @@ _L129A1GRIP = ["UK3CB_BAF_L129A1_Grippod","UK3CB_BAF_762_L42A1_20Rnd"];
 _L22 = ["UK3CB_BAF_L22","UK3CB_BAF_556_30Rnd"];
 _L22A2 = ["UK3CB_BAF_L22A2","UK3CB_BAF_556_30Rnd"];
 _L7A2 = ["UK3CB_BAF_L7A2","UK3CB_BAF_762_100Rnd"];
-_L82A1 = ["UK3CB_BAF_L82A1","UK3CB_BAF_127_10Rnd"];
+_L82A1 = ["UK3CB_BAF_L135A1","UK3CB_BAF_127_10Rnd"];
 _L85A2 = ["UK3CB_BAF_L85A2","UK3CB_BAF_556_30Rnd"];
 _L85A2AFG = ["UK3CB_BAF_L85A2_RIS_AFG","UK3CB_BAF_556_30Rnd"];
 _L85A2EMAG = ["UK3CB_BAF_L85A2_EMAG","UK3CB_BAF_556_30Rnd"];
@@ -973,10 +973,17 @@ _M72A7 = ["rhs_weap_m72a7","rhs_m72a7_mag"];
 // =============================================================================
 // =============================================================================
 
-_MAAWS = ["tf47_m3maaws", "tf47_m3maaws_HEAT", "tf47_m3maaws_HEDP","tf47_m3maaws_HE","tf47_m3maaws_SMOKE","tf47_m3maaws_ILLUM"];
+_MAAWS = ["tf47_m3maaws", "tf47_m3maaws_HEAT", "tf47_m3maaws_HEDP","tf47_m3maaws_HE","tf47_m3maaws_SMOKE","tf47_m3maaws_ILLUM"]; // FIXME!
 _AT4CSHEAT = ["tf47_at4_heat","tf47_at4_m_HEAT"];
 _AT4CSHEDP = ["tf47_at4_HEDP","tf47_at4_m_HEDP"];
 _AT4CSHP = ["tf47_at4_HP", "tf47_at4_m_HP"];
+
+if (!isClass (configFile >> "CfgPatches" >> "tf47_launchers")) then {
+	_MAAWS = _GUSTAV;
+	_AT4CSHEAT = _AT4;
+	_AT4CSHEDP = _AT4HEDP;
+	_AT4CSHP = _AT4HP;
+};
 
 // =============================================================================
 // =============================================================================
