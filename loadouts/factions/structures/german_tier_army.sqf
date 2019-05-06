@@ -163,7 +163,7 @@ switch (true) do {
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
         [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
-        [_unit, _specAT select 2, _countHE] call BRM_FMK_fnc_addAmmo;
+        [_unit, _specAT select GL, _countHE] call BRM_FMK_fnc_addAmmo;
     };
 
     case (_isATAssistant): {
@@ -172,7 +172,7 @@ switch (true) do {
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
-        [_unit, _specAT select 2, _countHE] call BRM_FMK_fnc_addAmmo;
+        [_unit, _specAT select GL, _countHE] call BRM_FMK_fnc_addAmmo;
     };
 
     case (_isMarksman): {
