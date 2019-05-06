@@ -8,7 +8,7 @@
 */
 
 _factionID = "RACS";
-_factionName = "Royal Army Crops of Sahrani";
+_factionName = "Royal Army Corps of Sahrani";
 _factionStructure = "MID-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
