@@ -92,7 +92,7 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "MNP_V_OD_Harness"
+    "TAC_V_Sheriff_BA_T3"
 ];
 
 _gogglesLIST = [

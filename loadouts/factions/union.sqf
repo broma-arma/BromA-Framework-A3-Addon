@@ -84,11 +84,11 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "rhs_uniform_m88_patchless"
+    "LOP_U_TKA_Fatigue_02"
 ];
 
 _vestsLIST = [
-    "MNP_V_HarnessO_brn_Arm"
+    "rhsgref_otv_khaki"
 ];
 
 _gogglesLIST = [

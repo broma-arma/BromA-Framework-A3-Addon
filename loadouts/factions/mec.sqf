@@ -18,7 +18,7 @@ _defaultVoice = [_voiceFARSI];
 _defaultFace = [_facePERSIAN];
 _defaultName = [_nameARABIC];
 _defaultInsignia = "USP_PATCH_FLAG_JORDAN";
-_defaultColor = "black";
+_defaultColor = "red";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
