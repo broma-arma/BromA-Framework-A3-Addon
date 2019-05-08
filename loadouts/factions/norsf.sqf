@@ -99,8 +99,7 @@ _vestsLIST = [
 
 _goggleLIST = [
     "TRYK_Shemagh_shade",
-    "TRYK_Shemagh_EAR_TAN",
-    "T_HoodTan"
+    "TRYK_Shemagh_EAR_TAN"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
