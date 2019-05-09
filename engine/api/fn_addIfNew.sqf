@@ -29,7 +29,7 @@ _array = _this select 1;
 
 _index = (count _array);
 
-{ if ((_x select 0) == _item) then { _index = _forEachIndex } } forEach _array;
+{ if (_x isEqualTo _item) then { _index = _forEachIndex } } forEach _array;
 
 _array set [_index, _item];
 
