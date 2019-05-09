@@ -193,7 +193,7 @@ switch (true) do {
         [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_grenade,2],[_spareBarrel,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-        [_unit, _commonAR select 1, _countAR] call BRM_FMK_fnc_addAmmo;
+        [_unit, _commonAR select RAMMO, _countAR] call BRM_FMK_fnc_addAmmo;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "R3F_PIRAT"] call BRM_FMK_fnc_attachToWeapon;
         [_unit, [["R3F_APAV40", 4],["R3F_AC58", 4],["R3F_FUM40", 2] ]] call BRM_FMK_fnc_addtoBackpack;

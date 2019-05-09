@@ -139,7 +139,7 @@ _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
 _commonBACKPACK = "TRYK_B_AssaultPack_Type2camo";
-_bigBACKPACK = "TYRK_B_Carryall_JSDF";
+_bigBACKPACK = "TRYK_B_Carryall_JSDF";
 
 // EXTRA EQUIPMENT =============================================================
 
