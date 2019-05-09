@@ -154,7 +154,23 @@ switch (toUpper(_faction)) do {
 
     case "RUSSIA_AFGHAN": {
         #include "factions\russia-afghan.sqf"
-    };    
+    };
+
+    case "ANZAC": {
+        #include "factions\anzac.sqf";
+    }; 
+    case "LINGOR_REBELS": {
+        #include "factions\lingorrebels.sqf";
+    };
+ 	case "LINGOR_ARMY": {
+        #include "factions\lingorarmy.sqf";
+    }; 	
+ 	case "AFRICAN_REBELS": {
+        #include "factions\africanrebels.sqf";
+    }; 	
+ 	case "AFRICAN_ARMY": {
+        #include "factions\africanarmy.sqf";
+    };        
 
     case "DEFAULT": {
         #include "factions\template.sqf"
