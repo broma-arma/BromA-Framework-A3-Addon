@@ -83,6 +83,12 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
+_headsLIST = [
+    "rhssaf_helmet_m97_olive_nocamo",
+    "rhsgref_helmet_pasgt_olive",
+    "rhs_beanie_green",
+    "rhs_ssh68"
+];
 
 _uniformsLIST = [
     "LOP_U_AA_Fatigue_01",
@@ -92,24 +98,25 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "MNP_Vest_OD_A",
-    "MNP_Vest_OD_B"
+    "BRM_RHS_SPCS_Green_rifle",
+    "BRM_RHS_SPCS_Green_MG"
 ];
 
 _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
 _randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 
-_commonHEAD = "rhsusf_ach_bare_ess";
-_leaderHEAD = "rhsusf_ach_bare_headset";
+_commonHEAD = _randomHEAD;
+_leaderHEAD = _commonHEAD;
 _officerHEAD = "H_Beret_blk";
-_medicHEAD = "H_Bandanna_cbr";
+_medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhsusf_cvc_ess";
 _pilotHEAD = "rhsusf_hgu56p";
 _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "H_caf_ag_paktol_04";
+_reconHEAD = "rhsusf_opscore_rg_cover";
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _randomUNIFORM;

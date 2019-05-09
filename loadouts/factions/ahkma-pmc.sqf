@@ -25,7 +25,7 @@ _defaultVoice = [_voiceFARSI];
 _defaultFace = [_facePERSIAN, _faceASIAN];
 _defaultName = [_nameARABIC, _nameCHINESE];
 _defaultInsignia = "USP_PATCH_MORALE_WORLD_COMPROMISE";
-_defaultColor = "black";
+_defaultColor = "green";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];

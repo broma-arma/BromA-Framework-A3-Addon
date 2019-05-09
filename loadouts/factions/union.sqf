@@ -84,11 +84,11 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "rhs_uniform_m88_patchless"
+    "LOP_U_TKA_Fatigue_02"
 ];
 
 _vestsLIST = [
-    "MNP_V_HarnessO_brn_Arm"
+    "rhsgref_otv_khaki"
 ];
 
 _gogglesLIST = [
@@ -109,7 +109,7 @@ _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "H_caf_ag_paktol_04";
+_reconHEAD = _commonHEAD;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
