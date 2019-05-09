@@ -8,7 +8,7 @@ _textValue = if (_textValue == "") then {50} else {call compile _textValue min 5
 
 
 if (!CHVD_allowNoGrass) then {
-	_textValue = _textValue min 48.9;
+	_textValue = _textValue min 48.99;
 };
 
 //update listbox
