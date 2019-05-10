@@ -24,21 +24,21 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _FNFALPARA;
-_commonRIFLEGL = _FNFALPARA;
+_commonRIFLE = _FNFALPARARIS;
+_commonRIFLEGL = _FNFALPARARIS;
 _commonPISTOL = _M9;
 _commonMG = _M60E4;
 _commonAR = _M60E4;
-_commonMARKSMAN = _M14;
-_commonSNIPER = _M14;
+_commonMARKSMAN = _M14RIS;
+_commonSNIPER = _M14RIS;
 _commonAT = _M72A7;
 _specAT = _GUSTAV;
 _commonSMG = _SCORPION;
-_commonRCO = "hlc_optic_suit";
-_commonCCO = "";
-_commonMAGNIFIED = "hlc_optic_LRT_m14";
+_commonRCO = "rhsusf_acc_ACOG2_USMC";
+_commonCCO = "rhsusf_acc_mrds";
+_commonMAGNIFIED = "FHQ_optic_LeupoldERT";
 _commonSUPPRESSOR = "hlc_muzzle_300blk_KAC";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "meu_ANPVS_15";
 
 // AMMO COUNT ==================================================================
