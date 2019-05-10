@@ -38,7 +38,7 @@ _commonRCO = "rhsusf_acc_ACOG";
 _commonCCO = "";
 _commonMAGNIFIED = "hlc_optic_LRT_m14";
 _commonSUPPRESSOR = "hlc_muzzle_556NATO_KAC";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "meu_ANPVS_15";
 
 // AMMO COUNT ==================================================================

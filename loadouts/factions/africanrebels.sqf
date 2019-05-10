@@ -34,7 +34,7 @@ _commonRCO = "rhs_acc_1p29";
 _commonCCO = "";
 _commonMAGNIFIED = "HLC_Optic_PSO1";
 _commonSUPPRESSOR = "rhs_acc_dtk4short";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
 // AMMO COUNT ==================================================================

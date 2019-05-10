@@ -22,21 +22,21 @@ _factionSkill = [[0.4,0.6],   [0.5,0.6],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = ["rhs_weap_ak74n","rhs_30Rnd_545x39_7N6M_AK"];
-_commonRIFLEGL = ["rhs_weap_ak74n_gp25","rhs_30Rnd_545x39_7N6M_AK","rhs_VOG25"];
+_commonRIFLE = _AK74N;
+_commonRIFLEGL = _AK74NGL;
 _commonPISTOL = _Makarov;
 _commonMG = _PKM;
 _commonAR = _RPK;
-_commonMARKSMAN = ["rhs_weap_m76","rhsgref_10Rnd_792x57_m76"];
-_commonSNIPER = ["rhs_weap_m76","rhsgref_10Rnd_792x57_m76"];
-_commonAT = "rhs_weap_rshg2";
+_commonMARKSMAN = _M76;
+_commonSNIPER = _M76;
+_commonAT = _RSHG2;
 _specAT = _RPG7;
-_commonSMG = ["rhs_weap_aks74un","rhs_30Rnd_545x39_AK"];
+_commonSMG = _AK74UN;
 _commonRCO = "rhs_acc_1p29";
 _commonCCO = "rhs_acc_ekp8_02";
-_commonMAGNIFIED = "HLC_Optic_PSO1";
+_commonMAGNIFIED = "rhs_acc_pso1m21";
 _commonSUPPRESSOR = "rhs_acc_dtk4short";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
 // AMMO COUNT ==================================================================

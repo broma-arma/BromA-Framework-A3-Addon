@@ -126,7 +126,7 @@ _AKS74RIS  = ["hlc_rifle_aks74_MTK",_30rnd545];
 _AKS74GL   = ["hlc_rifle_aks74_GL",_30rnd545,_GPHE];
 _AKS74U    = ["hlc_rifle_aks74u",_30rnd545];
 _AKS74URIS = ["hlc_rifle_aks74u_MTK",_30rnd545];
-_AK74UN = ["rhs_weap_aks74un","rhs_30Rnd_545x39_AK"];
+_AK74UN = ["rhs_weap_aks74un","rhs_30Rnd_545x39_7N6_AK"];
 _AK74N = ["rhs_weap_ak74n","rhs_30Rnd_545x39_7N6M_AK"];
 _AK74NGL = ["rhs_weap_ak74n_gp25","rhs_30Rnd_545x39_7N6M_AK",_GPHE];
 
