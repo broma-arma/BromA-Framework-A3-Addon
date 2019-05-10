@@ -22,8 +22,12 @@ RETURNS:
 ================================================================================
 */
 
-_ret = objNull;
+params [["_name", "", [""]]];
 
-{ if (name _x == _this select 0) exitWith { _ret = _x } } forEach allUnits;
+{
+	if (name _x == _name) exitWith {
+		_x
+	};
 
-_ret
+	objNull
+} forEach allUnits;

@@ -8,10 +8,13 @@ AUTHOR(s):
     Nife
 
 DESCRIPTION:
-    Converts a color name to its hexadecimal equivalent.
+    Converts a CfgMarkerColors name to its hexadecimal equivalent.
     
 PARAMETERS:
     0 - Color name (STRING)
+        black, grey, red, brown, orange, yellow, khaki, green, blue, pink, white,
+        west, east, guer, civ, unknown, blufor, opfor, independent, civilian,
+        or another CfgMarkerColors classname without the 'Color' prefix
 
 USAGE:
     myColor = ["red"] call BRM_FMK_fnc_colorToHex
@@ -22,16 +25,15 @@ RETURNS:
 ================================================================================
 */
 
-private ["_ret"];
+params [["_color", "", [""]]];
 
-switch (_this select 0) do {
-    case "green": { _ret = "#006600"; };
-    case "red": { _ret = "#e00d0d" };
-    case "blue": { _ret = "#0060ff" };
-    case "yellow": { _ret = "#ffd800" };    
-    case "white": { _ret = "#FFFFFF" };
-    case "black": { _ret = "#000000" };
-    default { _ret = "#FFFFFF" };
+private _cfg = if (_color != "") then {
+	[["CfgMarkerColors", "Color" + _color, "color"], configNull] call BIS_fnc_loadEntry
+} else {
+	configNull
+};
+if (isNull _cfg) exitWith {
+	"#FFFFFF"
 };
 
-_ret
+_cfg call BIS_fnc_colorConfigToRGBA call BIS_fnc_colorRGBtoHTML

@@ -22,7 +22,6 @@ RETURNS:
 ================================================================================
 */
 
-_unit = _this select 0;
-_vehicle = vehicle _unit;
+params [["_unit", objNull, [objNull]]];
 
-_unit action ["SwitchWeapon", _vehicle, _vehicle, -1];
+_unit action ["SwitchWeapon", _unit, _unit, -1];

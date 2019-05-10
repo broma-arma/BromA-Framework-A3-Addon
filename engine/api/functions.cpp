@@ -1,7 +1,8 @@
 
 class api {
-	file = "\broma_framework\engine\api";			
+	file = "\broma_framework\engine\api";
 	class getSideInfo {};
+	class newMarker{};
 	class newMarkerArea{};
 	class newMarkerIcon{};
 	class stripItems{};
@@ -15,11 +16,12 @@ class api {
 	class callCodeArea{};
 	class setGear{};
 	class getGear{};
-	class playGlobal{};	
+	class playGlobal{};
 	class getUnitsArray{};
 	class getFactionVehicles{};
+	class appendIndices{};
 	class teamsExist{};
-}
+};
 
 class api_zeus {
 	file = "\broma_framework\engine\api\zeus";
@@ -27,4 +29,4 @@ class api_zeus {
 	class z_setMode{};
 	class z_setSkill{};
 	class z_setLoadout{};
-}
+};

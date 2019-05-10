@@ -1,21 +1,32 @@
 /*
-Author: bux578
+================================================================================
 
-Description:
-Restores previously saved gear
+DEPRECATED:
+    Use setUnitLoadout.
 
-Arguments:
-A player object, an array containing all gear
+NAME:
+    BRM_FMK_fnc_setGear
 
-Return value:
-An array containing all inventory items
+AUTHOR(s):
+    bux578
+
+DESCRIPTION:
+    Restores previously saved gear
+
+PARAMETERS:
+    0 - A player object. (OBJECT)
+    0 - An array containing all gear. (ARRAY)
+
+USAGE:
+    [player, [player] call BRM_FMK_fnc_getGear] call BRM_FMK_fnc_setGear;
+
+RETURNS:
+    Nothing.
+
+================================================================================
 */
 
-private ["_unit", "_allGear", "_headgear", "_goggles", "_uniform", "_uniformitems", "_vest", "_vestitems", "_backpack", "_backpackitems", "_primaryweapon", "_primaryweaponitems", "_primaryweaponmagazine", "_handgunweapon", "_handgunweaponitems", "_handgunweaponmagazine", "_assigneditems", "_binocular"];
-
-
-_unit = _this select 0;
-_allGear = _this select 1;
+params [["_unit", objNull, [objNull]], ["_allGear", [], [[]], 19]];
 
 // remove all starting gear of a player
 removeAllWeapons _unit;
@@ -27,115 +38,110 @@ removeAllAssignedItems _unit;
 clearAllItemsFromBackpack _unit;
 removeBackpack _unit;
 
-_headgear = _allGear select 0;
-_goggles = _allGear select 1;
-_uniform = _allGear select 2;
-_uniformitems = _allGear select 3;
-_vest = _allGear select 4;
-_vestitems = _allGear select 5;
-_backpack = _allGear select 6;
-_backpackitems = _allGear select 7;
-_primaryweapon = _allGear select 8;
-_primaryweaponitems = _allGear select 9;
-_primaryweaponmagazine = _allGear select 10;
-_secondaryweapon = _allGear select 11;
-_secondaryweaponitems = _allGear select 12;
-_secondaryweaponmagazine = _allGear select 13;
-_handgunweapon = _allGear select 14;
-_handgunweaponitems = _allGear select 15;
-_handgunweaponmagazine = _allGear select 16;
-_assigneditems = _allGear select 17;
-_binocular = _allGear select 18;
-
+_allGear params [
+	["_headgear", "", [""]],
+	["_goggles", "", [""]],
+	["_uniform", "", [""]], ["_uniformItems", [], [[]]],
+	["_vest", "", [""]], ["_vestItems", [], [[]]],
+	["_backpack", "", [""]], ["_backpackItems", [], [[]]],
+	["_primaryWeapon", "", [""]], ["_primaryWeaponItems", [], [[]]], ["_primaryWeaponMagazine", [], [[]]],
+	["_secondaryWeapon", "", [""]], ["_secondaryWeaponItems", [], [[]]], ["_secondaryWeaponMagazine", [], [[]]],
+	["_handgunWeapon", "", [""]], ["_handgunWeaponItems", [], [[]]], ["_handgunWeaponMagazine", [], [[]]],
+	["_assignedItems", [], [[]]],
+	["_binocular", "", [""]]
+];
 
 // start restoring the items
 if (_headgear != "") then {
-  _unit addHeadgear _headgear;
+	_unit addHeadgear _headgear;
 };
 if (_uniform != "") then {
-  _unit forceAddUniform _uniform;
+	_unit forceAddUniform _uniform;
 };
 if (_vest != "") then {
-  _unit addVest _vest;
+	_unit addVest _vest;
 };
 if (_goggles != "") then {
-  _unit addGoggles _goggles;
+	_unit addGoggles _goggles;
 };
 
 {
-  _unit addItemToUniform _x;
-}forEach _uniformitems;
+	_unit addItemToUniform _x;
+} forEach _uniformItems;
 
 {
-  _unit addItemToVest _x;
-}forEach _vestitems;
+	_unit addItemToVest _x;
+} forEach _vestItems;
 
+if(_backpack != "") then {
+	_unit addBackpack _backpack;
 
-if(format["%1", _backpack] != "") then {
-  _unit addBackpack _backpack;
-
-  _backpa = unitBackpack _unit;
-  clearMagazineCargoGlobal _backpa;
-  clearWeaponCargoGlobal _backpa;
-  clearItemCargoGlobal _backpa;
-  {
-    _unit addItemToBackpack _x;
-  } forEach _backpackitems;
+	private _backpa = unitBackpack _unit;
+	clearMagazineCargoGlobal _backpa;
+	clearWeaponCargoGlobal _backpa;
+	clearItemCargoGlobal _backpa;
+	{
+		_unit addItemToBackpack _x;
+	} forEach _backpackItems;
 };
 
 _assignedItems = _assignedItems - [_binocular];
 
 // items
-{_unit linkItem _x} forEach _assignedItems;
+{
+	_unit linkItem _x;
+} forEach _assignedItems;
 
 _unit addWeapon _binocular;
 
 if ("Laserdesignator" in assignedItems _unit) then {
-  _unit selectWeapon "Laserdesignator";
-  if (currentMagazine _unit == "") then {_unit addMagazine "Laserbatteries";};
+	_unit selectWeapon "Laserdesignator";
+	if (currentMagazine _unit == "") then {
+		_unit addMagazine "Laserbatteries";
+	};
 };
 
 // secondaryWeapon
-if (_secondaryweapon != "") then {
-  {
-    _unit addMagazine _x;
-  } forEach _secondaryweaponmagazine;
+if (_secondaryWeapon != "") then {
+	{
+		_unit addMagazine _x;
+	} forEach _secondaryWeaponMagazine;
 
-  _unit addWeapon _secondaryweapon;
+	_unit addWeapon _secondaryWeapon;
 
-  {
-    if (_x != "") then {
-      _unit addSecondaryWeaponItem _x;
-    };
-  } forEach _secondaryweaponitems;
+	{
+		if (_x != "") then {
+			_unit addSecondaryWeaponItem _x;
+		};
+	} forEach _secondaryWeaponItems;
 };
 
 // handgun
-if (_handgunweapon != "") then {
-  {
-    _unit addMagazine _x;
-  } forEach _handgunweaponmagazine;
+if (_handgunWeapon != "") then {
+	{
+		_unit addMagazine _x;
+	} forEach _handgunWeaponMagazine;
 
-  _unit addWeapon _handgunweapon;
+	_unit addWeapon _handgunWeapon;
 
-  {
-    if (_x != "") then {
-      _unit addHandgunItem _x;
-    };
-  } forEach _handgunweaponitems;
+	{
+		if (_x != "") then {
+			_unit addHandgunItem _x;
+		};
+	} forEach _handgunWeaponItems;
 };
 
 // primaryWeapon
-if (_primaryweapon != "") then {
-  {
-    _unit addMagazine _x;
-  } forEach _primaryweaponmagazine;
+if (_primaryWeapon != "") then {
+	{
+		_unit addMagazine _x;
+	} forEach _primaryWeaponMagazine;
 
-  _unit addWeapon _primaryweapon;
+	_unit addWeapon _primaryWeapon;
 
-  {
-    if (_x != "") then {
-      _unit addPrimaryWeaponItem _x;
-    };
-  } forEach _primaryweaponitems;
+	{
+		if (_x != "") then {
+			_unit addPrimaryWeaponItem _x;
+		};
+	} forEach _primaryWeaponItems;
 };

@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_playGlobal
-    
+
 AUTHOR(s):
     Nife
 
@@ -12,14 +12,18 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Track. (STRING)
-    
+
 USAGE:
     ["LeadTrack01_F"] call BRM_FMK_fnc_playGlobal
-    
+
 RETURNS:
     Nothing.
 
 ================================================================================
 */
 
-[-1,{playMusic _this},(_this select 0)] call CBA_fnc_globalExecute;
+params [["_track", "", [""]]];
+
+if (_track != "") then {
+	_track remoteExec ["playMusic", [0, -2] select isDedicated];
+};

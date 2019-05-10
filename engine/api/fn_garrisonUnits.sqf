@@ -6,21 +6,28 @@ NAME:
 
 AUTHOR(s):
     Zenophon
+	
+LICENSE:
         Released under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
         http://creativecommons.org/licenses/by-nc/4.0/
+
+VERSION:
+    7/21/15 https://forums.bohemia.net/forums/topic/170936-release-infantry-occupy-house-script/
 
 DESCRIPTION:
     Teleports the units to random windows of the building(s) within the distance
     Faces units in the right direction and orders them to stand up or crouch on a roof
-    Units will only fill the building to as many positions as are at windows
+    Units will only fill the building to as many positions as there are windows
     Multiple buildings can be filled either evenly or to the limit of each sequentially
 
 PARAMETERS:
-    0 - The building(s) nearest this position is used (ARRAY)
-    1 - Array of objects, the units that will garrison the building(s) (ARRAY)
-    2 - Radius in which to fill building(s), -1 for only nearest building (SCALAR)
-    3 - true to put units on the roof, false for only inside (BOOLEAN)
-    4 - true to fill all buildings in radius evenly, false for one by one (BOOLEAN)
+    0 - The building(s) nearest this position is used. (ARRAY)
+    1 - Array of objects, the units that will garrison the building(s). (ARRAY)
+    2 - (OPTIONAL) Radius in which to fill building(s), -1 for only nearest building. Default -1 (SCALAR)
+    3 - (OPTIONAL) true to put units on the roof, false for only inside. Default false (BOOLEAN)
+    4 - (OPTIONAL) true to fill all buildings in radius evenly, false for one by one. Default false (BOOLEAN)
+    5 - (OPTIONAL) true to fill from the top of the building down. Default false (BOOLEAN)
+    6 - (OPTIONAL) true to order AI units to move to the position instead of teleporting. Default false (BOOLEAN)
 
 USAGE:
     [getMarkerPos "myPosition", myArrayOfUnits, -1, true, true] call BRM_FMK_fnc_garrisonUnits

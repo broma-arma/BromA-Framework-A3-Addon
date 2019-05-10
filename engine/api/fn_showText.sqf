@@ -28,11 +28,14 @@ RETURNS:
 ================================================================================
 */
 
-{
-    titleText [(_x select 0), (_x select 1)];
-    sleep (_x select 2);
-} forEach _this;
-
-titleText ["", "PLAIN"];
+if (_this isEqualType [] && { count _this > 0 }) then {
+	{
+		_x params [["_text", "", [""]], ["_type", "", [""]], ["_time", 0, [0]]];
+		if (_text != "" && _type != "" && _time > 0) then {
+			titleText [_text, _type, _time * 0.1];
+			sleep _time;
+		};
+	} forEach _this;
+};
 
 true

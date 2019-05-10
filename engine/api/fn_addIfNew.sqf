@@ -1,6 +1,9 @@
 /*
 ================================================================================
 
+DEPRECATED:
+    Use pushBackUnique.
+
 NAME:
     BRM_FMK_fnc_addIfNew
     
@@ -24,12 +27,13 @@ RETURNS:
 ================================================================================
 */
 
-_item = _this select 0;
-_array = _this select 1;
+params ["_item", ["_array", [], [[]]]];
 
-_index = (count _array);
+if (isNil "_item") exitWith { -1 };
 
-{ if (_x isEqualTo _item) then { _index = _forEachIndex } } forEach _array;
+private _index = count _array;
+
+{ if (_x isEqualTo _item) exitWith { _index = _forEachIndex } } forEach _array;
 
 _array set [_index, _item];
 
