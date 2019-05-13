@@ -66,7 +66,7 @@
 #define Color_Text_Default Color_Main_Foreground1
 
 #define LB_TEXTURES 0x10
-#define LB_MULTI 0x20 
+#define LB_MULTI 0x20
 
 #define SL_DIR 0x400
 #define SL_VERT 0
@@ -97,7 +97,7 @@ class HW_RscStructuredText {
 	style = ST_LEFT;
 	colorBackground[] = { 1, 1, 1, 1 };
 	x = 0.1; y = 0.1;
-	w = 0.3; h = 0.1;	
+	w = 0.3; h = 0.1;
 	size = 0.018;
 	text = "";
 	class Attributes {
@@ -134,7 +134,7 @@ class HW_RscButton {
 	soundEnter[] = { "", 0, 1 }; // no sound
 	soundPush[] = { "buttonpushed.ogg", 0.1, 1 };
 	soundClick[] = { "", 0, 1 }; // no sound
-	soundEscape[] = { "", 0, 1 }; // no sound 
+	soundEscape[] = { "", 0, 1 }; // no sound
 	x = 0.4;
 	y = 0.475;
 	w = 0.2;
@@ -145,8 +145,8 @@ class HW_RscButton {
 
 
 class HW_RscBackground {
-	idc = -1; 
-	type = CT_STATIC; 
+	idc = -1;
+	type = CT_STATIC;
 	style = ST_LEFT;
 	colorBackground[] = { 0, 0, 0, 0.9 };
 	colorText[] = { 0, 0, 0, 1 };
@@ -155,11 +155,11 @@ class HW_RscBackground {
 	x = -1; y = -1;
 	w = 3; h = 3;
 	text = "";
-}; 
+};
 
 
 class HW_RscPicture {
-	idc = -1; 
+	idc = -1;
 	type = CT_STATIC;
 	style = ST_PICTURE;
 	colorBackground[] = { };
@@ -169,7 +169,7 @@ class HW_RscPicture {
 	x = 0.0; y = 0.2;
 	w = 0.2; h = 0.2;
 	text = "";
-}; 
+};
 
 
 class HW_RscSlider {
@@ -214,7 +214,7 @@ class HW_RscListBox {
 	autoScrollSpeed = -1;
 	autoScrollDelay = 5;
 	autoScrollRewind = 0;
-	
+
 	class ScrollBar {
 		color[] = {1, 1, 1, 0.6};
 		colorActive[] = {1, 1, 1, 1};
@@ -292,21 +292,21 @@ class HW_RscShortcutButton {
 	colorDisabled[] = {1, 1, 1, 0.25};
 	periodFocus = 1.2;
 	periodOver = 0.8;
-	
+
 	class HitZone {
 		left = 0.004;
 		top = 0.029;
 		right = 0.004;
 		bottom = 0.029;
 	};
-	
+
 	class ShortcutPos {
 		left = 0.004;
 		top = 0.026;
 		w = 0.0392157;
 		h = 0.0522876;
 	};
-	
+
 	class TextPos {
 		left = 0.05;
 		top = 0.034;
@@ -330,14 +330,14 @@ class HW_RscShortcutButton {
 	soundClick[] = {"\ca\ui\data\sound\mouse3", 0.07, 1};
 	soundEscape[] = {"\ca\ui\data\sound\mouse1", 0.09, 1};
 	action = "";
-	
+
 	class Attributes {
 		font = "Zeppelin32";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "true";
 	};
-	
+
 	class AttributesImage {
 		font = "Zeppelin32";
 		color = "#E5E5E5";
@@ -354,21 +354,21 @@ class HW_RscGUIShortcutButton : HW_RscShortcutButton {
 	colorBackground[] = {1, 1, 1, 1};
 	colorbackground2[] = {1, 1, 1, 0.85};
 	colorDisabled[] = {1, 1, 1, 0.4};
-	
+
 	class HitZone {
 		left = 0.002;
 		top = 0.003;
 		right = 0.002;
 		bottom = 0.016;
 	};
-	
+
 	class ShortcutPos {
 		left = -0.006;
 		top = -0.007;
 		w = 0.0392157;
 		h = 0.0522876;
 	};
-	
+
 	class TextPos {
 		left = 0.002;
 		top = 0.0;
@@ -382,7 +382,7 @@ class HW_RscGUIShortcutButton : HW_RscShortcutButton {
 	animTexturePressed = "\ca\ui\data\igui_button_down_ca.paa";
 	animTextureDefault = "\ca\ui\data\igui_button_normal_ca.paa";
 	animTextureNoShortcut = "\ca\ui\data\igui_button_normal_ca.paa";
-	
+
 	class Attributes {
 		font = "Zeppelin32";
 		color = "#E5E5E5";
@@ -400,7 +400,7 @@ class RscMap {
 
 	x = 0; y = 0;
 	w = 1; h = 1;
-	
+
 	colorBackground[] = {1.00, 1.00, 1.00, 0};
 	colorText[] = {0.00, 0.00, 0.00, 1.00};
 	colorSea[] = {0.56, 0.80, 0.98, 0.50};
@@ -446,16 +446,16 @@ class RscMap {
 	sizeExInfo = 0.034000;
 	fontLevel = "Zeppelin32";
 	sizeExLevel = 0.034000;
-    
+
 	maxSatelliteAlpha = 0;     // Alpha to 0 by default
-	alphaFadeStartScale = 1.0; 
+	alphaFadeStartScale = 1.0;
 	alphaFadeEndScale = 1.1;   // Prevent div/0
 
 	showCountourInterval=2;
 	scaleDefault = 0.1;
 	onMouseButtonClick = "";
 	onMouseButtonDblClick = "";
-	
+
 	text = "\ca\ui\data\map_background2_co.paa";
 
 	class CustomMark {
@@ -718,5 +718,5 @@ class RscMap {
 		importance = "1.2 * 16 * 0.05";
 		coefMin = 0.900000;
 		coefMax = 4;
-	};		
+	};
 };

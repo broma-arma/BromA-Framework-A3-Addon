@@ -4,8 +4,8 @@ class BRM_FMK_VanillaSpectator {
 		class preInit {};
 	};
 	class Functions {
-		file = "\broma_framework\plugins\vanilla_spectator\functions";		
+		file = "\broma_framework\plugins\vanilla_spectator\functions";
 		class getSettings {};
 		class centerOnTarget {};
 	};
-}; 
+};

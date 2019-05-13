@@ -3,4 +3,4 @@ class BRM_FMK_OCAP {
 		file = "\broma_framework\plugins\ocap_plugin\functions";
 		class init {};
 	};
-}; 
+};

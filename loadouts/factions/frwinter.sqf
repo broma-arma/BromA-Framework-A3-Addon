@@ -90,13 +90,11 @@ _uniformsLIST = [
     "TRYK_U_Bts_GRYGRY_PCUs",
     "TRYK_U_B_GRY_PCUs",
     "TRYK_U_B_Wood_PCUs"
-    
 ];
 
 _vestsLIST = [
     "TRYK_V_ArmorVest_coyo",
     "V_PlateCarrier1_rgr_noflag_F"
-    
 ];
 
 _gogglesLIST = [

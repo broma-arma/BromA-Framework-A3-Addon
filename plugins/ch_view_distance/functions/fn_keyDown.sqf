@@ -28,27 +28,27 @@ _vdDiff = _viewDist - _objViewDist;
 
 switch (_updateMode) do {
 	case 1: {
-		_viewDistValue = _viewDist + _updateValue min CHVD_maxView max 500;		
-		
+		_viewDistValue = _viewDist + _updateValue min CHVD_maxView max 500;
+
 		_percentVar = "CHVD_" + _vehTypeString + "SyncPercentage";
 		_percentValue = call compile _percentVar;
-		
+
 		_objViewDistValue = _viewDistValue * _percentValue min CHVD_maxObj;
-		
+
 		if (_objViewDistValue >= 500) then {
 			call compile format ["%1 = %2", _viewDistVar, _viewDistValue];
 			call compile format ["profileNamespace setVariable ['%1',%1]", _viewDistVar];
 			call compile format ["%1 = %2", _objViewDistVar, _objViewDistValue];
 			call compile format ["profileNamespace setVariable ['%1',%1]", _objViewDistVar];
-			
+
 			[3] call BRM_FMK_CHVD_fnc_updateSettings;
 		};
 	};
-	case 2: {		
+	case 2: {
 		_objViewDistValue = _objViewDist + _updateValue min _viewDist min CHVD_maxObj max 500;
 		call compile format ["%1 = %2", _objViewDistVar, _objViewDistValue];
 		call compile format ["profileNamespace setVariable ['%1',%1]", _objViewDistVar];
-		
+
 		[4] call BRM_FMK_CHVD_fnc_updateSettings;
 	};
 	default {
@@ -56,11 +56,11 @@ switch (_updateMode) do {
 		_objViewDistValue = _objViewDist + _updateValue min (_viewDistValue - _vdDiff) min CHVD_maxObj max 500;
 		call compile format ["%1 = %2", _viewDistVar, _viewDistValue];
 		call compile format ["profileNamespace setVariable ['%1',%1]", _viewDistVar];
-		
+
 		call compile format ["%1 = %2", _objViewDistVar, _objViewDistValue];
 		call compile format ["profileNamespace setVariable ['%1',%1]", _objViewDistVar];
-				
-		[3] call BRM_FMK_CHVD_fnc_updateSettings;	
+
+		[3] call BRM_FMK_CHVD_fnc_updateSettings;
 	};
 };
 
@@ -68,7 +68,7 @@ _vdString = "";
 for "_i" from 1 to (35) step 1 do {
 	if ((call compile _viewDistVar) < CHVD_maxView / 35 * _i) then {
 		_vdString = _vdString + "·";
-	} else {	
+	} else {
 		_vdString = _vdString + "I";
 	};
 };
@@ -77,7 +77,7 @@ _ovdString = "";
 for "_i" from 1 to (35) step 1 do {
 	if ((call compile _objViewDistVar) < CHVD_maxObj / 35 * _i) then {
 		_ovdString = _ovdString + "·";
-	} else {	
+	} else {
 		_ovdString = _ovdString + "I";
 	};
 };
@@ -87,19 +87,19 @@ _textObjViewDistance = if (isLocalized "STR_chvd_objViewDistance") then {localiz
 
 hintSilent parseText format ["<t align='left' size='1.33'>
 %2:	<t align='right'>%3</t>
-<br /> 
-<t size='2' shadow='0' color='%1'>%4</t>
-<br /> 
-%5: <t align='right'>%6</t>
-<br /> 
-<t size='2' shadow='0' color='%1'>%7</t>
-</t>", 
+<br />
+ <t size='2' shadow='0' color='%1'>%4</t>
+<br />
+ %5: <t align='right'>%6</t>
+<br />
+ <t size='2' shadow='0' color='%1'>%7</t>
+</t>",
 [profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843], profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019], profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862], profilenamespace getvariable ['GUI_BCG_RGB_A',0.7]] call BIS_fnc_colorRGBAtoHTML,
 _textViewDistance,
-call compile _viewDistVar, 
-_vdString, 
+call compile _viewDistVar,
+_vdString,
 _textObjViewDistance,
-call compile _objViewDistVar, 
+call compile _objViewDistVar,
 _ovdString
 ];
 

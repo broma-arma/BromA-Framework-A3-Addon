@@ -2,7 +2,7 @@ if (CHVD_keyDown) exitWith {};
 CHVD_keyDown = true;
 
 private ["_vehTypeString"];
-_updateType = [_this, 0, 0, [0]] call BIS_fnc_param; 
+_updateType = [_this, 0, 0, [0]] call BIS_fnc_param;
 if (_updateType isEqualTo 0) exitWith {};
 _terrainGridArray = [50, 48.99, 25, 12.5, 3.125];
 
@@ -47,7 +47,7 @@ _terrainString = "";
 for "_i" from (37.125) to 3.125 step -1 do {
 	if (round ((sqrt _terrainGrid) * 10) -18  >= 53 / 37.125 * _i) then {
 		_terrainString = _terrainString + "·";
-	} else {	
+	} else {
 		_terrainString = _terrainString + "I";
 	};
 };
@@ -65,11 +65,11 @@ _textTerrainGrid = if (isLocalized "STR_chvd_terrainGrid") then {localize "STR_c
 
 hintSilent parseText format ["<t align='left' size='1.33'>
 %2: <t align='right'>%3</t>
-<br /> 
-%4: <t align='right'>%5</t>
-<br /> 
-<t size='2' shadow='0' color='%1'>%6</t>
-</t>", 
+<br />
+ %4: <t align='right'>%5</t>
+<br />
+ <t size='2' shadow='0' color='%1'>%6</t>
+</t>",
 [profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843], profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019], profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862], profilenamespace getvariable ['GUI_BCG_RGB_A',0.7]] call BIS_fnc_colorRGBAtoHTML,
 _textTerrainQuality,
 _terrainQuality,

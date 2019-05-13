@@ -6,21 +6,21 @@ DEPRECATED:
 
 NAME:
     BRM_FMK_fnc_addIfNew
-    
+
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
     Adds an item to an array if it doesn't currently exists in it - otherwise
     replaces the current index.
-    
+
 PARAMETERS:
     0 - Item to add (ANY)
     1 - Array (ARRAY)
 
 USAGE:
     ["Nife", myArrayOfPlayers] call BRM_FMK_fnc_addIfNew
-    
+
 RETURNS:
     Index of the item.
 

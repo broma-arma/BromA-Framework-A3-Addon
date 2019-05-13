@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_setAlias
-    
+
 AUTHOR(s):
     Nife
 
@@ -14,10 +14,10 @@ PARAMETERS:
     0 - Unit. (OBJECT)
     1 - Group. (GROUP)
     2 - Unit's role. (STRING)
-    
+
 USAGE:
     [blu_0_0_1] call BRM_FMK_fnc_setAlias
-    
+
 RETURNS:
     Nothing.
 
@@ -68,7 +68,7 @@ switch (true) do {
 	case (_actualGroup && _isLeader):                        { _role = "Actual" };
 	case (_role in ["CO", "Officer", "SL", "Squad Leader"]): { _role = "Actual" };
 	case (_role in ["FTL", "Team Leader"]):                  { _role = "FTL" };
-	case (_isLeader):                                        { _role = "Leader" };    
+	case (_isLeader):                                        { _role = "Leader" };
 };
 
 if (_unitNumber != "") then { _unitNumber = _unitNumber + " " };

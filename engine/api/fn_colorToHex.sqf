@@ -3,13 +3,13 @@
 
 NAME:
     BRM_FMK_fnc_colorToHex
-    
+
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
     Converts a CfgMarkerColors name to its hexadecimal equivalent.
-    
+
 PARAMETERS:
     0 - Color name (STRING)
         black, grey, red, brown, orange, yellow, khaki, green, blue, pink, white,
@@ -18,7 +18,7 @@ PARAMETERS:
 
 USAGE:
     myColor = ["red"] call BRM_FMK_fnc_colorToHex
-    
+
 RETURNS:
     Color hex code (STRING)
 

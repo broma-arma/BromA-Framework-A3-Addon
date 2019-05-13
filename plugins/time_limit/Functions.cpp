@@ -1,7 +1,7 @@
 class BRM_FMK_TimeLimit {
 	class init {
 		file = "\broma_framework\plugins\time_limit\functions";
-		class setParams {};	
+		class setParams {};
 		class postinit {};
 	};
 
@@ -10,4 +10,4 @@ class BRM_FMK_TimeLimit {
 		class addTime {};
 		class removeTime {};
 	};
-}; 
+};

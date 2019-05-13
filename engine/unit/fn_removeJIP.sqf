@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_removeJIP
-    
+
 AUTHOR(s):
     Nife
 
@@ -12,10 +12,10 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Player (OBJECT)
-    
+
 USAGE:
     [player] spawn BRM_FMK_fnc_removeJIP
-    
+
 RETURNS:
     Nothing.
 

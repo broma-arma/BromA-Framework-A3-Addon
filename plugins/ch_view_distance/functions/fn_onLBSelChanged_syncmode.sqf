@@ -10,30 +10,30 @@ switch (_mode) do {
 		ctrlEnable [_textBoxCtrl, true];
 		_percentageVar = "CHVD_" + _varString + "SyncPercentage";
 		_percentage = call compile _percentageVar;
-		ctrlSetText [_textBoxCtrl, format ["%1",_percentage * 100] + "%"];	
-		
+		ctrlSetText [_textBoxCtrl, format ["%1",_percentage * 100] + "%"];
+
 		_viewDistVar = "CHVD_" + _varString;
 		_viewDist = call compile _viewDistVar;
 		_objVDVar = "CHVD_" + _varString + "Obj";
 		_objVD = _viewDist * _percentage min CHVD_maxObj;
-		
+
 		//disable VD slider and textbox because they are not in use
 		ctrlEnable [_sliderCtrl, false];
 		sliderSetPosition [_sliderCtrl, _objVD];
-		ctrlEnable [_sliderTextboxCtrl, false];		
+		ctrlEnable [_sliderTextboxCtrl, false];
 		ctrlSetText [_sliderTextboxCtrl, str round _objVD];
-		
+
 		call compile format ["%1 = %2", _objVDVar, _objVD];
 		call compile format ["profileNamespace setVariable ['%1',%1]", _objVDVar];
 	};
 	default {
 		ctrlEnable [_textBoxCtrl, false];
 		ctrlSetText [_textBoxCtrl, ""];
-		
+
 		//enable VD slider and textbox in case they are disabled
 		ctrlEnable [_sliderCtrl, true];
-		ctrlEnable [_sliderTextboxCtrl, true];		
-	};	
+		ctrlEnable [_sliderTextboxCtrl, true];
+	};
 };
 
 _modeVar = "CHVD_" + _varString + "SyncMode";

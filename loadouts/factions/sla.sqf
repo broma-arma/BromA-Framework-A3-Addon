@@ -122,7 +122,7 @@ _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "rhs_sidor"; 
+_commonBACKPACK = "rhs_sidor";
 _bigBACKPACK = "TRYK_B_Alicepack";
 
 // EXTRA EQUIPMENT =============================================================

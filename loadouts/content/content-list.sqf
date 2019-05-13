@@ -1,6 +1,6 @@
 // =============================================================================
 //
-//   Here you can load or unload any extra content you want to be loaded in 
+//   Here you can load or unload any extra content you want to be loaded in
 //                              your mission.
 //
 // =============================================================================

@@ -93,7 +93,6 @@ _headsLIST = [
 _uniformsLIST = [
     "U_BRM_U_FLECK",
     "U_BRM_RS_FLECK"
-    
 ];
 
 _vestsLIST = [

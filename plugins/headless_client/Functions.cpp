@@ -4,4 +4,4 @@ class BRM_FMK_HC {
 		class setParams {};
 		class postinit {};
 	};
-}; 
+};

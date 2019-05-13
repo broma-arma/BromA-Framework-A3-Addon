@@ -182,7 +182,7 @@ class PlankSettingsDialog {
         y = SETTINGS_CONTROL_BASE_Y(0) + ROW_BASE_H + CONTROL_MARGIN_BOTTOM;
         onSliderPosChanged = "[_this select 1] call plank_ui_fnc_updateHeightSliderValue";
     };
-    
+
     class HeightValue : ValueBase {
         idc = SETTINGS_HEIGHT_VALUE_IDC;
         x = SETTINGS_CONTROL_BASE_X + SLIDER_BASE_W + CONTROL_MARGIN_RIGHT;

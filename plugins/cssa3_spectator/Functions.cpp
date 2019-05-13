@@ -1,7 +1,7 @@
 class BRM_FMK_CSSA3 {
 	class init {
 		file = "\broma_framework\plugins\cssa3_spectator\functions";
-		class postinit {};	
+		class postinit {};
 	};
 	class Functions {
 		file = "\broma_framework\plugins\cssa3_spectator\functions";
@@ -25,4 +25,4 @@ class BRM_FMK_CSSA3 {
 		class findInNested {};
 		class animateUnitList {};
 	};
-}; 
+};

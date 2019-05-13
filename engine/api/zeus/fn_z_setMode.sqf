@@ -3,13 +3,13 @@
 
 NAME:
     BRM_FMK_fnc_z_setMode
-    
+
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
     Changes the combat mode of all units currently selected by Zeus.
-    
+
 PARAMETERS:
     0 - Combat mode (STRING)
     1 - Behavior (STRING)
@@ -17,10 +17,10 @@ PARAMETERS:
 
 USAGE:
     While in Zeus mode, select the desired units first.
-    
+
     ["GREEN", "SAFE"] spawn BRM_FMK_fnc_z_setMode
     ["RED", "STEALTH", east] spawn BRM_FMK_fnc_z_setMode
-    
+
 RETURNS:
     Nothing.
 
@@ -47,7 +47,7 @@ if ( (count _units) > 0) then {
                 }, [_x,_combat,_behav]] call CBA_fnc_globalExecute;
             };
         } else {
-            [-2, {            
+            [-2, {
                 (group (_this select 0)) setCombatMode (_this select 1);
                 (group (_this select 0)) setBehaviour (_this select 2);
             }, [_x,_combat,_behav]] call CBA_fnc_globalExecute;

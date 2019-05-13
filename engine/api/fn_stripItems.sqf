@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_stripItems
-    
+
 AUTHOR(s):
     Nife
 
@@ -12,10 +12,10 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Unit (OBJECT)
-    
+
 USAGE:
     [player] call BRM_FMK_fnc_stripItems
-    
+
 RETURNS:
     Nothing.
 

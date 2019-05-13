@@ -16,4 +16,4 @@ class BRM_FMK_DAC {
 		class createZone {};
 		class initVehicleCrew {};
 	};
-}; 
+};

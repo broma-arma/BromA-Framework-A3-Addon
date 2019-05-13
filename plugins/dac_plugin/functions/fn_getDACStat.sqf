@@ -3,7 +3,7 @@ private["_ret"];
 #include "includes\dictionary.sqf"
 
 switch (_this select 0) do {
-    
+
     case "SIDE": {
         switch (_this select 1) do {
             case west: { _ret = 1 };
@@ -12,17 +12,17 @@ switch (_this select 0) do {
             case civilian: { _ret = 3 };
         };
     };
-    
+
     case "SKILL": {
         _skill = (_this select 1);
         switch (true) do {
-            case (_skill in _aliasSkillEASY): { _ret = 0 };            
+            case (_skill in _aliasSkillEASY): { _ret = 0 };
             case (_skill in _aliasSkillNORMAL): { _ret = 1 };
             case (_skill in _aliasSkillSTEALTH): { _ret = 2 };
             case (_skill in _aliasSkillHARD): { _ret = 3 };
         };
-    };    
-    
+    };
+
     case "FACTION": {
         switch (toUpper(_this select 1)) do {
             case "RACS": { _ret = 3 };
@@ -40,10 +40,10 @@ switch (_this select 0) do {
             case "AAF": { _ret = 15 };
             case "FIA": { _ret = 16 };
             case "VDV": { _ret = 17 };
-            
+
             default { _ret = 1 };
         };
-    };      
+    };
 };
 
 _ret

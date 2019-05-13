@@ -222,14 +222,14 @@ class CHVD_rscFrame
 	idc = -1;
 	style = 0;
 	shadow = 1;
-	colorBackground[] = 
+	colorBackground[] =
 	{
 		0,
 		0,
 		0,
 		0
 	};
-	colorText[] = 
+	colorText[] =
 	{
 		1,
 		1,
@@ -302,7 +302,7 @@ class CHVD_dialog
 	moving = 1;
 	onLoad = "[_this] call BRM_FMK_CHVD_fnc_localize";
 	onUnload = "";
-	
+
 	class controlsBackground
 	{
 		class CHVD_rscBackground: CHVD_rscFrame
@@ -458,7 +458,7 @@ class CHVD_dialog
 			y = 5.7 * GUI_GRID_H + GUI_GRID_Y;
 			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
-		};		
+		};
 		class CHVD_rscCarSyncText: CHVD_rscTextRight
 		{
 			idc = 1405;
@@ -468,7 +468,7 @@ class CHVD_dialog
 			y = 13 * GUI_GRID_H + GUI_GRID_Y;
 			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
-		};		
+		};
 		class CHVD_rscAirSyncText: CHVD_rscTextRight
 		{
 			idc = 1407;
@@ -652,7 +652,7 @@ class CHVD_dialog
 			w = 12.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
-		
+
 		class CHVD_footTerrainEdit: CHVD_rscEdit
 		{
 			idc = 1400;
@@ -707,7 +707,7 @@ class CHVD_dialog
 		class CHVD_airSyncListbox: CHVD_rscXListBox
 		{
 			idc = 1408;
-			
+
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
 			y = 20.4 * GUI_GRID_H + GUI_GRID_Y;
 			w = 12.5 * GUI_GRID_W;

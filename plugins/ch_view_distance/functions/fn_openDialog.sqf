@@ -24,21 +24,21 @@ CHVD_loadingDialog = true;
 
 {
 	_ctrl = ((findDisplay 2900) displayCtrl (_x select 0));
-	
+
 	_textDisabled = if (isLocalized "STR_chvd_disabled") then {localize "STR_chvd_disabled"} else {"Disabled"};
 	_ctrl lbAdd _textDisabled;
-	
+
 	_textDynamic = if (isLocalized "STR_chvd_dynamic") then {localize "STR_chvd_dynamic"} else {"Dynamic"};
 	_ctrl lbAdd _textDynamic;
-	
+
 	_textFov = if (isLocalized "STR_chvd_fov") then {localize "STR_chvd_fov"} else {"FOV"};
 	_ctrl lbAdd _textFov;
-	
+
 	_mode = call compile ("CHVD_" + (_x select 1) + "SyncMode");
 	_ctrl lbSetCurSel _mode;
 	//call compile format ["systemChat '%1 %2'",_ctrl, _x select 1];
-	
-	_handle = _ctrl ctrlSetEventHandler ["LBSelChanged", 
+
+	_handle = _ctrl ctrlSetEventHandler ["LBSelChanged",
 		format ["[_this select 1, '%1',%2,%3,%4] call BRM_FMK_CHVD_fnc_onLBSelChanged_syncmode", _x select 1, _x select 2, _x select 3, _x select 4]
 	];
 } forEach [[1404,"foot",1410,1901,1007], [1406,"car",1409,1903,1014], [1408,"air",1411,1905,1018]];
@@ -56,10 +56,10 @@ CHVD_loadingDialog = true;
 		default {
 			ctrlEnable [_ctrl, false];
 		};
-		
+
 	};
 	_ctrlDisplay = (findDisplay 2900) displayCtrl _ctrl;
-	_handle = _ctrlDisplay ctrlSetEventHandler ["keyDown", 
+	_handle = _ctrlDisplay ctrlSetEventHandler ["keyDown",
 		format ["[_this select 0, '%1',%2,%3] call BRM_FMK_CHVD_fnc_onEBinput_syncmode", _x select 1, _x select 2, _x select 3]
 	];
 } forEach [[1410,"foot",1901,1007], [1409,"car",1903,1014], [1411,"air",1905,1018]];
@@ -78,7 +78,7 @@ CHVD_loadingDialog = true;
 	_ctrl lbAdd _textVeryHigh;
 	_textUltra = if (isLocalized "STR_chvd_ultra") then {localize "STR_chvd_ultra"} else {"Ultra"};
 	_ctrl lbAdd _textUltra;
-	
+
 	_sel = [_x select 1] call BRM_FMK_CHVD_fnc_selTerrainQuality;
 	if (CHVD_allowNoGrass) then {
 		_ctrl lbSetCurSel _sel;
@@ -89,7 +89,7 @@ CHVD_loadingDialog = true;
 
 {
 	_ctrl = ((findDisplay 2900) displayCtrl (_x select 0));
-	_handle = _ctrl ctrlSetEventHandler ["LBSelChanged", 
+	_handle = _ctrl ctrlSetEventHandler ["LBSelChanged",
 		format ["[_this select 1, '%1', %2] call BRM_FMK_CHVD_fnc_onLBSelChanged", _x select 1, _x select 2]
 	];
 } forEach [[1500,"CHVD_footTerrain",1400],[1501,"CHVD_carTerrain",1401],[1502,"CHVD_airTerrain",1402]];
@@ -97,7 +97,7 @@ CHVD_loadingDialog = true;
 if (CHVD_footSyncMode isEqualTo 1) then {
 	ctrlEnable [1901,false];
 	ctrlEnable [1007,false];
-} else {	
+} else {
 	ctrlEnable [1901,true];
 	ctrlEnable [1007,true];
 };
@@ -105,7 +105,7 @@ if (CHVD_footSyncMode isEqualTo 1) then {
 if (CHVD_carSyncMode isEqualTo 1) then {
 	ctrlEnable [1903,false];
 	ctrlEnable [1014,false];
-} else {	
+} else {
 	ctrlEnable [1903,true];
 	ctrlEnable [1014,true];
 };
@@ -113,7 +113,7 @@ if (CHVD_carSyncMode isEqualTo 1) then {
 if (CHVD_airSyncMode isEqualTo 1) then {
 	ctrlEnable [1905,false];
 	ctrlEnable [1018,false];
-} else {	
+} else {
 	ctrlEnable [1905,true];
 	ctrlEnable [1018,true];
 };

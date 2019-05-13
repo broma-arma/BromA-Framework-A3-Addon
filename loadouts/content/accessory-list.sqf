@@ -1,5 +1,5 @@
 // =============================================================================
-//                          WEAPON ACCESSORIES LIST                              
+//                          WEAPON ACCESSORIES LIST
 // =============================================================================
 
 // =============================================================================
@@ -43,7 +43,7 @@ _bipodIND = "bipod_03_F_oli";
 
 // =============================================================================
 
-// HLC 
+// HLC
 
 // Suppressors
 _supG3 = "hlc_muzzle_300blk_kac"; // QD .300BLK Suppressor
@@ -112,7 +112,7 @@ switch (true) do {
         _NVGEN1 = "AGM_NVG_Gen1";
         _NVGEN2 = "AGM_NVG_Gen2";
         _NVGEN4 = "AGM_NVG_Gen4";
-        _NVWIDE = "AGM_NVG_Wide";      
+        _NVWIDE = "AGM_NVG_Wide";
     };
     case (mission_ACE3_enabled): {
         _NVGEN1 = "ACE_NVG_Gen1";
@@ -124,7 +124,7 @@ switch (true) do {
         _NVGEN1 = "NVGoggles";
         _NVGEN2 = "NVGoggles";
         _NVGEN4 = "NVGoggles";
-        _NVWIDE = "NVGoggles";    
+        _NVWIDE = "NVGoggles";
     };
 };
 

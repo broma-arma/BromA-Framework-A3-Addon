@@ -1,5 +1,5 @@
 
-_ignoredWords = ["hey","please","a","an","with","also","and","but","however","of","amounts","amount","named","called", 
+_ignoredWords = ["hey","please","a","an","with","also","and","but","however","of","amounts","amount","named","called",
                 "respawns","respawn","reinforcements","supporting","assisting","helping","of","in","on","network","ID"];
 
 _aliasRANDOM = ["whatever","anything","random"];

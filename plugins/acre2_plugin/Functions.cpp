@@ -3,4 +3,4 @@ class BRM_FMK_ACRE2 {
 		file = "\broma_framework\plugins\acre2_plugin\functions";
 		class postInit {};
 	};
-}; 
+};

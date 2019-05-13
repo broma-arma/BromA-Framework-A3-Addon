@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_weaponAway
-    
+
 AUTHOR(s):
     commy2
 
@@ -12,10 +12,10 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - What unit should put the current weapon on back? (OBJECT)
-    
+
 USAGE:
     [player] call BRM_FMK_fnc_weaponAway
-    
+
 RETURNS:
     Nothing.
 

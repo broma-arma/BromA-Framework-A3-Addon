@@ -3,23 +3,23 @@
 
 NAME:
     BRM_FMK_fnc_z_setSkill
-    
+
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
     Changes the skill of all units currently selected by Zeus.
-    
+
 PARAMETERS:
     0 - Skill (NUMBER)
     1 - (OPTIONAL) Side to filter units. (SIDE)
 
 USAGE:
     While in Zeus mode, select the desired units first.
-    
+
     [1] spawn BRM_FMK_fnc_z_setLoadout
     [0.5, west] spawn BRM_FMK_fnc_z_setLoadout
-    
+
 RETURNS:
     Nothing.
 

@@ -9,7 +9,7 @@ player createDiaryRecord ["ACE 3",["
 // =============================================================================
 "
 Here you will find information about all kinds of wounds.			<br/>
- 
+
 <br/>
 - x  <font color='#00FFFF'>Abrasions<br/></font color><br/>
     | Sources: Falling, rope-burn, vehicle collisions.				<br/>
@@ -31,21 +31,21 @@ Here you will find information about all kinds of wounds.			<br/>
          | Pain - light												<br/>
          | No bleeding												<br/>
     | Best Treatment: not needed(only treated by PAK's)				<br/>
-																	<br/>																	
+																	<br/>
 - x  <font color='#00FFFF'>Crush wounds<br/></font color><br/>
     | Sources: Falling, vehicle collisions.							<br/>
     | Effects 														<br/>
          | Pain - light												<br/>
          | Bleeding - extremely slowly								<br/>
     | Best Treatment: <font color='#00FF00'>Elastic Bandage</font color>								<br/>
-																	<br/>	
+																	<br/>
 - x  <font color='#00FFFF'>Cut wounds<br/></font color><br/>
     | Sources: Vehicle collisions, explosions.						<br/>
     | Effects 														<br/>
          | Pain - light												<br/>
          | Bleeding - fast (depends on size)						<br/>
     | Best Treatment: <font color='#00FF00'>Elastic Bandage</font color>								<br/>
-																	<br/>	
+																	<br/>
 - x  <font color='#00FFFF'>Lacerations<br/></font color><br/>
     | Sources: Vehicle collisions.									<br/>
     | Effects 														<br/>
@@ -67,8 +67,8 @@ Here you will find information about all kinds of wounds.			<br/>
          | Bleeding - slow											<br/>
     | Best Treatment: <font color='#00FF00'>Elastic Bandage</font color>								<br/>
 																	<br/>
-																	
-																	
+
+
 "]];
 
 // =============================================================================
@@ -89,7 +89,7 @@ There are two basic types of wounds: 									<br/><br/>
     Bandaged with <font color='#00FF00'>Elastic Bandages</font color>	<br/>
     Caused by vehicle collisions and falling							<br/>
     These wounds bleed a lot slower.									<br/>
-	
+
 "]];
 // =============================================================================
 
@@ -103,8 +103,8 @@ player createDiaryRecord ["ACE 3",["
 ",
 // =============================================================================
 "
-All of these drugs should only be administered one dose at a time and only when 
-required, drug abuse will lead to death.<br/>
+All of these drugs should only be administered one dose at a time and only when
+ required, drug abuse will lead to death.<br/>
 <br/>
 There are three types of drugs: 										<br/>
 - x <font color='#FFFF00'>Morphine</font color> 						<br/>
@@ -127,7 +127,7 @@ There are three types of drugs: 										<br/>
     Used to control laughing and crying episodes that are caused by brain tumours.<br/>
 																		<br/>
 
-	
+
 "]];
 // =============================================================================
 
@@ -164,7 +164,7 @@ player createDiaryRecord ["ACE 3",["
     They increase blood pressure 										<br/>
     Take a while to transfuse after applied								<br/>
 
-	
+
 "]];
 // =============================================================================
 

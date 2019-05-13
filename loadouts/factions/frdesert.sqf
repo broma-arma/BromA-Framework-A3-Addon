@@ -90,7 +90,6 @@ _uniformsLIST = [
     "U_BRM_U_DAGUET",
     "U_BRM_Shirt_DAGUET",
     "U_BRM_RS_DAGUET"
-    
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;

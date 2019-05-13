@@ -5,7 +5,7 @@ class BRM_FMK_RespawnSystem {
 		class setParams {};
 		class postinit {};
 	};
-	
+
 	class Functions {
 		file = "\broma_framework\plugins\respawn_system\functions";
 		class removeFromMission {};

@@ -3,7 +3,7 @@
 /*
 	Nationalist guerillas of the National Party is an underground movement lacking
 	sophisticated weapons, but their knowledge of the country, military expertise from
-	civil war and underground network make them serious opponents to both communist 
+	civil war and underground network make them serious opponents to both communist
 	guerillas and government forces
 */
 

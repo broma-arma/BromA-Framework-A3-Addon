@@ -3,19 +3,19 @@
 
 NAME:
     BRM_FMK_AGM_fnc_AGM_RevivePlayer
-    
+
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
     Revives a unit's AGM parameters.
-    
+
 PARAMETERS:
     0 - Player (OBJECT)
 
 USAGE:
     [player] spawn BRM_FMK_AGM_fnc_AGM_RevivePlayer;
-    
+
 RETURNS:
     Nothing.
 

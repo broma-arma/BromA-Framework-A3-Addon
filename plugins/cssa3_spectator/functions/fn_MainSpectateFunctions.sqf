@@ -603,7 +603,7 @@ switch _mode do {
 						disableserialization;
 						_display = findDisplay 46;
 						_message = [
-							parseText 
+							parseText
                                                         "- Move Camera: W, A, S, D
                                                          - Camera Altitude: Q, Z
                                                          - Smooth Move: LMB + RMB

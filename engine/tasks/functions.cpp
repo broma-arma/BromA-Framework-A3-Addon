@@ -4,5 +4,5 @@ class tasks {
 	class readExtraction{};
 	class newTask {};
 	class setTask{};
-	class checkTasks{};	
+	class checkTasks{};
 };

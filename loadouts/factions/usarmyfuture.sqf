@@ -1,7 +1,7 @@
 // INFO ========================================================================
 /*
-    United States Future Soldier (US FS) Program. Initialy started in early 2000s with the not so successfull OICW, it is now back with new weaponry, 
-    new vehicles and new gear for today's soldier.    
+    United States Future Soldier (US FS) Program. Initialy started in early 2000s with the not so successfull OICW, it is now back with new weaponry,
+    new vehicles and new gear for today's soldier.
 */
 
 _factionID = "USFS";
