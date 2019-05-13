@@ -210,7 +210,7 @@ _nameFRENCH = [
     "Henri", "Joel", "Jacques", "Adrien", "Michel", "Jean-Michel", "Paul", "Thomas",
     "Ivan", "Boris", "Michael", "Jonas", "Raphael", "Laurent", "Gustave", "Loris",
     "Mathieu", "Jean-Jacques", "Clement", "Leon", "Gerard", "Steffane", "Bernard",
-    "Martin", "Simon", "Laurent", "Nicolas", "Gauthier", "Robin", "Andre", "François",
+    "Martin", "Simon", "Laurent", "Nicolas", "Gauthier", "Robin", "Andre", "FranÃ§ois",
     "David", "Richard", "Renaud", "Benoit"
     ]
     ,
