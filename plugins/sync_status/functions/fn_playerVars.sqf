@@ -31,7 +31,7 @@ if (mission_ACE3_enabled) then {
 		// Variable name                     Default                            Custom load code (Optional)
 		["ACE_isDead",                       false],
 		["ACE_isUnconscious",                false,                             { if (_value) then { [player, true] call ace_medical_fnc_setUnconscious }; }],
-		["ACE_captives_isHandcuffed",        false,                             { if (_value) then { [player, (_status select _count)] call ACE_captives_fnc_setHandcuffed }; }],
+		["ACE_captives_isHandcuffed",        false,                             { if (_value) then { [player, true] call ACE_captives_fnc_setHandcuffed }; }],
 		["ACE_hasEarPlugsin",                false,                             { if (_value) then { [player] call ace_hearing_fnc_putInEarplugs }; }],
 		["ACE_medical_pain",                 0],
 		["ACE_medical_morphine",             0],
