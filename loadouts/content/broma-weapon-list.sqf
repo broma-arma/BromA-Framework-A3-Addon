@@ -126,11 +126,19 @@ _AKS74RIS  = ["hlc_rifle_aks74_MTK",_30rnd545];
 _AKS74GL   = ["hlc_rifle_aks74_GL",_30rnd545,_GPHE];
 _AKS74U    = ["hlc_rifle_aks74u",_30rnd545];
 _AKS74URIS = ["hlc_rifle_aks74u_MTK",_30rnd545];
+_AK74UN = ["rhs_weap_aks74un","rhs_30Rnd_545x39_7N6_AK"];
+_AK74N = ["rhs_weap_ak74n","rhs_30Rnd_545x39_7N6M_AK"];
+_AK74NGL = ["rhs_weap_ak74n_gp25","rhs_30Rnd_545x39_7N6M_AK",_GPHE];
 
 _RPK   = ["hlc_rifle_rpk_75rnd",_75rnd762RPK];
 _RPK74 = ["hlc_rifle_rpk74n_45rnd",_45rnd545];
 
 _RK62 = ["hlc_rifle_RK62",_30rnd762AK];
+
+_M76 = ["rhs_weap_m76","rhsgref_10Rnd_792x57_m76"];
+_M84 = ["rhs_weap_m84","rhs_100Rnd_762x54mmR"];
+_SVDPWDNPZ = ["rhs_weap_svdp_wd_npz","rhs_10Rnd_762x54mmR_7N1"];
+_SCORPION = ["rhs_weap_scorpion","rhsgref_20rnd_765x17_vz61"];
 
 _SAIGA12 = ["hlc_rifle_saiga12k",_12rndBUCKSAIGA];
 
@@ -517,6 +525,12 @@ _HLC416D20WOOD = ["hlc_rifle_416D20_wdl",_30rnd556AR15];
 _HLC416C = ["hlc_rifle_416C",_30rnd556AR15];
 _HLC416N = ["hlc_rifle_416N",_30rnd556AR15];
 _HLC416NGL = ["hlc_rifle_416N_gl",_30rnd556AR15,_40mm];
+
+//========== HLC M16 PACK =======================================================
+
+_HLCM16A2 = ["hlc_wp_m16a2","hlc_30rnd_556x45_EPR"];
+_HLCM16A2GL = ["hlc_rifle_m203","hlc_30rnd_556x45_EPR",_40mm];
+
 
 // =============================================================================
 // =============================================================================
@@ -945,6 +959,7 @@ _IGLA = ["rhs_weap_igla",_Igla9K38];
 _RPG7PGO = ["rhs_weap_rpg7_pgo",_RPGVL];
 _RPG7 = ["rhs_weap_rpg7",_RPGVL];
 _RPG26 = ["rhs_weap_rpg26","rhs_rpg26_mag"];
+_RSHG2 = ["rhs_weap_rshg2","rhs_rshg2_mag"];
 
 //                                AT-4
 
