@@ -1,4 +1,3 @@
-
 if (!isServer) exitWith {};
 
 round_over = true;

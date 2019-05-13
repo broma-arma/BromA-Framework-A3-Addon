@@ -1,4 +1,3 @@
-
 class loadouts_main {
 	file = "\broma_framework\loadouts";
 };

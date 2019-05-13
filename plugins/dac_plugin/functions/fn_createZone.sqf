@@ -1,4 +1,3 @@
-
 private [
 "_thisZone","_KiZone","_ZonePos","_mxvalue","_myvalue","_s","_start","_isserv",
 "_ZoneMode","_GroupSol","_GroupVeh","_GroupTan","_GroupAir","_ZoneSide","_zPoly",

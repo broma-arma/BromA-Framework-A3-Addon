@@ -1,4 +1,3 @@
-
 private _allowedClasses = [
     // Case-sensitive, must be lowercase
     "co", "sl", "ftl", "rifleman", "at", "marksman", "ar", "asstar", "medic", "grenadier",

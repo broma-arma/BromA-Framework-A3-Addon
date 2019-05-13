@@ -1,4 +1,3 @@
-
 waitUntil{!isNil "DAC_STRPlayers"};
 
 #include "includes\settings.sqf"

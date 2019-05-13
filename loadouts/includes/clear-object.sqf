@@ -1,4 +1,3 @@
-
 if (_isMan) then {
     removeAllItems _unit;
     removeAllWeapons _unit;

@@ -1,4 +1,3 @@
-
 if (!isServer) exitWith {};
 
 [{(time > 3)}, {

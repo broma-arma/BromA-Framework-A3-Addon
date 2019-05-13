@@ -18,4 +18,3 @@ if (hasInterface) then {
 		player allowDamage true;
 	};
 };
-

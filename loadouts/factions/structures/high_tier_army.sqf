@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 //
 //    The structure of a very well equipped army with enough ammo and meds to spare.

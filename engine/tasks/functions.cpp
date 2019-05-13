@@ -1,4 +1,3 @@
-
 class tasks {
 	file = "\broma_framework\engine\tasks";
 	class readExtraction{};

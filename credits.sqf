@@ -1,4 +1,3 @@
-
 // ============================================================================
 //  These are the default credits to everyone who contributed in order to make |
 //                        this framework complete.                             |

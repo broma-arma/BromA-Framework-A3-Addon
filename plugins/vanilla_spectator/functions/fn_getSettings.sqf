@@ -1,4 +1,3 @@
-
 /*
     Returns the spectator settings.
 */

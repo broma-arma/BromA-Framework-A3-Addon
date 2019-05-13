@@ -1,4 +1,3 @@
-
 _unit = _this select 0;
 _type = _this select 1;
 _kind = _this select 2;

@@ -1,4 +1,3 @@
-
 params ["_side"];
 
 #include "\broma_framework\loadouts\includes\vehicles-index.sqf"

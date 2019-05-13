@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
     Although the communist insurgency has its roots as an underground movement,

@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
 The armed forces of anime land. THE JSDF (JSF for short) is a combination of Japan's military branches that was established in 1954 and then relegated to Peacekeeping operations.

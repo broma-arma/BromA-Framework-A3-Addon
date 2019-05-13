@@ -1,4 +1,3 @@
-
 if (!isServer) exitWith {};
 
 0 spawn {

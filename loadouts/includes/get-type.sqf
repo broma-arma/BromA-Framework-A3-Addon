@@ -1,4 +1,3 @@
-
 #include "allowed-classes.sqf"
 
 private _displayName = (getText(configfile >> "CfgVehicles" >> (typeOf _unit) >> "displayName"));

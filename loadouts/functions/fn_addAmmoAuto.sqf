@@ -1,4 +1,3 @@
-
 params ["_unit", "_weapon", "_amount", "_type"];
 
 _magazine = [_weapon, _type] call BRM_FMK_fnc_getAmmoClass;

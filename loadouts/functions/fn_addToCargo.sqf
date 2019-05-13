@@ -1,4 +1,3 @@
-
 _array = _this select 0;
 _unit = _array select 0;
 _type = _array select 1;

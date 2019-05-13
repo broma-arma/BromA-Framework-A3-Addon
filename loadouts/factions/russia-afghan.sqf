@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
     The Armed Forces of the Russian Federation are the military service of Russia,

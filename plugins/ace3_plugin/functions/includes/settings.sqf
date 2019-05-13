@@ -1,4 +1,3 @@
-
 //respawn
 if (isNil "mission_ace3_revive_enable") then { mission_ace3_revive_enable = 1 };
 if (isNil "mission_ace3_revive_time") then { mission_ace3_revive_time = 999 };

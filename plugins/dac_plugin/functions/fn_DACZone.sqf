@@ -1,4 +1,3 @@
-
 if (mission_AI_controller) then {
     [{!(isNil "dac_basic_value")}, {
         if (dac_basic_value > 0) exitWith {};

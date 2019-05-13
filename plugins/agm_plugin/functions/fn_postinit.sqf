@@ -1,4 +1,3 @@
-
 if !(isClass(configFile>>"CfgPatches">>"AGM_MEDICAL")) exitWith {};
 if (!isServer) exitWith {};
 

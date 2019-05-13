@@ -1,4 +1,3 @@
-
 if !(isClass(configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
 if (!hasInterface) exitWith {};
 

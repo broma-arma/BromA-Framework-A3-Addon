@@ -1,4 +1,3 @@
-
 class api {
 	file = "\broma_framework\engine\api";
 	class getSideInfo {};

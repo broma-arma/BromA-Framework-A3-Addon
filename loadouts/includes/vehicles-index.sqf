@@ -1,4 +1,3 @@
-
 #define AA_VEHICLES 0
 #define ATTACK_HELOS 1
 #define ATTACK_PLANES 2

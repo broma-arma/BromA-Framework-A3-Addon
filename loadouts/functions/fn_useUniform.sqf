@@ -1,4 +1,3 @@
-
 _unit = (_this select 0);
 _headgear = (_this select 1);
 _uniform = (_this select 2);

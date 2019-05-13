@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
 	Nationalist guerillas of the National Party is an underground movement lacking

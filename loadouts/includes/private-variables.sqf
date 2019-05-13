@@ -1,4 +1,3 @@
-
 private [
     "_unit","_type","_cond","_done","_defaultName", "_defaultColor", "_doFirstName","_doLastName",
     "_doFinalName", "_defaultInsignia", "_isMan", "_factionObjects", "_factionDACCamps",

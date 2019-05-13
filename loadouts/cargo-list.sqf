@@ -1,4 +1,3 @@
-
 switch(_x) do {
     case "medical":
     {
