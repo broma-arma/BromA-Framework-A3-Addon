@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
     Formed after the socialist victory of the Takistani Civil War in 1992, the Takistani Army is the
@@ -19,7 +18,7 @@ _defaultVoice = [_voiceFARSI];
 _defaultFace = [_faceGREEK, _facePERSIAN];
 _defaultName = [_nameARABIC]; // incomplete list
 _defaultInsignia = "USP_PATCH_IRN_ARMY_13REVGRD";
-_defaultColor = "black";
+_defaultColor = "red";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];

@@ -31,7 +31,7 @@ _commonSNIPER           = ["R3F_PGM_Hecate_II_POLY","R3F_7Rnd_127x99_PEI_PGM"];
 _commonAT               = ["rhs_weap_M136","rhs_m136_mag"];
 _specAT                 = ["R3F_ERYX","R3F_ERYX_mag"];
 _commonSMG              = ["hlc_smg_MP5N","hlc_30Rnd_9x19_B_MP5"];
-_commonRCO              = "FHQ_optic_VCOG";
+_commonRCO              = "optic_MRCO";
 _commonCCO              = "R3F_AIMPOINT";
 _commonMAGNIFIED        = "optic_LRPS";
 _commonSUPPRESSOR       = "rhsusf_acc_rotex5_grey";
@@ -90,13 +90,11 @@ _uniformsLIST = [
     "TRYK_U_Bts_GRYGRY_PCUs",
     "TRYK_U_B_GRY_PCUs",
     "TRYK_U_B_Wood_PCUs"
-    
 ];
 
 _vestsLIST = [
     "TRYK_V_ArmorVest_coyo",
     "V_PlateCarrier1_rgr_noflag_F"
-    
 ];
 
 _gogglesLIST = [

@@ -3,7 +3,7 @@
 
 NAME:
     BRM_fnc_defineGroups
-    
+
 AUTHOR(s):
     Nife
 
@@ -13,10 +13,10 @@ DESCRIPTION:
 
 PARAMETERS:
     None.
-    
+
 USAGE:
     [] call BRM_fnc_defineGroups
-    
+
 RETURNS:
     Nothing.
 

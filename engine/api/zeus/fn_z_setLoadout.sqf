@@ -3,23 +3,23 @@
 
 NAME:
     BRM_FMK_fnc_z_setLoadout
-    
+
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
     Changes the loadout of all units currently selected by Zeus.
-    
+
 PARAMETERS:
     0 - Loadout (STRING)
     1 - (OPTIONAL) Side to filter units. (SIDE)
 
 USAGE:
     While in Zeus mode, select the desired units first.
-    
+
     ["SLA"] spawn BRM_FMK_fnc_z_setLoadout
     ["RACS", west] spawn BRM_FMK_fnc_z_setLoadout
-    
+
 RETURNS:
     Nothing.
 

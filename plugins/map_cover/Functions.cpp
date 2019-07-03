@@ -3,4 +3,4 @@ class BRM_FMK_MapCover {
 		file = "\broma_framework\plugins\map_cover\functions";
 		class postInit {};
 	};
-}; 
+};

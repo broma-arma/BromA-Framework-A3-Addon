@@ -1,4 +1,3 @@
-
 if (isNil "agm_settings_AllowNonmedics") then { agm_settings_AllowNonmedics = true };
 if (isNil "agm_settings_AutomaticWakeup") then { agm_settings_AutomaticWakeup = true };
 if (isNil "agm_settings_CoefBleeding") then { agm_settings_CoefBleeding = 1 };

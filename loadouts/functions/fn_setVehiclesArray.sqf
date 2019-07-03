@@ -1,4 +1,3 @@
-
 _vehicles = _this;
 
 #include "\broma_framework\loadouts\includes\vehicles-index.sqf"

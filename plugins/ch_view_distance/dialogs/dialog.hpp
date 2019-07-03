@@ -222,14 +222,14 @@ class CHVD_rscFrame
 	idc = -1;
 	style = 0;
 	shadow = 1;
-	colorBackground[] = 
+	colorBackground[] =
 	{
 		0,
 		0,
 		0,
 		0
 	};
-	colorText[] = 
+	colorText[] =
 	{
 		1,
 		1,
@@ -242,38 +242,39 @@ class CHVD_rscFrame
 };
 class CHVD_rscXListBox
 {
+	deletable = 0;
+	fade = 0;
+	idc = -1;
 	type = 42;
-	style="0x400 + 0x02 +	0x10";
-	shadow=2;
-	arrowEmpty="\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
-	arrowFull="\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
-	border="\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
-	w=0.14706001;
-	h=0.039216001;
-	colorSelect[] = {1,1,1,1}; // Selected text color
-	colorText[]={1,1,1,1};
-	color[]={1,1,1,0.60000002};
-	colorActive[]={1,1,1,1};
-	colorDisabled[]={1,1,1,0.2};
-	font="PuristaMedium";
-	sizeEx="(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
-	soundSelect[]=
-	{
-		"\A3\ui_f\data\sound\RscListbox\soundSelect",
-		0.090000004,
-		1
-	};
-	colorPicture[]={1,1,1,1};
-	colorPictureSelected[]={1,1,1,1};
-	colorPictureDisabled[]={1,1,1,1};
-	tooltipColorText[]={1,1,1,1};
-	tooltipColorBox[]={1,1,1,1};
-	tooltipColorShade[]={0,0,0,0.64999998};
+	x = 0.1;
+	y = 0.1;
+	color[] = {1, 1, 1, 0.6};
+	colorActive[] = {1, 1, 1, 1};
+	colorDisabled[] = {1, 1, 1, 0.25};
+	colorSelect[] = {0.95, 0.95, 0.95, 1};
+	colorText[] = {1, 1, 1, 1};
+	soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect", 0.09, 1};
+	colorPicture[] = {1, 1, 1, 1};
+	colorPictureSelected[] = {1, 1, 1, 1};
+	colorPictudeDisabled[] = {1, 1, 1, 0.25};
+	tooltipColorText[] = {1, 1, 1, 1};
+	tooltipColorBox[] = {1, 1, 1, 1};
+	tooltipColorShade[] = {0, 0, 0, 0.65};
+	style = "0x400 + 0x02 +	0x10";
+	shadow = 2;
+	arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+	arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+	border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+	w = 0.14706;
+	h = 0.039216;
+	font = "PuristaMedium";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	colorPictureDisabled[] = {1, 1, 1, 1};
 };
 class CHVD_rscEdit
 {
 	type=2;
-	style="0x01 + 0x40";
+	style="0x40";
 	autocomplete = "";
 	font="PuristaMedium";
 	shadow=2;
@@ -298,50 +299,20 @@ class CHVD_dialog
 {
 	idd = 2900;
 	movingEnable = false;
-	moving = 1; 
-	onLoad = "";
+	moving = 1;
+	onLoad = "[_this] call BRM_FMK_CHVD_fnc_localize";
 	onUnload = "";
-	
+
 	class controlsBackground
 	{
 		class CHVD_rscBackground: CHVD_rscFrame
 		{
 			idc = 1800;
 
-			x = 9 * GUI_GRID_W + GUI_GRID_X;
-			y = 1.6 * GUI_GRID_H + GUI_GRID_Y;
-			w = 22 * GUI_GRID_W;
-			h = 19.5 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.7};
-		};
-		class CHVD_footBGframe: CHVD_rscFrame
-		{
-			idc = 1800;
-
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
-			w = 21 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.7};
-		};
-		class CHVD_carBGframe: CHVD_rscFrame
-		{
-			idc = 1801;
-
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 21 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.7};
-		};
-		class CHVD_airBGframe: CHVD_rscFrame
-		{
-			idc = 1802;
-
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 15 * GUI_GRID_H + GUI_GRID_Y;
-			w = 21 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
+			x = 7 * GUI_GRID_W + GUI_GRID_X;
+			y = 1.1 * GUI_GRID_H + GUI_GRID_Y;
+			w = 24.5 * GUI_GRID_W;
+			h = 22.4 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.7};
 		};
 		class CHVD_rscTitle: CHVD_rscText
@@ -349,31 +320,31 @@ class CHVD_dialog
 			idc = 1000;
 
 			text = "VIEW DISTANCE SETTINGS"; //--- ToDo: Localize;
-			x = 9 * GUI_GRID_W + GUI_GRID_X;
-			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 22 * GUI_GRID_W;
+			x = 7 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 24.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
 		};
-		class CHVD_rscFootHeaderText: CHVD_rscText
+		class CHVD_rscFootHeaderText: CHVD_rscTextRight
 		{
 			idc = 1001;
 
 			text = "ON FOOT"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
-			w = 5 * GUI_GRID_W;
+			x = 7 * GUI_GRID_W + GUI_GRID_X;
+			y = 1.4 * GUI_GRID_H + GUI_GRID_Y;
+			w = 7 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
-			colorBackground[] = {0.5,0,0,0};
+			colorBackground[] = {0,0,0,1};
 		};
 		class CHVD_rscFootViewText: CHVD_rscTextRight
 		{
 			idc = 1002;
 
 			text = "VIEW:"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2.7 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_rscFootObjText: CHVD_rscTextRight
@@ -381,9 +352,9 @@ class CHVD_dialog
 			idc = 1003;
 
 			text = "OBJECT:"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 4.2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_rscFootTerrainText: CHVD_rscTextRight
@@ -391,40 +362,30 @@ class CHVD_dialog
 			idc = 1005;
 
 			text = "TERRAIN:"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 7.2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
-		class CHVD_rscCarHeaderText: CHVD_rscText
+		class CHVD_rscCarHeaderText: CHVD_rscTextRight
 		{
 			idc = 1008;
 
 			text = "IN CAR"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 5 * GUI_GRID_W;
+			x = 7 * GUI_GRID_W + GUI_GRID_X;
+			y = 8.7 * GUI_GRID_H + GUI_GRID_Y;
+			w = 7 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
-			colorBackground[] = {0.5,0,0,0};
-		};
-		class CHVD_rscCarSyncText: CHVD_rscTextRight
-		{
-			idc = 1009;
-
-			text = "Sync object with view"; //--- ToDo: Localize;
-			x = 17 * GUI_GRID_W + GUI_GRID_X;
-			y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 12.5 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,1};
 		};
 		class CHVD_rscCarViewText: CHVD_rscTextRight
 		{
 			idc = 1010;
 
 			text = "VIEW:"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 10 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_rscAirObjText: CHVD_rscTextRight
@@ -432,9 +393,9 @@ class CHVD_dialog
 			idc = 1011;
 
 			text = "OBJECT:"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 18 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 18.9 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_rscCarTerrainText: CHVD_rscTextRight
@@ -442,40 +403,30 @@ class CHVD_dialog
 			idc = 1012;
 
 			text = "TERRAIN:"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 13 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 14.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
-		class CHVD_rscFootSyncText: CHVD_rscTextRight
-		{
-			idc = 1004;
-
-			text = "Sync object with view"; //--- ToDo: Localize;
-			x = 17 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
-			w = 12.5 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
-		};
-		class CHVD_rscAirHeaderText: CHVD_rscText
+		class CHVD_rscAirHeaderText: CHVD_rscTextRight
 		{
 			idc = 1015;
 
 			text = "IN AIR"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 15 * GUI_GRID_H + GUI_GRID_Y;
-			w = 5 * GUI_GRID_W;
+			x = 7 * GUI_GRID_W + GUI_GRID_X;
+			y = 16 * GUI_GRID_H + GUI_GRID_Y;
+			w = 7 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
-			colorBackground[] = {0.5,0,0,0};
+			colorBackground[] = {0,0,0,1};
 		};
 		class CHVD_rscAirViewText: CHVD_rscTextRight
 		{
 			idc = 1016;
 
 			text = "VIEW:"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 17.4 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_rscAirTerrainText: CHVD_rscTextRight
@@ -483,19 +434,9 @@ class CHVD_dialog
 			idc = 1019;
 
 			text = "TERRAIN:"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
-		};
-		class CHVD_rscAirSyncText: CHVD_rscTextRight
-		{
-			idc = 1020;
-
-			text = "Sync object with view"; //--- ToDo: Localize;
-			x = 17 * GUI_GRID_W + GUI_GRID_X;
-			y = 15 * GUI_GRID_H + GUI_GRID_Y;
-			w = 12.5 * GUI_GRID_W;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 21.9 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_rscCarObjText: CHVD_rscTextRight
@@ -503,9 +444,39 @@ class CHVD_dialog
 			idc = 1021;
 
 			text = "OBJECT:"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 11.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			w = 6.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class CHVD_rscFootSyncText: CHVD_rscTextRight
+		{
+			idc = 1403;
+
+			text = "SYNC MODE:"; //--- ToDo: Localize;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 5.7 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class CHVD_rscCarSyncText: CHVD_rscTextRight
+		{
+			idc = 1405;
+
+			text = "SYNC MODE:"; //--- ToDo: Localize;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class CHVD_rscAirSyncText: CHVD_rscTextRight
+		{
+			idc = 1407;
+
+			text = "SYNC MODE:"; //--- ToDo: Localize;
+			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.4 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 	};
@@ -515,10 +486,10 @@ class CHVD_dialog
 		{
 			idc = 1900;
 			type = 43;
-			onSliderPosChanged = "['CHVD_foot', _this select 0, _this select 1, 1006, 'CHVD_footObj', 1901, 1007, 'CHVD_footSyncObj'] call BRM_FMK_CHVD_fnc_onSliderChange";
+			onSliderPosChanged = "['CHVD_foot', _this select 0, _this select 1, 1006, 'CHVD_footObj', 1901, 1007, 'CHVD_footSyncMode', 'CHVD_footSyncPercentage'] call BRM_FMK_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
-			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 2.7 * GUI_GRID_H + GUI_GRID_Y;
 			w = 12.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
@@ -529,7 +500,7 @@ class CHVD_dialog
 			onSliderPosChanged = "['CHVD_footObj', _this select 0, _this select 1, 1007] call BRM_FMK_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
-			y = 5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 4.2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 12.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
@@ -537,7 +508,7 @@ class CHVD_dialog
 		{
 			idc = 1902;
 			type = 43;
-			onSliderPosChanged = "['CHVD_car', _this select 0, _this select 1, 1013, 'CHVD_carObj', 1903, 1014, 'CHVD_carSyncObj'] call BRM_FMK_CHVD_fnc_onSliderChange";
+			onSliderPosChanged = "['CHVD_car', _this select 0, _this select 1, 1013, 'CHVD_carObj', 1903, 1014, 'CHVD_carSyncMode', 'CHVD_carSyncPercentage'] call BRM_FMK_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
 			y = 10 * GUI_GRID_H + GUI_GRID_Y;
@@ -559,10 +530,10 @@ class CHVD_dialog
 		{
 			idc = 1904;
 			type = 43;
-			onSliderPosChanged = "['CHVD_air', _this select 0, _this select 1, 1017, 'CHVD_airObj', 1905, 1018, 'CHVD_airSyncObj'] call BRM_FMK_CHVD_fnc_onSliderChange";
+			onSliderPosChanged = "['CHVD_air', _this select 0, _this select 1, 1017, 'CHVD_airObj', 1905, 1018, 'CHVD_airSyncMode', 'CHVD_airSyncPercentage'] call BRM_FMK_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
-			y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 17.4 * GUI_GRID_H + GUI_GRID_Y;
 			w = 12.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
@@ -573,18 +544,18 @@ class CHVD_dialog
 			onSliderPosChanged = "['CHVD_airObj', _this select 0, _this select 1, 1018] call BRM_FMK_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
-			y = 18 * GUI_GRID_H + GUI_GRID_Y;
+			y = 18.9 * GUI_GRID_H + GUI_GRID_Y;
 			w = 12.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_rscFootViewDistance: CHVD_rscEdit
 		{
 			idc = 1006;
-			onKeyDown = "['CHVD_foot', 1900, _this select 0, 'CHVD_footObj', 1901, 1007, 'CHVD_footSyncObj'] call BRM_FMK_CHVD_fnc_onEBinput";
+			onKeyDown = "['CHVD_foot', 1900, _this select 0, 'CHVD_footObj', 1901, 1007, 'CHVD_footSyncMode', 'CHVD_footSyncPercentage'] call BRM_FMK_CHVD_fnc_onEBinput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
-			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 2.7 * GUI_GRID_H + GUI_GRID_Y;
 			w = 3.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
@@ -595,14 +566,14 @@ class CHVD_dialog
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
-			y = 5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 4.2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 3.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_rscCarViewDistance: CHVD_rscEdit
 		{
 			idc = 1013;
-			onKeyDown = "['CHVD_car', 1902, _this select 0, 'CHVD_carObj', 1903, 1014, 'CHVD_carSyncObj'] call BRM_FMK_CHVD_fnc_onEBinput";
+			onKeyDown = "['CHVD_car', 1902, _this select 0, 'CHVD_carObj', 1903, 1014, 'CHVD_carSyncMode', 'CHVD_carSyncPercentage'] call BRM_FMK_CHVD_fnc_onEBinput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
@@ -624,11 +595,11 @@ class CHVD_dialog
 		class CHVD_rscAirViewDistance: CHVD_rscEdit
 		{
 			idc = 1017;
-			onKeyDown = "['CHVD_air', 1904, _this select 0, 'CHVD_airObj', 1905, 1018, 'CHVD_airSyncObj'] call BRM_FMK_CHVD_fnc_onEBinput";
+			onKeyDown = "['CHVD_air', 1904, _this select 0, 'CHVD_airObj', 1905, 1018, 'CHVD_airSyncMode', 'CHVD_airSyncPercentage'] call BRM_FMK_CHVD_fnc_onEBinput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
-			y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 17.4 * GUI_GRID_H + GUI_GRID_Y;
 			w = 3.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
@@ -639,7 +610,7 @@ class CHVD_dialog
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
-			y = 18 * GUI_GRID_H + GUI_GRID_Y;
+			y = 18.9 * GUI_GRID_H + GUI_GRID_Y;
 			w = 3.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
@@ -649,50 +620,17 @@ class CHVD_dialog
 			onButtonClick = "closeDialog 2900";
 
 			text = "Close"; //--- ToDo: Localize;
-			x = 9 * GUI_GRID_W + GUI_GRID_X;
-			y = 21.15 * GUI_GRID_H + GUI_GRID_Y;
-			w = 22 * GUI_GRID_W;
+			x = 7 * GUI_GRID_W + GUI_GRID_X;
+			y = 23.53 * GUI_GRID_H + GUI_GRID_Y;
+			w = 24.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
-		};
-		class CHVD_rscFootSyncCheckbox: CHVD_rscCheckbox
-		{
-			idc = 2800;
-			onCheckedChanged = "[_this select 1, 'CHVD_footSyncObj', 1901, 1007, 1900, 'CHVD_footObj'] call BRM_FMK_CHVD_fnc_onCheckedChanged";
-
-			x = 29.2 * GUI_GRID_W + GUI_GRID_X;
-			y = 1.88 * GUI_GRID_H + GUI_GRID_Y;
-			w = 1.45 * GUI_GRID_W;
-			h = 1.25 * GUI_GRID_H;
-			sizeEx = 0 * 	(0.04) * 	(0.04) * 	(0.04) * 	(0.04) * 	(0.04) * 	(0.04) * GUI_GRID_H;
-		};
-		class CHVD_rscCarSyncCheckbox: CHVD_rscCheckbox
-		{
-			idc = 2801;
-			onCheckedChanged = "[_this select 1, 'CHVD_carSyncObj', 1903, 1014, 1902, 'CHVD_carObj'] call BRM_FMK_CHVD_fnc_onCheckedChanged";
-
-			x = 29.2 * GUI_GRID_W + GUI_GRID_X;
-			y = 8.39 * GUI_GRID_H + GUI_GRID_Y;
-			w = 1.45 * GUI_GRID_W;
-			h = 1.25 * GUI_GRID_H;
-			sizeEx = 0 * 	(0.04) * 	(0.04) * 	(0.04) * 	(0.04) * 	(0.04) * 	(0.04) * GUI_GRID_H;
-		};
-		class CHVD_rscAirSyncCheckbox: CHVD_rscCheckbox
-		{
-			idc = 2802;
-			onCheckedChanged = "[_this select 1, 'CHVD_airSyncObj', 1905, 1018, 1904, 'CHVD_airObj'] call BRM_FMK_CHVD_fnc_onCheckedChanged";
-
-			x = 29.2 * GUI_GRID_W + GUI_GRID_X;
-			y = 14.85 * GUI_GRID_H + GUI_GRID_Y;
-			w = 1.45 * GUI_GRID_W;
-			h = 1.25 * GUI_GRID_H;
-			sizeEx = 0 * 	(0.04) * 	(0.04) * 	(0.04) * 	(0.04) * 	(0.04) * 	(0.04) * GUI_GRID_H;
 		};
 		class CHVD_footTerrainListbox: CHVD_rscXListBox
 		{
 			idc = 1500;
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
-			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 7.2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 12.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
@@ -701,7 +639,7 @@ class CHVD_dialog
 			idc = 1501;
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
-			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			y = 14.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 12.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
@@ -710,40 +648,98 @@ class CHVD_dialog
 			idc = 1502;
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
-			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 21.9 * GUI_GRID_H + GUI_GRID_Y;
 			w = 12.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
+
 		class CHVD_footTerrainEdit: CHVD_rscEdit
 		{
 			idc = 1400;
-			onKeyDown = "['CHVD_footTerrain', _this select 0, 1500] call BRM_FMK_CHVD_fnc_onEBterrainInput";
+			onKeyDown = "['CHVD_footTerrain', 1400, 1500] call BRM_FMK_CHVD_fnc_onEBterrainInput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
-			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 7.2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 3.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_carTerrainEdit: CHVD_rscEdit
 		{
 			idc = 1401;
-			onKeyDown = "['CHVD_carTerrain', _this select 0, 1501] call BRM_FMK_CHVD_fnc_onEBterrainInput";
+			onKeyDown = "['CHVD_carTerrain', 1401, 1501] call BRM_FMK_CHVD_fnc_onEBterrainInput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
-			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			y = 14.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 3.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};
 		class CHVD_airTerrainEdit: CHVD_rscEdit
 		{
 			idc = 1402;
-			onKeyDown = "['CHVD_airTerrain', _this select 0, 1502] call BRM_FMK_CHVD_fnc_onEBterrainInput";
+			onKeyDown = "['CHVD_airTerrain', 1402, 1502] call BRM_FMK_CHVD_fnc_onEBterrainInput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
-			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 21.9 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class CHVD_footSyncListbox: CHVD_rscXListBox
+		{
+			idc = 1404;
+
+			x = 14 * GUI_GRID_W + GUI_GRID_X;
+			y = 5.7 * GUI_GRID_H + GUI_GRID_Y;
+			w = 12.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class CHVD_carSyncListbox: CHVD_rscXListBox
+		{
+			idc = 1406;
+
+			x = 14 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 12.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class CHVD_airSyncListbox: CHVD_rscXListBox
+		{
+			idc = 1408;
+
+			x = 14 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.4 * GUI_GRID_H + GUI_GRID_Y;
+			w = 12.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class CHVD_footSyncEdit: CHVD_rscEdit
+		{
+			idc = 1410;
+			maxChars = 4;
+
+			x = 27 * GUI_GRID_W + GUI_GRID_X;
+			y = 5.7 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class CHVD_carSyncEdit: CHVD_rscEdit
+		{
+			idc = 1409;
+			maxChars = 4;
+
+			x = 27 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class CHVD_airSyncEdit: CHVD_rscEdit
+		{
+			idc = 1411;
+			maxChars = 4;
+
+			x = 27 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.4 * GUI_GRID_H + GUI_GRID_Y;
 			w = 3.5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 		};

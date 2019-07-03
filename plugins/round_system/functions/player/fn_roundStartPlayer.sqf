@@ -1,4 +1,3 @@
-
 if (!hasInterface) exitWith {};
 
 hint "";

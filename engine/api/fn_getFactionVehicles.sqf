@@ -1,6 +1,29 @@
+/*
+================================================================================
 
-params ["_vehicles", "_selected"];
+DEPRECATED:
+    Use BRM_FMK_fnc_appendIndices.
 
-_returnedVehicles = [];
-{ _returnedVehicles = _returnedVehicles + (_vehicles select _x) } forEach _selected;
-_returnedVehicles
+NAME:
+    BRM_FMK_fnc_getFactionVehicles
+
+AUTHOR(s):
+    Nife
+
+DESCRIPTION:
+    'Alias' for appendIndices
+
+PARAMETERS:
+    0 - Source array (ARRAY)
+    1 - Indices (ARRAY)
+
+USAGE:
+    ["Hello", "Foo", "World"] = [[["Hello"], ["Foo"], ["Bar"], ["World"]], [0, 1, 3]] call BRM_FMK_fnc_getFactionVehicles;
+
+RETURNS:
+    Array containing the specified indices appended together (ARRAY)
+
+================================================================================
+*/
+
+_this call BRM_FMK_fnc_appendIndices;

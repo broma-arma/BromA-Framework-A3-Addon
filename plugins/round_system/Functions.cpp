@@ -5,12 +5,12 @@ class BRM_FMK_Round_System {
 		class setParams {};
 		class postInit {};
 	};
-	
+
 	class general {
 		file = "\broma_framework\plugins\round_system\functions";
 		class beginMatch {};
 	};
-	
+
 	class server {
 		file = "\broma_framework\plugins\round_system\functions\server";
 		class roundEnd {};
@@ -19,9 +19,9 @@ class BRM_FMK_Round_System {
 		class roundStart {};
 		class checkRoundEnd {};
 		class setMatchVariables {};
-		class CasualtiesCapCheck {};			
+		class CasualtiesCapCheck {};
 	};
-	
+
 	class player {
 		file = "\broma_framework\plugins\round_system\functions\player";
 		class roundEndPlayer {};
@@ -31,4 +31,4 @@ class BRM_FMK_Round_System {
 		class registerZone {};
 		class setupZone {};
 	};
-}; 
+};

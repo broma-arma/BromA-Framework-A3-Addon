@@ -1,4 +1,3 @@
-
 // What will happen to players who leave the AO.
 // "_pos" will refer to their position as they attempt to leave.
 // "_targetObject" refers to their current unit/vehicle.

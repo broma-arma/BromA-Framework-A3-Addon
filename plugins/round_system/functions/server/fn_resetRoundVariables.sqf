@@ -1,4 +1,3 @@
-
 sideAcondition = false;
 sideBcondition = false;
 sideCcondition = false;

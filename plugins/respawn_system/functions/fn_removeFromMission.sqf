@@ -29,7 +29,7 @@ if (mission_TFAR_enabled) then { _unit setVariable ["tf_unable_to_use_radio", tr
         _waitingToRespawn = [{
             params["_args", "_PFHhandle"];
             _args params["_unit", "_oldgrp", "_oldBody", "_unitSavedGear"];
-            
+
             private _reviveCondition = (!([getPlayerUID _unit, name _unit, (_unit getVariable "unit_side")] in mission_dead_players));
 
             if (_reviveCondition) then {

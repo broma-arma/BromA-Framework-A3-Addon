@@ -1,4 +1,3 @@
-
 _ret set [FACTION_INFO, []];
 (_ret select FACTION_INFO) set [FACTION_SIDE, _defaultSide];
 (_ret select FACTION_INFO) set [FACTION_COLOR, _defaultColor];

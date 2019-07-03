@@ -1,4 +1,3 @@
-
 class unit {
 	file = "\broma_framework\engine\unit";
 	class handleScore {};

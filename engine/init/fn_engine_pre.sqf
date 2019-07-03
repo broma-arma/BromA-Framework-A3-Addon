@@ -23,7 +23,7 @@ RETURNS:
 */
 
 ["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;
-["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", getText (missionConfigFile >> "Mission" >> "Mission" >> "Intel" >> "briefingName")]] call BRM_FMK_fnc_doLog;
+["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call BRM_FMK_fnc_doLog;
 ["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;
 
 startTime = diag_tickTime;

@@ -1,4 +1,3 @@
-
 params ["_unit", "_type", "_attachments", "_selected"];
 
 {

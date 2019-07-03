@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
     This is the template you can use to create your own loadouts.

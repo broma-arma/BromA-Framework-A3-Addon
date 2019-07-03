@@ -12,8 +12,8 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - thisTrigger (TRIGGER)
-    1 - Filter (STRING that evaluates as an EXPRESSION)
-    2 - Code to be executed (STRING that evaluates as CODE)
+    1 - Filter (STRING that evaluates as an EXPRESSION / CODE that returns BOOLEAN)
+    2 - Code to be executed (STRING that evaluates as CODE / CODE)
 
 USAGE:
     ON A TRIGGER'S INIT FIELD (make sure you set the condition to TRUE):
@@ -22,25 +22,32 @@ USAGE:
     _nul = [thisTrigger, "(side _x == civilian) && (alive _x)", "[_x, 'RACS'] call BRM_fnc_initAI"] spawn BRM_FMK_fnc_callCodeArea
 
 RETURNS:
-    All titles have been displayed. (BOOLEAN)
+    Nothing.
 
 ================================================================================
 */
 
-_trg = _this select 0;
-_filter = _this select 1;
-_code = _this select 2;
+params [
+	["_trigger", objNull, [objNull]],
+	["_filter", {}, ["", {}]],
+	["_code", {}, ["", {}]]
+];
 
-_trg setTriggerActivation ["ANY", "PRESENT", false];
+_trigger setTriggerActivation ["ANY", "PRESENT", false];
+
+if (_filter isEqualType "") then {
+	_filter = compile _filter;
+};
+if (_code isEqualType "") then {
+	_code = compile _code;
+};
 
 sleep 1;
 
-_selected = [];
-
 {
     {
-        call compile format ["_pass = false; if (%1) then { _pass = true }; if (_pass) then { _selected pushBack _x };", _filter];
-    } forEach (crew _x);
-} forEach (list _trg);
-
-{ call compile format ["%1", _code] } forEach _selected;
+		if (call _filter) then {
+			call _code;
+		};
+	} forEach crew _x;
+} forEach list _trigger;

@@ -1,4 +1,3 @@
-
 if (((_restoreDisplay) || (_restoreType)) && (isPlayer _unit)) then {
     private "_chosenRestore";
     if (_restoreType) then { _chosenRestore = _originalType };

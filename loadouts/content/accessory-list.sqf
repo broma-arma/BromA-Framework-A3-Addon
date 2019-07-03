@@ -1,5 +1,5 @@
 // =============================================================================
-//                          WEAPON ACCESSORIES LIST                              
+//                          WEAPON ACCESSORIES LIST
 // =============================================================================
 
 // =============================================================================
@@ -43,13 +43,13 @@ _bipodIND = "bipod_03_F_oli";
 
 // =============================================================================
 
-// HLC 
+// HLC
 
 // Suppressors
-_supG3 = "hlc_muzzle_snds_g3";
-_supHK33 = "hlc_muzzle_snds_HK33";
-_supFAL = "hlc_muzzle_snds_fal";
-_supM14 = "hlc_muzzle_snds_M14";
+_supG3 = "hlc_muzzle_300blk_kac"; // QD .300BLK Suppressor
+_supHK33 = "hlc_muzzle_556nato_m42000"; // AAC M4-2000
+_supFAL = "hlc_muzzle_300blk_kac"; // QD .300BLK Suppressor
+_supM14 = "hlc_muzzle_300blk_kac"; // QD .300BLK Suppressor
 _sup545AK = "hlc_muzzle_545SUP_AK";
 _sup762AK = "hlc_muzzle_762SUP_AK";
 
@@ -112,7 +112,7 @@ switch (true) do {
         _NVGEN1 = "AGM_NVG_Gen1";
         _NVGEN2 = "AGM_NVG_Gen2";
         _NVGEN4 = "AGM_NVG_Gen4";
-        _NVWIDE = "AGM_NVG_Wide";      
+        _NVWIDE = "AGM_NVG_Wide";
     };
     case (mission_ACE3_enabled): {
         _NVGEN1 = "ACE_NVG_Gen1";
@@ -124,7 +124,7 @@ switch (true) do {
         _NVGEN1 = "NVGoggles";
         _NVGEN2 = "NVGoggles";
         _NVGEN4 = "NVGoggles";
-        _NVWIDE = "NVGoggles";    
+        _NVWIDE = "NVGoggles";
     };
 };
 

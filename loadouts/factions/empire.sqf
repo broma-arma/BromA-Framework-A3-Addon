@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
     This is the template you can use to create your own loadouts.
@@ -26,7 +25,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 _commonRIFLE = ["rhs_weap_m38", "rhsgref_5Rnd_762x54_m38"];
 _commonRIFLEGL = _commonRIFLE;
-_commonPISTOL = ["RH_python", "RH_6Rnd_357_Mag"];
+_commonPISTOL = ["hgun_Pistol_heavy_02_F", "6Rnd_45ACP_Cylinder"];
 _commonMG = _commonRIFLE;
 _commonMARKSMAN = _Mk20;
 _commonSNIPER = _GM6;
@@ -92,7 +91,7 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "MNP_V_OD_Harness"
+    "TAC_V_Sheriff_BA_T3"
 ];
 
 _gogglesLIST = [
@@ -113,7 +112,7 @@ _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "H_caf_ag_paktol_04";
+_reconHEAD = _commonHEAD;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM  ;

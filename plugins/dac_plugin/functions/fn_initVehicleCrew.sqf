@@ -1,4 +1,3 @@
-
 params ["_vehicle", "_loadout", "_side"];
 
 _vehicleInit = _vehicle getVariable ["DACVehicleLoadout", false];

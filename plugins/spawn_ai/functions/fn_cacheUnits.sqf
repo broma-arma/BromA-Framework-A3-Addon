@@ -1,4 +1,3 @@
-
 _group = _this select 0;
 _loadout = _this select 1;
 _skill = _this select 2;
@@ -17,9 +16,9 @@ sleep 3;
 while {(count (units _group) > 0)} do {
     _leader = leader _group;
     _units = units _group;
-    
+
     _closeUnits = false;
-    
+
     { if (((getPos _leader) distance (getPos _x)) <= _allowedDistance ) then { _closeUnits = true }} forEach _targetCheck;
 
     if (((_closeUnits) && ((count _groupCachedUnits) > 0))) then {
@@ -45,12 +44,12 @@ while {(count (units _group) > 0)} do {
 
             ["LOCAL", "CHAT", "De-caching " + (name _unit) + "."] call BRM_FMK_fnc_doLog;
         } forEach _groupCachedUnits;
-        
+
         _groupCachedUnits = [];
     };
-    
+
     if ((!(_closeUnits) && ((count _groupCachedUnits) == 0))) then {
-        
+
         if (count _units > 0) then {
             {
                 if (!(_x == _leader)) then {
@@ -65,16 +64,16 @@ while {(count (units _group) > 0)} do {
                         _groupCachedUnits pushBack _array;
 
                         ["LOCAL", "CHAT", "Cached unit "+(name _x)+"."] call BRM_FMK_fnc_doLog;
-                        
+
                         [_x] joinSilent grpNull;
-                        
+
                         deleteVehicle _x;
                     };
                 };
             } forEach _units;
         };
     };
-    
+
     sleep 3;
 };
 

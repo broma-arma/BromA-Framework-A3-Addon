@@ -23,22 +23,14 @@ RETURNS:
 ================================================================================
 */
 
-params ["_squad", "_ownTeam"];
+params [["_squad", "", [""]], ["_ownTeam", 0, [0]]];
 
-private _thisIndex = 1;
-private _teamsChecking = true;
-private _realTeams = [];
+private _i = 1;
+private _subTeams = [];
 
-while{(_teamsChecking)} do {
-    private _squadTeam = format["%1_%2_1", _squad, _thisIndex];
-    private _unitStatus = (isNull (call compile _squadTeam));
-    private _unitNil = (isNil "_unitStatus");
-
-    if (_thisIndex == _ownTeam) then { _unitNil = false };
-
-    if (_unitNil) exitWith { _teamsChecking = false; };
-
-    _realTeams pushBack _thisIndex;
-    _thisIndex = _thisIndex + 1;
+while { _i == _ownTeam || { !isNull (missionNamespace getVariable [format ["%1_%2_1", _squad, _i], objNull]) } } do {
+	_subTeams pushBack _i;
+	_i = _i + 1;
 };
-_realTeams
+
+_subTeams

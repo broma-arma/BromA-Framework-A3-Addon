@@ -72,7 +72,7 @@
 // Example:
 //      GIVEN:
 //      WHEN:
-//          PVT_3(_unit,_group,_trigger); 
+//          PVT_3(_unit,_group,_trigger);
 //      THEN:
 //          private ["_unit","_group","_trigger"];
 #define PVT_1(VAR1) private [#VAR1]
@@ -91,7 +91,7 @@
 //      GIVEN:
 //          _strings = ["unit", "group", "trigger"];
 //      WHEN:
-//          SELECT_3(_strings,_unit,_group,_trigger); 
+//          SELECT_3(_strings,_unit,_group,_trigger);
 //      THEN:
 //          _unit == "unit";
 //          _group == "group";
@@ -122,35 +122,35 @@
 #define FUN_ARGS_1(VAR1) \
     PVT_1(VAR1); \
     SELECT_1(_this,VAR1)
-    
+
 #define FUN_ARGS_2(VAR1,VAR2) \
     PVT_2(VAR1,VAR2); \
     SELECT_2(_this,VAR1,VAR2)
-    
+
 #define FUN_ARGS_3(VAR1,VAR2,VAR3) \
     PVT_3(VAR1,VAR2,VAR3); \
     SELECT_3(_this,VAR1,VAR2,VAR3)
-    
+
 #define FUN_ARGS_4(VAR1,VAR2,VAR3,VAR4) \
     PVT_4(VAR1,VAR2,VAR3,VAR4); \
     SELECT_4(_this,VAR1,VAR2,VAR3,VAR4)
-    
+
 #define FUN_ARGS_5(VAR1,VAR2,VAR3,VAR4,VAR5) \
     PVT_5(VAR1,VAR2,VAR3,VAR4,VAR5); \
     SELECT_5(_this,VAR1,VAR2,VAR3,VAR4,VAR5)
-    
+
 #define FUN_ARGS_6(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6) \
     PVT_6(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6); \
     SELECT_6(_this,VAR1,VAR2,VAR3,VAR4,VAR5,VAR6)
-    
+
 #define FUN_ARGS_7(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7) \
     PVT_7(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7); \
     SELECT_7(_this,VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7)
-    
+
 #define FUN_ARGS_8(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8) \
     PVT_8(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8); \
     SELECT_8(_this,VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8)
-    
+
 #define FUN_ARGS_9(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8,VAR9) \
     PVT_9(VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8,VAR9); \
     SELECT_9(_this,VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8,VAR9)

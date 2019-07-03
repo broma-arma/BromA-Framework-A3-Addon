@@ -1,4 +1,3 @@
-
 _unit = (_this select 0) createUnit [(_this select 1), (_this select 2), [], 0, "FORM"];
 _unit setSkill (_this select 3);
 
@@ -7,7 +6,7 @@ _unit setSkill (_this select 3);
 if (!isMultiplayer) then {
     [_unit, (_this select 5)] spawn {
         _unit = _this select 0;
-        _color = _this select 1;            
+        _color = _this select 1;
 
         _marker = ["local", getPos _unit, "hd_dot", "Color"+_color, "", [1,1], 0, 1] call BRM_FMK_fnc_newMarkerIcon;
 

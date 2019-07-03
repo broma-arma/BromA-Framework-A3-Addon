@@ -1,4 +1,3 @@
-
 _isOfficer = (_type == "co")||(_type == "Officer");
 _isSquadLeader = (_type == "sl")||(_type == "Squad Leader");
 _isTeamLeader = (_type == "ftl")||(_type == "Team Leader");

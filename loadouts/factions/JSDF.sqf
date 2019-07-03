@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
 The armed forces of anime land. THE JSDF (JSF for short) is a combination of Japan's military branches that was established in 1954 and then relegated to Peacekeeping operations.
@@ -139,7 +138,7 @@ _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
 _commonBACKPACK = "TRYK_B_AssaultPack_Type2camo";
-_bigBACKPACK = "TYRK_B_Carryall_JSDF";
+_bigBACKPACK = "TRYK_B_Carryall_JSDF";
 
 // EXTRA EQUIPMENT =============================================================
 

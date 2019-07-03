@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_weaponAway
-    
+
 AUTHOR(s):
     commy2
 
@@ -12,17 +12,16 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - What unit should put the current weapon on back? (OBJECT)
-    
+
 USAGE:
     [player] call BRM_FMK_fnc_weaponAway
-    
+
 RETURNS:
     Nothing.
 
 ================================================================================
 */
 
-_unit = _this select 0;
-_vehicle = vehicle _unit;
+params [["_unit", objNull, [objNull]]];
 
-_unit action ["SwitchWeapon", _vehicle, _vehicle, -1];
+_unit action ["SwitchWeapon", _unit, _unit, -1];

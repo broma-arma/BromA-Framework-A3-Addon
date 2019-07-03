@@ -1,4 +1,3 @@
-
 #define FACTION_INFO 0
 
 #define FACTION_SIDE 0

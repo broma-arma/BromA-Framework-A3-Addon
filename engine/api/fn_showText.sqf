@@ -3,13 +3,13 @@
 
 NAME:
     BRM_FMK_fnc_showText
-    
+
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
     Shows text in an organized and timed fashion.
-    
+
 PARAMETERS:
     n Screens to display (ARRAY):
         0 - Text to show (STRING)
@@ -18,21 +18,24 @@ PARAMETERS:
 
 USAGE:
     [
-        ["This is an intro...", "BLACK FADED", 3], 
+        ["This is an intro...", "BLACK FADED", 3],
         ["And it just ended!", "PLAIN", 5]
     ] spawn BRM_FMK_fnc_showText
-    
+
 RETURNS:
     All titles have been displayed. (BOOLEAN)
 
 ================================================================================
 */
 
-{
-    titleText [(_x select 0), (_x select 1)];
-    sleep (_x select 2);
-} forEach _this;
-
-titleText ["", "PLAIN"];
+if (_this isEqualType [] && { count _this > 0 }) then {
+	{
+		_x params [["_text", "", [""]], ["_type", "", [""]], ["_time", 0, [0]]];
+		if (_text != "" && _type != "" && _time > 0) then {
+			titleText [_text, _type, _time * 0.1];
+			sleep _time;
+		};
+	} forEach _this;
+};
 
 true

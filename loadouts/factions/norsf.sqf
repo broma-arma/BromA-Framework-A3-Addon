@@ -84,25 +84,22 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhsusf_opscore_01_tan",
-    "rhsusf_opscore_02_tan"
+    "BRM_OPSCORE_NORSK",
+    "BRM_OPSCORE_NORSK_NSW"
 ];
 
 _uniformsLIST = [
-    "MNP_CombatUniform_NOR_D_A",
-    "MNP_CombatUniform_NOR_D_B"
+    "BRM_NORSK_M93"
 ];
 
 _vestsLIST = [
-    "rhsusf_iotv_ocp_Squadleader",
-    "rhsusf_iotv_ocp_Teamleader",
-    "rhsusf_iotv_ocp_Repair"
+    "BRM_RHS_SPCS_NORG_rifle",
+    "BRM_RHS_SPCS_NORG_Sniper"
 ];
 
 _goggleLIST = [
     "TRYK_Shemagh_shade",
-    "TRYK_Shemagh_EAR_TAN",
-    "T_HoodTan"
+    "TRYK_Shemagh_EAR_TAN"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
@@ -136,11 +133,11 @@ _reconUNIFORM = _commonUNIFORM;
 
 _commonVEST = _randomVEST;
 _officerVEST = _commonVEST;
-_ftlVEST = "rhsusf_iotv_ocp_Grenadier";
-_slVEST = _commonVEST;
-_mgVEST = _commonVEST;
+_ftlVEST = "BRM_RHS_SPCS_NORG_squadleader";
+_slVEST = "BRM_RHS_SPCS_NORG_squadleader";
+_mgVEST = "BRM_RHS_SPCS_NORG_MG";
 _grenadierVEST = _commonVEST;
-_medicVEST = _commonVEST;
+_medicVEST = "BRM_RHS_SPCS_NORG_Med";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;

@@ -3,13 +3,13 @@
 
 NAME:
     BRM_FMK_fnc_z_setAll
-    
+
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
     Changes the relevant attributes of all units currently selected by Zeus.
-    
+
 PARAMETERS:
     0 - Loadout (STRING)
     1 - Skill (NUMBER)
@@ -19,9 +19,9 @@ PARAMETERS:
 
 USAGE:
     While in Zeus mode, select the desired units first.
-    
+
     ["RACS", 0.3, "GREEN", "ALERT", west] spawn BRM_FMK_fnc_z_setMode
-    
+
 RETURNS:
     Nothing.
 
@@ -71,7 +71,7 @@ if ( (count _units) > 0) then {
                 (group _unit) setCombatMode _combat;
                 (group _unit) setBehaviour _behav;
 
-            }, [_x,_loadout,_skill,_combat,_behav]] call CBA_fnc_globalExecute;        
+            }, [_x,_loadout,_skill,_combat,_behav]] call CBA_fnc_globalExecute;
         };
     } forEach _units;
 };

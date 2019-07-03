@@ -4,4 +4,4 @@ class BRM_FMK_TFAR {
 		class postInit {};
 		class autoSetupRadios {};
 	};
-}; 
+};

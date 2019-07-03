@@ -1,4 +1,3 @@
-
 switch(_x) do {
     case "medical":
     {
@@ -123,7 +122,7 @@ switch(_x) do {
             [_parachute , 15]
         ]] call BRM_FMK_fnc_addtoCargo;
     };
-    
+
     case "rifle_grenades": {
        [[_object, "item",
             ["R3F_APAV40", 40],

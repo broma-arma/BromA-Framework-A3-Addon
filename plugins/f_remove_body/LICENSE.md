@@ -39,7 +39,7 @@ This is the license file included with the plugin within the BromA Framework, or
 
 ### BAS f Credits ###
 
-* Contributors: Fer | Kronzky | Rom | Raedor | Kegetys | eJay | burningtrees | Redkid Joker | Headspace | ViperMaul | zx64 | kevb0 | Mandoble | Red Barron | Jaxobs | Awoihjaweohr | FLEXCopMNPD | Jefke 
+* Contributors: Fer | Kronzky | Rom | Raedor | Kegetys | eJay | burningtrees | Redkid Joker | Headspace | ViperMaul | zx64 | kevb0 | Mandoble | Red Barron | Jaxobs | Awoihjaweohr | FLEXCopMNPD | Jefke
 * Translators: Donnervogel | Serclaes | Messiah2 | Gaia | FireflyPL | Kanotson | Varry | W0lle | Nikita Kaspersky | Rainbow | JanMasterson
 * Documentation: Fer | Kegetys | Serclaes | Messiah2
 * Producers: Fer

@@ -1,10 +1,8 @@
-
 #ifdef BRM_PLUGIN_META
-	class friendly_fire
-	{
+	class friendly_fire {
 		name = "Friendly fire";
 		version = 1;
-		authors[] = {"Nife"};	
+		authors[] = {"Nife"};
 		description = "Alerts both the perpetrator and the victim whenever a friendly fire incident takes place.";
 	};
 #endif

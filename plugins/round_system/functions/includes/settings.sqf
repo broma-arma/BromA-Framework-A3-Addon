@@ -1,4 +1,3 @@
-
 if (isNil "round_prep_time_seconds") then { round_prep_time_seconds = 1 }; // 10
 if (isNil "round_alerted_minutes") then { round_alerted_minutes = [1,5,15] };
 if (isNil "round_seconds_between") then { round_seconds_between = 5 };

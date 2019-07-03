@@ -3,4 +3,4 @@ class BRM_FMK_JIPTeleport {
 		file = "\broma_framework\plugins\jip_teleport\functions";
 		class postInit {};
 	};
-}; 
+};

@@ -1,10 +1,9 @@
-
 class loadouts_main {
 	file = "\broma_framework\loadouts";
 };
 
 class loadouts_functions {
-	file = "\broma_framework\loadouts\functions";	
+	file = "\broma_framework\loadouts\functions";
 	class addAmmo {};
 	class addAmmoAuto {};
 	class getAmmoClass {};
@@ -29,4 +28,4 @@ class loadouts_functions {
 	class getSideUAV {};
 	class addWeaponAttachments{};
 	class getFaction {};
-};	
+};

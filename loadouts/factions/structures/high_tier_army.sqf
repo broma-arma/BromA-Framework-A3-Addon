@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 //
 //    The structure of a very well equipped army with enough ammo and meds to spare.
@@ -171,7 +170,7 @@ switch (true) do {
         [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_grenade,2],[_spareBarrel,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-        [_unit, _commonAR select GUN, _countAR/2] call BRM_FMK_fnc_addAmmo;
+        [_unit, _commonAR select RAMMO, _countAR/2] call BRM_FMK_fnc_addAmmo;
     };
 
     case (_isMMG): {

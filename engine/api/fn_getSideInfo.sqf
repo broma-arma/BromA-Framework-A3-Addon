@@ -25,7 +25,7 @@ RETURNS:
 ================================================================================
 */
 
-params ["_side", "_info"];
+params [["_side", WEST, [WEST]], ["_info", "side", [""]]];
 
 if (_side == CIVILIAN) exitWith { "CIVILIAN" };
 

@@ -1,4 +1,3 @@
-
 params ["_weapon", "_type"];
 
 _ret = "";

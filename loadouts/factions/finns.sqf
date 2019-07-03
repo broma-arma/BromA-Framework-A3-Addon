@@ -1,57 +1,63 @@
-
 // INFO ========================================================================
 /*
-    Tasked with the defence of Finland's national borders and sovereign interests, the Finnish Armed Forces
-	are a highly-mobilized military force with large combined-arms capabilities.
 
-        SPRÖLÖLÖLÖLÖ :8-----DDDDDDDDDDxdddddDDD
 */
 
-_factionID = "FINNS";
-_factionName = "Finnish Army";
+_factionID = "FINNISH";
+_factionName = "FINNISH DEFENCE FORCE";
 _factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
 _defaultSide = WEST;
-_defaultVoice = [_voiceRUSSIAN];
-_defaultFace = [_faceWHITE];
+_defaultVoice = [_voiceAMERICAN];
+_defaultFace = [_faceWHITE, _faceBLACK];
+_defaultName = [_nameAMERICAN];
 _defaultInsignia = "";
 _defaultColor = "blue";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_FinnishCammo
+	"frost"
+	"sum"
+*/
+
+_camo = "sum";
+
+
 // WEAPONS =====================================================================
 
-_commonRIFLE = _G3KA4;
-_commonRIFLEGL = _G3KA4GL;
-_commonPISTOL = _G17;
-_commonAR = _Minimi765;
-_commonMG = _PKM;
-_commonMARKSMAN = _G3KA4;
-_commonSNIPER = _SVDS;
-_commonAT = _AT4;
-_specAT = _MAAWS;
-_commonSMG = _Mk20C;
-_commonRCO = "optic_MRCO";
-_commonCCO = _EOT;
-_commonMAGNIFIED = "rhs_acc_pso1m2";
-_commonSUPPRESSOR = "muzzle_snds_B";
+_commonRIFLE = _RK62;
+_commonRIFLEGL = _RK62;
+_commonPISTOL = _P226WG;
+_commonMG = _M84;
+_commonAR = _M84;
+_commonMARKSMAN = _SVDPWDNPZ;
+_commonSNIPER = _SVDPWDNPZ;
+_commonAT = _M72A7;
+_specAT = _GUSTAV;
+_commonSMG = _MP5A5;
+_commonRCO = "FHQ_optic_ACOG";
+_commonCCO = "";
+_commonMAGNIFIED = "hlc_optic_LeupoldM3A";
+_commonSUPPRESSOR = "rhs_acc_pbs1";
 _commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
-_NVG = _NVGEN4;
+_NVG = "rhsusf_ANPVS_15";
 
 // AMMO COUNT ==================================================================
 
-_countRIFLE = 9;
-_countRIFLELOW = 6;
+_countRIFLE = 7;
+_countRIFLELOW = 4;
 _countPISTOL = 2;
-_countAR = 5;
-_countMG = 5;
+_countMG = 3;
 _countSNIPER = 5;
 _countAT = 3;
 _countGRENADES = 3;
-_count40mm = 15;
+_count40mm = 20;
 
 _countTracerRIFLE = 2;
 _countTracerMG = 1;
@@ -59,7 +65,6 @@ _countHE = 1;
 
 _countRifleCARGO = 30;
 _countPistolCARGO = 10;
-_countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
 _countATCARGO = 15;
@@ -83,56 +88,55 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_uniformsLIST = [
-    "MNP_CombatUniform_Fin_A",
-    "MNP_CombatUniform_Fin_B"
+if(!isNil "BRM_FMK_UNIFORMS_FinnishCammo")then{_camo=BRM_FMK_UNIFORMS_FinnishCammo};
+
+_headsLIST = [
+    "BRM_ACH_FM05"+_camo,
+	"BRM_ACH_ESS_FM05"+_camo
 ];
 
-_vestsLIST = [
-    "MNP_Vest_FIN_1",
-    "MNP_Vest_FIN_2"
+_gogglesLIST = [
 ];
 
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 
-_commonHEAD = "MNP_Helmet_FIN_T";
-_leaderHEAD = _commonHEAD;
-_officerHEAD = "H_MilCap_dgtl";
-_medicHEAD = "H_Bandanna_cbr";
-_crewmanHEAD = "rhsusf_cvc_ess";
+_commonHEAD = _randomHEAD;
+_leaderHEAD = "BRM_patrolcap_FM05"+_camo;
+_officerHEAD = "rhs_beret_milp";
+_medicHEAD = "BRM_Booniehat_FM05"+_camo;
+_crewmanHEAD = "rhs_tsh4_ess";
 _pilotHEAD = "rhsusf_hgu56p";
-_helicrewHEAD = "rhsusf_hgu56p_mask";
+_helicrewHEAD = "rhsusf_hgu56p";
 _helipilotHEAD = "rhsusf_hgu56p";
-_sniperHEAD = "MNP_Boonie_FIN";
+_sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "MNP_Boonie_FIN";
+_reconHEAD = "BRM_Booniehat_FM05"+_camo;
 
-_commonUNIFORM = _randomUNIFORM;
+_commonUNIFORM = "U_BRM_specter_FM05"+_camo;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = _commonUNIFORM;
-_sniperUNIFORM = _commonUNIFORM;
+_pilotUNIFORM = "TRYK_OVERALL_SAGE";
+_sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = _commonUNIFORM;
+_helicrewUNIFORM = "TRYK_OVERALL_SAGE";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = _randomVEST;
+_commonVEST = "BRM_LBV_FINLAND";
 _officerVEST = _commonVEST;
-_ftlVEST = _commonVEST;
+_ftlVEST = "BRM_LBV_FINLAND_GL";
 _slVEST = _commonVEST;
-_mgVEST = _commonVEST;
-_grenadierVEST = _commonVEST;
+_mgVEST = "BRM_LBV_FINLAND_GL";
+_grenadierVEST = "BRM_LBV_FINLAND_GL";
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "MNP_B_WD_FP";
-_bigBACKPACK = "MNP_B_WD_CA";
+_commonBACKPACK = "rhssaf_kitbag_smb";
+_bigBACKPACK = "UK3CB_BAF_B_Carryall_OLI";
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -151,32 +155,38 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */	 ["B_APC_Tracked_01_AA_F", "RHS_M6_wd"]
-/*  Attack Helos      */	,["RHS_AH1Z_CS", "RHS_AH1Z_GS", "RHS_AH64D_wd_AA", "RHS_AH64D_wd_CS", "RHS_AH64D_wd_GS", "RHS_AH64D_wd", "RHS_AH64DGrey"]
-/*  Attack Planes     */	,["RHS_A10_AT", "RHS_A10", "rhsusf_f22"]
-/*  Heavy Vehicles    */	,["rhsusf_m1a1aimwd_usarmy", "rhsusf_m1a1aim_tuski_wd", "rhsusf_m1a2sep1wd_usarmy", "rhsusf_m1a2sep1tuskiwd_usarmy", "rhsusf_m1a2sep1tuskiiwd_usarmy"]
-/*  Light Vehicles    */	,["rhsusf_m1025_w_m2", "rhsusf_m1025_w", "rhsusf_m998_w_2dr_fulltop", "rhsusf_m998_w_4dr_fulltop", "rhsusf_m998_w_4dr"]
-/*  Medium Vehicles   */	,["RHS_M2A2_wd", "RHS_M2A2_BUSKI_WD", "RHS_M2A3_wd", "RHS_M2A3_BUSKI_wd", "RHS_M2A3_BUSKIII_wd", "rhsusf_m113_usarmy", "rhsusf_m113_usarmy_M240"]
-/*  Mobile Artillery  */	,["rhsusf_m109_usarmy", "rhsusf_m109_usarmy"]
-/*  Transport Helos   */	,["RHS_CH_47F_10", "RHS_CH_47F_light", "rhsusf_CH53E_USMC", "RHS_UH1Y_FFAR", "RHS_MELB_MH6M", "RHS_MELB_H6M"]
-/*  Transport Planes  */	,["RHS_C130J", "RHS_C130J"]
-/*  Transport Trucks  */	,["rhsusf_M1078A1P2_wd_fmtv_usarmy", "rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy", "rhsusf_M977A4_usarmy_wd"]
-/*  Static Defence    */	,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-/*  Boats             */	,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
-/*  UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*  UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-/*  Support           */	,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd", "B_Truck_01_fuel_F"]
-/*  Submarines        */	,["B_SDV_01_F"]
-/*  MRAP Vehicles     */        ,["rhsusf_rg33_w", "rhsusf_rg33_m2_w", "rhsusf_M1117_W"]
+    /*  Anti Air Vehicles */	 []
+    /*  Attack Helos      */	,["UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited","UK3CB_BAF_Wildcat_AH1_CAS_6D"]
+    /*  Attack Planes     */	,[]
+    /*  Heavy Vehicles    */	,["rhs_t72ba_tv","rhs_t72bb_tv"]
+    /*  Light Vehicles    */	,["UK3CB_BAF_LandRover_Hard_FFR_Green_A","UK3CB_BAF_LandRover_Snatch_NI_A","UK3CB_BAF_LandRover_Soft_RAF_A"]
+    /*  Medium Vehicles   */	,["rhsusf_CGRCAT1A2_M2_usmc_wd","rhs_bmp2d_vdv"]
+    /*  Mobile Artillery  */	,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
+    /*  Transport Helos   */	,["UK3CB_BAF_Merlin_HC3_24"]
+    /*  Transport Planes  */	,["RHS_C130J", "RHS_C130J"]
+    /*  Transport Trucks  */	,["UK3CB_BAF_MAN_HX60_Transport_Green"]
+    /*  Static Defence    */	,["rhsgref_cdf_reg_d30", "rhsgref_cdf_reg_d30", "rhsgref_cdf_Igla_AA_pod", "rhsgref_cdf_DSHKM", "rhsgref_cdf_DSHKM_Mini_TriPod", "rhsgref_cdf_NSV_TriPod", "rhsgref_cdf_SPG9", "rhsgref_cdf_SPG9M", "rhsgref_cdf_ZU23"]
+    /*  Boats             */	,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
+    /*  UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
+    /*  UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
+    /*  Support           */	,["UK3CB_BAF_MAN_HX60_Repair_Green","UK3CB_BAF_MAN_HX60_Fuel_Green","UK3CB_BAF_MAN_HX58_Cargo_Green_B"]
+    /*  Submarines        */	,["B_SDV_01_F"]
+    /*  MRAP Vehicles     */    ,["rhsusf_CGRCAT1A2_M2_usmc_wd"]
 ];
+
+
+
+
+
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_Blue_F",
+/* Flag         */ "Flag_NATO_F",
 /* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_HBarrierWall4_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Walls        */ ["Land_BagFence_Long_F"],
+/* Structures   */ ["CDF_WarfareBLightFactory"]
 ];
+
 
 // =============================================================================

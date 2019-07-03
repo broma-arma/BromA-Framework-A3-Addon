@@ -1,5 +1,4 @@
-
-_unitsInfantry = 
+_unitsInfantry =
 ["Soldier_TL","Soldier_SL","officer",
 "Soldier","Soldier_LAT","medic","Soldier_AT","soldier_M","Soldier_AR","Soldier_A","Soldier_GL"];
 

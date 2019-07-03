@@ -1,4 +1,3 @@
-
 if (isNil "_defaultSide") then { _defaultSide = WEST };
 if (isNil "_defaultFace") then { _defaultFace = _faceWHITE };
 if (isNil "_defaultVoice") then { _defaultVoice = _voiceAMERICAN };

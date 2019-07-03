@@ -1,11 +1,9 @@
-
 #ifdef BRM_PLUGIN_META
-	class ch_view_distance
-	{
-		name = "View distance changer";
-		version = 1;
-		authors[] = {"Champ-1"};	
-		description = "Allows for the player to change his view/object draw distance. Default key is U.";
+	class ch_view_distance {
+		name = "View Distance Settings";
+		version = "1.13";
+		authors[] = {"Champ"};
+		description = "Allows for the player to change their view/object draw distance. Default key is Ctrl + \.";
 	};
 #endif
 

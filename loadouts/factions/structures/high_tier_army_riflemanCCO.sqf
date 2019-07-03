@@ -180,7 +180,7 @@ switch (true) do {
         [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_grenade,2],[_spareBarrel,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-        [_unit, _commonAR select 1, _countAR] call BRM_FMK_fnc_addAmmo;
+        [_unit, _commonAR select RAMMO, _countAR] call BRM_FMK_fnc_addAmmo;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
     };
 

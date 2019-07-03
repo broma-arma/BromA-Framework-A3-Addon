@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_setGrpIDGlobal
-    
+
 AUTHOR(s):
     Nife
 
@@ -14,10 +14,10 @@ DESCRIPTION:
 PARAMETERS:
     0 - Group (GROUP)
     1 - ID (STRING)
-    
+
 USAGE:
     [group player, "Assassin"] call BRM_FMK_fnc_setGrpIDGlobal
-    
+
 RETURNS:
     Nothing.
 

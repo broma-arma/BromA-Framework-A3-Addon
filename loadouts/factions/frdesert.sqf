@@ -31,7 +31,7 @@ _commonSNIPER           = ["R3F_PGM_Hecate_II_POLY","R3F_7Rnd_127x99_PEI_PGM"];
 _commonAT               = _AT4;
 _specAT                 = _ERYX;
 _commonSMG              = _MP5A5;
-_commonRCO              = "FHQ_optic_VCOG";
+_commonRCO              = "optic_MRCO";
 _commonCCO              = "R3F_AIMPOINT";
 _commonMAGNIFIED        = "optic_LRPS";
 _commonSUPPRESSOR       = "rhsusf_acc_rotex5_grey";
@@ -81,35 +81,19 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhsusf_ach_bare_des_headset",
-    "rhsusf_ach_bare_des_headset_ess",
-    "rhsusf_ach_bare_semi_headset",
-    "rhsusf_ach_bare_semi_headset_ess"
+    "BRM_PASGT_DAGUET_RHINO",
+    "BRM_ACH_HESS_DAGUET",
+    "BRM_ACH_HEADSET_DAGUET"
 ];
 
 _uniformsLIST = [
-    "TRYK_U_B_3c",
-    "TRYK_U_B_3cr",
-    "TRYK_B_TRYK_3C_T",
-    "TRYK_T_camo_3c",
-    "TRYK_T_PAD",
-    "TRYK_U_B_BLK3CD",
-    "TRYK_U_B_BLK3CD_Tshirt"
-    
-];
-
-_vestsLIST = [
-    "TRYK_V_ArmorVest_coyo",
-    "V_PlateCarrier1_rgr_noflag_F"
-    
-];
-
-_gogglesLIST = [
+    "U_BRM_U_DAGUET",
+    "U_BRM_Shirt_DAGUET",
+    "U_BRM_RS_DAGUET"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
@@ -121,30 +105,30 @@ _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = _commonHEAD;
+_reconHEAD = "BRM_OPSCORE_DAGUET_NSW";
 
-_commonUNIFORM   = _randomUNIFORM;
-_officerUNIFORM  = _randomUNIFORM;
+_commonUNIFORM   = ["U_BRM_M10_CEDAG","U_BRM_M10_DAGUET"] call BIS_fnc_selectRandom;
+_officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
-_sniperUNIFORM   = _randomUNIFORM;
+_sniperUNIFORM   = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _mgUNIFORM       = _commonUNIFORM;
-_medicUNIFORM    = _randomUNIFORM;
+_medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
-_reconUNIFORM    = _commonUNIFORM;
+_reconUNIFORM    = _randomUNIFORM;
 
-_commonVEST    = _randomVEST;
-_officerVEST   = _commonVEST;
-_ftlVEST       = _commonVEST;
-_slVEST        = _commonVEST;
-_mgVEST        = _commonVEST;
-_grenadierVEST = _commonVEST;
-_medicVEST     = _commonVEST;
+_commonVEST    = "BRM_IOTV_brown_RFL";
+_officerVEST   = "BRM_IOTV_brown_REPAIR";
+_ftlVEST       = "BRM_IOTV_brown_TL";
+_slVEST        = "BRM_IOTV_brown_SL";
+_mgVEST        = "BRM_IOTV_brown_SAW";
+_grenadierVEST = "BRM_IOTV_brown_GL";
+_medicVEST     = "BRM_IOTV_brown_MED";
 _demoVEST      = _commonVEST;
 _marksmanVEST  = _commonVEST;
-_reconVEST     = _commonVEST;
+_reconVEST     = "BRM_RHS_SPCS_Brown_squadleader";
 
 _commonBACKPACK = "B_Kitbag_cbr";
 _bigBACKPACK = "TRYK_B_Coyotebackpack";

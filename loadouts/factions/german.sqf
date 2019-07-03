@@ -1,4 +1,3 @@
-
 // INFO ========================================================================
 /*
     This is the template you can use to create your own loadouts.
@@ -84,22 +83,22 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhsusf_opscore_rg_cover_pelt",
+    "BRM_OPSCORE_FLECK_NSW",
     "rhsusf_opscore_fg_pelt_nsw",
     "rhsusf_opscore_fg_pelt_cam",
-    "rhsusf_opscore_paint_pelt_nsw_cam"
+    "BRM_OPSCORE_FLECK_NSWCAM"
 ];
 
 _uniformsLIST = [
-    "rhs_uniform_g3_m81",
-    "rhs_uniform_g3_rgr"
-    
+    "U_BRM_U_FLECK",
+    "U_BRM_RS_FLECK"
 ];
 
 _vestsLIST = [
     "rhsusf_spc_patchless_radio",
     "rhsusf_mbav_rifleman",
-    "TAC_EI_RRVS_SPR_RG"
+    "BRM_RHS_SPCS_FLECK_squadleader",
+    "BRM_RHS_SPCS_FLECK_rifle"
 ];
 
 _gogglesLIST = [
@@ -133,18 +132,18 @@ _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
 _reconUNIFORM    = _randomUNIFORM;
 
-_commonVEST = "TAC_V_Sheriff_BA_T";
-_officerVEST = "TAC_V_Sheriff_BA_T2";
-_ftlVEST = "TAC_V_Sheriff_BA_TL";
-_slVEST = "TAC_V_Sheriff_BA_TL4";
-_mgVEST = "TAC_V_Sheriff_BA_T5";
-_grenadierVEST = "TAC_V_Sheriff_BA_T7";
-_medicVEST = "TAC_V_Sheriff_BA_T4";
+_commonVEST = "BRM_IOTV_FLECK_RFL";
+_officerVEST = "BRM_IOTV_FLECK_REPAIR";
+_ftlVEST = "BRM_IOTV_FLECK_TL";
+_slVEST = "BRM_IOTV_FLECK_SL";
+_mgVEST = "BRM_IOTV_FLECK_SAW";
+_grenadierVEST = "BRM_IOTV_FLECK_GL";
+_medicVEST = "BRM_IOTV_FLECK_MED";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _randomVEST;
 
-_commonBACKPACK = "rhs_assault_umbts";
+_commonBACKPACK = "BRM_eagleiii_FLECK";
 _bigBACKPACK = "rhsgref_hidf_alicepack";
 
 // EXTRA EQUIPMENT =============================================================

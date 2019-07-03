@@ -3,4 +3,4 @@ class BRM_FMK_RadioFreq {
 		file = "\broma_framework\plugins\radiofreq\functions";
 		class postInit {};
 	};
-}; 
+};

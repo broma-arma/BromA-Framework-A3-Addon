@@ -3,7 +3,7 @@
 
 NAME:
     BRM_FMK_fnc_stripItems
-    
+
 AUTHOR(s):
     Nife
 
@@ -12,26 +12,16 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Unit (OBJECT)
-    
+
 USAGE:
     [player] call BRM_FMK_fnc_stripItems
-    
+
 RETURNS:
     Nothing.
 
 ================================================================================
 */
 
-_unit = _this select 0;
+params [["_unit", objNull, [objNull]]];
 
-removeallweapons _unit;
-removeallitems _unit;
-clearAllItemsFromBackpack _unit;
-clearWeaponCargo _unit;
-clearmagazinecargo _unit;
-removeAllAssignedItems _unit;
-removeBackpack _unit;
-removeuniform _unit;
-removeVest _unit;
-removeGoggles _unit;
-removeHeadgear _unit;
+_unit setUnitLoadout (configFile >> "EmptyLoadout");
