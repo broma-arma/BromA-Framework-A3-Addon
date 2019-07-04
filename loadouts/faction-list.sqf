@@ -30,6 +30,10 @@ switch (toUpper(_faction)) do {
     case "CHEDAKI": {
         #include "factions\chedaki.sqf"
     };
+    
+    case "PLA": {
+        #include "factions\PLA.sqf"
+    };
 
     case "USARMY": {
 	#include "factions\usarmy.sqf"
