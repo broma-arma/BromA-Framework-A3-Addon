@@ -32,7 +32,19 @@ _5rnd127 = "5Rnd_127x108_Mag";
 _150rnd556 = "150Rnd_556x45_Drum_Mag_F";
 _200rnd556 = "200Rnd_556x45_Box_F";
 _20rnd650 = "20Rnd_650x39_Cased_Mag_F";
-
+_30rnd762AK12 = "30Rnd_762x39_AK12_Mag_F";
+_30rnd762AK12Arid = "30rnd_762x39_AK12_Arid_Mag_F";
+_30rnd762AK12Lush = "30rnd_762x39_AK12_Lush_Mag_F";
+_75rnd762 = "75rnd_762x39_Mag_F";
+_75rnd762AK12 = "75rnd_762x39_AK12_Mag_F";
+_75rnd762AK12Arid = "75rnd_762x39_AK12_Arid_Mag_F";
+_75rnd762AK12Lush = "75rnd_762x39_AK12_Lush_Mag_F";
+_2rnd12GPellets = "2Rnd_12Gauge_Pellets";
+_2rnd12GSlug = "2Rnd_12Gauge_Slug";
+_10rnd762 = "10Rnd_Mk14_762x51_Mag";
+_30rnd65MSBS = "30Rnd_65x39_caseless_msbs_mag";
+_6rnd12GPellets = "6Rnd_12Gauge_Pellets";
+_6rnd12GSlug = "6Rnd_12Gauge_Slug";
 // =============================================================================
 //                                NATO WEAPONS
 // =============================================================================
@@ -205,3 +217,49 @@ _RPG7 = ["launch_RPG7_F","RPG7_F"];
 _TitanGhx = ["launch_O_Titan_short_ghex_F","Titan_AT","Titan_AP"];
 
 // =============================================================================
+
+// =============================================================================
+//                             CONTACT DLC WEAPONS
+// =============================================================================
+
+_4FiveGrn = ["hgun_Pistol_heavy_01_green_F", "11Rnd_45ACP_Mag"];
+
+_AK12Arid = ["arifle_AK12_arid_F", _30rnd762AK12Arid];
+_AK12Lush = ["arifle_AK12_lush_F", _30rnd762AK12Lush];
+
+_AK12GLArid = ["arifle_AK12_GL_arid_F", _30rnd762AK12Arid, _40mm];
+_AK12GLLush = ["arifle_AK12_GL_lush_F", _30rnd762AK12Lush, _40mm];
+
+_AKU12 = ["arifle_AK12U_F", _30rnd762AK12];
+_AKU12Arid = ["arifle_AK12U_arid_F", _30rnd762AK12Arid];
+_AKU12Lush = ["arifle_AK12U_lush_F", _30rnd762AK12Lush];
+
+_Kozlice = ["sgun_HunterShotgun_01_F", _2rnd12GPellets, _2rnd12GSlug];
+_KozliceSawedOff = ["sgun_HunterShotgun_01_sawedoff_F", _2rnd12GPellets, _2rnd12GSlug];
+_Mk14Classic = ["srifle_DMR_06_hunter_F", _10rnd762];
+
+_Mk200Blk = ["LMG_Mk200_black_F",_200rnd65];
+
+_MSBS65 = ["arifle_MSBS65_F", _30rnd65MSBS];
+_MSBS65Blk = ["arifle_MSBS65_black_F", _30rnd65MSBS];
+_MSBS65Cam = ["arifle_MSBS65_camo_F", _30rnd65MSBS];
+_MSBS65Snd = ["arifle_MSBS65_sand_F", _30rnd65MSBS];
+
+_MSBS65GL = ["arifle_MSBS65_GL_F", _30rnd65MSBS, _40mm];
+_MSBS65GLBlk = ["arifle_MSBS65_GL_black_F", _30rnd65MSBS, _40mm];
+_MSBS65GLCam = ["arifle_MSBS65_GL_camo_F", _30rnd65MSBS, _40mm];
+_MSBS65GLSnd = ["arifle_MSBS65_GL_sand_F", _30rnd65MSBS, _40mm];
+
+_MSBS65DMR = ["arifle_MSBS65_Mark_F", _30rnd65MSBS];
+_MSBS65DMRBlk = ["arifle_MSBS65_Mark_black_F", _30rnd65MSBS];
+_MSBS65DMRCam = ["arifle_MSBS65_Mark_camo_F", _30rnd65MSBS];
+_MSBS65DMRSnd = ["arifle_MSBS65_Mark_sand_F", _30rnd65MSBS];
+
+_MSBS65SG = ["arifle_MSBS65_UBS_F", _30rnd65MSBS, _6rnd12GPellets];
+_MSBS65SGBlk = ["arifle_MSBS65_UBS_black_F", _30rnd65MSBS, _6rnd12GPellets, _6rnd12GSlug];
+_MSBS65SGCam = ["arifle_MSBS65_UBS_camo_F", _30rnd65MSBS, _6rnd12GPellets, _6rnd12GSlug];
+_MSBS65SGSnd = ["arifle_MSBS65_UBS_sand_F", _30rnd65MSBS, _6rnd12GPellets, _6rnd12GSlug];
+
+_RPG42 = ["launch_RPG32_green_F", "RPG32_F","RPG32_HE_F"];
+_TitanAAGeo = ["launch_I_Titan_eaf_F", "Titan_AA"];
+_TitanAAOli = ["launch_B_Titan_olive_F", "Titan_AA"];
