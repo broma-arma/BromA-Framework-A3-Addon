@@ -9,11 +9,13 @@ _voiceFRENCH = ["Male01FRE", "Male02FRE", "Male03FRE"];
 _voiceFRENCHENGLISH = ["Male01ENGFRE", "Male02ENGFRE"];
 _voiceCHINESE = ["Male01CHI", "Male02CHI", "Male03CHI"];
 _voiceCZECH = ["RHS_Male01CZ", "RHS_Male02CZ", "RHS_Male03CZ", "RHS_Male04CZ", "RHS_Male05CZ"];
+_voicePOLISH = ["MALE01POL", "MALE02POL", "MALE03POL"]
 
 _allVoices = [
     _voiceALTIAN, _voiceAMERICAN, _voiceBRITISH,
     _voiceFARSI, _voiceRUSSIAN, _voiceFRENCH,
     _voiceFRENCHENGLISH, _voiceCHINESE, _voiceCZECH
+    _voice_POLISH
 ];
 
 // FACES ========================================================================
@@ -24,8 +26,10 @@ _faceBLACK = ["AfricanHead_02","AfricanHead_01","AfricanHead_03"];
 _faceASIAN = ["AsianHead_A3_02","AsianHead_A3_01","AsianHead_A3_02","AsianHead_A3_03", "AsianHead_A3_04", "AsianHead_A3_05", "AsianHead_A3_07", "AsianHead_A3_06"];
 _facePERSIAN = ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"];
 _faceTANOAN = ["TanoanHead_A3_01", "TanoanHead_A3_02", "TanoanHead_A3_03", "TanoanHead_A3_04", "TanoanHead_A3_05", "TanoanHead_A3_06", "TanoanHead_A3_07", "TanoanHead_A3_08"];
+_faceLIVONIAN = ["LivonianHead_1", "LivonianHead_2", "LivonianHead_3", "LivonianHead_4", "LivonianHead_5", "LivonianHead_6", "LivonianHead_7", "LivonianHead_8", "LivonianHead_9", "LivonianHead_10"]; 
+_faceRUSSIAN = ["RussianHead_1", "RussianHead_2", "RussianHead_3", "RussianHead_4", "RussianHead_5"]
 
-_allFaces = [_faceGREEK, _faceWHITE, _faceBLACK, _faceASIAN, _facePERSIAN, _faceTANOAN];
+_allFaces = [_faceGREEK, _faceWHITE, _faceBLACK, _faceASIAN, _facePERSIAN, _faceTANOAN _faceLIVONIAN _faceRUSSIAN];
 
 // NAMES =======================================================================
 
