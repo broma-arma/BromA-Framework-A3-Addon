@@ -18,9 +18,9 @@ _sup93 = "muzzle_snds_93mmg_tan";
 _sup338 = "muzzle_snds_338_sand";
 _sup65Khk = "muzzle_snds_h_khk_f";
 _sup65Snd = "muzzle_snds_h_snd_f";
-_sup65ti = "muzzle_snds_65_ti_blk_f"
-_sup65tiGhex = "muzzle_65_snds_ti_ghex_f"
-_sup65tiHex = "muzzle_65_snds_ti_blk_f"
+_sup65ti = "muzzle_snds_65_ti_blk_f";
+_sup65tiGhex = "muzzle_65_snds_ti_ghex_f";
+_sup65tiHex = "muzzle_65_snds_ti_blk_f";
 
 // Scopes
 
