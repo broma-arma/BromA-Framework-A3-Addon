@@ -130,4 +130,13 @@ switch(_x) do {
             ["R3F_FUM40", 40]
         ]] call BRM_FMK_fnc_addtoCargo;
     };
+    
+    case "SMAW":{
+        [[_object, "item",
+            ["rhs_weap_optic_smaw",20]
+        ]] call BRM_FMK_fnc_addtoCargo;
+        [[_object, "magazine",
+	        ["rhs_mag_smaw_SR",100]
+        ]] call BRM_FMK_fnc_addtoCargo;
+    };
 };
