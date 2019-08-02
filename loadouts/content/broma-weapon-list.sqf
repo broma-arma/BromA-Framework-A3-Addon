@@ -22,6 +22,10 @@ _5rnd300wmAWM = "hlc_5rnd_300WM_FMJ_AWM";
 
 _10rnd7623011 = "hlc_10Rnd_762x51_mk316_fal";
 
+_10rnd763MAUSER = "hlc_10Rnd_763x25_B_C96";
+_10rnd9mmMAUSER = "hlc_10Rnd_9x19_B_C96";
+_20rnd763MAUSER = "hlc_20Rnd_763x25_B_M712";
+
 _12rndBUCKSAIGA = "hlc_10rnd_12g_buck_S12";
 _12rndSLUGSAIGA = "hlc_10rnd_12g_slug_S12";
 
@@ -126,19 +130,12 @@ _AKS74RIS  = ["hlc_rifle_aks74_MTK",_30rnd545];
 _AKS74GL   = ["hlc_rifle_aks74_GL",_30rnd545,_GPHE];
 _AKS74U    = ["hlc_rifle_aks74u",_30rnd545];
 _AKS74URIS = ["hlc_rifle_aks74u_MTK",_30rnd545];
-_AK74UN = ["rhs_weap_aks74un","rhs_30Rnd_545x39_7N6_AK"];
-_AK74N = ["rhs_weap_ak74n","rhs_30Rnd_545x39_7N6M_AK"];
-_AK74NGL = ["rhs_weap_ak74n_gp25","rhs_30Rnd_545x39_7N6M_AK",_GPHE];
+
 
 _RPK   = ["hlc_rifle_rpk_75rnd",_75rnd762RPK];
 _RPK74 = ["hlc_rifle_rpk74n_45rnd",_45rnd545];
 
 _RK62 = ["hlc_rifle_RK62",_30rnd762AK];
-
-_M76 = ["rhs_weap_m76","rhsgref_10Rnd_792x57_m76"];
-_M84 = ["rhs_weap_m84","rhs_100Rnd_762x54mmR"];
-_SVDPWDNPZ = ["rhs_weap_svdp_wd_npz","rhs_10Rnd_762x54mmR_7N1"];
-_SCORPION = ["rhs_weap_scorpion","rhsgref_20rnd_765x17_vz61"];
 
 _SAIGA12 = ["hlc_rifle_saiga12k",_12rndBUCKSAIGA];
 
@@ -153,17 +150,25 @@ _BCMBLACKJACK = ["hlc_rifle_bcmblackjack",_29rnd300BLK];
 _BUSHMASTER  = ["hlc_rifle_Bushmaster300",_29rnd300BLK];
 _HONEYBADGER = ["hlc_rifle_honeybadger",_29rnd300BLK];
 
+_COLTRO733     = ["hlc_wp_mod733",_30rnd556AR15];
 _COLTCARBINE   = ["hlc_rifle_Colt727",_30rnd556AR15];
 _COLTCARBINEGL = ["hlc_rifle_Colt727_GL",_30rnd556AR15,_40mm];
 _COLTCOMMANDO  = ["hlc_rifle_CQBR",_30rnd556AR15];
 _COLTM4A1CH    = ["hlc_rifle_M4a1carryhandle",_30rnd556AR15];
 _COLTM4A1      = ["hlc_rifle_M4",_30rnd556AR15];
-_COLTM4A1GL      = ["hlc_rifle_m4m203",_30rnd556AR15,_40mm];
+_COLTM4A1GL    = ["hlc_rifle_m4m203",_30rnd556AR15,_40mm];
+
+_XM177E2       = ["hlc_wp_XM177E2",_30rnd556AR15];
 
 _MK18MOD0 = ["hlc_rifle_mk18mod0",_30rnd556AR15];
 
 _SAMRTAN = ["hlc_rifle_SAMR",_30rnd556AR15SPR];
 _SAMROD  = ["hlc_rifle_samr2",_30rnd556AR15SPR];
+
+_HLCM16A1 = ["hlc_wp_m16a1","hlc_30rnd_556x45_EPR"];
+_HLCM16A1GL = ["hlc_rifle_A1m203","hlc_30rnd_556x45_EPR",_40mm];
+_HLCM16A2 = ["hlc_wp_m16a2","hlc_30rnd_556x45_EPR"];
+_HLCM16A2GL = ["hlc_rifle_m203","hlc_30rnd_556x45_EPR",_40mm];
 
 // ========== 1903 PACK ========================================================
 _1903       = ["hlc_rifle_M1903A1",_5rnd3006];
@@ -356,28 +361,52 @@ _HLCMP5K = ["hlc_smg_mp5k_PDW",_30rnd9mmMP5];
 _ACRCOMPACTB = ["hlc_rifle_ACR_SBR_black",_30rnd556AR15];
 _ACRCOMPACTT = ["hlc_rifle_ACR_SBR_tan",_30rnd556AR15];
 _ACRCOMPACTG = ["hlc_rifle_ACR_SBR_green",_30rnd556AR15];
+_ACRCOMPACTBGL = ["hlc_rifle_ACR_GL_SBR_black",_30rnd556AR15,_40mm];
+_ACRCOMPACTTGL = ["hlc_rifle_ACR_GL_SBR_tan",_30rnd556AR15,_40mm];
+_ACRCOMPACTGGL = ["hlc_rifle_ACR_GL_SBR_green",_30rnd556AR15,_40mm];
+
 _ACRLONGB    = ["hlc_rifle_ACR_full_black",_30rnd556AR15];
 _ACRLONGG    = ["hlc_rifle_ACR_full_green",_30rnd556AR15];
 _ACRLONGT    = ["hlc_rifle_ACR_full_tan",_30rnd556AR15];
+
 _ACRMIDB     = ["hlc_rifle_ACR_mid_black",_30rnd556AR15];
 _ACRMIDG     = ["hlc_rifle_ACR_mid_green",_30rnd556AR15];
 _ACRMIDT     = ["hlc_rifle_ACR_mid_tan",_30rnd556AR15];
+_ACRMIDBGL   = ["hlc_rifle_ACR_GL_mid_black",_30rnd556AR15,_40mm];
+_ACRMIDGGL   = ["hlc_rifle_ACR_GL_mid_green",_30rnd556AR15,_40mm];
+_ACRMIDTGL   = ["hlc_rifle_ACR_GL_mid_tan",_30rnd556AR15,_40mm];
+
 _ACRSHORTB   = ["hlc_rifle_ACR_Carb_black",_30rnd556AR15];
 _ACRSHORTG   = ["hlc_rifle_ACR_Carb_green",_30rnd556AR15];
 _ACRSHORTT   = ["hlc_rifle_ACR_Carb_tan",_30rnd556AR15];
+_ACRSHORTBGL = ["hlc_rifle_ACR_GL_Carb_black",_30rnd556AR15,_40mm];
+_ACRSHORTGGL = ["hlc_rifle_ACR_GL_Carb_green",_30rnd556AR15,_40mm];
+_ACRSHORTTGL = ["hlc_rifle_ACR_GL_Carb_tan",_30rnd556AR15,_40mm];
 
 _ACR68COMPACTB = ["hlc_rifle_ACR68_SBR_black",_30rnd68ACR];
 _ACR68COMPACTG = ["hlc_rifle_ACR68_SBR_green",_30rnd68ACR];
 _ACR68COMPACTT = ["hlc_rifle_ACR68_SBR_tan",_30rnd68ACR];
+_ACR68COMPACTBGL = ["hlc_rifle_ACR68_GL_SBR_black,_30rnd68ACR,_40mm];
+_ACR68COMPACTGGL = ["hlc_rifle_ACR68_GL_SBR_green,_30rnd68ACR,_40mm];
+_ACR68COMPACTTGL = ["hlc_rifle_ACR68_GL_SBR_tan,_30rnd68ACR,_40mm];
+
 _ACR68LONGB    = ["hlc_rifle_ACR68_full_black",_30rnd68ACR];
 _ACR68LONGG    = ["hlc_rifle_ACR68_full_green",_30rnd68ACR];
 _ACR68LONGT    = ["hlc_rifle_ACR68_full_tan",_30rnd68ACR];
+
 _ACR68MIDB     = ["hlc_rifle_ACR68_mid_black",_30rnd68ACR];
 _ACR68MIDG     = ["hlc_rifle_ACR68_mid_green",_30rnd68ACR];
 _ACR68MIDT     = ["hlc_rifle_ACR68_mid_tan",_30rnd68ACR];
+_ACR68MIDBGL   = ["hlc_rifle_ACR68_GL_mid_black,_30rnd68ACR,_40mm];
+_ACR68MIDGGL   = ["hlc_rifle_ACR68_GL_mid_green,_30rnd68ACR,_40mm];
+_ACR68MIDTGL   = ["hlc_rifle_ACR68_GL_mid_tan,_30rnd68ACR,_40mm];
+
 _ACR68SHORTB   = ["hlc_rifle_ACR68_Carb_black",_30rnd68ACR];
 _ACR68SHORTG   = ["hlc_rifle_ACR68_Carb_green",_30rnd68ACR];
 _ACR68SHORTT   = ["hlc_rifle_ACR68_Carb_tan",_30rnd68ACR];
+_ACR68SHORTBGL = ["hlc_rifle_ACR68_GL_Carb_black",_30rnd68ACR,_40mm];
+_ACR68SHORTGGL = ["hlc_rifle_ACR68_GL_Carb_green",_30rnd68ACR,_40mm];
+_ACR68SHORTTGL = ["hlc_rifle_ACR68_GL_Carb_tan",_30rnd68ACR,_40mm];
 
 // ========== MG42/3 PACK ======================================================
 _MG42     = ["hlc_lmg_MG42",_100rndMG42];
@@ -526,11 +555,30 @@ _HLC416C = ["hlc_rifle_416C",_30rnd556AR15];
 _HLC416N = ["hlc_rifle_416N",_30rnd556AR15];
 _HLC416NGL = ["hlc_rifle_416N_gl",_30rnd556AR15,_40mm];
 
-//========== HLC M16 PACK =======================================================
+//========== HLC MAUSER C96 PACK =======================================================
+_DL44BLASTER    = ["hlc_pistol_DL44","hlc_10Rnd_BLASTER_B_DL44"];
 
-_HLCM16A2 = ["hlc_wp_m16a2","hlc_30rnd_556x45_EPR"];
-_HLCM16A2GL = ["hlc_rifle_m203","hlc_30rnd_556x45_EPR",_40mm];
+_C96          = ["hlc_pistol_C96_Wartime",_10rnd763MAUSER];
+_C96CUSTOM    = ["hlc_pistol_C96_Custom",_10rnd763MAUSER];
+_C96WORN      = ["hlc_pistol_C96_Wartime_Worn",_10rnd763MAUSER];
+_C96STOCK     = ["hlc_pistol_C96_Wartime_stock",_10rnd763MAUSER];
+_C96WORNSTOCK = ["hlc_pistol_C96_Wartime_Worn_stock",_10rnd763MAUSER];
 
+_C96PRUS           = ["hlc_pistol_C96_Prussian",_10rnd9mmMAUSER];
+_C96PRUSSHORT      = ["hlc_pistol_C96_Prussian_Rework",_10rnd9mmMAUSER];
+_C96PRUSSTOCK      = ["hlc_pistol_C96_Prussian_stock",_10rnd9mmMAUSER];
+_C96PRUSSHORTSTOCK = ["hlc_pistol_C96_Prussian_Rework_stock",_10rnd9mmMAUSER];
+
+_C96M1921          = ["hlc_pistol_C96_Bolo",_10rnd763MAUSER];
+_C96M1921WORN      = ["hlc_pistol_C96_Bolo_Worn",_10rnd763MAUSER];
+_C96M1921STOCK     = ["hlc_pistol_C96_Bolo_stock",_10rnd763MAUSER];
+_C96M1921WORNSTOCK = ["hlc_pistol_C96_Bolo_Worn_stock",_10rnd763MAUSER];
+
+_20rnd763MAUSER
+_C96M712          = ["hlc_pistol_M712",_20rnd763MAUSER];
+_C96M712WORN      = ["hlc_pistol_M712_Worn",_20rnd763MAUSER];
+_C96M712STOCK     = ["hlc_pistol_M712_stock",_20rnd763MAUSER];
+_C96M712WORNSTOCK = ["hlc_pistol_M712_worn_stock",_20rnd763MAUSER];
 
 // =============================================================================
 // =============================================================================
@@ -800,6 +848,10 @@ _AK105RIS = ["rhs_weap_ak105_npz",_30rnd545AK];
 _AK105ZENIT = ["rhs_weap_ak105_zenitco01",_30rnd545AK];
 _AK105ZENITRIS = ["rhs_weap_ak105_zenitco01_b33",_30rnd545AK];
 
+_AK74UN = ["rhs_weap_aks74un","rhs_30Rnd_545x39_7N6_AK"];
+_AK74N = ["rhs_weap_ak74n","rhs_30Rnd_545x39_7N6M_AK"];
+_AK74NGL = ["rhs_weap_ak74n_gp25","rhs_30Rnd_545x39_7N6M_AK",_GPHE];
+
 _AK74M = ["rhs_weap_ak74m",_30rnd545AK];
 _AK74MRIS = ["rhs_weap_ak74m_npz",_30rnd545AK];
 _AK74MDOUBLEMAG = ["rhs_weap_ak74m_2mag",_30rnd545AK];
@@ -856,6 +908,8 @@ _SVDRIS = ["rhs_weap_svdp_npz",_10rnd762SVD];
 _SVDS = ["rhs_weap_svds",_10rnd762SVD];
 _SVDSRIS = ["rhs_weap_svds_npz",_10rnd762SVD];
 _SVDCAMO = ["rhs_weap_svdp_wd",_10rnd762SVD];
+_SVDPWDNPZ = ["rhs_weap_svdp_wd_npz","rhs_10Rnd_762x54mmR_7N1"];
+_M76 = ["rhs_weap_m76","rhsgref_10Rnd_792x57_m76"];
 
 _T5000 = ["rhs_weap_t5000",_5rnd338T5000];
 
@@ -877,7 +931,10 @@ _M590L = ["rhs_weap_M590_8RD",_8rndBuck];
 
 _PKP = ["rhs_weap_pkp",_100rnd762PKP];
 _PKM = ["rhs_weap_pkm",_100rnd762PKP];
+_M84 = ["rhs_weap_m84","rhs_100Rnd_762x54mmR"];
 
+_SCORPION = ["rhs_weap_savz61","rhsgref_20rnd_765x17_vz61"];
+_SCORPIONFOLDED = ["rhs_weap_savz61_folded","rhsgref_20rnd_765x17_vz61"];
 
 // ALIAS FOR OLD RH WEAPONS ====================================================
 
