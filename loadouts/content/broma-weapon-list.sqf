@@ -386,9 +386,9 @@ _ACRSHORTGLT = ["hlc_rifle_ACR_GL_Carb_tan",_30rnd556AR15,_40mm];
 _ACR68COMPACTB = ["hlc_rifle_ACR68_SBR_black",_30rnd68ACR];
 _ACR68COMPACTG = ["hlc_rifle_ACR68_SBR_green",_30rnd68ACR];
 _ACR68COMPACTT = ["hlc_rifle_ACR68_SBR_tan",_30rnd68ACR];
-_ACR68COMPACTGLB = ["hlc_rifle_ACR68_GL_SBR_black,_30rnd68ACR,_40mm];
-_ACR68COMPACTGLG = ["hlc_rifle_ACR68_GL_SBR_green,_30rnd68ACR,_40mm];
-_ACR68COMPACTGLT = ["hlc_rifle_ACR68_GL_SBR_tan,_30rnd68ACR,_40mm];
+_ACR68COMPACTGLB = ["hlc_rifle_ACR68_GL_SBR_black",_30rnd68ACR,_40mm];
+_ACR68COMPACTGLG = ["hlc_rifle_ACR68_GL_SBR_green",_30rnd68ACR,_40mm];
+_ACR68COMPACTGLT = ["hlc_rifle_ACR68_GL_SBR_tan",_30rnd68ACR,_40mm];
 
 _ACR68LONGB    = ["hlc_rifle_ACR68_full_black",_30rnd68ACR];
 _ACR68LONGG    = ["hlc_rifle_ACR68_full_green",_30rnd68ACR];
@@ -397,9 +397,9 @@ _ACR68LONGT    = ["hlc_rifle_ACR68_full_tan",_30rnd68ACR];
 _ACR68MIDB     = ["hlc_rifle_ACR68_mid_black",_30rnd68ACR];
 _ACR68MIDG     = ["hlc_rifle_ACR68_mid_green",_30rnd68ACR];
 _ACR68MIDT     = ["hlc_rifle_ACR68_mid_tan",_30rnd68ACR];
-_ACR68MIDGLB   = ["hlc_rifle_ACR68_GL_mid_black,_30rnd68ACR,_40mm];
-_ACR68MIDGLG   = ["hlc_rifle_ACR68_GL_mid_green,_30rnd68ACR,_40mm];
-_ACR68MIDGLT   = ["hlc_rifle_ACR68_GL_mid_tan,_30rnd68ACR,_40mm];
+_ACR68MIDGLB   = ["hlc_rifle_ACR68_GL_mid_black",_30rnd68ACR,_40mm];
+_ACR68MIDGLG   = ["hlc_rifle_ACR68_GL_mid_green",_30rnd68ACR,_40mm];
+_ACR68MIDGLT   = ["hlc_rifle_ACR68_GL_mid_tan",_30rnd68ACR,_40mm];
 
 _ACR68SHORTB   = ["hlc_rifle_ACR68_Carb_black",_30rnd68ACR];
 _ACR68SHORTG   = ["hlc_rifle_ACR68_Carb_green",_30rnd68ACR];
@@ -574,7 +574,6 @@ _C96M1921WORN      = ["hlc_pistol_C96_Bolo_Worn",_10rnd763MAUSER];
 _C96M1921STOCK     = ["hlc_pistol_C96_Bolo_stock",_10rnd763MAUSER];
 _C96M1921WORNSTOCK = ["hlc_pistol_C96_Bolo_Worn_stock",_10rnd763MAUSER];
 
-_20rnd763MAUSER
 _C96M712          = ["hlc_pistol_M712",_20rnd763MAUSER];
 _C96M712WORN      = ["hlc_pistol_M712_Worn",_20rnd763MAUSER];
 _C96M712STOCK     = ["hlc_pistol_M712_stock",_20rnd763MAUSER];
