@@ -361,9 +361,9 @@ _HLCMP5K = ["hlc_smg_mp5k_PDW",_30rnd9mmMP5];
 _ACRCOMPACTB = ["hlc_rifle_ACR_SBR_black",_30rnd556AR15];
 _ACRCOMPACTT = ["hlc_rifle_ACR_SBR_tan",_30rnd556AR15];
 _ACRCOMPACTG = ["hlc_rifle_ACR_SBR_green",_30rnd556AR15];
-_ACRCOMPACTBGL = ["hlc_rifle_ACR_GL_SBR_black",_30rnd556AR15,_40mm];
-_ACRCOMPACTTGL = ["hlc_rifle_ACR_GL_SBR_tan",_30rnd556AR15,_40mm];
-_ACRCOMPACTGGL = ["hlc_rifle_ACR_GL_SBR_green",_30rnd556AR15,_40mm];
+_ACRCOMPACTGLB = ["hlc_rifle_ACR_GL_SBR_black",_30rnd556AR15,_40mm];
+_ACRCOMPACTGLT = ["hlc_rifle_ACR_GL_SBR_tan",_30rnd556AR15,_40mm];
+_ACRCOMPACTGLG = ["hlc_rifle_ACR_GL_SBR_green",_30rnd556AR15,_40mm];
 
 _ACRLONGB    = ["hlc_rifle_ACR_full_black",_30rnd556AR15];
 _ACRLONGG    = ["hlc_rifle_ACR_full_green",_30rnd556AR15];
@@ -372,23 +372,23 @@ _ACRLONGT    = ["hlc_rifle_ACR_full_tan",_30rnd556AR15];
 _ACRMIDB     = ["hlc_rifle_ACR_mid_black",_30rnd556AR15];
 _ACRMIDG     = ["hlc_rifle_ACR_mid_green",_30rnd556AR15];
 _ACRMIDT     = ["hlc_rifle_ACR_mid_tan",_30rnd556AR15];
-_ACRMIDBGL   = ["hlc_rifle_ACR_GL_mid_black",_30rnd556AR15,_40mm];
-_ACRMIDGGL   = ["hlc_rifle_ACR_GL_mid_green",_30rnd556AR15,_40mm];
-_ACRMIDTGL   = ["hlc_rifle_ACR_GL_mid_tan",_30rnd556AR15,_40mm];
+_ACRMIDGLB   = ["hlc_rifle_ACR_GL_mid_black",_30rnd556AR15,_40mm];
+_ACRMIDGLG   = ["hlc_rifle_ACR_GL_mid_green",_30rnd556AR15,_40mm];
+_ACRMIDGLT   = ["hlc_rifle_ACR_GL_mid_tan",_30rnd556AR15,_40mm];
 
 _ACRSHORTB   = ["hlc_rifle_ACR_Carb_black",_30rnd556AR15];
 _ACRSHORTG   = ["hlc_rifle_ACR_Carb_green",_30rnd556AR15];
 _ACRSHORTT   = ["hlc_rifle_ACR_Carb_tan",_30rnd556AR15];
-_ACRSHORTBGL = ["hlc_rifle_ACR_GL_Carb_black",_30rnd556AR15,_40mm];
-_ACRSHORTGGL = ["hlc_rifle_ACR_GL_Carb_green",_30rnd556AR15,_40mm];
-_ACRSHORTTGL = ["hlc_rifle_ACR_GL_Carb_tan",_30rnd556AR15,_40mm];
+_ACRSHORTGLB = ["hlc_rifle_ACR_GL_Carb_black",_30rnd556AR15,_40mm];
+_ACRSHORTGLG = ["hlc_rifle_ACR_GL_Carb_green",_30rnd556AR15,_40mm];
+_ACRSHORTGLT = ["hlc_rifle_ACR_GL_Carb_tan",_30rnd556AR15,_40mm];
 
 _ACR68COMPACTB = ["hlc_rifle_ACR68_SBR_black",_30rnd68ACR];
 _ACR68COMPACTG = ["hlc_rifle_ACR68_SBR_green",_30rnd68ACR];
 _ACR68COMPACTT = ["hlc_rifle_ACR68_SBR_tan",_30rnd68ACR];
-_ACR68COMPACTBGL = ["hlc_rifle_ACR68_GL_SBR_black,_30rnd68ACR,_40mm];
-_ACR68COMPACTGGL = ["hlc_rifle_ACR68_GL_SBR_green,_30rnd68ACR,_40mm];
-_ACR68COMPACTTGL = ["hlc_rifle_ACR68_GL_SBR_tan,_30rnd68ACR,_40mm];
+_ACR68COMPACTGLB = ["hlc_rifle_ACR68_GL_SBR_black,_30rnd68ACR,_40mm];
+_ACR68COMPACTGLG = ["hlc_rifle_ACR68_GL_SBR_green,_30rnd68ACR,_40mm];
+_ACR68COMPACTGLT = ["hlc_rifle_ACR68_GL_SBR_tan,_30rnd68ACR,_40mm];
 
 _ACR68LONGB    = ["hlc_rifle_ACR68_full_black",_30rnd68ACR];
 _ACR68LONGG    = ["hlc_rifle_ACR68_full_green",_30rnd68ACR];
@@ -397,16 +397,16 @@ _ACR68LONGT    = ["hlc_rifle_ACR68_full_tan",_30rnd68ACR];
 _ACR68MIDB     = ["hlc_rifle_ACR68_mid_black",_30rnd68ACR];
 _ACR68MIDG     = ["hlc_rifle_ACR68_mid_green",_30rnd68ACR];
 _ACR68MIDT     = ["hlc_rifle_ACR68_mid_tan",_30rnd68ACR];
-_ACR68MIDBGL   = ["hlc_rifle_ACR68_GL_mid_black,_30rnd68ACR,_40mm];
-_ACR68MIDGGL   = ["hlc_rifle_ACR68_GL_mid_green,_30rnd68ACR,_40mm];
-_ACR68MIDTGL   = ["hlc_rifle_ACR68_GL_mid_tan,_30rnd68ACR,_40mm];
+_ACR68MIDGLB   = ["hlc_rifle_ACR68_GL_mid_black,_30rnd68ACR,_40mm];
+_ACR68MIDGLG   = ["hlc_rifle_ACR68_GL_mid_green,_30rnd68ACR,_40mm];
+_ACR68MIDGLT   = ["hlc_rifle_ACR68_GL_mid_tan,_30rnd68ACR,_40mm];
 
 _ACR68SHORTB   = ["hlc_rifle_ACR68_Carb_black",_30rnd68ACR];
 _ACR68SHORTG   = ["hlc_rifle_ACR68_Carb_green",_30rnd68ACR];
 _ACR68SHORTT   = ["hlc_rifle_ACR68_Carb_tan",_30rnd68ACR];
-_ACR68SHORTBGL = ["hlc_rifle_ACR68_GL_Carb_black",_30rnd68ACR,_40mm];
-_ACR68SHORTGGL = ["hlc_rifle_ACR68_GL_Carb_green",_30rnd68ACR,_40mm];
-_ACR68SHORTTGL = ["hlc_rifle_ACR68_GL_Carb_tan",_30rnd68ACR,_40mm];
+_ACR68SHORTGLB = ["hlc_rifle_ACR68_GL_Carb_black",_30rnd68ACR,_40mm];
+_ACR68SHORTGLG = ["hlc_rifle_ACR68_GL_Carb_green",_30rnd68ACR,_40mm];
+_ACR68SHORTGLT = ["hlc_rifle_ACR68_GL_Carb_tan",_30rnd68ACR,_40mm];
 
 // ========== MG42/3 PACK ======================================================
 _MG42     = ["hlc_lmg_MG42",_100rndMG42];
