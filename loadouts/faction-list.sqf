@@ -11,7 +11,12 @@ switch (toUpper(_faction)) do {
     case "RACS": {
         #include "factions\racs.sqf"
     };
-
+    case "76TH": {
+        #include "factions\76TH.sqf"
+    };
+    case "PLA": {
+        #include "factions\PLA.sqf"
+    };
     case "SLA": {
         #include "factions\sla.sqf"
     };

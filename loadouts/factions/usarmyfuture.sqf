@@ -23,7 +23,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE    = _ACRSHORTT;
-_commonRIFLEGL  = _RHSM4BLOCKIIGL;
+_commonRIFLEGL  = _ACRSHORTTGL;
 _commonPISTOL   = _MK25TR;
 _commonAR       = _MK46MOD1;
 _commonMG       = _MK48MOD0;
@@ -32,7 +32,7 @@ _commonSNIPER   = _M2010;
 _commonAT       = _AT4;
 _specAT         = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F"];
 _commonSMG      = _ACRCOMPACTT;
-_commonRCO      = "rhsusf_acc_SpecterDR_D";
+_commonRCO      = "hlc_optic_ATACR";
 _commonCCO      = "rhsusf_acc_eotech_552_d";
 _commonMAGNIFIED  = "rhsusf_acc_LEUPOLDMK4_2";
 _commonSUPPRESSOR = "rhsusf_acc_rotex5_grey";
