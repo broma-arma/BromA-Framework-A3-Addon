@@ -18,6 +18,8 @@ _isReconLeader = (_type == "reconleader")||(_type == "Recon Team Leader");
 _isRecon = (_type == "recon")||(_type == "Recon Scout");
 _isReconDemo = (_type == "recondemo")||(_type == "Recon Demo Specialist");
 _isReconMedic = (_type == "reconmedic")||(_type == "Recon Paramedic");
+_isReconAT = (_type == "reconat")||(_type == "Recon Scout (AT)");
+_isReconMarksman = (_type == "reconmarksman")||(_type == "Recon Marksman");
 _isDemo = (_type == "demo")||(_type == "Explosive Specialist");
 _isHMG = (_type == "hmg")||(_type == "Gunner (HMG)");
 _isStaticAT = (_type == "staticAT");
