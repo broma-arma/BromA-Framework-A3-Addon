@@ -8,7 +8,9 @@ switch (toUpper(_factionStructure)) do {
     };
 
     case "HIGH-TIER-CCO": {
-        #include "factions\structures\high_tier_army_riflemanCCO.sqf"
+		#define STRUCTURE_RIFLEMAN_CCO
+        #include "factions\structures\high_tier_army.sqf"
+		#undef STRUCTURE_RIFLEMAN_CCO
     };
 
     case "MID-TIER": {
