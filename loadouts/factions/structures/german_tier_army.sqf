@@ -70,7 +70,7 @@ switch (true) do {
     };
 
     case (_isTeamLeader): {
-        [_unit, _leaderHEAD, _commonUNIFORM, _ftlVEST, "empty"] call BRM_FMK_fnc_useUniform;
+        [_unit, _leaderHEAD, _commonUNIFORM, _ftlVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_flashlight,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLEGL, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit,[[_commonRIFLEGL select GL, (_count40mm / 3)]]] call BRM_FMK_fnc_addtoVest;
@@ -106,7 +106,7 @@ switch (true) do {
     };
 
     case (_isRifleman): {
-        [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, "empty"] call BRM_FMK_fnc_useUniform;
+        [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_grenade, _countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
@@ -175,7 +175,7 @@ switch (true) do {
     };
 
     case (_isMarksman): {
-        [_unit, _commonHEAD, _marksmanUNIFORM, _marksmanVEST, "empty"] call BRM_FMK_fnc_useUniform;
+        [_unit, _commonHEAD, _marksmanUNIFORM, _marksmanVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,1], [_grenade,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonMARKSMAN, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _commonMARKSMAN select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
@@ -283,7 +283,7 @@ switch (true) do {
     };
 
     case (_isRecon): {
-        [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, "empty"] call BRM_FMK_fnc_useUniform;
+        [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit, "binoc"] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_flashlight,1],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonSMG, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
@@ -379,7 +379,7 @@ switch (true) do {
     };
 
     default {
-        [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, "empty"] call BRM_FMK_fnc_useUniform;
+        [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_grenade,3]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, 5] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", "HLC_Optic_G36Export15x"] call BRM_FMK_fnc_attachToWeapon;
