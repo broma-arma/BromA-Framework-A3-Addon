@@ -8,27 +8,27 @@
 
 switch (true) do {
     case (mission_AGM_enabled): {
-        _suppliesMEDIC = [[_unit,[_bandage,_countBANDAGE], [_morphine,_countMORPHINE],[_epi,_countEPI],[_bloodbag,_countBLOODBAG]]];
-        _suppliesNORMAL = [[_unit,[_bandage, 2], [_morphine,1],[_epi, 1]]];
+        _suppliesMEDIC = [[_bandage, _countBANDAGE], [_morphine, _countMORPHINE], [_epi, _countEPI], [_bloodbag, _countBLOODBAG]];
+        _suppliesNORMAL = [[_bandage, _countBANDAGE / 4], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
     };
 
     case (mission_ACE3_enabled): {
-
         switch (mission_ace3_medical_level) do {
-
-            case 1: { // SIMPLE
-                _suppliesMEDIC = [[_fieldDressing,_countBANDAGE],[_elasticBandage, _countBANDAGE],[_quickClot, _countBANDAGE],[_morphine,_countMORPHINE],[_epi,_countEPI],[_bloodbag,_countBLOODBAG]];
-                _suppliesNORMAL = [[_fieldDressing, 2], [_morphine,1],[_epi, 1]];
+            case 1: { // BASIC
+                _suppliesMEDIC = [[_fieldDressing, _countBANDAGE], [_morphine, _countMORPHINE], [_epi, _countEPI], [_bloodbag, _countBLOODBAG]];
+                _suppliesNORMAL = [[_fieldDressing, _countBANDAGE / 4], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
             };
             case 2: { // ADVANCED
                 _suppliesMEDIC = [
-                    [_packingBandage, _countBANDAGE],[_elasticBandage, _countBANDAGE],[_quickClot, _countBANDAGE],
+                    [_elasticBandage, _countBANDAGE], [_quickClot, _countBANDAGE],
                     [_tourniquet, _countCAT],
-                    [_morphine, _countMORPHINE],[_epi, _countEPI],
+                    [_morphine, _countMORPHINE], [_epi, _countEPI],
                     [_blood500, _countBLOODBAG],
-                    [_defib, 1],[_surgKit, 1]
+                    [_surgKit, 1], [_defib, 1],
+                    [_personalAidKit, _countPAK],
+                    [_blood1000, _countBLOODBAG]
                 ];
-                _suppliesNORMAL = [[_fieldDressing, 2],[_packingBandage, 3],[_quickClot, 2],[_elasticBandage, 2],[_tourniquet, 1],[_morphine,1],[_epi,1]];
+                _suppliesNORMAL = [[_packingBandage, _countBANDAGE / 4], [_quickClot, _countBANDAGE / 4], [_elasticBandage, _countBANDAGE / 4], [_tourniquet, _countCAT], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
             };
         };
     };
