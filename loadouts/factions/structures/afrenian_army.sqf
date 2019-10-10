@@ -359,4 +359,9 @@ switch (true) do {
 
 [_unit, "SR"] call BRM_FMK_fnc_addRadio;
 
-if ((mission_AGM_enabled)||(mission_ACE3_enabled)) then { [_unit, [[_earBuds, 1]]] call BRM_FMK_fnc_addtoUniform };
+if (mission_AGM_enabled || mission_ACE3_enabled) then {
+    [_unit, [[_earBuds, 1]]] call BRM_FMK_fnc_addtoUniform;
+    if (_unit == player) then {
+        [_unit] call (if (mission_AGM_enabled) then { AGM_Hearing_fnc_putInEarPlugs } else { ace_hearing_fnc_putInEarplugs });
+    };
+};
