@@ -360,7 +360,7 @@ switch (true) do {
     };
 
     case (_isSniper): {
-        [_unit, _sniperHEAD, _sniperUNIFORM, _commonVEST, "empty"] call BRM_FMK_fnc_useUniform;
+        [_unit, _sniperHEAD, _sniperUNIFORM, _commonVEST, if (_isLeader) then { "empty" } else { _commonBACKPACK }] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_mapTools,1],[_kestrel,1],[_rangeCard,1],[_flashlight,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonSNIPER, _countSNIPER] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _commonSNIPER select GUN, (_countSNIPER/2)+1, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
@@ -369,12 +369,13 @@ switch (true) do {
     };
 
     case (_isSpotter): {
-        [_unit, _sniperHEAD, _sniperUNIFORM, _commonVEST, "empty"] call BRM_FMK_fnc_useUniform;
+        [_unit, _sniperHEAD, _sniperUNIFORM, _commonVEST, if (_isLeader) then { "empty" } else { _commonBACKPACK }] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_ATragMX,1],[_gsmoke,2],[_mapTools,1],[_kestrel,1],[_flashlight]]] call BRM_FMK_fnc_addtoVest;
         [_unit,[[_commonSNIPER select RAMMO, (_countSNIPER*2)],[_spottingScope,1]]] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "laserdesignator"] call BRM_FMK_fnc_addOptics;
+        if (_isLeader) then { [_unit, "BP"] call BRM_FMK_fnc_addRadio };
     };
 
     default {
