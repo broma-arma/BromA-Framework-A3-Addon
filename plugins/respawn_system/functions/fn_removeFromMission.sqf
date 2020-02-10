@@ -1,6 +1,6 @@
 params["_unit"];
 
-private _unitSavedGear = [_unit] call BRM_FMK_fnc_getGear;
+private _unitSavedGear = getUnitLoadout _unit;
 
 if (mission_TFAR_enabled) then { _unit setVariable ["tf_unable_to_use_radio", true] };
 
@@ -47,7 +47,7 @@ if (mission_TFAR_enabled) then { _unit setVariable ["tf_unable_to_use_radio", tr
                 detach _unit;
                 _unit enableSimulation true;
 
-                [_unit, _unitSavedGear] call BRM_FMK_fnc_setGear;
+                _unit setUnitLoadout _unitSavedGear;
 
                 _unit setPos getMarkerPos ([_unit] call BRM_FMK_fnc_getSpawnPoint);
 

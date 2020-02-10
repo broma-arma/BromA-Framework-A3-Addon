@@ -30,7 +30,7 @@ private _status = [
 	getDammage _unit,
 	objectParent _unit,
 	[_unit] call _fnc_unitSeat,
-	[_unit] call BRM_FMK_fnc_getGear,
+	getUnitLoadout _unit,
 	_playerVars
 ];
 

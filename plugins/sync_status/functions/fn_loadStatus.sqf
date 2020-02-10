@@ -25,7 +25,7 @@ if !(hasInterface) exitWith {
 _status params ["_uid", "_playerUnit", "_playerDir", "_playerPos", "_playerDamage", "_vehicle", "_vehicleSeat", "_playerGear", "_playerVars"];
 
 if (_playerUnit == str player) then {
-	[player, _playerGear] call BRM_FMK_fnc_setGear;
+	player setUnitLoadout _playerGear;
 };
 
 player setDir _playerDir;
