@@ -1,6 +1,6 @@
 switch (toUpper(_faction)) do {
     case "PMC": {
-        #include "factions\pmc.sqf";
+        #include "factions\pmc.sqf"
     };
     case "NAPA": {
         #include "factions\napa.sqf"
@@ -158,19 +158,19 @@ switch (toUpper(_faction)) do {
     };
 
     case "ANZAC": {
-        #include "factions\anzac.sqf";
+        #include "factions\anzac.sqf"
     };
     case "LINGOR_REBELS": {
-        #include "factions\lingorrebels.sqf";
+        #include "factions\lingorrebels.sqf"
     };
  	case "LINGOR_ARMY": {
-        #include "factions\lingorarmy.sqf";
+        #include "factions\lingorarmy.sqf"
     };
  	case "AFRICAN_REBELS": {
-        #include "factions\africanrebels.sqf";
+        #include "factions\africanrebels.sqf"
     };
  	case "AFRICAN_ARMY": {
-        #include "factions\africanarmy.sqf";
+        #include "factions\africanarmy.sqf"
     };
  	case "YUGO": {
         #include "factions\yugo.sqf";
