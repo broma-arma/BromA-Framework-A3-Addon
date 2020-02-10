@@ -12,7 +12,7 @@ switch(_headgear) do {
 switch(_uniform) do {
     case ("keep"): {};
     case ("empty"): { removeUniform _unit };
-    default { removeUniform _unit; [[{}, _unit forceaddUniform _uniform], "BIS_fnc_spawn", true] call BIS_fnc_MP }
+    default { removeUniform _unit; _unit forceAddUniform _uniform }
 };
 switch(_vest) do {
     case ("keep"): {};
