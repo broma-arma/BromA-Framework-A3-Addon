@@ -98,9 +98,9 @@ _gogglesLIST = [
     "Mask_M50"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
+_randomUNIFORM = selectRandom _uniformsLIST;
+_randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;

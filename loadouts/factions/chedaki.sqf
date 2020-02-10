@@ -89,7 +89,7 @@ _goggleLIST = [
     "G_Balaclava_oli"
 ];
 
-_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
+_randomGOGGLE = selectRandom _goggleLIST call;
 
 _commonHEAD = "empty";
 _leaderHEAD = "rhsgref_patrolcap_specter";

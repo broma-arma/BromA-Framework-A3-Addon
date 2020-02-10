@@ -98,9 +98,9 @@ _vestsLIST = [
      "rhsusf_spcs_ocp_rifleman"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
-_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
+_randomVEST = selectRandom _vestsLIST;
+_randomGOGGLE = selectRandom _goggleLIST;
 
 _commonHEAD = "rhsusf_opscore_mc_cover_pelt_nsw";
 _leaderHEAD = "rhsusf_opscore_mc_cover_pelt_cam";

@@ -26,8 +26,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 _rifleList = [_TRG, _Mk20, _Mk20Camo, _Mk20C, _Mk20CCamo];
 _rifleGLList = [_Mk20GL, _Mk20GLCamo, _TRGGL];
 
-_randomRifle = _rifleList call BIS_fnc_selectRandom;
-_randomRifleGL = _rifleGLList call BIS_fnc_selectRandom;
+_randomRifle = selectRandom _rifleList;
+_randomRifleGL = selectRandom _rifleGLList;
 
 _commonRIFLE = _randomRifle;
 _commonRIFLEGL = _randomRifleGL;
@@ -122,9 +122,9 @@ _vestsLIST = [
     "V_TacVest_oli"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
+_randomUNIFORM = selectRandom _uniformsLIST;
+_randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "H_Watchcap_blk";

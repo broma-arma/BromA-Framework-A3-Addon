@@ -65,9 +65,9 @@ if (isNil "_factionObjects") then {
 if (isNil "_factionDACCamps") then {
     _factionDACCamps = [
         // DAC Camps
-        /* Basic    */ [(_factionObjects select FACTION_OBJECTS_FLAG),["FirePlace_burning_f",15,10,0],[(_factionObjects select FACTION_OBJECTS_STRUCTURES) call BIS_fnc_selectRandom,10,0,0],["Logic",10,15,0],0],
-        /* Objects  */ [[(_factionObjects select FACTION_OBJECTS_CRATES) call BIS_fnc_selectRandom, 20, 2, 0],[(_factionObjects select FACTION_OBJECTS_CRATES) call BIS_fnc_selectRandom, 20, 0, 0]],
-        /* Walls    */ [(_factionObjects select FACTION_OBJECTS_WALLS) call BIS_fnc_selectRandom,[-2,35],[40,40,0],[7,0,0,4],[1,0.1],[0,0]],
+        /* Basic    */ [(_factionObjects select FACTION_OBJECTS_FLAG),["FirePlace_burning_f",15,10,0],[selectRandom (_factionObjects select FACTION_OBJECTS_STRUCTURES),10,0,0],["Logic",10,15,0],0],
+        /* Objects  */ [[selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 2, 0],[selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 0, 0]],
+        /* Walls    */ [selectRandom (_factionObjects select FACTION_OBJECTS_WALLS),[-2,35],[40,40,0],[7,0,0,4],[1,0.1],[0,0]],
         /* Ammo     */ ["medical", "medical_adv" ,"ammo"]
     ];
 };

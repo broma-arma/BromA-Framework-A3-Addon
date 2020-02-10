@@ -108,9 +108,9 @@ _gogglesLIST = [
     "empty"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomGOGGLE = _gogglesLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
+_randomUNIFORM = selectRandom _uniformsLIST;
+_randomGOGGLE = selectRandom _gogglesLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "TRYK_H_headset2";

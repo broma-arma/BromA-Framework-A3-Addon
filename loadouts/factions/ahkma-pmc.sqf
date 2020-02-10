@@ -87,8 +87,8 @@ _vestsLIST = [
     "V_HarnessO_gry"
 ];
 
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+_randomUNIFORM = selectRandom _uniformsLIST;
+_randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD = "TRYK_H_woolhat";
 _leaderHEAD = "H_Cap_blk";

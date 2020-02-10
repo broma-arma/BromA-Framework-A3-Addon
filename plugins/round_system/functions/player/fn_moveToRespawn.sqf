@@ -8,7 +8,7 @@ switch (side player) do {
     case side_c_side: { _spawn = respawn_markers_C };
 };
 
-_spawn = _spawn call BIS_fnc_selectRandom;
+_spawn = selectRandom _spawn;
 _pos = getMarkerPos _spawn;
 _deviation = round_setup_size;
 

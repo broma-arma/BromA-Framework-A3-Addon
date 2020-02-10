@@ -94,10 +94,10 @@ _goggleLIST = [
 ];
 
 
-_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
+_randomGOGGLE = selectRandom _goggleLIST;
+_randomUNIFORM = selectRandom _uniformsLIST;
 
-_commonHEAD = ["BRM_ACH_COMS_NORSK","BRM_ACH_MASK_COMS_NORSK"] call BIS_fnc_selectRandom;
+_commonHEAD = selectRandom ["BRM_ACH_COMS_NORSK","BRM_ACH_MASK_COMS_NORSK"];
 _leaderHEAD = _commonHEAD;
 _officerHEAD = _commonHEAD;
 _medicHEAD = _commonHEAD;

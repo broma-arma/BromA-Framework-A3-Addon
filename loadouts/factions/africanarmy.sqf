@@ -95,8 +95,8 @@ _vestsLIST = [
 _gogglesLIST = [
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
+_randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "rhsgref_hat_M1951";

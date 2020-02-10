@@ -102,8 +102,8 @@ _uniformsLIST = [
     "U_BRM_Shirt_"+_camo
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
+_randomUNIFORM = selectRandom _uniformsLIST;
 
 _commonHEAD    = _randomHEAD;
 _leaderHEAD    = _commonHEAD;
@@ -117,7 +117,7 @@ _sniperHEAD    = "H_Booniehat_oli";
 _demoHEAD      = _commonHEAD;
 _reconHEAD     = "BRM_ACH_MASK_COMS_"+_camo;
 
-_commonUNIFORM   = ["BRM_BattleUNI_"+_camo,"BRM_BattleUNIRS_"+_camo,"BRM_BattleUNIT_"+_camo] call BIS_fnc_selectRandom;
+_commonUNIFORM   = selectRandom ["BRM_BattleUNI_"+_camo,"BRM_BattleUNIRS_"+_camo,"BRM_BattleUNIT_"+_camo];
 _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _commonUNIFORM;

@@ -82,7 +82,7 @@ while { mission_running } do {
 						missionNamespace getVariable format ["side_%1_side", _sideChar], format ["%1Extract", _sideChar],
 						["Extract", "Make your way to an extraction zone.", "exit", []],
 						["true", format ["!(side_%1_side in mission_require_extraction)", _sideChar]], 2,
-						["if (mission_extraction_enable_music) then {[mission_extraction_tracks call BIS_fnc_selectRandom] call BRM_FMK_fnc_playGlobal}", "", ""]
+						["if (mission_extraction_enable_music) then {[selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal}", "", ""]
 					] spawn BRM_FMK_fnc_newTask;
 
 					private _extraction = missionNamespace getVariable format ["extraction_%1", _sideChar];

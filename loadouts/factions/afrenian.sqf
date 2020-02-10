@@ -95,8 +95,8 @@ _vestsLIST = [
      "rhsgref_6b23_ttsko_digi"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
+_randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD    = _randomHEAD;
 _leaderHEAD    = _commonHEAD;

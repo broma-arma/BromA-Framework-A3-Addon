@@ -99,9 +99,9 @@ _goggleLIST = [
     "empty"
 ];
 
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
-_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
+_randomUNIFORM = selectRandom _uniformsLIST;
+_randomVEST = selectRandom _vestsLIST;
+_randomGOGGLE = selectRandom _goggleLIST;
 
 if (_assignLoadoutMode) then { if !(_isLeader) then { _unit addGoggles _randomGOGGLE }};
 

@@ -7,16 +7,16 @@ if (((_restoreDisplay) || (_restoreType)) && (isPlayer _unit)) then {
     _unit setVariable ["unitInit", _prevUnitInit];
 };
 
-_defaultVoice = _defaultVoice call BIS_fnc_selectRandom;
-_defaultFace = _defaultFace call BIS_fnc_selectRandom;
+_defaultVoice = selectRandom _defaultVoice;
+_defaultFace = selectRandom _defaultFace;
 
-_doVoice = _defaultVoice call BIS_fnc_selectRandom;
-_doFace = _defaultFace call BIS_fnc_selectRandom;
+_doVoice = selectRandom _defaultVoice;
+_doFace = selectRandom _defaultFace;
 
 if (!isNil "_defaultName") then {
-    _defaultName = _defaultName call BIS_fnc_selectRandom;
-    _doFirstName = (_defaultName select 0) call BIS_fnc_selectRandom;
-    _doLastName = (_defaultName select 1) call BIS_fnc_selectRandom;
+    _defaultName = selectRandom _defaultName;
+    _doFirstName = selectRandom (_defaultName select 0);
+    _doLastName = selectRandom (_defaultName select 1);
     _doFinalName = _doFirstName + " " + _doLastName;
 } else {
     _doFinalName = "default";

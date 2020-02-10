@@ -95,8 +95,8 @@ for "_i" from 1 to _amount do {
     private ["_leader"];
 
     _group = createGroup _hq;
-    _startPos = getMarkerPos (_starting call BIS_fnc_selectRandom);
-    _endPos = getMarkerPos (_end call BIS_fnc_selectRandom);
+    _startPos = getMarkerPos (selectRandom _starting);
+    _endPos = getMarkerPos (selectRandom _end);
 
     _startPos = [_startPos, [-(_radius select 0), (_radius select 0)],[-(_radius select 0), (_radius select 0)]] call BRM_FMK_SpawnAI_fnc_addDistance;
     _endPos = [_endPos, [-(_radius select 2), (_radius select 2)],[-(_radius select 2), (_radius select 2)]] call BRM_FMK_SpawnAI_fnc_addDistance;
@@ -130,13 +130,13 @@ for "_i" from 1 to _amount do {
     if (count _transport > 0) then {
 
         _finalLZ = _endPos;
-        if (count _LZ > 0) then { _finalLZ = getMarkerPos (_LZ call BIS_fnc_selectRandom) };
+        if (count _LZ > 0) then { _finalLZ = getMarkerPos (selectRandom _LZ) };
 
         _finalLZ = [_finalLZ, [-(_radius select 1), (_radius select 1)],[-(_radius select 1), (_radius select 1)]] call BRM_FMK_SpawnAI_fnc_addDistance;
 
         _landingPad = "HeliHEmpty" createVehicle _finalLZ;
 
-        _typeVehicle = _transport call BIS_fnc_selectRandom;
+        _typeVehicle = selectRandom _transport;
         _vehicle = _typeVehicle createVehicle _startPos;
 
         _vehicle spawn {

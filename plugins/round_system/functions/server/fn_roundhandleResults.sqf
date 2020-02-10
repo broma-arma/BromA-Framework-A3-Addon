@@ -11,7 +11,7 @@ _AVictory = {
 
     ["LOCAL", "CHAT", "BLUFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 
-    _victory = [win_messages_a call BIS_fnc_selectRandom, side_a_name];
+    _victory = [selectRandom win_messages_a, side_a_name];
 };
 
 _BVictory = {
@@ -21,7 +21,7 @@ _BVictory = {
 
     ["LOCAL", "CHAT", "OPFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 
-    _victory = [win_messages_b call BIS_fnc_selectRandom, side_b_name];
+    _victory = [selectRandom win_messages_b, side_b_name];
 };
 
 _CVictory = {
@@ -31,12 +31,12 @@ _CVictory = {
 
     ["LOCAL", "CHAT", "INDFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 
-    _victory = [win_messages_c call BIS_fnc_selectRandom, side_c_name];
+    _victory = [selectRandom win_messages_c, side_c_name];
 };
 
 _DrawVictory = {
     _result set [1, "Alert"];
-    _victory = [draw_messages call BIS_fnc_selectRandom, ""];
+    _victory = [selectRandom draw_messages, ""];
 
     ["LOCAL", "CHAT", "Draw.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 };

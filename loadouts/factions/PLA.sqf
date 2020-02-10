@@ -104,8 +104,8 @@ _headsLIST = [
     "BRM_LWH_T07"+_camo
 ];
 
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+_randomUNIFORM = selectRandom _uniformsLIST;
+_randomHEAD = selectRandom _headsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "BRM_PatrolCap_T07"+_camo;

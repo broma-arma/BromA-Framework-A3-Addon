@@ -98,7 +98,7 @@ _headsLIST = [
 _gogglesLIST = [
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "BRM_PatrolCap_FM05"+_camo;

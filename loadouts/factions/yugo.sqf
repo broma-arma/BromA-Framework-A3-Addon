@@ -86,7 +86,7 @@ _headsLIST = [
     "rhssaf_helmet_m59_85_oakleaf"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _randomHEAD;

@@ -99,9 +99,9 @@ _goggleLIST = [
     "empty"
 ];
 
-_randomUNIFORM = _uniformLIST call BIS_fnc_selectRandom;
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
+_randomUNIFORM = selectRandom _uniformLIST;
+_randomHEAD = selectRandom _headsLIST;
+_randomGOGGLE = selectRandom _goggleLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;

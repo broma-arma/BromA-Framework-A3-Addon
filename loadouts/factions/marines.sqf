@@ -99,8 +99,8 @@ _goggleLIST = [
     "empty"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
+_randomGOGGLE = selectRandom _goggleLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "rhsusf_lwh_helmet_marpat"+_lp+"_headset";
