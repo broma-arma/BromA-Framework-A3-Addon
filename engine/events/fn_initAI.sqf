@@ -27,7 +27,7 @@ RETURNS:
 [{pluginsLoaded}, {
 	params ["_unit", "_faction"];
 
-	if !(_unit isKindOf "CAManBase") exitWith {};
+	if !(local _unit && _unit isKindOf "CAManBase") exitWith {};
 
 	// Check if the unit already hasn't been initialized. ==========================
 
