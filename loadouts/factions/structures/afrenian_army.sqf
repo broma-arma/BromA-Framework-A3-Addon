@@ -179,13 +179,13 @@ switch (true) do {
     case (_isMMG): {
         [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2]]] call BRM_FMK_fnc_addtoVest;
-        [_unit, _commonMMG, 4] call BRM_FMK_fnc_addWeaponKit;
+        [_unit, _commonMG, 4] call BRM_FMK_fnc_addWeaponKit;
     };
 
     case (_isMMGAsst): {
         [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_rsmoke,2]]] call BRM_FMK_fnc_addtoVest;
-        [_unit,[[_commonMMG select RAMMO, (_countMG)]]] call BRM_FMK_fnc_addtoBackpack;
+        [_unit,[[_commonMG select RAMMO, (_countMG)]]] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "binoc"] call BRM_FMK_fnc_addOptics;
     };
