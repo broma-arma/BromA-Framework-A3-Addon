@@ -3,8 +3,7 @@ if (!isServer) exitWith {};
 
 #include "includes\settings.sqf"
 
-_center = createCenter sideLogic;
-_group = createGroup _center;
+_group = createGroup sideLogic;
 
 _module = _group createUnit ["AGM_ModuleRespawn", [0,0,0],[],0.5,"NONE"];
 _module setVariable ["RemoveDeadBodiesDisonncected", true];

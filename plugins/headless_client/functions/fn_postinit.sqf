@@ -23,8 +23,7 @@ if (mission_AI_controller) then {
     if (isServer && mission_HC_enabled) then {
 //        if (isClass(configFile >> "CfgPatches" >> "Werthles_WHK")) then {
 //            if ((count (nearestObjects [player, ["Werthles_moduleWHM"], 10000])) <= 0) then {
-//                private _center = createCenter sideLogic;
-//                private _group = createGroup _center;
+//                private _group = createGroup sideLogic;
 //
 //                WHMModule = _group createUnit ["Werthles_moduleWHM", [0,0,0],[],0.5,"NONE"];
 //                publicVariable "WHMModule";

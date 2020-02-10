@@ -1,3 +1,3 @@
-WEST_HQ = createCenter WEST;
-EAST_HQ = createCenter EAST;
-IND_HQ = createCenter RESISTANCE;
+WEST_HQ = WEST;
+EAST_HQ = EAST;
+IND_HQ = RESISTANCE;

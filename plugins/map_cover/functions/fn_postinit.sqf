@@ -1,6 +1,5 @@
 if (isServer) then {
-    private _center = createCenter sideLogic;
-    private _group = createGroup _center;
+    private _group = createGroup sideLogic;
     private _pos = getMarkerPos "ao";
     private _size = getMarkerSize "ao";
     private _rot = markerDir "ao";
