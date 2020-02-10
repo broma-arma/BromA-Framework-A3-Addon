@@ -173,7 +173,6 @@ switch (true) do {
         _kestrel = "ACE_Kestrel4500";
         _rangeCard = "ACE_RangeCard";
         _spottingScope = "ACE_SpottingScope";
-        _flashlight = "ACE_Flashlight_XL50";
         _ATragMX = "ACE_ATragMX";
     };
     default {
