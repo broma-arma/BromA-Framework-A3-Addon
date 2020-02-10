@@ -22,8 +22,7 @@ RETURNS:
 ================================================================================
 */
 
-waitUntil { !isNil "player_is_jip" };
-if !(player_is_jip) exitWith {};
+if !(didJIP) exitWith {};
 
 if (isRemoteExecuted) then {
 	private _names = ["DATE", "FOG", "RAIN", "GUSTS", "LIGHTNINGS", "OVERCAST", "RAINBOW", "WIND STRENGTH", "WIND FORCE", "WAVES"];

@@ -7,8 +7,8 @@ if (isServer) then {
 
 if (hasInterface) then {
 	0 spawn {
-		waitUntil { !isNil "player_is_jip" && !isNil "player_is_spectator" };
-		if (!player_is_jip || player_is_spectator) exitWith {};
+		waitUntil { !isNil "player_is_spectator" };
+		if (!didJIP || player_is_spectator) exitWith {};
 
 		sleep 3;
 

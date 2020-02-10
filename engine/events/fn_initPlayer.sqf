@@ -34,13 +34,11 @@ private _playerLog = format ["INITIALIZING PLAYER '%1' (%2)", name player, playe
 
 // Assigns JIP status. =========================================================
 
-player_is_jip = didJIP;
-
-["LOCAL", "F_LOG", format ["JIP STATUS: %1 | TIME: %2", player_is_jip, time]] call BRM_FMK_fnc_doLog;
+["LOCAL", "F_LOG", format ["JIP STATUS: %1 | TIME: %2", didJIP, time]] call BRM_FMK_fnc_doLog;
 
 player_is_spectator = player getVariable ["is_spectator", false] || player isKindOf "VirtualSpectator_F";
 
-if (!mission_allow_jip && player_is_jip && !player_is_spectator) exitWith {
+if (!mission_allow_jip && didJIP && !player_is_spectator) exitWith {
 	[player] spawn BRM_FMK_fnc_removeJIP;
 	player setVariable ["unit_initialized", true, true];
 };
@@ -101,7 +99,7 @@ if (!(_faction in _aliasNONE) && !units_player_useVanillaGear) then {
 
 // Assigns alias to other units and groups. ====================================
 
-if (player_is_jip) then {
+if (didJIP) then {
     [player, _groupName, _role] call BRM_FMK_fnc_setAlias;
 };
 

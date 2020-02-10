@@ -3,9 +3,9 @@ if !(hasInterface) exitWith { intro_cutscene_over = true; };
 intro_cutscene_over = false;
 
 0 spawn {
-	waitUntil { !isNil "player_is_jip" && !isNil "player_is_spectator" };
+	waitUntil { !isNil "player_is_spectator" };
 
-	if !(isMultiplayer && !player_is_jip && !player_is_spectator) exitWith { intro_cutscene_over = true; };
+	if !(isMultiplayer && !didJIP && !player_is_spectator) exitWith { intro_cutscene_over = true; };
 
 	if (isNil "intro_cutscene") then { intro_cutscene = "ESTABLISHING" };
 

@@ -1,13 +1,9 @@
 #define MIN_DISTANCE_SQD	10000	// Min distance, squared, to teleport.
 #define TIMEOUT				300		// Amount of time, in seconds, the player has to teleport.
 
-if !(hasInterface && isMultiplayer) exitWith {};
+if !(hasInterface && isMultiplayer && didJIP) exitWith {};
 
 0 spawn {
-	waitUntil { !isNil "player_is_jip" };
-
-	if (!player_is_jip) exitWith {};
-
 	if ("prevent_reslot" in usedPlugins) then {
 		waitUntil { player getVariable ["unit_valid_slot", false] };
 	};
