@@ -14,7 +14,7 @@ private _aoPos = [(getMarkerPos _aoMarker) select 0, (getMarkerPos _aoMarker) se
     if (!_isDead) then {
         if (_targetObject isKindOf "Land") then {
             if (!((getPos _targetObject) inArea "ao")) then {
-                private _pos = [getPos _targetObject, 1, (_targetObject getDir _aoPos)] call BIS_fnc_relPos;
+                private _pos = _targetObject getPos [1, _targetObject getDir _aoPos];
                 [] call left_ao_do;
             };
         };
