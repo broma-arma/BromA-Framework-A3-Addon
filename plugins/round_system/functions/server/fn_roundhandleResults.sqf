@@ -75,7 +75,7 @@ switch (round_end_reason) do {
 
                         ["LOCAL", "CHAT", format ["A: %1(%4) | B: %2(%5) | C: %3(%6)", _Aunits, _Bunits, _Cunits, _percentA, _percentB, _percentC], ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 
-                        _lowest = [_percentA,_percentB,_percentC] call BIS_fnc_lowestNum;
+                        _lowest = selectMin [_percentA,_percentB,_percentC];
 
                         if (_percentA == _percentB) then {
                             if ((_percentC == _lowest)&&(mission_enable_side_c)) then {
