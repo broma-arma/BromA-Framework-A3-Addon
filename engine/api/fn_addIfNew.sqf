@@ -3,6 +3,7 @@
 
 DEPRECATED:
     Use pushBackUnique.
+    Note: pushBackUnique returns -1 if item already exists; BRM_FMK_fnc_addIfNew returns item index
 
 NAME:
     BRM_FMK_fnc_addIfNew

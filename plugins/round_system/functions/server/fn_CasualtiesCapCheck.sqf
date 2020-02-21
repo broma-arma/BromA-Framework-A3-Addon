@@ -33,7 +33,7 @@ while {(!round_over)} do {
 
         sleep 5;
 
-        [_sideCheck, round_dead_sides] call BRM_FMK_fnc_addIfNew;
+        round_dead_sides pushBackUnique _sideCheck;
 
         ["LOCAL", "CHAT", "A team was wiped out!", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
     };
