@@ -1,253 +1,183 @@
+/*
+================================================================================
+
+NAME:
+    BRM_FMK_DAC_fnc_new
+
+AUTHOR(s):
+    Nife
+
+DESCRIPTION:
+    Create a DAC camp or zone
+
+PARAMETERS:
+    0 - Trigger object. (OBJECT)
+    1 - Description of the camp or zone to create. (STRING)
+
+USAGE:
+    [trg1, "Create an activated normal default friendly zone named zone1 on network 1, with 1 group of infantry and 2 groups of vehicles."] call BRM_FMK_DAC_fnc_new;
+
+RETURNS:
+    Nothing.
+
+================================================================================
+*/
+
 if (!mission_AI_controller) exitWith {};
 
-private["_id","_units","_side","_skill","_faction","_arg1","_arg1size","_arg2","_arg2size","_arg3","_arg3size","_arg4","_arg4size"];
+params ["_trigger", "_string"];
 
-_trigger = _this select 0;
-_pos = getPos _trigger;
-_area = triggerArea _trigger;
-_string = _this select 1;
-_output = [];
-_units = [[],[],[],[]];
+private _pos = getPos _trigger;
+private _area = triggerArea _trigger;
+//private _output = [];
+private _units = [[], [], [], []];
 
 #include "includes\dictionary.sqf"
 
-_string = toLower(_string);
-
+_string = toLower _string;
 _string = [_string, ",", ""] call CBA_fnc_replace;
 _string = [_string, ".", ""] call CBA_fnc_replace;
 _string = [_string, "!", ""] call CBA_fnc_replace;
 
-_arguments = [_string, " "] call CBA_fnc_split;
-_arguments = _arguments - _ignoredWords;
+private _arguments = _string splitString " ";
+_arguments = _arguments - IGNORED_WORDS;
 
-_command = _arguments select 0;
+private _command = _arguments deleteAt 0;
 
 switch (_command) do {
-    case "create": {
-        _status = _arguments select 1;
-        _skill = _arguments select 2;
-        _faction = _arguments select 3;
-        _side = _arguments select 4;
-        _kind = _arguments select 5;
-        _name = _arguments select 6;
-        _id = _arguments select 7;
+	case "create": {
+		_arguments params [
+			"_status",
+			"_skill",
+			"_faction",
+			"_side",
+			"_kind",
+			"_name",
+			"_id"
+		];
+		_arguments deleteRange [0, 7];
 
-        if (_name in _aliasRANDOM) then { _name = "DACZone" + str(floor(random(99999))) };
+		_side = ["SIDE", _side] call BRM_FMK_DAC_fnc_getDACStat;
+		_skill = ["SKILL", _skill] call BRM_FMK_DAC_fnc_getDACStat;
+		_faction = ["FACTION", _faction] call BRM_FMK_DAC_fnc_getDACStat;
 
-        switch (true) do {
-            case (_side in _aliasOPFOR): { _side = 0 };
-            case (_side in _aliasBLUFOR): { _side = 1 };
-            case (_side in _aliasRESISTANCE): { _side = 2 };
-            case (_side in _aliasCIVILIAN): { _side = 3 };
-            case (_side == "side_a"): { _side = ["SIDE", side_a_side] call BRM_FMK_DAC_fnc_getDACStat };
-            case (_side == "friendly"): { _side = ["SIDE", side_a_side] call BRM_FMK_DAC_fnc_getDACStat };
-            case (_side == "side_b"): { _side = ["SIDE", side_b_side] call BRM_FMK_DAC_fnc_getDACStat };
-            case (_side == "enemy"): { _side = ["SIDE", side_b_side] call BRM_FMK_DAC_fnc_getDACStat };
-            case (_side == "side_c"): { _side = ["SIDE", side_c_side] call BRM_FMK_DAC_fnc_getDACStat };
-        };
+		switch (_kind) do {
+			case "zone": {
+				if (ALIAS_RANDOM(_name)) then {
+					_name = format ["DACZone%1", count mission_dac_zones + 1];
+				};
 
-        _skill = ["SKILL", _skill] call BRM_FMK_DAC_fnc_getDACStat;
+				_status = switch (_status) do {
+					case "activated": { 0 };
+					case "deactivated": { 1 };
+					case "automatic": { 2 };
+					default { ["[WARN ] [DAC Plugin] Unknown zone status '%1', defaulting to 'activated'", _sizeStr] call BIS_fnc_error; 0 };
+				};
 
-        switch (true) do {
-            case (_faction == "default"): { _faction = 1 };
-            case (_faction == "vanilla"): { _faction = 2 };
-            case (_faction == "side_a"): { _faction = [side_a_side, "FACTION"] call BRM_FMK_fnc_getSideInfo };
-            case (_faction == "side_b"): { _faction = [side_b_side, "FACTION"] call BRM_FMK_fnc_getSideInfo };
-            case (_faction == "side_c"): { _faction = [side_c_side, "FACTION"] call BRM_FMK_fnc_getSideInfo };
-            case (_faction in _aliasBLUFOR): { _faction = [west, "FACTION"] call BRM_FMK_fnc_getSideInfo };
-            case (_faction in _aliasOPFOR): { _faction = [east, "FACTION"] call BRM_FMK_fnc_getSideInfo };
-            case (_faction in _aliasRESISTANCE): { _faction = [resistance, "FACTION"] call BRM_FMK_fnc_getSideInfo };
-            default {
-                _faction = ["FACTION", _faction] call BRM_FMK_DAC_fnc_getDACStat;
-            };
-        };
+				if (ALIAS_RANDOM(_id)) then {
+					_id = 999999 - count mission_dac_camps - count mission_dac_zones;
+				} else {
+					_id = parseNumber _id;
+				};
 
-        if ((_kind == "camp") || (_kind == "camps")) then {
-            _status = parseNumber _status;
-        } else {
-            switch (_status) do {
-                case "activated": { _status = 0 };
-                case "deactivated": { _status = 1 };
-                case "automatic": {
-                    _status = 1;
-                    _ax = (_area select 0)*5;
-                    _ay = (_area select 1)*5;
-                    _aa = _area select 2;
-                    _as = _area select 3;
+				private _fnc_setUnits = {
+					_arguments params [
+						"_amount",
+						"_sizeStr",
+						"_typeStr"
+					];
+					_arguments deleteRange [0, 3];
 
-                    _markerColor = "ColorBlue";
+					_amount = parseNumber _amount;
 
-                    switch (_side) do {
-                        case 1: { "ColorRed" };
-                        case 0: { "ColorBlue" };
-                        case 2: { "ColorGreen" };
-                        case 3: { "ColorPurple" };
-                    };
+					private _size = switch (_sizeStr) do {
+						case CASE_GROUP_SIZE_1: { 1 };
+						case CASE_GROUP_SIZE_2: { 2 };
+						case CASE_GROUP_SIZE_3: { 3 };
+						case CASE_GROUP_SIZE_4: { 4 };
+						default { ["[WARN ] [DAC Plugin] Unknown group size '%1', defaulting to 'group'", _sizeStr] call BIS_fnc_error; 1 };
+					};
 
-                    _activationcond = "this && (time > 10) && ({ ((_x isKindOf 'LandVehicle') || (_x isKindOf 'CAManBase') && (isPlayer _x) ) } count thislist) > 0";
+					private _type = switch (_typeStr) do {
+						case CASE_INFANTRY: { 0 };
+						case CASE_VEHICLES: { 1 };
+						case CASE_TANKS: { 2 };
+						case CASE_AIRCRAFTS: { 3 };
+						default { ["[WARN ] [DAC Plugin] Unknown group type '%1', defaulting to 'infantry'", _typeStr] call BIS_fnc_error; 0 };
+					};
 
-                    _mynewMarker = ["local", _pos, "ELLIPSE", "Solid", _markerColor, [_ax, _ay], _aa, 0.5] call BRM_FMK_fnc_newMarkerArea;
+					if !(_units select _type isEqualTo []) then {
+						["[WARN ] [DAC Plugin] Duplicate group type '%1', overrides previous definition", _typeStr] call BIS_fnc_error;
+					};
 
-                    _trg = createTrigger ["EmptyDetector", _pos];
-                    _trg setTriggerArea [_ax, _ay, _aa, _as];
-                    _trg setTriggerActivation ["ANY", "PRESENT", true];
-                    _trg setTriggerStatements [_activationcond, "["+ (_name) +"] call DAC_Activate", "["+ (_name) +"] call DAC_Deactivate"];
-                };
-                default { _status = 0 };
-            };
-        };
+					if (_type == 3) then {
+						_units set [_type, [_amount, _size, 40]];
+					} else {
+						_units set [_type, [_amount, _size, 10, 40]];
+					};
+				};
 
-        switch (true) do {
-            case (_kind == "zone"): {
+				call _fnc_setUnits;
+				if (count _arguments > 2) then {
+					call _fnc_setUnits;
+				};
+				if (count _arguments > 2) then {
+					call _fnc_setUnits;
+				};
+				if (count _arguments > 2) then {
+					call _fnc_setUnits;
+				};
 
-                if (_id in _aliasRANDOM) then {
-                    _id = floor(random(999999));
-                } else {
-                    _id = parseNumber _id;
-                };
+				[_name, _id, _status, _faction, _units select 0, _units select 1, _units select 2, _units select 3, _side, _skill, _area, _pos] call BRM_FMK_DAC_fnc_createDACZone;
+			};
 
-                _argamount = _arguments select 8;
-                _argtype = _arguments select 9;
-                _arg = _arguments select 10;
+			case "camp";
+			case "camps": {
+				if (ALIAS_RANDOM(_name)) then {
+					_name = format ["DACCamp%1", count mission_dac_camps + 1];
+				};
 
-                _argindex = 0;
-                _argamount = parseNumber _argamount;
+				_status = parseNumber _status;
 
-                switch (true) do {
-                    case (_argtype in _aliasTIER1): { _argtype = 1 };
-                    case (_argtype in _aliasTIER2): { _argtype = 2 };
-                    case (_argtype in _aliasTIER3): { _argtype = 3 };
-                    case (_argtype in _aliasTIER4): { _argtype = 4 };
-                };
+				private _reinforce = [];
 
-                switch (true) do {
-                    case (_arg in _aliasINFANTRY): { _argindex = 0 };
-                    case (_arg in _aliasVEHICLES): { _argindex = 1 };
-                    case (_arg in _aliasTANKS): { _argindex = 2 };
-                    case (_arg in _aliasAIRCRAFTS): { _argindex = 3 };
-                };
+				if !(ALIAS_RANDOM(_id)) then {
+					_id = parseNumber _id;
 
-                _units set [_argindex, [_argamount,_argtype,10,40]];
+					private _reinforceNetwork = mission_dac_zones select {
+						_x params ["_zoneName", "_zoneId"];
+						_zoneId == _id
+					} apply {
+						_x params ["_zoneName", "_zoneId"];
+						_zoneName
+					};
+					_reinforce append _reinforceNetwork;
+				};
 
-                if ( count _arguments >= 14 ) then {
-                    _argamount = _arguments select 11;
-                    _argtype = _arguments select 12;
-                    _arg = _arguments select 13;
+				_id = 999999 - count mission_dac_camps - count mission_dac_zones;
 
-                    _argindex = 0;
-                    _argamount = parseNumber _argamount;
+				_arguments params [
+					"_respawns",
+					"_units"
+				];
+				_arguments deleteRange [0, 2];
 
-                    switch (true) do {
-                        case (_argtype in _aliasTIER1): { _argtype = 1 };
-                        case (_argtype in _aliasTIER2): { _argtype = 2 };
-                        case (_argtype in _aliasTIER3): { _argtype = 3 };
-                        case (_argtype in _aliasTIER4): { _argtype = 4 };
-                    };
+				_respawns = parseNumber _respawns;
 
-                    switch (true) do {
-                        case (_arg in _aliasINFANTRY): { _argindex = 0 };
-                        case (_arg in _aliasVEHICLES): { _argindex = 1 };
-                        case (_arg in _aliasTANKS): { _argindex = 2 };
-                        case (_arg in _aliasAIRCRAFTS): { _argindex = 3 };
-                    };
+				_units = switch (_units) do {
+					case CASE_INFANTRY: { 1 };
+					case CASE_VEHICLES: { 2 };
+					case CASE_ALL: { 0 };
+					default { ["[WARN ] [DAC Plugin] Unknown respawn type '%1', defaulting to 'infantry'", _units] call BIS_fnc_error; 1 };
+				};
 
-                    _units set [_argindex, [_argamount,_argtype,10,40]];
-                };
+				_reinforce append _arguments;
+				_reinforce = _reinforce arrayIntersect _reinforce;
 
-                if ( count _arguments >= 17 ) then {
-                    _argamount = _arguments select 14;
-                    _argtype = _arguments select 15;
-                    _arg = _arguments select 16;
+				_reinforce = _reinforce joinString ",";
 
-                    _argindex = 0;
-                    _argamount = parseNumber _argamount;
-
-                    switch (true) do {
-                        case (_argtype in _aliasTIER1): { _argtype = 1 };
-                        case (_argtype in _aliasTIER2): { _argtype = 2 };
-                        case (_argtype in _aliasTIER3): { _argtype = 3 };
-                        case (_argtype in _aliasTIER4): { _argtype = 4 };
-                    };
-
-                    switch (true) do {
-                        case (_arg in _aliasINFANTRY): { _argindex = 0 };
-                        case (_arg in _aliasVEHICLES): { _argindex = 1 };
-                        case (_arg in _aliasTANKS): { _argindex = 2 };
-                        case (_arg in _aliasAIRCRAFTS): { _argindex = 3 };
-                    };
-
-                    _units set [_argindex, [_argamount,_argtype,10,40]];
-                };
-
-                if (count _arguments >= 20 ) then {
-                    _argamount = _arguments select 17;
-                    _argtype = _arguments select 18;
-                    _arg = _arguments select 19;
-
-                    _argindex = 0;
-                    _argamount = parseNumber _argamount;
-
-                    switch (true) do {
-                        case (_argtype in _aliasTIER1): { _argtype = 1 };
-                        case (_argtype in _aliasTIER2): { _argtype = 2 };
-                        case (_argtype in _aliasTIER3): { _argtype = 3 };
-                        case (_argtype in _aliasTIER4): { _argtype = 4 };
-                    };
-
-                    switch (true) do {
-                        case (_arg in _aliasINFANTRY): { _argindex = 0 };
-                        case (_arg in _aliasVEHICLES): { _argindex = 1 };
-                        case (_arg in _aliasTANKS): { _argindex = 2 };
-                        case (_arg in _aliasAIRCRAFTS): { _argindex = 3 };
-                    };
-
-                    _units set [_argindex, [_argamount,_argtype,10,40]];
-                };
-
-                [_name, _id, _status, _faction, _units select 0, _units select 1, _units select 2, _units select 3, _side, _skill, _area, _pos] call BRM_FMK_DAC_fnc_createDACZone;
-            };
-
-            case ((_kind == "camp") || (_kind == "camps")): {
-
-                _reinforce = [];
-
-                if !(_id in _aliasRANDOM) then {
-
-                    _id = parseNumber _id;
-                    {
-                        if ((_x select 1) == _id) then {
-                            _reinforce pushBack (_x select 0);
-                        };
-                    } forEach mission_dac_zones;
-                };
-
-                _id = floor(random(999999));
-
-                _respawns = parseNumber (_arguments select 8);
-                _units = _arguments select 9;
-
-                { if (_forEachIndex >= 10) then { _reinforce pushBack _x } } forEach _arguments;
-
-                _newString = "";
-
-                if (count _reinforce > 0) then {
-                    {
-                        _punct = ",";
-                        if (_forEachIndex >= (count _reinforce)-1) then { _punct = "" };
-                        _newString = _newString + _x + _punct;
-                    } forEach _reinforce;
-                };
-
-                _reinforce = _newString;
-
-                switch (true) do {
-                    case (_units in _aliasINFANTRY): { _units = 1 };
-                    case (_units in _aliasVEHICLES): { _units = 2 };
-                    case (_units in _aliasALL): { _units = 0 };
-                };
-
-                [_name, _id, _status, _faction, _respawns, _units, _reinforce, _side, _skill, _area, _pos] call BRM_FMK_DAC_fnc_createDACCamp;
-            };
-        };
-    };
+				[_name, _id, _status, _faction, _respawns, _units, _reinforce, _side, _skill, _area, _pos] call BRM_FMK_DAC_fnc_createDACCamp;
+			};
+		};
+	};
 };

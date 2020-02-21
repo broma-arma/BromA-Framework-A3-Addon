@@ -23,6 +23,7 @@
 #define CAMP_OBJECTS 1
 #define CAMP_WALLS 2
 #define CAMP_AMMO 3
+#define CAMP_STATICS 4
 
 #define CAMP_RET_BASIC 0
 #define CAMP_RET_OBJECTS 1

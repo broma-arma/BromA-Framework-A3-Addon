@@ -1,40 +1,57 @@
-params ["_side"];
+/*
+================================================================================
+
+NAME:
+    BRM_FMK_DAC_fnc_generateCampInfo
+
+AUTHOR(s):
+    Nife
+
+DESCRIPTION:
+    Returns an array containing DAC camp info
+
+PARAMETERS:
+    0 - Side to get the DAC camp info of. (SIDE)
+
+USAGE:
+    [WEST] call BRM_FMK_DAC_fnc_generateCampInfo;
+
+RETURNS:
+    An array containing DAC camp info for the side. (ARRAY)
+
+================================================================================
+*/
+
+params [
+	["_side", WEST, [WEST]]
+];
 
 #include "\broma_framework\loadouts\includes\vehicles-index.sqf"
 #include "\broma_framework\loadouts\includes\faction-info-index.sqf"
 
-private ["_factionUnits", "_faction", "_vehicles", "_campInfo", "_GcampStatic", "_gunner", "_GcampStatic", "_GcampBasic"];
+private _faction = [_side, "FACTION"] call BRM_FMK_fnc_getSideInfo;
 
-_factionUnits = [_side] call BRM_FMK_fnc_getUnitsArray;
-_faction = [_side, "FACTION"] call BRM_FMK_fnc_getSideInfo;
+private _campInfo = [_faction, "DACCAMPS"] call BRM_fnc_getLoadoutProperty;
+private _staticVehicles = [_faction, "VEHICLES"] call BRM_fnc_getLoadoutProperty select STATIC_DEFENSE;
 
-_vehicles = [_faction, "VEHICLES"] call BRM_fnc_getLoadoutProperty;
-_campInfo = [_faction, "DACCAMPS"] call BRM_fnc_getLoadoutProperty;
+_campInfo params [
+	"_basic",
+	"_objects",
+	"_walls",
+	"_ammo",
+	["_static", [[-7, 25, 0], [25, 25, 0], [25, -20, 180], [-7, -20, 180]]]
+];
 
-_campStatic = []; _campGuards = [];
-_gunner = _factionUnits select 12;
+private _staticGunner = switch (_side) do {
+	case WEST:      { "B_Soldier_F" };
+	case EAST:       { "O_Soldier_F" };
+	case INDEPENDENT: { "I_Soldier_F" };
+	default           { "B_Soldier_F" };
+};
+_static = _static apply {
+	[selectRandom _staticVehicles, _x select 0, _x select 1, _x select 2, _staticGunner]
+};
 
-{
-    _weapon = (_vehicles select STATIC_DEFENSE) call BIS_fnc_selectRandom;
-    _campStatic pushBack [_weapon, (_x select 0), (_x select 1), (_x select 2), _gunner];
-} forEach [[-7,25,0],[25,25,0],[25,-20,180],[-7,-20,180]];
+private _additionalGuards = [];
 
-{
-    _campGuards pushBack (_factionUnits select _x);
-} forEach [2,3,4,5,6];
-
-_campBasic = (_campInfo select CAMP_BASIC);
-_campObjects = (_campInfo select CAMP_OBJECTS);
-_campWalls = (_campInfo select CAMP_WALLS);
-_campAmmo = (_campInfo select CAMP_AMMO);
-
-_ret = [];
-
-_ret set [CAMP_RET_BASIC, _campBasic];
-_ret set [CAMP_RET_OBJECTS, _campObjects];
-_ret set [CAMP_RET_STATIC, _campStatic];
-_ret set [CAMP_RET_GUARDS, _campGuards];
-_ret set [CAMP_RET_WALLS, _campWalls];
-_ret set [CAMP_RET_AMMO, _campAmmo];
-
-_ret
+[_basic, _objects, _static, _additionalGuards, _walls, _ammo]

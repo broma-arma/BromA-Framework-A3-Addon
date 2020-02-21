@@ -1,10 +1,11 @@
-DAC_AI_Level = (_this select 0) + 1;
+params ["_aiSkill"];
 
-mission_DAC_AI_skill = [0.5,0.5];
+DAC_AI_Level = _aiSkill + 1;
 
-switch (_this select 0) do {
-    case 0: { mission_DAC_AI_skill = [0.2,0.3] };
-    case 1: { mission_DAC_AI_skill = [0.4,0.5] };
-    case 2: { mission_DAC_AI_skill = [0.6,0.7] };
-    case 3: { mission_DAC_AI_skill = [0.8,0.9] };
+mission_DAC_AI_skill = switch (_aiSkill) do {
+	case 0: { [0.2, 0.3] }; // Very Low
+	case 1: { [0.4, 0.5] }; // Low
+	case 2: { [0.6, 0.7] }; // Medium
+	case 3: { [0.8, 0.9] }; // High
+	default { [0.5, 0.5] };
 };

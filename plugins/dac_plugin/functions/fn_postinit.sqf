@@ -1,9 +1,5 @@
-waitUntil{!isNil "DAC_STRPlayers"};
-
-#include "includes\settings.sqf"
+waitUntil { !isNil "DAC_STRPlayers" };
 
 if (mission_AI_controller) then {
-    _group = createGroup sideLogic;
-    DAC_module = _group createUnit ["DAC_Source_Extern", [0,0,0],[], 1,"NONE"];
-    publicVariable "DAC_module";
+	createGroup sideLogic createUnit ["DAC_Source_Extern", [0, 0, 0], [], 1, "NONE"];
 };

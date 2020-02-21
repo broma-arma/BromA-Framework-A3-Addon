@@ -68,7 +68,8 @@ if (isNil "_factionDACCamps") then {
         /* Basic    */ [(_factionObjects select FACTION_OBJECTS_FLAG),["FirePlace_burning_f",15,10,0],[selectRandom (_factionObjects select FACTION_OBJECTS_STRUCTURES),10,0,0],["Logic",10,15,0],0],
         /* Objects  */ [[selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 2, 0],[selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 0, 0]],
         /* Walls    */ [selectRandom (_factionObjects select FACTION_OBJECTS_WALLS),[-2,35],[40,40,0],[7,0,0,4],[1,0.1],[0,0]],
-        /* Ammo     */ ["medical", "medical_adv" ,"ammo"]
+        /* Ammo     */ ["medical", "medical_adv" ,"ammo"],
+        /* Statics  */ [[-7, 25, 0], [25, 25, 0], [25, -20, 180], [-7, -20, 180]]
     ];
 };
 
