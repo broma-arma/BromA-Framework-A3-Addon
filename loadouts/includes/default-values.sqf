@@ -113,9 +113,3 @@ if (isNil "_factionDACCamps") then {
         /* Statics  */ [[-7, 25, 0], [25, 25, 0], [25, -20, 180], [-7, -20, 180]]
     ];
 };
-
-if (isNil "_isATDisposable") then { _isATDisposable = false };
-
-if (_isATDisposable) then {
-    _countATCARGO = 0;
-};
