@@ -18,17 +18,58 @@ if (isNil "_defaultInsignia") then { _defaultInsignia = "none" };
 "Anna", "Beatrice", "Clara", "Denise",
 "Rose", "Sarah", "Whitney", "Shirley", "Penny", "Mary", "Lucy", "Tanya", "Helen", "Petunia"];
 
-_sideC = "B";
-
-switch (_defaultSide) do {
-    case WEST: { _sideC = "B" };
-    case EAST: { _sideC = "O" };
-    case RESISTANCE: { _sideC = "I" };
-};
-
 if (isNil "_factionSkill") then {
 /*                  "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
     _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+};
+
+private _sideChar = switch (_defaultSide) do {
+	case WEST: { "B" };
+	case EAST: { "O" };
+	case RESISTANCE: { "I" };
+	default { "B" };
+};
+
+if (isNil "_factionUnits") then {
+    _factionUnits = [
+		// Order is important, see DAC's documentation for _Unit_Pool_S in DAC_Config_Units
+		_sideChar + "_crew_F", // Crewman
+		_sideChar + "_Helipilot_F", // Helicopter Pilot
+		_sideChar + "_Soldier_SL_F", // Squad Leader
+
+		// Infantry
+		[
+			// selectRandomWeighted
+			// value                         weight
+			_sideChar + "_soldier_TL_F",     20, // Team Leader
+			_sideChar + "_Soldier_F",        15, // Rifleman
+			_sideChar + "_soldier_lite_F",   5,  // Rifleman (Light)
+			_sideChar + "_soldier_LAT_F",    15, // Rifleman (AT)
+			_sideChar + "_soldier_AR_F",     15, // Autorifleman
+			_sideChar + "_soldier_M_F",      15, // Marksman
+			_sideChar + "_medic_F",          10, // Combat Life Saver
+			_sideChar + "_soldier_exp_F",    2,  // Explosive Specialist
+			_sideChar + "_soldier_repair_F", 2,  // Repair Specialist
+			_sideChar + "_soldier_AA_F",     1   // Missile Specialist (AA)
+		]
+    ];
+};
+
+call {
+	private _units = _factionUnits select [0, 3];
+
+	// Convert selectRandomWeighted to selectRandom (DAC uses selectRandom)
+	private _infantry = _factionUnits select 3;
+	for "_i" from 0 to (count _infantry / 2 - 1) do {
+		private _index = _i * 2;
+		private _type = _infantry select _index;
+		private _weight = _infantry select _index + 1;
+		for "_j" from 1 to _weight do {
+			_units pushBack _type;
+		};
+	};
+
+	_factionUnits = _units;
 };
 
 if (isNil "_factionVehicles") then {
@@ -56,7 +97,7 @@ if (isNil "_factionVehicles") then {
 if (isNil "_factionObjects") then {
     _factionObjects = [
         /* Flag         */ "Flag_White_F",
-        /* Objects      */ [_sideC + "_CargoNet_01_ammo_F"],
+        /* Objects      */ [_sideChar + "_CargoNet_01_ammo_F"],
         /* Walls        */ ["Land_BagFence_Short_F", "Land_BagFence_Long_F"],
         /* Structures   */ ["Land_Cargo_House_V3_F"]
     ];

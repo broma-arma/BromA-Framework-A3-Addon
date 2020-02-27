@@ -52,6 +52,7 @@ _static = _static apply {
 	[selectRandom _staticVehicles, _x select 0, _x select 1, _x select 2, _staticGunner]
 };
 
-private _additionalGuards = [];
+// An additional guard is needed to initAI of camp units in mission framework version <= 075
+private _additionalGuards = [_staticGunner];
 
 [_basic, _objects, _static, _additionalGuards, _walls, _ammo]

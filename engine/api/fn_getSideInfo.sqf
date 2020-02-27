@@ -12,7 +12,7 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Side whose information should be returned. (SIDE)
-    1 - The type of information. (STRING)
+    1 - The type of information: "faction", "side", "color", "name", "skill", "callsigns", "units", "vehicles", "objects", or "dacCamps" (STRING)
 
 USAGE:
     [west, "callsigns"] call BRM_FMK_fnc_getSideInfo;
