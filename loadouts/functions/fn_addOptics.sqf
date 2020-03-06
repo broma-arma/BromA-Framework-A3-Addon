@@ -20,14 +20,14 @@ if _isMan then {
     };
 } else {
     switch(_kind) do {
-        case "binoc": { _unit addWeaponCargoGlobal (_optics select 0)};
+        case "binoc": { _unit addWeaponCargoGlobal [(_optics select 0), 1]};
         case "rangefinder": {
             switch (true) do {
-                case (mission_AGM_enabled): { _unit addWeaponCargoGlobal "AGM_Vector" };
-                case (mission_ACE3_enabled): { _unit addWeaponCargoGlobal "ACE_Vector" };
-                default { _unit addWeaponCargoGlobal (_optics select 1) };
+                case (mission_AGM_enabled): { _unit addWeaponCargoGlobal ["AGM_Vector", 1] };
+                case (mission_ACE3_enabled): { _unit addWeaponCargoGlobal ["ACE_Vector", 1] };
+                default { _unit addWeaponCargoGlobal [(_optics select 1), 1] };
             };
         };
-        case "laserdesignator": { _unit addWeaponCargoGlobal (_optics select 2); _unit addMagazineCargoGlobal (_battery select 0)};
+        case "laserdesignator": { _unit addWeaponCargoGlobal [(_optics select 2), 1]; _unit addMagazineCargoGlobal [(_battery select 0), 1]};
     };
 };
