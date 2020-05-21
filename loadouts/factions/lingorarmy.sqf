@@ -38,7 +38,7 @@ _commonCCO = "rhsusf_acc_mrds";
 _commonMAGNIFIED = "FHQ_optic_LeupoldERT";
 _commonSUPPRESSOR = "hlc_muzzle_300blk_KAC";
 _commonPISTOLSUPPRESSOR = "";
-_NVG = "meu_ANPVS_15";
+_NVG = "rhsusf_ANPVS_15";
 
 // AMMO COUNT ==================================================================
 
