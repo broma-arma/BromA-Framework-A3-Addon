@@ -24,20 +24,20 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AKM;
-_commonRIFLEGL = _AKMGL;
+_commonRIFLE = _AK74N;
+_commonRIFLEGL = _AK74NGL;
 _commonPISTOL = _Makarov;
-_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
+_commonAR = _RPK;
 _commonMG = _PKM;
 _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _RPG26;
 _specAT = _RPG7;
-_commonSMG = _AKS74U;
-_commonRCO = "HLC_Optic_1p29";
-_commonCCO = "hlc_optic_kobra";
-_commonMAGNIFIED = "HLC_Optic_PSO1";
-_commonSUPPRESSOR = "hlc_muzzle_762SUP_AK";
+_commonSMG = _AK74UN;
+_commonRCO = "rhs_acc_1p29";
+_commonCCO = "rhs_acc_ekp1";
+_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
+_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
 
@@ -82,9 +82,9 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _uniformsLIST = [
-    "LOP_U_NAPA_Fatigue_01",
-    "LOP_U_NAPA_Fatigue_02",
-	"LOP_U_NAPA_Fatigue_03"
+    "rhsgref_uniform_woodland_olive",
+    "rhsgref_uniform_flecktarn",
+    "rhsgref_uniform_dpm_olive"
 ];
 
 _vestsLIST = [
@@ -107,7 +107,7 @@ if (_assignLoadoutMode) then { if !(_isLeader) then { _unit addGoggles _randomGO
 
 _commonHEAD = "empty";
 _leaderHEAD = _commonHEAD;
-_officerHEAD = "LOP_H_Cowboy_hat";
+_officerHEAD = _commonHEAD ;
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4";
 _pilotHEAD = _commonHEAD;
@@ -118,7 +118,7 @@ _demoHEAD = _commonHEAD;
 _reconHEAD = _commonHEAD;
 
 _commonUNIFORM = _randomUNIFORM;
-_officerUNIFORM = "LOP_U_NAPA_Fatigue_04";
+_officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = _commonUNIFORM;
 _sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
@@ -164,7 +164,7 @@ _factionVehicles = [
 /*  Anti Air Vehicles */	 ["rhsgref_nat_ural_Zu23"]
 /*  Attack Helos      */	,[]
 /*  Attack Planes     */	,[]
-/*  Heavy Vehicles    */	,["LOP_AFR_OPF_T55","rhs_t80","rhs_t72ba_tv"]
+/*  Heavy Vehicles    */	,["rhs_t80","rhs_t72ba_tv"]
 /*  Light Vehicles    */	,["rhsgref_nat_uaz","rhsgref_nat_uaz_ags","rhsgref_nat_uaz_dshkm","rhsgref_nat_uaz_spg9"]
 /*  Medium Vehicles   */	,["rhs_bmp2d_msv","rhs_bmp1_msv","rhsgref_BRDM2_msv","rhsgref_nat_btr70"]
 /*  Mobile Artillery  */	,[]

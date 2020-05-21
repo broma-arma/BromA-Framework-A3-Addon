@@ -24,18 +24,18 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _RHSM16A4;
-_commonRIFLEGL = _RHSM16A4GL;
-_commonPISTOL = _USP;
-_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
+_commonRIFLE = _HLCM16A2;
+_commonRIFLEGL = _HLCM16A2GL;
+_commonPISTOL = _Makarov;
+_commonAR = _RPK;
 _commonMG = _PKM;
 _commonSNIPER = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _AT4;
-_specAT = _MAAWS;
-_commonSMG = _M16A3;
-_commonRCO = "rhsusf_acc_eotech_552";
-_commonCCO = "rhsusf_acc_eotech_552";
+_specAT = _RPG7;
+_commonSMG = _AK74UN;
+_commonRCO = "rhsusf_acc_ACOG_USMC";
+_commonCCO = "rhsusf_acc_compm4";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhsusf_acc_rotex5_grey";
 _commonPISTOLSUPPRESSOR = "";
@@ -84,53 +84,46 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
+    "UK3CB_TKA_I_H_SSh68_Oli",
+    "UK3CB_TKP_I_H_SSh68_BLK",
     "rhssaf_helmet_m97_olive_nocamo",
-    "rhsgref_helmet_pasgt_olive",
-    "rhs_beanie_green",
-    "rhs_ssh68"
+    "rhssaf_helmet_m97_olive_nocamo"
 ];
 
 _uniformsLIST = [
-    "LOP_U_AA_Fatigue_01",
-    "LOP_U_AA_Fatigue_01_slv",
-    "LOP_U_AA_Fatigue_02",
-    "LOP_U_AA_Fatigue_02_slv"
+    "UK3CB_ANA_B_U_CombatUniform_01_SPEC4CE",
+    "UK3CB_ANA_B_U_CombatUniform_Shortsleeve_01_SPEC4CE"
 ];
 
-_vestsLIST = [
-    "BRM_RHS_SPCS_Green_rifle",
-    "BRM_RHS_SPCS_Green_MG"
-];
 
 _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = _randomHEAD;
-_leaderHEAD = _commonHEAD;
-_officerHEAD = "H_Beret_blk";
+_leaderHEAD = "rhs_beret_milp";
+_officerHEAD = "rhs_beret_milp";
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhsusf_cvc_ess";
+_crewmanHEAD = "rhs_tsh4_ess";
 _pilotHEAD = "rhsusf_hgu56p";
-_helicrewHEAD = "rhsusf_hgu56p_mask";
+_helicrewHEAD = "rhsusf_hgu56p";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "rhsusf_opscore_rg_cover";
+_reconHEAD = "rhssaf_helmet_m97_olive_nocamo";
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _randomUNIFORM;
-_pilotUNIFORM = "U_B_PilotCoveralls";
+_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
 _sniperUNIFORM = _randomUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = _commonUNIFORM;
+_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _randomUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = _randomVEST;
+_commonVEST = "rhsgref_chicom";
 _officerVEST = _commonVEST;
 _ftlVEST = _commonVEST;
 _slVEST = _commonVEST;
@@ -141,8 +134,8 @@ _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "B_AssaultPack_rgr";
-_bigBACKPACK = "B_Carryall_ocamo";
+_commonBACKPACK = "UK3CB_CHC_C_B_HIKER";
+_bigBACKPACK = "UK3CB_CHC_C_B_HIKER";
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -161,14 +154,14 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */	 ["LOP_AA_ZSU234"]
-/*  Attack Helos      */	,["LOP_PMC_MH9_armed", "RHS_Mi24V_AT_vvsc","RHS_Mi24V_vvsc","RHS_Mi24P_CAS_vvsc"]
+/*  Anti Air Vehicles */	 ["rhsgref_nat_ural_Zu23"]
+/*  Attack Helos      */	,["RHS_Mi24V_AT_vvsc","RHS_Mi24V_vvsc","RHS_Mi24P_CAS_vvsc"]
 /*  Attack Planes     */	,["RHS_Su25SM_vvsc"]
 /*  Heavy Vehicles    */	,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv"]
 /*  Light Vehicles    */	,["B_G_Offroad_01_F", "B_G_Van_01_transport_F", "rhsusf_m998_d_2dr_halftop", "rhsusf_m998_d_4dr_halftop", "rhsusf_m998_d_4dr"]
-/*  Medium Vehicles   */	,["rhs_bmp2_tv", "LOP_AA_M113_W"]
+/*  Medium Vehicles   */	,["rhs_bmp2_tv"]
 /*  Mobile Artillery  */	,["rhs_9k79_B","rhs_9k79_K","rhs_9k79","rhs_2s3_tv"]
-/*  Transport Helos   */	,["LOP_PMC_MH9", "LOP_PMC_M900", "LOP_PMC_Mi8AMT","RHS_Mi8mt_vv"]
+/*  Transport Helos   */	,["RHS_Mi8mt_vv"]
 /*  Transport Planes  */	,[]
 /*  Transport Trucks  */	,["RHS_Ural_VDV_01","RHS_Ural_Flat_VDV_01","RHS_Ural_Open_VDV_01","RHS_Ural_Open_Flat_VDV_01"]
 /*  Static Defence    */	,["RHS_M2StaticMG_D","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","RHS_TOW_TriPod_D","rhsgref_ins_g_ZU23"]

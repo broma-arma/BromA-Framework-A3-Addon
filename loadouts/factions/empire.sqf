@@ -87,7 +87,7 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "LOP_U_IRA_Fatigue_DPM"
+    "rhsgref_uniform_woodland_olive"
 ];
 
 _vestsLIST = [

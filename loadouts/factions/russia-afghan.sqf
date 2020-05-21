@@ -22,22 +22,22 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AK74;
-_commonRIFLEGL = _AKS74GL;
-_commonPISTOL = ["rhs_weap_makarov_pm","rhs_mag_9x18_8_57N181S"];
-_commonAR = _RPK74;
+_commonRIFLE = _AK74N;
+_commonRIFLEGL = _AK74NGL;
+_commonPISTOL = _Makarov;
+_commonAR = _PKM;
 _commonMG = _PKM;
 _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _RPG26;
-_specAT = _RPG7PGO;
-_commonSMG = ["rhs_weap_aks74un", "rhs_30Rnd_545x39_AK"];
-_commonRCO = "rhs_acc_pso1m2";
-_commonCCO = "";
-_commonMAGNIFIED = "rhs_acc_pso1m2";
-_commonSUPPRESSOR = "rhs_acc_tgpa";
-_commonPISTOLSUPPRESSOR = "";
-_NVG = "rhsusf_ANPVS_15";
+_specAT = _RPG7;
+_commonSMG = _AK74UN;
+_commonRCO = "rhs_acc_1p29";
+_commonCCO = "rhs_acc_ekp1";
+_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
+_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
+_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_NVG = "rhs_1PN138";
 
 // AMMO COUNT ==================================================================
 
@@ -81,8 +81,6 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-
-
 _commonHEAD = "rhs_ssh68";
 _leaderHEAD = "rhs_fieldcap_khk";
 _officerHEAD = "rhs_beret_mp2";
@@ -98,14 +96,14 @@ _reconHEAD = "H_Bandanna_khk";
 _commonUNIFORM = "rhs_uniform_m88_patchless";
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15";
-_sniperUNIFORM = "LOP_U_US_Fatigue_14";
+_sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "rhs_uniform_df15";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
-_reconUNIFORM = "LOP_U_US_Fatigue_13";
+_reconUNIFORM = _commonUNIFORM;
 
 _commonVEST = "rhs_6b5_rifleman_khaki";
 _officerVEST = "rhs_6b5_officer_khaki";
@@ -116,10 +114,10 @@ _grenadierVEST = _commonVEST;
 _medicVEST = "rhs_6b5_medic_khaki";
 _demoVEST = _commonVEST;
 _marksmanVEST = "rhs_6b5_sniper_khaki";
-_reconVEST = "LOP_V_6Sh92_OLV";
+_reconVEST = _commonVEST;
 
-_commonBACKPACK = "rhs_sidor";
-_bigBACKPACK = "rhsgref_ttsko_alicepack";
+_commonBACKPACK = "BRM_SqBackpack_Green";
+_bigBACKPACK = "BRM_SqBackpack_Green";
 
 // EXTRA EQUIPMENT =============================================================
 

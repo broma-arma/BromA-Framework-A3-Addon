@@ -18,7 +18,7 @@ _defaultSide = EAST;
 _defaultVoice = [_voiceBRITISH];
 _defaultFace = [_faceWHITE];
 _defaultName = [_nameSPANISH];
-_defaultInsignia = "LOP_Insignia_SLA";
+_defaultInsignia = "";
 _defaultColor = "red";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
@@ -26,22 +26,23 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _HLCAKM;
-_commonRIFLEGL = _AKMGL;
+_commonRIFLE = _AK74N;
+_commonRIFLEGL = _AK74NGL;
 _commonPISTOL = _Makarov;
-_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
+_commonAR = _RPK;
 _commonMG = _PKM;
 _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _RPG26;
 _specAT = _RPG7;
-_commonSMG = _AKS74U;
-_commonRCO = "HLC_Optic_1p29";
-_commonCCO = "hlc_optic_kobra";
-_commonMAGNIFIED = "HLC_Optic_PSO1";
-_commonSUPPRESSOR = "hlc_muzzle_762SUP_AK";
+_commonSMG = _AK74UN;
+_commonRCO = "rhs_acc_1p29";
+_commonCCO = "rhs_acc_ekp1";
+_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
+_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
+
 
 _isATDisposable = true;
 
@@ -87,9 +88,9 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_commonHEAD = "rhs_ssh68";
-_leaderHEAD = "rhs_fieldcap_khk";
-_officerHEAD = "LOP_H_SLA_Beret";
+_commonHEAD = "UK3CB_TKA_I_H_SSh68_Oli";
+_leaderHEAD = "rhs_fieldcap_vsr";
+_officerHEAD = "rhssaf_beret_red";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4";
 _pilotHEAD = "rhs_zsh7a_alt";
@@ -99,8 +100,8 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = "rhssaf_beret_red";
 
-_commonUNIFORM = "LOP_U_SLA_Fatigue_01";
-_officerUNIFORM = "LOP_U_SLA_Fatigue_01";
+_commonUNIFORM = "rhsgref_uniform_vsr";
+_officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15";
 _sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
@@ -111,18 +112,18 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhsgref_6b23_khaki_rifleman";
-_officerVEST = "rhs_6b23_ML_6sh92_radio";
-_ftlVEST = "rhsgref_6b23_khaki_nco";
-_slVEST = "rhsgref_6b23_khaki_nco";
+_commonVEST = "rhs_6b23_vydra_3m";
+_officerVEST = _commonVEST;
+_ftlVEST = _commonVEST;
+_slVEST = _commonVEST;
 _mgVEST = _commonVEST;
 _grenadierVEST = _commonVEST;
-_medicVEST = "rhsgref_6b23_khaki_medic";
+_medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "rhs_sidor";
+_commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
 
 // EXTRA EQUIPMENT =============================================================

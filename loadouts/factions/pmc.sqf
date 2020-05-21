@@ -173,7 +173,7 @@ _factionVehicles = [
 /*  Anti Air Vehicles    */      []
 /*  Attack Helos 	 */	,["RHS_MELB_AH6M"]
 /*  Attack Planes 	 */	,["rhs_l159_CDF_CAP"]
-/*  Heavy Vehicles 	 */	,["LOP_M1117_D_base"]
+/*  Heavy Vehicles 	 */	,[]
 /*  Light Vehicles 	 */	,["rhsusf_m998_d_4dr_halftop","rhsusf_m998_d_4dr","rhsusf_m1025_d_m2"]
 /*  Medium Vehicles 	 */	,["rhsusf_M1220_M2_usarmy_d"]
 /*  Mobile Artillery     */	,[]
@@ -186,7 +186,7 @@ _factionVehicles = [
 /*  UGV                  */	,[]
 /*  Support              */	,["rhsusf_M977A4_REPAIR_usarmy_d","rhsusf_M977A4_AMMO_usarmy_d","rhsusf_M978A4_usarmy_d", "rhsusf_M1085A1P2_B_D_Medical_fmtv_usarmy"]
 /*  Submarines           */	,[]
-/*  MRAP Vehicles        */     ,["LOP_M1117_D_base"]
+/*  MRAP Vehicles        */     ,[]
 ];
 
 // OBJECTS =====================================================================

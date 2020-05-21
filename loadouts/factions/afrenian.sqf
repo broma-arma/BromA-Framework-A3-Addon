@@ -90,19 +90,12 @@ _headsLIST = [
     "H_Bandanna_sand"
 ];
 
-_uniformsLIST = [
-    "LOP_U_US_Fatigue_08",
-    "LOP_U_US_Fatigue_03",
-    "LOP_U_TKA_Fatigue_02"
-];
-
 _vestsLIST = [
      "rhsgref_6b23_ttsko_digi_rifleman",
      "rhsgref_6b23_ttsko_digi"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
 _randomVEST = _vestsLIST call BIS_fnc_selectRandom;
 
 _commonHEAD    = _randomHEAD;
@@ -117,10 +110,10 @@ _sniperHEAD    = _commonHEAD;
 _demoHEAD      = _commonHEAD;
 _reconHEAD     = "rhsusf_ach_helmet_headset_ocp";
 
-_commonUNIFORM   = _randomUNIFORM;
+_commonUNIFORM   = "BRM_JIETAIW_M93";
 _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
-_sniperUNIFORM   = "LOP_U_IRA_Fatigue_GRK_DPM";
+_sniperUNIFORM   = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "TRYK_OVERALL_nok_flesh";
 _crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk_blk2";
@@ -169,7 +162,7 @@ _factionVehicles = [
 /*  Mobile Artillery     */ ,["rhsusf_m109_usarmy"]
 /*  Transport Helos      */ ,["I_Heli_Transport_02_F"]
 /*  Transport Planes     */ ,["RHS_C130J"]
-/*  Transport Trucks     */ ,["LOP_US_Ural","LOP_US_Ural_open"]
+/*  Transport Trucks     */ ,["rhs_zil131_vdv","rhs_zil131_open_vdv"]
 /*  Static Defence       */ ,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
 /*  Boats                */ ,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
 /*  UAV                  */ ,["B_UAV_02_CAS_F","B_UAV_02_F"]
