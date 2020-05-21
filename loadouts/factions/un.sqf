@@ -28,7 +28,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _FNFAL;
-_commonRIFLEGL = ["gst_m16a2_gl","rhs_mag_30Rnd_556x45_M855_Stanag","rhs_mag_M441_HE"];
+_commonRIFLEGL = _HLCM16A2GL;
 _commonPISTOL = _Makarov;
 _commonAR = ["hlc_lmg_M60E4","hlc_100Rnd_762x51_M_M60E4"];
 _commonMG = _M240B;
