@@ -18,7 +18,7 @@ _defaultSide = EAST;
 _defaultVoice = [_voiceBRITISH];
 _defaultFace = [_faceWHITE];
 _defaultName = [_nameSPANISH];
-_defaultInsignia = "LOP_Insignia_SLA";
+_defaultInsignia = "";
 _defaultColor = "red";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
