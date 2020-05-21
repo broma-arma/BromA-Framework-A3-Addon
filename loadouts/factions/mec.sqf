@@ -191,7 +191,7 @@ _factionVehicles = [
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "lop_Flag_Iraq_F",
+/* Flag         */ "FlagCarrierTakistan_EP1",
 /* Objects      */ ["O_CargoNet_01_ammo_F"],
 /* Walls        */ ["Land_BagFence_Short_F"],
 /* Structures   */ ["Land_Fort_Watchtower"]

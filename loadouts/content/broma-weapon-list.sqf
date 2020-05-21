@@ -815,6 +815,7 @@ _40rnd46x30JHP = "rhsusf_mag_40Rnd_46x30_JHP";
 _40rnd46x30AP  = "rhsusf_mag_40Rnd_46x30_AP";
 
 _30rnd762AKM = "rhs_30Rnd_762x39mm";
+_30rnd762Bakelite = "rhs_30Rnd_762x39mm_bakelite";
 
 _5rnd300win = "rhsusf_5Rnd_300winmag_xm2010";
 

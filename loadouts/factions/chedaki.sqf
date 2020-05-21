@@ -25,8 +25,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _HLCAKM;
-_commonRIFLEGL = _AKMGL;
+_commonRIFLE = _AK74N;
+_commonRIFLEGL = _AK74NGL;
 _commonPISTOL = _Makarov;
 _commonAR = _RPK;
 _commonMG = _PKM;
@@ -34,11 +34,11 @@ _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _RPG26;
 _specAT = _RPG7;
-_commonSMG = _AKS74U;
-_commonRCO = "HLC_Optic_1p29";
-_commonCCO = "hlc_optic_kobra";
-_commonMAGNIFIED = "HLC_Optic_PSO1";
-_commonSUPPRESSOR = "hlc_muzzle_762SUP_AK";
+_commonSMG = _AK74UN;
+_commonRCO = "rhs_acc_1p29";
+_commonCCO = "rhs_acc_ekp1";
+_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
+_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
 
@@ -84,25 +84,16 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_uniformsLIST = [
-    "LOP_U_ChDKZ_Fatigue_04",
-    "LOP_U_ChDKZ_Fatigue_01"
-];
-
 _goggleLIST = [
-    "empty",
     "G_Balaclava_blk",
-    "G_Balaclava_oli",
-    "empty"
+    "G_Balaclava_oli"
 ];
 
-
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
 _randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = "empty";
-_leaderHEAD = "rhs_fieldcap_khk";
-_officerHEAD = "LOP_H_ChDKZ_Beret";
+_leaderHEAD = "rhsgref_patrolcap_specter";
+_officerHEAD = "rhsgref_patrolcap_specter";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4_bala";
 _pilotHEAD = "rhs_zsh7a_alt";
@@ -112,27 +103,27 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = _commonHEAD;
 
-_commonUNIFORM = _randomUNIFORM;
-_SLUNIFORM = "LOP_U_ChDKZ_Fatigue_Commander";
-_FTLUNIFORM = "LOP_U_ChDKZ_Fatigue_03";
-_officerUNIFORM = "LOP_U_ChDKZ_Fatigue_Bardak";
-_pilotUNIFORM = _commonUNIFORM;
-_sniperUNIFORM = "LOP_U_ChDKZ_Fatigue_03";
+_commonUNIFORM = "rhsgref_uniform_specter";
+_SLUNIFORM = _commonUNIFORM;
+_FTLUNIFORM = _commonUNIFORM;
+_officerUNIFORM = _commonUNIFORM;
+_pilotUNIFORM = "rhs_uniform_df15_tan";
+_sniperUNIFORM = "U_I_FullGhillie_sard";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = _commonUNIFORM;
+_helicrewUNIFORM = "rhs_uniform_df15_tan";
 _crewUNIFORM = _commonUNIFORM;
-_mgUNIFORM = "LOP_U_ChDKZ_Fatigue_02";
+_mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
-_reconUNIFORM = "LOP_U_ChDKZ_Fatigue_03";
+_reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "LOP_V_6Sh92_OLV";
-_officerVEST = "LOP_V_6Sh92_Radio_OLV";
-_ftlVEST = "LOP_V_6Sh92_Radio_OLV";
-_slVEST = "LOP_V_6Sh92_Radio_OLV";
-_mgVEST = "LOP_V_6Sh92_Vog_OLV";
-_grenadierVEST = _commonVEST;
-_medicVEST = _commonVEST;
+_commonVEST = "rhs_6sh92_digi";
+_officerVEST = "rhs_6sh92_digi_headset";
+_ftlVEST = "rhs_6sh92_digi_vog_headset";
+_slVEST = "rhs_6sh92_digi_headset";
+_mgVEST = _commonVEST;
+_grenadierVEST = "rhs_6sh92_digi_vog";
+_medicVEST = "rhsgref_6b23_khaki_medic";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
@@ -140,7 +131,13 @@ _reconVEST = _commonVEST;
 _commonBACKPACK = "rhs_sidor";
 _bigBACKPACK = "TRYK_B_Alicepack";
 
-if (_assignLoadoutMode) then { if !(_isLeader) then { _unit addGoggles _randomGOGGLE }};
+if (_assignLoadoutMode) then {
+    if !( _isOfficer || _isSquadLeader || _isTeamLeader ||
+          _isHelicopterCrew || _isHelicopterPilot || _isPilot ||
+          _isCrewman ) then {
+              _unit addGoggles _randomGOGGLE 
+    }
+};
 
 // EXTRA EQUIPMENT =============================================================
 

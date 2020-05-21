@@ -83,7 +83,7 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "LOP_U_TKA_Fatigue_02"
+    "UK3CB_TKA_I_U_CombatUniform_01_OLI"
 ];
 
 _vestsLIST = [

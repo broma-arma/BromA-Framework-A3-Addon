@@ -96,24 +96,24 @@ _reconHEAD = "rhs_beanie_green";
 _commonUNIFORM = "rhs_uniform_m88_patchless";
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15";
-_sniperUNIFORM = "LOP_U_US_Fatigue_14";
+_sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "rhs_uniform_df15";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
-_reconUNIFORM = "LOP_U_US_Fatigue_13";
+_reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "LOP_V_6Sh92_OLV";
-_officerVEST = "LOP_V_6Sh92_Radio_OLV";
+_commonVEST = "rhs_6b5_rifleman_khaki";
+_officerVEST = "rhs_6b5_officer_khaki";
 _ftlVEST = _commonVEST;
 _slVEST = _officerVEST;
 _mgVEST = _commonVEST;
-_grenadierVEST = "LOP_V_6Sh92_Vog_OLV";
-_medicVEST = _commonVEST;
+_grenadierVEST = _commonVEST;
+_medicVEST = "rhs_6b5_medic_khaki";
 _demoVEST = _commonVEST;
-_marksmanVEST = _commonVEST;
+_marksmanVEST = "rhs_6b5_sniper_khaki";
 _reconVEST = _commonVEST;
 
 _commonBACKPACK = "rhs_sidor";
@@ -136,25 +136,24 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */	 ["rhs_zsu234_aa", "rhs_gaz66_zu23_vdv"]
-/*  Attack Helos      */	,["RHS_Mi24P_vdv", "RHS_Mi8MTV3_vdv", "RHS_Mi8MTV3_heavy_vdv"]
-/*  Attack Planes     */	,[""]
-/*  Heavy Vehicles    */	,["LOP_AFR_OPF_T55"]
-/*  Light Vehicles    */	,["LOP_US_UAZ", "LOP_US_UAZ_Open", "LOP_US_UAZ_DshKM", "LOP_US_UAZ_SPG"]
-/*  Medium Vehicles   */	,["rhs_bmp1_vdv", "rhs_btr60_vdv"]
-/*  Mobile Artillery  */	,["rhs_2s3_tv", "RHS_BM21_VDV_01"]
-/*  Transport Helos   */	,["RHS_Mi8AMT_vdv", "RHS_Mi8mt_vdv"]
-/*  Transport Planes  */	,["RHS_AN2_B"]
-/*  Transport Trucks  */	,["rhs_gaz66_VDV", "rhs_gaz66o_VDV"]
-/*  Static Defence    */	,["rhsgref_ins_DSHKM", "rhsgref_ins_DSHKM_Mini_Tripod", "rhs_SPG9M_VDV", "RHS_ZU23_VDV", "rhs_D30_vdv", "rhs_D30_at_vdv"]
+/*  Anti Air Vehicles */	 ["rhs_zsu234_aa", "rhs_zsu234_aa"]
+/*  Attack Helos      */	,["RHS_Mi24P_AT_vvs", "RHS_Mi24P_vvs", "RHS_Mi24V_AT_vvs"]
+/*  Attack Planes     */	,["RHS_Su25SM_vvs", "RHS_Su25SM_CAS_vvs", "RHS_Su25SM_KH29_vvs"]
+/*  Heavy Vehicles    */	,["rhs_t80", "rhs_t80b", "rhs_t72ba_tv", "rhs_t72bb_tv"]
+/*  Light Vehicles    */	,["rhs_uaz_vdv", "rhs_uaz_open_vdv"]
+/*  Medium Vehicles   */	,["rhs_btr70_vdv", "rhs_btr80_vdv", "rhs_bmp2d_vdv", "rhs_bmp2_vdv", "rhs_bmp1_vdv", "rhs_bmd1", "rhs_bmd1r"]
+/*  Mobile Artillery  */	,["rhs_9k79_B", "RHS_BM21_VV_01"]
+/*  Transport Helos   */	,["RHS_Mi8mt_Cargo_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8MTV3_UPK23_vvs", "RHS_Mi8MTV3_FAB_vvs"]
+/*  Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
+/*  Transport Trucks  */	,["RHS_Ural_MSV_01", "RHS_Ural_Open_Flat_MSV_01"]
+/*  Static Defence    */	,["rhs_Metis_9k115_2_msv", "rhs_Kornet_9M133_2_msv", "rhs_Igla_AA_pod_msv", "rhs_KORD_MSV", "rhs_KORD_high_MSV", "rhs_SPG9M_MSV", "RHS_ZU23_MSV"]
 /*  Boats             */	,["O_Boat_Armed_01_hmg_F", "O_Boat_Transport_01_F"]
-/*  UAV               */	,[""]
-/*  UGV               */	,[""]
-/*  Support           */	,["rhs_gaz66_ammo_vdv", "RHS_Ural_Fuel_VDV_01", "rhs_gaz66_repair_vdv", "rhs_gaz66_ap2_vdv"]
-/*  Submarines        */	,[""]
-/*  MRAP Vehicles     */    ,["rhsgref_BRDM2_vdv", "rhsgref_BRDM2UM_vdv", "rhsgref_BRDM2_HQ_vdv"]
+/*  UAV               */	,["rhs_pchela1t_vvs", "rhs_pchela1t_vvs"]
+/*  UGV               */	,["O_UGV_01_rcws_F"]
+/*  Support           */	,["rhs_gaz66_ammo_vv", "RHS_Ural_Fuel_VDV_01", "rhs_gaz66_repair_vmf", "rhs_gaz66_ap2_vmf"]
+/*  Submarines        */	,["O_SDV_01_F", "O_SDV_01_F"]
+/*  MRAP Vehicles     */        ,["rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
 ];
-
 // OBJECTS =====================================================================
 
 _factionObjects = [

@@ -173,13 +173,13 @@ _UAVTerminal = "auto";
 
 _factionVehicles = [
 /*  Anti Air Vehicles */	 ["rhs_zsu234_aa"]
-/*  Attack Helos      */	,["LOP_PMC_MH9_armed", "RHS_Mi24V_AT_vvsc","RHS_Mi24V_vvsc","RHS_Mi24P_CAS_vvsc"]
+/*  Attack Helos      */	,["RHS_Mi24V_AT_vvsc","RHS_Mi24V_vvsc","RHS_Mi24P_CAS_vvsc"]
 /*  Attack Planes     */	,["RHS_Su25SM_vvsc"]
 /*  Heavy Vehicles    */	,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv"]
-/*  Light Vehicles    */	,["LOP_PMC_Offroad_M2","rhs_uaz_open_vmf"]
+/*  Light Vehicles    */	,["rhs_uaz_open_vmf"]
 /*  Medium Vehicles   */	,["rhs_bmp2_tv","rhs_bmp2d_tv","rhs_bmp2k_tv","rhs_brm1k_tv","rhs_btr60_vmf"]
 /*  Mobile Artillery  */	,["rhs_9k79_B","rhs_9k79_K","rhs_9k79","rhs_2s3_tv"]
-/*  Transport Helos   */	,["LOP_PMC_MH9", "LOP_PMC_M900", "LOP_PMC_Mi8AMT","RHS_Mi8mt_vv"]
+/*  Transport Helos   */	,["RHS_Mi8mt_vv"]
 /*  Transport Planes  */	,[]
 /*  Transport Trucks  */	,["RHS_Ural_VDV_01","RHS_Ural_Flat_VDV_01","RHS_Ural_Open_VDV_01","RHS_Ural_Open_Flat_VDV_01"]
 /*  Static Defence    */	,["rhsgref_ins_g_Igla_AA_pod","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","rhsgref_ins_g_SPG9","rhsgref_ins_g_ZU23"]

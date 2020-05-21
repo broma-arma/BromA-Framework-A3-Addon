@@ -26,7 +26,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _FNFAL;
-_commonRIFLEGL = ["gst_m16a2_gl","rhs_mag_30Rnd_556x45_M855_Stanag","rhs_mag_M441_HE"];
+_commonRIFLEGL = _HLCM16A2GL;
 _commonPISTOL = _Makarov;
 _commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
 _commonMG = _PKM;
@@ -35,10 +35,10 @@ _commonSNIPER = _SVDS;
 _commonAT = _RPG26;
 _specAT = _RPG7PGO;
 _commonSMG = _AKS74U;
-_commonRCO = "optic_MRCO";
-_commonCCO = "rhsusf_acc_eotech_552";
+_commonRCO = "hlc_optic_suit";
+_commonCCO = "rhsusf_acc_compm4";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
-_commonSUPPRESSOR = "muzzle_snds_M";
+_commonSUPPRESSOR = "rhsusf_acc_aac_762sd_silencer";
 _commonPISTOLSUPPRESSOR = "rhs_acc_1pn93_1";
 _NVG = "rhs_1PN138";
 
@@ -87,9 +87,9 @@ _countPAKCARGO = 10;
 _gogglesLIST = [
 ];
 
-_commonHEAD = "LOP_H_SSh68Helmet_BLK";
-_leaderHEAD = _commonHEAD;
-_officerHEAD = "rhssaf_beret_black";
+_commonHEAD = "UK3CB_TKA_I_H_SSh68_Oli";
+_leaderHEAD = "rhs_beret_mp1";
+_officerHEAD = "rhs_beret_mp1";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4";
 _pilotHEAD = "rhs_zsh7a";
@@ -97,33 +97,33 @@ _helicrewHEAD = "rhs_zsh7a_mike";
 _helipilotHEAD = "rhs_zsh7a_mike";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "LOP_H_Turban_mask";
+_reconHEAD = "UK3CB_H_Mil_Turban_Wrap";
 
-_commonUNIFORM = "LOP_U_TKA_Fatigue_02";
+_commonUNIFORM = "UK3CB_TKA_I_U_CombatUniform_01_OLI";
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = _commonUNIFORM;
+_pilotUNIFORM = "rhs_uniform_df15_tan";
 _sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = _commonUNIFORM;
+_helicrewUNIFORM = "rhs_uniform_df15_tan";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "LOP_V_6Sh92_OLV";
-_officerVEST = "LOP_V_6Sh92_Radio_OLV";
-_ftlVEST = "LOP_V_6Sh92_Radio_OLV";
-_slVEST = "LOP_V_6Sh92_Radio_OLV";
-_mgVEST = "LOP_V_6Sh92_Vog_OLV";
+_commonVEST = "UK3CB_TKA_I_V_6Sh92_Oli";
+_officerVEST = "UK3CB_TKA_I_V_6Sh92_Radio_Oli";
+_ftlVEST = "UK3CB_TKA_I_V_6Sh92_Radio_Oli";
+_slVEST = "UK3CB_TKA_I_V_6Sh92_Radio_Oli";
+_mgVEST = _commonVEST;
 _grenadierVEST = _commonVEST;
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "rhs_sidor";
-_bigBACKPACK = "TRYK_B_Alicepack";
+_commonBACKPACK = "UK3CB_CHC_C_B_HIKER";
+_bigBACKPACK = "UK3CB_CHC_C_B_HIKER";
 
 // EXTRA EQUIPMENT =============================================================
 

@@ -26,21 +26,21 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AKS74;
-_commonRIFLEGL = _AKS74GL;
+_commonRIFLE = _AK74N;
+_commonRIFLEGL = _AK74NGL;
 _commonPISTOL = _Makarov;
-_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
+_commonAR = _PKM;
 _commonMG = _PKM;
 _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _RPG26;
-_specAT = _RPG7PGO;
-_commonSMG = _AKS74U;
+_specAT = _RPG7;
+_commonSMG = _AK74UN;
 _commonRCO = "rhs_acc_1p29";
 _commonCCO = "rhs_acc_ekp1";
-_commonMAGNIFIED = "rhs_acc_pso1m2";
-_commonSUPPRESSOR = "rhs_acc_tgpa";
-_commonPISTOLSUPPRESSOR = "";
+_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
+_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
+_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
 
 // AMMO COUNT ==================================================================
@@ -85,16 +85,9 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_headsLIST = [
-    "LOP_H_6B27M_ess_CDF",
-    "LOP_H_6B27M_CDF"
-];
-
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-
-_commonHEAD = _randomHEAD;
-_leaderHEAD = "LOP_H_Fieldcap_CDF";
-_officerHEAD = "LOP_H_Fieldcap_CDF";
+_commonHEAD = "rhsgref_6b27m_ttsko_forest";
+_leaderHEAD = "rhsgref_fieldcap_ttsko_forest";
+_officerHEAD = "rhsgref_fieldcap_ttsko_forest";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4_ess";
 _pilotHEAD = "rhs_zsh7a";
@@ -102,9 +95,9 @@ _helicrewHEAD = "rhs_zsh7a_mike";
 _helipilotHEAD = "rhs_zsh7a_mike";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "H_Booniehat_khk";
+_reconHEAD = _commonHEAD;
 
-_commonUNIFORM = "LOP_U_CDF_Fatigue_01";
+_commonUNIFORM = "rhsgref_uniform_ttsko_forest";
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15";
 _sniperUNIFORM = "U_O_FullGhillie_ard";

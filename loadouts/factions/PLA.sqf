@@ -114,7 +114,7 @@ _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
-_reconUNIFORM = "LOP_U_ISTS_Fatigue_20";
+_reconUNIFORM = _commonUNIFORM;
 
 _commonVEST    = "BRM_LBV_T07UNI";
 _officerVEST   = _commonVEST;

@@ -25,16 +25,16 @@ _factionSkill = [[0.7,0.8],   [0.7,0.8],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = ["hlc_rifle_hk33a2RIS","hlc_30rnd_556x45_b_HK33"];
-_commonRIFLEGL = ["hlc_rifle_hk33a2RIS_GL","hlc_30rnd_556x45_b_HK33","1Rnd_HE_Grenade_shell"];
-_commonPISTOL = ["rhsusf_weap_glock17g4","rhsusf_mag_17Rnd_9x19_JHP"];
-_commonAR = ["hlc_lmg_MG3","hlc_100Rnd_762x51_B_MG3"];
-_commonMG = ["hlc_lmg_MG3","hlc_100Rnd_762x51_B_MG3"];
-_commonMARKSMAN = ["hlc_rifle_hk33a2RIS","hlc_30rnd_556x45_b_HK33"];
-_commonSNIPER = ["hlc_rifle_m14dmr","hlc_20Rnd_762x51_B_M14"];
+_commonRIFLE = _HK33A2RIS;
+_commonRIFLEGL = _HK33A2RISGL;
+_commonPISTOL = _G17;
+_commonAR = _MG3;
+_commonMG = _MG3;
+_commonMARKSMAN = _commonRIFLE;
+_commonSNIPER = _DMR;
 _commonAT = _AT4;
-_specAT = ["rhs_weap_maaws","rhs_mag_maaws_HEAT"];
-_commonSMG = ["hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5"];
+_specAT = _GUSTAV;
+_commonSMG = _MP5A2;
 _commonRCO = "FHQ_optic_ACOG";
 _commonCCO = "rhsusf_acc_RX01";
 _commonMAGNIFIED = "hlc_optic_LRT_m14";
@@ -84,20 +84,7 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_headsLIST = [
-	"LOP_H_6B27M_RACS",
-	"LOP_H_6B27M_ess_RACS"
-];
-
-_uniformsLIST = [
-    "LOP_U_RACS_Fatigue_01",
-    "LOP_U_RACS_Fatigue_01_slv"
-];
-
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-
-_commonHEAD = _randomHEAD;
+_commonHEAD = "UK3CB_ABP_B_H_6b27m_DES";
 _leaderHEAD = "rhssaf_beret_green";
 _officerHEAD = "rhssaf_beret_green";
 _medicHEAD = _commonHEAD;
@@ -109,7 +96,7 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = "H_Booniehat_tan";
 
-_commonUNIFORM = _randomUNIFORM;
+_commonUNIFORM = "TRYK_U_B_TANTAN_CombatUniform";
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _sniperUNIFORM = "U_I_FullGhillie_sard";
