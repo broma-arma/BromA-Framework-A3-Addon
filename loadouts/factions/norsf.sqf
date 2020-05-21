@@ -39,7 +39,7 @@ _commonCCO = "rhsusf_acc_eotech_552";
 _commonMAGNIFIED = _SOS;
 _commonSUPPRESSOR = "rhsusf_acc_nt4_black";
 _commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
-_NVG = "A3_GPNVG18_BLK_TI";
+_NVG = "NVGogglesB_blk_F";
 
 // AMMO COUNT ==================================================================
 
