@@ -20,7 +20,7 @@ switch (true) do {
 // =============================================================================
 
     case (_type == "reporter"): {
-        [_unit, "empty", "rds_uniform_Functionary1", "V_Press_F", "empty"] call BRM_FMK_fnc_useUniform;
+        [_unit, "empty", "UK3CB_CHC_C_U_FUNC_01", "V_Press_F", "empty"] call BRM_FMK_fnc_useUniform;
         [_unit,[[_NVGEN1,1]]] call BRM_FMK_fnc_addtoUniform;
     };
 
