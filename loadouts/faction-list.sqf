@@ -176,6 +176,9 @@ switch (toUpper(_faction)) do {
  	case "AFRICAN_ARMY": {
         #include "factions\africanarmy.sqf";
     };
+ 	case "YUGO": {
+        #include "factions\yugo.sqf";
+    };
 
     case "DEFAULT": {
         #include "factions\template.sqf"
