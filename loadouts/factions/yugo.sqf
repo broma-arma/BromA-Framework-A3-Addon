@@ -30,8 +30,8 @@ _commonAR               = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
 _commonMG               = ["rhs_weap_m84", "rhs_100Rnd_762x54mmR"];
 _commonMARKSMAN         = ["rhs_weap_m76", "rhsgref_10Rnd_792x57_m76"];
 _commonSNIPER           = ["rhs_weap_m76", "rhsgref_10Rnd_792x57_m76"];
-_commonAT               = "rhs_weap_m80";
-_specAT                 = "rhs_weap_m80";
+_commonAT               = ["rhs_weap_m80", "rhs_m80_mag"];
+_specAT                 = ["rhs_weap_m80", "rhs_m80_mag"];
 _commonSMG              = ["rhs_weap_scorpion", "rhsgref_20rnd_765x17_vz61"];
 _commonRCO              = "rhs_acc_1p29";
 _commonCCO              = "rhs_acc_ekp1";
@@ -83,7 +83,7 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhssaf_helmet_m59_85_oakleaf",
+    "rhssaf_helmet_m59_85_oakleaf"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
@@ -165,7 +165,7 @@ _factionVehicles = [
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "rhssaf_flag_yugoslavia"",
+/* Flag         */ "rhssaf_flag_yugoslavia",
 /* Objects      */ ["O_CargoNet_01_ammo_F"],
 /* Walls        */ ["Land_BagFence_Short_F"],
 /* Structures   */ ["Land_Fort_Watchtower"]
