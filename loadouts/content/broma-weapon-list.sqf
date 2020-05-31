@@ -933,6 +933,8 @@ _PKP = ["rhs_weap_pkp",_100rnd762PKP];
 _PKM = ["rhs_weap_pkm",_100rnd762PKP];
 _M84 = ["rhs_weap_m84","rhs_100Rnd_762x54mmR"];
 
+_M84 = _PKP; // M84 has a solid rear sight
+
 _SCORPION = ["rhs_weap_savz61","rhsgref_20rnd_765x17_vz61"];
 _SCORPIONFOLDED = ["rhs_weap_savz61_folded","rhsgref_20rnd_765x17_vz61"];
 
