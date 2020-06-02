@@ -26,7 +26,7 @@ while {(!round_over)} do {
         {
             _isUncon = false;
 
-            if (mission_ACE3_enabled) then { _isUncon = [_x] call ACE_Medical_fnc_getUnconsciousCondition };
+            if (mission_ACE3_enabled) then { _isUncon = _x getVariable ["ACE_isUnconscious", false] };
 
             if ((side _x == _sideCheck) && (_isUncon)) then { _x setDamage 1 };
         } forEach allUnits;

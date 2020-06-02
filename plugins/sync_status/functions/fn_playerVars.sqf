@@ -28,45 +28,32 @@ if (mission_ACRE2_enabled) then {
 // Advanced Combat Environment 3
 if (mission_ACE3_enabled) then {
 	_playerVars pushBack [
-		// Variable name                     Default                            Custom load code (Optional)
-		["ACE_isDead",                       false],
-		["ACE_isUnconscious",                false,                             { if (_value) then { [player, true] call ace_medical_fnc_setUnconscious }; }],
-		["ACE_captives_isHandcuffed",        false,                             { if (_value) then { [player, true] call ACE_captives_fnc_setHandcuffed }; }],
-		["ACE_hasEarPlugsin",                false,                             { if (_value) then { [player] call ace_hearing_fnc_putInEarplugs }; }],
+		// Variable name                     Default              Custom load code (Optional)
+		["ACE_isUnconscious",                false,               { if (_value) then { [player, true, round (random 10 + 5)] call ace_medical_fnc_setUnconscious }; }],
+		["ACE_captives_isHandcuffed",        false,               { if (_value) then { [player, true] call ACE_captives_fnc_setHandcuffed }; }],
+		["ACE_hasEarPlugsin",                false,               { if (_value) then { [player] call ace_hearing_fnc_putInEarplugs }; }],
 		["ACE_medical_pain",                 0],
-		["ACE_medical_morphine",             0],
-		["ACE_medical_bloodVolume",          100],
+		["ACE_medical_bloodVolume",          6.0],
 		["ACE_medical_tourniquets",          [0, 0, 0, 0, 0, 0]],
 		["ACE_medical_occludedMedications",  []],
 		["ACE_medical_openWounds",           []],
 		["ACE_medical_bandagedWounds",       []],
-		["ACE_medical_internalWounds",       []],
-		["ACE_medical_lastUniqueWoundID",    1],
-		["ACE_medical_fractures",            []],
+		["ACE_medical_stitchedWounds",       []],
+		["ACE_medical_fractures",            [0, 0, 0, 0, 0, 0]],
 		["ACE_medical_triageLevel",          0],
 		["ACE_medical_triageCard",           []],
 		["ACE_medical_ivBags",               []],
-		["ACE_medical_bodyPartStatus",       [0, 0, 0, 0, 0, 0]],
-		["ACE_medical_addedToUnitLoop",      false],
+		["ACE_medical_bodyPartDamage",       [0, 0, 0, 0, 0, 0]],
 		["ACE_medical_inCardiacArrest",      false],
-		["ACE_medical_hasLostBlood",         0],
-		["ACE_medical_isBleeding",           false],
-		["ACE_medical_hasPain",              false],
-		["ACE_medical_amountOfReviveLives",  ACE_medical_amountOfReviveLives],
+		["ACE_medical_inPain",               false],
 		["ACE_medical_painSuppress",         0],
-		["ACE_medical_allLogs",              []],
-		["ACE_medical_inReviveState",        false]
-		/* Local variables
-		["ACE_medical_bleedingCoefficient",  ACE_medical_bleedingCoefficient],
 		["ACE_medical_heartRate",            80],
-		["ACE_medical_heartRateAdjustments", []],
+		["ACE_medical_medications",          []],
 		["ACE_medical_bloodPressure",        [80, 120]],
 		["ACE_medical_peripheralResistance", 100],
-		["ACE_medical_airwayStatus",         100],
-		["ACE_medical_airwayOccluded",       false],
-		["ACE_medical_airwayCollapsed",      false],
-		["ACE_medical_allUsedMedication",    []],
-		*/
+		["ACE_medical_hemorrhage",           0],
+		["ACE_medical_isLimping",            false],
+		["ACE_medical_woundBleeding",        0]
 	]
 };
 
