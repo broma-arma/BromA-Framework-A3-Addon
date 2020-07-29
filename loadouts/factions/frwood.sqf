@@ -87,9 +87,8 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "U_BRM_U_CCE",
-    "U_BRM_RS_CCE",
-    "U_BRM_Shirt_CCE"
+    "BRM_BattleUNI_CCE",
+    "BRM_BattleUNIRS_CCE"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
