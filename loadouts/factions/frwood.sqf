@@ -87,8 +87,9 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "BRM_BattleUNI_CCE",
-    "BRM_BattleUNIRS_CCE"
+    "U_BRM_U_CCE",
+    "U_BRM_RS_CCE",
+    "U_BRM_Shirt_CCE"
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
@@ -106,7 +107,7 @@ _sniperHEAD = "BRM_Booniehat_CCE";
 _demoHEAD = _commonHEAD;
 _reconHEAD = "BRM_OPSCORE_CCE_NSW";
 
-_commonUNIFORM   = "U_BRM_M10_CCE";
+_commonUNIFORM   = _randomUNIFORM;
 _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _commonUNIFORM;
