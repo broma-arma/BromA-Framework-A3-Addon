@@ -1,6 +1,6 @@
 // INFO ========================================================================
 /*
-    Chinese LA loadout, available with multiple camos and use APEX weapons.
+    Chinese PLA loadout, available with multiple camos and use APEX weapons.
 */
 
 _factionID        = "PLA";
@@ -92,8 +92,23 @@ _camo = "UNI";
 // UNIFORMS ====================================================================
 if(!isNil "BRM_FMK_UNIFORMS_PLACammo")then{_camo=BRM_FMK_UNIFORMS_PLACammo};
 
-_commonHEAD = "BRM_PASGT_T07"+_camo+"_RHINO";
-_leaderHEAD = _commonHEAD;
+_uniformsLIST = [
+    "BRM_EBattleUNI_T07"+_camo,
+    "BRM_EBattleUNIRS_T07"+_camo,
+    "BRM_EBattleUNITS_T07"+_camo
+];
+_headsLIST = [
+    "BRM_LWH_COMS_T07"+_camo,
+    "BRM_LWH_MASK_COMS_T07"+_camo,
+    "BRM_LWH_MASK_T07"+_camo,
+    "BRM_LWH_T07"+_camo
+];
+
+_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
+_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+
+_commonHEAD = _randomHEAD;
+_leaderHEAD = "BRM_PatrolCap_T07"+_camo;
 _officerHEAD = _commonHEAD;
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhsusf_cvc_ess";
@@ -104,7 +119,7 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = "rhsusf_opscore_bk_pelt";
 
-_commonUNIFORM = "BRM_M88_T07"+_camo;
+_commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15";
 _sniperUNIFORM = _commonUNIFORM;
@@ -116,19 +131,19 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST    = "BRM_LBV_T07UNI";
-_officerVEST   = _commonVEST;
-_ftlVEST       = _commonVEST;
-_slVEST        = _commonVEST;
-_mgVEST        = _commonVEST;
-_grenadierVEST = "BRM_LBV_T07UNI_GL";
+_commonVEST    = "BRM_Protec_GREEN_RFL";
+_officerVEST   = "BRM_Protec_GREEN_SL";
+_ftlVEST       = "BRM_Protec_GREEN_TL";
+_slVEST        = _officerVEST;
+_mgVEST        = "BRM_Protec_GREEN_MG";
+_grenadierVEST = "BRM_Protec_GREEN_GL";
 _medicVEST     = _commonVEST;
 _demoVEST      = _commonVEST;
 _marksmanVEST  = _commonVEST;
 _reconVEST     = "TAC_PBDFG2D2_RG";
 
-_commonBACKPACK = "BRM_eagleiii_T07UNI";
-_bigBACKPACK = "B_Carryall_mcamo";
+_commonBACKPACK = "BRM_PatrolBP_T07"+_camo;
+_bigBACKPACK = "BRM_PatrolBPH_T07"+_camo;
 
 // EXTRA EQUIPMENT =============================================================
 
