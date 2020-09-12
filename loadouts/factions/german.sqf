@@ -129,12 +129,12 @@ _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
 _reconUNIFORM    = _randomUNIFORM;
 
-_commonVEST = "BRM_Protec_"+_camo"_RFL";
-_officerVEST = "BRM_Protec_"+_camo"_SL";
-_ftlVEST = "BRM_Protec_"+_camo"_TL";
+_commonVEST = "BRM_Protec_"+_camo+"_RFL";
+_officerVEST = "BRM_Protec_"+_camo+"_SL";
+_ftlVEST = "BRM_Protec_"+_camo+"_TL";
 _slVEST = _officerVEST;
-_mgVEST = "BRM_Protec_"+_camo"_MG";
-_grenadierVEST = "BRM_Protec_"+_camo"_GL";
+_mgVEST = "BRM_Protec_"+_camo+"_MG";
+_grenadierVEST = "BRM_Protec_"+_camo+"_GL";
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
