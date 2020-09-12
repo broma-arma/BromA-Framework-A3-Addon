@@ -1,9 +1,9 @@
 // INFO ========================================================================
 /*
-    French armed forces ready for woodland environement.
+    French armed forces with now camo selections.
 */
 
-_factionID        = "FRWOOD";
+_factionID        = "FRANCE";
 _factionName      = "French armed forces";
 _factionStructure = "FRASTRUCT";
 
@@ -78,18 +78,28 @@ _countEpiCARGO = 20;
 _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_FRACammo
+	"CCE"
+	"DAGUET"
+*/
+
+_camo = "CCE";
+
 // UNIFORMS ====================================================================
+if(!isNil "BRM_FMK_UNIFORMS_FRACammo")then{_camo=BRM_FMK_UNIFORMS_FRACammo};
+
 
 _headsLIST = [
-    "BRM_PASGT_CCE_RHINO",
-    "BRM_ACH_HESS_CCE",
-    "BRM_ACH_HEADSET_CCE"
+    "BRM_LWH_COMS_"+_camo,
+	"BRM_LWH_MASK_COMS_"+_camo
 ];
 
 _uniformsLIST = [
-    "U_BRM_U_CCE",
-    "U_BRM_RS_CCE",
-    "U_BRM_Shirt_CCE"
+    "U_BRM_U_"+_camo,
+    "U_BRM_RS_"+_camo,
+    "U_BRM_Shirt_"+_camo
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
@@ -97,17 +107,17 @@ _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
-_officerHEAD = "BRM_patrolcap_CCE";
+_officerHEAD = "BRM_PatrolCap_"+_camo;
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhsusf_cvc_ess";
 _pilotHEAD = "rhsusf_hgu56p";
 _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
-_sniperHEAD = "BRM_Booniehat_CCE";
+_sniperHEAD = "BRM_Booniehat_"+_camo;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "BRM_OPSCORE_CCE_NSW";
+_reconHEAD = "BRM_ACH_MASK_COMS_"+_camo;
 
-_commonUNIFORM   = _randomUNIFORM;
+_commonUNIFORM   = ["BRM_BattleUNI_"+_camo,"BRM_BattleUNIRS_"+_camo,"BRM_BattleUNIT_"+_camo] call BIS_fnc_selectRandom;
 _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _commonUNIFORM;
@@ -119,16 +129,16 @@ _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
 _reconUNIFORM    = _randomUNIFORM;
 
-_commonVEST    = "BRM_IOTV_brown_RFL";
-_officerVEST   = "BRM_IOTV_brown_REPAIR";
-_ftlVEST       = "BRM_IOTV_brown_TL";
-_slVEST        = "BRM_IOTV_brown_SL";
-_mgVEST        = "BRM_IOTV_brown_SAW";
-_grenadierVEST = "BRM_IOTV_brown_GL";
-_medicVEST     = "BRM_IOTV_brown_MED";
+_commonVEST    = "BRM_Protec_BROWN_RFL";
+_officerVEST   = "BRM_Protec_BROWN_SL";
+_ftlVEST       = "BRM_Protec_BROWN_TL";
+_slVEST        = _officerVEST;
+_mgVEST        = "BRM_Protec_BROWN_MG";
+_grenadierVEST = "BRM_Protec_BROWN_GL";
+_medicVEST     = _commonVEST;
 _demoVEST      = _commonVEST;
 _marksmanVEST  = _commonVEST;
-_reconVEST     = "BRM_RHS_SPCS_Brown_squadleader";
+_reconVEST     = "BRM_RRV_BROWN_REC1";
 
 _commonBACKPACK = "B_Kitbag_cbr";
 _bigBACKPACK = "TRYK_B_Coyotebackpack";

@@ -80,35 +80,32 @@ _countEpiCARGO = 20;
 _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_FRACammo
+	"FLECK"
+	"TROPEN"
+*/
+
+_camo = "FLECK";
+
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "BRM_OPSCORE_FLECK_NSW",
-    "rhsusf_opscore_fg_pelt_nsw",
-    "rhsusf_opscore_fg_pelt_cam",
-    "BRM_OPSCORE_FLECK_NSWCAM"
+    "BRM_LWH_COMS_"+_camo,
+	"BRM_LWH_MASK_COMS_"+_camo
 ];
 
 _uniformsLIST = [
-    "U_BRM_U_FLECK",
-    "U_BRM_RS_FLECK"
-];
-
-_vestsLIST = [
-    "rhsusf_spc_patchless_radio",
-    "rhsusf_mbav_rifleman",
-    "BRM_RHS_SPCS_FLECK_squadleader",
-    "BRM_RHS_SPCS_FLECK_rifle"
-];
-
-_gogglesLIST = [
+    "U_BRM_U_"+_camo,
+    "U_BRM_RS_"+_camo,
+    "U_BRM_Shirt_"+_camo
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
 
-_commonHEAD    = "rhsgref_helmet_pasgt_flecktarn";
+_commonHEAD    = _randomHEAD;
 _leaderHEAD    = _commonHEAD;
 _officerHEAD   = _commonHEAD;
 _medicHEAD     = _commonHEAD;
@@ -118,9 +115,9 @@ _helicrewHEAD  = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD    = "H_Booniehat_oli";
 _demoHEAD      = _commonHEAD;
-_reconHEAD     = _randomHEAD;
+_reconHEAD     = "BRM_ACH_MASK_COMS_"+_camo;
 
-_commonUNIFORM   = "rhsgref_uniform_flecktarn_full";
+_commonUNIFORM   = ["BRM_BattleUNI_"+_camo,"BRM_BattleUNIRS_"+_camo,"BRM_BattleUNIT_"+_camo] call BIS_fnc_selectRandom;
 _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _commonUNIFORM;
@@ -132,19 +129,19 @@ _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
 _reconUNIFORM    = _randomUNIFORM;
 
-_commonVEST = "BRM_IOTV_FLECK_RFL";
-_officerVEST = "BRM_IOTV_FLECK_REPAIR";
-_ftlVEST = "BRM_IOTV_FLECK_TL";
-_slVEST = "BRM_IOTV_FLECK_SL";
-_mgVEST = "BRM_IOTV_FLECK_SAW";
-_grenadierVEST = "BRM_IOTV_FLECK_GL";
-_medicVEST = "BRM_IOTV_FLECK_MED";
+_commonVEST = "BRM_Protec_"+_camo+"_RFL";
+_officerVEST = "BRM_Protec_"+_camo+"_SL";
+_ftlVEST = "BRM_Protec_"+_camo+"_TL";
+_slVEST = _officerVEST;
+_mgVEST = "BRM_Protec_"+_camo+"_MG";
+_grenadierVEST = "BRM_Protec_"+_camo+"_GL";
+_medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
-_reconVEST = _randomVEST;
+_reconVEST = "BRM_RRV_BROWN_REC1";
 
-_commonBACKPACK = "BRM_eagleiii_FLECK";
-_bigBACKPACK = "rhsgref_hidf_alicepack";
+_commonBACKPACK = "BRM_PatrolBP_"+_camo;
+_bigBACKPACK = "BRM_PatrolBPH_"+_camo;
 
 // EXTRA EQUIPMENT =============================================================
 
