@@ -83,18 +83,9 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_headsLIST = [
-    "BRM_OPSCORE_NORSK",
-    "BRM_OPSCORE_NORSK_NSW"
-];
-
 _uniformsLIST = [
-    "BRM_NORSK_M93"
-];
-
-_vestsLIST = [
-    "BRM_RHS_SPCS_NORG_rifle",
-    "BRM_RHS_SPCS_NORG_Sniper"
+    "U_BRM_U_NORSK",
+    "U_BRM_RS_NORSK"	
 ];
 
 _goggleLIST = [
@@ -102,48 +93,48 @@ _goggleLIST = [
     "TRYK_Shemagh_EAR_TAN"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
-_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
-_randomVEST = _vestsLIST call BIS_fnc_selectRandom;
-_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
 
-_commonHEAD = _randomHEAD;
-_leaderHEAD = _randomHEAD;
-_officerHEAD = _randomHEAD;
-_medicHEAD = _randomHEAD;
-_crewmanHEAD = _commonHEAD;
-_pilotHEAD = _commonHEAD;
-_helicrewHEAD = "H_PilotHelmetHeli_B";
-_helipilotHEAD = "H_PilotHelmetHeli_B";
-_sniperHEAD = _commonHEAD;
+_randomGOGGLE = _goggleLIST call BIS_fnc_selectRandom;
+_randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
+
+_commonHEAD = ["BRM_ACH_COMS_NORSK","BRM_ACH_MASK_COMS_NORSK"] call BIS_fnc_selectRandom;
+_leaderHEAD = _commonHEAD;
+_officerHEAD = _commonHEAD;
+_medicHEAD = _commonHEAD;
+_crewmanHEAD = "rhsusf_cvc_ess";
+_pilotHEAD = "rhsusf_hgu56p";
+_helicrewHEAD = "rhsusf_hgu56p_mask";
+_helipilotHEAD = "rhsusf_hgu56p";
+_sniperHEAD = "BRM_BoonieCOMS_NORSK";
 _demoHEAD = _commonHEAD;
 _reconHEAD = _commonHEAD;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE";
+_pilotUNIFORM = "U_B_PilotCoveralls";
 _sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "TRYK_OVERALL_SAGE";
-_crewUNIFORM = _commonUNIFORM;
+_crewUNIFORM = "TRYK_OVERALL_SAGE";
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = _randomVEST;
+_commonVEST = "BRM_MBSS_v1";
 _officerVEST = _commonVEST;
-_ftlVEST = "BRM_RHS_SPCS_NORG_squadleader";
-_slVEST = "BRM_RHS_SPCS_NORG_squadleader";
-_mgVEST = "BRM_RHS_SPCS_NORG_MG";
-_grenadierVEST = _commonVEST;
-_medicVEST = "BRM_RHS_SPCS_NORG_Med";
+_ftlVEST = "BRM_MBSS_GL";
+_slVEST = _commonVEST;
+_mgVEST = _commonVEST;
+_grenadierVEST = _ftlVEST;
+_medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 
-_commonBACKPACK = "B_AssaultPack_cbr";
-_bigBACKPACK = "B_Kitbag_mcamo";
+_commonBACKPACK = "BRM_PatrolBP_NORSK";
+_bigBACKPACK = "TRYK_B_BAF_BAG_OD";
+
 
 if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE };
 
