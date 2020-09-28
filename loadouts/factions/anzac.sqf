@@ -90,15 +90,15 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "BRM_ACH_ESS_DPCU",
-	"BRM_ACH_DPCU",
-	"BRM_ACH_HEADSET_DPCU",
-	"BRM_ACH_HESS_DPCU"
+    "BRM_ACH_MASK_DPCU",
+    "BRM_ACH_DPCU",
+    "BRM_ACH_COMS_DPCU",
+    "BRM_ACH_MASK_COMS_DPCU"
 ];
 
 _uniformsLIST = [
     "U_BRM_RS_DPCU",
-	"U_BRM_U_DPCU"
+    "U_BRM_U_DPCU"
 ];
 
 
@@ -111,14 +111,14 @@ _randomUNIFORM = _uniformsLIST call BIS_fnc_selectRandom;
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
 _officerHEAD = "UK3CB_BAF_H_Beret_SBS";
-_medicHEAD = "H_Booniehat_oli";
+_medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhsusf_cvc_green_ess";
 _pilotHEAD = "rhsusf_hgu56p";
 _helicrewHEAD = "rhsusf_hgu56p";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "BRM_OPSCORE_DPCU_NSWCAM";
+_reconHEAD = "BRM_Booniehat_DPCU";
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
@@ -132,18 +132,18 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "BRM_RHS_SPCS_DPCU_rifle";
-_officerVEST = "BRM_RHS_SPCS_DPCU_squadleader";
-_ftlVEST = "BRM_RHS_SPCS_DPCU_squadleader";
-_slVEST = "BRM_RHS_SPCS_DPCU_squadleader";
-_mgVEST = "BRM_RHS_SPCS_DPCU_SAW";
-_grenadierVEST = "BRM_RHS_SPCS_DPCU_GL";
-_medicVEST = "BRM_RHS_SPCS_DPCU_Med";
-_demoVEST = "BRM_RHS_SPCS_DPCU_SAW";
-_marksmanVEST = _commonVEST;
-_reconVEST = _commonVEST;
+_commonVEST    = "BRM_Protec_DPCU_RFL";
+_officerVEST   = "BRM_Protec_DPCU_SL";
+_ftlVEST       = "BRM_Protec_DPCU_TL";
+_slVEST        = _officerVEST;
+_mgVEST        = "BRM_Protec_DPCU_MG";
+_grenadierVEST = "BRM_Protec_DPCU_GL";
+_medicVEST     = _commonVEST;
+_demoVEST      = _commonVEST;
+_marksmanVEST  = _commonVEST;
+_reconVEST     = "BRM_RRV_BROWN_REC1";
 
-_commonBACKPACK = "BRM_eagleiii_DPCU";
+_commonBACKPACK = "BRM_PatrolBP_DPCU";
 _bigBACKPACK = "TRYK_B_Coyotebackpack_OD";
 
 // EXTRA EQUIPMENT =============================================================
