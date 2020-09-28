@@ -92,7 +92,7 @@ if(!isNil "BRM_FMK_UNIFORMS_FinnishCammo")then{_camo=BRM_FMK_UNIFORMS_FinnishCam
 
 _headsLIST = [
     "BRM_ACH_FM05"+_camo,
-	"BRM_ACH_ESS_FM05"+_camo
+    "BRM_ACH_MASK_FM05"+_camo
 ];
 
 _gogglesLIST = [
@@ -101,7 +101,7 @@ _gogglesLIST = [
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
 
 _commonHEAD = _randomHEAD;
-_leaderHEAD = "BRM_patrolcap_FM05"+_camo;
+_leaderHEAD = "BRM_PatrolCap_FM05"+_camo;
 _officerHEAD = "rhs_beret_milp";
 _medicHEAD = "BRM_Booniehat_FM05"+_camo;
 _crewmanHEAD = "rhs_tsh4_ess";
@@ -112,7 +112,7 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = "BRM_Booniehat_FM05"+_camo;
 
-_commonUNIFORM = "U_BRM_specter_FM05"+_camo;
+_commonUNIFORM = "BRM_BattleUNI_FM05"+_camo;
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "TRYK_OVERALL_SAGE";
 _sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
@@ -124,18 +124,18 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "BRM_LBV_FINLAND";
-_officerVEST = _commonVEST;
-_ftlVEST = "BRM_LBV_FINLAND_GL";
-_slVEST = _commonVEST;
-_mgVEST = "BRM_LBV_FINLAND_GL";
-_grenadierVEST = "BRM_LBV_FINLAND_GL";
-_medicVEST = _commonVEST;
-_demoVEST = _commonVEST;
-_marksmanVEST = _commonVEST;
-_reconVEST = _commonVEST;
+_commonVEST    = "BRM_Protec_GREEN_RFL";
+_officerVEST   = "BRM_Protec_GREEN_SL";
+_ftlVEST       = "BRM_Protec_GREEN_TL";
+_slVEST        = _officerVEST;
+_mgVEST        = "BRM_Protec_GREEN_MG";
+_grenadierVEST = "BRM_Protec_GREEN_GL";
+_medicVEST     = _commonVEST;
+_demoVEST      = _commonVEST;
+_marksmanVEST  = _commonVEST;
+_reconVEST     = "BRM_RRV_GREEN_REC1";
 
-_commonBACKPACK = "rhssaf_kitbag_smb";
+_commonBACKPACK = "BRM_PatrolBP_FM05"+_camo;
 _bigBACKPACK = "UK3CB_BAF_B_Carryall_OLI";
 
 // EXTRA EQUIPMENT =============================================================
