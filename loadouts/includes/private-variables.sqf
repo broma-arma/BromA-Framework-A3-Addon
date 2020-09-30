@@ -90,7 +90,7 @@ private [
 	"_cableTie", "_earBuds", "_flashlight", "_mapTools", "_spareBarrel", "_IRStrobe", "_uavBattery", "_microDAGR",
 	"_clacker", "_M26clacker", "_deadManSwitch", "_cellphone", "_defusalKit",
 	"_spottingScope", "_rangeCard", "_kestrel", "_ATragMX",
-	"_surgKit", "_defib",
+	"_surgKit",
 
 	"_NVG",
 	"_NVGEN1", "_NVGEN2", "_NVGEN4", "_NVWIDE",
@@ -100,7 +100,7 @@ private [
 	// Unused
 	"_commonRifleATTACHMENTS", "_commonHandgunATTACHMENTS", "_commonMGATTACHMENTS", "_commonMarksmanATTACHMENTS", "_commonSniperATTACHMENTS", "_commonSpecATATTACHMENTS", "_commonRifleGLATTACHMENTS", "_commonSMGATTACHMENTS",
 
-	"_countBANDAGEPACKING", "_medkit", "_radio", "_backpack", "_addBinocs", "_addRadio", "_addAmmo", "_addWeapon", "_wep", "_ammoamount", "_tripod", "_cond", "_done"
+	"_countBANDAGEPACKING", "_medkit", "_radio", "_backpack", "_addBinocs", "_addRadio", "_addAmmo", "_addWeapon", "_wep", "_ammoamount", "_tripod", "_cond", "_done", "_defib"
 ];
 
 #define GUN 0

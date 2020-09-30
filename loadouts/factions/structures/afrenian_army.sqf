@@ -24,7 +24,7 @@ switch (true) do {
                     [_tourniquet, _countCAT],
                     [_morphine, _countMORPHINE], [_epi, _countEPI],
                     [_blood500, _countBLOODBAG],
-                    [_surgKit, 1], [_defib, 1],
+                    [_surgKit, 1],
                     [_personalAidKit, _countPAK],
                     [_blood1000, _countBLOODBAG]
                 ];
