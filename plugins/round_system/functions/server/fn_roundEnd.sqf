@@ -21,15 +21,15 @@ if (count match_ending_winner > 0) then {
 
     [] call BRM_FMK_Round_System_fnc_resetRoundVariables;
 
-    [-1, {
+    [round_winner_text, {
         [] call BRM_FMK_Round_System_fnc_roundEndPlayer;
         (_this) call BRM_FMK_Round_System_fnc_displayWinner;
-    }, round_winner_text] call CBA_fnc_globalExecute;
+    }] remoteExec ["call", -2];
 
     { deleteVehicle _x } count (allDead);
 
     [] spawn BRM_FMK_Round_System_fnc_roundStart;
-    [-1, { [] call BRM_FMK_Round_System_fnc_roundStartPlayer }] call CBA_fnc_globalExecute;
+    [] remoteExecCall ["BRM_FMK_Round_System_fnc_roundStartPlayer", -2];
 
     [] call BRM_FMK_Round_System_fnc_roundEndMission;
 

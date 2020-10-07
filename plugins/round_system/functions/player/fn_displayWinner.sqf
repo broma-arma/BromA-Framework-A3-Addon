@@ -23,5 +23,5 @@ if (round_display_score) then {
            _msg = _msg + "<br/><t size='1.3'>MATCH POINT!</t><br/>";
        };
 
-    [-1, {[_this,-1,-1,5,1] call BIS_fnc_dynamicText}, _msg] call CBA_fnc_globalExecute;
+    [_msg,-1,-1,5,1] remoteExecCall ["BIS_fnc_dynamicText", -2];
 };

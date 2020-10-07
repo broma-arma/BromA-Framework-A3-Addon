@@ -41,16 +41,16 @@ if ( (count _units) > 0) then {
     {
         if (count _this > 2) then {
             if (side _x == _side) then {
-                [-2, {
+                [[_x,_combat,_behav], {
                     (group (_this select 0)) setCombatMode (_this select 1);
                     (group (_this select 0)) setBehaviour (_this select 2);
-                }, [_x,_combat,_behav]] call CBA_fnc_globalExecute;
+                }] remoteExec ["call", 0];
             };
         } else {
-            [-2, {
+            [[_x,_combat,_behav], {
                 (group (_this select 0)) setCombatMode (_this select 1);
                 (group (_this select 0)) setBehaviour (_this select 2);
-            }, [_x,_combat,_behav]] call CBA_fnc_globalExecute;
+            }] remoteExec ["call", 0];
         };
     } forEach _units;
 };

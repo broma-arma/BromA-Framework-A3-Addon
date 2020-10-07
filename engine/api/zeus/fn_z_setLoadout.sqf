@@ -38,10 +38,10 @@ if ( (count _units) > 0) then {
     {
         if (count _this > 1) then {
             if (side _x == _side) then {
-                [-2, { [_this select 0,_this select 1] call BRM_fnc_assignLoadout}, [_x,_loadout]] call CBA_fnc_globalExecute;
+                [_x,_loadout] remoteExecCall ["BRM_fnc_assignLoadout", 0];
             };
         } else {
-            [-2, { [_this select 0,_this select 1] call BRM_fnc_assignLoadout}, [_x,_loadout]] call CBA_fnc_globalExecute;
+            [_x,_loadout] remoteExecCall ["BRM_fnc_assignLoadout", 0];
         };
     } forEach _units;
 };

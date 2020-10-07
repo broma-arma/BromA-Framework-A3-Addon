@@ -49,21 +49,15 @@ if (_totalRespawned > 0) then {
 
     mission_dead_players deleteRange [0, _totalRespawned];
 
-    private _alertProperties = switch (_side) do {
+    (switch (_side) do {
         case WEST: { ["%1 %2 units have respawned.", "AlertBLU"] };
         case EAST: { ["%1 %2 units have respawned.", "AlertOP"] };
         case RESISTANCE: { ["%1 %2 units have respawned.", "AlertIND"] };
         case CIVILIAN: { ["%1 %2 units have respawned.", "Alert"] };
         default { ["%1 units have respawned.", "Alert"] }
-    };
+    }) params ["_alertText", "_alertNotification"];
 
-    [-1, {
-        params["_side", "_totalRespawned", "_alertProperties"];
-        _alertProperties params["_alertText", "_alertNotification"];
-        private _sideName = [_side, "name"] call BRM_FMK_fnc_getSideInfo;
-
-        [_alertNotification, [format [_alertText, _totalRespawned, _sideName]]] call BIS_fnc_showNotification;
-    }, [_side, _totalRespawned, _alertProperties]] call CBA_fnc_globalExecute;
+    [_alertNotification, [format [_alertText, _totalRespawned, [_side, "name"] call BRM_FMK_fnc_getSideInfo]]] remoteExecCall ["BIS_fnc_showNotification", -2];
 };
 
 [{ publicVariable "mission_dead_players" },[], 5] call CBA_fnc_waitAndExecute;

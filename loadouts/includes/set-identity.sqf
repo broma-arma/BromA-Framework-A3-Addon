@@ -23,5 +23,5 @@ if (!isNil "_defaultName") then {
 };
 
 [{(time > 3)}, {
-    [-2, BRM_FMK_fnc_setUnitIdentity, _this] call CBA_fnc_globalExecute;
+    _this remoteExecCall ["BRM_FMK_fnc_setUnitIdentity", 0];
 }, [_unit, _doVoice, _doFace, _doFinalName, _defaultInsignia]] call CBA_fnc_waitUntilAndExecute;

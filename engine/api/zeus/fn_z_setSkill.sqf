@@ -39,10 +39,10 @@ if ( (count _units) > 0) then {
     {
         if (count _this > 1) then {
             if (side _x == _side) then {
-                [-2, { (_this select 0) setSkill (_this select 1); }, [_x,_skill]] call CBA_fnc_globalExecute;
+                [_x,_skill] remoteExec ["setSkill", 0];
             };
         } else {
-            [-2, { (_this select 0) setSkill (_this select 1); }, [_x,_skill]] call CBA_fnc_globalExecute;
+            [_x,_skill] remoteExec ["setSkill", 0];
         };
     } forEach _units;
 };

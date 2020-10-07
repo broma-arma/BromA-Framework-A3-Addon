@@ -48,9 +48,7 @@ switch (typeName _target) do {
         mission_dead_players deleteRange [0, _target];
 
         if (_amount > 0) then {
-            [-1, {
-                ["Alert",[format ["%1 units have respawned.", _this]]] call BIS_fnc_showNotification
-            }, _amount] call CBA_fnc_globalExecute;
+            ["Alert", [format ["%1 units have respawned.", _amount]]] remoteExec ["BIS_fnc_showNotification", -2];
         };
 
         [{ publicVariable "mission_dead_players" },[], 5] call CBA_fnc_waitAndExecute;

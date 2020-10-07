@@ -44,7 +44,7 @@ if ( (count _units) > 0) then {
     {
         if (count _this > 4) then {
             if (side _x == _side) then {
-                [-2, {
+                [[_x,_loadout,_skill,_combat,_behav], {
                     _unit = _this select 0;
                     _loadout = _this select 1;
                     _skill = _this select 2;
@@ -56,10 +56,10 @@ if ( (count _units) > 0) then {
                     (group _unit) setCombatMode _combat;
                     (group _unit) setBehaviour _behav;
 
-                }, [_x,_loadout,_skill,_combat,_behav]] call CBA_fnc_globalExecute;
+                }] remoteExec ["call", 0];
             };
         } else {
-            [-2, {
+            [[_x,_loadout,_skill,_combat,_behav], {
                 _unit = _this select 0;
                 _loadout = _this select 1;
                 _skill = _this select 2;
@@ -71,7 +71,7 @@ if ( (count _units) > 0) then {
                 (group _unit) setCombatMode _combat;
                 (group _unit) setBehaviour _behav;
 
-            }, [_x,_loadout,_skill,_combat,_behav]] call CBA_fnc_globalExecute;
+            }] remoteExec ["call", 0];
         };
     } forEach _units;
 };
