@@ -5,7 +5,7 @@ _magazines = (getArray(configFile >> "CfgWeapons" >> _weapon >> "magazines"));
 
 if (count _magazines > 1) then {
     {
-        _nameArray = [_x, "_"] call CBA_fnc_split;
+        _nameArray = _x splitString "_";
         { _nameArray set [_forEachIndex, toUpper(_x)] } forEach _nameArray;
         _validType = false;
         { _validType = (toUpper(_x) in _nameArray) } forEach _type;

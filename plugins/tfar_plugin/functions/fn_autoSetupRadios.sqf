@@ -1,7 +1,7 @@
 if !(isClass(configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
 if (!hasInterface) exitWith {};
 
-private _playerInfo = [str player, "_"] call CBA_fnc_split;
+private _playerInfo = str player splitString "_";
 _playerInfo params ["_side", "_squad", "_team", "_unit"];
 
 if (!(_side in ["op", "blu", "ind"])) exitWith {};

@@ -28,13 +28,13 @@ _validSides = [west, east, resistance, civilian];
     _leaderstr = str _leader;
     _groupIndex = 0;
     if (isNull _leader) then { _groupIndex = 0 } else {
-        _groupIndex = ([_leaderstr, "_"] call CBA_fnc_split);
+        _groupIndex = _leaderstr splitString "_";
         if (count _groupIndex >= 3) then { _groupIndex = _groupIndex select 2 } else { _groupIndex = "0" };
         _groupIndex = parseNumber _groupIndex;
     };
 
     _groupID = groupID _x;
-    _groupName = ([_groupID, " "] call CBA_fnc_split) select 0;
+    _groupName = _groupID splitString " " select 0;
 
     if !(_groupName in mission_valid_groups_name) then {
 
