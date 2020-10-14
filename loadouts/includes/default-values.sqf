@@ -8,7 +8,11 @@ if (isNil "_factionSkill") then {
 	_factionSkill = [[0.7, 0.8],      [0.8, 0.9],   [0.7, 0.8],   [0.7, 0.9], [0.8, 0.9],    [0.7, 0.8], [0.8, 0.9], [0.7, 0.8],   [0.7, 0.9], [0.7, 0.8]];
 };
 
-private _sideChar = switch (_defaultSide) do {
+if (isNil "_factionSide") then {
+	#include "\broma_framework\loadouts\includes\get-faction.sqf"
+};
+
+private _sideChar = switch (_factionSide) do {
 	case WEST: { "B" };
 	case EAST: { "O" };
 	case RESISTANCE: { "I" };
