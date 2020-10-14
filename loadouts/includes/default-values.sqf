@@ -3,21 +3,6 @@ if (isNil "_defaultFace") then { _defaultFace = _faceWHITE };
 if (isNil "_defaultVoice") then { _defaultVoice = _voiceAMERICAN };
 if (isNil "_defaultInsignia") then { _defaultInsignia = "none" };
 
-    _defaultCallsignBLUFOR =
-["Zero",
-"Alpha", "Bravo", "Charlie", "Delta",
-"Razor", "Sierra", "Wizard", "Shocker", "Paradise", "Meteor", "Lancer", "Titan", "Havoc", "Pegasus"];
-
-    _defaultCallsignOPFOR =
-["Godfather",
-"Anaconda", "Boa", "Cobra", "Dragon",
-"Raven", "Scorpion", "Weasel", "Sparrow", "Pelican", "Moose", "Lion", "Tiger", "Hawk", "Phoenix"];
-
-    _defaultCallsignINDFOR =
-["Papa",
-"Anna", "Beatrice", "Clara", "Denise",
-"Rose", "Sarah", "Whitney", "Shirley", "Penny", "Mary", "Lucy", "Tanya", "Helen", "Petunia"];
-
 if (isNil "_factionSkill") then {
 /*                  "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
     _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
