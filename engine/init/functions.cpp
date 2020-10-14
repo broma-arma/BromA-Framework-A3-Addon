@@ -5,4 +5,4 @@ class init {
 	class initVariables {};
 	class assignSideProperties {};
 	class engine_post {postInit = 1;};
-}
+};
