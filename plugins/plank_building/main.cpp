@@ -14,5 +14,4 @@
 
 #ifdef BRM_PLUGIN_DIALOGS
 	#include "dialogs\settings_dialog.hpp"
-	#include "dialogs\plank_macros.h"
 #endif
