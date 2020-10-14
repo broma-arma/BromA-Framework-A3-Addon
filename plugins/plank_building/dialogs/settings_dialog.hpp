@@ -1,8 +1,5 @@
 #include "plank_macros.h"
 
-// Magic to set default font for Arma 2 and Arma 3
-__EXEC(_plank_default_font = "puristaMedium"; _stop = false; while {isNil {call compile "blufor"} && {!_stop}} do {_plank_default_font = "Zeppelin32"; _stop = true;};)
-
 #define SETTINGS_BASE_H                         0.82
 #define SETTINGS_BASE_W                         0.8
 
@@ -77,7 +74,7 @@ class PlankSettingsDialog {
         w = 0.1;
         style = 0;
         shadow = 2;
-        font = __EVAL(_plank_default_font);
+        font = "PuristaMedium";
         SizeEx = 0.03921;
     };
 
@@ -88,7 +85,7 @@ class PlankSettingsDialog {
         style = 0;
         shadow = 2;
         fixedWidth = 0;
-        font = __EVAL(_plank_default_font);
+        font = "PuristaMedium";
         w = TITLE_BASE_W;
         h = TITLE_BASE_H;
         text="Height";
@@ -142,7 +139,7 @@ class PlankSettingsDialog {
         w = 0;
         h = 0;
         shadow = 0;
-        font = __EVAL(_plank_default_font);
+        font = "PuristaMedium";
         sizeEx = 0.03921;
         offsetX = 0.003;
         offsetY = 0.003;
