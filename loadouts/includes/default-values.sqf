@@ -1,7 +1,8 @@
-if (isNil "_defaultSide") then { _defaultSide = WEST };
-if (isNil "_defaultFace") then { _defaultFace = _faceWHITE };
-if (isNil "_defaultVoice") then { _defaultVoice = _voiceAMERICAN };
-if (isNil "_defaultInsignia") then { _defaultInsignia = "none" };
+if (isNil "_defaultSide") then { _defaultSide = WEST; };
+if (isNil "_defaultFace") then { _defaultFace = [_faceWHITE]; };
+if (isNil "_defaultVoice") then { _defaultVoice = [_voiceAMERICAN]; };
+if (isNil "_defaultInsignia") then { _defaultInsignia = ""; };
+
 
 if (isNil "_factionSkill") then {
 /*                  "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
