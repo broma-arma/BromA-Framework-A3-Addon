@@ -3,10 +3,9 @@ if (isNil "_defaultFace") then { _defaultFace = [_faceWHITE]; };
 if (isNil "_defaultVoice") then { _defaultVoice = [_voiceAMERICAN]; };
 if (isNil "_defaultInsignia") then { _defaultInsignia = ""; };
 
-
 if (isNil "_factionSkill") then {
-/*                  "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-    _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+	//               Aiming Accuracy, Aiming Shake, Aiming Speed, Endurance,  Spot Distance, Spot Time,  Courage,    Reload Speed, Commanding, General
+	_factionSkill = [[0.7, 0.8],      [0.8, 0.9],   [0.7, 0.8],   [0.7, 0.9], [0.8, 0.9],    [0.7, 0.8], [0.8, 0.9], [0.7, 0.8],   [0.7, 0.9], [0.7, 0.8]];
 };
 
 private _sideChar = switch (_defaultSide) do {
@@ -17,7 +16,7 @@ private _sideChar = switch (_defaultSide) do {
 };
 
 if (isNil "_factionUnits") then {
-    _factionUnits = [
+	_factionUnits = [
 		// Order is important, see DAC's documentation for _Unit_Pool_S in DAC_Config_Units
 		_sideChar + "_crew_F", // Crewman
 		_sideChar + "_Helipilot_F", // Helicopter Pilot
@@ -38,7 +37,7 @@ if (isNil "_factionUnits") then {
 			_sideChar + "_soldier_repair_F", 2,  // Repair Specialist
 			_sideChar + "_soldier_AA_F",     1   // Missile Specialist (AA)
 		]
-    ];
+	];
 };
 
 call {
@@ -59,43 +58,43 @@ call {
 };
 
 if (isNil "_factionVehicles") then {
-    _factionVehicles = [
-    /*  Anti Air Vehicles    */  ["B_APC_Tracked_01_AA_F"]
-    /*  Attack Helos         */	,["B_Heli_Attack_01_F","B_Heli_Light_01_armed_F"]
-    /*  Attack Planes        */	,["B_Plane_CAS_01_F"]
-    /*  Heavy Vehicles       */	,["B_MBT_01_cannon_F","B_MBT_01_TUSK_F"]
-    /*  Light Vehicles       */	,["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F"]
-    /*  Medium Vehicles      */	,["B_APC_Tracked_01_rcws_F","B_APC_Wheeled_01_cannon_F"]
-    /*  Mobile Artillery     */	,["B_MBT_01_arty_F","B_MBT_01_mlrs_F"]
-    /*  Transport Helos      */	,["B_Heli_Light_01_F","B_Heli_Transport_01_F","B_Heli_Transport_01_camo_F"]
-    /*  Transport Planes     */	,[]
-    /*  Transport Trucks     */	,["B_Truck_01_transport_F","B_Truck_01_covered_F"]
-    /*  Static Defence       */	,["B_HMG_01_high_F","B_static_AA_F","B_static_AT_F","B_Mortar_01_F"]
-    /*  Boats                */	,["B_Boat_Armed_01_minigun_F"]
-    /*  UAV                  */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-    /*  UGV                  */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-    /*  Support              */	,["B_Truck_01_Repair_F","B_Truck_01_ammo_F","B_Truck_01_fuel_F", "B_Truck_01_medical_F"]
-    /*  Submarines           */	,["B_SDV_01_F"]
-    /*  MRAP Vehicles        */ ,["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F"]
-    ];
+	_factionVehicles = [
+	/*  Anti Air Vehicles    */  ["B_APC_Tracked_01_AA_F"]
+	/*  Attack Helos         */	,["B_Heli_Attack_01_F", "B_Heli_Light_01_armed_F"]
+	/*  Attack Planes        */	,["B_Plane_CAS_01_F"]
+	/*  Heavy Vehicles       */	,["B_MBT_01_cannon_F", "B_MBT_01_TUSK_F"]
+	/*  Light Vehicles       */	,["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F"]
+	/*  Medium Vehicles      */	,["B_APC_Tracked_01_rcws_F", "B_APC_Wheeled_01_cannon_F"]
+	/*  Mobile Artillery     */	,["B_MBT_01_arty_F", "B_MBT_01_mlrs_F"]
+	/*  Transport Helos      */	,["B_Heli_Light_01_F", "B_Heli_Transport_01_F", "B_Heli_Transport_01_camo_F"]
+	/*  Transport Planes     */	,[]
+	/*  Transport Trucks     */	,["B_Truck_01_transport_F", "B_Truck_01_covered_F"]
+	/*  Static Defence       */	,["B_HMG_01_high_F", "B_static_AA_F", "B_static_AT_F", "B_Mortar_01_F"]
+	/*  Boats                */	,["B_Boat_Armed_01_minigun_F"]
+	/*  UAV                  */	,["B_UAV_02_CAS_F", "B_UAV_02_F"]
+	/*  UGV                  */	,["B_UGV_01_F", "B_UGV_01_rcws_F"]
+	/*  Support              */	,["B_Truck_01_Repair_F", "B_Truck_01_ammo_F", "B_Truck_01_fuel_F", "B_Truck_01_medical_F"]
+	/*  Submarines           */	,["B_SDV_01_F"]
+	/*  MRAP Vehicles        */ ,["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F"]
+	];
 };
 
 if (isNil "_factionObjects") then {
-    _factionObjects = [
-        /* Flag         */ "Flag_White_F",
-        /* Objects      */ [_sideChar + "_CargoNet_01_ammo_F"],
-        /* Walls        */ ["Land_BagFence_Short_F", "Land_BagFence_Long_F"],
-        /* Structures   */ ["Land_Cargo_House_V3_F"]
-    ];
+	_factionObjects = [
+		/* Flag         */ "Flag_White_F",
+		/* Objects      */ [_sideChar + "_CargoNet_01_ammo_F"],
+		/* Walls        */ ["Land_BagFence_Short_F", "Land_BagFence_Long_F"],
+		/* Structures   */ ["Land_Cargo_House_V3_F"]
+	];
 };
 
 if (isNil "_factionDACCamps") then {
-    _factionDACCamps = [
-        // DAC Camps
-        /* Basic    */ [(_factionObjects select FACTION_OBJECTS_FLAG),["FirePlace_burning_f",15,10,0],[selectRandom (_factionObjects select FACTION_OBJECTS_STRUCTURES),10,0,0],["Logic",10,15,0],0],
-        /* Objects  */ [[selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 2, 0],[selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 0, 0]],
-        /* Walls    */ [selectRandom (_factionObjects select FACTION_OBJECTS_WALLS),[-2,35],[40,40,0],[7,0,0,4],[1,0.1],[0,0]],
-        /* Ammo     */ ["medical", "medical_adv" ,"ammo"],
-        /* Statics  */ [[-7, 25, 0], [25, 25, 0], [25, -20, 180], [-7, -20, 180]]
-    ];
+	_factionDACCamps = [
+		// DAC Camps
+		/* Basic    */ [(_factionObjects select FACTION_OBJECTS_FLAG), ["FirePlace_burning_f", 15, 10, 0], [selectRandom (_factionObjects select FACTION_OBJECTS_STRUCTURES), 10, 0, 0], ["Logic", 10, 15, 0], 0],
+		/* Objects  */ [[selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 2, 0], [selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 0, 0]],
+		/* Walls    */ [selectRandom (_factionObjects select FACTION_OBJECTS_WALLS), [-2, 35], [40, 40, 0], [7, 0, 0, 4], [1, 0.1], [0, 0]],
+		/* Ammo     */ ["medical", "medical_adv", "ammo"],
+		/* Statics  */ [[-7, 25, 0], [25, 25, 0], [25, -20, 180], [-7, -20, 180]]
+	];
 };
