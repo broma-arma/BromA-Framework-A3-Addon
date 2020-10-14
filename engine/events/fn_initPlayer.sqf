@@ -34,6 +34,8 @@ private _playerLog = format ["INITIALIZING PLAYER '%1' (%2)", name player, playe
 
 // Assigns JIP status. =========================================================
 
+player_is_jip = didJIP; // Backward compatibility
+
 ["LOCAL", "F_LOG", format ["JIP STATUS: %1 | TIME: %2", didJIP, time]] call BRM_FMK_fnc_doLog;
 
 player_is_spectator = player getVariable ["is_spectator", false] || player isKindOf "VirtualSpectator_F";
