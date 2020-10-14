@@ -108,7 +108,7 @@ switch (_mode) do {
 			{
 				private _unit = _x;
 				if !(_unit getVariable ["isDead", false]) then {
-					private _unitInit = _unit getVariable ["unitInit", ["white", "*", "*", "*", "*"]];
+					private _unitInit = _unit getVariable ["unitInit", ["MAIN", "*", "*", "*"]];
 
 					private _pad = if (isFormationLeader _unit) then { "  " } else { "    " };
 
