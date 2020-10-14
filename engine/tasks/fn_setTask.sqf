@@ -23,11 +23,13 @@ RETURNS:
 ================================================================================
 */
 
+if (!isServer) exitWith {};
+
 params ["_task", "_state"];
 
 _state = toUpper _state;
 
-if (([_task] call BIS_fnc_taskState) != _state) then {
+if ([_task] call BIS_fnc_taskState != _state) then {
 	[_task, _state, true] call BIS_fnc_taskSetState;
 
 	{
