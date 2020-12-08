@@ -30,7 +30,6 @@
 #include "setup_zone\main.cpp"
 #include "agm_plugin\main.cpp"
 #include "civilian_casualty_cap\main.cpp"
-#include "cssa3_spectator\main.cpp"
 #include "ace3_spectator\main.cpp"
 #include "vanilla_spectator\main.cpp"
 #include "plank_building\main.cpp"

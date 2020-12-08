@@ -4,7 +4,7 @@
 		name = "ACE3 Spectator plugin";
 		version = 1;
 		authors[] = {"Nife"};
-		conflict_plugins[] = {"cssa3_spectator", "vanilla_spectator"};
+		conflict_plugins[] = {"vanilla_spectator"};
 		description = "Manages some stuff about the spectator system.";
 	};
 #endif
