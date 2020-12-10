@@ -33,7 +33,6 @@ switch(_x) do {
                 [_blood1000, _countBloodbagCARGO],
                 [_plasma1000, _countBloodbagCARGO],
                 [_surgKit, 5],
-                [_defib, 5],
                 [_bodyBag, _countBloodbagCARGO]
             ]] call BRM_FMK_fnc_addtoCargo;
         };
