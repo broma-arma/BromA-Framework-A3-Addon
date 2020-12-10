@@ -73,7 +73,7 @@ _count40mmCARGO = 40;
 _countBANDAGE = 15;
 _countMORPHINE = 5;
 _countEPI = 5;
-_countCAT = 3;
+_countTourniquet = 3;
 _countBLOODBAG = 3;
 _countPAK = 1;
 

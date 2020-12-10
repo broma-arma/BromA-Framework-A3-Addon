@@ -21,14 +21,14 @@ switch (true) do {
             case 2: { // ADVANCED
                 _suppliesMEDIC = [
                     [_elasticBandage, _countBANDAGE], [_quickClot, _countBANDAGE],
-                    [_tourniquet, _countCAT],
+                    [_tourniquet, _countTourniquet],
                     [_morphine, _countMORPHINE], [_epi, _countEPI],
                     [_blood500, _countBLOODBAG],
                     [_surgKit, 1],
                     [_personalAidKit, _countPAK],
                     [_blood1000, _countBLOODBAG]
                 ];
-                _suppliesNORMAL = [[_packingBandage, _countBANDAGE / 4], [_quickClot, _countBANDAGE / 4], [_elasticBandage, _countBANDAGE / 4], [_tourniquet, _countCAT], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
+                _suppliesNORMAL = [[_packingBandage, _countBANDAGE / 4], [_quickClot, _countBANDAGE / 4], [_elasticBandage, _countBANDAGE / 4], [_tourniquet, _countTourniquet], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
             };
         };
     };

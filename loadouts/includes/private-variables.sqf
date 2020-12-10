@@ -75,7 +75,7 @@ private [
 
 	"_bandage", "_countBANDAGE", "_countBandageCARGO",
 	"_fieldDressing", "_packingBandage", "_elasticBandage", "_quickClot",
-	"_tourniquet", "_countCAT",
+	"_tourniquet", "_countTourniquet",
 
 	"_morphine", "_countMORPHINE", "_countMorphineCARGO",
 	"_atrophine",
@@ -96,6 +96,9 @@ private [
 	"_NVGEN1", "_NVGEN2", "_NVGEN4", "_NVWIDE",
 
 	"_suppliesNORMAL", "_suppliesMEDIC",
+
+	// Deprecated
+	"_countCAT"
 
 	// Unused
 	"_commonRifleATTACHMENTS", "_commonHandgunATTACHMENTS", "_commonMGATTACHMENTS", "_commonMarksmanATTACHMENTS", "_commonSniperATTACHMENTS", "_commonSpecATATTACHMENTS", "_commonRifleGLATTACHMENTS", "_commonSMGATTACHMENTS",

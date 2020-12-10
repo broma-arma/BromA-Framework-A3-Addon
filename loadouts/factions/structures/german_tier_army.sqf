@@ -21,14 +21,14 @@ switch (true) do {
             case 2: { // ADVANCED
                 _suppliesMEDIC = [
                     [_elasticBandage, _countBANDAGE], [_quickClot, _countBANDAGE],
-                    [_tourniquet, _countCAT],
+                    [_tourniquet, _countTourniquet],
                     [_morphine, _countMORPHINE], [_epi, _countEPI],
                     [_blood500, _countBLOODBAG],
                     [_surgKit, 1],
                     [_personalAidKit, _countPAK],
                     [_blood1000, _countBLOODBAG]
                 ];
-                _suppliesNORMAL = [[_packingBandage, _countBANDAGE / 4], [_quickClot, _countBANDAGE / 4], [_elasticBandage, _countBANDAGE / 4], [_tourniquet, _countCAT], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
+                _suppliesNORMAL = [[_packingBandage, _countBANDAGE / 4], [_quickClot, _countBANDAGE / 4], [_elasticBandage, _countBANDAGE / 4], [_tourniquet, _countTourniquet], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
             };
         };
     };
@@ -154,7 +154,7 @@ switch (true) do {
         [_unit, [[_weaponsAA select RAMMO, _countWeaponsAA]]] call BRM_FMK_fnc_addtoBackpack;
     };
 
-    case (_isHeavyAT): {
+    case (_isHeavyAT): { // TODO _isHeavyAT doesn't exist
         [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_grenade,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
@@ -164,7 +164,7 @@ switch (true) do {
         [_unit, _specAT select GL, _countHE] call BRM_FMK_fnc_addAmmo;
     };
 
-    case (_isATAssistant): {
+    case (_isATAssistant): { // TODO _isATAssistant doesn't exist
         [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,1], [_grenade,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;

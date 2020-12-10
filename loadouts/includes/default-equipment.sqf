@@ -36,3 +36,5 @@ if (isNil "_isATDisposable") then {
 if (_isATDisposable) then {
     _countATCARGO = 0;
 };
+
+if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") then { 3 } else { _countCAT }; };
