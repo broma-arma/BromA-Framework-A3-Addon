@@ -1,5 +1,31 @@
-removeVest (_this select 0);
-removeHeadgear (_this select 0);
-removeBackpack (_this select 0);
-removeGoggles (_this select 0);
-removeUniform (_this select 0);
+/*
+================================================================================
+
+NAME:
+    BRM_FMK_fnc_stripUnit
+
+AUTHOR(s):
+    Nife
+
+DESCRIPTION:
+    Removes a Man object's uniform, vest, backpack, headgear, and goggles.
+
+PARAMETERS:
+    0 - Man object. (OBJECT)
+
+USAGE:
+    [player] call BRM_FMK_fnc_stripUnit
+
+RETURNS:
+    Nothing
+
+================================================================================
+*/
+
+params ["_unit"];
+
+removeVest _unit;
+removeHeadgear _unit;
+removeBackpack _unit;
+removeGoggles _unit;
+removeUniform _unit;

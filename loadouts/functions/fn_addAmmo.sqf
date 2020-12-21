@@ -1,32 +1,31 @@
-_unit = _this select 0;
-_kind = _this select 1;
-_amount = _this select 2;
+/*
+================================================================================
 
-_isMan = _unit isKindOf "Man";
+NAME:
+    BRM_FMK_fnc_addAmmo
 
-if _isMan then {
-    if (typeName _kind == "ARRAY") then {
-        for "_i" from 1 to _amount do {
-            if ((vest _unit) == "") then {
-                _unit addMagazine (_kind select 1);
-            } else {
-                if (_unit canAddItemToVest (_kind select 1)) exitWith { _unit addItemToVest (_kind select 1) };
-                if (_unit canAddItemToBackpack (_kind select 1)) exitWith { _unit addItemToBackpack (_kind select 1) };
-                if (_unit canAddItemToUniform (_kind select 1)) exitWith { _unit addItemToUniform (_kind select 1) };
-            };
-        };
-    } else {
-        for "_i" from 1 to _amount do {
-            if ((vest _unit) == "") then {
-                _unit addMagazine _kind;
-            } else {
-                if (_unit canAddItemToVest (_kind)) exitWith { _unit addItemToVest (_kind) };
-                if (_unit canAddItemToBackpack (_kind)) exitWith { _unit addItemToBackpack (_kind) };
-                if (_unit canAddItemToUniform (_kind)) exitWith { _unit addItemToUniform (_kind) };
-            };
-        };
-    };
-} else {
-    if (typeName _kind == "ARRAY") then { _unit addMagazineCargoGlobal [(_kind select 1),_amount];
-    } else { _unit addMagazineCargoGlobal [_kind,_amount] };
-};
+AUTHOR(s):
+    Nife
+
+DESCRIPTION:
+    Add magazines to an object. (Man: Vest > Backpack > Uniform)
+
+PARAMETERS:
+    0 - Object to add the item to. (OBJECT)
+    1 - Config name of the item to add. (STRING)
+    2 - (OPTIONAL) Amount to add, default 1. (NUMBER)
+
+USAGE:
+    [player, "100Rnd_65x39_caseless_mag"] call BRM_FMK_fnc_addItem;
+    [player, "100Rnd_65x39_caseless_mag", 2] call BRM_FMK_fnc_addItem;
+    [crate, "100Rnd_65x39_caseless_mag", 20] call BRM_FMK_fnc_addItem;
+
+RETURNS:
+    The amount that was added. (NUMBER)
+
+================================================================================
+*/
+
+params ["_object", "_kind", ["_amount", 1]];
+
+[_object, _kind, _amount, "vbu"] call BRM_FMK_fnc_addItem

@@ -1,12 +1,42 @@
-_array = _this select 0;
-_unit = _array select 0;
-_type = _array select 1;
+/*
+================================================================================
 
-for "_i" from 2 to (count _array) do {
-    switch(_type) do {
-        case("weapon"): { _unit addWeaponCargoGlobal [((_array select _i)select 0),((_array select _i)select 1)]};
-        case("magazine"): { _unit addMagazineCargoGlobal [((_array select _i)select 0),((_array select _i)select 1)]};
-        case("item"): { _unit addItemCargoGlobal [((_array select _i)select 0),((_array select _i)select 1)]};
-        case("backpack"): { _unit addBackpackCargoGlobal [((_array select _i)select 0),((_array select _i)select 1)]};
-    };
+NAME:
+    BRM_FMK_fnc_addToCargo
+
+AUTHOR(s):
+    Nife
+
+DESCRIPTION:
+    Add items, weapons, magazines, or backpacks to a cargo object.
+
+PARAMETERS:
+    0 - Cargo object to add the items to. (OBJECT)
+    1 - Items (ARRAY)
+        0 - Item config name. (STRING)
+        1 - Amount. (NUMBER)
+
+USAGE:
+    [crate, "item", ["ItemGPS", 1], ["ItemCompass", 2], ["ItemWatch", 3]] call BRM_FMK_fnc_addToCargo;
+
+RETURNS:
+    Nothing
+
+================================================================================
+*/
+
+if (count _this == 1 && { _this select 0 isEqualType [] }) then {
+	// Backward compatibility
+	_this = _this select 0;
 };
+
+params ["_unit", "_type"];
+
+{
+	switch (_type) do {
+		case "weapon": { _unit addWeaponCargoGlobal _x; };
+		case "magazine": { _unit addMagazineCargoGlobal _x; };
+		case "item": { _unit addItemCargoGlobal _x; };
+		case "backpack": { _unit addBackpackCargoGlobal _x; };
+	};
+} forEach (_this select [2, count _this - 2]);

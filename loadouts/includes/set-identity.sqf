@@ -1,27 +1,16 @@
-if (((_restoreDisplay) || (_restoreType)) && (isPlayer _unit)) then {
-    private "_chosenRestore";
-    if (_restoreType) then { _chosenRestore = _originalType };
-    if (_restoreDisplay) then { _chosenRestore = _displayName };
-    private _prevUnitInit = _unit getVariable ["unitInit", ["white", "*", "*", "*", "*"]];
-    _prevUnitInit set [3, _chosenRestore];
-    _unit setVariable ["unitInit", _prevUnitInit];
+if (!isPlayer _unit) then {
+	private _voice = selectRandom selectRandom _defaultVoice;
+	private _face = selectRandom selectRandom _defaultFace;
+	private _name = if (!isNil "_defaultName") then {
+		selectRandom _defaultName params ["_firstNames", "_lastNames"];
+		format ["%1 %2", selectRandom _firstNames, selectRandom _lastNames];
+	} else {
+		""
+	};
+
+	[_unit, _voice, _face, _name] remoteExecCall ["BRM_FMK_fnc_setUnitIdentity", 0];
 };
 
-_defaultVoice = selectRandom _defaultVoice;
-_defaultFace = selectRandom _defaultFace;
-
-_doVoice = selectRandom _defaultVoice;
-_doFace = selectRandom _defaultFace;
-
-if (!isNil "_defaultName") then {
-    _defaultName = selectRandom _defaultName;
-    _doFirstName = selectRandom (_defaultName select 0);
-    _doLastName = selectRandom (_defaultName select 1);
-    _doFinalName = _doFirstName + " " + _doLastName;
-} else {
-    _doFinalName = "default";
+if (_defaultInsignia != "" && { !isNull ([["CfgUnitInsignia", _defaultInsignia], configNull] call BIS_fnc_loadClass) }) then {
+	[_unit, _defaultInsignia] call BIS_fnc_setUnitInsignia;
 };
-
-[{(time > 3)}, {
-    _this remoteExecCall ["BRM_FMK_fnc_setUnitIdentity", 0];
-}, [_unit, _doVoice, _doFace, _doFinalName, _defaultInsignia]] call CBA_fnc_waitUntilAndExecute;

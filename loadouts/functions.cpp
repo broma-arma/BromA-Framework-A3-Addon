@@ -10,6 +10,7 @@ class loadouts_functions {
 	class addEmptyBackpack {};
 	class setVehiclesArray{};
 	class addItem {};
+	class addItems {};
 	class addMedicBasics {};
 	class addOptics {};
 	class addRadio {};
@@ -26,6 +27,6 @@ class loadouts_functions {
 	class useUniform {};
 	class setUnitIdentity {};
 	class getSideUAV {};
-	class addWeaponAttachments{};
+	class addWeaponAttachments {};
 	class getFaction {};
 };

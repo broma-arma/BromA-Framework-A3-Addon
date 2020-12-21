@@ -1,16 +1,30 @@
 if (isNil "_factionSide") then { _factionSide = [_faction, _defaultSide] call BRM_FMK_fnc_getFaction select 1; };
 
-switch (_factionSide) do {
-	case EAST: {
-		if (isNil "_weaponsAT") then { _weaponsAT = _TitanAT; };
-		if (isNil "_weaponsAA") then { _weaponsAA = _IGLA; };
-	};
+private _sideChar = switch (_factionSide) do {
+	case WEST: { "B" };
+	case EAST: { "O" };
+	case RESISTANCE: { "I" };
+	default { "B" };
+};
 
-	case WEST;
-	case RESISTANCE;
-	default {
-		if (isNil "_weaponsAT") then { _weaponsAT = _JAVELIN; };
-		if (isNil "_weaponsAA") then { _weaponsAA = _STINGER; };
+if (isNil "_weaponsAT") then {
+	_weaponsAT = [format ["launch_%1_Titan_short_F", _sideChar], "Titan_AT"];
+
+	if (_factionSide != EAST && isClass (configFile >> "CfgPatches" >> "rhsusf_main")) then { // RHS USAF
+		_weaponsAT = _JAVELIN;
+	};
+};
+if (isNil "_weaponsAA") then {
+	_weaponsAA = [format ["launch_%1_Titan_F", _sideChar], "Titan_AA"];
+
+	if (_factionSide == EAST) then {
+		if (isClass (configFile >> "CfgPatches" >> "rhs_main")) then { // RHS AFRF
+			_weaponsAA = _IGLA;
+		};
+	} else {
+		if (isClass (configFile >> "CfgPatches" >> "rhsusf_main")) then { // RHS USAF
+			_weaponsAA = _STINGER;
+		};
 	};
 };
 
