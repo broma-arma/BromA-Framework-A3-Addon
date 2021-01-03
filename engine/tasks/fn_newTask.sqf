@@ -12,23 +12,21 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Assignees: who will the task be assigned to. (SIDE/GROUP/UNIT)
-    1 - The ID of the task. (STRING)
+    1 - The ID of the task or array in the format [id, parent id]. (STRING/ARRAY)
     2 - The details of the task. (ARRAY)
         0 - Task title. (STRING)
         1 - Description. (STRING)
         2 - The Type of the Task (STRING)
-            Current available types are:
-                "Default", "Attack", "Defend", "Destroy", "Interact", "Move", "Search", "Support"
-        3 - Position of the Task (ARRAY/POSITION)
-                If left empty no position will be shown.
+            See https://community.bistudio.com/wiki/Arma_3:_Task_Framework#Task_icons for task types
+        3 - Position of the Task (POSITION/OBJECT/STRING)
+            No position will be shown if an empty array/string or null object.
     3 - Conditions. (ARRAY)
         0 - Condition for assignment. (STRING, but must evaluate to BOOLEAN)
         1 - Condition for completion. (STRING, but must evaluate to BOOLEAN)
         2 - Condition for failure. (STRING, but must evaluate to BOOLEAN)
     4 - Task priority. (NUMBER)
         0: Task will be declared "OPTIONAL" and is irrelevant to the mission.
-        1: Similar to "OPTIONAL", but they behave as the middle ground,
-        without failing the mission and not being essential to win.
+        1: Similar to "OPTIONAL", but they behave as the middle ground, without failing the mission and not being essential to win.
         2: Essential tasks, which cannot be failed and must be completed.
     5 - Task event callback. (ARRAY)
         0 - Code executed when the task is assigned to the players. (STRING, but must evaluate to CODE)
@@ -56,32 +54,47 @@ RETURNS:
 
 if (!isServer) exitWith {};
 
-params ["_side", "_id", "_details", "_cond", "_priority", "_callback"];
+params ["_owner", "_id", "_details", "_predicates", "_priority", "_callbacks"];
 
-_details params ["_title", "_desc", "_type", ["_position", objNull, [[]]]];
-if (count _position == 0) then { _position = objNull; };
+_details params ["_title", "_desc", "_type", ["_position", objNull, [[], objNull, ""]]];
 
-_cond = _cond apply { compile _x };
-_cond params ["_condAssign", "_condWin", ["_condLose", {false}]];
+if (_position isEqualTo [] || _position isEqualTo "") then {
+	_position = objNull;
+};
 
-_callback = _callback apply { compile _x };
-_callback params ["_cbAssigned", "_cbCompleted", "_cbFailed"];
+if (_position isEqualType "") then {
+	_position = markerPos _position;
+};
 
-waitUntil { call _condAssign };
-call _cbAssigned;
+if (_position isEqualType objNull) then {
+	if (!isNull _position) then {
+		// always show marker on the object, even if player doesn't 'knowsAbout' it
+		_position = [_position, true];
+	};
+};
+
+_predicates apply { if (_x isEqualType "") then { compile _x } else { _x }; } params ["_predicateAssign", "_predicateWin", ["_predicateLose", {false}]];
+_callbacks apply { if (_x isEqualType "") then { compile _x } else { _x }; } params ["_callbackAssigned", "_callbackCompleted", "_callbackFailed"];
+
+waitUntil { call _predicateAssign };
+call _callbackAssigned;
 
 switch (_priority) do {
 	case 0: { _title = format ["(OPTIONAL) %1", _title]; };
 	case 2: { _title = format ["(!) %1", _title]; }
 };
 
-[_side, _id, [_desc, _title, ""], _position, false, 0, true, _type, true] call BIS_fnc_taskCreate;
+[_owner, _id, [_desc, _title, ""], _position, false, 0, true, _type, true] call BIS_fnc_taskCreate;
 
-_side = switch (typeName _side) do {
-	case "GROUP":  { side _side };
-	case "OBJECT": { _side getVariable ["unit_side", side _side] };
-	case "SIDE":   { _side };
-	default        { side_a_side };
+if (_id isEqualType []) then {
+	_id = _id select 0;
+};
+
+private _side = switch (typeName _owner) do {
+	case "GROUP":  { side _owner };
+	case "OBJECT": { _owner getVariable ["unit_side", side _owner] };
+	case "SIDE":   { _owner };
+	default        { ["Invalid task owner, owner side defaulting to 'side_a_side' (%1)", side_a_side] call BIS_fnc_error; side_a_side };
 };
 
 private _sideId = switch (_side) do {
@@ -92,4 +105,4 @@ private _sideId = switch (_side) do {
 };
 
 if (isNil "BRM_FMK_tasks") then { BRM_FMK_tasks = [[], [], []]; };
-(BRM_FMK_tasks select _sideId) pushBack [_id, _priority, _condWin, _condLose, _cbCompleted, _cbFailed];
+(BRM_FMK_tasks select _sideId) pushBack [_id, _priority, _predicateWin, _predicateLose, _callbackCompleted, _callbackFailed];

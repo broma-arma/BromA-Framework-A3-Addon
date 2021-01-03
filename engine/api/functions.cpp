@@ -20,6 +20,7 @@ class api {
 	class getFactionVehicles{};
 	class appendIndices{};
 	class teamsExist{};
+	class reachTarget{};
 };
 
 class api_zeus {
