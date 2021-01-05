@@ -1,5 +1,3 @@
-#include "../defines.hpp"
-
 //#include "\A3\3den\ui\dikcodes.inc"
 //#include "\A3\3den\ui\macroexecs.inc"
 #include "\A3\3den\ui\macros.inc"

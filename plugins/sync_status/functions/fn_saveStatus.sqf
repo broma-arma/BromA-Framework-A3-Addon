@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if !(isServer) exitWith {};
 
 params ["_unit", "_id", "_uid", "_name"];

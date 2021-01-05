@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 sideAcondition = false;
 sideBcondition = false;
 sideCcondition = false;

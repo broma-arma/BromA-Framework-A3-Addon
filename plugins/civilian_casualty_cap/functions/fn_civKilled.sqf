@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if !(isServer && mission_running) exitWith {};
 
 params ["_unit", "_killer", "_instigator"];

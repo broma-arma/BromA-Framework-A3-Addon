@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 #include "includes\settings.sqf"
 
 // =============================================================================

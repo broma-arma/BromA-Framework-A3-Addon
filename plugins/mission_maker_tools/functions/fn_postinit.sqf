@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (isMultiplayer) exitWith {};
 
 player addAction ["Stop AI", {{ _x stop true } forEach allUnits}, "", 0, false, true];

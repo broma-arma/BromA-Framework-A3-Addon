@@ -39,7 +39,7 @@ Examples
 	}, nil] call BRM_FMK_MPGarage_fnc_open;
 */
 
-#include "../defines.hpp"
+#include "component.hpp"
 
 params [
 	["_position", objNull, [objNull, [], ""]],

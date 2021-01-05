@@ -1,4 +1,4 @@
-#include "../defines.hpp"
+#include "component.hpp"
 
 params ["_vehicle", "_index", ["_autoFocus", true]];
 

@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 params ["_uid", ["_status", []]];
 
 if (count _status == 0) exitWith {

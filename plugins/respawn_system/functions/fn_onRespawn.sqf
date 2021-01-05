@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 params["_unit"];
 [{(alive _this)}, {
     player_current_lives = [_this] call BRM_FMK_RespawnSystem_fnc_getLives;

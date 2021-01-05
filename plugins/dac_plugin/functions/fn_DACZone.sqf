@@ -1,3 +1,4 @@
+#include "component.hpp"
 // DAC\Scripts\DAC_Init_Zone.sqf
 if (mission_AI_controller) then {
 	[{!(isNil "dac_basic_value")}, {

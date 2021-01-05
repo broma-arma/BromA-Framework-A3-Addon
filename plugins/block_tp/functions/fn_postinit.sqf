@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if !(hasInterface) exitWith {};
 
 0 spawn {

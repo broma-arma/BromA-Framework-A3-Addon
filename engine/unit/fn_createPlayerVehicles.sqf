@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (!isServer) exitWith {};
 
 #include "\broma_framework\loadouts\includes\vehicles-index.sqf"

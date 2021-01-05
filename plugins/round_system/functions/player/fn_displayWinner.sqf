@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 params["_reason","_color"];
 
 switch (round_end_notification) do {

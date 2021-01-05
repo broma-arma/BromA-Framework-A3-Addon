@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (isServer) then {
     params["_grpstemp", "_pc", "_end"];
 

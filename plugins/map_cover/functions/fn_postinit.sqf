@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (isServer) then {
     private _group = createGroup sideLogic;
     private _pos = getMarkerPos "ao";

@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 _group = _this select 0;
 _loadout = _this select 1;
 _skill = _this select 2;

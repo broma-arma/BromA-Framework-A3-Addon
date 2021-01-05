@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 #define SERVER_FPS_METRIC 20
 #define SERVER_TIMEOUT 5
 

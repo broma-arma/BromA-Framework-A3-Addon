@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 #define MIN_DAMAGE 0.2
 
 params ["_unit", "_attacker", "_damage", ["_instigator", objNull]];

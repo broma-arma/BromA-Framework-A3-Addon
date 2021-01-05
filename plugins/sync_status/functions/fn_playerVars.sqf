@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 private _playerVars = [];
 
 // Task Force Arrowhead Radio

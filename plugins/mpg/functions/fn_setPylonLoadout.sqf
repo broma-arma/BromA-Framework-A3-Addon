@@ -1,4 +1,4 @@
-#include "../defines.hpp"
+#include "component.hpp"
 
 private _params = params [
 	["_vehicle", nil, [objNull]],

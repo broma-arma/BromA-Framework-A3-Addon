@@ -1,3 +1,4 @@
+#include "component.hpp"
 /*
 ================================================================================
 
@@ -47,7 +48,7 @@ RETURNS:
 	["mission_AI_controller", false],
 	["mission_HC_enabled",    false],
 
-	["BRM_FRAMEWORK_ADDON", "BRM_FRAMEWORK"],
+	["BRM_FRAMEWORK_ADDON", QUOTE(MAIN_ADDON)],
 
 	["mission_AGM_enabled",   isClass (configFile >> "CfgPatches" >> "AGM_CORE")],
 	["mission_ACE3_enabled",  isClass (configFile >> "CfgPatches" >> "ACE_COMMON")],

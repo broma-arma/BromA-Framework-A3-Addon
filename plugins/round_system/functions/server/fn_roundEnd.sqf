@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (!isServer) exitWith {};
 
 round_over = true;

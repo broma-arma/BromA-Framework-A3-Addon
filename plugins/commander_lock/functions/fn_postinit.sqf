@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 #include "includes\settings.sqf"
 
 call compile format ["co_lock_units = %1", co_lock_units];

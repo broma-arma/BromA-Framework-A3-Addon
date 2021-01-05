@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 params [["_objects", []], ["_allow", true]];
 
 {

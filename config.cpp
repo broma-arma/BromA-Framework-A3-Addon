@@ -1,75 +1,39 @@
-#define MAJOR 0
-#define MINOR 81
-#define REVISION 6
-
-#define VERSION MAJOR.MINOR.REVISION
-#define VERSION_AR MAJOR,MINOR,REVISION
-
-#define QUOTE(var1) #var1
+#include "component.hpp"
 
 class CfgPatches {
-	class BRM_FRAMEWORK {
+	class ADDON {
+		author = "BromA";
+		name = "Broma Framework";
+		description = "Broma Framework MK 4 APEX";
+
 		units[] = {};
 		weapons[] = {};
-		requiredVersion = 1;
+		requiredVersion = REQUIRED_VERSION;
 		requiredAddons[] = {};
-		author = "Nife";
-		versionDesc = "Broma Framework MK 4 APEX";
-		version = VERSION;
-		versionStr = QUOTE(VERSION);
-		versionAr[] = {VERSION_AR};
+		VERSION_CONFIG;
 	};
 };
 
 class CfgSettings {
 	class CBA {
 		class Versioning {
-			class BRM_FRAMEWORK {
-				main_addon = "BRM_FRAMEWORK";
+			class PREFIX {
+				class dependencies {
+					CBA_A3[] = { "cba_main", { 3, 15, 1 }, "true" };
+				};
 			};
 		};
 	};
 };
 
-class CfgFunctions {
-	class BRM_FMK {
-		tag = BRM_FMK;
-
-		#include "\broma_framework\engine\api\functions.cpp"
-		#include "\broma_framework\engine\ending\functions.cpp"
-		#include "\broma_framework\engine\events\functions.cpp"
-		#include "\broma_framework\engine\init\functions.cpp"
-		#include "\broma_framework\engine\misc\functions.cpp"
-		#include "\broma_framework\engine\plugins\functions.cpp"
-		#include "\broma_framework\engine\tasks\functions.cpp"
-		#include "\broma_framework\engine\unit\functions.cpp"
-
-		#include "\broma_framework\loadouts\functions.cpp"
-	};
-
-	#define BRM_PLUGIN_FUNCTIONS
-		#include "plugins\plugins.cpp"
-	#undef BRM_PLUGIN_FUNCTIONS
-};
-
-class CfgBRMPlugins {
-    #define BRM_PLUGIN_META
-        #include "\broma_framework\plugins\plugins.cpp"
-    #undef BRM_PLUGIN_META
-};
-
-#define BRM_PLUGIN_DIALOGS
-	#include "plugins\plugins.cpp"
-#undef BRM_PLUGIN_DIALOGS
-
 class Extended_DisplayLoad_EventHandlers {
 	class RscDisplayEGSpectator {
-		BRM_FRAMEWORK = "['BRM_FMK_DisplayLoad_EGSpectator', _this] call CBA_fnc_localEvent;";
+		PREFIX = "['BRM_FMK_DisplayLoad_EGSpectator', _this] call CBA_fnc_localEvent;";
 	};
 };
 
 class Extended_DisplayUnload_EventHandlers {
 	class RscDisplayEGSpectator {
-		BRM_FRAMEWORK = "['BRM_FMK_DisplayUnload_EGSpectator', _this] call CBA_fnc_localEvent;";
+		PREFIX = "['BRM_FMK_DisplayUnload_EGSpectator', _this] call CBA_fnc_localEvent;";
 	};
 };

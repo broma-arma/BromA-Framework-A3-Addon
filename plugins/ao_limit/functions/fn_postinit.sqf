@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if !(hasInterface && {!player_is_spectator}) exitWith {};
 
 #include "includes\settings.sqf"

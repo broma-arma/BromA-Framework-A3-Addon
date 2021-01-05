@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (!isServer) exitWith {
 	_this remoteExec ["BRM_FMK_TimeLimit_fnc_addTime", 2];
 };

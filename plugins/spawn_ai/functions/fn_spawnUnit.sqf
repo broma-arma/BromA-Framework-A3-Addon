@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 _unit = (_this select 0) createUnit [(_this select 1), (_this select 2), [], 0, "FORM"];
 _unit setSkill (_this select 3);
 

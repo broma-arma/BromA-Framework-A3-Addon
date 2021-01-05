@@ -1,3 +1,4 @@
+#include "component.hpp"
 // DAC\Scripts\DAC_Create_Zone.sqf
 private [
 "_thisZone","_KiZone","_ZonePos","_mxvalue","_myvalue","_s","_start","_isserv",

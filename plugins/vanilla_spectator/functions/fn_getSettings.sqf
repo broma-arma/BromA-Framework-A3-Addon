@@ -1,3 +1,4 @@
+#include "component.hpp"
 /*
     Returns the spectator settings.
 */

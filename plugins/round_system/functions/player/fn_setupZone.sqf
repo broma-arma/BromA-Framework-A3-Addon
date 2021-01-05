@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 sleep 1;
 _logic =  _this select 0;
 _radius = _this select 1;

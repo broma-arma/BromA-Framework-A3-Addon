@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (hasInterface) then {
     if (player_is_spectator) exitWith {};
 

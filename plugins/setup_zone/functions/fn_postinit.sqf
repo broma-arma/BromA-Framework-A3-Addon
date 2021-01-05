@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (mission_game_mode == "coop") exitWith {};
 
 if (isNil "setup_zone_area") then {

@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 waitUntil { !isNil "DAC_STRPlayers" };
 
 if (mission_AI_controller) then {

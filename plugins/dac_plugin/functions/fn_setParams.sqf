@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 params ["_aiSkill"];
 
 DAC_AI_Level = _aiSkill + 1;

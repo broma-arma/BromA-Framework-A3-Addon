@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if !(isClass(configFile >> "CfgPatches" >> "ACE_MEDICAL")) exitWith {};
 
 #include "includes\settings.sqf"

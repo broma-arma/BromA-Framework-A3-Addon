@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 #define MIN_DISTANCE_SQD	10000	// Min distance, squared, to teleport.
 #define TIMEOUT				300		// Amount of time, in seconds, the player has to teleport.
 

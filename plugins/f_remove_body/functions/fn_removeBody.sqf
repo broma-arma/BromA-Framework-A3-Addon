@@ -1,3 +1,7 @@
+#include "component.hpp"
+
+// 'f_' names are for backward compatibility
+
 params [["_unit", objNull]];
 
 if (isNull _unit) exitWith {};

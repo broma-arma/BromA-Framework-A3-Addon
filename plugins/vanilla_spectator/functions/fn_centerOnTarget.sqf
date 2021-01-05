@@ -1,3 +1,4 @@
+#include "component.hpp"
 /*
     Centers the camera on either a friendly or the first unit.
 */

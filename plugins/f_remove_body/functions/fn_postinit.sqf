@@ -1,3 +1,7 @@
+#include "component.hpp"
+
+// 'f_' names are for backward compatibility
+
 if (isNil "f_var_removeBodyDelay") then { f_var_removeBodyDelay = 120; };
 
 if (isNil "f_var_removeBodyDistance") then { f_var_removeBodyDistance = 300; };

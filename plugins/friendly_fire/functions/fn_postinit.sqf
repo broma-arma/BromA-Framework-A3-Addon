@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if !(hasInterface) exitWith {};
 
 if (isNil "friendly_fire_timer_minutes") then { friendly_fire_timer_minutes = 1 };

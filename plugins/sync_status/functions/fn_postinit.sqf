@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if !(isMultiplayer) exitWith {};
 
 if (isServer) then {

@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 params["_unit"];
 
 private _unitSavedGear = getUnitLoadout _unit;

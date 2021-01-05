@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 // [myArray, [-100, 50],[-100, 50]] call BRM_FMK_SpawnAI_fnc_addDistance;
 
 _array = _this select 0;

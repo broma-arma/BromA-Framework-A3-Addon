@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (!mission_running) exitWith {};
 
 params ["_unit"];

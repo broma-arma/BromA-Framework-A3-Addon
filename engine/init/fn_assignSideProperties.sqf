@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 #include "\broma_framework\loadouts\includes\faction-info-index.sqf"
 
 private _properties = ["_side", "_color", "_name", "_skill", "_callsigns", "_units", "_vehicles", "_objects", "_dacCamps"];

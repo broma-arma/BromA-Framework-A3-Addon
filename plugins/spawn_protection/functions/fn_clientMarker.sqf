@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (!hasInterface) exitWith {};
 
 params [["_pos", []], ["_a", 50], ["_b", 50], ["_angle", 0], ["_isRectangle", true], ["_c", 0]];

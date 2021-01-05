@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (!isServer) exitWith {};
 
 { round_alerted_minutes set [_forEachIndex, (round_alerted_minutes select _forEachIndex) * 60] } forEach round_alerted_minutes;

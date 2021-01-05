@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if !(hasInterface) exitWith { intro_cutscene_over = true; };
 
 intro_cutscene_over = false;

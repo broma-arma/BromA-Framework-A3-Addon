@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 _unit = _this select 0;
 
 [_unit, 0] call BRM_FMK_RespawnSystem_fnc_setLives;

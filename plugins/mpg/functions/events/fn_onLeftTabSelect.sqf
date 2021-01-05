@@ -1,4 +1,4 @@
-#include "../../defines.hpp"
+#include "component.hpp"
 
 params ["_display", "_control", ["_autoFocus", true]];
 

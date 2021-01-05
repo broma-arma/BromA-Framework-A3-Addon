@@ -1,3 +1,4 @@
+#include "component.hpp"
 // Enables debugging.
 
 ROUND_SYSTEM_DEBUG = !isMultiplayer;

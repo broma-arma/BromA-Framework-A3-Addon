@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 params["_target", ["_lives", mission_player_lives]];
 
 private _index = -1;

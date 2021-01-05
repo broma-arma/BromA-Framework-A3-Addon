@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 disableSerialization;
 
 params ["_mode", "_args"];

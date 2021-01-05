@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 #define CLIENT_FPS_METRIC 10
 #define CLIENT_TIMEOUT 5
 #define CLIENT_SERVER_TIMEOUT 10

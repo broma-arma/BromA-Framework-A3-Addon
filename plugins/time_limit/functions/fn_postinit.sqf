@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 if (!isServer) exitWith {};
 
 waitUntil { !isNil "mission_time_limit" };
