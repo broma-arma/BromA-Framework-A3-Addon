@@ -39,7 +39,7 @@ _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
 _commonPISTOLSUPPRESSOR = "hlc_muzzle_TiRant9";
 _NVG                    = _NVGEN2;
 
-_isATDisposable = true;
+_isSpecATDisposable = true;
 
 // AMMO COUNT ==================================================================
 

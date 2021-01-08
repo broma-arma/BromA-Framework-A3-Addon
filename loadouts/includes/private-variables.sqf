@@ -43,8 +43,8 @@ private [
 	"_commonMG", "_countMG", "_countMgCARGO", "_countTracerMG",
 	"_commonMarksman",
 	"_commonSniper", "_countSniper", "_countSniperCARGO",
-	"_commonAT", "_countAT", "_countATCARGO", "_isATDisposable",
-	"_specAT",
+	"_commonAT", "_countAT", "_countATCARGO",
+	"_specAT", "_isSpecATDisposable",
 	"_commonSMG",
 	"_weaponsAA", "_countWeaponsAA", "_countWeaponsAACARGO",
 	"_weaponsAT", "_countWeaponsAT", "_countWeaponsATCARGO",
@@ -95,7 +95,7 @@ private [
 	"_suppliesNORMAL", "_suppliesMEDIC",
 
 	// Deprecated
-	"_countCAT", "_defib",
+	"_countCAT", "_defib", "_isATDisposable",
 
 	// Unused
 	"_commonRifleATTACHMENTS", "_commonHandgunATTACHMENTS", "_commonMGATTACHMENTS", "_commonMarksmanATTACHMENTS", "_commonSniperATTACHMENTS", "_commonSpecATATTACHMENTS", "_commonRifleGLATTACHMENTS", "_commonSMGATTACHMENTS",

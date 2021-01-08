@@ -47,7 +47,7 @@ _commonSUPPRESSOR = "muzzle_snds_M";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = _NVGEN3IND;
 
-_isATDisposable = true;
+_isSpecATDisposable = true;
 
 // AMMO COUNT ==================================================================
 
