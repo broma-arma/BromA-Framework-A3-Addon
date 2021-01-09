@@ -44,7 +44,7 @@ private [
 	"_commonMarksman",
 	"_commonSniper", "_countSniper", "_countSniperCARGO",
 	"_commonAT", "_countAT", "_countATCARGO",
-	"_specAT", "_isSpecATDisposable",
+	"_specAT", "_countSpecATCARGO", "_isSpecATDisposable",
 	"_commonSMG",
 	"_weaponsAA", "_countWeaponsAA", "_countWeaponsAACARGO",
 	"_weaponsAT", "_countWeaponsAT", "_countWeaponsATCARGO",
@@ -72,8 +72,8 @@ private [
 
 	"_bandage", "_countBANDAGE", "_countBandageCARGO",
 	"_fieldDressing", "_packingBandage", "_elasticBandage", "_quickClot",
-	"_tourniquet", "_countTourniquet",
-	"_splint", "_countSplint",
+	"_tourniquet", "_countTourniquet", "_countTourniquetCARGO",
+	"_splint", "_countSplint", "_countSplintCARGO",
 
 	"_morphine", "_countMORPHINE", "_countMorphineCARGO",
 	"_atrophine", "_adenosine",

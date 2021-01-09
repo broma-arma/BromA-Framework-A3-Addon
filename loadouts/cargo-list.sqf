@@ -1,134 +1,148 @@
-switch(_x) do {
-    case "medical":
-    {
-        [[_object, "magazine",
-            [_bchemlight, 25],
-            [_rchemlight, 25],
-            [_gchemlight, 25],
-            [_wsmoke, 25],
-            [_rsmoke, 25],
-            [_gsmoke, 25]
-        ]] call BRM_FMK_fnc_addtoCargo;
-        [[_object, "item",
-            [_bandage, _countBandageCARGO],
-            [_morphine, _countMorphineCARGO],
-            [_epi, _countEpiCARGO],
-            [_bloodbag, _countBloodbagCARGO]
-        ]] call BRM_FMK_fnc_addtoCargo;
-    };
-    case "medical_adv":
-    {
-        if (mission_ACE3_enabled) then {
-            [[_object, "item",
-                [_fieldDressing, _countBandageCARGO],
-                [_packingBandage, _countBandageCARGO],
-                [_elasticBandage, _countBandageCARGO],
-                [_personalAidKit, _countPAKCARGO],
-                [_quickClot, _countBandageCARGO],
-                [_tourniquet, _countBandageCARGO],
-                [_morphine, _countMorphineCARGO],
-                [_atrophine, _countMorphineCARGO],
-                [_epi, _countEpiCARGO],
-                [_saline1000, _countBloodbagCARGO],
-                [_blood1000, _countBloodbagCARGO],
-                [_plasma1000, _countBloodbagCARGO],
-                [_surgKit, 5],
-                [_bodyBag, _countBloodbagCARGO]
-            ]] call BRM_FMK_fnc_addtoCargo;
-        };
-    };
-    case "ammo":
-    {
-        [[_object, "magazine",
-            [_commonRIFLE select RAMMO,_countRifleCARGO],
-            [_commonMG select RAMMO, _countMGCARGO],
-            [_commonAR select RAMMO, _countARCARGO],
-            [_commonMARKSMAN select RAMMO,_countRifleCARGO],
-            [_commonSNIPER select RAMMO,_countSNIPERCARGO],
-            [_commonSMG select RAMMO,_countRifleCARGO],
-            [_specAT select RAMMO, _countATCARGO],
-            [_commonRIFLEGL select GL, _count40mmCARGO],
-            [_commonRIFLEGL select RAMMO,_countRifleCARGO],
-            [_commonPISTOL select RAMMO, _countPistolCARGO],
-            [_grenade, _countGRENADESCARGO],
-            [_wsmoke, 25],
-            [_rsmoke, 25],
-            [_gsmoke, 25]
-        ]] call BRM_FMK_fnc_addtoCargo;
-        [[_object, "item",
-            [_earBuds, 25]
-        ]] call BRM_FMK_fnc_addtoCargo;
-    };
+switch (_x) do {
+	case "medical": {
+		private _supplies = [];
 
-    case "ammo_big":
-    {
-        [[_object,"magazine",
-            [_commonRIFLE select RAMMO,_countRifleCARGO * 3],
-            [_commonMG select RAMMO, _countMGCARGO * 3],
-            [_commonAR select RAMMO, _countARCARGO * 3],
-            [_commonMARKSMAN select RAMMO,_countRifleCARGO * 3],
-            [_commonSNIPER select RAMMO,_countSNIPERCARGO * 3],
-            [_commonSMG select RAMMO,_countRifleCARGO * 3],
-            [_specAT select RAMMO, _countATCARGO * 3],
-            [_commonRIFLEGL select GL, _count40mmCARGO * 3],
-            [_commonRIFLEGL select RAMMO,_countRifleCARGO * 3],
-            [_commonPISTOL select RAMMO, _countPistolCARGO * 3],
-            [_grenade, _countGRENADESCARGO * 3],
-            [_wsmoke, 25 * 3],
-            [_rsmoke, 25 * 3],
-            [_gsmoke, 25 * 3]
-        ]] call BRM_FMK_fnc_addtoCargo;
-    };
+		switch (true) do {
+			case mission_ACE3_enabled: {
+				_supplies append [
+					[_earBuds,        25],
+					[_morphine,       _countMorphineCARGO],
+					[_epi,            _countEpiCARGO],
+					[_tourniquet,     _countTourniquetCARGO],
+					[_blood250,       _countBloodbagCARGO],
+					[_blood500,       _countBloodbagCARGO],
+					[_blood1000,      _countBloodbagCARGO],
+					[_personalAidKit, _countPAKCARGO],
+					[_bodyBag,        _countBloodbagCARGO]
+				];
 
-    case "at":
-    {
-        [[_object,"magazine",
-            [_specAT select RAMMO, _countATCARGO],
-            [_weaponsAT select RAMMO, _countWeaponsATCARGO],
-            [_weaponsAA select RAMMO, _countWeaponsAACARGO]
-        ]] call BRM_FMK_fnc_addtoCargo;
-        [[_object,"weapon",
-            [_commonAT select GUN, 10]
-        ]] call BRM_FMK_fnc_addtoCargo;
-    };
+				if (ace_medical_treatment_advancedBandages == 0) then { // Disabled
+					_supplies pushBack [_bandage, _countBandageCARGO];
+				} else { // Enabled
+					_supplies append [
+						[_fieldDressing,  _countBandageCARGO],
+						[_packingBandage, _countBandageCARGO],
+						[_elasticBandage, _countBandageCARGO],
+						[_quickClot,      _countBandageCARGO]
+					];
 
-    case "explosives": {
-        [[_object, "magazine",
-            ["DemoCharge_Remote_Mag", 10],
-            ["SatchelCharge_Remote_Mag", 10]
-        ]] call BRM_FMK_fnc_addtoCargo;
-    };
+					if (ace_medical_treatment_advancedBandages == 2) then { // Can Reopen
+						_supplies pushBack [_surgKit, 5];
+					};
+				};
 
-    case "mines": {
-        [[_object, "magazine",
-            ["APERSTripMine_Wire_Mag", 30],
-            ["ClaymoreDirectionalMine_Remote_Mag", 20]
-        ]] call BRM_FMK_fnc_addtoCargo;
-    };
+				if (ace_medical_treatment_advancedMedication) then {
+					_supplies pushBack [_adenosine, _countMorphineCARGO];
+				};
 
-    case "handcuffs": {
-        [[_object, "item",
-            ["ACE_CableTie", 10]
-        ]] call BRM_FMK_fnc_addtoCargo;
-    };
+				if (ace_medical_fractures > 0) then {
+					_supplies pushBack [_splint, _countSplintCARGO];
+				};
+			};
 
-    case "radio": {
-        [_object, "SR", _factionSide, 50] call BRM_FMK_fnc_addRadioToCargo;
-        [_object, "LR", _factionSide, 20] call BRM_FMK_fnc_addRadioToCargo;
-        [_object, "BP", _factionSide, 5] call BRM_FMK_fnc_addRadioToCargo;
-    };
+			case mission_AGM_enabled: {
+				_supplies append [
+					[_earBuds,  25],
+					[_bandage,  _countBandageCARGO],
+					[_morphine, _countMorphineCARGO],
+					[_epi,      _countEpiCARGO],
+					[_bloodbag, _countBloodbagCARGO]
+				];
+			};
 
-    case "parachutes": {
-        [[_object,"backpack",
-            [_parachute , 15]
-        ]] call BRM_FMK_fnc_addtoCargo;
-    };
+			default {
+				_supplies append [
+					["FirstAidKit", _countBandageCARGO],
+					["Medikit",     _countPAKCARGO]
+				];
+			};
+		};
 
-    case "rifle_grenades": {
-       [[_object, "item",
-            ["R3F_APAV40", 40],
-            ["R3F_AC58", 40],
-            ["R3F_FUM40", 40]
-        ]] call BRM_FMK_fnc_addtoCargo;
-    };
+		[_object] + _supplies call BRM_FMK_fnc_addItems;
+	};
+
+	case "ammo_big";
+	case "ammo": {
+		private _supplies = [
+			[_commonRIFLE select RAMMO,    _countRifleCARGO],
+			[_commonMG select RAMMO,       _countMGCARGO],
+			[_commonAR select RAMMO,       _countARCARGO],
+			[_commonMARKSMAN select RAMMO, _countRifleCARGO],
+			[_commonSNIPER select RAMMO,   _countSNIPERCARGO],
+			[_commonSMG select RAMMO,      _countRifleCARGO],
+			[_commonRIFLEGL select GL,     _count40mmCARGO],
+			[_commonRIFLEGL select RAMMO,  _countRifleCARGO],
+			[_commonPISTOL select RAMMO,   _countPistolCARGO],
+			[_grenade,                     _countGRENADESCARGO],
+			[_bchemlight,                  25],
+			[_rchemlight,                  25],
+			[_gchemlight,                  25]
+			[_wsmoke,                      25],
+			[_rsmoke,                      25],
+			[_gsmoke,                      25]
+		];
+
+		if (!_isSpecATDisposable) then {
+			_supplies pushBack [_specAT select RAMMO, _countSpecATCARGO];
+		};
+
+		if (_x == "ammo_big") then {
+			_supplies apply { [_x select 0, (_x select 1) * 3] };
+		};
+
+		[_object] + _supplies call BRM_FMK_fnc_addItems;
+	};
+
+	case "at": {
+		[_object,
+			[_specAT select ([RAMMO, GUN] select _isSpecATDisposable), _countSpecATCARGO],
+			[_weaponsAT select RAMMO, _countWeaponsATCARGO],
+			[_weaponsAA select RAMMO, _countWeaponsAACARGO],
+			[_commonAT select GUN,    _countATCARGO]
+		] call BRM_FMK_fnc_addItems;
+	};
+
+	case "explosives": {
+		[_object,
+			["DemoCharge_Remote_Mag",    10],
+			["SatchelCharge_Remote_Mag", 10]
+		] call BRM_FMK_fnc_addItems;
+	};
+
+	case "mines": {
+		[_object,
+			["APERSTripMine_Wire_Mag",             25],
+			["ClaymoreDirectionalMine_Remote_Mag", 25]
+		] call BRM_FMK_fnc_addItems;
+	};
+
+	case "handcuffs": {
+		[_object,
+			["ACE_CableTie", 25]
+		] call BRM_FMK_fnc_addItems;
+	};
+
+	case "radio": {
+		[_object, "SR", _factionSide, 20] call BRM_FMK_fnc_addRadioToCargo;
+		[_object, "LR", _factionSide, 10] call BRM_FMK_fnc_addRadioToCargo;
+		[_object, "BP", _factionSide, 5] call BRM_FMK_fnc_addRadioToCargo;
+	};
+
+	case "parachutes": {
+		[_object,
+			[_parachute, 20]
+		] call BRM_FMK_fnc_addItems;
+	};
+
+	case "rifle_grenades": {
+		[_object,
+			["R3F_APAV40", 40],
+			["R3F_AC58",   40],
+			["R3F_FUM40",  40]
+		] call BRM_FMK_fnc_addItems;
+	};
+
+	default {
+		["Unknown cargo type: '%1' (%2)", _x, _type] call BIS_fnc_error;
+	};
 };

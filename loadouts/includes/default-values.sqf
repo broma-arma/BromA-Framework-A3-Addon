@@ -1,3 +1,5 @@
+// Executed after faction structure
+
 if (isNil "_defaultSide") then { _defaultSide = WEST; };
 if (isNil "_defaultFace") then { _defaultFace = [_faceWHITE]; };
 if (isNil "_defaultVoice") then { _defaultVoice = [_voiceAMERICAN]; };
@@ -98,7 +100,17 @@ if (isNil "_factionDACCamps") then {
 		/* Basic    */ [(_factionObjects select FACTION_OBJECTS_FLAG), ["FirePlace_burning_f", 15, 10, 0], [selectRandom (_factionObjects select FACTION_OBJECTS_STRUCTURES), 10, 0, 0], ["Logic", 10, 15, 0], 0],
 		/* Objects  */ [[selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 2, 0], [selectRandom (_factionObjects select FACTION_OBJECTS_CRATES), 20, 0, 0]],
 		/* Walls    */ [selectRandom (_factionObjects select FACTION_OBJECTS_WALLS), [-2, 35], [40, 40, 0], [7, 0, 0, 4], [1, 0.1], [0, 0]],
-		/* Ammo     */ ["medical", "medical_adv", "ammo"],
+		/* Ammo     */ ["medical", "ammo"],
 		/* Statics  */ [[-7, 25, 0], [25, 25, 0], [25, -20, 180], [-7, -20, 180]]
 	];
+};
+
+if (!_assignLoadoutMode && !isNil "_object" && !read_local_cargo) then { // assignCargo
+	_type = _type apply {
+		if (_x == "medical_adv") then {
+			if ("medical" in _type) then { "" } else { "medical" }
+		} else {
+			_x
+		}
+	} select { _x != "" };
 };

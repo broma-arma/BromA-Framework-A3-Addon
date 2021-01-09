@@ -12,21 +12,21 @@ if (!isServer) exitWith {};
 		(_x splitString "_") params ["_vehVar", "_side", "_vehType", "_vehId"];
 
 		(switch (toLower _vehType) do {
-			case "antiair":        { [AA_VEHICLES,      []                                               ] };
-			case "attackhelo":     { [ATTACK_HELOS,     ["parachutes"]                                   ] };
-			case "attackplane":    { [ATTACK_PLANES,    ["parachutes"]                                   ] };
-			case "heavyvehicle":   { [HEAVY_VEHICLES,   []                                               ] };
-			case "lightvehicle":   { [LIGHT_VEHICLES,   ["ammo", "at"]                                   ] };
-			case "mediumvehicle":  { [MEDIUM_VEHICLES,  ["ammo_big"]                                     ] };
-			case "mobilearty":     { [MOBILE_ARTILLERY, []                                               ] };
-			case "transporthelo":  { [TRANSPORT_HELOS,  ["ammo", "parachutes", "medical", "medical_adv"] ] };
-			case "transportplane": { [TRANSPORT_PLANES, ["parachutes"]                                   ] };
-			case "truck":          { [TRANSPORT_TRUCKS, ["ammo_big"]                                     ] };
-			case "static":         { [STATIC_DEFENSE,   []                                               ] };
-			case "boat":           { [BOATS,            ["ammo"]                                         ] };
-			case "support":        { [SUPPORT,          ["ammo", "medical", "medical_adv"]               ] };
-			case "submarine":      { [SUBMARINES,       []                                               ] };
-			case "mrapvehicle":    { [MRAP_VEHICLES,    ["ammo", "at"]                                   ] };
+			case "antiair":        { [AA_VEHICLES,      []                                ] };
+			case "attackhelo":     { [ATTACK_HELOS,     ["parachutes"]                    ] };
+			case "attackplane":    { [ATTACK_PLANES,    ["parachutes"]                    ] };
+			case "heavyvehicle":   { [HEAVY_VEHICLES,   []                                ] };
+			case "lightvehicle":   { [LIGHT_VEHICLES,   ["ammo", "at"]                    ] };
+			case "mediumvehicle":  { [MEDIUM_VEHICLES,  ["ammo_big"]                      ] };
+			case "mobilearty":     { [MOBILE_ARTILLERY, []                                ] };
+			case "transporthelo":  { [TRANSPORT_HELOS,  ["ammo", "parachutes", "medical"] ] };
+			case "transportplane": { [TRANSPORT_PLANES, ["parachutes"]                    ] };
+			case "truck":          { [TRANSPORT_TRUCKS, ["ammo_big"]                      ] };
+			case "static":         { [STATIC_DEFENSE,   []                                ] };
+			case "boat":           { [BOATS,            ["ammo"]                          ] };
+			case "support":        { [SUPPORT,          ["ammo", "medical"]               ] };
+			case "submarine":      { [SUBMARINES,       []                                ] };
+			case "mrapvehicle":    { [MRAP_VEHICLES,    ["ammo", "at"]                    ] };
 		}) params [["_index", -1], ["_cargo", []]];
 
 		if (_index > -1) then {

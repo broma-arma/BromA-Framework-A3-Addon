@@ -1,3 +1,5 @@
+// Executed after faction mod and before faction structure.
+
 if (isNil "_factionSide") then { _factionSide = [_faction, _defaultSide] call BRM_FMK_fnc_getFaction select 1; };
 
 private _sideChar = switch (_factionSide) do {
@@ -38,6 +40,8 @@ if (isNil "_countWeaponsATCARGO") then { _countWeaponsATCARGO = _countWeaponsAT 
 if (isNil "_countWeaponsAA") then { _countWeaponsAA = 2; };
 if (isNil "_countWeaponsAACARGO") then { _countWeaponsAACARGO = _countWeaponsAA * 5; };
 
+if (isNil "_countSpecATCARGO") then { _countSpecATCARGO = _countATCARGO; };
+
 if (isNil "_isSpecATDisposable" && !isNil "_isATDisposable") then {
 	_isSpecATDisposable = _isATDisposable;
 };
@@ -52,8 +56,12 @@ if (isNil "_isSpecATDisposable") then {
 };
 
 if (_isSpecATDisposable) then {
-	_countATCARGO = 0;
+	if (isNil "read_local_cargo" || { read_local_cargo }) then {
+		_countSpecATCARGO = 0;
+	};
 };
 
 if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") then { 4 } else { _countCAT }; };
+if (isNil "_countTourniquetCARGO") then { _countTourniquetCARGO = _countTourniquet * 10; };
 if (isNil "_countSplint") then { _countSplint = 4; };
+if (isNil "_countSplintCARGO") then { _countSplintCARGO = _countSplint * 10; };
