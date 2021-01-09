@@ -76,7 +76,7 @@ private [
 	"_splint", "_countSplint", "_countSplintCARGO",
 
 	"_morphine", "_countMORPHINE", "_countMorphineCARGO",
-	"_atrophine", "_adenosine",
+	"_atropine", "_adenosine",
 	"_epi", "_countEPI", "_countEpiCARGO",
 
 	"_bloodbag", "_countBLOODBAG", "_countBloodbagCARGO",
@@ -96,7 +96,7 @@ private [
 	"_suppliesNORMAL", "_suppliesMEDIC",
 
 	// Deprecated
-	"_countCAT", "_defib", "_isATDisposable",
+	"_countCAT", "_defib", "_isATDisposable", "_atrophine",
 
 	// Unused
 	"_commonRifleATTACHMENTS", "_commonHandgunATTACHMENTS", "_commonMGATTACHMENTS", "_commonMarksmanATTACHMENTS", "_commonSniperATTACHMENTS", "_commonSpecATATTACHMENTS", "_commonRifleGLATTACHMENTS", "_commonSMGATTACHMENTS",

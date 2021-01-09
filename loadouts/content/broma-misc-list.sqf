@@ -25,7 +25,8 @@ switch (true) do {
 
         _morphine = "ACE_morphine";
         _adenosine = "ACE_adenosine";
-        _atrophine = _adenosine; // "ACE_atropine" was removed
+        _atropine = _adenosine; // "ACE_atropine" was removed
+        _atrophine = _atropine; // Backward compatibility
         _epi = "ACE_epinephrine";
 
         _saline1000 = "ACE_salineIV";
