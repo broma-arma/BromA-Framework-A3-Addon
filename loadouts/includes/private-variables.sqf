@@ -73,9 +73,10 @@ private [
 	"_bandage", "_countBANDAGE", "_countBandageCARGO",
 	"_fieldDressing", "_packingBandage", "_elasticBandage", "_quickClot",
 	"_tourniquet", "_countTourniquet",
+	"_splint", "_countSplint",
 
 	"_morphine", "_countMORPHINE", "_countMorphineCARGO",
-	"_atrophine",
+	"_atrophine", "_adenosine",
 	"_epi", "_countEPI", "_countEpiCARGO",
 
 	"_bloodbag", "_countBLOODBAG", "_countBloodbagCARGO",

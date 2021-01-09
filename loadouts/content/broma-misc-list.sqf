@@ -21,9 +21,11 @@ switch (true) do {
         _personalAidKit = "ACE_personalAidKit";
 
         _tourniquet = "ACE_tourniquet";
+        _splint = "ACE_splint";
 
         _morphine = "ACE_morphine";
-        _atrophine = "ACE_atropine";
+        _adenosine = "ACE_adenosine";
+        _atrophine = _adenosine; // "ACE_atropine" was removed
         _epi = "ACE_epinephrine";
 
         _saline1000 = "ACE_salineIV";

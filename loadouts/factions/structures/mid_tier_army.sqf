@@ -3,45 +3,13 @@
 //    The structure of a very well equipped army with enough ammo and meds to spare.
 //
 // =============================================================================
+if (!_assignLoadoutMode) exitWith {};
 
 // MEDICAL SUPPLIES ============================================================
 
-switch (true) do {
-    case (mission_AGM_enabled): {
-        _suppliesMEDIC = [[_bandage, _countBANDAGE], [_morphine, _countMORPHINE], [_epi, _countEPI], [_bloodbag, _countBLOODBAG]];
-        _suppliesNORMAL = [[_bandage, _countBANDAGE / 4], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
-    };
-
-    case (mission_ACE3_enabled): {
-        switch (mission_ace3_medical_level) do {
-            case 1: { // BASIC
-                _suppliesMEDIC = [[_fieldDressing, _countBANDAGE], [_morphine, _countMORPHINE], [_epi, _countEPI], [_bloodbag, _countBLOODBAG]];
-                _suppliesNORMAL = [[_fieldDressing, _countBANDAGE / 4], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
-            };
-            case 2: { // ADVANCED
-                _suppliesMEDIC = [
-                    [_elasticBandage, _countBANDAGE], [_quickClot, _countBANDAGE],
-                    [_tourniquet, _countTourniquet],
-                    [_morphine, _countMORPHINE], [_epi, _countEPI],
-                    [_blood500, _countBLOODBAG],
-                    [_surgKit, 1],
-                    [_personalAidKit, _countPAK],
-                    [_blood1000, _countBLOODBAG]
-                ];
-                _suppliesNORMAL = [[_packingBandage, _countBANDAGE / 4], [_quickClot, _countBANDAGE / 4], [_elasticBandage, _countBANDAGE / 4], [_tourniquet, _countTourniquet], [_morphine, _countMORPHINE / 4], [_epi, _countEPI / 4]];
-            };
-        };
-    };
-
-    default {
-        _suppliesMEDIC = [["FirstAidKit",20],["Medikit",1]];
-        _suppliesNORMAL = [["FirstAidKit",3]];
-    };
-};
+#include "includes\medicalSupplies.sqf"
 
 // =============================================================================
-if (!_assignLoadoutMode) exitWith {};
-
 switch (true) do {
 // =============================================================================
 

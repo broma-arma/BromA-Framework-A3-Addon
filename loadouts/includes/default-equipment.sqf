@@ -55,4 +55,5 @@ if (_isSpecATDisposable) then {
 	_countATCARGO = 0;
 };
 
-if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") then { 3 } else { _countCAT }; };
+if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") then { 4 } else { _countCAT }; };
+if (isNil "_countSplint") then { _countSplint = 4; };
