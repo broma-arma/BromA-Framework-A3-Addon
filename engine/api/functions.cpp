@@ -21,6 +21,7 @@ class api {
 	class appendIndices{};
 	class teamsExist{};
 	class reachTarget{};
+	class checkCasualties{};
 };
 
 class api_zeus {
