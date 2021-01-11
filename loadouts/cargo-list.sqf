@@ -76,7 +76,7 @@ switch (_x) do {
 			[_grenade,                     _countGRENADESCARGO],
 			[_bchemlight,                  25],
 			[_rchemlight,                  25],
-			[_gchemlight,                  25]
+			[_gchemlight,                  25],
 			[_wsmoke,                      25],
 			[_rsmoke,                      25],
 			[_gsmoke,                      25]
