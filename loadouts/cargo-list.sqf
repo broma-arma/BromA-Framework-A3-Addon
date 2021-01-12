@@ -4,7 +4,7 @@ switch (_x) do {
 
 		if (mission_ACE3_enabled) then {
 			_supplies append [
-				[_earBuds,        25],
+				[_earPlugs,        25],
 				[_morphine,       _countMorphineCARGO],
 				[_epi,            _countEpiCARGO],
 				[_tourniquet,     _countTourniquetCARGO],

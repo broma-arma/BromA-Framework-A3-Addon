@@ -136,7 +136,7 @@ if (mission_ACE3_enabled) then {
 	_defusalKit = "ACE_DefusalKit";
 	_deadManSwitch = "ACE_DeadManSwitch";
 	_cellphone = "ACE_Cellphone";
-	_earBuds = "ACE_EarPlugs";
+	_earPlugs = "ACE_EarPlugs";
 	_microDAGR = "ACE_microDAGR";
 	_mapTools = "ACE_MapTools";
 	_uavBattery = "ACE_UAVBattery";
@@ -154,12 +154,14 @@ if (mission_ACE3_enabled) then {
 	_flashlight = "";
 	_deadManSwitch = "";
 	_cellphone = "";
-	_earBuds = "";
+	_earPlugs = "";
 	_microDAGR = "";
 	_mapTools = "";
 	_uavBattery = "";
 	_kestrel = "";
 };
+
+_earBuds = _earPlugs; // Backward compatibility
 
 // ETC =========================================================================
 

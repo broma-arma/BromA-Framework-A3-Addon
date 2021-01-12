@@ -85,7 +85,7 @@ private [
 
 	"_personalAidKit", "_countPAK", "_countPAKCARGO",
 
-	"_cableTie", "_earBuds", "_flashlight", "_mapTools", "_spareBarrel", "_IRStrobe", "_uavBattery", "_microDAGR",
+	"_cableTie", "_earPlugs", "_flashlight", "_mapTools", "_spareBarrel", "_IRStrobe", "_uavBattery", "_microDAGR",
 	"_clacker", "_M26clacker", "_deadManSwitch", "_cellphone", "_defusalKit",
 	"_spottingScope", "_rangeCard", "_kestrel", "_ATragMX",
 	"_surgKit",
@@ -96,7 +96,7 @@ private [
 	"_suppliesNORMAL", "_suppliesMEDIC",
 
 	// Deprecated
-	"_countCAT", "_defib", "_isATDisposable", "_atrophine",
+	"_countCAT", "_defib", "_isATDisposable", "_atrophine", "_earBuds",
 
 	// Unused
 	"_commonRifleATTACHMENTS", "_commonHandgunATTACHMENTS", "_commonMGATTACHMENTS", "_commonMarksmanATTACHMENTS", "_commonSniperATTACHMENTS", "_commonSpecATATTACHMENTS", "_commonRifleGLATTACHMENTS", "_commonSMGATTACHMENTS",
