@@ -404,9 +404,4 @@ switch (true) do {
 
 [_unit, "SR"] call BRM_FMK_fnc_addRadio;
 
-if (mission_ACE3_enabled) then {
-    [_unit, [[_earBuds, 1]]] call BRM_FMK_fnc_addtoUniform;
-    if (_unit == player) then {
-        [_unit] call ace_hearing_fnc_putInEarplugs;
-    };
-};
+[_unit] call BRM_FMK_fnc_addEarplugs;

@@ -29,4 +29,5 @@ class loadouts_functions {
 	class getSideUAV {};
 	class addWeaponAttachments {};
 	class getFaction {};
+	class addEarplugs {};
 };
