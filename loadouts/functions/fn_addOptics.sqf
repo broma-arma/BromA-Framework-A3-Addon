@@ -37,9 +37,8 @@ if (_kind == "binoc") then { // Backward compatibility
 	_kind = "Binocular";
 };
 
-if (_kind == "rangefinder") then {
-	if (mission_AGM_enabled) then { _kind = "AGM_Vector"; };
-	if (mission_ACE3_enabled) then { _kind = "ACE_Vector"; };
+if (_kind == "rangefinder" && mission_ACE3_enabled) then {
+	_kind = "ACE_Vector";
 };
 
 private _battery = [_kind] call BRM_FMK_fnc_getAmmoClass;

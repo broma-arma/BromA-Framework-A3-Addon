@@ -4,49 +4,41 @@
 
 // MEDICAL =====================================================================
 
-switch (true) do {
-    case (mission_AGM_enabled): {
-        _bandage = "AGM_Bandage";
-        _morphine = "AGM_Morphine";
-        _epi = "AGM_Epipen";
-        _bloodbag = "AGM_Bloodbag";
-    };
-    case (mission_ACE3_enabled): {
-        _fieldDressing = "ACE_fieldDressing";
-        _bandage = _fieldDressing;
-        _packingBandage = "ACE_packingBandage";
-        _elasticBandage = "ACE_elasticBandage";
+if (mission_ACE3_enabled) then {
+	_fieldDressing = "ACE_fieldDressing";
+	_bandage = _fieldDressing;
+	_packingBandage = "ACE_packingBandage";
+	_elasticBandage = "ACE_elasticBandage";
 
-        _quickClot = "ACE_quikclot";
-        _personalAidKit = "ACE_personalAidKit";
+	_quickClot = "ACE_quikclot";
+	_personalAidKit = "ACE_personalAidKit";
 
-        _tourniquet = "ACE_tourniquet";
-        _splint = "ACE_splint";
+	_tourniquet = "ACE_tourniquet";
+	_splint = "ACE_splint";
 
-        _morphine = "ACE_morphine";
-        _adenosine = "ACE_adenosine";
-        _atropine = _adenosine; // "ACE_atropine" was removed
-        _atrophine = _atropine; // Backward compatibility
-        _epi = "ACE_epinephrine";
+	_morphine = "ACE_morphine";
+	_adenosine = "ACE_adenosine";
+	_atropine = _adenosine; // "ACE_atropine" was removed
+	_atrophine = _atropine; // Backward compatibility
+	_epi = "ACE_epinephrine";
 
-        _saline1000 = "ACE_salineIV";
-        _saline500 = "ACE_salineIV_500";
-        _saline250 = "ACE_salineIV_250";
+	_saline1000 = "ACE_salineIV";
+	_saline500 = "ACE_salineIV_500";
+	_saline250 = "ACE_salineIV_250";
 
-        _blood1000 = "ACE_bloodIV";
-        _blood500 = "ACE_bloodIV_500";
-        _blood250 = "ACE_bloodIV_250";
+	_blood1000 = "ACE_bloodIV";
+	_blood500 = "ACE_bloodIV_500";
+	_blood250 = "ACE_bloodIV_250";
 
-        _plasma1000 = "ACE_plasmaIV";
-        _plasma500 = "ACE_plasmaIV_500";
-        _plasma250 = "ACE_plasmaIV_250";
+	_plasma1000 = "ACE_plasmaIV";
+	_plasma500 = "ACE_plasmaIV_500";
+	_plasma250 = "ACE_plasmaIV_250";
 
-        _bloodbag = _blood1000;
+	_bloodbag = _blood1000;
 
-        _surgKit = "ACE_surgicalKit";
+	_surgKit = "ACE_surgicalKit";
 
-        _bodyBag = "ACE_bodyBag";
-    };
+	_bodyBag = "ACE_bodyBag";
 };
 
 // GRENADES ====================================================================
@@ -87,25 +79,17 @@ _CS = "rhs_mag_m7a3_cs";
 
 _INCENDIARY = "rhs_mag_an_m14_th3";
 
-switch (true) do {
-    case (mission_AGM_enabled): {
-        _wFLARE = "AGM_HandFlare_White";
-        _rFLARE = "AGM_HandFlare_Red";
-        _gFLARE = "AGM_HandFlare_Green";
-        _yFLARE = "AGM_HandFlare_Yellow";
-    };
-    case (mission_ACE3_enabled): {
-        _wFLARE = "ACE_HandFlare_White";
-        _rFLARE = "ACE_HandFlare_Red";
-        _gFLARE = "ACE_HandFlare_Green";
-        _yFLARE = "ACE_HandFlare_Yellow";
-    };
-    default {
-        _wFLARE = "";
-        _rFLARE = "";
-        _gFLARE = "";
-        _yFLARE = "";
-    };
+
+if (mission_ACE3_enabled) then {
+	_wFLARE = "ACE_HandFlare_White";
+	_rFLARE = "ACE_HandFlare_Red";
+	_gFLARE = "ACE_HandFlare_Green";
+	_yFLARE = "ACE_HandFlare_Yellow";
+} else {
+	_wFLARE = "";
+	_rFLARE = "";
+	_gFLARE = "";
+	_yFLARE = "";
 };
 
 // EXPLOSIVES ==================================================================
@@ -142,56 +126,39 @@ _satchelCharge = "SatchelCharge_Remote_Mag";
 _mineDetector = "MineDetector";
 _toolKit = "ToolKit";
 
-switch (true) do {
-    case (mission_AGM_enabled): {
-        _cableTie = "AGM_CableTie";
-        _uavBattery = "AGM_UAVBattery";
-        _mapTools = "AGM_MapTools";
-        _spareBarrel = "AGM_SpareBarrel";
-        _kestrel = "AGM_ItemKestrel";
-        _IRStrobe = "AGM_IR_Strobe_Item";
-        _flashlight = "";
-        _clacker = "AGM_Clacker";
-        _M26clacker = "AGM_M26_Clacker";
-        _defusalKit = "AGM_DefusalKit";
-        _deadManSwitch = "AGM_DeadManSwitch";
-        _earBuds = "AGM_EarBuds";
-    };
-    case (mission_ACE3_enabled): {
-        _spareBarrel = "ACE_SpareBarrel";
-        _IRStrobe = "ACE_IR_Strobe_Item";
-        _cableTie = "ACE_CableTie";
-        _flashlight = "ACE_Flashlight_XL50";
-        _clacker = "ACE_Clacker";
-        _M26clacker = "ACE_M26_Clacker";
-        _defusalKit = "ACE_DefusalKit";
-        _deadManSwitch = "ACE_DeadManSwitch";
-        _cellphone = "ACE_Cellphone";
-        _earBuds = "ACE_EarPlugs";
-        _microDAGR = "ACE_microDAGR";
-        _mapTools = "ACE_MapTools";
-        _uavBattery = "ACE_UAVBattery";
-        _kestrel = "ACE_Kestrel4500";
-        _rangeCard = "ACE_RangeCard";
-        _spottingScope = "ACE_SpottingScope";
-        _ATragMX = "ACE_ATragMX";
-    };
-    default {
-        _spareBarrel = "";
-        _IRStrobe = "";
-        _cableTie = "";
-        _clacker = "";
-        _M26clacker = "";
-        _defusalKit = "";
-        _flashlight = "";
-        _deadManSwitch = "";
-        _cellphone = "";
-        _earBuds = "";
-        _microDAGR = "";
-        _mapTools = "";
-        _uavBattery = "";
-        _kestrel = "";
-    };
+if (mission_ACE3_enabled) then {
+	_spareBarrel = "ACE_SpareBarrel";
+	_IRStrobe = "ACE_IR_Strobe_Item";
+	_cableTie = "ACE_CableTie";
+	_flashlight = "ACE_Flashlight_XL50";
+	_clacker = "ACE_Clacker";
+	_M26clacker = "ACE_M26_Clacker";
+	_defusalKit = "ACE_DefusalKit";
+	_deadManSwitch = "ACE_DeadManSwitch";
+	_cellphone = "ACE_Cellphone";
+	_earBuds = "ACE_EarPlugs";
+	_microDAGR = "ACE_microDAGR";
+	_mapTools = "ACE_MapTools";
+	_uavBattery = "ACE_UAVBattery";
+	_kestrel = "ACE_Kestrel4500";
+	_rangeCard = "ACE_RangeCard";
+	_spottingScope = "ACE_SpottingScope";
+	_ATragMX = "ACE_ATragMX";
+} else {
+	_spareBarrel = "";
+	_IRStrobe = "";
+	_cableTie = "";
+	_clacker = "";
+	_M26clacker = "";
+	_defusalKit = "";
+	_flashlight = "";
+	_deadManSwitch = "";
+	_cellphone = "";
+	_earBuds = "";
+	_microDAGR = "";
+	_mapTools = "";
+	_uavBattery = "";
+	_kestrel = "";
 };
 
 // ETC =========================================================================

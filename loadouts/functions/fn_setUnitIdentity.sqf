@@ -32,9 +32,8 @@ _unit setSpeaker _voice;
 _unit setPitch ([0.85, 1.15] call BIS_fnc_randomNum);
 
 if (_name != "") then {
-	switch (true) do {
-		case (mission_ACE3_enabled): { [_unit] call ace_common_fnc_setName; };
-		case (mission_AGM_enabled): { [_unit] call AGM_Core_fnc_setName; };
+	if (mission_ACE3_enabled) then {
+		[_unit] call ace_common_fnc_setName;
 	};
 
 	_unit setName _name;

@@ -28,7 +28,6 @@
 #include "mission_maker_tools\main.cpp"
 #include "respawn_system\main.cpp"
 #include "setup_zone\main.cpp"
-#include "agm_plugin\main.cpp"
 #include "civilian_casualty_cap\main.cpp"
 #include "ace3_spectator\main.cpp"
 #include "vanilla_spectator\main.cpp"

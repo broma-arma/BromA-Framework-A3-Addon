@@ -116,16 +116,6 @@ if (isNil {player getVariable "unit_deaths"}) then {
     player setVariable ["unit_deaths", 0];
 };
 
-// Assigns AGM related variables. ==============================================
-
-if (mission_AGM_enabled) then {
-    switch (_role) do {
-        case "medic":    { player setVariable ["AGM_IsMedic",    true, true] };
-        case "pilot":    { player setVariable ["AGM_GForceCoef", 0.75, true] };
-        case "engineer": { player setVariable ["AGM_IsEOD",      true, true] };
-    };
-};
-
 // Adds Event Handlers with pre-configured functions. ==========================
 
 player addEventHandler ["Respawn", BRM_fnc_onPlayerRespawn];

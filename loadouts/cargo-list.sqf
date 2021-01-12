@@ -2,60 +2,46 @@ switch (_x) do {
 	case "medical": {
 		private _supplies = [];
 
-		switch (true) do {
-			case mission_ACE3_enabled: {
+		if (mission_ACE3_enabled) then {
+			_supplies append [
+				[_earBuds,        25],
+				[_morphine,       _countMorphineCARGO],
+				[_epi,            _countEpiCARGO],
+				[_tourniquet,     _countTourniquetCARGO],
+				[_blood250,       _countBloodbagCARGO],
+				[_blood500,       _countBloodbagCARGO],
+				[_blood1000,      _countBloodbagCARGO],
+				[_personalAidKit, _countPAKCARGO],
+				[_bodyBag,        _countBloodbagCARGO]
+			];
+
+			if (ace_medical_treatment_advancedBandages == 0) then { // Disabled
+				_supplies pushBack [_bandage, _countBandageCARGO];
+			} else { // Enabled
 				_supplies append [
-					[_earBuds,        25],
-					[_morphine,       _countMorphineCARGO],
-					[_epi,            _countEpiCARGO],
-					[_tourniquet,     _countTourniquetCARGO],
-					[_blood250,       _countBloodbagCARGO],
-					[_blood500,       _countBloodbagCARGO],
-					[_blood1000,      _countBloodbagCARGO],
-					[_personalAidKit, _countPAKCARGO],
-					[_bodyBag,        _countBloodbagCARGO]
+					[_fieldDressing,  _countBandageCARGO],
+					[_packingBandage, _countBandageCARGO],
+					[_elasticBandage, _countBandageCARGO],
+					[_quickClot,      _countBandageCARGO]
 				];
 
-				if (ace_medical_treatment_advancedBandages == 0) then { // Disabled
-					_supplies pushBack [_bandage, _countBandageCARGO];
-				} else { // Enabled
-					_supplies append [
-						[_fieldDressing,  _countBandageCARGO],
-						[_packingBandage, _countBandageCARGO],
-						[_elasticBandage, _countBandageCARGO],
-						[_quickClot,      _countBandageCARGO]
-					];
-
-					if (ace_medical_treatment_advancedBandages == 2) then { // Can Reopen
-						_supplies pushBack [_surgKit, 5];
-					};
-				};
-
-				if (ace_medical_treatment_advancedMedication) then {
-					_supplies pushBack [_adenosine, _countMorphineCARGO];
-				};
-
-				if (ace_medical_fractures > 0) then {
-					_supplies pushBack [_splint, _countSplintCARGO];
+				if (ace_medical_treatment_advancedBandages == 2) then { // Can Reopen
+					_supplies pushBack [_surgKit, 5];
 				};
 			};
 
-			case mission_AGM_enabled: {
-				_supplies append [
-					[_earBuds,  25],
-					[_bandage,  _countBandageCARGO],
-					[_morphine, _countMorphineCARGO],
-					[_epi,      _countEpiCARGO],
-					[_bloodbag, _countBloodbagCARGO]
-				];
+			if (ace_medical_treatment_advancedMedication) then {
+				_supplies pushBack [_adenosine, _countMorphineCARGO];
 			};
 
-			default {
-				_supplies append [
-					["FirstAidKit", _countBandageCARGO],
-					["Medikit",     _countPAKCARGO]
-				];
+			if (ace_medical_fractures > 0) then {
+				_supplies pushBack [_splint, _countSplintCARGO];
 			};
+		} else {
+			_supplies append [
+				["FirstAidKit", _countBandageCARGO],
+				["Medikit",     _countPAKCARGO]
+			];
 		};
 
 		[_object] + _supplies call BRM_FMK_fnc_addItems;

@@ -49,7 +49,7 @@ RETURNS:
 
 	["BRM_FRAMEWORK_ADDON", "BRM_FRAMEWORK"],
 
-	["mission_AGM_enabled",   isClass (configFile >> "CfgPatches" >> "AGM_CORE")],
+	["mission_AGM_enabled",   isClass (configFile >> "CfgPatches" >> "AGM_CORE")], // Backward compatibility
 	["mission_ACE3_enabled",  isClass (configFile >> "CfgPatches" >> "ACE_COMMON")],
 	["mission_TFAR_enabled",  isClass (configFile >> "CfgPatches" >> "task_force_radio")],
 	["mission_ACRE2_enabled", isClass (configFile >> "CfgPatches" >> "acre_api")]

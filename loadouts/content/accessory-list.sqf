@@ -107,25 +107,16 @@ _FHQLLM = "FHQ_acc_LLM01L";
 _PVS14 = "rhsusf_ANPVS_14";
 _PVS15 = "rhsusf_ANPVS_15";
 
-switch (true) do {
-    case (mission_AGM_enabled): {
-        _NVGEN1 = "AGM_NVG_Gen1";
-        _NVGEN2 = "AGM_NVG_Gen2";
-        _NVGEN4 = "AGM_NVG_Gen4";
-        _NVWIDE = "AGM_NVG_Wide";
-    };
-    case (mission_ACE3_enabled): {
-        _NVGEN1 = "ACE_NVG_Gen1";
-        _NVGEN2 = "ACE_NVG_Gen2";
-        _NVGEN4 = "ACE_NVG_Gen4";
-        _NVWIDE = "ACE_NVG_Wide";
-    };
-    default {
-        _NVGEN1 = "NVGoggles";
-        _NVGEN2 = "NVGoggles";
-        _NVGEN4 = "NVGoggles";
-        _NVWIDE = "NVGoggles";
-    };
+if (mission_ACE3_enabled) then {
+	_NVGEN1 = "ACE_NVG_Gen1";
+	_NVGEN2 = "ACE_NVG_Gen2";
+	_NVGEN4 = "ACE_NVG_Gen4";
+	_NVWIDE = "ACE_NVG_Wide";
+} else {
+	_NVGEN1 = "NVGoggles";
+	_NVGEN2 = "NVGoggles";
+	_NVGEN4 = "NVGoggles";
+	_NVWIDE = "NVGoggles";
 };
 
 _NVGEN3OP = "NVGoggles_OPFOR";
