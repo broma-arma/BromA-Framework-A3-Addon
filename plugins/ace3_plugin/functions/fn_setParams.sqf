@@ -1,28 +1,7 @@
-// =============================================================================
-//  ACE Medical level
-// =============================================================================
-switch (_this select 0) do {
-    case 0: { mission_ace3_medical_level = 1; };
-    case 1: { mission_ace3_medical_level = 2; };
-};
+// Medical Simulation Level, Bleedout time in seconds, Revive system lives, Everyone as a medic
+params [["_medicalLevel", 1], ["_reviveTime", 300], ["_reviveLives", -1], ["_everyoneMedic", 0]];
 
-// =============================================================================
-//  ACE Revive Time
-// =============================================================================
-mission_ace3_revive_time = (_this select 1);
-if (mission_ace3_revive_time == 0) then { mission_ace3_revive_enable = 0 };
+if (_reviveLives == 9999) then { _reviveLives = -1; }; // Backward compatibility
 
-// =============================================================================
-//  ACE Revive Lives
-// =============================================================================
-mission_ace3_revive_lives = (_this select 2);
-if (mission_ace3_revive_lives == 0) then { mission_ace3_revive_enable = 0 };
-
-// =============================================================================
-//  ACE Everyone is a medic
-// =============================================================================
-switch (_this select 3) do {
-    case 0: { mission_ace3_everyone_medic = false; };
-    case 1: { mission_ace3_everyone_medic = true; };
-};
-// =============================================================================
+mission_ace3_revive_lives = _reviveLives;
+mission_ace3_everyone_medic = _everyoneMedic > 0;

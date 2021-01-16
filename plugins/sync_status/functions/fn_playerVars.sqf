@@ -53,7 +53,9 @@ if (mission_ACE3_enabled) then {
 		["ACE_medical_peripheralResistance", 100],
 		["ACE_medical_hemorrhage",           0],
 		["ACE_medical_isLimping",            false],
-		["ACE_medical_woundBleeding",        0]
+		["ACE_medical_woundBleeding",        0],
+
+		["brm_ace_secondChances",            nil]
 	]
 };
 
