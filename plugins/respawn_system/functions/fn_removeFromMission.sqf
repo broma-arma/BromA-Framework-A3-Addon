@@ -19,7 +19,7 @@ if (mission_TFAR_enabled) then { _unit setVariable ["tf_unable_to_use_radio", tr
     private _oldBody = _unit;
 
     _unit setVariable ["isDead", true, true];
-    [_unit] joinSilent grpNull;
+    [_unit] call BRM_FMK_fnc_joinDeadGroup;
 
     [_unit] call BRM_FMK_fnc_initSpectator;
 

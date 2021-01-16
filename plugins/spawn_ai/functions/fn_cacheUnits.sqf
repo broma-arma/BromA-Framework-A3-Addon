@@ -65,8 +65,6 @@ while {(count (units _group) > 0)} do {
 
                         ["LOCAL", "CHAT", "Cached unit "+(name _x)+"."] call BRM_FMK_fnc_doLog;
 
-                        [_x] joinSilent grpNull;
-
                         deleteVehicle _x;
                     };
                 };

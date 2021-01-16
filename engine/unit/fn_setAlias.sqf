@@ -12,7 +12,7 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Unit. (OBJECT)
-    1 - Group. (GROUP)
+    1 - Group name. (STRING)
     2 - Unit's role. (STRING)
 
 USAGE:
@@ -73,6 +73,8 @@ switch (true) do {
 
 if (_unitNumber != "") then { _unitNumber = _unitNumber + " " };
 
-(group _unit) setGroupIdGlobal [_groupName];
+if (_isLeader && { groupId (group _unit) != _groupName }) then {
+	group _unit setGroupIdGlobal [_groupName];
+};
 
 _unit setVariable ["rosterAlias", format ["%1 %2%3%4", _group, _groupNumber, _unitNumber, _role], true];

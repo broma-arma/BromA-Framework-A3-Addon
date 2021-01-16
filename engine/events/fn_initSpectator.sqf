@@ -20,7 +20,7 @@
 
 	sleep 1;
 
-	[_this] joinSilent grpNull;
+	[_this] call BRM_FMK_fnc_joinDeadGroup;
 
 	if !(["IsSpectating"] call BIS_fnc_EGSpectator) then {
 		switch (true) do {

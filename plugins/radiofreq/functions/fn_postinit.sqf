@@ -20,55 +20,57 @@ mission_used_freqs = [];
 _validSides = [west, east, resistance, civilian];
 
 {
-    private["_groupIndex"];
-
-    _leader = objNull;
-    { if (isFormationLeader _x) then { _leader = _x } } forEach (units _x);
-    _side = (side _leader);
-    _leaderstr = str _leader;
-    _groupIndex = 0;
-    if (isNull _leader) then { _groupIndex = 0 } else {
-        _groupIndex = _leaderstr splitString "_";
-        if (count _groupIndex >= 3) then { _groupIndex = _groupIndex select 2 } else { _groupIndex = "0" };
-        _groupIndex = parseNumber _groupIndex;
-    };
-
     _groupID = groupID _x;
-    _groupName = _groupID splitString " " select 0;
+    if (_groupID != "Dead") then {
+        private["_groupIndex"];
 
-    if !(_groupName in mission_valid_groups_name) then {
+        _leader = objNull;
+        { if (isFormationLeader _x) then { _leader = _x } } forEach (units _x);
+        _side = (side _leader);
+        _leaderstr = str _leader;
+        _groupIndex = 0;
+        if (isNull _leader) then { _groupIndex = 0 } else {
+            _groupIndex = _leaderstr splitString "_";
+            if (count _groupIndex >= 3) then { _groupIndex = _groupIndex select 2 } else { _groupIndex = "0" };
+            _groupIndex = parseNumber _groupIndex;
+        };
 
-        mission_valid_groups_name pushBack _groupName;
+        _groupName = _groupID splitString " " select 0;
 
-        _newFreq = [30,512] call BIS_fnc_randomInt;
-        mission_used_freqs pushBack _newFreq;
+        if !(_groupName in mission_valid_groups_name) then {
 
-        while{!(_newFreq in mission_used_freqs)} do {
+            mission_valid_groups_name pushBack _groupName;
+
             _newFreq = [30,512] call BIS_fnc_randomInt;
+            mission_used_freqs pushBack _newFreq;
+
+            while{!(_newFreq in mission_used_freqs)} do {
+                _newFreq = [30,512] call BIS_fnc_randomInt;
+            };
+
+            _pushName = [_groupName, _newFreq, _side];
+
+            switch (true) do {
+                case(_side == WEST): { mission_valid_groups_name_BLU pushBack _pushName };
+                case(_side == EAST): { mission_valid_groups_name_OP pushBack _pushName };
+                case(_side == RESISTANCE): { mission_valid_groups_name_IND pushBack _pushName };
+                case(_side == CIVILIAN): { mission_valid_groups_name_CIV pushBack _pushName};
+            };
         };
 
-        _pushName = [_groupName, _newFreq, _side];
+        _push = [_groupID, _side];
 
-        switch (true) do {
-            case(_side == WEST): { mission_valid_groups_name_BLU pushBack _pushName };
-            case(_side == EAST): { mission_valid_groups_name_OP pushBack _pushName };
-            case(_side == RESISTANCE): { mission_valid_groups_name_IND pushBack _pushName };
-            case(_side == CIVILIAN): { mission_valid_groups_name_CIV pushBack _pushName};
-        };
-    };
+        if ((!(_push in mission_valid_groups)) && (_side in _validSides) && (_groupIndex > 0) && (isPlayer _leader)) then {
 
-    _push = [_groupID, _side];
+            mission_valid_groups pushBack _push;
+            publicVariable "mission_valid_groups";
 
-    if ((!(_push in mission_valid_groups)) && (_side in _validSides) && (_groupIndex > 0) && (isPlayer _leader)) then {
-
-        mission_valid_groups pushBack _push;
-        publicVariable "mission_valid_groups";
-
-        switch (true) do {
-            case(_side == WEST): { mission_valid_groups_BLU pushBack (_push + [(count mission_valid_groups_BLU) + 1]) };
-            case(_side == EAST): { mission_valid_groups_OP pushBack (_push + [(count mission_valid_groups_OP) + 1]) };
-            case(_side == RESISTANCE): { mission_valid_groups_IND pushBack (_push + [(count mission_valid_groups_IND) + 1]) };
-            case(_side == CIVILIAN): { mission_valid_groups_CIV pushBack (_push + [(count mission_valid_groups_CIV) + 1]) };
+            switch (true) do {
+                case(_side == WEST): { mission_valid_groups_BLU pushBack (_push + [(count mission_valid_groups_BLU) + 1]) };
+                case(_side == EAST): { mission_valid_groups_OP pushBack (_push + [(count mission_valid_groups_OP) + 1]) };
+                case(_side == RESISTANCE): { mission_valid_groups_IND pushBack (_push + [(count mission_valid_groups_IND) + 1]) };
+                case(_side == CIVILIAN): { mission_valid_groups_CIV pushBack (_push + [(count mission_valid_groups_CIV) + 1]) };
+            };
         };
     };
 } forEach allGroups;

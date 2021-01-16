@@ -104,39 +104,42 @@ switch (_mode) do {
 
 		private _roster = "";
 		{
-			_roster = _roster + format["%1<t font='RobotoCondensedBold' size='1.2'>%2</t><br />", ["", "<br />"] select (_forEachIndex > 0), groupID _x];
-			{
-				private _unit = _x;
-				if !(_unit getVariable ["isDead", false]) then {
-					private _unitInit = _unit getVariable ["unitInit", ["MAIN", "*", "*", "*"]];
+			private _groupID = groupID _x;
+			if (_groupID != "Dead") then {
+				_roster = _roster + format["%1<t font='RobotoCondensedBold' size='1.2'>%2</t><br />", ["", "<br />"] select (_forEachIndex > 0), _groupID];
+				{
+					private _unit = _x;
+					if !(_unit getVariable ["isDead", false]) then {
+						private _unitInit = _unit getVariable ["unitInit", ["MAIN", "*", "*", "*"]];
 
-					private _pad = if (isFormationLeader _unit) then { "  " } else { "    " };
+						private _pad = if (isFormationLeader _unit) then { "  " } else { "    " };
 
-					private _rank = "<img image='" + getText (configFile >> "CfgRanks" >> (str rankId _unit) >> "texture") + "' /> ";
+						private _rank = "<img image='" + getText (configFile >> "CfgRanks" >> (str rankId _unit) >> "texture") + "' /> ";
 
-					private _name = name _unit;
+						private _name = name _unit;
 
-					private _role = _unitInit select 2;
-					if (toUpper _role in _aliasAUTO) then {
-						_role = getText (configfile >> "CfgVehicles" >> typeOf _unit >> "displayName");
-					};
-
-					private _icons = "";
-					{
-						_x params ["_trait", "_icon", "_var"];
-
-						private _value = _unit getVariable [_var, _unit getUnitTrait _trait];
-						if (_value isEqualType 0) then { _value = _value > 0; };
-						if (_value) then {
-							_icons = _icons + format [" <img image='%1' />", getText (configfile >> "CfgVehicleIcons" >> _icon)];
+						private _role = _unitInit select 2;
+						if (toUpper _role in _aliasAUTO) then {
+							_role = getText (configfile >> "CfgVehicles" >> typeOf _unit >> "displayName");
 						};
-					} forEach _traits;
 
-					private _color = [_unitInit select 0] call BRM_FMK_fnc_colorToHex;
+						private _icons = "";
+						{
+							_x params ["_trait", "_icon", "_var"];
 
-					_roster = _roster + format ["%1%2<t color='%6'>%3</t> - %4%5<br />", _pad, _rank, _name, _role, _icons, _color];
-				};
-			} forEach units _x;
+							private _value = _unit getVariable [_var, _unit getUnitTrait _trait];
+							if (_value isEqualType 0) then { _value = _value > 0; };
+							if (_value) then {
+								_icons = _icons + format [" <img image='%1' />", getText (configfile >> "CfgVehicleIcons" >> _icon)];
+							};
+						} forEach _traits;
+
+						private _color = [_unitInit select 0] call BRM_FMK_fnc_colorToHex;
+
+						_roster = _roster + format ["%1%2<t color='%6'>%3</t> - %4%5<br />", _pad, _rank, _name, _role, _icons, _color];
+					};
+				} forEach units _x;
+			};
 		} forEach (allGroups select { side _x == side group player && (!isMultiplayer || {{ isPlayer _x } count units _x > 0}) });
 
 		_control ctrlSetStructuredText parseText _roster;
