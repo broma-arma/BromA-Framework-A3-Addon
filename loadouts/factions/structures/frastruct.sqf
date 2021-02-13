@@ -107,6 +107,7 @@ switch (true) do {
         [_unit, _specAT select RAMMO, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "R3F_PIRAT"] call BRM_FMK_fnc_attachToWeapon;
+        if (_specAT == _SMAW) then {[_unit, "rhs_mag_smaw_SR", 3] call BRM_FMK_fnc_addAmmo};
     };
 
     case (_isWeaponsAT): {
@@ -286,6 +287,7 @@ switch (true) do {
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary","rhsusf_acc_SpecterDR_3d"] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "rhsusf_acc_anpeq15side_bk"] call BRM_FMK_fnc_attachToWeapon;
+        if (_specAT == _SMAW) then {[_unit, "rhs_mag_smaw_SR", 3] call BRM_FMK_fnc_addAmmo};
     };
     
      case (_isReconMarksman ): {
