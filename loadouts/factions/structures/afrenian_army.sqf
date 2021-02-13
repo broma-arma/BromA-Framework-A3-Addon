@@ -97,6 +97,7 @@ switch (true) do {
         [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
         [_unit, "secondary", "rhs_weap_optic_smaw"] call BRM_FMK_fnc_attachToWeapon;
+        if (_specAT == _SMAW) then {[_unit, "rhs_mag_smaw_SR", 3] call BRM_FMK_fnc_addAmmo};
     };
 
     case (_isWeaponsAT): {
@@ -237,6 +238,7 @@ switch (true) do {
         [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
+        if (_specAT == _SMAW) then {[_unit, "rhs_mag_smaw_SR", 3] call BRM_FMK_fnc_addAmmo};
     };
     
      case (_isReconMarksman ): {
