@@ -43,6 +43,7 @@ switch (_stat) do {
 			case "side_a": { [_stat, side_a_side] call BRM_FMK_DAC_fnc_getDACStat };
 			case "enemy";
 			case "side_b": { [_stat, side_b_side] call BRM_FMK_DAC_fnc_getDACStat };
+			case "neutral";
 			case "side_c": { [_stat, side_c_side] call BRM_FMK_DAC_fnc_getDACStat };
 			default { ["[WARN ] [DAC Plugin] Unknown side '%1', defaulting to 'enemy'", _value] call BIS_fnc_error; [_stat, side_b_side] call BRM_FMK_DAC_fnc_getDACStat };
 		};
