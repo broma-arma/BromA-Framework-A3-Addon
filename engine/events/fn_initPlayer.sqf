@@ -141,11 +141,24 @@ addMissionEventHandler ["EntityKilled", {
 
 if (mission_game_mode == "tvt") then { disableRemoteSensors true };
 
-// Makes sure text channels are disabled. ======================================
+// Enable channels during briefing. ============================================
 
 0 spawn {
-    sleep 10;
-    { _x enableChannel false; } forEach getArray (missionConfigFile >> "disableChannels");
+	private _disableChannels = getMissionConfigValue "disableChannels";
+	if (!isNil "_disableChannels") then {
+		_disableChannels = _disableChannels apply {
+			if (_x isEqualType []) then {
+				_x params ["_id", "_text", "_voice"];
+				[_id, [_text == "true", _voice == "true"]]
+			} else {
+				[_x, false]
+			}
+		};
+
+		{ _x select 0 enableChannel true; } forEach _disableChannels;
+		sleep 0.001;
+		{ _x select 0 enableChannel (_x select 1); } forEach _disableChannels;
+	};
 };
 
 // Finishes initialization sequence. ===========================================
