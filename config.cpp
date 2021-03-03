@@ -1,6 +1,6 @@
 #define MAJOR 0
-#define MINOR 81
-#define REVISION 6
+#define MINOR 82
+#define REVISION 0
 
 #define VERSION MAJOR.MINOR.REVISION
 #define VERSION_AR MAJOR,MINOR,REVISION
