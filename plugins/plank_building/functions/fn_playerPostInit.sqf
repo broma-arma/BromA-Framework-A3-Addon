@@ -1,51 +1,45 @@
-if (!(isDedicated)) then {
-    [{(time > 1)}, {
-        constructionMenuOpen = false;
+if !(hasInterface) exitWith {};
 
-        fnc_generateVehicleCondition = {
-            private["_vehicleArray"];
+[{ time > 1 }, {
+	BRM_FMK_PlankBuilding_constructionMenuOpen = false;
 
-            switch (true) do {
-                case (side player == side_a_side): { _vehicleArray = plank_objects_side_a };
-                case (side player == side_b_side): { _vehicleArray = plank_objects_side_b };
-                case (side player == side_c_side): { _vehicleArray = plank_objects_side_c };
-            };
-            _return = "";
+	private _vehicleArray = switch (side player) do {
+		case side_a_side: { plank_objects_side_a };
+		case side_b_side: { plank_objects_side_b };
+		case side_c_side: { plank_objects_side_c };
+		default { [] };
+	};
 
-            if (count _vehicleArray == 0) then {
-                _return = "&& false";
-            } else {
-                _return = "&& ";
-                {
-                    _vehicle = _x select 0;
-                    _distance = _x select 1;
+	if (count _vehicleArray == 0) exitWith {};
 
-                    _return = _return + "(((_this distance " + _vehicle + ") < " + _distance + ") && (alive " + _vehicle + "))";
-                    if ((_forEachIndex + 1) < (count _vehicleArray)) then { _return = _return + " || " };
-                } forEach _vehicleArray;
-            };
-            myReturnVar = _return;
+	switch (getText (configOf player >> "displayName")) do {
+		case "Officer":           { [PLANK_Officer_Objects,    0.7] };
+		case "Squad Leader":      { [PLANK_SL_Objects] };
+		case "Team Leader":       { [PLANK_FTL_Objects] };
+		case "Repair Specialist": { [PLANK_Specialist_Objects, 2] };
+		case "Engineer":          { [PLANK_Specialist_Objects, 4] };
+		default                   { [PLANK_Player_Objects] };
+	} params ["_objects", ["_buildSpeedMultiplier", 1]];
 
-            _return
-        };
+	if (_objects findIf { _x > 0 } == -1) exitWith {};
 
-        fnc_toggleConstruction = { constructionMenuOpen = !(constructionMenuOpen) };
+	private _deployCondition = "isNull objectParent _this && (" + (_vehicleArray apply {
+		format (["alive %1 && { _this distanceSqr %1 <= %2 * %2 }"] + _x);
+	} joinString " || ") + ")";
 
-        deployConditionBasic = "((vehicle _this == _this) " + ([] call fnc_generateVehicleCondition) + ")";
-        deployCondition = deployConditionBasic + " && (constructionMenuOpen)";
+	BRM_FMK_PlankBuilding_deployCondition = _deployCondition + " && BRM_FMK_PlankBuilding_constructionMenuOpen";
 
-        _openConstructionMenuAction = player addAction ['<t color="#DEA010">Toggle Construction Menu</t>', fnc_toggleConstruction, [], 100, false, false, "", deployConditionBasic];
+	[player, _objects] call plank_api_fnc_forceAddFortifications;
+	PLANK_FMK_buildSpeed = PLANK_FMK_buildSpeed * _buildSpeedMultiplier;
 
-        if (isPlayer player && hasInterface) then {
-            _type = getText (configfile >> "CfgVehicles" >> (typeOf player) >> "displayName");
-            switch (_type) do {
-                case "Officer": { [player, PLANK_Officer_Objects] call plank_api_fnc_forceAddFortifications; PLANK_FMK_buildSpeed = PLANK_FMK_buildSpeed * 0.7 };
-                case "Squad Leader": { [player, PLANK_SL_Objects] call plank_api_fnc_forceAddFortifications };
-                case "Team Leader": { [player, PLANK_FTL_Objects] call plank_api_fnc_forceAddFortifications };
-                case "Repair Specialist": { [player, PLANK_Specialist_Objects] call plank_api_fnc_forceAddFortifications; PLANK_FMK_buildSpeed = PLANK_FMK_buildSpeed * 2 };
-                case "Engineer": { [player, PLANK_Specialist_Objects] call plank_api_fnc_forceAddFortifications; PLANK_FMK_buildSpeed = PLANK_FMK_buildSpeed * 4 };
-                default { [player, PLANK_Player_Objects] call plank_api_fnc_forceAddFortifications };
-            };
-        };
-    }, []] call CBA_fnc_waitUntilAndExecute;
-};
+	player addAction [
+		"<t color=""#DEA010"">Toggle Construction Menu</t>",
+		{ BRM_FMK_PlankBuilding_constructionMenuOpen = !BRM_FMK_PlankBuilding_constructionMenuOpen; },
+		[],
+		100,
+		false,
+		false,
+		"",
+		_deployCondition
+	];
+}, []] call CBA_fnc_waitUntilAndExecute;

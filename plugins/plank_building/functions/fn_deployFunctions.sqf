@@ -89,7 +89,7 @@ plank_deploy_fnc_addPlacementActions = {
     FUN_ARGS_1(_unit);
 
     private ["_confirmActionId", "_cancelActionId", "_openActionId"];
-    _confirmActionId = _unit addAction ['<t color="#3748E3">Confirm Deployment</t>', BRM_FMK_PlankBuilding_fnc_confirmFortAction, [], 100, false, false, "", deployCondition];
+    _confirmActionId = _unit addAction ['<t color="#3748E3">Confirm Deployment</t>', BRM_FMK_PlankBuilding_fnc_confirmFortAction, [], 100, false, false, "", BRM_FMK_PlankBuilding_deployCondition];
     _cancelActionId = _unit addAction ['<t color="#FF0000">Cancel Deployment</t>', BRM_FMK_PlankBuilding_fnc_cancelFortAction, [], 99, false, false, "", "driver _target == _this"];
     _openActionId = _unit addAction ['<t color="#00FF00">Open Settings</t>', BRM_FMK_PlankBuilding_fnc_openSettingsAction, [], 98, false, false, "", "driver _target == _this"];
     _unit setVariable ["plank_deploy_confirmActionId", _confirmActionId, false];
@@ -249,7 +249,7 @@ plank_deploy_fnc_addFortificationAction = {
 
     if (_count > 0 && {_unit getVariable ["plank_deploy_fortIndex", -1] != _fortIndex}) then {
         private ["_actionId", "_fortActionIds"];
-        _actionId = _unit addAction [format ["Place %1 (%2 left)", GET_FORT_DISPLAY_NAME(_fortIndex), _count], BRM_FMK_PlankBuilding_fnc_placeFortAction, [_fortIndex], _fortIndex + 50, false, false, "", deployCondition];
+        _actionId = _unit addAction [format ["Place %1 (%2 left)", GET_FORT_DISPLAY_NAME(_fortIndex), _count], BRM_FMK_PlankBuilding_fnc_placeFortAction, [_fortIndex], _fortIndex + 50, false, false, "", BRM_FMK_PlankBuilding_deployCondition];
         _fortActionIds = _unit getVariable ["plank_deploy_fortActionIds", []];
         _fortActionIds set [_fortIndex, _actionId];
     };
