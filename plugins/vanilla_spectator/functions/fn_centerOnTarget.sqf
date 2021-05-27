@@ -2,13 +2,11 @@
     Centers the camera on either a friendly or the first unit.
 */
 
-_allUnits = allUnits - [player];
-_specUnit = player;
-_friendlyCount = { side _x == (side player) } count _allUnits;
-if (_friendlyCount == 0) then { _specUnit = _allUnits select 0; } else {
-    { if (side _x == side player) exitWith { _specUnit = _x } } forEach _allUnits;
+private _playerSide = side player;
+private _specUnit = (["GetTargetEntities"] call BIS_fnc_EGSpectator) - [player] apply { [parseNumber (side _x == _playerSide), _x] };
+_specUnit sort false;
+_specUnit = _specUnit select 0;
+if (!isNil "_specUnit") then {
+	["SetFocus", [_specUnit select 1]] call (uiNamespace getVariable ["RscDisplayEGSpectator_script", {}]);
+	["SetCameraMode", [["fps", "follow"] select BIS_EGSpectator_allow3PPCamera]] call BIS_fnc_EGSpectatorCamera;
 };
-
-[_specUnit] call BIS_fnc_EGSpectatorCameraPrepareTarget;
-[_specUnit] call BIS_fnc_EGSpectatorCameraSetTarget;
-["SetCameraMode", ["follow"]] call BIS_fnc_EGSpectatorCamera;
