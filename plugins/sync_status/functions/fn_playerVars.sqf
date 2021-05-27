@@ -55,7 +55,7 @@ if (mission_ACE3_enabled) then {
 		["ACE_medical_isLimping",            false],
 		["ACE_medical_woundBleeding",        0],
 
-		["brm_ace_secondChances",            nil]
+		["brm_ace_secondChances",            -1]
 	]
 };
 
