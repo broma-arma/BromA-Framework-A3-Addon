@@ -1,11 +1,23 @@
 if (hasInterface) then {
-    if (player_is_spectator) exitWith {};
+	["BRM_FMK_RespawnSystem_respawn", {
+		if (player getVariable ["isDead", false]) then {
+			player setVariable ["isDead", false, true];
 
-    [{!(isNil "mission_player_lives")}, {
-        player_current_lives = [player] call BRM_FMK_RespawnSystem_fnc_getLives;
+			[player] call BRM_FMK_fnc_endSpectator;
 
-        player addEventHandler ["Respawn", {[player] call BRM_FMK_RespawnSystem_fnc_onRespawn}];
+			[{
+				[player] joinSilent (player getVariable ["respawnGroup", ""] call BIS_fnc_groupFromNetId);
+			}, [], 5] call CBA_fnc_waitAndExecute;
+		};
+	}] call CBA_fnc_addEventHandler;
 
-        if (player_current_lives == 0) then { [player] call BRM_FMK_RespawnSystem_fnc_removeFromMission };
-    },[]] call CBA_fnc_waitUntilAndExecute;
+	if (!player_is_spectator) then {
+		[{ !isNil "mission_player_lives" }, {
+			player addEventHandler ["Respawn", { _this call BRM_FMK_RespawnSystem_fnc_onRespawn }];
+
+			if ([player] call BRM_FMK_RespawnSystem_fnc_getLives == 0) then {
+				[player] call BRM_FMK_RespawnSystem_fnc_removeFromMission;
+			};
+		},[]] call CBA_fnc_waitUntilAndExecute;
+	};
 };

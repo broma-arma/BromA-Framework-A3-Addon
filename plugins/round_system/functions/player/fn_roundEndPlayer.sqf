@@ -1,5 +1,4 @@
 if (!hasInterface) exitWith {};
 
-mission_dead_players = [];
-
+["BRM_FMK_RespawnSystem_respawn", []] call CBA_fnc_localEvent;
 player allowDamage false;

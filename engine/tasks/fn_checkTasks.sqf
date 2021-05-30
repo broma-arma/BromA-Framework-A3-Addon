@@ -70,7 +70,7 @@ while { mission_running } do {
 							call _callbackCompleted;
 
 							if ("respawn_system" in usedPlugins) then {
-								[missionNamespace getVariable format ["side_%1_side", _sideChar], mission_respawn_objective] spawn BRM_FMK_RespawnSystem_fnc_callRespawnSide;
+								[missionNamespace getVariable format ["side_%1_side", _sideChar], mission_respawn_objective] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
 							};
 
 							if ("time_limit" in usedPlugins) then {

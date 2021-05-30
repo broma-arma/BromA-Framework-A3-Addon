@@ -1,28 +1,25 @@
 /*
-
     Ends spectator mode.
-
 */
 
-(_this select 0) spawn {
-	switch (true) do {
-		case ("ace3_spectator" in usedPlugins): {
-			[false] call ace_spectator_fnc_setSpectator;
-		};
-		case ("vanilla_spectator" in usedPlugins): {
-			["Terminate"] call BIS_fnc_EGSpectator;
-		};
-	};
+titleText ["You are respawning...", "BLACK FADED", 0];
 
-	if (mission_TFAR_enabled) then {
-		_this setVariable ["tf_unable_to_use_radio", false];
+switch (true) do {
+	case ("ace3_spectator" in usedPlugins): {
+		[false] call ace_spectator_fnc_setSpectator;
 	};
+	case ("vanilla_spectator" in usedPlugins): {
+		["Terminate"] call BIS_fnc_EGSpectator;
+	};
+};
 
-	titleText ["You are respawning...", "BLACK FADED", 0];
-	sleep 3;
+[{
+	params ["_unit"];
+
 	titleFadeOut 1;
 
-	_this allowDamage true;
+	_unit allowDamage true;
 
-	if (dialog) then { closeDialog 0; };
-};
+	[_unit, true] remoteExec ["enableSimulationGlobal", 2];
+	[_unit, false] remoteExec ["hideObjectGlobal", 2];
+}, _this, 2] call CBA_fnc_waitAndExecute;

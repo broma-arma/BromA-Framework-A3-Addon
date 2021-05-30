@@ -16,8 +16,9 @@ intro_cutscene_over = false;
 	};
 
 	if ("respawn_system" in usedPlugins) then {
-		waitUntil { !isNil "player_current_lives" };
-		if (player_current_lives == 0) then { intro_cutscene_over = true; };
+		if ([player] call BRM_FMK_RespawnSystem_fnc_getLives == 0) then {
+			intro_cutscene_over = true;
+		};
 	};
 
 	if (intro_cutscene_over) exitWith {};

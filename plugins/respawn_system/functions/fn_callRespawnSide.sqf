@@ -17,9 +17,9 @@ PARAMETERS:
     2 - (OPTIONAL) Number of lives to give to players revived
 
 USAGE:
-    [west, 5] spawn BRM_FMK_RespawnSystem_fnc_callRespawnSide;
+    [west, 5] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
 
-    [side_a_side, 10, 1] spawn BRM_FMK_RespawnSystem_fnc_callRespawnSide;
+    [side_a_side, 10, 1] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
 
 RETURNS:
     Nothing.
@@ -27,37 +27,50 @@ RETURNS:
 ================================================================================
 */
 
-params["_side", ["_amount", mission_respawn_objective], ["_lives", mission_player_lives]];
+params ["_side", ["_amount", mission_respawn_objective], ["_lives", mission_player_lives]];
+
+_amount = if (_amount > -1) then {
+	_amount min count mission_dead_players
+} else {
+	count mission_dead_players
+};
 
 if (_amount == 0) exitWith {};
 
-private _am = _amount;
-
-{
-    if (_amount == 0) exitWith {};
-
-    _x params["_deadUID", "_deadName", "_deadSide"];
-    if (_deadSide == _side) then {
-        [_deadName, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
-        _amount = _amount - 1;
-    };
-} forEach mission_dead_players;
-
-private _totalRespawned = (_am -_amount);
-
-if (_totalRespawned > 0) then {
-
-    mission_dead_players deleteRange [0, _totalRespawned];
-
-    (switch (_side) do {
-        case WEST: { ["%1 %2 units have respawned.", "AlertBLU"] };
-        case EAST: { ["%1 %2 units have respawned.", "AlertOP"] };
-        case RESISTANCE: { ["%1 %2 units have respawned.", "AlertIND"] };
-        case CIVILIAN: { ["%1 %2 units have respawned.", "Alert"] };
-        default { ["%1 units have respawned.", "Alert"] }
-    }) params ["_alertText", "_alertNotification"];
-
-    [_alertNotification, [format [_alertText, _totalRespawned, [_side, "name"] call BRM_FMK_fnc_getSideInfo]]] remoteExecCall ["BIS_fnc_showNotification", -2];
+if (!isServer) exitWith {
+	_this remoteExecCall ["BRM_FMK_RespawnSystem_fnc_callRespawnSide", 2];
 };
 
-[{ publicVariable "mission_dead_players" },[], 5] call CBA_fnc_waitAndExecute;
+private _respawnedIndices = [];
+for "_i" from 0 to _amount - 1 do {
+	mission_dead_players select _i params ["_deadUID", "_deadName", "_deadSide"];
+
+	if (_deadSide == _side) then {
+		_respawnedIndices pushBack _i;
+
+		private _unit = [_deadName] call BRM_FMK_fnc_unitFromName;
+		if (!isNull _unit) then {
+			[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
+			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
+		};
+	};
+};
+
+private _respawned = count _respawnedIndices;
+for "_i" from _respawned - 1 to 0 step -1 do {
+	mission_dead_players deleteAt (_respawnedIndices select _i);
+};
+
+if (_respawned > 0) then {
+	publicVariable "mission_dead_players";
+
+	(switch (_side) do {
+		case WEST: { ["%1 %2 units have respawned.", "AlertBLU"] };
+		case EAST: { ["%1 %2 units have respawned.", "AlertOP"] };
+		case RESISTANCE: { ["%1 %2 units have respawned.", "AlertIND"] };
+		case CIVILIAN: { ["%1 %2 units have respawned.", "Alert"] };
+		default { ["%1 units have respawned.", "Alert"] }
+	}) params ["_alertText", "_alertNotification"];
+
+	[_alertNotification, [format [_alertText, _respawned, [_side, "name"] call BRM_FMK_fnc_getSideInfo]]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
+};

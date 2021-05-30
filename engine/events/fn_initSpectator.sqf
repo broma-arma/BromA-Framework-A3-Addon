@@ -1,42 +1,23 @@
 /*
-
     Initializes spectator units.
-
 */
 
-(_this select 0) spawn {
-	if (isNil "Headless_Client") then {
-            _this setPosATL [0, 0, 200];
-	} else {
-            _this attachTo [Headless_Client, [0, 0, 50]];
+params ["_unit"];
+
+_unit allowDamage false;
+[_unit, true] remoteExec ["hideObjectGlobal", 2];
+[_unit, false] remoteExec ["enableSimulationGlobal", 2];
+
+[_unit] call BRM_FMK_fnc_joinDeadGroup;
+
+switch (true) do {
+	case ("ace3_spectator" in usedPlugins): {
+		[true] call ace_spectator_fnc_setSpectator;
 	};
-
-	if (mission_TFAR_enabled) then {
-            _this setVariable ["tf_unable_to_use_radio", true];
-	};
-
-	_this enableSimulation false;
-	_this allowDamage false;
-
-	sleep 1;
-
-	[_this] call BRM_FMK_fnc_joinDeadGroup;
-
-	if !(["IsSpectating"] call BIS_fnc_EGSpectator) then {
-		switch (true) do {
-			case ("ace3_spectator" in usedPlugins): {
-				[true] call ace_spectator_fnc_setSpectator;
-			};
-			case ("vanilla_spectator" in usedPlugins): {
-				["Initialize", [] call BRM_FMK_VanillaSpectator_fnc_getSettings] call BIS_fnc_EGSpectator;
-				[] call BRM_FMK_VanillaSpectator_fnc_centerOnTarget;
-			};
-			default { _this setDamage 1; };
+	case ("vanilla_spectator" in usedPlugins): {
+		if (["Initialize", [] call BRM_FMK_VanillaSpectator_fnc_getSettings] call BIS_fnc_EGSpectator) then {
+			[] call BRM_FMK_VanillaSpectator_fnc_centerOnTarget;
 		};
 	};
-
-	sleep 5;
-
-	_this unlinkItem "ItemRadio";
-	_this removeItem "ItemRadio";
+	default { _unit setDamage 1; };
 };
