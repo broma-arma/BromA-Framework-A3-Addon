@@ -20,7 +20,7 @@ if !(hasInterface && isMultiplayer && didJIP) exitWith {};
 				&& side _x == playerSide
 				&& player distanceSqr _x >= MIN_DISTANCE_SQD
 				&& !(_x getVariable ["isDead", false])
-				&& !(_target getVariable ["ACE_isUnconscious", false])
+				&& !(_x getVariable ["ACE_isUnconscious", false])
 			}
 		);
 		_targets = _targets arrayIntersect _targets; // Unique
