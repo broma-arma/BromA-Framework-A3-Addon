@@ -35,13 +35,14 @@ if (!isServer) exitWith {
 };
 
 if (_target isEqualType "") exitWith {
-	mission_dead_players deleteAt (mission_dead_players findIf { _x select 1 == _target });
-	publicVariable "mission_dead_players";
+	if (!isNil { mission_dead_players deleteAt (mission_dead_players findIf { _x select 1 == _target }) }) then {
+		publicVariable "mission_dead_players";
 
-	private _unit = [_target] call BRM_FMK_fnc_unitFromName;
-	if (!isNull _unit) then {
-		[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
-		["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
+		private _unit = [_target] call BRM_FMK_fnc_unitFromName;
+		if (!isNull _unit) then {
+			[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
+			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
+		};
 	};
 };
 
