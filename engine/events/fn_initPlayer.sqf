@@ -108,9 +108,7 @@ if (didJIP) then {
 // Initializes score related variables. ========================================
 
 if (isNil {player getVariable "unit_score"}) then {
-    private _score = 0;
-    { if (_x select 0 == name player) exitWith { _score = _x select 1; }; } forEach mission_unit_score;
-    player setVariable ["unit_score", _score];
+    player setVariable ["unit_score", 0];
 };
 if (isNil {player getVariable "unit_deaths"}) then {
     player setVariable ["unit_deaths", 0];

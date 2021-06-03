@@ -40,8 +40,6 @@ RETURNS:
 	["mission_dead_side_B", 0],
 	["mission_dead_side_C", 0],
 
-	["mission_unit_score", []],
-
 	["mission_running", true],
 
 	["mission_AI_controller", false],

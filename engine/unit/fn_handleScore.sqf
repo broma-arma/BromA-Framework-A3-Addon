@@ -60,20 +60,5 @@ private _scoreChanged = false;
 		_killerScore = _killerScore + ([1, -1] select ([_unitSide, _sideKiller] call BIS_fnc_areFriendly));
 
 		_x setVariable ["unit_score", _killerScore, true];
-
-		private _name = name _x;
-		private _index = count mission_unit_score;
-		{
-			if (_x select 0 == _name) exitWith {
-				_index = _forEachIndex;
-			};
-		} forEach mission_unit_score;
-
-		mission_unit_score set [_index, [_name, _killerScore]];
-		_scoreChanged = true;
 	};
 } forEach (crew vehicle _killer);
-
-if (_scoreChanged) then {
-	publicVariable "mission_unit_score";
-};

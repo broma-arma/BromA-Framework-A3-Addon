@@ -1,4 +1,7 @@
-private _playerVars = [];
+private _playerVars = [[
+	["unit_score", 0],
+	["unit_deaths", 0]
+]];
 
 // Task Force Arrowhead Radio
 if (mission_TFAR_enabled) then {
