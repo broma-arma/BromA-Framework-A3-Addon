@@ -78,29 +78,36 @@ _countEpiCARGO = 30;
 _countBloodbagCARGO = 30;
 _countPAKCARGO = 40;
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_JGSDFCammo
+	"JIEITAIW",
+    "JIEITAID"
+*/
+
+_camo = "JIEITAIW";
+
 // UNIFORMS ====================================================================
+if(!isNil "BRM_FMK_UNIFORMS_JGSDFCammo")then{_camo=BRM_FMK_UNIFORMS_JGSDFCammo};
 
 _headsLIST = [
-    "TRYK_H_Helmet_JSDF",
-    "TRYK_H_Booniehat_JSDF"
+    "BRM_LWH_COMS_"+_camo,
+    "BRM_LWH_"+_camo,
+    "BRM_LWH_MASK_"+_camo,
+    "BRM_LWH_MASK_COMS_"+_camo,
+    "BRM_LWH_GHILLIE_"+_camo,
+    "BRM_LWH_COMS_GHILLIE_"+_camo
 ];
 
 _uniformsLIST = [
-    "TRYK_U_B_JSDF_CombatUniform",
-    "TRYK_U_B_JSDF_CombatUniformTshirt"
+    "BRM_BattleUNI_"+_camo,
+    "BRM_BattleUNIRS_"+_camo,
+    "BRM_BattleUNITS_"+_camo
 
-];
-
-_vestsLIST = [
-    "TRYK_V_PlateCarrier_JSDF"
-];
-
-_gogglesLIST = [
 ];
 
 _randomHEAD = selectRandom _headsLIST;
 _randomUNIFORM = selectRandom _uniformsLIST;
-_randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
@@ -112,7 +119,7 @@ _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = _commonHEAD;
+_reconHEAD = "BRM_BoonieCOMS_"+_camo;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
@@ -126,16 +133,16 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = _randomVEST;
-_officerVEST = _commonVEST;
-_ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
-_mgVEST = _commonVEST;
-_grenadierVEST = _commonVEST;
+_commonVEST = "BRM_Protec_JIEITAIW_RFL";
+_officerVEST = "BRM_Protec_JIEITAIW_SL";
+_ftlVEST = "BRM_Protec_JIEITAIW_TL";
+_slVEST = _officerVEST;
+_mgVEST = "BRM_Protec_JIEITAIW_MG";
+_grenadierVEST = "BRM_Protec_JIEITAIW_GL";
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
-_reconVEST = _commonVEST;
+_reconVEST = "BMR_MLBVARMOR_GREEN_RFL";
 
 _commonBACKPACK = "TRYK_B_AssaultPack_Type2camo";
 _bigBACKPACK = "TRYK_B_Carryall_JSDF";
