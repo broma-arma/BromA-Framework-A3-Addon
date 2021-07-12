@@ -131,16 +131,16 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST    = "BRM_Protec_GREEN_RFL";
-_officerVEST   = "BRM_Protec_GREEN_SL";
-_ftlVEST       = "BRM_Protec_GREEN_TL";
+_commonVEST    = "BMR_MLBVARMOR_"+_camo+"_RFL";
+_officerVEST   = "BMR_MLBVARMOR_"+_camo+"_SL";
+_ftlVEST       = "BMR_MLBVARMOR_"+_camo+"_TL";
 _slVEST        = _officerVEST;
-_mgVEST        = "BRM_Protec_GREEN_MG";
-_grenadierVEST = "BRM_Protec_GREEN_GL";
-_medicVEST     = _commonVEST;
+_mgVEST        = "BMR_MLBVARMOR_"+_camo+"_MG";
+_grenadierVEST = "BMR_MLBVARMOR_"+_camo+"_GL";
+_medicVEST     = "BMR_MLBVARMOR_"+_camo+"_MED";
 _demoVEST      = _commonVEST;
 _marksmanVEST  = _commonVEST;
-_reconVEST     = "TAC_PBDFG2D2_RG";
+_reconVEST     = "BRM_LBT_BLACK_RFL";
 
 _commonBACKPACK = "BRM_PatrolBP_T07"+_camo;
 _bigBACKPACK = "BRM_PatrolBPH_T07"+_camo;
