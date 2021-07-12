@@ -20,6 +20,9 @@ switch (toUpper(_faction)) do {
     case "SLA": {
         #include "factions\sla.sqf"
     };
+    case "CANARMY": {
+        #include "factions\Canada.sqf"
+    };
 
     case "MUJAHIDEEN": {
         #include "factions\mujahideen.sqf"
