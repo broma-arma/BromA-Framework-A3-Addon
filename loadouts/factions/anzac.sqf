@@ -1,7 +1,7 @@
 // INFO ========================================================================
 /*
     ANZAC Forces
-    Use BRM_FMK_UNIFORMS_AnzacCammo (wod or des) to change camo.
+    Use BRM_FMK_UNIFORMS_AnzacCammo (DPCU or DPDU) to change camo.
 */
 
 _factionID = "ANZAC";
@@ -100,7 +100,7 @@ _headsLIST = [
 _uniformsLIST = [
     "BRM_BattleUNI_"+_camo,
     "BRM_BattleUNIRS_"+_camo,
-    "BRM_BattleUNITS_"+_camo
+    "BRM_BattleUNIT_"+_camo
 ];
 
 
@@ -134,18 +134,18 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST    = "BRM_Protec_"+_camo"_RFL";
-_officerVEST   = "BRM_Protec_"+_camo"_SL";
-_ftlVEST       = "BRM_Protec_"+_camo"_TL";
+_commonVEST    = "BRM_Protec_"+_camo+"_RFL";
+_officerVEST   = "BRM_Protec_"+_camo+"_SL";
+_ftlVEST       = "BRM_Protec_"+_camo+"_TL";
 _slVEST        = _officerVEST;
-_mgVEST        = "BRM_Protec_"+_camo"_MG";
-_grenadierVEST = "BRM_Protec_"+_camo"_GL";
+_mgVEST        = "BRM_Protec_"+_camo+"_MG";
+_grenadierVEST = "BRM_Protec_"+_camo+"_GL";
 _medicVEST     = _commonVEST;
 _demoVEST      = _commonVEST;
 _marksmanVEST  = _commonVEST;
 _reconVEST     = "BRM_RRV_BROWN_REC1";
 
-_commonBACKPACK = "BRM_PatrolBP_DPCU";
+_commonBACKPACK = "BRM_PatrolBP_"+_camo;
 _bigBACKPACK = "TRYK_B_Coyotebackpack_OD";
 
 // EXTRA EQUIPMENT =============================================================
@@ -220,7 +220,7 @@ _factionVehicles = [
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_NATO_F",
+/* Flag         */ "BRM_Flag_australia",
 /* Objects      */ ["B_CargoNet_01_ammo_F"],
 /* Walls        */ ["Land_HBarrierWall4_F"],
 /* Structures   */ ["Land_Cargo_House_V3_F"]
