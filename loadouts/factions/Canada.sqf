@@ -1,9 +1,9 @@
 // INFO ========================================================================
 /*
-    A FUCKING LEAF
+    Loadout for the Unified military of Canada, with camo selection.
 */
 
-_factionID = "CANARMY";
+_factionID = "CAF";
 _factionName = "Canada armed forces";
 _factionStructure = "HIGH-TIER";
 
@@ -102,10 +102,10 @@ _headsLIST = [
 _uniformsLIST = [
     "BRM_BattleUNI_"+_camo,
     "BRM_BattleUNIRS_"+_camo,
-    "BRM_BattleUNITS_"+_camo
+    "BRM_BattleUNIT_"+_camo
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
 _randomUNIFORM = selectRandom _uniformsLIST;
 
 _commonHEAD = _randomHEAD;
@@ -146,8 +146,6 @@ _reconVEST = "BRM_LBT_GREEN_RFL";
 _commonBACKPACK = "BRM_PatrolBP_"+_camo;
 _bigBACKPACK = "BRM_LRRBP_Green";
 
-if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE };
-
 // EXTRA EQUIPMENT =============================================================
 
 _HMG = "RHS_M2_Gun_Bag";
@@ -183,7 +181,6 @@ _UAVTerminal = "auto";
     /*  Submarines        */	,["B_SDV_01_F"]
     /*  MRAP Vehicles     */    ,["rhsusf_m113_usarmy_M2_90", "rhsusf_m113_usarmy_MK19", "rhsusf_M1117_D"]
     ];
-};
 
 // OBJECTS =====================================================================
 
