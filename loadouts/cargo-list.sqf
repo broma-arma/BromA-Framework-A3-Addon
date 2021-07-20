@@ -80,12 +80,21 @@ switch (_x) do {
 	};
 
 	case "at": {
-		[_object,
+		private _supplies = [
 			[_specAT select ([RAMMO, GUN] select _isSpecATDisposable), _countSpecATCARGO],
 			[_weaponsAT select RAMMO, _countWeaponsATCARGO],
 			[_weaponsAA select RAMMO, _countWeaponsAACARGO],
 			[_commonAT select GUN,    _countATCARGO]
-		] call BRM_FMK_fnc_addItems;
+		];
+
+		if (_specAT select GUN == "rhs_weap_smaw") then {
+			_supplies append [
+				["rhs_weap_optic_smaw", _countSpecATCARGO / 2],
+				["rhs_mag_smaw_SR",     _countSpecATCARGO * 2]
+			];
+		};
+
+		[_object] + _supplies call BRM_FMK_fnc_addItems;
 	};
 
 	case "explosives": {

@@ -1,7 +1,7 @@
 // INFO ========================================================================
 /*
     ANZAC Forces
-    Use BRM_FMK_UNIFORMS_AnzacCammo (wod or des) to change camo.
+    Use BRM_FMK_UNIFORMS_AnzacCammo (DPCU or DPDU) to change camo.
 */
 
 _factionID = "ANZAC";
@@ -23,29 +23,29 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_UNIFORMS_AnzacCammo
-	"des"
-	"wod"
+	"DPDU"
+	"DPCU"
 */
 
-_camo = "wod";
+_camo = "DPCU";
 
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AUGSRTAN;
-_commonRIFLEGL = _AUGSRTAN;
+_commonRIFLE = _AUGA3;
+_commonRIFLEGL = _AUGA3GL;
 _commonPISTOL = _G17;
 _commonAR = _HLCM249LGRIP;
-_commonMG = _M240G;
-_commonMARKSMAN = _AUGSRTAN;
-_commonSNIPER = _M40A5;
+_commonMG = ["rhs_weap_fnmag","hlc_100Rnd_762x51_M_M60E4"];
+_commonMARKSMAN = _SR25;
+_commonSNIPER = _AWM;
 _commonAT = _AT4;
 _specAT = _GUSTAV;
 _commonSMG = _AUGA2PARATAN;
 _commonRCO = "FHQ_optic_ACOG";
-_commonCCO = "FHQ_optic_AC11704";
+_commonCCO = "rksl_optic_eot552";
 _commonMAGNIFIED = "hlc_optic_LeupoldM3A";
-_commonSUPPRESSOR = "rhsusf_acc_nt4_black";
+_commonSUPPRESSOR = "hlc_muzzle_556nato_m42000";
 _commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
 _NVG = "rhsusf_ANPVS_15";
 
@@ -88,17 +88,19 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
+if(!isNil "BRM_FMK_UNIFORMS_AnzacCammo")then{_camo=BRM_FMK_UNIFORMS_AnzacCammo};
 
 _headsLIST = [
-    "BRM_ACH_MASK_DPCU",
-    "BRM_ACH_DPCU",
-    "BRM_ACH_COMS_DPCU",
-    "BRM_ACH_MASK_COMS_DPCU"
+    "BRM_ACH_MASK_"+_camo,
+    "BRM_ACH_"+_camo,
+    "BRM_ACH_COMS_"+_camo,
+    "BRM_ACH_MASK_COMS_"+_camo
 ];
 
 _uniformsLIST = [
-    "U_BRM_RS_DPCU",
-    "U_BRM_U_DPCU"
+    "BRM_BattleUNI_"+_camo,
+    "BRM_BattleUNIRS_"+_camo,
+    "BRM_BattleUNIT_"+_camo
 ];
 
 
@@ -118,7 +120,7 @@ _helicrewHEAD = "rhsusf_hgu56p";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "BRM_Booniehat_DPCU";
+_reconHEAD = "BRM_Booniehat_"+_camo;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
@@ -132,18 +134,18 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST    = "BRM_Protec_DPCU_RFL";
-_officerVEST   = "BRM_Protec_DPCU_SL";
-_ftlVEST       = "BRM_Protec_DPCU_TL";
+_commonVEST    = "BRM_Protec_"+_camo+"_RFL";
+_officerVEST   = "BRM_Protec_"+_camo+"_SL";
+_ftlVEST       = "BRM_Protec_"+_camo+"_TL";
 _slVEST        = _officerVEST;
-_mgVEST        = "BRM_Protec_DPCU_MG";
-_grenadierVEST = "BRM_Protec_DPCU_GL";
+_mgVEST        = "BRM_Protec_"+_camo+"_MG";
+_grenadierVEST = "BRM_Protec_"+_camo+"_GL";
 _medicVEST     = _commonVEST;
 _demoVEST      = _commonVEST;
 _marksmanVEST  = _commonVEST;
 _reconVEST     = "BRM_RRV_BROWN_REC1";
 
-_commonBACKPACK = "BRM_PatrolBP_DPCU";
+_commonBACKPACK = "BRM_PatrolBP_"+_camo;
 _bigBACKPACK = "TRYK_B_Coyotebackpack_OD";
 
 // EXTRA EQUIPMENT =============================================================
@@ -218,7 +220,7 @@ _factionVehicles = [
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_NATO_F",
+/* Flag         */ "BRM_Flag_australia",
 /* Objects      */ ["B_CargoNet_01_ammo_F"],
 /* Walls        */ ["Land_HBarrierWall4_F"],
 /* Structures   */ ["Land_Cargo_House_V3_F"]
