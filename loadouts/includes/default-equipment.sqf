@@ -46,6 +46,10 @@ if (isNil "_isSpecATDisposable" && !isNil "_isATDisposable") then {
 	_isSpecATDisposable = _isATDisposable;
 };
 
+if (isNil "_isSpecATDisposable" && _specAT isEqualTo "") then {
+	_isSpecATDisposable = true;
+};
+
 if (isNil "_isSpecATDisposable") then {
 	private _launcher = _specAT select /*GUN*/0;
 	private _cfgLauncher = configFile >> "CfgWeapons" >> _launcher;
