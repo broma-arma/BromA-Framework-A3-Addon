@@ -10,6 +10,10 @@ _unit allowDamage false;
 
 [_unit] call BRM_FMK_fnc_joinDeadGroup;
 
+BRM_FMK_Engine_spectatorOxygenWorkaroundPFH = [{
+	player setOxygenRemaining 1;
+}, 10] call CBA_fnc_addPerFrameHandler;
+
 switch (true) do {
 	case ("ace3_spectator" in usedPlugins): {
 		[true] call ace_spectator_fnc_setSpectator;
