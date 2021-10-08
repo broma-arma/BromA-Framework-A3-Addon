@@ -137,6 +137,24 @@ switch (_x) do {
 		] call BRM_FMK_fnc_addItems;
 	};
 
+        case "3CB_turret_ammo": {
+		[[_object, "magazine",
+                        ["UK3CB_BAF_762_200Rnd_T", 10],
+			["UK3CB_BAF_32Rnd_40mm_G_Box",10],
+			["UK3CB_BAF_127_100Rnd",10],
+			["UK3CB_BAF_1Rnd_Milan",5]
+        ]] call BRM_FMK_fnc_addtoCargo;
+	};
+	
+	case "3CB_turret_ammo_APC": {
+		[[_object, "magazine",
+                        ["UK3CB_BAF_6Rnd_30mm_L21A1_APDS", 10],
+			["UK3CB_BAF_6Rnd_30mm_L21A1_HE",10],
+			["UK3CB_BAF_762_200Rnd_T",4],
+			["UK3CB_BAF_762_800Rnd_T",2]
+        ]] call BRM_FMK_fnc_addtoCargo;
+	};
+	
 	default {
 		["Unknown cargo type: '%1' (%2)", _x, _type] call BIS_fnc_error;
 	};
