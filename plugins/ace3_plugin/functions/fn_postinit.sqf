@@ -10,11 +10,11 @@ if (hasInterface) then {
 	};
 
 	if (mission_ace3_revive_lives > -1) then {
-		player setVariable ["brm_ace_secondChances", mission_ace3_revive_lives];
+		player setVariable ["brm_ace_secondChances", mission_ace3_revive_lives, true];
 
 		["ace_medical_FullHeal", {
 			// Restore lives on PAK
-			_this setVariable ["brm_ace_secondChances", mission_ace3_revive_lives];
+			_this setVariable ["brm_ace_secondChances", mission_ace3_revive_lives, true];
 		}] call CBA_fnc_addEventHandler;
 	};
 
