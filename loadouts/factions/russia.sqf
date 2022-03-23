@@ -22,24 +22,39 @@ _defaultColor = "red";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_FRACammo
+	"emr"
+	"emrd" (desert)
+*/
+
+_camo = "emr";
+
+// UNIFORMS ====================================================================
+if(!isNil "BRM_FMK_UNIFORMS_RUSCammo")then{_camo=BRM_FMK_UNIFORMS_RUSCammo};
+
 // WEAPONS =====================================================================
 
 _commonRIFLE = _AK74M;
 _commonRIFLEGL = _AK74GP;
 _commonPISTOL = ["rhs_weap_pya", "rhs_mag_9x19_17"];
-_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
+_commonAR = _PKP;
 _commonMG = _PKP;
 _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _RPG26;
 _specAT = _RPG7PGO;
-_commonSMG = ["rhs_weap_aks74un", "rhs_30Rnd_545x39_AK"];
+_commonSMG = ["rhs_weap_pp2000", "rhs_mag_9x19mm_7n31_20"];
 _commonRCO = "rhs_acc_1p78";
-_commonCCO = "rhs_acc_1p63";
+_commonCCO = "rhs_acc_ekp8_02b";
+_specRCO = "rhs_acc_pso1m2";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "";
-_NVG = "rhsusf_ANPVS_15";
+_NVG = "rhs_1PN138";
+
+_rifleSCOPE = _commonCCO;
 
 // AMMO COUNT ==================================================================
 
@@ -83,13 +98,25 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_headsLIST = [
-    "rhs_6b7_1m_emr",
-    "rhs_6b7_1m_bala1_emr",
-    "rhs_6b7_1m_bala2_emr",
-    "rhs_6b7_1m_emr_ess",
-    "rhs_6b7_1m_emr_ess_bala"
-];
+
+_headsLIST = [];
+
+if (_camo == "emr") then {
+    _headsLIST = [
+        "rhs_6b47_emr_1",
+        "rhs_6b47_emr",
+        "rhs_6b47_6B50"
+    ];
+
+    _commonUNIFORM = "rhs_uniform_vkpo_gloves";
+} else {
+    _headsLIST =[
+        "rhs_6b7_1m",
+        "rhs_6b7_1m_bala2"
+    ];
+
+    _commonUNIFORM = "rhs_uniform_emr_des_patchless";
+};
 
 _randomHEAD = selectRandom _headsLIST;
 
@@ -97,18 +124,17 @@ _commonHEAD = _randomHEAD;
 _leaderHEAD = _randomHEAD;
 _officerHEAD = "rhs_fieldcap_digi";
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhs_tsh4_ess";
+_crewmanHEAD = "rhs_6b48";
 _pilotHEAD = "rhs_zsh7a";
 _helicrewHEAD = "rhs_zsh7a_mike";
 _helipilotHEAD = "rhs_zsh7a_mike";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "rhs_Booniehat_digi";
+_reconHEAD = selectRandom ["rhs_6b47_6m2_1","rhs_6b47_bala"];
 
-_commonUNIFORM = "rhs_uniform_emr_patchless";
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15";
-_sniperUNIFORM = "U_O_FullGhillie_ard";
+_sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "rhs_uniform_df15";
 _crewUNIFORM = _commonUNIFORM;
@@ -117,19 +143,30 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhs_6b23_digi_6sh92";
-_officerVEST = "rhs_6b23_digi_6sh92_headset_mapcase";
-_ftlVEST = "rhs_6b23_digi_6sh92_vog_headset";
-_slVEST = "rhs_6b23_digi_6sh92_radio";
-_mgVEST = "rhs_6b23_digi_rifleman";
-_grenadierVEST = "rhs_6b23_digi_6sh92_vog";
-_medicVEST = "rhs_6b23_digi_medic";
+_commonVEST = "rhs_6b45_off";
+_officerVEST = "rhs_6sh117_nco";
+_ftlVEST = "rhs_6sh117_nco";
+_slVEST = "rhs_6sh117_nco";
+_mgVEST = "rhs_6sh117_ar";
+_grenadierVEST = "rhs_6sh117_grn";
+_medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
-_marksmanVEST = "rhs_6b23_digi_sniper";
-_reconVEST = "rhs_6b23_6sh116";
+_marksmanVEST = _commonVEST;
+_reconVEST = _commonVEST;
+_pilotVEST = "rhs_vest_commander";
 
-_commonBACKPACK = "rhs_assault_umbts";
-_bigBACKPACK = "rhs_assault_umbts";
+_commonBACKPACK = "rhs_rk_sht_30_emr";
+_bigBACKPACK = "rhs_rk_sht_30_emr";
+_atBACKPACK = "rhs_rpg_empty";
+
+if (_assignLoadoutMode) then {_unit addGoggles (["rhs_balaclava","empty"] selectRandomWeighted [0.4,0.6])};
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_mag_rgo";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "binoc";
+_rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================
 

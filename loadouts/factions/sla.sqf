@@ -31,20 +31,19 @@ _commonRIFLEGL = _AK74NGL;
 _commonPISTOL = _Makarov;
 _commonAR = _RPK;
 _commonMG = _PKM;
-_commonMARKSMAN = _SVD;
-_commonSNIPER = _SVD;
+_commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];;
+_commonSNIPER = _commonMARKSMAN;
 _commonAT = _RPG26;
-_specAT = _RPG7;
+_specAT = _RPG7PGO;
 _commonSMG = _AK74UN;
 _commonRCO = "rhs_acc_1p29";
-_commonCCO = "rhs_acc_ekp1";
+_commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m21_ak";
-_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
+_commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
 
-
-_isSpecATDisposable = true;
+_autoNVG = true;
 
 // AMMO COUNT ==================================================================
 
@@ -90,7 +89,7 @@ _countPAKCARGO = 10;
 
 _commonHEAD = "UK3CB_TKA_I_H_SSh68_Oli";
 _leaderHEAD = "rhs_fieldcap_vsr";
-_officerHEAD = "rhssaf_beret_red";
+_officerHEAD = "BRM_Beret2_Red";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4";
 _pilotHEAD = "rhs_zsh7a_alt";
@@ -98,7 +97,7 @@ _helicrewHEAD = "rhs_zsh7a_mike_alt";
 _helipilotHEAD = "rhs_zsh7a_mike_alt";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "rhssaf_beret_red";
+_reconHEAD = "BRM_BeretPELTOR_Red";
 
 _commonUNIFORM = "rhsgref_uniform_vsr";
 _officerUNIFORM = _commonUNIFORM;
@@ -122,9 +121,18 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
+_atBACKPACK = "rhs_rpg_2";
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_mag_rgd5";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "rhssaf_zrak_rd7j";
+_rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================
 

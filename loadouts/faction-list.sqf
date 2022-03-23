@@ -1,31 +1,26 @@
 switch (toUpper(_faction)) do {
-    case "PMC": {
-        #include "factions\pmc.sqf"
-    };
     case "NAPA": {
         #include "factions\napa.sqf"
     };
+
     case "GERMAN": {
         #include "factions\german.sqf"
     };
+
     case "RACS": {
         #include "factions\racs.sqf"
     };
-    case "76TH": {
-        #include "factions\76TH.sqf"
-    };
+
     case "PLA": {
         #include "factions\PLA.sqf"
     };
+
     case "SLA": {
         #include "factions\sla.sqf"
     };
+
     case "CAF": {
         #include "factions\Canada.sqf"
-    };
-
-    case "MUJAHIDEEN": {
-        #include "factions\mujahideen.sqf"
     };
 
     case "ISIS": {
@@ -37,15 +32,11 @@ switch (toUpper(_faction)) do {
     };
 
     case "USARMY": {
-	#include "factions\usarmy.sqf"
+	    #include "factions\usarmy.sqf"
     };
 
     case "MARINES": {
         #include "factions\marines.sqf"
-    };
-
-    case "VDV": {
-        #include "factions\vdv.sqf"
     };
 
     case "IONPMC": {
@@ -56,12 +47,12 @@ switch (toUpper(_faction)) do {
         #include "factions\tkmilitia.sqf"
     };
 
-    case "ANA": {
-        #include "factions\ana.sqf"
+    case "AFGHANISTAN": {
+        #include "factions\afghanistan.sqf"
     };
 
-    case "FINNS": {
-        #include "factions\finns.sqf"
+    case "FINLAND": {
+        #include "factions\finland.sqf"
     };
 
     case "CSAT": {
@@ -84,20 +75,8 @@ switch (toUpper(_faction)) do {
         #include "factions\fia.sqf"
     };
 
-    case "AHKMA-PMC": {
-        #include "factions\ahkma-pmc.sqf"
-    };
-
     case "SPRG": {
         #include "factions\sprg-report.sqf"
-    };
-
-    case "NORSF": {
-        #include "factions\norsf.sqf"
-    };
-
-    case "MOLATIAN": {
-        #include "factions\molatian.sqf"
     };
 
     case "UN": {
@@ -128,24 +107,12 @@ switch (toUpper(_faction)) do {
         #include "factions\afrenian.sqf"
     };
 
-    case "EMPIRE": {
-        #include "factions\empire.sqf"
-    };
-
-    case "UNION": {
-        #include "factions\union.sqf"
-    };
-
     case "JSDF": {
         #include "factions\jsdf.sqf"
     };
 
-    case "FRWINTER": {
-        #include "factions\frwinter.sqf"
-    };
-
     case "FRANCE": {
-        #include "factions\frwood.sqf"
+        #include "factions\france.sqf"
     };
 
     case "MEC": {
@@ -153,30 +120,63 @@ switch (toUpper(_faction)) do {
     };
 
     case "USFS": {
-        #include "factions\usarmyfuture.sqf"
-    };
-
-    case "RUSSIA_AFGHAN": {
-        #include "factions\russia-afghan.sqf"
+        #include "factions\usarmy_future.sqf"
     };
 
     case "ANZAC": {
         #include "factions\anzac.sqf"
     };
+
     case "LINGOR_REBELS": {
-        #include "factions\lingorrebels.sqf"
+        #include "factions\lingor_rebels.sqf"
     };
+
  	case "LINGOR_ARMY": {
-        #include "factions\lingorarmy.sqf"
+        #include "factions\lingor_army.sqf"
     };
+
  	case "AFRICAN_REBELS": {
-        #include "factions\africanrebels.sqf"
+        #include "factions\african_rebels.sqf"
     };
+
  	case "AFRICAN_ARMY": {
-        #include "factions\africanarmy.sqf"
+        #include "factions\african_army.sqf"
     };
+
  	case "YUGO": {
         #include "factions\yugo.sqf"
+    };
+
+    case "SWEDEN": {
+        #include "factions\sweden.sqf"
+    };
+
+    case "POLAND": {
+        #include "factions\poland.sqf"
+    };
+
+    case "PORTUGAL": {
+        #include "factions\portugal.sqf"
+    };
+
+    case "UKRAINE": {
+        #include "factions\ukraine.sqf"
+    };
+
+    case "USARMY80": {
+        #include "factions\usarmy80.sqf"
+    };
+
+    case "SOVIETS": {
+        #include "factions\soviets.sqf"
+    };
+
+    case "ESTONIA": {
+        #include "factions\estonia.sqf"
+    };
+
+    case "SLOVENIA": {
+        #include "factions\slovenia.sqf"
     };
 
     case "DEFAULT": {

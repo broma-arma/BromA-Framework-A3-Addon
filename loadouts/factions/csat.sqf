@@ -122,6 +122,7 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = "V_HarnessOSpec_"+_vp;
+_pilotVEST = "V_BandollierB_cbr";
 
 _commonBACKPACK = "B_AssaultPack_"+_lp+"camo";
 _bigBACKPACK = "B_Carryall_"+_lp+"camo";

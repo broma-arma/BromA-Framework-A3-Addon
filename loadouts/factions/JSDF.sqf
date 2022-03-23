@@ -143,9 +143,12 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = "BMR_MLBVARMOR_GREEN_RFL";
+_pilotVEST     = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "TRYK_B_AssaultPack_Type2camo";
 _bigBACKPACK = "TRYK_B_Carryall_JSDF";
+
+_rifleSCOPE = _commonCCO;
 
 // EXTRA EQUIPMENT =============================================================
 

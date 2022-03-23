@@ -142,6 +142,7 @@ _medicVEST = _randomVEST;
 _demoVEST = _randomVEST;
 _marksmanVEST = _randomVEST;
 _reconVEST = _randomVEST;
+_pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "B_FieldPack_khk";
 _bigBACKPACK = "TRYK_B_Coyotebackpack";

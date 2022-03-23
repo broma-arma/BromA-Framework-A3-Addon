@@ -126,6 +126,13 @@ _reconVEST     = _commonVEST;
 _commonBACKPACK = "rhssaf_kitbag_smb";
 _bigBACKPACK = "rhssaf_alice_smb";
 
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_grenade_mkii_mag";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "rhssaf_zrak_rd7j";
+_rangefinder = "rhs_pdu4";
+
 // EXTRA EQUIPMENT =============================================================
 
 _HMG = "RHS_NSV_Gun_Bag";

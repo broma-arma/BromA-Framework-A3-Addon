@@ -24,23 +24,35 @@ _defaultColor = "blue";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_BAFCammo
+    "mpt" (default)
+	"dpm"
+    "ddpm"
+*/
+
 // WEAPONS =====================================================================
 
-_commonRIFLE = _L85A2;
-_commonRIFLEGL = _L85A2GL;
+_commonRIFLE = _L85A2RIS;
+_commonRIFLEGL = ["UK3CB_BAF_L85A2_UGL_HWS","UK3CB_BAF_556_30Rnd","UK3CB_BAF_1Rnd_HE_Grenade_Shell"];
 _commonPISTOL = _L131A1;
 _commonMG = _L110A2;
-_commonMARKSMAN = _L86A2;
+_commonMARKSMAN = ["UK3CB_BAF_L129A1","UK3CB_BAF_762_L42A1_20Rnd"];
 _commonSNIPER = _L115A3CAMO;
 _commonAT = _AT4CSHEAT;
 _specAT = _NLAW_3CB;
 _commonSMG = _L22A2;
-_commonRCO = "UK3CB_BAF_SUSAT";
-_commonCCO = "UK3CB_BAF_Eotech";
+_commonRCO = "r3f_elcan_5_56";
+_specRCO = "uk3cb_baf_ta648_308";
+_commonCCO = "r3f_comp_m5";
 _commonMAGNIFIED = "UK3CB_BAF_SB31250_Ghillie";
 _commonSUPPRESSOR = "UK3CB_BAF_Silencer_L85";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "UK3CB_BAF_HMNVS";
+
+_rifleSCOPE = _commonCCO;
+_mgSCOPE = "fhq_optic_hws";
 
 // AMMO COUNT ==================================================================
 
@@ -81,16 +93,20 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
+_camo = 'mpt';
+if(!isNil "BRM_FMK_UNIFORMS_BAFCammo")then{_camo=BRM_FMK_UNIFORMS_BAFCammo;};
 
 _uniformLIST = [
-    "UK3CB_BAF_U_CombatUniform_MTP_RM",
-    "UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve_RM"
+    "UK3CB_BAF_U_CombatUniform_MTP",
+    "UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve"
 ];
 
 _headsLIST = [
-    "UK3CB_BAF_H_Mk7_Camo_A",
-    "UK3CB_BAF_H_Mk7_Camo_ESS_A",
-    "UK3CB_BAF_H_Mk7_Camo_CESS_A"
+    "UK3CB_BAF_H_Mk7_Camo_B",
+    "UK3CB_BAF_H_Mk7_Camo_ESS_B",
+    "UK3CB_BAF_H_Mk7_Net_CESS_B",
+    "UK3CB_BAF_H_Mk7_Scrim_D",
+    "UK3CB_BAF_H_Mk7_Scrim_ESS_B"
 ];
 
 _goggleLIST = [
@@ -99,49 +115,140 @@ _goggleLIST = [
     "empty"
 ];
 
+_crewmanHEAD = "UK3CB_BAF_H_CrewHelmet_ESS_A";
+_reconHEAD = "UK3CB_BAF_H_Boonie_MTP_PRR";
+_sniperUNIFORM = "U_B_FullGhillie_ard";
+
+_commonVEST = "UK3CB_BAF_V_Osprey_Rifleman_A";
+_officerVEST = "UK3CB_BAF_V_Osprey_SL_B";
+_ftlVEST = "UK3CB_BAF_V_Osprey_SL_B";
+_slVEST = "UK3CB_BAF_V_Osprey_SL_B";
+_mgVEST = "UK3CB_BAF_V_Osprey_MG_A";
+_grenadierVEST = "UK3CB_BAF_V_Osprey_Grenadier_B";
+_medicVEST = "UK3CB_BAF_V_Osprey_Medic_B";
+_marksmanVEST = "UK3CB_BAF_V_Osprey_Marksman_A";
+
+_commonBACKPACK = "UK3CB_BAF_B_Bergen_MTP_Rifleman_L_C";
+_bigBACKPACK = "UK3CB_BAF_B_Bergen_MTP_Rifleman_L_C";
+_medicalBACKPACK = "UK3CB_BAF_B_Bergen_MTP_Medic_H_A";
+_reconBACKPACK = "UK3CB_BAF_B_Bergen_MTP_Rifleman_H_A";
+
+switch (_camo) do {
+    case "ddpm": {
+        _uniformLIST = [
+            "UK3CB_BAF_U_CombatUniform_DDPM",
+            "UK3CB_BAF_U_CombatUniform_DDPM_ShortSleeve"
+        ];
+
+        _headsLIST = [
+            "UK3CB_BAF_H_Mk6_DDPM_A",
+            "UK3CB_BAF_H_Mk6_DDPM_B",
+            "UK3CB_BAF_H_Mk6_DDPM_C",
+            "UK3CB_BAF_H_Mk6_DDPM_D",
+            "UK3CB_BAF_H_Mk6_DDPM_F"
+        ];
+
+        _goggleLIST = [
+            "TRYK_Shemagh",
+            "TRYK_Shemagh_shade",
+            "empty"
+        ];
+
+        _crewmanHEAD = "UK3CB_BAF_H_CrewHelmet_DDPM_ESS_A";
+        _reconHEAD = "UK3CB_BAF_H_Boonie_DDPM_PRR";
+        _sniperUNIFORM = "U_B_FullGhillie_ard";
+
+        _commonVEST = "UK3CB_BAF_V_Osprey_DDPM2";
+        _officerVEST = "UK3CB_BAF_V_Osprey_DDPM7";
+        _ftlVEST = "UK3CB_BAF_V_Osprey_DDPM3";
+        _slVEST = "UK3CB_BAF_V_Osprey_DDPM7";
+        _mgVEST = "UK3CB_BAF_V_Osprey_DDPM8";
+        _grenadierVEST = "UK3CB_BAF_V_Osprey_DDPM3";
+        _medicVEST = "UK3CB_BAF_V_Osprey_DDPM9";
+        _marksmanVEST = "UK3CB_BAF_V_Osprey_DDPM8";
+
+        _commonBACKPACK = "UK3CB_BAF_B_Bergen_DDPM_Rifleman_A";
+        _bigBACKPACK = "UK3CB_BAF_B_Bergen_DDPM_Rifleman_B";
+        _medicalBACKPACK = "UK3CB_BAF_B_Bergen_DDPM_Rifleman_A";
+        _reconBACKPACK = "UK3CB_BAF_B_Bergen_DDPM_Rifleman_B";
+    };
+    case "dpm": {
+        _uniformLIST = [
+            "UK3CB_BAF_U_CombatUniform_DPMT_ShortSleeve",
+            "UK3CB_BAF_U_CombatUniform_DPMT"
+        ];
+
+        _headsLIST = [
+            "UK3CB_BAF_H_Mk6_DPMT_A",
+            "UK3CB_BAF_H_Mk6_DPMT_B",
+            "UK3CB_BAF_H_Mk6_DPMT_C",
+            "UK3CB_BAF_H_Mk6_DPMT_E",
+            "UK3CB_BAF_H_Mk6_DPMT_F"
+        ];
+
+        _goggleLIST = [
+            "TRYK_Shemagh_G",
+            "TRYK_Shemagh_shade_G",
+            "empty"
+        ];
+
+        _crewmanHEAD = "UK3CB_BAF_H_CrewHelmet_DPMT_ESS_A";
+        _reconHEAD = "UK3CB_BAF_H_Boonie_DPMT_PRR";
+        _sniperUNIFORM = "U_B_FullGhillie_lsh";
+
+        _commonVEST = "UK3CB_BAF_V_Osprey_DPMT6";
+        _officerVEST = "UK3CB_BAF_V_Osprey_DPMT2";
+        _ftlVEST = "UK3CB_BAF_V_Osprey_DPMT3";
+        _slVEST = "UK3CB_BAF_V_Osprey_DPMT2";
+        _mgVEST = "UK3CB_BAF_V_Osprey_DPMT8";
+        _grenadierVEST = "UK3CB_BAF_V_Osprey_DPMT3";
+        _medicVEST = "UK3CB_BAF_V_Osprey_DPMT9";
+        _marksmanVEST = "UK3CB_BAF_V_Osprey_DPMT8";
+
+        _commonBACKPACK = "UK3CB_BAF_B_Bergen_DPMT_Rifleman_A";
+        _bigBACKPACK = "UK3CB_BAF_B_Bergen_DPMT_Rifleman_A";
+        _medicalBACKPACK = "UK3CB_BAF_B_Bergen_DPMT_Rifleman_A";
+        _reconBACKPACK = "UK3CB_BAF_B_Bergen_DPMT_Rifleman_A";
+    };
+};
+
 _randomUNIFORM = selectRandom _uniformLIST;
 _randomHEAD = selectRandom _headsLIST;
 _randomGOGGLE = selectRandom _goggleLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
-_officerHEAD = _commonHEAD;
+_officerHEAD = "UK3CB_BAF_H_Beret_PR_PRR_Over";
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "UK3CB_BAF_H_CrewHelmet_ESS_A";
 _pilotHEAD = "rhsusf_hgu56p";
 _helicrewHEAD = "UK3CB_BAF_H_PilotHelmetHeli_A";
 _helipilotHEAD = "UK3CB_BAF_H_PilotHelmetHeli_A";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "UK3CB_BAF_H_Mk7_Scrim_ESS_B";
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "UK3CB_BAF_U_HeliPilotCoveralls_RAF";
-_sniperUNIFORM = "UK3CB_BAF_U_CombatUniform_MTP_Ghillie_RM";
+_pilotUNIFORM = "TRYK_OVERALL_SAGE";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "UK3CB_BAF_U_HeliPilotCoveralls_RAF";
+_helicrewUNIFORM = "TRYK_OVERALL_SAGE";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "UK3CB_BAF_V_Osprey_Rifleman_A";
-_officerVEST = "UK3CB_BAF_V_Osprey_SL_D";
-_ftlVEST = "UK3CB_BAF_V_Osprey_SL_C";
-_slVEST = "UK3CB_BAF_V_Osprey_SL_D";
-_mgVEST = "UK3CB_BAF_V_Osprey_MG_A";
-_grenadierVEST = "UK3CB_BAF_V_Osprey_Grenadier_B";
-_medicVEST = "UK3CB_BAF_V_Osprey_Medic_B";
 _demoVEST = _commonVEST;
-_marksmanVEST = "UK3CB_BAF_V_Osprey_Marksman_A";
 _reconVEST = _commonVEST;
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
-_commonBACKPACK = "UK3CB_BAF_B_Bergen_MTP_Rifleman_H_C";
-_bigBACKPACK = "UK3CB_BAF_B_Bergen_MTP_Rifleman_L_D";
+_atBACKPACK = _commonBACKPACK;
 
 if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE };
+
+// MISC EQUIPMENT ==============================================================
+
+_rangefinder = "rhsusf_bino_lerca_1200_black";
+_laserdesignator = "UK3CB_BAF_Soflam_Laserdesignator";
 
 // EXTRA EQUIPMENT =============================================================
 

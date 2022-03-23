@@ -1,8 +1,6 @@
 // INFO ========================================================================
 /*
-    This is the template you can use to create your own loadouts.
-
-    Customize it as you wish.
+    German Armed Forces
 */
 
 _factionID        = "GERMAN";
@@ -21,24 +19,39 @@ _defaultColor    = "blue";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_GERCammo
+	"FLECK"
+	"TROPEN"
+*/
+
+_camo = "FLECK";
+
 // WEAPONS =====================================================================
 
-_commonRIFLE            = _G36V;
-_commonRIFLEGL          = _G36VGL;
+_commonRIFLE            = _G36E;
+_specRIFLE              = _G36KV;
+_commonRIFLEGL          = _G36EGL;
 _commonPISTOL           = ["hlc_pistol_P226WestGerman","hlc_15Rnd_9x19_B_P226"];
-_commonAR               = _MG36;
-_commonMG               = _MG3;
+_commonAR               = _MG3KWSB;
+_commonMG               = _MG3KWSB;
 _commonMARKSMAN         = ["arifle_SPAR_03_snd_F","20Rnd_762x51_Mag"];
 _commonSNIPER           = _AWMCAMO;
 _commonAT               = _M136;
 _specAT                 = _SMAW;
 _commonSMG              = _G36C;
 _commonRCO              = "ACE_optic_Hamr_PIP";
+_atRCO                  = "rhs_weap_optic_smaw";
 _commonCCO              = "rhsusf_acc_RX01";
 _commonMAGNIFIED        = "rhsusf_acc_M8541";
 _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
 _commonPISTOLSUPPRESSOR = "";
 _NVG                    = "rhsusf_ANPVS_14";
+
+_mgSCOPE = "rhsusf_acc_eotech_552";
+_rifleSCOPE = "hlc_optic_g36dualoptic15x";
+_specSCOPE = "rhsusf_acc_g33_xps3_flip";
 
 // AMMO COUNT ==================================================================
 
@@ -80,54 +93,45 @@ _countEpiCARGO = 20;
 _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
-// CAMO ========================================================================
-/*
-    Set in mission with: BRM_FMK_UNIFORMS_FRACammo
-	"FLECK"
-	"TROPEN"
-*/
-
-_camo = "FLECK";
 
 // UNIFORMS ====================================================================
+
+if(!isNil "BRM_FMK_UNIFORMS_GERCammo")then{_camo=BRM_FMK_UNIFORMS_GERCammo};
 
 _headsLIST = [
     "BRM_LWH_COMS_"+_camo,
 	"BRM_LWH_MASK_COMS_"+_camo
 ];
 
-_uniformsLIST = [
-    "U_BRM_U_"+_camo,
-    "U_BRM_RS_"+_camo,
-    "U_BRM_Shirt_"+_camo
-];
-
 _randomHEAD = selectRandom _headsLIST;
-_randomUNIFORM = selectRandom _uniformsLIST;
 
 _commonHEAD    = _randomHEAD;
 _leaderHEAD    = _commonHEAD;
-_officerHEAD   = _commonHEAD;
+_officerHEAD   = "BRM_PatrolCap_FLECK";
 _medicHEAD     = _commonHEAD;
-_crewmanHEAD   = "rhsusf_cvc_ess";
-_pilotHEAD     = "rhsusf_hgu56p";
-_helicrewHEAD  = "rhsusf_hgu56p_mask";
-_helipilotHEAD = "rhsusf_hgu56p";
+_crewmanHEAD   = "rhsusf_cvc_green_ess";
+_pilotHEAD     = "RHS_jetpilot_usaf";
+_helicrewHEAD  = "rhsusf_hgu56p_visor";
+_helipilotHEAD = "rhsusf_hgu56p_visor";
 _sniperHEAD    = "H_Booniehat_oli";
 _demoHEAD      = _commonHEAD;
-_reconHEAD     = "BRM_ACH_MASK_COMS_"+_camo;
+_reconHEAD     = selectRandom [
+    "rhsusf_opscore_ut",
+    "rhsusf_opscore_ut_pelt_cam",
+    "rhsusf_opscore_ut_pelt_nsw"
+];
 
-_commonUNIFORM   = selectRandom ["BRM_BattleUNI_"+_camo,"BRM_BattleUNIRS_"+_camo,"BRM_BattleUNIT_"+_camo];
+_commonUNIFORM   = selectRandom ["BRM_BattleUNI_"+_camo,"BRM_BattleUNIRS_"+_camo];
 _officerUNIFORM  = _commonUNIFORM;
-_pilotUNIFORM    = "U_B_PilotCoveralls";
-_sniperUNIFORM   = _commonUNIFORM;
+_pilotUNIFORM    = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_sniperUNIFORM   = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
-_crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_crewUNIFORM     = _commonUNIFORM;
 _mgUNIFORM       = _commonUNIFORM;
 _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
-_reconUNIFORM    = _randomUNIFORM;
+_reconUNIFORM    = _commonUNIFORM;
 
 _commonVEST = "BRM_Protec_"+_camo+"_RFL";
 _officerVEST = "BRM_Protec_"+_camo+"_SL";
@@ -139,9 +143,16 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = "BRM_RRV_BROWN_REC1";
+_pilotVEST     = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "BRM_PatrolBP_"+_camo;
 _bigBACKPACK = "BRM_PatrolBPH_"+_camo;
+
+if (_assignLoadoutMode) then {
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
+        _unit addGoggles selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+    };
+};
 
 // EXTRA EQUIPMENT =============================================================
 

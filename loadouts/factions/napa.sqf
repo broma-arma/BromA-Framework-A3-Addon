@@ -24,22 +24,36 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AK74N;
-_commonRIFLEGL = _AK74NGL;
+_rifleLIST = [
+	_RHSAKM,
+	_RHSAKMS,
+	_AK74UN
+];
+
+_commonRIFLE = _rifleLIST selectRandomWeighted [0.3,0.2,0.3,0.2,0.3,0.1];
+
+_commonRIFLEGL = selectRandom [
+	_RHSAKMGL,
+	_RHSAKMSGL
+];
 _commonPISTOL = _Makarov;
 _commonAR = _RPK;
 _commonMG = _PKM;
-_commonMARKSMAN = _SVD;
-_commonSNIPER = _SVD;
-_commonAT = _RPG26;
-_specAT = _RPG7;
-_commonSMG = _AK74UN;
-_commonRCO = "rhs_acc_1p29";
-_commonCCO = "rhs_acc_ekp1";
-_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
-_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
+_commonSNIPER = _commonMARKSMAN;
+_commonAT = ["rhs_weap_rpg18","rhs_rpg18_mag"];
+_specAT = _RPG7PGO;
+_commonSMG = _AKS74U;
+_commonRCO = "";
+_commonCCO = "";
+_specRCO = "rhs_acc_pso1m2";
+_commonMAGNIFIED = "rhs_acc_pso1m2";
+_commonSUPPRESSOR = "";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
+
+_autoNVG = false;
+
 
 // AMMO COUNT ==================================================================
 
@@ -82,18 +96,17 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _uniformsLIST = [
-    "rhsgref_uniform_woodland_olive",
-    "rhsgref_uniform_flecktarn",
-    "rhsgref_uniform_dpm_olive"
+    "UK3CB_NAP_B_U_CombatUniform_01_FLK",
+    "UK3CB_NAP_B_U_CombatUniform_01_WDL",
+    "UK3CB_NAP_B_U_CombatUniform_FLK"
 ];
 
 _vestsLIST = [
-    "V_TacChestrig_grn_F",
-	"V_TacChestrig_oli_F"
+    "UK3CB_V_Chestrig_OLI",
+	"UK3CB_V_Chestrig_ERDL"
 ];
 
 _goggleLIST = [
-    "empty",
     "G_Balaclava_blk",
     "G_Balaclava_oli",
     "empty"
@@ -139,9 +152,17 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = "rhs_belt_AK";
 
-_commonBACKPACK = "rhs_sidor";
+_commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_mag_rgd5";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "rhssaf_zrak_rd7j";
+_rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================
 

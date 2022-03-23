@@ -158,9 +158,17 @@ _medicVEST     = "TAC_EI_RRV27L_RG";
 _demoVEST      = "TAC_PBDFG2CPL_BK";
 _marksmanVEST  = "TAC_EI_RRV25_RG";
 _reconVEST     = _randomVEST;
+_pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "TRYK_B_Coyotebackpack_OD";
 _bigBACKPACK = "TRYK_B_Carryall_wood";
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_mag_rgd5";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "rhssaf_zrak_rd7j";
+_rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================
 

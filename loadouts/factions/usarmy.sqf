@@ -9,7 +9,7 @@
 
 _factionID = "USARMY";
 _factionName = "United States Army";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "US_STRUCTURE";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -35,6 +35,7 @@ _camo = "ucp";
 // WEAPONS =====================================================================
 
 _commonRIFLE = _RHSM4;
+_specRIFLE = ["rhs_weap_mk17_CQC","rhs_mag_20Rnd_SCAR_762x51_m80_ball"];
 _commonRIFLEGL = _RHSM4GL203;
 _commonPISTOL = _M9;
 _commonAR = _M249S;
@@ -45,11 +46,20 @@ _commonAT = _AT4;
 _specAT = _SMAW;
 _commonSMG = _RHSM4;
 _commonRCO = "rhsusf_acc_ACOG3";
-_commonCCO = "rhsusf_acc_eotech_552";
+_specRCO = "hlc_optic_leupoldm3a";
+_atRCO = "rhs_weap_optic_smaw";
+_commonCCO = "rhsusf_acc_compm4";
+_commonEOT = "rhsusf_acc_eotech_552";
+_commonLAZER = "rhsusf_acc_anpeq15side_bk";
+_commonGRIP = "rhsusf_acc_tdstubby_blk";
 _commonMAGNIFIED = "optic_LRPS";
-_commonSUPPRESSOR = "rhsusf_acc_rotex5_grey";
+_commonSUPPRESSOR = "r3f_silencieux_hk417";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
+
+_mgSCOPE = _commonEOT;
+_rifleSCOPE = _commonCCO;
+_specSCOPE = "rhsusf_acc_su230_mrds_c";
 
 // AMMO COUNT ==================================================================
 
@@ -106,8 +116,8 @@ _vestsLIST = [
 ];
 
 _goggleLIST = [
-    "rhsusf_shemagh_grn",
-    "rhsusf_shemagh_gogg_grn",
+    "rhsusf_shemagh_gogg_od",
+    "rhsusf_shemagh_od",
     "empty"
 ];
 
@@ -119,20 +129,24 @@ _commonHEAD = _randomHEAD;
 _leaderHEAD = "rhsusf_ach_helmet_headset_ess_"+_camo;
 _officerHEAD = "rhsusf_patrolcap_"+_camo;
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhsusf_cvc_green_ess";
-_pilotHEAD = "rhsusf_hgu56p";
-_helicrewHEAD = "rhsusf_hgu56p";
-_helipilotHEAD = "rhsusf_hgu56p";
+_crewmanHEAD = selectRandom["rhsusf_cvc_ess","rhsusf_cvc_alt_helmet"];
+_pilotHEAD = "RHS_jetpilot_usaf";
+_helicrewHEAD = "rhsusf_hgu56p_visor";
+_helipilotHEAD = "rhsusf_hgu56p_visor";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "rhs_Booniehat_"+_camo;
+_reconHEAD = selectRandom [
+    "rhsusf_opscore_ut_pelt",
+    "rhsusf_opscore_ut_pelt_cam",
+    "rhsusf_opscore_ut_pelt_nsw"
+];
 
 _commonUNIFORM = "rhs_uniform_cu_"+_camo;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "U_B_HeliPilotCoveralls";
-_sniperUNIFORM = "U_B_GhillieSuit";
+_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_sniperUNIFORM = "U_B_FullGhillie_sard";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "U_B_HeliPilotCoveralls";
+_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
@@ -148,12 +162,23 @@ _grenadierVEST = "rhsusf_iotv_"+_camo+"_Grenadier";
 _medicVEST = "rhsusf_iotv_"+_camo+"_Medic";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
-_reconVEST = _commonVEST;
+_reconVEST = "rhsusf_spcs_"+_camo+"_teamleader";
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "rhsusf_assault_eagleaiii_"+_camo;
 _bigBACKPACK = "rhsusf_assault_eagleaiii_"+_camo;
+_reconBACKPACK = "UK3CB_B_Backpack_Pocket";
 
-if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE };
+if (_assignLoadoutMode) then {
+    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
+        _unit addGoggles _randomGOGGLE;
+    };
+};
+
+// MISC EQUIPMENT =============================================================
+
+_rangefinder = "rhsusf_bino_lrf_Vector21";
+_laserdesignator = "UK3CB_BAF_Soflam_Laserdesignator";
 
 // EXTRA EQUIPMENT =============================================================
 

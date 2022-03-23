@@ -6,7 +6,7 @@
     Backed the US forces with mixed old soviet equipment.
 */
 
-_factionID = "ANA";
+_factionID = "AFGHANISTAN";
 _factionName = "Afghanistan National Army";
 _factionStructure = "MID-TIER";
 
@@ -22,24 +22,50 @@ _defaultColor = "blue";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_FRACammo
+	"ana"
+	"anp"
+*/
+
+_camo = "ana";
+
 // WEAPONS =====================================================================
 
-_commonRIFLE = _HLCM16A2;
-_commonRIFLEGL = _HLCM16A2GL;
+_rifleLIST = [
+	_RHSAKM,
+	_RHSAKMS,
+	_AK74N,
+    ["hlc_wp_m16a2","hlc_30rnd_556x45_EPR"]
+];
+
+_commonRIFLE = selectRandom _rifleLIST;
+
+_commonRIFLEGL = selectRandom [
+	_RHSAKMGL,
+	_RHSAKMSGL
+];
 _commonPISTOL = _Makarov;
 _commonAR = _RPK;
-_commonMG = _PKM;
-_commonSNIPER = _SVD;
-_commonSNIPER = _SVD;
-_commonAT = _AT4;
+_commonMG = _RPK;
+_commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
+_commonSNIPER = _commonMARKSMAN;
+_commonAT = ["rhs_weap_rpg18","rhs_rpg18_mag"];
 _specAT = _RPG7;
 _commonSMG = _AK74UN;
-_commonRCO = "rhsusf_acc_ACOG_USMC";
-_commonCCO = "rhsusf_acc_compm4";
+_commonRCO = "";
+_specRCO = "rhs_acc_pso1m2";
+_commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
-_commonSUPPRESSOR = "rhsusf_acc_rotex5_grey";
-_commonPISTOLSUPPRESSOR = "";
+_commonSUPPRESSOR = "";
+_commonPISTOLSUPPRESSOR = "muzzle_nds_L";
 _NVG = "rhsusf_ANPVS_14";
+
+_specRIFLE = ["rhs_weap_m4a1_carryhandle","rhs_mag_30Rnd_556x45_M855A1_Stanag"];
+_specSCOPE = "rhsusf_acc_acog3_usmc";
+
+_autoNVG = true;
 
 // AMMO COUNT ==================================================================
 
@@ -83,11 +109,14 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
+if(!isNil "BRM_FMK_UNIFORMS_AFGHANCammo")then{_camo=BRM_FMK_UNIFORMS_AFGHANCammo};
+
 _headsLIST = [
-    "UK3CB_TKA_I_H_SSh68_Oli",
-    "UK3CB_TKP_I_H_SSh68_BLK",
+    "rhs_ssh68_2",
+    "rhs_beanie_green",
     "rhssaf_helmet_m97_olive_nocamo",
-    "rhssaf_helmet_m97_olive_nocamo"
+    "UK3CB_ANA_B_H_Patrolcap_spec4ce",
+    "UK3CB_ANA_B_H_6b27m_SPEC4CE"
 ];
 
 _uniformsLIST = [
@@ -95,47 +124,107 @@ _uniformsLIST = [
     "UK3CB_ANA_B_U_CombatUniform_Shortsleeve_01_SPEC4CE"
 ];
 
-
 _randomUNIFORM = selectRandom _uniformsLIST;
 _randomHEAD = selectRandom _headsLIST;
 
 _commonHEAD = _randomHEAD;
-_leaderHEAD = "rhs_beret_milp";
+_leaderHEAD = _commonHEAD;
 _officerHEAD = "rhs_beret_milp";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4_ess";
-_pilotHEAD = "rhsusf_hgu56p";
-_helicrewHEAD = "rhsusf_hgu56p";
-_helipilotHEAD = "rhsusf_hgu56p";
+_pilotHEAD = "BRM_SPH4V_WHITE";
+_helicrewHEAD = "BRM_SPH4V_WHITE";
+_helipilotHEAD = "BRM_SPH4V_WHITE";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "rhssaf_helmet_m97_olive_nocamo";
+_reconHEAD = "UK3CB_ANA_B_H_MICH_BARE_DES";
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _randomUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_pilotUNIFORM = _commonUNIFORM;
 _sniperUNIFORM = _randomUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_helicrewUNIFORM = _commonUNIFORM;
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _randomUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhsgref_chicom";
+_commonVEST = "UK3CB_ANA_B_V_MK_Vest_TAN_01";
 _officerVEST = _commonVEST;
-_ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
+_ftlVEST = "UK3CB_ANA_B_V_SL_Vest_TAN_01";
+_slVEST = "UK3CB_ANA_B_V_SL_Vest_TAN_01";
 _mgVEST = _commonVEST;
 _grenadierVEST = _commonVEST;
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
-_commonBACKPACK = "UK3CB_CHC_C_B_HIKER";
-_bigBACKPACK = "UK3CB_CHC_C_B_HIKER";
+_commonBACKPACK = "UK3CB_B_Alice_K";
+_bigBACKPACK = "UK3CB_B_Alice_K";
+_atBACKPACK = "rhs_rpg_2";
+_reconBACKPACK = "UK3CB_ANA_B_B_RIF";
+
+if (_camo == 'anp') then {
+
+    _headsLIST = [
+        "UK3CB_ANP_B_H_Patrolcap_Off_BLU",
+        "empty"
+    ];
+
+    _uniformsLIST = [
+        "UK3CB_ANP_B_U_CombatUniform_01_BLU",
+        "UK3CB_ANP_B_U_CombatUniform_Shortsleeve_01_BLU"
+    ];
+
+    _randomUNIFORM = selectRandom _uniformsLIST;
+    _randomHEAD = selectRandom _headsLIST;
+
+    _commonHEAD = _randomHEAD;
+    _leaderHEAD = "UK3CB_ANP_B_H_Patrolcap_Off_BLU";
+    _officerHEAD = "UK3CB_ANP_B_H_Beret";
+    _medicHEAD = _commonHEAD;
+    _crewmanHEAD = "rhs_tsh4_ess";
+    _pilotHEAD = "BRM_SPH4V_BROWN";
+    _helicrewHEAD = "BRM_SPH4V_BROWN";
+    _helipilotHEAD = "BRM_SPH4V_BROWN";
+    _sniperHEAD = _commonHEAD;
+    _demoHEAD = _commonHEAD;
+    _reconHEAD = _commonHEAD;
+
+    _commonUNIFORM = _randomUNIFORM;
+    _officerUNIFORM = _randomUNIFORM;
+    _pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+    _sniperUNIFORM = _randomUNIFORM;
+    _marksmanUNIFORM = _commonUNIFORM;
+    _helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+    _crewUNIFORM = _commonUNIFORM;
+    _mgUNIFORM = _commonUNIFORM;
+    _medicUNIFORM = _randomUNIFORM;
+    _demoUNIFORM = _commonUNIFORM;
+    _reconUNIFORM = _commonUNIFORM;
+
+    _commonVEST = selectRandom ["UK3CB_V_Chestrig_Tan","UK3CB_V_Chestrig_WDL_02"];
+    _officerVEST = _commonVEST;
+    _ftlVEST = _commonVEST;
+    _slVEST = _commonVEST;
+    _mgVEST = _commonVEST;
+    _grenadierVEST = _commonVEST;
+    _medicVEST = _commonVEST;
+    _demoVEST = _commonVEST;
+    _marksmanVEST = _commonVEST;
+    _reconVEST = _commonVEST;
+    _pilotVEST = "UK3CB_V_Pilot_Vest";
+
+    _commonBACKPACK = "UK3CB_B_Alice_K";
+    _bigBACKPACK = _commonBACKPACK;
+    _atBACKPACK = "rhs_rpg_2";
+    _reconBACKPACK = _commonBACKPACK;
+
+};
 
 // EXTRA EQUIPMENT =============================================================
 

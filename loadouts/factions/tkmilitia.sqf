@@ -25,23 +25,37 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AK74N;
-_commonRIFLEGL = _AK74NGL;
+_rifleLIST = [
+	_RHSAKM,
+	_RHSAKMS,
+	_AK74UN,
+	_AK74N,
+	["rhs_weap_m38","rhsgref_5Rnd_762x54_m38"]
+];
+
+_commonRIFLE = _rifleLIST selectRandomWeighted [0.3,0.2,0.3,0.2,0.3,0.1];
+
+_commonRIFLEGL = selectRandom [
+	_RHSAKMGL,
+	_RHSAKMSGL
+];
 _commonPISTOL = _Makarov;
 _commonAR = _RPK;
-_commonMG = _PKM;
-_commonMARKSMAN = _SVD;
-_commonSNIPER = _SVD;
-_commonAT = _RPG26;
+_commonMG = _RPK;
+_commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
+_commonSNIPER = _commonMARKSMAN;
+_commonAT = ["rhs_weap_rpg18","rhs_rpg18_mag"];
 _specAT = _RPG7;
 _commonSMG = _AK74UN;
-_commonRCO = "rhs_acc_1p29";
-_commonCCO = "rhs_acc_ekp1";
-_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
-_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonRCO = "";
+_specRCO = "rhs_acc_pso1m2";
+_commonCCO = "";
+_commonMAGNIFIED = "rhs_acc_pso1m2";
+_commonSUPPRESSOR = "";
+_commonPISTOLSUPPRESSOR = "muzzle_nds_L";
 _NVG = "rhs_1PN138";
 
+_autoNVG = true;
 
 // AMMO COUNT ==================================================================
 
@@ -152,9 +166,20 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "UK3CB_B_Alice_K";
 _bigBACKPACK = "UK3CB_B_Alice_K";
+_medicalBACKPACK = "UK3CB_B_Alice_Med_K";
+_atBACKPACK = "rhs_rpg_2";
+_reconBACKPACK = "UK3CB_B_Alice_Bedroll_K";
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_mag_f1";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "rhssaf_zrak_rd7j";
+_rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================
 

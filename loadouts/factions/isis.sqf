@@ -24,23 +24,35 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AK74N;
+_rifleLIST = [
+	_AK74N,
+	["hlc_wp_xm4","hlc_30rnd_556x45_EPR"],
+	_HLCM16A2,
+	_RHSAKM,
+	_RHSAKMS,
+	["rhs_weap_pm63","rhs_30Rnd_762x39mm"]
+];
+
+_commonRIFLE = selectRandom _rifleLIST;
 _commonRIFLEGL = _AK74NGL;
+_specRIFLE = ["rhs_weap_akmn","rhs_30Rnd_762x39mm"];
 _commonPISTOL = _Makarov;
 _commonAR = _RPK;
 _commonMG = _PKM;
-_commonMARKSMAN = _SVD;
-_commonSNIPER = _SVD;
+_commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
+_commonSNIPER = _commonMARKSMAN;
 _commonAT = _RPG26;
 _specAT = _RPG7;
 _commonSMG = _AK74UN;
 _commonRCO = "rhs_acc_1p29";
-_commonCCO = "rhs_acc_ekp1";
-_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
-_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
+_specRCO = "rhs_acc_pso1m2";
+_commonCCO = "";
+_commonMAGNIFIED = "rhs_acc_pso1m2";
+_commonSUPPRESSOR = "rhs_acc_pbs1";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
 
+_autoNVG = true;
 
 // AMMO COUNT ==================================================================
 
@@ -85,32 +97,34 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-	"UK3CB_TKM_I_H_Turban_02_1",
-	"UK3CB_TKM_I_H_Turban_01_1",
-	"UK3CB_TKM_I_H_Turban_05_1",
-	"UK3CB_TKM_I_H_Turban_04_1",
 	"UK3CB_H_Shemag_red",
-	"UK3CB_H_Shemag_white",
-	"UK3CB_TKM_O_H_Turban_01_1",
-	"UK3CB_TKC_H_Turban_04_1"
+	"UK3CB_H_Shemag_blk",
+	"TRYK_R_CAP_BLK",
+	"UK3CB_H_Turban_Facewrap_02_Blk",
+	"UK3CB_ADE_O_H_Turban_01_1",
+	"UK3CB_H_Mil_Turban_Wrap",
+	"empty"
 ];
 
 _uniformsLIST = [
-    "UK3CB_TKM_O_U_01",
-	"UK3CB_TKM_O_U_01_B",
-	"UK3CB_TKM_O_U_01_C",
-	"UK3CB_TKM_O_U_01_D",
-	"UK3CB_TKM_O_U_05_C",
-	"UK3CB_TKM_O_U_04_C",
-	"UK3CB_TKM_O_U_04",
-	"UK3CB_TKM_O_U_03",
-	"UK3CB_TKM_O_U_03_B",
-	"UK3CB_TKM_O_U_03_C"
+    "UK3CB_ADE_O_U_02_D",
+	"UK3CB_ADE_O_U_02_G",
+	"UK3CB_ADE_O_U_02_B",
+	"UK3CB_ADE_O_U_02_J",
+	"TRYK_U_B_PCUGs_BLK_R",
+	"TRYK_U_B_PCUGs_OD_R",
+	"TRYK_U_denim_hood_mc",
+	"TRYK_U_denim_hood_nc",
+	"TRYK_U_denim_hood_3c",
+	"TRYK_U_denim_hood_blk",
+	"TRYK_U_hood_nc"
 ];
 
 _vestsLIST = [
-    "V_TacChestrig_grn_F",
-    "V_TacChestrig_oli_F"
+    "UK3CB_V_Chestrig_Tan",
+    "UK3CB_V_Chestrig_OLI",
+	"UK3CB_V_Chestrig_WDL_02",
+	"UK3CB_V_Chestrig_WDL_01"
 ];
 
 _randomHEAD = selectRandom _headsLIST;
@@ -151,9 +165,26 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = _commonVEST;
 
-_commonBACKPACK = "UK3CB_B_Alice_K";
-_bigBACKPACK = "UK3CB_B_Alice_K";
+_commonBACKPACK = "BRM_SqBackpack_Black";
+_bigBACKPACK = "BRM_SqBackpack_Black";
+_medicalBACKPACK = "BRM_SqBackpack_Black";
+_atBACKPACK = "rhs_rpg_2";
+_reconBACKPACK = "BRM_PatrolBP_Black";
+
+if (_assignLoadoutMode && _randomHEAD == "empty") then {
+	_unit addGoggles selectRandom ["UK3CB_G_Face_Wrap_01","G_Balaclava_blk"];
+};
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_mag_rgd5";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "binoc";
+_rangefinder = "rhsusf_bino_lrf_Vector21";
+
+// EXTRA EQUIPMENT =============================================================
 
 // EXTRA EQUIPMENT =============================================================
 

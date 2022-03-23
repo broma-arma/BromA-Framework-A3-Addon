@@ -25,22 +25,28 @@ _factionSkill = [[0.7,0.8],   [0.7,0.8],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _HK33A2RIS;
-_commonRIFLEGL = _HK33A2RISGL;
-_commonPISTOL = _G17;
-_commonAR = _MG3;
-_commonMG = _MG3;
+_commonRIFLE            = _G36A1;
+_specRIFLE              = _G36C;
+_commonRIFLEGL          = _G36A1GL;
+_commonPISTOL = _M9;
+_commonAR = ["rhs_weap_fnmag","rhsusf_100Rnd_762x51"];
+_commonMG = _commonAR;
 _commonMARKSMAN = _commonRIFLE;
-_commonSNIPER = _DMR;
+_commonSNIPER = ["rhs_weap_m24sws_d","rhsusf_5Rnd_762x51_m118_special_Mag"];
 _commonAT = _AT4;
 _specAT = _GUSTAV;
 _commonSMG = _MP5A2;
 _commonRCO = "FHQ_optic_ACOG";
+_specRCO = "hlc_optic_g36dualoptic35x";
+_atRCO = "rhs_optic_maaws";
 _commonCCO = "rhsusf_acc_RX01";
-_commonMAGNIFIED = "hlc_optic_LRT_m14";
-_commonSUPPRESSOR = "hlc_muzzle_snds_g3";
+_commonMAGNIFIED = "rhsusf_acc_m8541_d";
+_commonSUPPRESSOR = "rhsusf_acc_nt4_black";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_14";
+
+_rifleSCOPE = "hlc_optic_g36dualoptic15x";
+_specSCOPE = "rhsusf_acc_acog2";
 
 // AMMO COUNT ==================================================================
 
@@ -84,43 +90,51 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_commonHEAD = "UK3CB_ABP_B_H_6b27m_DES";
-_leaderHEAD = "rhssaf_beret_green";
-_officerHEAD = "rhssaf_beret_green";
+_commonHEAD = selectRandom [
+    "BRM_PASGT_NV_COMS_DBDU",
+    "BRM_PASGT_NVSWDG_DBDU"
+];
+_leaderHEAD = _commonHEAD;
+_officerHEAD = "BRM_PatrolCap_DBDU";
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhsusf_cvc_ess";
-_pilotHEAD = "rhsusf_hgu56p";
-_helicrewHEAD = "rhsusf_hgu56p_mask";
-_helipilotHEAD = "rhsusf_hgu56p";
+_crewmanHEAD = "H_HelmetCrew_I";
+_pilotHEAD = "BRM_SPH4V_RACS";
+_helicrewHEAD = "BRM_SPH4V_RACS";
+_helipilotHEAD = "BRM_SPH4V_RACS";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "H_Booniehat_tan";
+_reconHEAD = "BRM_BoonieCOMS_DBDU";
 
-_commonUNIFORM = "TRYK_U_B_TANTAN_CombatUniform";
+_commonUNIFORM = selectRandom [
+    "BRM_BattleUNI_DBDU",
+    "BRM_BattleUNIRS_DBDU"
+];
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_pilotUNIFORM = "TRYK_OVERALL_nok_flesh";
 _sniperUNIFORM = "U_I_FullGhillie_sard";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_helicrewUNIFORM = "TRYK_OVERALL_nok_flesh";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhsusf_mbav_light";
-_officerVEST = "rhsusf_mbav_rifleman";
-_ftlVEST = "rhsusf_mbav_rifleman";
-_slVEST = "rhsusf_mbav_rifleman";
-_mgVEST = "rhsusf_mbav_mg";
-_grenadierVEST = "rhsusf_mbav_mg";
-_medicVEST = "rhsusf_mbav_medic";
+_commonVEST = "BRM_MTV_RFL";
+_officerVEST = _commonVEST;
+_ftlVEST = "BRM_MTV_GL";
+_slVEST = _commonVEST;
+_mgVEST = "BRM_MTV_MG";
+_grenadierVEST = "BRM_MTV_GL";
+_medicVEST = "BRM_MTV_MED";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST     = "UK3CB_V_Pilot_Vest";
 
-_commonBACKPACK = "B_AssaultPack_cbr";
-_bigBACKPACK = "B_Kitbag_cbr";
+_commonBACKPACK = "BRM_SqBackpack_Brown";
+_bigBACKPACK = "BRM_SqBpH_Brown";
+_reconBACKPACK = "BRM_SqBpH_Brown";
 
 // EXTRA EQUIPMENT =============================================================
 

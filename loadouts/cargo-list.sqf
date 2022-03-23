@@ -76,6 +76,22 @@ switch (_x) do {
 			_supplies apply { [_x select 0, (_x select 1) * 3] };
 		};
 
+        if (_specAT select GUN == _SMAW select GUN) then {
+			_supplies pushBack ["rhs_mag_smaw_SR", 20];
+        };
+
+		if (!isNil "_specRIFLE") then {
+			_supplies pushBack [_specRIFLE select RAMMO, _countRifleCARGO];
+		};
+
+		if (!isNil "_rifleLIST") then {
+			{
+				if (_x select GUN != _commonRIFLE select GUN) then {
+					_supplies pushBack [_x select RAMMO, _countRifleCARGO];
+				};
+			} forEach _rifleLIST;
+		};
+
 		[_object] + _supplies call BRM_FMK_fnc_addItems;
 	};
 

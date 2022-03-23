@@ -6,7 +6,7 @@
 
 _factionID        = "AFRENIAN";
 _factionName      = "Afrenian Armed Forces";
-_factionStructure = "AFRENIAN-ARMY";
+_factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -33,6 +33,7 @@ _commonAT               = ["rhs_weap_m72a7", "rhs_m72a7_mag"];
 _specAT                 = ["rhs_weap_smaw", "rhs_mag_smaw_HEAA"];
 _commonSMG              = _AUGA1PARA;
 _commonRCO              = "rhsusf_acc_ACOG";
+_atRCO                  = "rhs_optic_maaws";
 _commonCCO              = _FHQMICROCCOLOW;
 _commonMAGNIFIED        = "rhsusf_acc_premier_low";
 _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
@@ -132,6 +133,7 @@ _medicVEST     = "rhsgref_6b23_ttsko_digi_medic";
 _demoVEST      = _commonVEST;
 _marksmanVEST  = "rhsgref_6b23_ttsko_digi_sniper";
 _reconVEST     = "rhsusf_spc_patchless_radio";
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "TRYK_B_Coyotebackpack";
 _bigBACKPACK = "TRYK_B_Carryall_JSDF";

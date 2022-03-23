@@ -36,8 +36,9 @@ private [
 
 	"_factionSkill", "_factionUnits", "_factionVehicles", "_factionObjects", "_factionDACCamps",
 
-	"_commonRifle", "_countRifle", "_countRifleLOW", "_countTracerRIFLE", "_countRifleCARGO",
-	"_commonRifleGL", "_count40mm", "_count40mmCARGO",
+	"_randomLIST","_rifleLIST",
+	"_commonRIFLE", "_countRifle", "_countRifleLOW", "_countTracerRIFLE", "_countRifleCARGO","_specRIFLE",
+	"_commonRIFLEGL", "_count40mm", "_count40mmCARGO",
 	"_commonPistol", "_countPISTOL", "_countPistolCARGO",
 	"_commonAR", "_countAR", "_countArCARGO",
 	"_commonMG", "_countMG", "_countMgCARGO", "_countTracerMG",
@@ -45,12 +46,17 @@ private [
 	"_commonSniper", "_countSniper", "_countSniperCARGO",
 	"_commonAT", "_countAT", "_countATCARGO",
 	"_specAT", "_countSpecATCARGO", "_isSpecATDisposable",
-	"_commonSMG",
+	"_commonSMG","_commonGL",
 	"_weaponsAA", "_countWeaponsAA", "_countWeaponsAACARGO",
 	"_weaponsAT", "_countWeaponsAT", "_countWeaponsATCARGO",
 
-	"_commonRCO", "_commonCCO", "_commonMAGNIFIED",
+	"_commonRCO", "_specCCO", "_commonCCO","_commonEOT", "_commonMAGNIFIED","_specRCO","_atRCO",
 	"_commonSUPPRESSOR", "_commonPISTOLSUPPRESSOR",
+	"_commonLAZER","_commonGRIP",
+
+	"_rifleSCOPE","_mgSCOPE","_specSCOPE",
+
+	"_binoc","_rangefinder","_laserdesignator",
 
 	"_countGRENADES", "_countGrenadesCARGO",
 
@@ -58,8 +64,8 @@ private [
 
 	"_commonHEAD", "_leaderHEAD", "_officerHEAD", "_medicHEAD", "_crewmanHEAD", "_pilotHEAD", "_helicrewHEAD", "_helipilotHEAD", "_sniperHEAD", "_demoHEAD", "_reconHEAD",
 	"_commonUNIFORM", "_officerUNIFORM", "_pilotUNIFORM", "_sniperUNIFORM", "_marksmanUNIFORM", "_helicrewUNIFORM", "_crewUNIFORM", "_mgUNIFORM", "_medicUNIFORM", "_demoUNIFORM", "_reconUNIFORM",
-	"_commonVEST", "_officerVEST", "_ftlVEST", "_slVEST","_mgVEST", "_grenadierVEST", "_medicVEST", "_demoVEST", "_marksmanVEST", "_reconVEST",
-	"_commonBACKPACK", "_bigBACKPACK",
+	"_commonVEST", "_officerVEST", "_ftlVEST", "_slVEST","_mgVEST", "_grenadierVEST", "_atVEST", "_medicVEST", "_demoVEST", "_marksmanVEST", "_reconVEST","_pilotVEST",
+	"_commonBACKPACK", "_bigBACKPACK","_medicalBACKPACK","_atBACKPACK","_reconBACKPACK",
 
 	"_StaticAT", "_ATTripod",
 	"_HMG", "_HMGTripod",
@@ -92,6 +98,8 @@ private [
 
 	"_NVG",
 	"_NVGEN1", "_NVGEN2", "_NVGEN4", "_NVWIDE",
+
+	"_autoNVG",
 
 	"_suppliesNORMAL", "_suppliesMEDIC",
 

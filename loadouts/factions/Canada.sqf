@@ -30,22 +30,27 @@ _camo = "CADPATW";
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = ["tfc_w_c7a2","rhs_mag_30Rnd_556x45_M855_Stanag_Pull"];
-_commonRIFLEGL = ["tfc_w_c7a2_m203","rhs_mag_30Rnd_556x45_M855_Stanag_Pull","rhs_mag_M441_HE"];
+_commonRIFLE = ["tfc_w_c7a2","rhs_mag_30Rnd_556x45_M855A1_Stanag"];
+_commonRIFLEGL = ["tfc_w_c7a2_m203","rhs_mag_30Rnd_556x45_M855A1_Stanag","rhs_mag_M441_HE"];
 _commonPISTOL = ["UK3CB_BHP","UK3CB_BHP_9_13Rnd"];
 _commonAR = ["tfc_w_c9a2","rhsusf_200rnd_556x45_M855_mixed_box"];
 _commonMG = ["UK3CB_BAF_L7A2","UK3CB_BAF_762_100Rnd_T"];
-_commonMARKSMAN = ["UK3CB_BAF_L129A1","UK3CB_BAF_762_L42A1_20Rnd"];
+_commonMARKSMAN = ["hlc_rifle_samr2","hlc_30rnd_556x45_EPR"];
 _commonSNIPER = ["R3F_TAC50","R3F_5Rnd_127x99_TAC50"];
 _commonAT = _M72A7;
 _specAT = _GUSTAV;
 _commonSMG = _MP5A5;
 _commonRCO = "tfc_wa_c79_elcan";
-_commonCCO = "";
+_specRCO = "rhsusf_acc_m8541";
+_atRCO = "rhs_optic_maaws";
+_commonCCO = "rhsusf_acc_eotech_552_wd";
 _commonMAGNIFIED = "rksl_optic_pmii_525_des";
 _commonSUPPRESSOR = "hlc_muzzle_556nato_rotexiiic_grey";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_14";
+
+_mgSCOPE = "rhsusf_acc_eotech_552_wd";
+_rifleSCOPE = "rhsusf_acc_eotech_552_wd";
 
 // AMMO COUNT ==================================================================
 
@@ -101,8 +106,7 @@ _headsLIST = [
 
 _uniformsLIST = [
     "BRM_BattleUNI_"+_camo,
-    "BRM_BattleUNIRS_"+_camo,
-    "BRM_BattleUNIT_"+_camo
+    "BRM_BattleUNIRS_"+_camo
 ];
 
 _randomHEAD = selectRandom _headsLIST;
@@ -113,19 +117,19 @@ _leaderHEAD = _commonHEAD;
 _officerHEAD = "BRM_PatrolCap_"+_camo;
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhsusf_cvc_green_ess";
-_pilotHEAD = "rhsusf_hgu56p";
-_helicrewHEAD = "rhsusf_hgu56p";
-_helipilotHEAD = "rhsusf_hgu56p";
+_pilotHEAD = "RHS_jetpilot_usaf";
+_helicrewHEAD = "rhsusf_hgu56p_visor_green";
+_helipilotHEAD = "rhsusf_hgu56p_visor_green";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = "BRM_BoonieCOMS_"+_camo;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "U_B_HeliPilotCoveralls";
-_sniperUNIFORM = "U_B_GhillieSuit";
+_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "U_B_HeliPilotCoveralls";
+_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
@@ -142,9 +146,22 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = "BRM_LBT_GREEN_RFL";
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "BRM_PatrolBP_"+_camo;
-_bigBACKPACK = "BRM_LRRBP_Green";
+_bigBACKPACK = "BRM_PatrolBP_"+_camo;
+_reconBACKPACK = "BRM_PatrolBPH_"+_camo;
+
+if (_assignLoadoutMode) then {
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
+        _unit addGoggles selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+    };
+};
+
+// MISC EQUIPMENT ==============================================================
+
+_rangefinder = "rhsusf_bino_lerca_1200_black";
+_laserdesignator = "UK3CB_BAF_Soflam_Laserdesignator";
 
 // EXTRA EQUIPMENT =============================================================
 

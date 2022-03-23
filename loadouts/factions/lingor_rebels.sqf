@@ -1,7 +1,5 @@
 /*
-    This is the template you can use to create your own loadouts.
-
-    Customize it as you wish.
+    Lingor Rebels
 */
 
 _factionID = "LINGOR_REBELS";
@@ -22,8 +20,19 @@ _factionSkill = [[0.4,0.6],   [0.5,0.6],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AK74N;
-_commonRIFLEGL = _AK74NGL;
+_rifleLIST = [
+	_RHSAKM,
+	_RHSAKMS,
+	_AK74UN,
+	_AK74N
+];
+
+_commonRIFLE = _rifleLIST selectRandomWeighted [0.3,0.2,0.3,0.2,0.3,0.1];
+
+_commonRIFLEGL = selectRandom [
+	_RHSAKMGL,
+	_RHSAKMSGL
+];
 _commonPISTOL = _Makarov;
 _commonMG = _PKM;
 _commonAR = _RPK;
@@ -33,11 +42,14 @@ _commonAT = _RSHG2;
 _specAT = _RPG7;
 _commonSMG = _AK74UN;
 _commonRCO = "rhs_acc_1p29";
-_commonCCO = "rhs_acc_ekp8_02";
+_specRCO = "rhs_acc_pso1m21";
+_commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m21";
-_commonSUPPRESSOR = "rhs_acc_dtk4short";
+_commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
+
+_autoNVG = true;
 
 // AMMO COUNT ==================================================================
 
@@ -82,30 +94,25 @@ _countPAKCARGO = 10;
 _headsLIST = [
     "H_Bandanna_camo",
 	"H_Booniehat_oli",
-	"H_Cap_blk",
 	"TRYK_H_Bandana_H",
+	"BRM_PatrolCap_green",
 	"empty"
 ];
 
 _uniformsLIST = [
-    "U_I_C_Soldier_Para_2_F",
-	"U_I_C_Soldier_Para_3_F",
-	"U_I_C_Soldier_Para_4_F",
-	"U_I_C_Soldier_Para_1_F"
-];
-
-_vestsLIST = [
-	"V_TacChestrig_cbr_F",
-	"V_TacChestrig_grn_F",
-	"V_TacChestrig_oli_F"
-];
-
-_gogglesLIST = [
+    "UK3CB_MDF_B_U_CombatUniform_02_LIZ_OD",
+	"UK3CB_MDF_B_U_Crew_Uniform_01",
+	"UK3CB_ADM_B_U_Shirt_Pants_01_GRN_WDL_ALT",
+	"UK3CB_ADM_B_U_Shirt_Pants_01_GRN_WDL",
+	"UK3CB_ADE_O_U_02_I",
+	"UK3CB_ADE_O_U_02_C",
+	"UK3CB_ADE_O_U_02_G",
+	"UK3CB_ADE_O_U_02_H",
+	"UK3CB_ADE_O_U_02_D"
 ];
 
 _randomHEAD = selectRandom _headsLIST;
 _randomUNIFORM = selectRandom _uniformsLIST;
-_randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
@@ -131,19 +138,28 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = _randomVEST;
-_officerVEST = _commonVEST;
-_ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
-_mgVEST = _commonVEST;
+_commonVEST = "BRM_ALICE_RFL";
+_officerVEST = "BRM_ALICE_SL";
+_ftlVEST = "BRM_ALICE_SL";
+_slVEST = "BRM_ALICE_SL";
+_mgVEST = "BRM_ALICE_MG";
 _grenadierVEST = _commonVEST;
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = _commonVEST;
 
 _commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
+_atBACKPACK = "rhs_rpg_2";
+
+if (_assignLoadoutMode) then {_unit addGoggles (["rhs_scarf","empty"] selectRandomWeighted [0.3,0.7])};
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_grenade_mkii_mag";
+_binoc = "rhssaf_zrak_rd7j";
 
 // EXTRA EQUIPMENT =============================================================
 

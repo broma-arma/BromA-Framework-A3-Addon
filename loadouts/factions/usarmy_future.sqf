@@ -136,6 +136,7 @@ _medicVEST = "rhsusf_spcs_ocp_medic";
 _demoVEST = _commonVEST;
 _marksmanVEST = "rhsusf_spcs_ocp_sniper";
 _reconVEST = _commonVEST;
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "rhsusf_assault_eagleaiii_ocp";
 _bigBACKPACK = "B_Carryall_mcamo";

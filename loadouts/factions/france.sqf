@@ -1,11 +1,11 @@
 // INFO ========================================================================
 /*
-    When you still need to honhon and it get cold.
+    French armed forces with now camo selections.
 */
 
-_factionID        = "FRWINTER";
-_factionName      = "French armed forces (winter)";
-_factionStructure = "FRASTRUCT";
+_factionID        = "FRANCE";
+_factionName      = "French armed forces";
+_factionStructure = "FRANCE_STRUCTURE";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -78,66 +78,97 @@ _countEpiCARGO = 20;
 _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_UNIFORMS_FRACammo
+	"CCE"
+	"DAGUET",
+    "WINTER"
+*/
+
+_camo = "CCE";
+
 // UNIFORMS ====================================================================
+if(!isNil "BRM_FMK_UNIFORMS_FRACammo")then{_camo=BRM_FMK_UNIFORMS_FRACammo};
+
 
 _headsLIST = [
-    "rhsusf_ach_bare_headset",
-    "rhsusf_ach_bare_wood_headset"
-];
-
-_uniformsLIST = [
-    "TRYK_U_Bts_Wood_PCUs",
-    "TRYK_U_Bts_GRYGRY_PCUs",
-    "TRYK_U_B_GRY_PCUs",
-    "TRYK_U_B_Wood_PCUs"
-];
-
-_vestsLIST = [
-    "TRYK_V_ArmorVest_coyo",
-    "V_PlateCarrier1_rgr_noflag_F"
-];
-
-_gogglesLIST = [
+    "BRM_LWH_COMS_"+_camo,
+	"BRM_LWH_MASK_COMS_"+_camo
 ];
 
 _randomHEAD = selectRandom _headsLIST;
-_randomUNIFORM = selectRandom _uniformsLIST;
-_randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
-_officerHEAD = _commonHEAD;
+_officerHEAD = "BRM_PatrolCap_"+_camo;
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhsusf_cvc_ess";
 _pilotHEAD = "rhsusf_hgu56p";
 _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
-_sniperHEAD = _commonHEAD;
+_sniperHEAD = "BRM_Booniehat_"+_camo;
 _demoHEAD = _commonHEAD;
-_reconHEAD = _commonHEAD;
+_reconHEAD = "BRM_ACH_MASK_COMS_"+_camo;
 
-_commonUNIFORM   = _randomUNIFORM;
-_officerUNIFORM  = _randomUNIFORM;
+_commonUNIFORM   = selectRandom ["BRM_BattleUNI_"+_camo,"BRM_BattleUNIRS_"+_camo];
+_officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
-_sniperUNIFORM   = _randomUNIFORM;
+_sniperUNIFORM   = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _mgUNIFORM       = _commonUNIFORM;
-_medicUNIFORM    = _randomUNIFORM;
+_medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
-_reconUNIFORM    = _commonUNIFORM;
+_reconUNIFORM    = _randomUNIFORM;
 
-_commonVEST    = _randomVEST;
-_officerVEST   = _commonVEST;
-_ftlVEST       = _commonVEST;
-_slVEST        = _commonVEST;
-_mgVEST        = _commonVEST;
-_grenadierVEST = _commonVEST;
+_commonVEST    = "BRM_Protec_BROWN_RFL";
+_officerVEST   = "BRM_Protec_BROWN_SL";
+_ftlVEST       = "BRM_Protec_BROWN_TL";
+_slVEST        = _officerVEST;
+_mgVEST        = "BRM_Protec_BROWN_MG";
+_grenadierVEST = "BRM_Protec_BROWN_GL";
 _medicVEST     = _commonVEST;
 _demoVEST      = _commonVEST;
 _marksmanVEST  = _commonVEST;
-_reconVEST     = _commonVEST;
+_reconVEST     = "BRM_RRV_BROWN_REC1";
+
+if (_camo == "WINTER") then {
+    _headsLIST = [
+        "rhsusf_ach_bare_headset",
+        "rhsusf_ach_bare_wood_headset"
+    ];
+
+    _uniformsLIST = [
+        "TRYK_U_Bts_Wood_PCUs",
+        "TRYK_U_Bts_GRYGRY_PCUs",
+        "TRYK_U_B_GRY_PCUs",
+        "TRYK_U_B_Wood_PCUs"
+    ];
+
+    _vestsLIST = [
+        "TRYK_V_ArmorVest_coyo",
+        "V_PlateCarrier1_rgr_noflag_F"
+    ];
+
+    _randomHEAD = selectRandom _headsLIST;
+    _randomUNIFORM = selectRandom _uniformsLIST;
+    _randomVEST = selectRandom _vestsLIST;
+
+    _commonUNIFORM = "TRYK_U_B_PCUHsW6";
+    _commonHEAD = _randomHEAD;
+    _leaderHEAD = _commonHEAD;
+    _officerHEAD = _commonHEAD;
+    _medicHEAD = _commonHEAD;
+    _crewmanHEAD = "rhsusf_cvc_ess";
+    _pilotHEAD = "rhsusf_hgu56p";
+    _helicrewHEAD = "rhsusf_hgu56p_mask";
+    _helipilotHEAD = "rhsusf_hgu56p";
+    _sniperHEAD = _commonHEAD;
+    _demoHEAD = _commonHEAD;
+    _reconHEAD = _commonHEAD;
+};
 
 _commonBACKPACK = "B_Kitbag_cbr";
 _bigBACKPACK = "TRYK_B_Coyotebackpack";

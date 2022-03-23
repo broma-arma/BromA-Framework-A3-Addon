@@ -1,52 +1,48 @@
 // INFO ========================================================================
 /*
-
+    Slovenian Armed Forces
 */
 
-_factionID = "FINNISH";
-_factionName = "FINNISH DEFENCE FORCE";
+_factionID        = "SLOVENIA";
+_factionName      = "Slovenian Armed Forces";
 _factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
-_defaultSide = WEST;
-_defaultVoice = [_voiceAMERICAN];
-_defaultFace = [_faceWHITE, _faceBLACK];
-_defaultName = [_nameAMERICAN];
+_defaultSide     = WEST;
+_defaultVoice    = [_voiceAMERICAN];
+_defaultFace     = [_faceWHITE];
+_defaultName     = [_nameENGLISH];
 _defaultInsignia = "";
-_defaultColor = "blue";
+_defaultColor    = "blue";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
-// CAMO ========================================================================
-/*
-    Set in mission with: BRM_FMK_UNIFORMS_FinnishCammo
-	"frost"
-	"sum"
-*/
-
-_camo = "sum";
-
-
 // WEAPONS =====================================================================
 
-_commonRIFLE = _RK62;
-_commonRIFLEGL = _RK62;
+_commonRIFLE = _Mk20;
+_specRIFLE = _RHSHK416D10;
+_commonRIFLEGL = _Mk20GL;
 _commonPISTOL = _P226WG;
-_commonMG = _M84;
-_commonAR = _M84;
-_commonMARKSMAN = _SVDPWDNPZ;
-_commonSNIPER = _SVDPWDNPZ;
+_commonMG = ["rhs_weap_minimi_para_railed","rhsusf_100Rnd_556x45_soft_pouch"];
+_commonAR = _commonMG;
+_commonMARKSMAN = _commonRIFLE;
+_commonSNIPER = ["R3F_PGM_ULTIMA_RATIO","R3F_PGM_ULTIMA_RATIO_10Rnd_762x54"];
 _commonAT = _M72A7;
 _specAT = _GUSTAV;
 _commonSMG = _MP5A5;
-_commonRCO = "FHQ_optic_ACOG";
-_commonCCO = "";
-_commonMAGNIFIED = "hlc_optic_LeupoldM3A";
-_commonSUPPRESSOR = "rhs_acc_pbs1";
-_commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
+_commonRCO = "rksl_optic_lds_c";
+_specRCO = "rksl_optic_lds_c";
+_atRCO = "rhs_optic_maaws";
+_commonCCO = "rksl_optic_eot552_c";
+_commonMAGNIFIED = "r3f_nf42";
+_commonSUPPRESSOR = "rhsusf_acc_nt4_black";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
+
+_rifleSCOPE = "rksl_optic_eot552_c";
+_specSCOPE = "rhsusf_acc_acog_rmr";
 
 // AMMO COUNT ==================================================================
 
@@ -91,28 +87,26 @@ _countPAKCARGO = 10;
 if(!isNil "BRM_FMK_UNIFORMS_FinnishCammo")then{_camo=BRM_FMK_UNIFORMS_FinnishCammo};
 
 _headsLIST = [
-    "BRM_ACH_FM05"+_camo,
-    "BRM_ACH_MASK_FM05"+_camo
-];
-
-_gogglesLIST = [
+    "BRM_ACH_SLOCAM",
+    "BRM_ACH_MASK_SLOCAM",
+    "BRM_ACH_COMS_SLOCAM"
 ];
 
 _randomHEAD = selectRandom _headsLIST;
 
 _commonHEAD = _randomHEAD;
-_leaderHEAD = "BRM_PatrolCap_FM05"+_camo;
-_officerHEAD = "rhs_beret_milp";
-_medicHEAD = "BRM_Booniehat_FM05"+_camo;
-_crewmanHEAD = "rhs_tsh4_ess";
-_pilotHEAD = "rhsusf_hgu56p";
-_helicrewHEAD = "rhsusf_hgu56p";
-_helipilotHEAD = "rhsusf_hgu56p";
+_leaderHEAD = _commonHEAD;
+_officerHEAD = "BRM_PatrolCap_SLOCAM";
+_medicHEAD = _commonHEAD;
+_crewmanHEAD = "H_HelmetCrew_I";
+_pilotHEAD = "rhsusf_hgu56p_visor_green";
+_helicrewHEAD = "rhsusf_hgu56p_visor_green";
+_helipilotHEAD = "rhsusf_hgu56p_visor_green";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "BRM_Booniehat_FM05"+_camo;
+_reconHEAD = "BRM_BoonieCOMS_SLOCAM";
 
-_commonUNIFORM = "BRM_BattleUNI_FM05"+_camo;
+_commonUNIFORM = selectRandom ["BRM_BattleUNI_SLOCAM","BRM_BattleUNIRS_SLOCAM"];
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "TRYK_OVERALL_SAGE";
 _sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
@@ -124,19 +118,32 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST    = "BRM_Protec_GREEN_RFL";
-_officerVEST   = "BRM_Protec_GREEN_SL";
-_ftlVEST       = "BRM_Protec_GREEN_TL";
-_slVEST        = _officerVEST;
-_mgVEST        = "BRM_Protec_GREEN_MG";
-_grenadierVEST = "BRM_Protec_GREEN_GL";
-_medicVEST     = _commonVEST;
-_demoVEST      = _commonVEST;
-_marksmanVEST  = _commonVEST;
-_reconVEST     = "BRM_RRV_GREEN_REC1";
+_commonVEST = "BMR_MLBVARMOR_GREEN_RFL";
+_officerVEST = "BMR_MLBVARMOR_GREEN_SL";
+_ftlVEST = _officerVEST;
+_slVEST = _officerVEST;
+_mgVEST = "BMR_MLBV_GREEN_MG";
+_grenadierVEST = "BMR_MLBV_GREEN_GL";
+_medicVEST = "BMR_MLBV_GREEN_MED";
+_demoVEST = _commonVEST;
+_marksmanVEST = _commonVEST;
+_reconVEST = "BRM_RRV_GREEN_REC1";
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
-_commonBACKPACK = "BRM_PatrolBP_FM05"+_camo;
-_bigBACKPACK = "UK3CB_BAF_B_Carryall_OLI";
+_commonBACKPACK = "BRM_PatrolBP_SLOCAM";
+_bigBACKPACK = "BRM_PatrolBPH_SLOCAM";
+
+if (_assignLoadoutMode) then {
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
+        _unit addGoggles selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+    };
+};
+
+// MISC EQUIPMENT ==============================================================
+
+_binoc = "rhsusf_bino_m24_ARD";
+_rangefinder = "rhsusf_bino_lerca_1200_black";
+_laserdesignator = "UK3CB_BAF_Soflam_Laserdesignator";
 
 // EXTRA EQUIPMENT =============================================================
 
