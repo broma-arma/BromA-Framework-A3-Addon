@@ -179,6 +179,10 @@ switch (toUpper(_faction)) do {
         #include "factions\slovenia.sqf"
     };
 
+    case "NORWAY": {
+        #include "factions\norway.sqf"
+    };
+
     case "DEFAULT": {
         #include "factions\template.sqf"
     };
