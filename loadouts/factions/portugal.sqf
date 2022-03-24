@@ -37,7 +37,7 @@ _commonRCO = "";
 _commonCCO = "";
 _commonMAGNIFIED = "FHQ_optic_LeupoldERT";
 _commonSUPPRESSOR = "rhsusf_acc_aac_762sdn6_silencer";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
 _NVG = "rhsusf_ANPVS_15";
 
 _specSCOPE = "rhsusf_acc_acog_rmr";
