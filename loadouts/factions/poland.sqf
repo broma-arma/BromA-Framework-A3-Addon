@@ -42,6 +42,7 @@ _commonSMG = ["PSZ_BerylMini96","PSZ_556x45_Beryl_30"];
 _commonRCO = "rhsusf_acc_g33_xps3_flip";
 _commonCCO = "PSZ_AccO_EOT552";
 _commonMAGNIFIED = "PSZ_AccO_LeupoldMk4_35_10x40_M3";
+_specRCO = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
