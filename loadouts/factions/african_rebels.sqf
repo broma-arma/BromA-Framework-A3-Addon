@@ -45,7 +45,7 @@ _specRCO = "rhs_acc_pso1m2";
 _commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "";
-_commonPISTOLSUPPRESSOR = "muzzle_nds_L";
+_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
 
 _autoNVG = true;
