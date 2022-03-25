@@ -54,7 +54,7 @@ _commonSUPPRESSOR = "";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
-_nightOnlyNVGs = false;
+_nightOnlyNVGs = true;
 
 
 // AMMO COUNT ==================================================================

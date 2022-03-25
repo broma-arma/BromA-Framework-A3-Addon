@@ -113,7 +113,7 @@ _sniperHEAD    = _commonHEAD;
 _demoHEAD      = _commonHEAD;
 _reconHEAD     = "rhsusf_ach_helmet_headset_ocp";
 
-_commonUNIFORM   = "BRM_JIETAIW_M93";
+_commonUNIFORM   = "BRM_BattleUNI_JIEITAIW";
 _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _commonUNIFORM;
