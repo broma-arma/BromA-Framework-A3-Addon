@@ -100,7 +100,7 @@ private [
 	"_NVG",
 	"_NVGEN1", "_NVGEN2", "_NVGEN4", "_NVWIDE",
 
-	"_autoNVG",
+	"_nightOnlyNVGs",
 
 	"_suppliesNORMAL", "_suppliesMEDIC",
 
