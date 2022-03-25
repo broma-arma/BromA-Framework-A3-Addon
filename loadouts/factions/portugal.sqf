@@ -88,7 +88,7 @@ _headsLIST = [
     "rhssaf_helmet_m97_olive_nocamo_black_ess"
 ];
 
-_randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+_randomHEAD = selectRandom _headsLIST;
 _randomGOGGLES = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
 
 _commonHEAD = _randomHEAD;
