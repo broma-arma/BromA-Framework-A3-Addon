@@ -27,7 +27,7 @@ _rifleLIST = [
 	_AK74N
 ];
 
-_commonRIFLE = _rifleLIST selectRandomWeighted [0.3,0.2,0.3,0.2,0.3,0.1];
+_commonRIFLE = _rifleLIST selectRandomWeighted [0.3,0.2,0.3,0.2];
 
 _commonRIFLEGL = selectRandom [
 	_RHSAKMGL,
@@ -40,6 +40,8 @@ _commonMARKSMAN = _M76;
 _commonSNIPER = _M76;
 _commonAT = _RSHG2;
 _specAT = _RPG7;
+_weaponsAA = _IGLA;
+_weaponsAT = _RPG7PGO;
 _commonSMG = _AK74UN;
 _commonRCO = "rhs_acc_1p29";
 _specRCO = "rhs_acc_pso1m21";
@@ -49,7 +51,7 @@ _commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
-_autoNVG = true;
+_nightOnlyNVGs = true;
 
 // AMMO COUNT ==================================================================
 
@@ -113,6 +115,7 @@ _uniformsLIST = [
 
 _randomHEAD = selectRandom _headsLIST;
 _randomUNIFORM = selectRandom _uniformsLIST;
+_randomGOGGLES = ["rhs_scarf","empty"] selectRandomWeighted [0.3,0.7];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
@@ -154,7 +157,7 @@ _commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
 _atBACKPACK = "rhs_rpg_2";
 
-if (_assignLoadoutMode) then {_unit addGoggles (["rhs_scarf","empty"] selectRandomWeighted [0.3,0.7])};
+if (_assignLoadoutMode && _randomGOGGLES != "empty") then {_unit addGoggles _randomGOGGLES};
 
 // MISC EQUIPMENT ==============================================================
 

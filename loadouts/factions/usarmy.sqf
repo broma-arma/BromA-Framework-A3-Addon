@@ -44,6 +44,8 @@ _commonMARKSMAN = _M14EBR;
 _commonSNIPER = _M200;
 _commonAT = _AT4;
 _specAT = _SMAW;
+_weaponsAA = _STINGER;
+_weaponsAT = _JAVELIN;
 _commonSMG = _RHSM4;
 _commonRCO = "rhsusf_acc_ACOG3";
 _specRCO = "hlc_optic_leupoldm3a";
@@ -115,15 +117,9 @@ _vestsLIST = [
     "rhsusf_iotv_"+_camo+"_Rifleman"
 ];
 
-_goggleLIST = [
-    "rhsusf_shemagh_gogg_od",
-    "rhsusf_shemagh_od",
-    "empty"
-];
-
 _randomHEAD = selectRandom _headsLIST;
 _randomVEST = selectRandom _vestsLIST;
-_randomGOGGLE = selectRandom _goggleLIST;
+_randomGOGGLES = selectRandom ["rhsusf_shemagh_gogg_od","rhsusf_shemagh_od","empty"];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "rhsusf_ach_helmet_headset_ess_"+_camo;
@@ -170,8 +166,8 @@ _bigBACKPACK = "rhsusf_assault_eagleaiii_"+_camo;
 _reconBACKPACK = "UK3CB_B_Backpack_Pocket";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
-        _unit addGoggles _randomGOGGLE;
+    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
+        _unit addGoggles _randomGOGGLES;
     };
 };
 

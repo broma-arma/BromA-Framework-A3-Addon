@@ -45,6 +45,8 @@ _commonMARKSMAN = _SVD;
 _commonSNIPER = _SVD;
 _commonAT = _RPG26;
 _specAT = _RPG7PGO;
+_weaponsAA = _IGLA;
+_weaponsAT = ["launch_O_Vorona_green_F","Vorona_HEAT"];
 _commonSMG = ["rhs_weap_pp2000", "rhs_mag_9x19mm_7n31_20"];
 _commonRCO = "rhs_acc_1p78";
 _commonCCO = "rhs_acc_ekp8_02b";
@@ -119,6 +121,7 @@ if (_camo == "emr") then {
 };
 
 _randomHEAD = selectRandom _headsLIST;
+_randomGOGGLES = ["rhs_balaclava","empty"] selectRandomWeighted [0.4,0.6];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _randomHEAD;
@@ -159,7 +162,12 @@ _commonBACKPACK = "rhs_rk_sht_30_emr";
 _bigBACKPACK = "rhs_rk_sht_30_emr";
 _atBACKPACK = "rhs_rpg_empty";
 
-if (_assignLoadoutMode) then {_unit addGoggles (["rhs_balaclava","empty"] selectRandomWeighted [0.4,0.6])};
+if (_assignLoadoutMode) then {
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
+        _unit addGoggles _randomGOGGLES
+    };
+};
+
 
 // MISC EQUIPMENT ==============================================================
 

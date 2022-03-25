@@ -20,7 +20,7 @@ _defaultInsignia = "USP_PATCH_USA_USMC";
 _defaultColor = "blue";
 
 // Set in missio with: BRM_FMK_UNIFORMS_MarinesWoodland
-_enableWoodlandCammo = true;
+_enableWoodlandCamo = true;
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
@@ -37,6 +37,8 @@ _commonMARKSMAN = ["rhs_weap_sr25","rhsusf_20Rnd_762x51_SR25_m118_special_Mag"];
 _commonSNIPER = ["rhs_weap_m24sws","rhsusf_5Rnd_762x51_m118_special_Mag"];
 _commonAT = _AT4;
 _specAT = _SMAW;
+_weaponsAA = _STINGER;
+_weaponsAT = _JAVELIN;
 _commonSMG = _RHSM4;
 _commonRCO = "rhsusf_acc_ACOG3";
 _specRCO = "rhsusf_acc_m8541_mrds";
@@ -95,8 +97,12 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil"BRM_FMK_UNIFORMS_MarinesWoodland")then{_enableWoodlandCammo=BRM_FMK_UNIFORMS_MarinesWoodland};
-_lp="d";_camo="ucp"; if(_enableWoodlandCammo)then{_lp ="wd";_camo="ocp"};
+if (!isNil"BRM_FMK_UNIFORMS_MarinesWoodland") then {_enableWoodlandCamo=BRM_FMK_UNIFORMS_MarinesWoodland};
+
+_lp="d";
+_camo="ucp";
+
+if (_enableWoodlandCamo) then {_lp ="wd";_camo="ocp"};
 
 _headsLIST = [
 	"rhsusf_lwh_helmet_marpat"+_lp,
@@ -104,14 +110,8 @@ _headsLIST = [
 	"rhsusf_lwh_helmet_marpat"+_lp+"_ess"
 ];
 
-_goggleLIST = [
-    "rhs_googles_black",
-    "rhsusf_oakley_goggles_clr",
-    "empty"
-];
-
 _randomHEAD = selectRandom _headsLIST;
-_randomGOGGLE = selectRandom _goggleLIST;
+_randomGOGGLES = selectRandom ["rhs_googles_black","rhsusf_oakley_goggles_clr","empty"];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "rhsusf_lwh_helmet_marpat"+_lp+"_headset";
@@ -123,7 +123,7 @@ _helicrewHEAD = "rhsusf_hgu56p_visor_green";
 _helipilotHEAD = "rhsusf_hgu56p_visor_green";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = if(_enableWoodlandCammo) then {
+_reconHEAD = if (_enableWoodlandCamo) then {
     selectRandom [
         "rhsusf_opscore_fg_pelt",
         "rhsusf_opscore_fg_pelt_cam",
@@ -166,8 +166,8 @@ _bigBACKPACK = "rhsusf_assault_eagleaiii_coy";
 _reconBACKPACK = "UK3CB_B_Backpack_Pocket";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
-        _unit addGoggles _randomGOGGLE;
+    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
+        _unit addGoggles _randomGOGGLES;
     };
 };
 
@@ -192,7 +192,7 @@ _UAVTerminal = "auto";
 
 // VEHICLES ====================================================================
 
-if (!_enableWoodlandCammo) then {
+if (!_enableWoodlandCamo) then {
     _factionVehicles = [
     /*  Anti Air Vehicles */	 ["B_APC_Tracked_01_AA_F", "RHS_M6"]
     /*  Attack Helos      */	,["RHS_AH1Z_CS", "RHS_AH1Z_GS", "RHS_AH64D_AA", "RHS_AH64D_CS", "RHS_AH64D_GS", "RHS_AH64D", "RHS_AH64DGrey"]

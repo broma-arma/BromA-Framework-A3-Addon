@@ -33,6 +33,8 @@ _commonMARKSMAN = ["hlc_rifle_M1903A1_unertl","hlc_5rnd_3006_1903"];
 _commonSNIPER = ["hlc_rifle_M1903A1_unertl","hlc_5rnd_3006_1903"];
 _commonAT = _M72A7;
 _specAT =_RPG7PGO;
+_weaponsAA = _STINGER;
+_weaponsAT = _specAT;
 _commonSMG = ["rhs_weap_m3a1","rhsgref_30rnd_1143x23_M1T_2mag_SMG"];
 _commonRCO = "";
 _commonCCO = "";
@@ -41,7 +43,7 @@ _commonSUPPRESSOR = "";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
 
-_autoNVG = true;
+_nightOnlyNVGs = true;
 
 // AMMO COUNT ==================================================================
 

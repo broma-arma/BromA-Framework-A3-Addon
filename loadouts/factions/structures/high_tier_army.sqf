@@ -229,13 +229,13 @@ switch (true) do {
         [_unit,[[_wsmoke,2],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         [_unit,[["ACE_UAVBattery", 3]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
-        [_unit, "laserdesignator"] call BRM_FMK_fnc_addOptics;
+        [_unit, _laserdesignator] call BRM_FMK_fnc_addOptics;
         [_unit, [_UAVTerminal]] call BRM_FMK_fnc_linkItem;
     };
 
     case (_isRecon): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _reconBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, "binoc"] call BRM_FMK_fnc_addOptics;
+        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _specRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
@@ -244,7 +244,7 @@ switch (true) do {
 
     case (_isReconAT): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _reconBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, "binoc"] call BRM_FMK_fnc_addOptics;
+        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _specRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
@@ -259,7 +259,7 @@ switch (true) do {
 
      case (_isReconMarksman ): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _reconBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, "binoc"] call BRM_FMK_fnc_addOptics;
+        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonMARKSMAN, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _commonMARKSMAN select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
@@ -268,7 +268,7 @@ switch (true) do {
 
     case (_isReconMedic): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _reconBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, "binoc"] call BRM_FMK_fnc_addOptics;
+        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _suppliesMEDIC] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _specRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
@@ -279,7 +279,7 @@ switch (true) do {
 
     case (_isReconDemo): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _reconBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, "binoc"] call BRM_FMK_fnc_addOptics;
+        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit, [[_clacker,1],[_mineDetector,1],[_defusalKit,1]]] call BRM_FMK_fnc_addtoUniform;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit,[[_C4,3],[_satchelCharge,1],[_deadManSwitch,1]]] call BRM_FMK_fnc_addtoBackpack;
@@ -334,7 +334,7 @@ switch (true) do {
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_ATragMX,1],[_rangeCard,1],[_flashlight,1],[_mapTools,1],[_kestrel,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit,[[_commonSNIPER select RAMMO, (_countSNIPER*2)],[_spottingScope,1]]] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-        [_unit, "laserdesignator"] call BRM_FMK_fnc_addOptics;
+        [_unit, _laserdesignator] call BRM_FMK_fnc_addOptics;
         if (_isLeader) then { [_unit, "BP"] call BRM_FMK_fnc_addRadio };
     };
 

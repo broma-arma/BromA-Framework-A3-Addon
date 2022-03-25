@@ -28,9 +28,7 @@ RETURNS:
 
 params ["_unit", "_kind", "_backpack"];
 
-if (!isPlayer _unit) exitWith {};
-
-if (_kind isEqualTo "") exitWith {};
+if (!isPlayer _unit || _kind isEqualTo "") exitWith {};
 
 private _kindIndex = ["SR", "LR", "BP"] find _kind;
 if (_kindIndex == -1) exitWith {

@@ -30,7 +30,7 @@ _rifleLIST = [
 	_AK74UN
 ];
 
-_commonRIFLE = _rifleLIST selectRandomWeighted [0.3,0.2,0.3,0.2,0.3,0.1];
+_commonRIFLE = _rifleLIST selectRandomWeighted [0.3,0.2,0.3];
 
 _commonRIFLEGL = selectRandom [
 	_RHSAKMGL,
@@ -43,6 +43,8 @@ _commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
 _commonSNIPER = _commonMARKSMAN;
 _commonAT = ["rhs_weap_rpg18","rhs_rpg18_mag"];
 _specAT = _RPG7PGO;
+_weaponsAA = _IGLA;
+_weaponsAT = _specAT;
 _commonSMG = _AKS74U;
 _commonRCO = "";
 _commonCCO = "";
@@ -52,7 +54,7 @@ _commonSUPPRESSOR = "";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
-_autoNVG = false;
+_nightOnlyNVGs = false;
 
 
 // AMMO COUNT ==================================================================
@@ -106,17 +108,13 @@ _vestsLIST = [
 	"UK3CB_V_Chestrig_ERDL"
 ];
 
-_goggleLIST = [
-    "G_Balaclava_blk",
-    "G_Balaclava_oli",
-    "empty"
-];
-
 _randomUNIFORM = selectRandom _uniformsLIST;
 _randomVEST = selectRandom _vestsLIST;
-_randomGOGGLE = selectRandom _goggleLIST;
+_randomGOGGLES = selectRandom ["G_Balaclava_blk","G_Balaclava_oli","empty"];
 
-if (_assignLoadoutMode) then { if !(_isLeader) then { _unit addGoggles _randomGOGGLE }};
+if (_assignLoadoutMode) then {
+	if !(_isLeader && _randomGOGGLES != "empty") then {_unit addGoggles _randomGOGGLES};
+};
 
 _commonHEAD = "empty";
 _leaderHEAD = _commonHEAD;

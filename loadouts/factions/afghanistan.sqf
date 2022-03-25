@@ -53,6 +53,8 @@ _commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
 _commonSNIPER = _commonMARKSMAN;
 _commonAT = ["rhs_weap_rpg18","rhs_rpg18_mag"];
 _specAT = _RPG7;
+_weaponsAA = _STINGER;
+_weaponsAT = _RPG7PGO;
 _commonSMG = _AK74UN;
 _commonRCO = "";
 _specRCO = "rhs_acc_pso1m2";
@@ -65,7 +67,7 @@ _NVG = "rhsusf_ANPVS_14";
 _specRIFLE = ["rhs_weap_m4a1_carryhandle","rhs_mag_30Rnd_556x45_M855A1_Stanag"];
 _specSCOPE = "rhsusf_acc_acog3_usmc";
 
-_autoNVG = true;
+_nightOnlyNVGs = true;
 
 // AMMO COUNT ==================================================================
 

@@ -31,13 +31,15 @@ _commonMARKSMAN = _G3A3RIS;
 _commonSNIPER = ["UK3CB_BAF_L118A1_Covert","UK3CB_BAF_762_L42A1_10Rnd"];
 _commonAT = _AT4;
 _specAT = _GUSTAV;
+_weaponsAA = _STINGER;
+_weaponsAT = _JAVELIN;
 _atRCO = "rhs_optic_maaws";
 _commonSMG = _MP5A3;
 _commonRCO = "";
 _commonCCO = "";
 _commonMAGNIFIED = "FHQ_optic_LeupoldERT";
 _commonSUPPRESSOR = "rhsusf_acc_aac_762sdn6_silencer";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
 _NVG = "rhsusf_ANPVS_15";
 
 _specSCOPE = "rhsusf_acc_acog_rmr";

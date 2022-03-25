@@ -109,6 +109,9 @@ switch (true) do {
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit,[[_wsmoke,2],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _weaponsAT, 1] call BRM_FMK_fnc_addWeaponKit;
+        if (!isNil "_atRCO" && _weaponsAT select GUN == _specAT select GUN) then {
+            [_unit, "secondary", _atRCO] call BRM_FMK_fnc_attachToWeapon;
+        };
     };
 
     case (_isWeaponsATAssistant): {
@@ -352,7 +355,7 @@ switch (true) do {
 
 [_unit, ["ItemMap", "ItemCompass", "ItemWatch"]] call BRM_FMK_fnc_linkItem;
 
-if !(_autoNVG && sunOrMoon == 1 && !isPlayer _unit) then {
+if !(_nightOnlyNVGs && sunOrMoon == 1 && !isPlayer _unit) then {
 	[_unit, [_NVG]] call BRM_FMK_fnc_linkItem;
 };
 

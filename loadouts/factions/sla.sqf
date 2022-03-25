@@ -35,6 +35,8 @@ _commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];;
 _commonSNIPER = _commonMARKSMAN;
 _commonAT = _RPG26;
 _specAT = _RPG7PGO;
+_weaponsAA = _IGLA;
+_weaponsAT = _specAT;
 _commonSMG = _AK74UN;
 _commonRCO = "rhs_acc_1p29";
 _commonCCO = "";
@@ -43,7 +45,7 @@ _commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhs_1PN138";
 
-_autoNVG = true;
+_nightOnlyNVGs = true;
 
 // AMMO COUNT ==================================================================
 
