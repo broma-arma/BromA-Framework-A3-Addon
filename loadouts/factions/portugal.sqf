@@ -37,7 +37,7 @@ _commonRCO = "";
 _commonCCO = "";
 _commonMAGNIFIED = "FHQ_optic_LeupoldERT";
 _commonSUPPRESSOR = "rhsusf_acc_aac_762sdn6_silencer";
-_commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
+_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = "rhsusf_ANPVS_15";
 
 _specSCOPE = "rhsusf_acc_acog_rmr";
@@ -89,6 +89,7 @@ _headsLIST = [
 ];
 
 _randomHEAD = _headsLIST call BIS_fnc_selectRandom;
+_randomGOGGLES = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "UK3CB_BAF_H_Beret_RAMC_PRR_Over";
@@ -135,8 +136,8 @@ _bigBACKPACK = "BRM_PatrolBPH_Green";
 _reconBACKPACK = _bigBACKPACK;
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
-        _unit addGoggles selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
+        _unit addGoggles _randomGOGGLES
     };
 };
 

@@ -93,6 +93,7 @@ _headsLIST = [
 ];
 
 _randomHEAD = selectRandom _headsLIST;
+_randomGOGGLES = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
@@ -134,10 +135,11 @@ _commonBACKPACK = "BRM_PatrolBP_SLOCAM";
 _bigBACKPACK = "BRM_PatrolBPH_SLOCAM";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
-        _unit addGoggles selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
+        _unit addGoggles _randomGOGGLES
     };
 };
+
 
 // MISC EQUIPMENT ==============================================================
 

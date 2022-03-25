@@ -91,6 +91,8 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 if(!isNil "BRM_FMK_UNIFORMS_SWECammo")then{_camo=BRM_FMK_UNIFORMS_SWECammo};
 
+_randomGOGGLES = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+
 _commonHEAD = selectRandom [
 	"BRM_LWH_"+_camo,
 	"BRM_LWH_COMS_"+_camo,
@@ -138,11 +140,10 @@ _commonBACKPACK = "BRM_PatrolBP_"+_camo;
 _bigBACKPACK = "BRM_PatrolBPH_"+_camo;
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
-        _unit addGoggles selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
+        _unit addGoggles _randomGOGGLES
     };
 };
-
 
 // EXTRA EQUIPMENT =============================================================
 
