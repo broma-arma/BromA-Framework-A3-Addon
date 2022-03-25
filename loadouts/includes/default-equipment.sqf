@@ -74,7 +74,7 @@ if (isNil "_specRIFLE") then { _specRIFLE = _commonRIFLE; };
 if (isNil "_specSCOPE") then { _specSCOPE = _commonRCO; };
 if (isNil "_specRCO") then { _specRCO = _commonMAGNIFIED; };
 if (isNil "_atBACKPACK") then { _atBACKPACK = _bigBACKPACK; };
-if (isNil "_medicalBACKPACK") then { _medicalBACKPACK = _commonBACKPACK; };
+if (isNil "_medicalBACKPACK") then { _medicalBACKPACK = _bigBACKPACK; };
 if (isNil "_reconBACKPACK") then { _reconBACKPACK = _commonBACKPACK; };
 
 if (isNil "_binoc") then { _binoc = "binoc"; };

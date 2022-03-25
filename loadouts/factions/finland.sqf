@@ -48,7 +48,7 @@ _atRCO = "rhs_optic_maaws";
 _commonCCO = "r3f_comp_m5";
 _commonMAGNIFIED = "hlc_optic_LeupoldM3A";
 _commonSUPPRESSOR = "r3f_silencieux_hk417";
-_commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
 
 _rifleSCOPE = _commonCCO;

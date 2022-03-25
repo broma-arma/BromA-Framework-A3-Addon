@@ -42,7 +42,7 @@ _commonRCO = "hlc_optic_1p29";
 _commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m21_ak";
 _commonSUPPRESSOR = "rhs_acc_tgpa";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
 _specSCOPE = "hlc_optic_1p29";

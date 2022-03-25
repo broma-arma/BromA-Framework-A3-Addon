@@ -42,7 +42,7 @@ _commonCCO = "rhs_acc_ekp1";
 _specRCO = "rhs_acc_pso1m2";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhs_acc_tgpa";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
 _nightOnlyNVGs = true;
