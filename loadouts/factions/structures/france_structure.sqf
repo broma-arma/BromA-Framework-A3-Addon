@@ -200,7 +200,7 @@ switch (true) do {
     };
 
     case (_isLifeSaver): {
-        [_unit, _medicHEAD, _medicUNIFORM, _medicVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
+        [_unit, _medicHEAD, _medicUNIFORM, _medicVEST, _medicalBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2], [_gsmoke,3]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _suppliesMEDIC] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
