@@ -138,7 +138,7 @@ _pilotVEST = "rhs_belt_AK";
 _commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
 _medicalBACKPACK = _bigBACKPACK;
-_atBACKPACK = "rhs_rpg_2";
+_specATBACKPACK = "rhs_rpg_2";
 _reconBACKPACK = _bigBACKPACK;
 
 _commonGOGGLES = selectRandom ["G_Balaclava_blk","G_Balaclava_oli"];

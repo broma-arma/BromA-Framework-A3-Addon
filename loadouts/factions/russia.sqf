@@ -160,7 +160,7 @@ _pilotVEST = "rhs_vest_commander";
 
 _commonBACKPACK = "rhs_rk_sht_30_emr";
 _bigBACKPACK = "rhs_rk_sht_30_emr";
-_atBACKPACK = "rhs_rpg_empty";
+_specATBACKPACK = "rhs_rpg_empty";
 
 if (_assignLoadoutMode) then {
     if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {

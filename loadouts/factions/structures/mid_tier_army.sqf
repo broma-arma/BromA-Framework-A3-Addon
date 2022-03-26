@@ -93,7 +93,7 @@ switch (true) do {
     };
 
     case (_isRiflemanAT): {
-        [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _atBACKPACK] call BRM_FMK_fnc_useUniform;
+        [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _specATBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
@@ -247,7 +247,7 @@ switch (true) do {
     };
 
     case (_isReconAT): {
-        [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _atBACKPACK] call BRM_FMK_fnc_useUniform;
+        [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _specATBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _specRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;

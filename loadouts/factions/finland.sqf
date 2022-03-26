@@ -146,7 +146,7 @@ _pilotVEST     = "UK3CB_V_Pilot_Vest";
 _commonBACKPACK = "BRM_PatrolBP_FM05"+_camo;
 _bigBACKPACK = "BRM_PatrolBP_FM05"+_camo;
 _medicalBACKPACK = _commonBACKPACK;
-_atBACKPACK = _commonBACKPACK;
+_specATBACKPACK = _commonBACKPACK;
 _reconBACKPACK = "BRM_PatrolBPH_Green";
 
 if (_assignLoadoutMode) then {

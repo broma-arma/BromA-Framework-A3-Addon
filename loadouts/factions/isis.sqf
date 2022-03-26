@@ -172,7 +172,7 @@ _pilotVEST = _commonVEST;
 _commonBACKPACK = "BRM_SqBackpack_Black";
 _bigBACKPACK = "BRM_SqBackpack_Black";
 _medicalBACKPACK = "BRM_SqBackpack_Black";
-_atBACKPACK = "rhs_rpg_2";
+_specATBACKPACK = "rhs_rpg_2";
 _reconBACKPACK = "BRM_PatrolBP_Black";
 
 if (_assignLoadoutMode && _randomHEAD == "empty") then {

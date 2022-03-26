@@ -67,7 +67,7 @@ private [
 	"_commonHEAD", "_leaderHEAD", "_officerHEAD", "_medicHEAD", "_crewmanHEAD", "_pilotHEAD", "_helicrewHEAD", "_helipilotHEAD", "_sniperHEAD", "_demoHEAD", "_reconHEAD",
 	"_commonUNIFORM", "_officerUNIFORM", "_pilotUNIFORM", "_sniperUNIFORM", "_marksmanUNIFORM", "_helicrewUNIFORM", "_crewUNIFORM", "_mgUNIFORM", "_medicUNIFORM", "_demoUNIFORM", "_reconUNIFORM",
 	"_commonVEST", "_officerVEST", "_ftlVEST", "_slVEST","_mgVEST", "_grenadierVEST", "_medicVEST", "_demoVEST", "_marksmanVEST", "_reconVEST","_pilotVEST",
-	"_commonBACKPACK", "_bigBACKPACK","_medicalBACKPACK","_atBACKPACK","_reconBACKPACK",
+	"_commonBACKPACK", "_bigBACKPACK","_medicalBACKPACK","_specATBACKPACK","_reconBACKPACK",
 
 	"_StaticAT", "_ATTripod",
 	"_HMG", "_HMGTripod",

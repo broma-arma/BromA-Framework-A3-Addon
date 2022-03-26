@@ -134,7 +134,7 @@ _pilotVEST = "BRM_ALICE_SL";
 _commonBACKPACK = "BRM_SqBackpack_Green";
 _bigBACKPACK = _commonBACKPACK;
 _medicalBACKPACK = "BRM_SqBackpackMED_Green";
-_atBACKPACK = _commonBACKPACK;
+_specATBACKPACK = _commonBACKPACK;
 _reconBACKPACK = _commonBACKPACK;
 
 // MISC EQUIPMENT ==============================================================

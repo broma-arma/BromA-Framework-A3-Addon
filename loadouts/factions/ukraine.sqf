@@ -135,7 +135,7 @@ _pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "BRM_SqBackpack_Brown";
 _bigBACKPACK = "BRM_SqBackpack_Brown";
-_atBACKPACK = "rhs_rpg_2";
+_specATBACKPACK = "rhs_rpg_2";
 
 // MISC EQUIPMENT ==============================================================
 

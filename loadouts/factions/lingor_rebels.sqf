@@ -155,7 +155,7 @@ _pilotVEST = _commonVEST;
 
 _commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
-_atBACKPACK = "rhs_rpg_2";
+_specATBACKPACK = "rhs_rpg_2";
 
 if (_assignLoadoutMode && _randomGOGGLES != "empty") then {_unit addGoggles _randomGOGGLES};
 

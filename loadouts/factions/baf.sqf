@@ -244,7 +244,7 @@ _demoVEST = _commonVEST;
 _reconVEST = _commonVEST;
 _pilotVEST = "UK3CB_V_Pilot_Vest";
 
-_atBACKPACK = _commonBACKPACK;
+_specATBACKPACK = _commonBACKPACK;
 
 if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE };
 

@@ -130,7 +130,7 @@ _pilotVEST = "rhs_vest_commander";
 
 _commonBACKPACK = "UK3CB_UN_B_B_RIF";
 _bigBACKPACK = "UK3CB_UN_B_B_RIF";
-_atBACKPACK = "rhs_rpg_2";
+_specATBACKPACK = "rhs_rpg_2";
 
 switch (_camo) do {
 	case "afg": {
@@ -172,7 +172,7 @@ switch (_camo) do {
 
 		_commonBACKPACK = "rhs_rd54";
 		_bigBACKPACK = "rhs_rd54";
-		_atBACKPACK = "rhs_rpg_2";
+		_specATBACKPACK = "rhs_rpg_2";
 	};
 	case "khk": {
 
@@ -219,7 +219,7 @@ switch (_camo) do {
 
 		_commonBACKPACK = "rhs_rd54";
 		_bigBACKPACK = "rhs_rd54";
-		_atBACKPACK = "rhs_rpg_2";
+		_specATBACKPACK = "rhs_rpg_2";
 	};
 };
 

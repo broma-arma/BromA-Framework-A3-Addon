@@ -167,7 +167,7 @@ _pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "UK3CB_B_Alice_K";
 _bigBACKPACK = "UK3CB_B_Alice_K";
-_atBACKPACK = "rhs_rpg_2";
+_specATBACKPACK = "rhs_rpg_2";
 _reconBACKPACK = "UK3CB_ANA_B_B_RIF";
 
 if (_camo == 'anp') then {
@@ -223,7 +223,7 @@ if (_camo == 'anp') then {
 
     _commonBACKPACK = "UK3CB_B_Alice_K";
     _bigBACKPACK = _commonBACKPACK;
-    _atBACKPACK = "rhs_rpg_2";
+    _specATBACKPACK = "rhs_rpg_2";
     _reconBACKPACK = _commonBACKPACK;
 
 };

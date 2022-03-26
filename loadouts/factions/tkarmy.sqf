@@ -133,7 +133,7 @@ _pilotVEST = "rhs_belt_AK";
 _commonBACKPACK = "UK3CB_B_Alice_K";
 _bigBACKPACK = "UK3CB_B_Alice_K";
 _medicalBACKPACK = "UK3CB_B_Alice_Med_K";
-_atBACKPACK = "rhs_rpg_2";
+_specATBACKPACK = "rhs_rpg_2";
 _reconBACKPACK = "UK3CB_B_Alice_Bedroll_K";
 
 // MISC EQUIPMENT ==============================================================

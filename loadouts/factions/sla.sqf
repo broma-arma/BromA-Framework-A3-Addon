@@ -127,7 +127,7 @@ _pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
-_atBACKPACK = "rhs_rpg_2";
+_specATBACKPACK = "rhs_rpg_2";
 
 // MISC EQUIPMENT ==============================================================
 
