@@ -39,11 +39,11 @@ _weaponsAT = _RPG7PGO;
 _commonSMG = ["rhs_weap_savz61","rhsgref_20rnd_765x17_vz61"];
 _commonGL = ["rhs_weap_m79","rhs_mag_M441_HE"];
 _commonRCO = "hlc_optic_suit";
-_specRCO = "rhs_acc_pso1m2";
+_marksmanSCOPE = "rhs_acc_pso1m2";
 _commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhsusf_acc_aac_762sd_silencer";
-_commonPISTOLSUPPRESSOR = "rhs_acc_1pn93_1";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
 _nightOnlyNVGs = true;

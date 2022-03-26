@@ -33,7 +33,7 @@ _commonAT = _AT4;
 _specAT = _GUSTAV;
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
-_atRCO = "rhs_optic_maaws";
+_specATSCOPE = "rhs_optic_maaws";
 _commonSMG = _MP5A3;
 _commonRCO = "";
 _commonCCO = "";
@@ -42,7 +42,7 @@ _commonSUPPRESSOR = "rhsusf_acc_aac_762sdn6_silencer";
 _commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
 _NVG = "rhsusf_ANPVS_15";
 
-_specSCOPE = "rhsusf_acc_acog_rmr";
+_reconSCOPE = "rhsusf_acc_acog_rmr";
 
 // AMMO COUNT ==================================================================
 

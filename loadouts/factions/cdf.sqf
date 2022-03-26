@@ -45,7 +45,7 @@ _commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
-_specSCOPE = "hlc_optic_1p29";
+_reconSCOPE = "hlc_optic_1p29";
 
 // AMMO COUNT ==================================================================
 

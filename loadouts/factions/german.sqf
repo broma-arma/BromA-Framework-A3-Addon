@@ -5,7 +5,7 @@
 
 _factionID        = "GERMAN";
 _factionName      = "Bundeswehr";
-_factionStructure = "GERMAN-TIER";
+_factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -43,8 +43,8 @@ _specAT                 = _SMAW;
 _weaponsAA              = _STINGER;
 _weaponsAT              = _JAVELIN;
 _commonSMG              = _G36C;
-_commonRCO              = "ACE_optic_Hamr_PIP";
-_atRCO                  = "rhs_weap_optic_smaw";
+_commonRCO              = "hlc_optic_g36export35x";
+_specATSCOPE                  = "rhs_weap_optic_smaw";
 _commonCCO              = "rhsusf_acc_RX01";
 _commonMAGNIFIED        = "rhsusf_acc_M8541";
 _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
@@ -53,7 +53,7 @@ _NVG                    = "rhsusf_ANPVS_14";
 
 _mgSCOPE = "rhsusf_acc_eotech_552";
 _rifleSCOPE = "hlc_optic_g36dualoptic15x";
-_specSCOPE = "rhsusf_acc_g33_xps3_flip";
+_reconSCOPE = "rhsusf_acc_g33_xps3_flip";
 
 // AMMO COUNT ==================================================================
 

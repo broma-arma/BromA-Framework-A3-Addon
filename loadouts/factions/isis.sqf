@@ -47,11 +47,11 @@ _weaponsAA = _IGLAR;
 _weaponsAT = _RPG7PGO;
 _commonSMG = _AK74UN;
 _commonRCO = "rhs_acc_1p29";
-_specRCO = "rhs_acc_pso1m2";
+_marksmanSCOPE = "rhs_acc_pso1m2";
 _commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhs_acc_pbs1";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
 _nightOnlyNVGs = true;

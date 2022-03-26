@@ -57,7 +57,7 @@ _weaponsAA = _STINGER;
 _weaponsAT = _RPG7PGO;
 _commonSMG = _AK74UN;
 _commonRCO = "";
-_specRCO = "rhs_acc_pso1m2";
+_marksmanSCOPE = "rhs_acc_pso1m2";
 _commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "";
@@ -65,7 +65,7 @@ _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_14";
 
 _specRIFLE = ["rhs_weap_m4a1_carryhandle","rhs_mag_30Rnd_556x45_M855A1_Stanag"];
-_specSCOPE = "rhsusf_acc_acog3_usmc";
+_reconSCOPE = "rhsusf_acc_acog3_usmc";
 
 _nightOnlyNVGs = true;
 

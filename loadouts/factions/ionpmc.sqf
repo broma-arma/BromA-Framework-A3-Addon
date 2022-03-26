@@ -35,12 +35,12 @@ _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 _commonSMG = _MP5A2;
 _commonRCO = "hlc_optic_amo_pcap";
-_specRCO = "hlc_optic_amo_pcap";
-_atRCO = "rhs_optic_maaws";
+_marksmanSCOPE = "hlc_optic_amo_pcap";
+_specATSCOPE = "rhs_optic_maaws";
 _commonCCO = "hlc_optic_ism_pcap";
 _commonMAGNIFIED = "";
 _commonSUPPRESSOR = "muzzle_snds_M";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
 // AMMO COUNT ==================================================================

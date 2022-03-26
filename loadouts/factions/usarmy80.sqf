@@ -43,10 +43,10 @@ _commonAT = _M72A7;
 _specAT = _GUSTAV;
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
-_atRCO = "rhs_optic_maaws";
+_specATSCOPE = "rhs_optic_maaws";
 _commonSMG = ["rhs_weap_m3a1","rhsgref_30rnd_1143x23_M1911B_SMG"];
 _commonRCO = "";
-_specRCO = "uk3cb_optic_artel_m14";
+_marksmanSCOPE = "uk3cb_optic_artel_m14";
 _commonCCO = "";
 _commonMAGNIFIED = "rhsusf_acc_m8541_wd";
 _commonSUPPRESSOR = "";
@@ -54,7 +54,7 @@ _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
 
 _specRIFLE = ["hlc_wp_mod727","hlc_30rnd_556x45_EPR"];
-_specSCOPE = "r3f_comp_m5";
+_reconSCOPE = "r3f_comp_m5";
 
 // AMMO COUNT ==================================================================
 

@@ -35,8 +35,8 @@ _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 _commonSMG = _MP5A5;
 _commonRCO = "rksl_optic_lds_c";
-_specRCO = "rksl_optic_lds_c";
-_atRCO = "rhs_optic_maaws";
+_marksmanSCOPE = "rksl_optic_lds_c";
+_specATSCOPE = "rhs_optic_maaws";
 _commonCCO = "rksl_optic_eot552_c";
 _commonMAGNIFIED = "r3f_nf42";
 _commonSUPPRESSOR = "rhsusf_acc_nt4_black";
@@ -44,7 +44,7 @@ _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
 
 _rifleSCOPE = "rksl_optic_eot552_c";
-_specSCOPE = "rhsusf_acc_acog_rmr";
+_reconSCOPE = "rhsusf_acc_acog_rmr";
 
 // AMMO COUNT ==================================================================
 

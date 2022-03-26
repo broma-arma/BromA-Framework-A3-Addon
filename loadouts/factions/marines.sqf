@@ -41,12 +41,12 @@ _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 _commonSMG = _RHSM4;
 _commonRCO = "rhsusf_acc_ACOG3";
-_specRCO = "rhsusf_acc_m8541_mrds";
-_atRCO = "rhs_weap_optic_smaw";
+_marksmanSCOPE = "rhsusf_acc_m8541_mrds";
+_specATSCOPE = "rhs_weap_optic_smaw";
 _commonCCO = "rhsusf_acc_compm4";
 _commonEOT = "rhsusf_acc_eotech_552";
-_commonLAZER = "rhsusf_acc_anpeq15side_bk";
-_commonGRIP = "rhsusf_acc_tdstubby_blk";
+_commonRAIL = "rhsusf_acc_anpeq15side_bk";
+_commonBIPOD = "rhsusf_acc_tdstubby_blk";
 _commonMAGNIFIED = "rhsusf_acc_nxs_3515x50f1_h58";
 _commonSUPPRESSOR = "rhsusf_acc_rotex5_grey";
 _commonPISTOLSUPPRESSOR = "";
@@ -54,7 +54,7 @@ _NVG = "rhsusf_ANPVS_15";
 
 _mgSCOPE = _commonEOT;
 _rifleSCOPE = _commonCCO;
-_specSCOPE = "rhsusf_acc_g33_xps3";
+_reconSCOPE = "rhsusf_acc_g33_xps3";
 
 // AMMO COUNT ==================================================================
 

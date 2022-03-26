@@ -11,10 +11,6 @@ switch (toUpper(_factionStructure)) do {
         #include "factions\structures\low_tier_army.sqf"
     };
 
-    case "GERMAN_STRUCTURE": {
-        #include "factions\structures\german_structure.sqf"
-    };
-
     case "FRANCE_STRUCTURE": {
         #include "factions\structures\france_structure.sqf"
     };

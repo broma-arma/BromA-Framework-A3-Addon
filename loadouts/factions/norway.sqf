@@ -21,8 +21,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _RHSHK416D10;
-_commonRIFLEGL = _RHSHK416D10M320;
+_commonRIFLE = _RHSHK416D145;
+_commonRIFLEGL = _RHSHK416D145M320;
 _commonPISTOL = ["R3F_G17","R3F_17Rnd_9x19_G17"];
 _commonAR = ["rhs_weap_minimi_para_railed","rhsusf_100Rnd_556x45_soft_pouch"];
 _commonMG = _commonAR;
@@ -34,16 +34,18 @@ _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 _commonSMG = _RHSMP7;
 _commonRCO = "rhsusf_acc_acog_rmr";
-_specRCO = "rksl_optic_pmii_312_pip";
+_marksmanSCOPE = "rksl_optic_pmii_312_pip";
 _commonCCO = "r3f_comp_m5";
-_atRCO = "rhs_optic_maaws";
+_specATSCOPE = "rhs_optic_maaws";
 _commonMAGNIFIED = "rksl_optic_pmii_525_des";
 _commonSUPPRESSOR = "rhsusf_acc_rotex5_grey";
 _commonPISTOLSUPPRESSOR = "";
+_commonRAIL = "rhsusf_acc_anpeq15side_bk";
+_commonBIPOD = "rhsusf_acc_tdstubby_blk";
 _NVG = "rhsusf_ANPVS_15";
 
 _rifleSCOPE = _commonCCO;
-_specSCOPE = "rhsusf_acc_acog_rmr";
+_reconSCOPE = "rhsusf_acc_acog_rmr";
 _mgSCOPE = "rhsusf_acc_eotech_552";
 
 // AMMO COUNT ==================================================================

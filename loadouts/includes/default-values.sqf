@@ -5,6 +5,7 @@ if (isNil "_defaultFace") then { _defaultFace = [_faceWHITE]; };
 if (isNil "_defaultVoice") then { _defaultVoice = [_voiceAMERICAN]; };
 if (isNil "_defaultInsignia") then { _defaultInsignia = ""; };
 if (isNil "_nightOnlyNVGs") then { _nightOnlyNVGs = false; };
+if (isNil "_aiBackpackRadios") then { _aiBackpackRadios = false; };
 
 if (isNil "_factionSkill") then {
 	//               Aiming Accuracy, Aiming Shake, Aiming Speed, Endurance,  Spot Distance, Spot Time,  Courage,    Reload Speed, Commanding, General

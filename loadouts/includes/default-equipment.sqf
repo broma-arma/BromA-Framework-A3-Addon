@@ -71,11 +71,13 @@ if (isNil "_countSplint") then { _countSplint = 4; };
 if (isNil "_countSplintCARGO") then { _countSplintCARGO = _countSplint * 10; };
 
 if (isNil "_specRIFLE") then { _specRIFLE = _commonRIFLE; };
-if (isNil "_specSCOPE") then { _specSCOPE = _commonRCO; };
-if (isNil "_specRCO") then { _specRCO = _commonMAGNIFIED; };
+if (isNil "_reconSCOPE") then { _reconSCOPE = _commonRCO; };
+if (isNil "_marksmanSCOPE") then { _marksmanSCOPE = _commonMAGNIFIED; };
 if (isNil "_atBACKPACK") then { _atBACKPACK = _bigBACKPACK; };
 if (isNil "_medicalBACKPACK") then { _medicalBACKPACK = _bigBACKPACK; };
 if (isNil "_reconBACKPACK") then { _reconBACKPACK = _commonBACKPACK; };
+if (isNil "_commonRAIL") then { _commonRAIL = ""; };
+if (isNil "_commonBIPOD") then { _commonBIPOD = ""; };
 
 if (isNil "_binoc") then { _binoc = "binoc"; };
 if (isNil "_rangefinder") then { _rangefinder = "rangefinder"; };

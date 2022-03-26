@@ -44,7 +44,7 @@ _commonSMG = _MP5A5;
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 _commonRCO = "rhsusf_acc_acog_usmc";
-_atRCO = "rhs_optic_maaws";
+_specATSCOPE = "rhs_optic_maaws";
 _commonCCO = "r3f_comp_m5";
 _commonMAGNIFIED = "hlc_optic_LeupoldM3A";
 _commonSUPPRESSOR = "r3f_silencieux_hk417";
@@ -53,7 +53,7 @@ _NVG = "rhsusf_ANPVS_15";
 
 _rifleSCOPE = _commonCCO;
 _specRIFLE = ["rhs_weap_SCARH_CQC","rhs_mag_20Rnd_SCAR_762x51_m80_ball_bk"];
-_specSCOPE = "rhsusf_acc_acog_rmr";
+_reconSCOPE = "rhsusf_acc_acog_rmr";
 
 // AMMO COUNT ==================================================================
 

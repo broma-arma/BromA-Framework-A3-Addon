@@ -38,15 +38,15 @@ _specAT = _RPG7PGO;
 _weaponsAA = _IGLA;
 _weaponsAT = _RPG7PGO;
 _commonSMG = _AK74UN;
-_specRCO = "rhs_acc_pso1m2";
+_marksmanSCOPE = "rhs_acc_pso1m2";
 _commonRCO = "";
 _commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhs_acc_tgpa";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
-_specSCOPE = "rhs_acc_ekp8_02";
+_reconSCOPE = "rhs_acc_ekp8_02";
 
 // AMMO COUNT ==================================================================
 

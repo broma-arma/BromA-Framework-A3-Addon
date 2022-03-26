@@ -11,7 +11,7 @@
 
 _factionID        = "OFPFIA";
 _factionName      = "FIA forces";
-_factionStructure = "HIGH-TIER-CCO";
+_factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -38,10 +38,11 @@ _commonAT               = _RPG26;
 _specAT                 = _RPG7;
 _commonSMG              = _HK51;
 _commonRCO              = "rhsusf_acc_ELCAN";
+_marksmanSCOPE                = "";
 _commonCCO              = "rhsusf_acc_eotech_552";
 _commonMAGNIFIED        = "optic_LRPS";
 _commonSUPPRESSOR       = _sup762;
-_commonPISTOLSUPPRESSOR = _sup9mm;
+_commonPISTOLSUPPRESSOR = "";
 _NVG                    = _NVGEN1;
 
 // AMMO COUNT ==================================================================
