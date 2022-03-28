@@ -57,7 +57,7 @@ switch (true) do {
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_flashlight,1],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, ["ItemGPS"]] call BRM_FMK_fnc_linkItem;
         [_unit, _laserdesignator] call BRM_FMK_fnc_addOptics;
-        [_unit, ["rhs_weap_hk416d145_grip2","30Rnd_556x45_Stanag"], _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
+        [_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "rhsusf_acc_SpecterDR_3d"] call BRM_FMK_fnc_attachToWeapon;
@@ -272,7 +272,7 @@ switch (true) do {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
-        [_unit, ["rhs_weap_hk416d145_grip2","30Rnd_556x45_Stanag"], _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
+        [_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary","rhsusf_acc_SpecterDR_3d"] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "rhsusf_acc_anpeq15side_bk"] call BRM_FMK_fnc_attachToWeapon;
@@ -282,7 +282,7 @@ switch (true) do {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
-        [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
+        [_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
         [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
@@ -306,7 +306,7 @@ switch (true) do {
         [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _suppliesMEDIC] call BRM_FMK_fnc_addtoBackpack;
-        [_unit, ["rhs_weap_hk416d145_grip2","30Rnd_556x45_Stanag"], _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
+        [_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "rhsusf_acc_SpecterDR_3d"] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "rhsusf_acc_anpeq15side_bk"] call BRM_FMK_fnc_attachToWeapon;
@@ -319,7 +319,7 @@ switch (true) do {
         [_unit, [[_clacker,1],[_mineDetector,1],[_defusalKit,1]]] call BRM_FMK_fnc_addtoUniform;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit,[[_C4,3],[_satchelCharge,1],[_deadManSwitch,1]]] call BRM_FMK_fnc_addtoBackpack;
-        [_unit, ["rhs_weap_hk416d145_grip2","30Rnd_556x45_Stanag"], _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
+        [_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "rhsusf_acc_SpecterDR_3d"] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "rhsusf_acc_anpeq15side_bk"] call BRM_FMK_fnc_attachToWeapon;

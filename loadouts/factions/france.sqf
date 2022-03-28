@@ -23,6 +23,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 _commonRIFLE            = ["R3F_Famas_G2_HG","30Rnd_556x45_Stanag"];
 _commonRIFLEGL          = ["R3F_Famas_G2_M203","30Rnd_556x45_Stanag","1Rnd_HE_Grenade_shell"];
+_reconRIFLE             = ["rhs_weap_hk416d145_grip2","30Rnd_556x45_Stanag"];
 _commonPISTOL           = ["R3F_PAMAS","R3F_15Rnd_9x19_PAMAS"];
 _commonAR               = ["hlc_lmg_minimipara_railed","rhs_200rnd_556x45_M_SAW"];
 _commonMG               = _M240G;
