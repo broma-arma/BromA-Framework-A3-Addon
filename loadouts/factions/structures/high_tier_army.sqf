@@ -124,6 +124,9 @@ switch (true) do {
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
         [_unit, _weaponsAT, 1] call BRM_FMK_fnc_addWeaponKit;
+        if (_specATSCOPE != "" && _weaponsAT select GUN == _specAT select GUN) then {
+            [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
+        };
     };
 
     case (_isWeaponsATAssistant): {
