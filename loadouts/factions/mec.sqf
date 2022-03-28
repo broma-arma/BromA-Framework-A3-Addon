@@ -149,7 +149,7 @@ _pilotVEST = "rhs_belt_AK";
 _commonBACKPACK = "B_FieldPack_khk";
 _bigBACKPACK = "TRYK_B_Coyotebackpack";
 
-if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE };
+if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE; };
 
 // EXTRA EQUIPMENT =============================================================
 

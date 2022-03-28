@@ -111,7 +111,7 @@ _headsLIST = [
 ];
 
 _randomHEAD = selectRandom _headsLIST;
-_randomGOGGLES = selectRandom ["rhs_googles_black","rhsusf_oakley_goggles_clr","empty"];
+_randomGOGGLE = selectRandom ["rhs_googles_black","rhsusf_oakley_goggles_clr","empty"];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "rhsusf_lwh_helmet_marpat"+_lp+"_headset";
@@ -166,8 +166,8 @@ _bigBACKPACK = "rhsusf_assault_eagleaiii_coy";
 _reconBACKPACK = "UK3CB_B_Backpack_Pocket";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
-        _unit addGoggles _randomGOGGLES;
+    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+        _unit addGoggles _randomGOGGLE;
     };
 };
 

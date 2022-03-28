@@ -105,7 +105,7 @@ _headsLIST = [
 if (_camo == "sum") then {_headLIST pushBack "BRM_ACH_GHILLIE_COMS_FM05"+_camo};
 
 _randomHEAD = selectRandom _headsLIST;
-_randomGOGGLES = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+_randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
@@ -150,8 +150,8 @@ _specATBACKPACK = _commonBACKPACK;
 _reconBACKPACK = "BRM_PatrolBPH_Green";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
-        _unit addGoggles _randomGOGGLES
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+        _unit addGoggles _randomGOGGLE;
     };
 };
 

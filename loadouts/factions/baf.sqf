@@ -246,7 +246,7 @@ _pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _specATBACKPACK = _commonBACKPACK;
 
-if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE };
+if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
 
 // MISC EQUIPMENT ==============================================================
 

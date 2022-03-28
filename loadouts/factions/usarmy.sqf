@@ -119,7 +119,7 @@ _vestsLIST = [
 
 _randomHEAD = selectRandom _headsLIST;
 _randomVEST = selectRandom _vestsLIST;
-_randomGOGGLES = selectRandom ["rhsusf_shemagh_gogg_od","rhsusf_shemagh_od","empty"];
+_randomGOGGLE = selectRandom ["rhsusf_shemagh_gogg_od","rhsusf_shemagh_od","empty"];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "rhsusf_ach_helmet_headset_ess_"+_camo;
@@ -166,8 +166,8 @@ _bigBACKPACK = "rhsusf_assault_eagleaiii_"+_camo;
 _reconBACKPACK = "UK3CB_B_Backpack_Pocket";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
-        _unit addGoggles _randomGOGGLES;
+    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+        _unit addGoggles _randomGOGGLE;
     };
 };
 

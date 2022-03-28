@@ -110,10 +110,10 @@ _vestsLIST = [
 
 _randomUNIFORM = selectRandom _uniformsLIST;
 _randomVEST = selectRandom _vestsLIST;
-_randomGOGGLES = selectRandom ["G_Balaclava_blk","G_Balaclava_oli","empty"];
+_randomGOGGLE = selectRandom ["G_Balaclava_blk","G_Balaclava_oli","empty"];
 
 if (_assignLoadoutMode) then {
-	if !(_isLeader && _randomGOGGLES != "empty") then {_unit addGoggles _randomGOGGLES};
+	if (!_isLeader && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
 };
 
 _commonHEAD = "empty";

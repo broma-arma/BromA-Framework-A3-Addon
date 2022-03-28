@@ -121,7 +121,7 @@ if (_camo == "emr") then {
 };
 
 _randomHEAD = selectRandom _headsLIST;
-_randomGOGGLES = ["rhs_balaclava","empty"] selectRandomWeighted [0.4,0.6];
+_randomGOGGLE = ["rhs_balaclava","empty"] selectRandomWeighted [0.4,0.6];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _randomHEAD;
@@ -163,8 +163,8 @@ _bigBACKPACK = "rhs_rk_sht_30_emr";
 _specATBACKPACK = "rhs_rpg_empty";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
-        _unit addGoggles _randomGOGGLES
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+        _unit addGoggles _randomGOGGLE;
     };
 };
 

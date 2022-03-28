@@ -94,7 +94,7 @@ _countPAKCARGO = 10;
 
 if(!isNil "BRM_FMK_UNIFORMS_POLCammo")then{_camo=BRM_FMK_UNIFORMS_POLCammo};
 
-_randomGOGGLES = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+_randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
 
 _commonHEAD = if (_camo == "wdl") then {
 	selectRandom [
@@ -153,8 +153,8 @@ _commonBACKPACK = if (_camo == "wdl") then {"BRM_PatrolBP_Green"} else {"BRM_Pat
 _bigBACKPACK = if (_camo == "wdl") then {"BRM_PatrolBP_Green"} else {"BRM_PatrolBPH_Brown"};
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLES != "empty") then {
-        _unit addGoggles _randomGOGGLES
+    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+        _unit addGoggles _randomGOGGLE;
     };
 };
 
