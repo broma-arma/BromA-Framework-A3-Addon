@@ -141,7 +141,7 @@ _pilotVEST = "UK3CB_V_Pilot_Vest";
 _commonBACKPACK = "rhsusf_assault_eagleaiii_ocp";
 _bigBACKPACK = "B_Carryall_mcamo";
 
-if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE };
+if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
 
 // EXTRA EQUIPMENT =============================================================
 
