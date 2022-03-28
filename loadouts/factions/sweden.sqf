@@ -21,12 +21,13 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_SWECammo
+    Set in mission with: BRM_FMK_LoadoutCamo_SWEDEN
 	"m90w" woodland
 	"m90d" desert
 */
 
 _camo = "m90w";
+if(!isNil "BRM_FMK_LoadoutCamo_SWEDEN")then{_camo=BRM_FMK_LoadoutCamo_SWEDEN};
 
 // WEAPONS =====================================================================
 
@@ -91,7 +92,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_SWECammo")then{_camo=BRM_FMK_UNIFORMS_SWECammo};
 
 _randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
 

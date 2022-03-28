@@ -21,13 +21,13 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_AnzacCammo
+    Set in mission with: BRM_FMK_LoadoutCamo_ANZAC
 	"DPDU"
 	"DPCU"
 */
 
 _camo = "DPCU";
-
+if(!isNil "BRM_FMK_LoadoutCamo_ANZAC")then{_camo=BRM_FMK_LoadoutCamo_ANZAC};
 
 // WEAPONS =====================================================================
 
@@ -93,7 +93,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_AnzacCammo")then{_camo=BRM_FMK_UNIFORMS_AnzacCammo};
 
 _headsLIST = [
     "BRM_ACH_MASK_"+_camo,
@@ -177,8 +176,6 @@ _UAVBag = "auto";
 _UAVTerminal = "auto";
 
 // VEHICLES ====================================================================
-
-if(!isNil "BRM_FMK_UNIFORMS_AnzacCammo")then{_camo=BRM_FMK_UNIFORMS_AnzacCammo};
 
 if (_camo == "des") then {
     _factionVehicles = [

@@ -21,31 +21,43 @@ _defaultColor = "blue";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_NATO
+	"sand"
+	"black"
+*/
+
+_camo = "sand";
+if (!isNil"BRM_FMK_UNIFORMS_NATOBlackMX" && {BRM_FMK_UNIFORMS_NATOBlackMX})then{_camo = "black"}; // Backward compatibility
+if (!isNil "BRM_FMK_LoadoutCamo_NATO")then{_camo = BRM_FMK_LoadoutCamo_NATO};
+
 // WEAPONS =====================================================================
 
-// Set in mission with: BRM_FMK_UNIFORMS_NATOBlackMX
-_blackMX = true;
-
-_rr=_MX;_rg=_MXGL;_rm=_MXSW;_rk=_MXM;_rc=_MXC;
-if(!isNil"BRM_FMK_UNIFORMS_NATOBlackMX")then{_blackMX=BRM_FMK_UNIFORMS_NATOBlackMX};
-if (_blackMX) then { _rr=_MXBlack;_rg=_MXGLBlack;_rm=_MXSWBlack;_rk=_MXMBlack;_rc=_MXCBlack; };
-
-_commonRIFLE = _rr;
-_commonRIFLEGL = _rg;
+_commonRIFLE = _MX;
+_commonRIFLEGL = _MXGL;
 _commonPISTOL = _P07;
-_commonAR = _rm;
+_commonAR = _MXSW;
 _commonMG = _SPMGBlack;
-_commonMARKSMAN = _rk;
+_commonMARKSMAN = _MXM;
 _commonSNIPER = _M200;
 _commonAT = _PCML;
 _specAT = _PCML;
-_commonSMG = _rc;
+_commonSMG = _MXC;
 _commonRCO = _RCO;
 _commonCCO = _ACOred;
 _commonMAGNIFIED = _SOS;
 _commonSUPPRESSOR = "muzzle_snds_H";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _NVG = _NVGEN3BLU;
+
+if (_camo == "black") then {
+	_commonRIFLE = _MXBlack;
+	_commonRIFLEGL = _MXGLBlack;
+	_commonAR = _MXSWBlack;
+	_commonMARKSMAN = _MXMBlack;
+	_commonSMG = _MXCBlack;
+};
 
 _isSpecATDisposable = true;
 

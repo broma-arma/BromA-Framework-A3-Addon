@@ -22,15 +22,15 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_FRACammo
+    Set in mission with: BRM_FMK_LoadoutCamo_RUSSIA
 	"emr"
 	"emrd" (desert)
 */
 
 _camo = "emr";
+if(!isNil "BRM_FMK_LoadoutCamo_RUSSIA")then{_camo=BRM_FMK_LoadoutCamo_RUSSIA};
 
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_RUSCammo")then{_camo=BRM_FMK_UNIFORMS_RUSCammo};
 
 // WEAPONS =====================================================================
 

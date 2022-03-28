@@ -1,6 +1,6 @@
 // INFO ========================================================================
 /*
-    Loadout for the Unified military of Canada, with camo selection.
+    Unified military of Canada.
 */
 
 _factionID = "CAF";
@@ -21,12 +21,13 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_CANArmyCammo
+    Set in mission with: BRM_FMK_LoadoutCamo_CAF
 	"CADPATD"
 	"CADPATW"
 */
 
 _camo = "CADPATW";
+if(!isNil "BRM_FMK_LoadoutCamo_CAF")then{_camo=BRM_FMK_LoadoutCamo_CAF};
 
 // WEAPONS =====================================================================
 
@@ -95,7 +96,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_CANArmyCammo")then{_camo=BRM_FMK_UNIFORMS_CANArmyCammo};
 
 _headsLIST = [
     "BRM_LWH_"+_camo,

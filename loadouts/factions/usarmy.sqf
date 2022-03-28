@@ -23,12 +23,14 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_USArmyCammo
+    Set in mission with: BRM_FMK_LoadoutCamo_USARMY
 	"ucp"
 	"ocp"
 */
 
 _camo = "ucp";
+if(!isNil "BRM_FMK_LoadoutCamo_USARMY" && {BRM_FMK_LoadoutCamo_USARMY})then{_camo=BRM_FMK_LoadoutCamo_USARMY}; // Backward compatibility
+if(!isNil "BRM_FMK_LoadoutCamo_USARMY")then{_camo=BRM_FMK_LoadoutCamo_USARMY};
 
 // WEAPONS =====================================================================
 
@@ -102,7 +104,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_USArmyCammo")then{_camo=BRM_FMK_UNIFORMS_USArmyCammo};
 
 _headsLIST = [
     "rhsusf_ach_helmet_"+_camo,

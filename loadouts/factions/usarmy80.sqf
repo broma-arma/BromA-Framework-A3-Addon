@@ -19,14 +19,15 @@ _defaultColor = "blue";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
-// TYPE/CAMMO ========================================================================
+// CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_US80cammo
+    Set in mission with: BRM_FMK_LoadoutCamo_USARMY80
     "wdl"
     "des"
 */
 
 _camo = "wdl";
+if(!isNil "BRM_FMK_LoadoutCamo_USARMY80")then{_camo=BRM_FMK_LoadoutCamo_USARMY80};
 
 // WEAPONS =====================================================================
 
@@ -93,7 +94,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_US80cammo")then{_camo=BRM_FMK_UNIFORMS_US80cammo};
 
 _commonHEAD = selectRandom ["UK3CB_CW_US_B_LATE_H_PASGT_02_WDL","UK3CB_CW_US_B_LATE_H_PASGT_01_WDL"];
 _leaderHEAD = _commonHEAD;

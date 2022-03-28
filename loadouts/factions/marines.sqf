@@ -17,11 +17,23 @@ _defaultName = [_nameAMERICAN];
 _defaultInsignia = "USP_PATCH_USA_USMC";
 _defaultColor = "blue";
 
-// Set in missio with: BRM_FMK_UNIFORMS_MarinesWoodland
-_enableWoodlandCamo = true;
-
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_MARINES
+	"UCP"
+    "OCP"
+*/
+_camo = "UCP";
+if(!isNil"BRM_FMK_LoadoutCamo_MARINES")then{_camo=BRM_FMK_LoadoutCamo_MARINES};
+_lp = "d"; // Loadout Pattern
+_rhp = "ut"; // Recon Head Pattern
+if (_camo == "OCP") then {
+	_lp = "wd";
+    _rhp = "fg";
+};
 
 // WEAPONS =====================================================================
 
@@ -95,12 +107,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if (!isNil"BRM_FMK_UNIFORMS_MarinesWoodland") then {_enableWoodlandCamo=BRM_FMK_UNIFORMS_MarinesWoodland};
-
-_lp="d";
-_camo="ucp";
-
-if (_enableWoodlandCamo) then {_lp ="wd";_camo="ocp"};
 
 _headsLIST = [
 	"rhsusf_lwh_helmet_marpat"+_lp,
@@ -121,19 +127,11 @@ _helicrewHEAD = "rhsusf_hgu56p_visor_green";
 _helipilotHEAD = "rhsusf_hgu56p_visor_green";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = if (_enableWoodlandCamo) then {
-    selectRandom [
-        "rhsusf_opscore_fg_pelt",
-        "rhsusf_opscore_fg_pelt_cam",
-        "rhsusf_opscore_fg_pelt_nsw"
-    ];
-} else {
-    selectRandom [
-        "rhsusf_opscore_ut_pelt",
-        "rhsusf_opscore_ut_pelt_cam",
-        "rhsusf_opscore_ut_pelt_nsw"
-    ];
-};
+_reconHEAD = selectRandom [
+    "rhsusf_opscore_"+_rhp+"_pelt",
+    "rhsusf_opscore_"+_rhp+"_pelt_cam",
+    "rhsusf_opscore_"+_rhp+"_pelt_nsw"
+];
 
 _commonUNIFORM = "rhs_uniform_FROG01_"+_lp;
 _officerUNIFORM = _commonUNIFORM;
@@ -190,7 +188,7 @@ _UAVTerminal = "auto";
 
 // VEHICLES ====================================================================
 
-if (!_enableWoodlandCamo) then {
+if (_camo != "OCP") then {
     _factionVehicles = [
     /*  Anti Air Vehicles */ ["B_APC_Tracked_01_AA_F", "RHS_M6"]
     /*  Attack Helos      */,["RHS_AH1Z_CS", "RHS_AH1Z_GS", "RHS_AH64D_AA", "RHS_AH64D_CS", "RHS_AH64D_GS", "RHS_AH64D", "RHS_AH64DGrey"]

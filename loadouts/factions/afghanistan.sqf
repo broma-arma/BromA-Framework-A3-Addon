@@ -24,12 +24,13 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_FRACammo
+    Set in mission with: BRM_FMK_LoadoutCamo_AFGHANISTAN
 	"ana"
 	"anp"
 */
 
 _camo = "ana";
+if(!isNil "BRM_FMK_LoadoutCamo_AFGHANISTAN")then{_camo=BRM_FMK_LoadoutCamo_AFGHANISTAN};
 
 // WEAPONS =====================================================================
 
@@ -110,8 +111,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-
-if(!isNil "BRM_FMK_UNIFORMS_AFGHANCammo")then{_camo=BRM_FMK_UNIFORMS_AFGHANCammo};
 
 _headsLIST = [
     "rhs_ssh68_2",

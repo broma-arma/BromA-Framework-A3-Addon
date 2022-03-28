@@ -19,6 +19,19 @@ _defaultColor    = "red";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_PLA
+	"UNI"
+	"NAVY"
+	"ARTY"
+	"PLAT"
+*/
+
+_camo = "UNI";
+if(!isNil "BRM_FMK_UNIFORMS_PLACammo" && {BRM_FMK_UNIFORMS_PLACammo})then{_camo=BRM_FMK_UNIFORMS_PLACammo}; // Backward compatibility
+if(!isNil "BRM_FMK_LoadoutCamo_PLA")then{_camo=BRM_FMK_LoadoutCamo_PLA};
+
 // WEAPONS =====================================================================
 
 _commonRIFLE            = ["vme_pla_qbz95_1","VME_QBZ95_1_30Rnd_DBP10"];
@@ -82,19 +95,7 @@ _countEpiCARGO      = 30;
 _countBloodbagCARGO = 20;
 _countPAKCARGO      = 20;
 
-// CAMO ========================================================================
-/*
-    Set in mission with: BRM_FMK_UNIFORMS_PLACammo
-	"UNI"
-	"NAVY"
-	"ARTY"
-	"PLAT"
-*/
-
-_camo = "UNI";
-
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_PLACammo")then{_camo=BRM_FMK_UNIFORMS_PLACammo};
 
 _uniformsLIST = [
     "BRM_EBattleUNI_T07"+_camo,

@@ -21,17 +21,21 @@ _defaultInsignia = "";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_AAF
+	"plain"
+	"camo"
+*/
+
+_camo = "plain";
+if(!isNil"BRM_FMK_UNIFORMS_AAFCamo" && {BRM_FMK_UNIFORMS_AAFCamo})then{_camo="camo"}; // Backward compatibility
+if(!isNil"BRM_FMK_LoadoutCamo_AAF")then{_camo=BRM_FMK_LoadoutCamo_AAF};
+
 // WEAPONS =====================================================================
 
-// Set in mission with BRM_FMK_UNIFORMS_AAFMKCamo
-_MKCamo = true;
-
-_rr=_Mk20;_rg=_Mk20GL;_rc=_MK20C;
-if(!isNil"BRM_FMK_UNIFORMS_AAFMKCamo")then{_MKCAmo=BRM_FMK_UNIFORMS_AAFMKCamo};
-if (_MKCamo) then { _rr=_Mk20Camo;_rg=_Mk20GLCamo;_rc=_MK20CCamo; };
-
-_commonRIFLE = _rr;
-_commonRIFLEGL = _rg;
+_commonRIFLE = _Mk20;
+_commonRIFLEGL = _Mk20GL;
 _commonPISTOL = _ACP45;
 _commonAR = _Mk200;
 _commonMG = _Mk200;
@@ -39,13 +43,19 @@ _commonMARKSMAN = _Mk18;
 _commonSNIPER = _GM6;
 _commonAT = _PCML;
 _specAT = _PCML;
-_commonSMG = _rc;
+_commonSMG = _MK20C;
 _commonRCO = "optic_MRCO";
 _commonCCO = "optic_ACO_grn";
 _commonMAGNIFIED = _SOS;
 _commonSUPPRESSOR = "muzzle_snds_M";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_acp";
 _NVG = _NVGEN3IND;
+
+if (_camo == "camo") then {
+	_commonRIFLE = _Mk20Camo;
+	_commonRIFLEGL = _Mk20GLCamo;
+	_commonSMG = _MK20CCamo;
+};
 
 _isSpecATDisposable = true;
 

@@ -86,8 +86,6 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-if(!isNil "BRM_FMK_UNIFORMS_FinnishCammo")then{_camo=BRM_FMK_UNIFORMS_FinnishCammo};
-
 _headsLIST = [
     "BRM_LWH_ESTDCU",
     "BRM_LWH_COMS_GHILLIE_ESTDCU",

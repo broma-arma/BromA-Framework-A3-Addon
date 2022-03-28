@@ -21,12 +21,13 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_GERCammo
+    Set in mission with: BRM_FMK_LoadoutCamo_GERMAN
 	"FLECK"
 	"TROPEN"
 */
 
 _camo = "FLECK";
+if(!isNil "BRM_FMK_LoadoutCamo_GERMAN")then{_camo=BRM_FMK_LoadoutCamo_GERMAN};
 
 // WEAPONS =====================================================================
 
@@ -97,8 +98,6 @@ _countPAKCARGO = 10;
 
 
 // UNIFORMS ====================================================================
-
-if(!isNil "BRM_FMK_UNIFORMS_GERCammo")then{_camo=BRM_FMK_UNIFORMS_GERCammo};
 
 _headsLIST = [
     "BRM_LWH_COMS_"+_camo,

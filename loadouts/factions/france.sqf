@@ -19,6 +19,18 @@ _defaultColor    = "blue";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_FRANCE
+	"CCE"
+	"DAGUET"
+    "WINTER"
+*/
+
+_camo = "CCE";
+if(!isNil "BRM_FMK_UNIFORMS_FRACammo" && {BRM_FMK_UNIFORMS_FRACammo})then{_camo=BRM_FMK_UNIFORMS_FRACammo}; // Backward compatibility
+if(!isNil "BRM_FMK_LoadoutCamo_FRANCE")then{_camo=BRM_FMK_LoadoutCamo_FRANCE};
+
 // WEAPONS =====================================================================
 
 _commonRIFLE            = ["R3F_Famas_G2_HG","30Rnd_556x45_Stanag"];
@@ -81,18 +93,7 @@ _countEpiCARGO = 20;
 _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
-// CAMO ========================================================================
-/*
-    Set in mission with: BRM_FMK_UNIFORMS_FRACammo
-	"CCE"
-	"DAGUET",
-    "WINTER"
-*/
-
-_camo = "CCE";
-
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_FRACammo")then{_camo=BRM_FMK_UNIFORMS_FRACammo};
 
 
 _headsLIST = [

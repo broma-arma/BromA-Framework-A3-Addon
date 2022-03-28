@@ -19,22 +19,22 @@ _defaultColor = "red";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
-// TYPE/CAMMO ========================================================================
+// CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_SOVcammo
+    Set in mission with: BRM_FMK_LoadoutCamo_SOVIETS
     "vsr" vsr
     "afg" afghan
 	"khk" khaki
 */
 
 _camo = "vsr";
+if(!isNil "BRM_FMK_LoadoutCamo_SOVIETS")then{_camo=BRM_FMK_LoadoutCamo_SOVIETS};
 
 // WEAPONS =====================================================================
 
 _commonRIFLE = _AK74N;
 _commonRIFLEGL = _AK74NGL;
 _commonPISTOL = _Makarov;
-_commonMG = _PKM;
 _commonMG = _PKM;
 _commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
 _commonSNIPER = _commonMARKSMAN;
@@ -90,7 +90,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_SOVcammo")then{_camo=BRM_FMK_UNIFORMS_SOVcammo};
 
 _commonHEAD = "UK3CB_TKA_I_H_SSh68_Oli";
 _leaderHEAD = "rhsgref_fieldcap_ttsko_forest";

@@ -21,12 +21,13 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_FinnishCammo
+    Set in mission with: BRM_FMK_LoadoutCamo_FINLAND
 	"frost"
 	"sum"
 */
 
 _camo = "sum";
+if(!isNil "BRM_FMK_LoadoutCamo_FINLAND")then{_camo=BRM_FMK_LoadoutCamo_FINLAND};
 
 // WEAPONS =====================================================================
 
@@ -94,8 +95,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-
-if(!isNil "BRM_FMK_UNIFORMS_FinnishCammo")then{_camo=BRM_FMK_UNIFORMS_FinnishCammo};
 
 _headsLIST = [
     "BRM_ACH_FM05"+_camo,

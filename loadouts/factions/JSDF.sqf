@@ -20,6 +20,16 @@ _defaultColor = "blue";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_JSDF
+	"JIEITAIW"
+    "JIEITAID"
+*/
+
+_camo = "JIEITAIW";
+if(!isNil "BRM_FMK_LoadoutCamo_JSDF")then{_camo=BRM_FMK_LoadoutCamo_JSDF};
+
 // WEAPONS =====================================================================
 
 _commonRIFLE = ["hlc_rifle_SG551LB_TAC", "hlc_30Rnd_556x45_EPR_sg550"];
@@ -79,17 +89,7 @@ _countEpiCARGO = 30;
 _countBloodbagCARGO = 30;
 _countPAKCARGO = 40;
 
-// CAMO ========================================================================
-/*
-    Set in mission with: BRM_FMK_UNIFORMS_JGSDFCammo
-	"JIEITAIW",
-    "JIEITAID"
-*/
-
-_camo = "JIEITAIW";
-
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_JGSDFCammo")then{_camo=BRM_FMK_UNIFORMS_JGSDFCammo};
 
 _headsLIST = [
     "BRM_LWH_COMS_"+_camo,

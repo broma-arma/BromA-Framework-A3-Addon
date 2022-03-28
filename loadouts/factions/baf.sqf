@@ -24,11 +24,13 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_BAFCammo
-    "mpt" (default)
+    Set in mission with: BRM_FMK_LoadoutCamo_BAF
+    "mpt"
 	"dpm"
     "ddpm"
 */
+_camo = 'mpt';
+if(!isNil "BRM_FMK_LoadoutCamo_BAF")then{_camo=BRM_FMK_LoadoutCamo_BAF;};
 
 // WEAPONS =====================================================================
 
@@ -94,8 +96,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-_camo = 'mpt';
-if(!isNil "BRM_FMK_UNIFORMS_BAFCammo")then{_camo=BRM_FMK_UNIFORMS_BAFCammo;};
 
 _uniformLIST = [
     "UK3CB_BAF_U_CombatUniform_MTP",

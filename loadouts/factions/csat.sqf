@@ -18,11 +18,20 @@ _defaultName = [_nameARABIC];
 _defaultInsignia = "";
 _defaultColor = "red";
 
-// Set in mission with: BRM_FMK_UNIFORMS_CSATUrban
-_enableUrbanUniforms = false;
-
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_CSAT
+	"BRN"
+    "GRY"
+*/
+_camo = "BRN";
+if(!isNil "BRM_FMK_UNIFORMS_CSATUrban" && {BRM_FMK_UNIFORMS_CSATUrban})then{_camo="GRY"}; // Backward compatibility
+if(!isNil "BRM_FMK_LoadoutCamo_CSAT")then{_camo=BRM_FMK_LoadoutCamo_CSAT};
+_lp = "o"; // Loadout Pattern
+if (_camo == "GRY") then { _lp = "ou"; };
 
 // WEAPONS =====================================================================
 
@@ -84,8 +93,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil"BRM_FMK_UNIFORMS_CSATUrban")then{_enableUrbanUniforms=BRM_FMK_UNIFORMS_CSATUrban};
-_lp="o";_vp="brn";if(_enableUrbanUniforms)then{_lp="ou";_vp= "gry"};
 
 _commonHEAD = "H_HelmetO_"+_lp+"camo";
 _leaderHEAD = "H_HelmetLeaderO_"+_lp+"camo";
@@ -111,16 +118,16 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "V_HarnessO_"+_vp;
+_commonVEST = "V_HarnessO_"+_camo;
 _officerVEST = "V_BandollierB_cbr";
 _ftlVEST = _commonVEST;
 _slVEST = _commonVEST;
 _mgVEST = _commonVEST;
-_grenadierVEST = "V_HarnessOGL_"+_vp;
+_grenadierVEST = "V_HarnessOGL_"+_camo;
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
-_reconVEST = "V_HarnessOSpec_"+_vp;
+_reconVEST = "V_HarnessOSpec_"+_camo;
 _pilotVEST = "V_BandollierB_cbr";
 
 _commonBACKPACK = "B_AssaultPack_"+_lp+"camo";

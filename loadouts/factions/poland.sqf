@@ -21,12 +21,13 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_UNIFORMS_POLCammo
+    Set in mission with: BRM_FMK_LoadoutCamo_POLAND
 	"wdl" woodland
 	"des" desert
 */
 
 _camo = "wdl";
+if(!isNil "BRM_FMK_LoadoutCamo_POLAND")then{_camo=BRM_FMK_LoadoutCamo_POLAND};
 
 // WEAPONS =====================================================================
 
@@ -91,8 +92,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-
-if(!isNil "BRM_FMK_UNIFORMS_POLCammo")then{_camo=BRM_FMK_UNIFORMS_POLCammo};
 
 _randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
 
