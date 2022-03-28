@@ -35,7 +35,7 @@ _camo = "ucp";
 // WEAPONS =====================================================================
 
 _commonRIFLE = _RHSM4;
-_specRIFLE = ["rhs_weap_mk17_CQC","rhs_mag_20Rnd_SCAR_762x51_m80_ball"];
+_reconRIFLE = ["rhs_weap_mk17_CQC","rhs_mag_20Rnd_SCAR_762x51_m80_ball"];
 _commonRIFLEGL = _RHSM4GL203;
 _commonPISTOL = _M9;
 _commonAR = _M249S;

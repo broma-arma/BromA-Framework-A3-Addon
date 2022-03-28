@@ -53,7 +53,7 @@ _commonSUPPRESSOR = "";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
 
-_specRIFLE = ["hlc_wp_mod727","hlc_30rnd_556x45_EPR"];
+_reconRIFLE = ["hlc_wp_mod727","hlc_30rnd_556x45_EPR"];
 _reconSCOPE = "r3f_comp_m5";
 
 // AMMO COUNT ==================================================================

@@ -50,7 +50,7 @@ _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
 
 _rifleSCOPE = _commonCCO;
-_specRIFLE = ["PSZ_Beryl04_D","PSZ_556x45_STANAG_30"];
+_reconRIFLE = ["PSZ_Beryl04_D","PSZ_556x45_STANAG_30"];
 
 // AMMO COUNT ==================================================================
 

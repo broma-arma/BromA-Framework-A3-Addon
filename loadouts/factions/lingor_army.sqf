@@ -22,7 +22,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _FNFAL;
-_specRIFLE = _FNFALRIS;
+_reconRIFLE = _FNFALRIS;
 _commonRIFLEGL = _FNFAL;
 _commonGL = ["rhs_weap_m79","rhs_mag_M441_HE"];
 _commonPISTOL = _M1911;

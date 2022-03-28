@@ -38,7 +38,7 @@ private [
 
 	"_randomLIST","_rifleLIST",
 	"_commonRIFLE", "_countRifle", "_countRifleLOW", "_countTracerRIFLE", "_countRifleCARGO",
-	"_specRIFLE",
+	"_reconRIFLE",
 	"_commonRIFLEGL", "_count40mm", "_count40mmCARGO",
 	"_commonPistol", "_countPISTOL", "_countPistolCARGO",
 	"_commonAR", "_countAR", "_countArCARGO",

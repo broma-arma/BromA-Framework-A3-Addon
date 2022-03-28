@@ -23,7 +23,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _HK33A2;
-_specRIFLE = _RHSHK416D10;
+_reconRIFLE = _RHSHK416D10;
 _commonRIFLEGL = _HK33A2RISGL;
 _commonPISTOL = ["R3F_HKUSP","R3F_15Rnd_9x19_HKUSP"];
 _commonMG = _MG3;

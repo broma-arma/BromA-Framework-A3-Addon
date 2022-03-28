@@ -22,7 +22,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _Mk20;
-_specRIFLE = _RHSHK416D10;
+_reconRIFLE = _RHSHK416D10;
 _commonRIFLEGL = _Mk20GL;
 _commonPISTOL = _P226WG;
 _commonMG = ["rhs_weap_minimi_para_railed","rhsusf_100Rnd_556x45_soft_pouch"];

@@ -64,7 +64,7 @@ _commonSUPPRESSOR = "";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_14";
 
-_specRIFLE = ["rhs_weap_m4a1_carryhandle","rhs_mag_30Rnd_556x45_M855A1_Stanag"];
+_reconRIFLE = ["rhs_weap_m4a1_carryhandle","rhs_mag_30Rnd_556x45_M855A1_Stanag"];
 _reconSCOPE = "rhsusf_acc_acog3_usmc";
 
 _nightOnlyNVGs = true;

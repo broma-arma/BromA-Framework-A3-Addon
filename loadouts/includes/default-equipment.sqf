@@ -70,7 +70,7 @@ if (isNil "_countTourniquetCARGO") then { _countTourniquetCARGO = _countTourniqu
 if (isNil "_countSplint") then { _countSplint = 4; };
 if (isNil "_countSplintCARGO") then { _countSplintCARGO = _countSplint * 10; };
 
-if (isNil "_specRIFLE") then { _specRIFLE = _commonRIFLE; };
+if (isNil "_reconRIFLE") then { _reconRIFLE = _commonRIFLE; };
 if (isNil "_reconSCOPE") then { _reconSCOPE = _commonRCO; };
 if (isNil "_marksmanSCOPE") then { _marksmanSCOPE = _commonMAGNIFIED; };
 if (isNil "_specATBACKPACK") then { _specATBACKPACK = _bigBACKPACK; };

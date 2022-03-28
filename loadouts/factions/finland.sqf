@@ -52,7 +52,7 @@ _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
 
 _rifleSCOPE = _commonCCO;
-_specRIFLE = ["rhs_weap_SCARH_CQC","rhs_mag_20Rnd_SCAR_762x51_m80_ball_bk"];
+_reconRIFLE = ["rhs_weap_SCARH_CQC","rhs_mag_20Rnd_SCAR_762x51_m80_ball_bk"];
 _reconSCOPE = "rhsusf_acc_acog_rmr";
 
 // AMMO COUNT ==================================================================

@@ -31,7 +31,7 @@ _camo = "FLECK";
 // WEAPONS =====================================================================
 
 _commonRIFLE            = _G36E;
-_specRIFLE              = _G36KV;
+_reconRIFLE              = _G36KV;
 _commonRIFLEGL          = _G36EGL;
 _commonPISTOL           = ["hlc_pistol_P226WestGerman","hlc_15Rnd_9x19_B_P226"];
 _commonAR               = _MG3KWSB;

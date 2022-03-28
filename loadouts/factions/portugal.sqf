@@ -22,7 +22,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _G3A3RIS;
-_specRIFLE = ["rhs_weap_SCARH_FDE_CQC","rhs_mag_20Rnd_SCAR_762x51_m80_ball_bk"];
+_reconRIFLE = ["rhs_weap_SCARH_FDE_CQC","rhs_mag_20Rnd_SCAR_762x51_m80_ball_bk"];
 _commonRIFLEGL = _G3A3RIS;
 _commonPISTOL = _G17;
 _commonAR = ["hlc_lmg_MG3KWS_b","hlc_50Rnd_762x51_B_MG3"];

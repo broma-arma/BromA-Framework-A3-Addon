@@ -35,7 +35,7 @@ _rifleLIST = [
 
 _commonRIFLE = selectRandom _rifleLIST;
 _commonRIFLEGL = _AK74NGL;
-_specRIFLE = ["rhs_weap_akmn","rhs_30Rnd_762x39mm"];
+_reconRIFLE = ["rhs_weap_akmn","rhs_30Rnd_762x39mm"];
 _commonPISTOL = _Makarov;
 _commonAR = _RPK;
 _commonMG = _PKM;

@@ -26,7 +26,7 @@ _factionSkill = [[0.7,0.8],   [0.7,0.8],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE            = _G36A1;
-_specRIFLE              = _G36C;
+_reconRIFLE              = _G36C;
 _commonRIFLEGL          = _G36A1GL;
 _commonPISTOL = _M9;
 _commonAR = ["rhs_weap_fnmag","rhsusf_100Rnd_762x51"];

@@ -76,8 +76,8 @@ switch (_x) do {
 			_supplies apply { [_x select 0, (_x select 1) * 3] };
 		};
 
-		if (!isNil "_specRIFLE") then {
-			_supplies pushBack [_specRIFLE select RAMMO, _countRifleCARGO];
+		if (!isNil "_reconRIFLE") then {
+			_supplies pushBack [_reconRIFLE select RAMMO, _countRifleCARGO];
 		};
 
 		if (!isNil "_rifleLIST") then {

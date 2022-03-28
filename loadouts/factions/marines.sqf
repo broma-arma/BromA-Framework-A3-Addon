@@ -28,7 +28,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE = _RHSM4;
-_specRIFLE = ["rhs_weap_mk18","rhs_mag_30Rnd_556x45_M855_Stanag_Pull"];
+_reconRIFLE = ["rhs_weap_mk18","rhs_mag_30Rnd_556x45_M855_Stanag_Pull"];
 _commonRIFLEGL = _RHSM4GL203;
 _commonPISTOL = _M9;
 _commonAR = _M249S;
