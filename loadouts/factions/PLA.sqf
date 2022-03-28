@@ -167,32 +167,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */     ["O_PGZ09_AA"]
-/*  Attack Helos      */    ,["VME_WZ10"]
-/*  Attack Planes     */    ,["VME_PLA_J16", "VME_PLA_J16", "VME_PLA_JH7", "VME_PLA_J10B"]
-/*  Heavy Vehicles    */    ,["O_ZTQ15", "O_ZTZ96B", "O_ZTZ99", "O_ZTZ99A"]
-/*  Light Vehicles    */    ,["VME_PLA_BJ2022", "VME_PLA_EQ2050_MG"]
-/*  Medium Vehicles   */    ,["O_ZBD04A","O_ZBL09","O_ZTL11"]
-/*  Mobile Artillery  */    ,["O_PLZ05", "O_PLL09", "RHS_BM21_VV_01"]
-/*  Transport Helos   */    ,["VME_PLA_Mi17"]
-/*  Transport Planes  */    ,[]
-/*  Transport Trucks  */    ,["VME_PLA_SX2190"]
-/*  Static Defence    */    ,["VME_PLA_HJ11", "VME_QJY88_Static_AA"]
-/*  Boats             */    ,[]
-/*  UAV               */    ,[]
-/*  UGV               */    ,[]
-/*  Support           */    ,["VME_PLA_SX2190Repair", "VME_PLA_SX2190Refuel"]
-/*  Submarines        */    ,["O_SDV_01_F", "O_SDV_01_F"]
-/*  MRAP Vehicles     */    ,[]
+/*  Anti Air Vehicles */ ["O_PGZ09_AA"]
+/*  Attack Helos      */,["VME_WZ10"]
+/*  Attack Planes     */,["VME_PLA_J16", "VME_PLA_J16", "VME_PLA_JH7", "VME_PLA_J10B"]
+/*  Heavy Vehicles    */,["O_ZTQ15", "O_ZTZ96B", "O_ZTZ99", "O_ZTZ99A"]
+/*  Light Vehicles    */,["VME_PLA_BJ2022", "VME_PLA_EQ2050_MG"]
+/*  Medium Vehicles   */,["O_ZBD04A","O_ZBL09","O_ZTL11"]
+/*  Mobile Artillery  */,["O_PLZ05", "O_PLL09", "RHS_BM21_VV_01"]
+/*  Transport Helos   */,["VME_PLA_Mi17"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["VME_PLA_SX2190"]
+/*  Static Defence    */,["VME_PLA_HJ11", "VME_QJY88_Static_AA"]
+/*  Boats             */,[]
+/*  UAV               */,[]
+/*  UGV               */,[]
+/*  Support           */,["VME_PLA_SX2190Repair", "VME_PLA_SX2190Refuel"]
+/*  Submarines        */,["O_SDV_01_F", "O_SDV_01_F"]
+/*  MRAP Vehicles     */,[]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_Red_F",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_Mil_WallBig_4m_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "Flag_Red_F"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_Mil_WallBig_4m_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================

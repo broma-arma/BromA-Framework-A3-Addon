@@ -178,38 +178,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-    /*  Anti Air Vehicles */	 []
-    /*  Attack Helos      */	,["UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited","UK3CB_BAF_Wildcat_AH1_CAS_6D"]
-    /*  Attack Planes     */	,[]
-    /*  Heavy Vehicles    */	,["rhs_t72ba_tv","rhs_t72bb_tv"]
-    /*  Light Vehicles    */	,["UK3CB_BAF_LandRover_Hard_FFR_Green_A","UK3CB_BAF_LandRover_Snatch_NI_A","UK3CB_BAF_LandRover_Soft_RAF_A"]
-    /*  Medium Vehicles   */	,["rhsusf_CGRCAT1A2_M2_usmc_wd","rhs_bmp2d_vdv"]
-    /*  Mobile Artillery  */	,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
-    /*  Transport Helos   */	,["UK3CB_BAF_Merlin_HC3_24"]
-    /*  Transport Planes  */	,["RHS_C130J", "RHS_C130J"]
-    /*  Transport Trucks  */	,["UK3CB_BAF_MAN_HX60_Transport_Green"]
-    /*  Static Defence    */	,["rhsgref_cdf_reg_d30", "rhsgref_cdf_reg_d30", "rhsgref_cdf_Igla_AA_pod", "rhsgref_cdf_DSHKM", "rhsgref_cdf_DSHKM_Mini_TriPod", "rhsgref_cdf_NSV_TriPod", "rhsgref_cdf_SPG9", "rhsgref_cdf_SPG9M", "rhsgref_cdf_ZU23"]
-    /*  Boats             */	,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
-    /*  UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-    /*  UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-    /*  Support           */	,["UK3CB_BAF_MAN_HX60_Repair_Green","UK3CB_BAF_MAN_HX60_Fuel_Green","UK3CB_BAF_MAN_HX58_Cargo_Green_B"]
-    /*  Submarines        */	,["B_SDV_01_F"]
-    /*  MRAP Vehicles     */    ,["rhsusf_CGRCAT1A2_M2_usmc_wd"]
+/*  Anti Air Vehicles */ []
+/*  Attack Helos      */,["UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited","UK3CB_BAF_Wildcat_AH1_CAS_6D"]
+/*  Attack Planes     */,[]
+/*  Heavy Vehicles    */,["rhs_t72ba_tv","rhs_t72bb_tv"]
+/*  Light Vehicles    */,["UK3CB_BAF_LandRover_Hard_FFR_Green_A","UK3CB_BAF_LandRover_Snatch_NI_A","UK3CB_BAF_LandRover_Soft_RAF_A"]
+/*  Medium Vehicles   */,["rhsusf_CGRCAT1A2_M2_usmc_wd","rhs_bmp2d_vdv"]
+/*  Mobile Artillery  */,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
+/*  Transport Helos   */,["UK3CB_BAF_Merlin_HC3_24"]
+/*  Transport Planes  */,["RHS_C130J", "RHS_C130J"]
+/*  Transport Trucks  */,["UK3CB_BAF_MAN_HX60_Transport_Green"]
+/*  Static Defence    */,["rhsgref_cdf_reg_d30", "rhsgref_cdf_reg_d30", "rhsgref_cdf_Igla_AA_pod", "rhsgref_cdf_DSHKM", "rhsgref_cdf_DSHKM_Mini_TriPod", "rhsgref_cdf_NSV_TriPod", "rhsgref_cdf_SPG9", "rhsgref_cdf_SPG9M", "rhsgref_cdf_ZU23"]
+/*  Boats             */,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*  Support           */,["UK3CB_BAF_MAN_HX60_Repair_Green","UK3CB_BAF_MAN_HX60_Fuel_Green","UK3CB_BAF_MAN_HX58_Cargo_Green_B"]
+/*  Submarines        */,["B_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsusf_CGRCAT1A2_M2_usmc_wd"]
 ];
-
-
-
-
-
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_NATO_F",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["CDF_WarfareBLightFactory"]
+/* Flag         */ "Flag_NATO_F"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_BagFence_Long_F"]
+/* Structures   */,["CDF_WarfareBLightFactory"]
 ];
-
-
-// =============================================================================

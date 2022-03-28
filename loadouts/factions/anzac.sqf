@@ -1,7 +1,6 @@
 // INFO ========================================================================
 /*
     ANZAC Forces
-    Use BRM_FMK_UNIFORMS_AnzacCammo (DPCU or DPDU) to change camo.
 */
 
 _factionID = "ANZAC";
@@ -146,7 +145,7 @@ _medicVEST     = _commonVEST;
 _demoVEST      = _commonVEST;
 _marksmanVEST  = _commonVEST;
 _reconVEST     = "BRM_RRV_BROWN_REC1";
-_pilotVEST = "UK3CB_V_Pilot_Vest";
+_pilotVEST     = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "BRM_PatrolBP_"+_camo;
 _bigBACKPACK = _commonBACKPACK;
@@ -182,64 +181,52 @@ _UAVTerminal = "auto";
 if(!isNil "BRM_FMK_UNIFORMS_AnzacCammo")then{_camo=BRM_FMK_UNIFORMS_AnzacCammo};
 
 if (_camo == "des") then {
-
-_factionVehicles = [
-    /*  Anti Air Vehicles */	 []
-    /*  Attack Helos      */	,["UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited","UK3CB_BAF_Wildcat_AH1_CAS_6D"]
-    /*  Attack Planes     */	,[]
-    /*  Heavy Vehicles    */	,[]
-    /*  Light Vehicles    */	,["UK3CB_BAF_LandRover_Soft_Sand_A","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Sand_A","rhsusf_M1078A1R_SOV_M2_D_fmtv_socom"]
-    /*  Medium Vehicles   */	,["UK3CB_BAF_Jackal2_L111A1_D","UK3CB_BAF_Coyote_Logistics_L111A1_D","UK3CB_BAF_Panther_GPMG_Sand_A"]
-    /*  Mobile Artillery  */	,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
-    /*  Transport Helos   */	,["UK3CB_BAF_Merlin_HC4_18","UK3CB_BAF_Wildcat_AH1_TRN_8A"]
-    /*  Transport Planes  */	,["RHS_C130J", "RHS_C130J"]
-    /*  Transport Trucks  */	,["rhsusf_M1084A1R_SOV_M2_D_fmtv_socom","UK3CB_BAF_MAN_HX58_Transport_Sand"]
-    /*  Static Defence    */	,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-    /*  Boats             */	,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
-    /*  UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-    /*  UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-    /*  Support           */	,["UK3CB_BAF_MAN_HX60_Repair_Sand","UK3CB_BAF_MAN_HX60_Fuel_Sand","UK3CB_BAF_MAN_HX58_Cargo_Sand_B"]
-    /*  Submarines        */	,["B_SDV_01_F"]
-    /*  MRAP Vehicles     */    ,["UK3CB_BAF_Panther_GPMG_Sand_A"]
-];
-
+    _factionVehicles = [
+        /*  Anti Air Vehicles */ []
+        /*  Attack Helos      */,["UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited","UK3CB_BAF_Wildcat_AH1_CAS_6D"]
+        /*  Attack Planes     */,[]
+        /*  Heavy Vehicles    */,[]
+        /*  Light Vehicles    */,["UK3CB_BAF_LandRover_Soft_Sand_A","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Sand_A","rhsusf_M1078A1R_SOV_M2_D_fmtv_socom"]
+        /*  Medium Vehicles   */,["UK3CB_BAF_Jackal2_L111A1_D","UK3CB_BAF_Coyote_Logistics_L111A1_D","UK3CB_BAF_Panther_GPMG_Sand_A"]
+        /*  Mobile Artillery  */,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
+        /*  Transport Helos   */,["UK3CB_BAF_Merlin_HC4_18","UK3CB_BAF_Wildcat_AH1_TRN_8A"]
+        /*  Transport Planes  */,["RHS_C130J", "RHS_C130J"]
+        /*  Transport Trucks  */,["rhsusf_M1084A1R_SOV_M2_D_fmtv_socom","UK3CB_BAF_MAN_HX58_Transport_Sand"]
+        /*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+        /*  Boats             */,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
+        /*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+        /*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+        /*  Support           */,["UK3CB_BAF_MAN_HX60_Repair_Sand","UK3CB_BAF_MAN_HX60_Fuel_Sand","UK3CB_BAF_MAN_HX58_Cargo_Sand_B"]
+        /*  Submarines        */,["B_SDV_01_F"]
+        /*  MRAP Vehicles     */,["UK3CB_BAF_Panther_GPMG_Sand_A"]
+    ];
 } else {
-
-_factionVehicles = [
-    /*  Anti Air Vehicles */	 []
-    /*  Attack Helos      */	,["UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited","UK3CB_BAF_Wildcat_AH1_CAS_6D"]
-    /*  Attack Planes     */	,[]
-    /*  Heavy Vehicles    */	,[]
-    /*  Light Vehicles    */	,["UK3CB_BAF_LandRover_Soft_Green_A","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_A"]
-    /*  Medium Vehicles   */	,["UK3CB_BAF_Jackal2_L111A1_D","UK3CB_BAF_Coyote_Logistics_L111A1_D","UK3CB_BAF_Panther_GPMG_Green_A"]
-    /*  Mobile Artillery  */	,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
-    /*  Transport Helos   */	,["UK3CB_BAF_Merlin_HC4_18","UK3CB_BAF_Wildcat_AH1_TRN_8A"]
-    /*  Transport Planes  */	,["RHS_C130J", "RHS_C130J"]
-    /*  Transport Trucks  */	,["rhsusf_M1084A1R_SOV_M2_D_fmtv_socom","UK3CB_BAF_MAN_HX58_Transport_Green"]
-    /*  Static Defence    */	,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-    /*  Boats             */	,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
-    /*  UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-    /*  UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-    /*  Support           */	,["UK3CB_BAF_MAN_HX60_Repair_Green","UK3CB_BAF_MAN_HX60_Fuel_Green","UK3CB_BAF_MAN_HX58_Cargo_Green_B"]
-    /*  Submarines        */	,["B_SDV_01_F"]
-    /*  MRAP Vehicles     */    ,["UK3CB_BAF_Panther_GPMG_Green_A"]
-];
-
-
-
+    _factionVehicles = [
+        /*  Anti Air Vehicles */ []
+        /*  Attack Helos      */,["UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited","UK3CB_BAF_Wildcat_AH1_CAS_6D"]
+        /*  Attack Planes     */,[]
+        /*  Heavy Vehicles    */,[]
+        /*  Light Vehicles    */,["UK3CB_BAF_LandRover_Soft_Green_A","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_A"]
+        /*  Medium Vehicles   */,["UK3CB_BAF_Jackal2_L111A1_D","UK3CB_BAF_Coyote_Logistics_L111A1_D","UK3CB_BAF_Panther_GPMG_Green_A"]
+        /*  Mobile Artillery  */,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
+        /*  Transport Helos   */,["UK3CB_BAF_Merlin_HC4_18","UK3CB_BAF_Wildcat_AH1_TRN_8A"]
+        /*  Transport Planes  */,["RHS_C130J", "RHS_C130J"]
+        /*  Transport Trucks  */,["rhsusf_M1084A1R_SOV_M2_D_fmtv_socom","UK3CB_BAF_MAN_HX58_Transport_Green"]
+        /*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+        /*  Boats             */,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
+        /*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+        /*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+        /*  Support           */,["UK3CB_BAF_MAN_HX60_Repair_Green","UK3CB_BAF_MAN_HX60_Fuel_Green","UK3CB_BAF_MAN_HX58_Cargo_Green_B"]
+        /*  Submarines        */,["B_SDV_01_F"]
+        /*  MRAP Vehicles     */,["UK3CB_BAF_Panther_GPMG_Green_A"]
+    ];
 };
-
-
-
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "BRM_Flag_australia",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_HBarrierWall4_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "BRM_Flag_australia"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_HBarrierWall4_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-
-// =============================================================================

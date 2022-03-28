@@ -44,7 +44,7 @@ _weaponsAA              = _STINGER;
 _weaponsAT              = _JAVELIN;
 _commonSMG              = _G36C;
 _commonRCO              = "hlc_optic_g36export35x";
-_specATSCOPE                  = "rhs_weap_optic_smaw";
+_specATSCOPE            = "rhs_weap_optic_smaw";
 _commonCCO              = "rhsusf_acc_RX01";
 _commonMAGNIFIED        = "rhsusf_acc_M8541";
 _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
@@ -146,7 +146,7 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = "BRM_RRV_BROWN_REC1";
-_pilotVEST     = "UK3CB_V_Pilot_Vest";
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "BRM_PatrolBP_"+_camo;
 _bigBACKPACK = "BRM_PatrolBPH_"+_camo;
@@ -174,32 +174,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-    /*  Anti Air Vehicles */     ["B_APC_Tracked_01_AA_F", "RHS_M6"]
-    /*  Attack Helos      */    ,["RHS_AH64D_AA", "RHS_AH64D_CS", "RHS_AH64D_GS", "RHS_AH64D", "RHS_AH64DGrey"]
-    /*  Attack Planes     */    ,["RHS_A10_AT", "RHS_A10", "rhsusf_f22"]
-    /*  Heavy Vehicles    */    ,["rhsusf_m1a1aimd_usarmy", "rhsusf_m1a1aim_tuski_d", "rhsusf_m1a2sep1d_usarmy", "rhsusf_m1a2sep1tuskid_usarmy", "rhsusf_m1a2sep1tuskiid_usarmy"]
-    /*  Light Vehicles    */    ,["rhsusf_m1025_d_m2", "rhsusf_m1025_d", "rhsusf_m998_d_2dr_fulltop", "rhsusf_m998_d_4dr_fulltop", "rhsusf_m998_d_4dr"]
-    /*  Medium Vehicles   */    ,["RHS_M2A2", "RHS_M2A2_BUSKI", "RHS_M2A3", "RHS_M2A3_BUSKI", "RHS_M2A3_BUSKIII", "rhsusf_m113d_usarmy", "rhsusf_m113d_usarmy_M240"]
-    /*  Mobile Artillery  */    ,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
-    /*  Transport Helos   */    ,["RHS_CH_47F_10", "RHS_CH_47F_light", "RHS_UH60M_d", "RHS_UH60M_MEV2_d", "RHS_UH60M_MEV_d", "RHS_MELB_MH6M", "RHS_MELB_H6M", "RHS_UH1Y_UNARMED_d"]
-    /*  Transport Planes  */    ,["RHS_C130J", "RHS_C130J"]
-    /*  Transport Trucks  */    ,["rhsusf_M1078A1P2_d_fmtv_usarmy", "rhsusf_M1078A1P2_d_flatbed_fmtv_usarmy", "rhsusf_M977A4_usarmy_d"]
-    /*  Static Defence    */    ,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-    /*  Boats             */    ,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
-    /*  UAV               */    ,["B_UAV_02_CAS_F","B_UAV_02_F"]
-    /*  UGV               */    ,["B_UGV_01_F","B_UGV_01_rcws_F"]
-    /*  Support           */    ,["rhsusf_M977A4_REPAIR_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d", "B_Truck_01_fuel_F"]
-    /*  Submarines        */    ,["B_SDV_01_F"]
-    /*  MRAP Vehicles     */    ,["rhsusf_rg33_d", "rhsusf_rg33_m2_d", "rhsusf_M1117_D"]
+/*  Anti Air Vehicles */ ["B_APC_Tracked_01_AA_F", "RHS_M6"]
+/*  Attack Helos      */,["RHS_AH64D_AA", "RHS_AH64D_CS", "RHS_AH64D_GS", "RHS_AH64D", "RHS_AH64DGrey"]
+/*  Attack Planes     */,["RHS_A10_AT", "RHS_A10", "rhsusf_f22"]
+/*  Heavy Vehicles    */,["rhsusf_m1a1aimd_usarmy", "rhsusf_m1a1aim_tuski_d", "rhsusf_m1a2sep1d_usarmy", "rhsusf_m1a2sep1tuskid_usarmy", "rhsusf_m1a2sep1tuskiid_usarmy"]
+/*  Light Vehicles    */,["rhsusf_m1025_d_m2", "rhsusf_m1025_d", "rhsusf_m998_d_2dr_fulltop", "rhsusf_m998_d_4dr_fulltop", "rhsusf_m998_d_4dr"]
+/*  Medium Vehicles   */,["RHS_M2A2", "RHS_M2A2_BUSKI", "RHS_M2A3", "RHS_M2A3_BUSKI", "RHS_M2A3_BUSKIII", "rhsusf_m113d_usarmy", "rhsusf_m113d_usarmy_M240"]
+/*  Mobile Artillery  */,["rhsusf_m109d_usarmy", "rhsusf_m109d_usarmy"]
+/*  Transport Helos   */,["RHS_CH_47F_10", "RHS_CH_47F_light", "RHS_UH60M_d", "RHS_UH60M_MEV2_d", "RHS_UH60M_MEV_d", "RHS_MELB_MH6M", "RHS_MELB_H6M", "RHS_UH1Y_UNARMED_d"]
+/*  Transport Planes  */,["RHS_C130J", "RHS_C130J"]
+/*  Transport Trucks  */,["rhsusf_M1078A1P2_d_fmtv_usarmy", "rhsusf_M1078A1P2_d_flatbed_fmtv_usarmy", "rhsusf_M977A4_usarmy_d"]
+/*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+/*  Boats             */,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*  Support           */,["rhsusf_M977A4_REPAIR_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d", "B_Truck_01_fuel_F"]
+/*  Submarines        */,["B_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsusf_rg33_d", "rhsusf_rg33_m2_d", "rhsusf_M1117_D"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "FlagCarrierGermany_EP1",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_Mil_WallBig_4m_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "FlagCarrierGermany_EP1"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_Mil_WallBig_4m_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================

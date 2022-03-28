@@ -164,32 +164,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */      ["sfp_lvkv90c"]
-/*  Attack Helos 	 */	,[]
-/*  Attack Planes 	 */	,["UK3CB_AAF_B_Gripen_G"]
-/*  Heavy Vehicles 	 */	,["sfp_strv122b","sfp_strv122","sfp_strv122_snow"]
-/*  Light Vehicles 	 */	,["sfp_bv206"]
-/*  Medium Vehicles 	 */	,["sfp_strf90c","sfp_strf90c_snow"]
-/*  Mobile Artillery     */	,["sfp_grkpbv90120"]
-/*  Transport Helos      */	,[]
-/*  Transport Planes     */	,[]
-/*  Transport Trucks     */	,[]
-/*  Static Defence       */	,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-/*  Boats                */	,[]
-/*  UAV                  */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*  UGV                  */	,[]
-/*  Support              */	,["UK3CB_BAF_MAN_HX58_Repair_Green","UK3CB_BAF_MAN_HX58_Fuel_Green","UK3CB_BAF_MAN_HX58_Cargo_Green_B"]
-/*  Submarines           */	,[]
-/*  MRAP Vehicles        */     ,[]
+/*  Anti Air Vehicles */ ["sfp_lvkv90c"]
+/*  Attack Helos      */,[]
+/*  Attack Planes     */,["UK3CB_AAF_B_Gripen_G"]
+/*  Heavy Vehicles    */,["sfp_strv122b","sfp_strv122","sfp_strv122_snow"]
+/*  Light Vehicles    */,["sfp_bv206"]
+/*  Medium Vehicles   */,["sfp_strf90c","sfp_strf90c_snow"]
+/*  Mobile Artillery  */,["sfp_grkpbv90120"]
+/*  Transport Helos   */,[]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,[]
+/*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+/*  Boats             */,[]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */,[]
+/*  Support           */,["UK3CB_BAF_MAN_HX58_Repair_Green","UK3CB_BAF_MAN_HX58_Fuel_Green","UK3CB_BAF_MAN_HX58_Cargo_Green_B"]
+/*  Submarines        */,[]
+/*  MRAP Vehicles     */,[]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_NATO_F",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_Mil_WallBig_4m_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "Flag_NATO_F"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_Mil_WallBig_4m_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================

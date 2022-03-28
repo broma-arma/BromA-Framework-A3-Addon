@@ -193,32 +193,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */  ["RHS_M6_wd"]
-/*  Attack Helos         */ ,["RHS_AH64D_wd_AA", "RHS_AH64D_wd_CS", "RHS_AH64D_wd_GS", "RHS_AH64D_wd", "RHS_AH64DGrey"]
-/*  Attack Planes        */ ,["I_Plane_Fighter_04_F"]
-/*  Heavy Vehicles       */ ,["rhsusf_m1a1aimwd_usarmy", "rhsusf_m1a1aim_tuski_wd", "rhsusf_m1a2sep1wd_usarmy", "rhsusf_m1a2sep1tuskiwd_usarmy", "rhsusf_m1a2sep1tuskiiwd_usarmy"]
-/*  Light Vehicles       */ ,["rhsusf_m1025_w_m2", "rhsusf_m1025_w", "rhsusf_m998_w_2dr_fulltop", "rhsusf_m998_w_4dr_fulltop", "rhsusf_m998_w_4dr"]
-/*  Medium Vehicles      */ ,["B_APC_Wheeled_01_cannon_F"]
-/*  Mobile Artillery     */ ,["rhsusf_m109_usarmy"]
-/*  Transport Helos      */ ,["RHS_CH_47F_10","I_Heli_Transport_02_F","O_Heli_Light_02_unarmed_F"]
-/*  Transport Planes     */ ,["RHS_C130J"]
-/*  Transport Trucks     */ ,["rhsusf_M977A4_usarmy_wd"]
-/*  Static Defence       */ ,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-/*  Boats                */ ,["B_Boat_Armed_01_minigun_F"]
-/*  UAV                  */ ,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*  UGV                  */ ,["B_UGV_01_F","B_UGV_01_rcws_F"]
-/*  Support              */ ,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd", "B_Truck_01_fuel_F"]
-/*  Submarines           */ ,["B_SDV_01_F"]
-/*  MRAP Vehicles        */ ,["rhsusf_M1232_M2_usarmy_wd", "rhsusf_M1237_M2_usarmy_wd"]
+/*  Anti Air Vehicles */ ["RHS_M6_wd"]
+/*  Attack Helos      */,["RHS_AH64D_wd_AA", "RHS_AH64D_wd_CS", "RHS_AH64D_wd_GS", "RHS_AH64D_wd", "RHS_AH64DGrey"]
+/*  Attack Planes     */,["I_Plane_Fighter_04_F"]
+/*  Heavy Vehicles    */,["rhsusf_m1a1aimwd_usarmy", "rhsusf_m1a1aim_tuski_wd", "rhsusf_m1a2sep1wd_usarmy", "rhsusf_m1a2sep1tuskiwd_usarmy", "rhsusf_m1a2sep1tuskiiwd_usarmy"]
+/*  Light Vehicles    */,["rhsusf_m1025_w_m2", "rhsusf_m1025_w", "rhsusf_m998_w_2dr_fulltop", "rhsusf_m998_w_4dr_fulltop", "rhsusf_m998_w_4dr"]
+/*  Medium Vehicles   */,["B_APC_Wheeled_01_cannon_F"]
+/*  Mobile Artillery  */,["rhsusf_m109_usarmy"]
+/*  Transport Helos   */,["RHS_CH_47F_10","I_Heli_Transport_02_F","O_Heli_Light_02_unarmed_F"]
+/*  Transport Planes  */,["RHS_C130J"]
+/*  Transport Trucks  */,["rhsusf_M977A4_usarmy_wd"]
+/*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+/*  Boats             */,["B_Boat_Armed_01_minigun_F"]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*  Support           */,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd", "B_Truck_01_fuel_F"]
+/*  Submarines        */,["B_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsusf_M1232_M2_usarmy_wd", "rhsusf_M1237_M2_usarmy_wd"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_NATO_F",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_Mil_WallBig_4m_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "Flag_NATO_F"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_Mil_WallBig_4m_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================

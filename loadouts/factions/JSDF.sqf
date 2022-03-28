@@ -1,8 +1,7 @@
 // INFO ========================================================================
 /*
-The armed forces of anime land. THE JSDF (JSF for short) is a combination of Japan's military branches that was established in 1954 and then relegated to Peacekeeping operations.
-Recent tensions over North Korea have forced the Japanese Ministry of Defense to devote a higher budget to the JSF, Resulting in the rapid replacement of older weaponry and equipment in favor of modern equipment.
-
+    The armed forces of anime land. THE JSDF (JSF for short) is a combination of Japan's military branches that was established in 1954 and then relegated to Peacekeeping operations.
+    Recent tensions over North Korea have forced the Japanese Ministry of Defense to devote a higher budget to the JSF, Resulting in the rapid replacement of older weaponry and equipment in favor of modern equipment.
 */
 
 _factionID = "JSDF";
@@ -145,7 +144,7 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = "BMR_MLBVARMOR_GREEN_RFL";
-_pilotVEST     = "UK3CB_V_Pilot_Vest";
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "TRYK_B_AssaultPack_Type2camo";
 _bigBACKPACK = "TRYK_B_Carryall_JSDF";
@@ -169,32 +168,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */  ["B_APC_Tracked_01_AA_F"]
-/*  Attack Helos 	     */	,["RHS_AH1Z","RHS_AH1Z_wd"]
-/*  Attack Planes 	     */	,["rhs_l159_CDF"]
-/*  Heavy Vehicles 	     */	,["I_MBT_03_cannon_F","B_AFV_Wheeled_01_cannon_F"]
-/*  Light Vehicles 	     */	,["rhssaf_m998_olive_2dr_fulltop", "rhssaf_m1025_olive_m2"]
-/*  Medium Vehicles 	 */	,["I_APC_tracked_03_cannon_F"]
-/*  Mobile Artillery     */	,["rhsusf_m109_usarmy","B_MBT_01_mlrs_F"]
-/*  Transport Helos      */	,["RHS_CH_47F","RHS_UH60M","RHS_UH1Y"]
-/*  Transport Planes     */	,["RHS_C130J"]
-/*  Transport Trucks     */	,["rhsusf_M1078A1P2_WD_fmtv_usarmy"]
-/*  Static Defence       */	,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-/*  Boats                */	,["B_Boat_Armed_01_minigun_F"]
-/*  UAV                  */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*  UGV                  */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-/*  Support              */	,["rhsusf_M978A4_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd", "rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd", "rhsusf_M1230a1_usarmy_wd"]
-/*  Submarines           */	,["B_SDV_01_F"]
-/*  MRAP Vehicles        */ ,["rhsusf_m113_usarmy_M2_90", "rhsusf_m113_usarmy_MK19_90"]
+/*  Anti Air Vehicles */ ["B_APC_Tracked_01_AA_F"]
+/*  Attack Helos      */,["RHS_AH1Z","RHS_AH1Z_wd"]
+/*  Attack Planes     */,["rhs_l159_CDF"]
+/*  Heavy Vehicles    */,["I_MBT_03_cannon_F","B_AFV_Wheeled_01_cannon_F"]
+/*  Light Vehicles    */,["rhssaf_m998_olive_2dr_fulltop", "rhssaf_m1025_olive_m2"]
+/*  Medium Vehicles   */,["I_APC_tracked_03_cannon_F"]
+/*  Mobile Artillery  */,["rhsusf_m109_usarmy","B_MBT_01_mlrs_F"]
+/*  Transport Helos   */,["RHS_CH_47F","RHS_UH60M","RHS_UH1Y"]
+/*  Transport Planes  */,["RHS_C130J"]
+/*  Transport Trucks  */,["rhsusf_M1078A1P2_WD_fmtv_usarmy"]
+/*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+/*  Boats             */,["B_Boat_Armed_01_minigun_F"]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*  Support           */,["rhsusf_M978A4_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd", "rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd", "rhsusf_M1230a1_usarmy_wd"]
+/*  Submarines        */,["B_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsusf_m113_usarmy_M2_90", "rhsusf_m113_usarmy_MK19_90"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "BRM_Flag_Japan",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_Mil_WallBig_4m_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "BRM_Flag_Japan"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_Mil_WallBig_4m_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================

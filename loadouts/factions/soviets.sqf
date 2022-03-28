@@ -247,33 +247,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */	 ["rhsgref_ins_g_g_zsu234"]
-/*  Attack Helos      */	,["rhsgref_b_mi24g_CAS","rhsgref_b_mi24g_FAB","rhsgref_cdf_b_Mi35","rhsgref_cdf_b_Mi35_UPK"]
-/*  Attack Planes     */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
-/*  Heavy Vehicles    */	,["rhsgref_ins_g_t72ba", "rhsgref_ins_g_t72bb", "rhsgref_ins_g_t72bc"]
-/*  Light Vehicles    */	,["rhsgref_ins_g_uaz", "rhsgref_ins_g_uaz_dshkm_chdkz", "rhsgref_ins_g_uaz_spg9", "rhsgref_ins_g_uaz_open"]
-/*  Medium Vehicles   */	,["rhsgref_BRDM2_ins_g", "rhsgref_BRDM2_ATGM_ins_g", "rhsgref_ins_g_btr60", "rhsgref_ins_g_btr70", "rhsgref_ins_g_bmp1", "rhsgref_ins_g_bmp1p", "rhsgref_ins_g_bmp2e", "rhsgref_ins_g_bmp2k", "rhsgref_ins_g_ural_Zu23"]
-/*  Mobile Artillery  */	,["rhsgref_ins_g_reg_BM21", "rhsgref_ins_g_reg_BM21"]
-/*  Transport Helos   */	,["rhsgref_ins_g_Mi8amt", "rhsgref_ins_g_Mi8amt"]
-/*  Transport Planes  */	,["RHS_AN2_B", "RHS_AN2_B"]
-/*  Transport Trucks  */	,["rhsgref_ins_g_ural", "rhsgref_ins_g_ural_open", "rhsgref_ins_g_ural_work"]
-/*  Static Defence    */	,["rhsgref_ins_g_reg_d30", "rhsgref_ins_g_reg_d30", "rhsgref_ins_g_Igla_AA_pod", "rhsgref_ins_g_DSHKM", "rhsgref_ins_g_DSHKM_Mini_TriPod", "rhsgref_ins_g_NSV_TriPod", "rhsgref_ins_g_SPG9", "rhsgref_ins_g_SPG9M", "rhsgref_ins_g_ZU23"]
-/*  Boats             */	,["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
-/*  UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*  UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-/*  Support           */	,["rhs_gaz66_repair_vv","rhsgref_ins_g_gaz66_ammo","RHS_Ural_Fuel_VV_01"]
-/*  Submarines        */	,["B_SDV_01_F"]
-/*  MRAP Vehicles     */        ,["rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
+/*  Anti Air Vehicles */ ["rhsgref_ins_g_g_zsu234"]
+/*  Attack Helos      */,["rhsgref_b_mi24g_CAS","rhsgref_b_mi24g_FAB","rhsgref_cdf_b_Mi35","rhsgref_cdf_b_Mi35_UPK"]
+/*  Attack Planes     */,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
+/*  Heavy Vehicles    */,["rhsgref_ins_g_t72ba", "rhsgref_ins_g_t72bb", "rhsgref_ins_g_t72bc"]
+/*  Light Vehicles    */,["rhsgref_ins_g_uaz", "rhsgref_ins_g_uaz_dshkm_chdkz", "rhsgref_ins_g_uaz_spg9", "rhsgref_ins_g_uaz_open"]
+/*  Medium Vehicles   */,["rhsgref_BRDM2_ins_g", "rhsgref_BRDM2_ATGM_ins_g", "rhsgref_ins_g_btr60", "rhsgref_ins_g_btr70", "rhsgref_ins_g_bmp1", "rhsgref_ins_g_bmp1p", "rhsgref_ins_g_bmp2e", "rhsgref_ins_g_bmp2k", "rhsgref_ins_g_ural_Zu23"]
+/*  Mobile Artillery  */,["rhsgref_ins_g_reg_BM21", "rhsgref_ins_g_reg_BM21"]
+/*  Transport Helos   */,["rhsgref_ins_g_Mi8amt", "rhsgref_ins_g_Mi8amt"]
+/*  Transport Planes  */,["RHS_AN2_B", "RHS_AN2_B"]
+/*  Transport Trucks  */,["rhsgref_ins_g_ural", "rhsgref_ins_g_ural_open", "rhsgref_ins_g_ural_work"]
+/*  Static Defence    */,["rhsgref_ins_g_reg_d30", "rhsgref_ins_g_reg_d30", "rhsgref_ins_g_Igla_AA_pod", "rhsgref_ins_g_DSHKM", "rhsgref_ins_g_DSHKM_Mini_TriPod", "rhsgref_ins_g_NSV_TriPod", "rhsgref_ins_g_SPG9", "rhsgref_ins_g_SPG9M", "rhsgref_ins_g_ZU23"]
+/*  Boats             */,["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*  Support           */,["rhs_gaz66_repair_vv","rhsgref_ins_g_gaz66_ammo","RHS_Ural_Fuel_VV_01"]
+/*  Submarines        */,["B_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
 ];
-
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "rhs_Flag_Russia_F",
-/* Objects      */ ["rhs_weapon_crate"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["CDF_WarfareBLightFactory"]
+/* Flag         */ "rhs_Flag_Russia_F"
+/* Objects      */,["rhs_weapon_crate"]
+/* Walls        */,["Land_BagFence_Long_F"]
+/* Structures   */,["CDF_WarfareBLightFactory"]
 ];
-
-// =============================================================================

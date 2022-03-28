@@ -1,6 +1,6 @@
 // INFO ========================================================================
 //
-//    The structure of a very well equipped army with enough ammo and meds to spare.
+//    The structure of a well equipped army.
 //
 // =============================================================================
 if (!_assignLoadoutMode) exitWith {};

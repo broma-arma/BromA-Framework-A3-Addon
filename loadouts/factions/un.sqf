@@ -1,12 +1,10 @@
 // INFO ========================================================================
 /*
-
     The United Nations Charter gives the United Nations Security Council the power and responsibility
 	to take collective action to maintain international peace and security. For this reason, the international
 	community usually looks to the Security Council to authorize peacekeeping operations.
 
 	Remember to not use your weapon until the UN Secretariate gives you permission to fire.
-
 */
 
 _factionID = "UN";
@@ -163,32 +161,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */  ["UK3CB_UN_I_Ural_Zu23"]
-/*  Attack Helos 	 	 */	,["rhsgref_un_Mi24V","rhsgref_un_Mi24V_UPK", "UK3CB_UN_I_Mi8AMTSh"]
-/*  Attack Planes        */	,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
-/*  Heavy Vehicles 	 	 */	,[]
-/*  Light Vehicles 	 	 */	,["rhsgref_un_uaz"]
-/*  Medium Vehicles 	 */	,["rhsgref_un_btr70","UK3CB_UN_I_M113_M2","UK3CB_UN_I_BTR60"]
-/*  Mobile Artillery     */	,[]
-/*  Transport Helos      */	,["UK3CB_UN_I_UH1H","UK3CB_UN_I_Mi8AMT"]
-/*  Transport Planes     */	,[]
-/*  Transport Trucks     */	,["rhsgref_un_ural"]
-/*  Static Defence       */	,["rhsgref_ins_g_Igla_AA_pod","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","rhsgref_ins_g_SPG9","rhsgref_ins_g_ZU23"]
-/*  Boats                */	,["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
-/*  UAV                  */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*  UGV                  */	,["B_UGV_01_F"]
-/*  Support              */	,["B_APC_Tracked_01_CRV_F","B_Truck_01_ammo_F","B_Truck_01_fuel_F"]
-/*  Submarines           */	,["B_SDV_01_F"]
-/*  MRAP Vehicles        */ ,["rhsgref_un_m1117"]
+/*  Anti Air Vehicles */ ["UK3CB_UN_I_Ural_Zu23"]
+/*  Attack Helos      */,["rhsgref_un_Mi24V","rhsgref_un_Mi24V_UPK", "UK3CB_UN_I_Mi8AMTSh"]
+/*  Attack Planes     */,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
+/*  Heavy Vehicles    */,[]
+/*  Light Vehicles    */,["rhsgref_un_uaz"]
+/*  Medium Vehicles   */,["rhsgref_un_btr70","UK3CB_UN_I_M113_M2","UK3CB_UN_I_BTR60"]
+/*  Mobile Artillery  */,[]
+/*  Transport Helos   */,["UK3CB_UN_I_UH1H","UK3CB_UN_I_Mi8AMT"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["rhsgref_un_ural"]
+/*  Static Defence    */,["rhsgref_ins_g_Igla_AA_pod","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","rhsgref_ins_g_SPG9","rhsgref_ins_g_ZU23"]
+/*  Boats             */,["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */,["B_UGV_01_F"]
+/*  Support           */,["B_APC_Tracked_01_CRV_F","B_Truck_01_ammo_F","B_Truck_01_fuel_F"]
+/*  Submarines        */,["B_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsgref_un_m1117"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_UNO_F",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["Land_Cargo_HQ_V1_F"]
+/* Flag       */ "Flag_UNO_F"
+/* Objects    */,["B_CargoNet_01_ammo_F"]
+/* Walls      */,["Land_BagFence_Long_F"]
+/* Structures */,["Land_Cargo_HQ_V1_F"]
 ];
-
-// =============================================================================

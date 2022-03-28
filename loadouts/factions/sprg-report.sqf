@@ -1,12 +1,10 @@
 // INFO ========================================================================
 /*
-
     SPRG Report is the most dedicated team of impetuous war-crawlers, ready to turn
     massacres and genocides into coverage for the highest paying news station.
 
     Ever since the conflict between CSAT and NATO broke out, their schedule has
     been very, very busy.
-
 */
 
 _defaultSide = WEST;

@@ -56,7 +56,6 @@ _NVG = "rhs_1PN138";
 
 _nightOnlyNVGs = true;
 
-
 // AMMO COUNT ==================================================================
 
 _countRIFLE = 7;
@@ -176,34 +175,33 @@ _mortarTripod = "RHS_Podnos_Bipod_Bag";
 _UAVBag = "auto";
 _UAVTerminal = "auto";
 
-
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */	 ["rhsgref_nat_ural_Zu23"]
-/*  Attack Helos      */	,[]
-/*  Attack Planes     */	,[]
-/*  Heavy Vehicles    */	,["rhs_t80","rhs_t72ba_tv"]
-/*  Light Vehicles    */	,["rhsgref_nat_uaz","rhsgref_nat_uaz_ags","rhsgref_nat_uaz_dshkm","rhsgref_nat_uaz_spg9"]
-/*  Medium Vehicles   */	,["rhs_bmp2d_msv","rhs_bmp1_msv","rhsgref_BRDM2_msv","rhsgref_nat_btr70"]
-/*  Mobile Artillery  */	,[]
-/*  Transport Helos   */	,[]
-/*  Transport Planes  */	,[]
-/*  Transport Trucks  */	,["rhsgref_nat_ural","rhsgref_nat_ural_open"]
-/*  Static Defence    */	,["rhsgref_cdf_reg_d30", "rhsgref_cdf_reg_d30", "rhsgref_cdf_Igla_AA_pod", "rhsgref_cdf_DSHKM", "rhsgref_cdf_DSHKM_Mini_TriPod", "rhsgref_cdf_NSV_TriPod", "rhsgref_cdf_SPG9", "rhsgref_cdf_SPG9M", "rhsgref_cdf_ZU23"]
-/*  Boats             */	,[]
-/*  UAV               */	,[]
-/*  UGV               */	,[]
-/*  Support           */	,[]
-/*  Submarines        */	,[]
-/*  MRAP Vehicles     */        ,["rhsgref_BRDM2_msv"]
+/*  Anti Air Vehicles */ ["rhsgref_nat_ural_Zu23"]
+/*  Attack Helos      */,[]
+/*  Attack Planes     */,[]
+/*  Heavy Vehicles    */,["rhs_t80","rhs_t72ba_tv"]
+/*  Light Vehicles    */,["rhsgref_nat_uaz","rhsgref_nat_uaz_ags","rhsgref_nat_uaz_dshkm","rhsgref_nat_uaz_spg9"]
+/*  Medium Vehicles   */,["rhs_bmp2d_msv","rhs_bmp1_msv","rhsgref_BRDM2_msv","rhsgref_nat_btr70"]
+/*  Mobile Artillery  */,[]
+/*  Transport Helos   */,[]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["rhsgref_nat_ural","rhsgref_nat_ural_open"]
+/*  Static Defence    */,["rhsgref_cdf_reg_d30", "rhsgref_cdf_reg_d30", "rhsgref_cdf_Igla_AA_pod", "rhsgref_cdf_DSHKM", "rhsgref_cdf_DSHKM_Mini_TriPod", "rhsgref_cdf_NSV_TriPod", "rhsgref_cdf_SPG9", "rhsgref_cdf_SPG9M", "rhsgref_cdf_ZU23"]
+/*  Boats             */,[]
+/*  UAV               */,[]
+/*  UGV               */,[]
+/*  Support           */,[]
+/*  Submarines        */,[]
+/*  MRAP Vehicles     */,["rhsgref_BRDM2_msv"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "FlagCarrierCDFEnsign_EP1",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["CDF_WarfareBLightFactory"]
+/* Flag         */ "FlagCarrierCDFEnsign_EP1"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_BagFence_Long_F"]
+/* Structures   */,["CDF_WarfareBLightFactory"]
 ];

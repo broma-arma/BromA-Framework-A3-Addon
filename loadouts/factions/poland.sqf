@@ -175,33 +175,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */      []
-/*  Attack Helos 	 */	,["PSZ_PL_WDL10_Mi24W","PSZ_PL_WDL10_Mi24D"]
-/*  Attack Planes 	 */	,[]
-/*  Heavy Vehicles 	 */	,["PSZ_PL_WDL20_Leopard_2PL"]
-/*  Light Vehicles 	 */	,["PSZ_PL_WDL10_Tumak2_WKM","PSZ_PL_WDL10_Tumak2_UKM","PSZ_PL_WDL10_Tumak2"]
-/*  Medium Vehicles 	 */	,["PSZ_PL_WDL10_Rosomak_1","PSZ_PL_WDL10_Rosomak_M1M"]
-/*  Mobile Artillery     */	,[]
-/*  Transport Helos      */	,["PSZ_PL_WDL10_Mi17_1W_UB32"]
-/*  Transport Planes     */	,[]
-/*  Transport Trucks     */	,["PSZ_PL_WDL10_Star_1466"]
-/*  Static Defence       */	,["RHS_Stinger_AA_pod_WD","RHS_M2StaticMG_WD","RHS_TOW_TriPod_WD"]
-/*  Boats                */	,[]
-/*  UAV                  */	,[]
-/*  UGV                  */	,[]
-/*  Support              */	,["PSZ_PL_WDL10_Star_1466_Command","PSZ_PL_WDL10_Star_1466_Fuel"]
-/*  Submarines           */	,[]
-/*  MRAP Vehicles        */     ,["PSZ_PL_WDL10_Zbik_M97","PSZ_PL_WDL10_Zbik_M96"]
+/*  Anti Air Vehicles */ []
+/*  Attack Helos      */,["PSZ_PL_WDL10_Mi24W","PSZ_PL_WDL10_Mi24D"]
+/*  Attack Planes     */,[]
+/*  Heavy Vehicles    */,["PSZ_PL_WDL20_Leopard_2PL"]
+/*  Light Vehicles    */,["PSZ_PL_WDL10_Tumak2_WKM","PSZ_PL_WDL10_Tumak2_UKM","PSZ_PL_WDL10_Tumak2"]
+/*  Medium Vehicles   */,["PSZ_PL_WDL10_Rosomak_1","PSZ_PL_WDL10_Rosomak_M1M"]
+/*  Mobile Artillery  */,[]
+/*  Transport Helos   */,["PSZ_PL_WDL10_Mi17_1W_UB32"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["PSZ_PL_WDL10_Star_1466"]
+/*  Static Defence    */,["RHS_Stinger_AA_pod_WD","RHS_M2StaticMG_WD","RHS_TOW_TriPod_WD"]
+/*  Boats             */,[]
+/*  UAV               */,[]
+/*  UGV               */,[]
+/*  Support           */,["PSZ_PL_WDL10_Star_1466_Command","PSZ_PL_WDL10_Star_1466_Fuel"]
+/*  Submarines        */,[]
+/*  MRAP Vehicles     */,["PSZ_PL_WDL10_Zbik_M97","PSZ_PL_WDL10_Zbik_M96"]
 ];
-
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "PSZ_PL_Flag",
-/* Objects      */ ["Box_EAF_Equip_F"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["Land_BagBunker_Tower_F"]
+/* Flag         */ "PSZ_PL_Flag"
+/* Objects      */,["Box_EAF_Equip_F"]
+/* Walls        */,["Land_BagFence_Long_F"]
+/* Structures   */,["Land_BagBunker_Tower_F"]
 ];
-
-// =============================================================================

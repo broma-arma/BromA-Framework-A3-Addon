@@ -1,3 +1,4 @@
+// INFO ========================================================================
 /*
     Lingor Rebels
 */
@@ -181,33 +182,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */      ["RHS_Ural_Zu23_VMF_01","rhs_zsu234_aa"]
-/*  Attack Helos 	 */	,["RHS_Mi24V_vdv"]
-/*  Attack Planes 	 */	,[]
-/*  Heavy Vehicles 	 */	,["rhs_t72bb_tv","rhs_t72ba_tv","rhs_t80"]
-/*  Light Vehicles 	 */	,["rhsgref_cdf_reg_uaz_open","rhsgref_cdf_reg_uaz","rhsgref_cdf_reg_uaz_dshkm","rhsgref_cdf_reg_uaz_spg9"]
-/*  Medium Vehicles 	 */	,["rhs_brm1k_vmf","rhs_bmp2d_vmf","rhs_bmp1_vmf","rhs_btr60_vdv"]
-/*  Mobile Artillery     */	,[]
-/*  Transport Helos      */	,["RHS_Mi8mt_vdv"]
-/*  Transport Planes     */	,[]
-/*  Transport Trucks     */	,["rhs_zil131_vmf","rhs_zil131_open_vmf"]
-/*  Static Defence       */	,["rhsgref_ins_g_reg_d30", "rhsgref_ins_g_reg_d30", "rhsgref_ins_g_Igla_AA_pod", "rhsgref_ins_g_DSHKM", "rhsgref_ins_g_DSHKM_Mini_TriPod", "rhsgref_ins_g_NSV_TriPod", "rhsgref_ins_g_SPG9", "rhsgref_ins_g_SPG9M", "rhsgref_ins_g_ZU23"]
-/*  Boats                */	,["B_Boat_Transport_01_F"]
-/*  UAV                  */	,[]
-/*  UGV                  */	,[]
-/*  Support              */	,[]
-/*  Submarines           */	,[]
-/*  MRAP Vehicles        */     ,["rhsgref_BRDM2_vmf"]
+/*  Anti Air Vehicles */ ["RHS_Ural_Zu23_VMF_01","rhs_zsu234_aa"]
+/*  Attack Helos      */,["RHS_Mi24V_vdv"]
+/*  Attack Planes     */,[]
+/*  Heavy Vehicles    */,["rhs_t72bb_tv","rhs_t72ba_tv","rhs_t80"]
+/*  Light Vehicles    */,["rhsgref_cdf_reg_uaz_open","rhsgref_cdf_reg_uaz","rhsgref_cdf_reg_uaz_dshkm","rhsgref_cdf_reg_uaz_spg9"]
+/*  Medium Vehicles   */,["rhs_brm1k_vmf","rhs_bmp2d_vmf","rhs_bmp1_vmf","rhs_btr60_vdv"]
+/*  Mobile Artillery  */,[]
+/*  Transport Helos   */,["RHS_Mi8mt_vdv"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["rhs_zil131_vmf","rhs_zil131_open_vmf"]
+/*  Static Defence    */,["rhsgref_ins_g_reg_d30", "rhsgref_ins_g_reg_d30", "rhsgref_ins_g_Igla_AA_pod", "rhsgref_ins_g_DSHKM", "rhsgref_ins_g_DSHKM_Mini_TriPod", "rhsgref_ins_g_NSV_TriPod", "rhsgref_ins_g_SPG9", "rhsgref_ins_g_SPG9M", "rhsgref_ins_g_ZU23"]
+/*  Boats             */,["B_Boat_Transport_01_F"]
+/*  UAV               */,[]
+/*  UGV               */,[]
+/*  Support           */,[]
+/*  Submarines        */,[]
+/*  MRAP Vehicles     */,["rhsgref_BRDM2_vmf"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "FlagCarrierTKMilitia_EP1",
-/* Objects      */ ["rhs_weapon_crate"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["Land_Fort_Watchtower"]
+/* Flag         */ "FlagCarrierTKMilitia_EP1"
+/* Objects      */,["rhs_weapon_crate"]
+/* Walls        */,["Land_BagFence_Long_F"]
+/* Structures   */,["Land_Fort_Watchtower"]
 ];
-
-// =============================================================================
-// INFO ==================================================

@@ -160,32 +160,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */      []
-/*  Attack Helos 	 */	,[]
-/*  Attack Planes 	 */	,[]
-/*  Heavy Vehicles 	 */	,[]
-/*  Light Vehicles 	 */	,["rhsgref_hidf_M998_2dr_fulltop","rhsgref_hidf_m1025_m2"]
-/*  Medium Vehicles 	 */	,["I_APC_Wheeled_03_cannon_F","rhsusf_m113_usarmy_supply"]
-/*  Mobile Artillery     */	,["rhsusf_m109_usarmy", "rhsusf_m109_usarmy"]
-/*  Transport Helos      */	,["B_Heli_Light_01_F","B_Heli_Transport_01_F","B_Heli_Transport_01_camo_F"]
-/*  Transport Planes     */	,[]
-/*  Transport Trucks     */	,["UK3CB_BAF_MAN_HX60_Transport_Green"]
-/*  Static Defence       */	,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-/*  Boats                */	,[]
-/*  UAV                  */	,[]
-/*  UGV                  */	,[]
-/*  Support              */	,["UK3CB_BAF_MAN_HX60_Cargo_Green_B","UK3CB_BAF_MAN_HX60_Repair_Green","UK3CB_BAF_MAN_HX60_Fuel_Green"]
-/*  Submarines           */	,[]
-/*  MRAP Vehicles        */     ,["UK3CB_BAF_Panther_GPMG_Green_A"]
+/*  Anti Air Vehicles */ []
+/*  Attack Helos      */,[]
+/*  Attack Planes     */,[]
+/*  Heavy Vehicles    */,[]
+/*  Light Vehicles    */,["rhsgref_hidf_M998_2dr_fulltop","rhsgref_hidf_m1025_m2"]
+/*  Medium Vehicles   */,["I_APC_Wheeled_03_cannon_F","rhsusf_m113_usarmy_supply"]
+/*  Mobile Artillery  */,["rhsusf_m109_usarmy", "rhsusf_m109_usarmy"]
+/*  Transport Helos   */,["B_Heli_Light_01_F","B_Heli_Transport_01_F","B_Heli_Transport_01_camo_F"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["UK3CB_BAF_MAN_HX60_Transport_Green"]
+/*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+/*  Boats             */,[]
+/*  UAV               */,[]
+/*  UGV               */,[]
+/*  Support           */,["UK3CB_BAF_MAN_HX60_Cargo_Green_B","UK3CB_BAF_MAN_HX60_Repair_Green","UK3CB_BAF_MAN_HX60_Fuel_Green"]
+/*  Submarines        */,[]
+/*  MRAP Vehicles     */,["UK3CB_BAF_Panther_GPMG_Green_A"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_NATO_F",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_HBarrierWall4_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "Flag_NATO_F"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_HBarrierWall4_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================
