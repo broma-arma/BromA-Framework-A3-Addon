@@ -112,9 +112,7 @@ switch (true) do {
         [_unit,[[_wsmoke,2],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
-        if (!isNil "_specATSCOPE") then {
-            [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
-        };
+        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
         if (_specAT select GUN == _SMAW select GUN) then {
             [_unit,[["rhs_mag_smaw_SR", 5]]] call BRM_FMK_fnc_addtoBackpack;
@@ -130,7 +128,7 @@ switch (true) do {
         [_unit, _weaponsAT, 1] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
-        if (!isNil "_specATSCOPE" && _weaponsAT select GUN == _specAT select GUN) then {
+        if (_specATSCOPE != "" && _weaponsAT select GUN == _specAT select GUN) then {
             [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         };
     };
@@ -308,9 +306,7 @@ switch (true) do {
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
-        if (!isNil "_specATSCOPE") then {
-            [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
-        };
+        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         if (_specAT select GUN == _SMAW select GUN) then {
             [_unit,[["rhs_mag_smaw_SR", 5]]] call BRM_FMK_fnc_addtoBackpack;
         };

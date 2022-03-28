@@ -115,7 +115,7 @@ switch (true) do {
         [_unit, _weaponsAT, 1] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "R3F_PIRAT"] call BRM_FMK_fnc_attachToWeapon;
-        if (!isNil "_specATSCOPE" && _weaponsAT select GUN == _specAT select GUN) then {
+        if (_specATSCOPE != "" && _weaponsAT select GUN == _specAT select GUN) then {
             [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         };
     };

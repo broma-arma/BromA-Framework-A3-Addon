@@ -113,9 +113,7 @@ switch (true) do {
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
-        if (!isNil "_specATSCOPE") then {
-            [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
-        };
+        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
     };
@@ -306,9 +304,7 @@ switch (true) do {
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
-        if (!isNil "_specATSCOPE") then {
-            [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
-        };
+        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
     };
