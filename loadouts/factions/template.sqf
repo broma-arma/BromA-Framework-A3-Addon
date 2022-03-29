@@ -123,7 +123,7 @@ _helicrewHEAD = "rhsusf_hgu56p_mask";
 _helipilotHEAD = "rhsusf_hgu56p";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "H_caf_ag_paktol_04";
+_reconHEAD = _commonHEAD;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = "U_BG_Guerilla2_3";
