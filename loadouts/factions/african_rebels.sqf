@@ -48,7 +48,7 @@ _marksmanSCOPE = "rhs_acc_pso1m2";
 _commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
 _nightOnlyNVGs = true;
