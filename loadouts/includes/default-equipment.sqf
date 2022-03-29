@@ -83,3 +83,6 @@ if (isNil "_commonBIPOD") then { _commonBIPOD = ""; };
 if (isNil "_binoc") then { _binoc = "binoc"; };
 if (isNil "_rangefinder") then { _rangefinder = "rangefinder"; };
 if (isNil "_laserdesignator") then { _laserdesignator = "laserdesignator"; };
+
+if (isNil "_nightOnlyNVGs") then { _nightOnlyNVGs = false; };
+if (isNil "_aiBackpackRadios") then { _aiBackpackRadios = false; };
