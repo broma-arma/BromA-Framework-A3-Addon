@@ -86,3 +86,4 @@ if (isNil "_laserdesignator") then { _laserdesignator = "laserdesignator"; };
 
 if (isNil "_nightOnlyNVGs") then { _nightOnlyNVGs = false; };
 if (isNil "_aiBackpackRadios") then { _aiBackpackRadios = false; };
+if (!_aiBackpackRadios && _assignLoadoutMode) then { _aiBackpackRadios = isPlayer _unit; };
