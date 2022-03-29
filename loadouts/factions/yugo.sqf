@@ -1,8 +1,6 @@
 // INFO ========================================================================
 /*
-
-The Yugoslav People's Army was the military of Yugoslavia from 1945 to 1992 and primary part of Yugoslavia armed forces.
-
+    The Yugoslav People's Army was the military of Yugoslavia from 1945 to 1992 and primary part of Yugoslavia armed forces.
 */
 
 _factionID        = "YUGO";
@@ -32,6 +30,8 @@ _commonMARKSMAN         = ["rhs_weap_m76", "rhsgref_10Rnd_792x57_m76"];
 _commonSNIPER           = ["rhs_weap_m76", "rhsgref_10Rnd_792x57_m76"];
 _commonAT               = ["rhs_weap_m80", "rhs_m80_mag"];
 _specAT                 = ["rhs_weap_m80", "rhs_m80_mag"];
+_weaponsAA              = _IGLA;
+_weaponsAT              = _RPG7PGO;
 _commonSMG              = ["rhs_weap_scorpion", "rhsgref_20rnd_765x17_vz61"];
 _commonRCO              = "rhs_acc_1p29";
 _commonCCO              = "rhs_acc_ekp1";
@@ -126,6 +126,13 @@ _reconVEST     = _commonVEST;
 _commonBACKPACK = "rhssaf_kitbag_smb";
 _bigBACKPACK = "rhssaf_alice_smb";
 
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_grenade_mkii_mag";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "rhssaf_zrak_rd7j";
+_rangefinder = "rhs_pdu4";
+
 // EXTRA EQUIPMENT =============================================================
 
 _HMG = "RHS_NSV_Gun_Bag";
@@ -143,32 +150,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */     ["rhs_zsu234_aa", "rhs_zsu234_aa"]
-/*  Attack Helos      */    ,["RHS_Mi8MTV3_vvs"]
-/*  Attack Planes     */    ,["RHS_Su25SM_vvs", "RHS_Su25SM_CAS_vvs", "RHS_Su25SM_KH29_vvs", "rhs_mig29sm_vvs"]
-/*  Heavy Vehicles    */    ,["rhs_t72ba_tv", "UK3CB_B_T34_CDF", "UK3CB_B_G_T55"]
-/*  Light Vehicles    */    ,["rhs_tigr_vdv", "rhs_tigr_sts_vdv", "rhs_tigr_m_vdv", "rhs_uaz_vdv", "rhs_uaz_open_vdv"]
-/*  Medium Vehicles   */    ,["rhs_btr60_msv", "UK3CB_O_G_MTLB_PKT", "rhsgref_BRDM2", "rhs_bmp1_vv"]
-/*  Mobile Artillery  */    ,["rhs_2s3_tv", "rhs_9k79_B", "RHS_BM21_VV_01"]
-/*  Transport Helos   */    ,["RHS_Mi8mt_Cargo_vvs", "RHS_Mi8mt_vvs"]
-/*  Transport Planes  */    ,["RHS_AN2_B", "RHS_AN2_B"]
-/*  Transport Trucks  */    ,["rhs_gaz66_msv", "rhs_gaz66_flat_msv", "RHS_Ural_MSV_01", "RHS_Ural_Open_Flat_MSV_01"]
-/*  Static Defence    */    ,["rhs_Metis_9k115_2_msv", "rhs_Igla_AA_pod_msv", "rhs_SPG9M_MSV", "RHS_ZU23_MSV"]
-/*  Boats             */    ,["O_Boat_Armed_01_hmg_F", "O_Boat_Transport_01_F"]
-/*  UAV               */    ,["rhs_pchela1t_vvs", "rhs_pchela1t_vvs"]
-/*  UGV               */    ,["O_UGV_01_rcws_F"]
-/*  Support           */    ,["rhs_gaz66_ammo_vv", "RHS_Ural_Fuel_VDV_01", "O_Truck_02_box_F"]
-/*  Submarines        */    ,["O_SDV_01_F", "O_SDV_01_F"]
-/*  MRAP Vehicles     */    ,["rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
+/*  Anti Air Vehicles */ ["rhs_zsu234_aa", "rhs_zsu234_aa"]
+/*  Attack Helos      */,["RHS_Mi8MTV3_vvs"]
+/*  Attack Planes     */,["RHS_Su25SM_vvs", "RHS_Su25SM_CAS_vvs", "RHS_Su25SM_KH29_vvs", "rhs_mig29sm_vvs"]
+/*  Heavy Vehicles    */,["rhs_t72ba_tv", "UK3CB_B_T34_CDF", "UK3CB_B_G_T55"]
+/*  Light Vehicles    */,["rhs_tigr_vdv", "rhs_tigr_sts_vdv", "rhs_tigr_m_vdv", "rhs_uaz_vdv", "rhs_uaz_open_vdv"]
+/*  Medium Vehicles   */,["rhs_btr60_msv", "UK3CB_O_G_MTLB_PKT", "rhsgref_BRDM2", "rhs_bmp1_vv"]
+/*  Mobile Artillery  */,["rhs_2s3_tv", "rhs_9k79_B", "RHS_BM21_VV_01"]
+/*  Transport Helos   */,["RHS_Mi8mt_Cargo_vvs", "RHS_Mi8mt_vvs"]
+/*  Transport Planes  */,["RHS_AN2_B", "RHS_AN2_B"]
+/*  Transport Trucks  */,["rhs_gaz66_msv", "rhs_gaz66_flat_msv", "RHS_Ural_MSV_01", "RHS_Ural_Open_Flat_MSV_01"]
+/*  Static Defence    */,["rhs_Metis_9k115_2_msv", "rhs_Igla_AA_pod_msv", "rhs_SPG9M_MSV", "RHS_ZU23_MSV"]
+/*  Boats             */,["O_Boat_Armed_01_hmg_F", "O_Boat_Transport_01_F"]
+/*  UAV               */,["rhs_pchela1t_vvs", "rhs_pchela1t_vvs"]
+/*  UGV               */,["O_UGV_01_rcws_F"]
+/*  Support           */,["rhs_gaz66_ammo_vv", "RHS_Ural_Fuel_VDV_01", "O_Truck_02_box_F"]
+/*  Submarines        */,["O_SDV_01_F", "O_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "rhssaf_flag_yugoslavia",
-/* Objects      */ ["O_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_BagFence_Short_F"],
-/* Structures   */ ["Land_Fort_Watchtower"]
+/* Flag       */ "rhssaf_flag_yugoslavia"
+/* Objects    */,["O_CargoNet_01_ammo_F"]
+/* Walls      */,["Land_BagFence_Short_F"]
+/* Structures */,["Land_Fort_Watchtower"]
 ];
-
-// =============================================================================

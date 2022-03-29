@@ -1,8 +1,7 @@
 // INFO ========================================================================
 /*
-The armed forces of anime land. THE JSDF (JSF for short) is a combination of Japan's military branches that was established in 1954 and then relegated to Peacekeeping operations.
-Recent tensions over North Korea have forced the Japanese Ministry of Defense to devote a higher budget to the JSF, Resulting in the rapid replacement of older weaponry and equipment in favor of modern equipment.
-
+    The armed forces of anime land. THE JSDF (JSF for short) is a combination of Japan's military branches that was established in 1954 and then relegated to Peacekeeping operations.
+    Recent tensions over North Korea have forced the Japanese Ministry of Defense to devote a higher budget to the JSF, Resulting in the rapid replacement of older weaponry and equipment in favor of modern equipment.
 */
 
 _factionID = "JSDF";
@@ -21,6 +20,16 @@ _defaultColor = "blue";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_JSDF
+	"JIEITAIW"
+    "JIEITAID"
+*/
+
+_camo = "JIEITAIW";
+if(!isNil "BRM_FMK_LoadoutCamo_JSDF")then{_camo=BRM_FMK_LoadoutCamo_JSDF};
+
 // WEAPONS =====================================================================
 
 _commonRIFLE = ["hlc_rifle_SG551LB_TAC", "hlc_30Rnd_556x45_EPR_sg550"];
@@ -32,6 +41,8 @@ _commonMARKSMAN = _STG58;
 _commonSNIPER = ["rhs_weap_m24sws_blk", "rhsusf_5Rnd_762x51_m118_special_Mag"];
 _commonAT = _AT4;
 _specAT = ["rhs_weap_maaws","rhs_mag_maaws_HEAT"];
+_weaponsAA = _STINGER;
+_weaponsAT = _JAVELIN;
 _commonSMG = ["hgun_PDW2000_F","30Rnd_9x21_Mag"];
 _commonRCO = "rhsusf_acc_SpecterDR";
 _commonCCO = "FHQ_optic_AIM";
@@ -78,17 +89,7 @@ _countEpiCARGO = 30;
 _countBloodbagCARGO = 30;
 _countPAKCARGO = 40;
 
-// CAMO ========================================================================
-/*
-    Set in mission with: BRM_FMK_UNIFORMS_JGSDFCammo
-	"JIEITAIW",
-    "JIEITAID"
-*/
-
-_camo = "JIEITAIW";
-
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_JGSDFCammo")then{_camo=BRM_FMK_UNIFORMS_JGSDFCammo};
 
 _headsLIST = [
     "BRM_LWH_COMS_"+_camo,
@@ -143,9 +144,12 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = "BMR_MLBVARMOR_GREEN_RFL";
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "TRYK_B_AssaultPack_Type2camo";
 _bigBACKPACK = "TRYK_B_Carryall_JSDF";
+
+_rifleSCOPE = _commonCCO;
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -164,32 +168,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */  ["B_APC_Tracked_01_AA_F"]
-/*  Attack Helos 	     */	,["RHS_AH1Z","RHS_AH1Z_wd"]
-/*  Attack Planes 	     */	,["rhs_l159_CDF"]
-/*  Heavy Vehicles 	     */	,["I_MBT_03_cannon_F","B_AFV_Wheeled_01_cannon_F"]
-/*  Light Vehicles 	     */	,["rhssaf_m998_olive_2dr_fulltop", "rhssaf_m1025_olive_m2"]
-/*  Medium Vehicles 	 */	,["I_APC_tracked_03_cannon_F"]
-/*  Mobile Artillery     */	,["rhsusf_m109_usarmy","B_MBT_01_mlrs_F"]
-/*  Transport Helos      */	,["RHS_CH_47F","RHS_UH60M","RHS_UH1Y"]
-/*  Transport Planes     */	,["RHS_C130J"]
-/*  Transport Trucks     */	,["rhsusf_M1078A1P2_WD_fmtv_usarmy"]
-/*  Static Defence       */	,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-/*  Boats                */	,["B_Boat_Armed_01_minigun_F"]
-/*  UAV                  */	,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*  UGV                  */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-/*  Support              */	,["rhsusf_M978A4_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd", "rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd", "rhsusf_M1230a1_usarmy_wd"]
-/*  Submarines           */	,["B_SDV_01_F"]
-/*  MRAP Vehicles        */ ,["rhsusf_m113_usarmy_M2_90", "rhsusf_m113_usarmy_MK19_90"]
+/*  Anti Air Vehicles */ ["B_APC_Tracked_01_AA_F"]
+/*  Attack Helos      */,["RHS_AH1Z","RHS_AH1Z_wd"]
+/*  Attack Planes     */,["rhs_l159_CDF"]
+/*  Heavy Vehicles    */,["I_MBT_03_cannon_F","B_AFV_Wheeled_01_cannon_F"]
+/*  Light Vehicles    */,["rhssaf_m998_olive_2dr_fulltop", "rhssaf_m1025_olive_m2"]
+/*  Medium Vehicles   */,["I_APC_tracked_03_cannon_F"]
+/*  Mobile Artillery  */,["rhsusf_m109_usarmy","B_MBT_01_mlrs_F"]
+/*  Transport Helos   */,["RHS_CH_47F","RHS_UH60M","RHS_UH1Y"]
+/*  Transport Planes  */,["RHS_C130J"]
+/*  Transport Trucks  */,["rhsusf_M1078A1P2_WD_fmtv_usarmy"]
+/*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
+/*  Boats             */,["B_Boat_Armed_01_minigun_F"]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*  Support           */,["rhsusf_M978A4_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd", "rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd", "rhsusf_M1230a1_usarmy_wd"]
+/*  Submarines        */,["B_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsusf_m113_usarmy_M2_90", "rhsusf_m113_usarmy_MK19_90"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "BRM_Flag_Japan",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_Mil_WallBig_4m_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "BRM_Flag_Japan"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_Mil_WallBig_4m_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================

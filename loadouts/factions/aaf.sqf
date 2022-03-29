@@ -21,17 +21,21 @@ _defaultInsignia = "";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_AAF
+	"plain"
+	"camo"
+*/
+
+_camo = "plain";
+if(!isNil"BRM_FMK_UNIFORMS_AAFCamo" && {BRM_FMK_UNIFORMS_AAFCamo})then{_camo="camo"}; // Backward compatibility
+if(!isNil"BRM_FMK_LoadoutCamo_AAF")then{_camo=BRM_FMK_LoadoutCamo_AAF};
+
 // WEAPONS =====================================================================
 
-// Set in mission with BRM_FMK_UNIFORMS_AAFMKCamo
-_MKCamo = true;
-
-_rr=_Mk20;_rg=_Mk20GL;_rc=_MK20C;
-if(!isNil"BRM_FMK_UNIFORMS_AAFMKCamo")then{_MKCAmo=BRM_FMK_UNIFORMS_AAFMKCamo};
-if (_MKCamo) then { _rr=_Mk20Camo;_rg=_Mk20GLCamo;_rc=_MK20CCamo; };
-
-_commonRIFLE = _rr;
-_commonRIFLEGL = _rg;
+_commonRIFLE = _Mk20;
+_commonRIFLEGL = _Mk20GL;
 _commonPISTOL = _ACP45;
 _commonAR = _Mk200;
 _commonMG = _Mk200;
@@ -39,13 +43,19 @@ _commonMARKSMAN = _Mk18;
 _commonSNIPER = _GM6;
 _commonAT = _PCML;
 _specAT = _PCML;
-_commonSMG = _rc;
+_commonSMG = _MK20C;
 _commonRCO = "optic_MRCO";
 _commonCCO = "optic_ACO_grn";
 _commonMAGNIFIED = _SOS;
 _commonSUPPRESSOR = "muzzle_snds_M";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonPISTOLSUPPRESSOR = "muzzle_snds_acp";
 _NVG = _NVGEN3IND;
+
+if (_camo == "camo") then {
+	_commonRIFLE = _Mk20Camo;
+	_commonRIFLEGL = _Mk20GLCamo;
+	_commonSMG = _MK20CCamo;
+};
 
 _isSpecATDisposable = true;
 
@@ -129,6 +139,7 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = "V_PlateCarrierIA1_dgtl";
+_pilotVEST = "V_BandollierB_oli";
 
 _commonBACKPACK = "B_AssaultPack_dgtl";
 _bigBACKPACK = "B_Carryall_oli";
@@ -150,32 +161,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */	 ["I_LT_01_AA_F"]
-/*  Attack Helos	 */	,["I_Heli_light_03_F", "I_Heli_light_03_F"]
-/*  Attack Planes 	 */	,["I_Plane_Fighter_03_AA_F","I_Plane_Fighter_03_CAS_F"]
-/*  Heavy Vehicles 	 */	,["I_MBT_03_cannon_F","I_APC_tracked_03_cannon_F"]
-/*  Light Vehicles 	 */	,["I_MRAP_03_F", "I_MRAP_03_hmg_F"]
-/*  Medium Vehicles 	 */	,["I_APC_Wheeled_03_cannon_F","I_LT_01_AT_F","I_LT_01_cannon_F"]
-/*  Mobile Artillery     */	,["I_Mortar_01_F","I_Truck_02_MRL_F"]
-/*  Transport Helos      */	,["I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F"]
-/*  Transport Planes     */	,[]
-/*  Transport Trucks     */	,["I_Truck_02_covered_F","I_Truck_02_transport_F"]
-/*  Static Defence 	 */	,["I_HMG_01_high_F","I_static_AA_F","I_static_AT_F","I_Mortar_01_F"]
-/*  Boats                */	,["I_Boat_Armed_01_minigun_F"]
-/*  UAV                  */	,["I_UAV_02_CAS_F","I_UAV_02_F"]
-/*  UGV 		 */	,["I_UGV_01_F","I_UGV_01_rcws_F"]
-/*  Support              */	,["I_Truck_02_ammo_F","I_Truck_02_fuel_F", "I_Truck_02_medical_F", "I_Truck_02_box_F"]
-/*  Submarines           */	,["I_SDV_01_F"]
-/*  MRAP Vehicles        */     ,["I_MRAP_03_F","I_MRAP_03_hmg_F", "I_MRAP_03_gmg_F"]
+/*  Anti Air Vehicles */ ["I_LT_01_AA_F"]
+/*  Attack Helos      */,["I_Heli_light_03_F", "I_Heli_light_03_F"]
+/*  Attack Planes     */,["I_Plane_Fighter_03_AA_F","I_Plane_Fighter_03_CAS_F"]
+/*  Heavy Vehicles    */,["I_MBT_03_cannon_F","I_APC_tracked_03_cannon_F"]
+/*  Light Vehicles    */,["I_MRAP_03_F", "I_MRAP_03_hmg_F"]
+/*  Medium Vehicles   */,["I_APC_Wheeled_03_cannon_F","I_LT_01_AT_F","I_LT_01_cannon_F"]
+/*  Mobile Artillery  */,["I_Mortar_01_F","I_Truck_02_MRL_F"]
+/*  Transport Helos   */,["I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["I_Truck_02_covered_F","I_Truck_02_transport_F"]
+/*  Static Defence    */,["I_HMG_01_high_F","I_static_AA_F","I_static_AT_F","I_Mortar_01_F"]
+/*  Boats             */,["I_Boat_Armed_01_minigun_F"]
+/*  UAV               */,["I_UAV_02_CAS_F","I_UAV_02_F"]
+/*  UGV               */,["I_UGV_01_F","I_UGV_01_rcws_F"]
+/*  Support           */,["I_Truck_02_ammo_F","I_Truck_02_fuel_F", "I_Truck_02_medical_F", "I_Truck_02_box_F"]
+/*  Submarines        */,["I_SDV_01_F"]
+/*  MRAP Vehicles     */,["I_MRAP_03_F","I_MRAP_03_hmg_F", "I_MRAP_03_gmg_F"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_AAF_F",
-/* Objects      */ ["I_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["Land_Cargo_HQ_V1_F"]
+/* Flag         */ "Flag_AAF_F"
+/* Objects      */,["I_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_BagFence_Long_F"]
+/* Structures   */,["Land_Cargo_HQ_V1_F"]
 ];
-
-// =============================================================================

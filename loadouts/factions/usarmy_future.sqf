@@ -6,7 +6,7 @@
 
 _factionID = "USFS";
 _factionName = "US Future Soldier Program Unit";
-_factionStructure = "HIGH-TIER-CCO";
+_factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -136,11 +136,12 @@ _medicVEST = "rhsusf_spcs_ocp_medic";
 _demoVEST = _commonVEST;
 _marksmanVEST = "rhsusf_spcs_ocp_sniper";
 _reconVEST = _commonVEST;
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "rhsusf_assault_eagleaiii_ocp";
 _bigBACKPACK = "B_Carryall_mcamo";
 
-if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE };
+if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -158,34 +159,31 @@ _UAVTerminal = "auto";
 
 // VEHICLES ====================================================================
 
-
-    _factionVehicles = [
-    /*  Anti Air Vehicles */	 ["B_APC_Tracked_01_AA_F", "RHS_M6"]
-    /*  Attack Helos      */	,["B_Heli_Attack_01_F", "RHS_AH64D"]
-    /*  Attack Planes     */	,["rhsusf_f22", "B_Plane_CAS_01_F"]
-    /*  Heavy Vehicles    */	,["rhsusf_m1a2sep1tuskiid_usarmy"]
-    /*  Light Vehicles    */	,["rhsusf_M1220_M2_usarmy_wd", "rhsusf_M1230_M2_usarmy_wd", "rhsusf_M1230_MK19_usarmy_wd", "rhsusf_M1220_MK19_usarmy_wd"]
-    /*  Medium Vehicles   */	,["RHS_M2A3_BUSKIII", "rhsusf_m113d_usarmy", "rhsusf_m113d_usarmy_M240"]
-    /*  Mobile Artillery  */	,["rhsusf_m109d_usarmy"]
-    /*  Transport Helos   */	,["RHS_CH_47F_10","RHS_UH60M_d","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","RHS_MELB_H6M"]
-    /*  Transport Planes  */	,["RHS_C130J"]
-    /*  Transport Trucks  */	,["rhsusf_M1078A1P2_d_fmtv_usarmy","rhsusf_M1078A1P2_d_flatbed_fmtv_usarmy","rhsusf_M977A4_usarmy_d"]
-    /*  Static Defence    */	,["RHS_Stinger_AA_pod_D","RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D","RHS_TOW_TriPod_D"]
-    /*  Boats             */	,["B_Boat_Transport_01_F","B_Boat_Armed_01_minigun_F","rhsusf_mkvsoc"]
-    /*  UAV               */	,["B_UAV_02_CAS_F","B_UAV_02_F","B_UAV_05_F"]
-    /*  UGV               */	,["B_UGV_01_F","B_UGV_01_rcws_F"]
-    /*  Support           */	,["rhsusf_M978A4_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd", "rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd", "rhsusf_M1230a1_usarmy_wd"]
-    /*  Submarines        */	,["B_SDV_01_F"]
-    /*  MRAP Vehicles     */    ,["rhsusf_M1237_M2_usarmy_wd", "rhsusf_M1237_MK19_usarmy_wd"]
-    ];
+_factionVehicles = [
+/*  Anti Air Vehicles */ ["B_APC_Tracked_01_AA_F", "RHS_M6"]
+/*  Attack Helos      */,["B_Heli_Attack_01_F", "RHS_AH64D"]
+/*  Attack Planes     */,["rhsusf_f22", "B_Plane_CAS_01_F"]
+/*  Heavy Vehicles    */,["rhsusf_m1a2sep1tuskiid_usarmy"]
+/*  Light Vehicles    */,["rhsusf_M1220_M2_usarmy_wd", "rhsusf_M1230_M2_usarmy_wd", "rhsusf_M1230_MK19_usarmy_wd", "rhsusf_M1220_MK19_usarmy_wd"]
+/*  Medium Vehicles   */,["RHS_M2A3_BUSKIII", "rhsusf_m113d_usarmy", "rhsusf_m113d_usarmy_M240"]
+/*  Mobile Artillery  */,["rhsusf_m109d_usarmy"]
+/*  Transport Helos   */,["RHS_CH_47F_10","RHS_UH60M_d","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","RHS_MELB_H6M"]
+/*  Transport Planes  */,["RHS_C130J"]
+/*  Transport Trucks  */,["rhsusf_M1078A1P2_d_fmtv_usarmy","rhsusf_M1078A1P2_d_flatbed_fmtv_usarmy","rhsusf_M977A4_usarmy_d"]
+/*  Static Defence    */,["RHS_Stinger_AA_pod_D","RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D","RHS_TOW_TriPod_D"]
+/*  Boats             */,["B_Boat_Transport_01_F","B_Boat_Armed_01_minigun_F","rhsusf_mkvsoc"]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F","B_UAV_05_F"]
+/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*  Support           */,["rhsusf_M978A4_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd", "rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd", "rhsusf_M1230a1_usarmy_wd"]
+/*  Submarines        */,["B_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsusf_M1237_M2_usarmy_wd", "rhsusf_M1237_MK19_usarmy_wd"]
+];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_US_F",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_HBarrierWall4_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag       */ "Flag_US_F"
+/* Objects    */,["B_CargoNet_01_ammo_F"]
+/* Walls      */,["Land_HBarrierWall4_F"]
+/* Structures */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================

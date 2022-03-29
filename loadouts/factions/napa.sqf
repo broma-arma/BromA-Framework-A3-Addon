@@ -24,22 +24,37 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AK74N;
-_commonRIFLEGL = _AK74NGL;
+_rifleLIST = [
+	_RHSAKM,
+	_RHSAKMS,
+	_AK74UN
+];
+
+_commonRIFLE = _rifleLIST selectRandomWeighted [0.3,0.2,0.3];
+
+_commonRIFLEGL = selectRandom [
+	_RHSAKMGL,
+	_RHSAKMSGL
+];
 _commonPISTOL = _Makarov;
 _commonAR = _RPK;
 _commonMG = _PKM;
-_commonMARKSMAN = _SVD;
-_commonSNIPER = _SVD;
-_commonAT = _RPG26;
-_specAT = _RPG7;
-_commonSMG = _AK74UN;
-_commonRCO = "rhs_acc_1p29";
-_commonCCO = "rhs_acc_ekp1";
-_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
-_commonSUPPRESSOR = "rhs_acc_pso1m21_ak";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
+_commonSNIPER = _commonMARKSMAN;
+_commonAT = ["rhs_weap_rpg18","rhs_rpg18_mag"];
+_specAT = _RPG7PGO;
+_weaponsAA = _IGLA;
+_weaponsAT = _specAT;
+_commonSMG = _AKS74U;
+_commonRCO = "";
+_commonCCO = "";
+_marksmanSCOPE = "rhs_acc_pso1m2";
+_commonMAGNIFIED = "rhs_acc_pso1m2";
+_commonSUPPRESSOR = "";
+_commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
+
+_nightOnlyNVGs = true;
 
 // AMMO COUNT ==================================================================
 
@@ -82,28 +97,23 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _uniformsLIST = [
-    "rhsgref_uniform_woodland_olive",
-    "rhsgref_uniform_flecktarn",
-    "rhsgref_uniform_dpm_olive"
+    "UK3CB_NAP_B_U_CombatUniform_01_FLK",
+    "UK3CB_NAP_B_U_CombatUniform_01_WDL",
+    "UK3CB_NAP_B_U_CombatUniform_FLK"
 ];
 
 _vestsLIST = [
-    "V_TacChestrig_grn_F",
-	"V_TacChestrig_oli_F"
-];
-
-_goggleLIST = [
-    "empty",
-    "G_Balaclava_blk",
-    "G_Balaclava_oli",
-    "empty"
+    "UK3CB_V_Chestrig_OLI",
+	"UK3CB_V_Chestrig_ERDL"
 ];
 
 _randomUNIFORM = selectRandom _uniformsLIST;
 _randomVEST = selectRandom _vestsLIST;
-_randomGOGGLE = selectRandom _goggleLIST;
+_randomGOGGLE = selectRandom ["G_Balaclava_blk","G_Balaclava_oli","empty"];
 
-if (_assignLoadoutMode) then { if !(_isLeader) then { _unit addGoggles _randomGOGGLE }};
+if (_assignLoadoutMode) then {
+	if (!_isLeader && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
+};
 
 _commonHEAD = "empty";
 _leaderHEAD = _commonHEAD;
@@ -139,9 +149,17 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = "rhs_belt_AK";
 
-_commonBACKPACK = "rhs_sidor";
+_commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_mag_rgd5";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "rhssaf_zrak_rd7j";
+_rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -157,34 +175,33 @@ _mortarTripod = "RHS_Podnos_Bipod_Bag";
 _UAVBag = "auto";
 _UAVTerminal = "auto";
 
-
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */	 ["rhsgref_nat_ural_Zu23"]
-/*  Attack Helos      */	,[]
-/*  Attack Planes     */	,[]
-/*  Heavy Vehicles    */	,["rhs_t80","rhs_t72ba_tv"]
-/*  Light Vehicles    */	,["rhsgref_nat_uaz","rhsgref_nat_uaz_ags","rhsgref_nat_uaz_dshkm","rhsgref_nat_uaz_spg9"]
-/*  Medium Vehicles   */	,["rhs_bmp2d_msv","rhs_bmp1_msv","rhsgref_BRDM2_msv","rhsgref_nat_btr70"]
-/*  Mobile Artillery  */	,[]
-/*  Transport Helos   */	,[]
-/*  Transport Planes  */	,[]
-/*  Transport Trucks  */	,["rhsgref_nat_ural","rhsgref_nat_ural_open"]
-/*  Static Defence    */	,["rhsgref_cdf_reg_d30", "rhsgref_cdf_reg_d30", "rhsgref_cdf_Igla_AA_pod", "rhsgref_cdf_DSHKM", "rhsgref_cdf_DSHKM_Mini_TriPod", "rhsgref_cdf_NSV_TriPod", "rhsgref_cdf_SPG9", "rhsgref_cdf_SPG9M", "rhsgref_cdf_ZU23"]
-/*  Boats             */	,[]
-/*  UAV               */	,[]
-/*  UGV               */	,[]
-/*  Support           */	,[]
-/*  Submarines        */	,[]
-/*  MRAP Vehicles     */        ,["rhsgref_BRDM2_msv"]
+/*  Anti Air Vehicles */ ["rhsgref_nat_ural_Zu23"]
+/*  Attack Helos      */,[]
+/*  Attack Planes     */,[]
+/*  Heavy Vehicles    */,["rhs_t80","rhs_t72ba_tv"]
+/*  Light Vehicles    */,["rhsgref_nat_uaz","rhsgref_nat_uaz_ags","rhsgref_nat_uaz_dshkm","rhsgref_nat_uaz_spg9"]
+/*  Medium Vehicles   */,["rhs_bmp2d_msv","rhs_bmp1_msv","rhsgref_BRDM2_msv","rhsgref_nat_btr70"]
+/*  Mobile Artillery  */,[]
+/*  Transport Helos   */,[]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["rhsgref_nat_ural","rhsgref_nat_ural_open"]
+/*  Static Defence    */,["rhsgref_cdf_reg_d30", "rhsgref_cdf_reg_d30", "rhsgref_cdf_Igla_AA_pod", "rhsgref_cdf_DSHKM", "rhsgref_cdf_DSHKM_Mini_TriPod", "rhsgref_cdf_NSV_TriPod", "rhsgref_cdf_SPG9", "rhsgref_cdf_SPG9M", "rhsgref_cdf_ZU23"]
+/*  Boats             */,[]
+/*  UAV               */,[]
+/*  UGV               */,[]
+/*  Support           */,[]
+/*  Submarines        */,[]
+/*  MRAP Vehicles     */,["rhsgref_BRDM2_msv"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "FlagCarrierCDFEnsign_EP1",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["CDF_WarfareBLightFactory"]
+/* Flag         */ "FlagCarrierCDFEnsign_EP1"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_BagFence_Long_F"]
+/* Structures   */,["CDF_WarfareBLightFactory"]
 ];

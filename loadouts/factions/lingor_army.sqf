@@ -1,13 +1,11 @@
 // INFO ========================================================================
 /*
-    This is the template you can use to create your own loadouts.
-
-    Customize it as you wish.
+    Lingor Army
 */
 
 _factionID = "LINGOR_ARMY";
 _factionName = "Lingor Defense Force";
-_factionStructure = "MEDIUM-TIER";
+_factionStructure = "MID-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -23,20 +21,26 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _FNFALPARARIS;
-_commonRIFLEGL = _FNFALPARARIS;
-_commonPISTOL = _M9;
+_commonRIFLE = _FNFAL;
+_reconRIFLE = _FNFALRIS;
+_commonRIFLEGL = _FNFAL;
+_commonGL = ["rhs_weap_m79","rhs_mag_M441_HE"];
+_commonPISTOL = _M1911;
 _commonMG = _M60E4;
 _commonAR = _M60E4;
 _commonMARKSMAN = _M14RIS;
 _commonSNIPER = _M14RIS;
 _commonAT = _M72A7;
 _specAT = _GUSTAV;
-_commonSMG = _SCORPION;
-_commonRCO = "rhsusf_acc_ACOG2_USMC";
-_commonCCO = "rhsusf_acc_mrds";
+_weaponsAA = _STRINGER;
+_weaponsAT = _specAT;
+_commonSMG = ["rhs_weap_m3a1","rhsgref_30rnd_1143x23_M1T_2mag_SMG"];
+_commonRCO = "rhsusf_acc_acog_usmc";
+_specATSCOPE = "rhs_optic_maaws";
+_marksmanSCOPE = "FHQ_optic_LeupoldERT";
+_commonCCO = "";
 _commonMAGNIFIED = "FHQ_optic_LeupoldERT";
-_commonSUPPRESSOR = "hlc_muzzle_300blk_KAC";
+_commonSUPPRESSOR = "rhsgref_sdn6_suppressor";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
 
@@ -81,9 +85,9 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhssaf_helmet_m97_olive_nocamo",
-	"rhssaf_helmet_m97_olive_nocamo_black_ess",
-	"rhssaf_helmet_m97_olive_nocamo_black_ess_bare"
+    "rhsgref_helmet_M1_bare",
+	"rhsgref_helmet_M1_bare_alt01",
+	"rhsgref_helmet_M1_painted"
 ];
 
 _uniformsLIST = [
@@ -91,67 +95,64 @@ _uniformsLIST = [
 	"rhsgref_uniform_og107_erdl"
 ];
 
-_vestsLIST = [
-	"rhssaf_vest_md99_md2camo_radio",
-	"rhssaf_vest_md99_md2camo_rifleman",
-	"rhssaf_vest_md99_md2camo_rifleman_radio"
-];
-
-_gogglesLIST = [
-];
-
 _randomHEAD = selectRandom _headsLIST;
 _randomUNIFORM = selectRandom _uniformsLIST;
-_randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "rhsgref_hat_M1951";
 _officerHEAD = "rhssaf_beret_para";
-_medicHEAD = "rhssaf_booniehat_md2camo";
+_medicHEAD = _commonHEAD;
 _crewmanHEAD = "H_HelmetCrew_I";
-_pilotHEAD = "rhsusf_hgu56p";
-_helicrewHEAD = "rhsusf_hgu56p";
-_helipilotHEAD = "rhsusf_hgu56p";
+_pilotHEAD = "BRM_SPH4_WHITE";
+_helicrewHEAD = "BRM_SPH4_WHITE";
+_helipilotHEAD = "BRM_SPH4_WHITE";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "rhssaf_booniehat_md2camo";
+_reconHEAD = "BRM_Boonie_Green";
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = _commonUNIFORM;
+_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = _randomVEST;
-_officerVEST = _commonVEST;
-_ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
-_mgVEST = _commonVEST;
+_commonVEST = "BRM_IBA_ALICE_GREEN_RFL";
+_officerVEST = "BRM_IBA_ALICE_GREEN_SL";
+_ftlVEST = "BRM_IBA_ALICE_GREEN_SL";
+_slVEST = "BRM_IBA_ALICE_GREEN_SL";
+_mgVEST = "BRM_IBA_ALICE_GREEN_AR";
 _grenadierVEST = _commonVEST;
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = "UK3CB_V_Pilot_Vest";
 
-_commonBACKPACK = "TRYK_B_Alicepack";
-_bigBACKPACK = "rhssaf_alice_smb";
+_commonBACKPACK = "BRM_SqBackpack_Green";
+_bigBACKPACK = "BRM_SqBackpack_Green";
+_medicalBACKPACK = "BRM_SqBackpackMED_Green";
+_reconBACKPACK = "BRM_PatrolBP_Green";
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_grenade_mkii_mag";
 
 // EXTRA EQUIPMENT =============================================================
 
-_HMG = "B_HMG_01_high_weapon_F";
-_HMGTripod = "B_HMG_01_support_F";
+_HMG = "RHS_M2_Gun_Bag";
+_HMGTripod = "RHS_M2_Tripod_Bag";
 
-_StaticAT = "B_AT_01_weapon_F";
-_ATTripod = "B_HMG_01_support_F";
+_StaticAT = "rhs_Tow_Gun_Bag";
+_ATTripod = "rhs_TOW_Tripod_Bag";
 
-_mortar = "B_Mortar_01_weapon_F";
-_mortarTripod = "B_Mortar_01_support_F";
+_mortar = "rhs_M252_Gun_Bag";
+_mortarTripod = "rhs_M252_Bipod_Bag";
 
 _UAVBag = "auto";
 _UAVTerminal = "auto";
@@ -159,32 +160,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */      ["RHS_Ural_Zu23_VMF_01","rhs_zsu234_aa"]
-/*  Attack Helos 	 */	,["RHS_Mi24V_vdv","rhs_uh1h_hidf_gunship"]
-/*  Attack Planes 	 */	,[]
-/*  Heavy Vehicles 	 */	,["rhs_t72bb_tv","rhs_t72ba_tv","rhs_t80"]
-/*  Light Vehicles 	 */	,["rhsgref_hidf_M998_2dr_fulltop","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025"]
-/*  Medium Vehicles 	 */	,["rhsgref_hidf_m113a3_m2"]
-/*  Mobile Artillery     */	,[]
-/*  Transport Helos      */	,["RHS_Mi8mt_vdv","rhs_uh1h_hidf","rhs_uh1h_hidf_unarmed"]
-/*  Transport Planes     */	,[]
-/*  Transport Trucks     */	,["rhs_zil131_vmf","rhs_zil131_open_vmf"]
-/*  Static Defence       */	,["rhsgref_ins_g_reg_d30", "rhsgref_ins_g_reg_d30", "rhsgref_ins_g_Igla_AA_pod", "rhsgref_ins_g_DSHKM", "rhsgref_ins_g_DSHKM_Mini_TriPod", "rhsgref_ins_g_NSV_TriPod", "rhsgref_ins_g_SPG9", "rhsgref_ins_g_SPG9M", "rhsgref_ins_g_ZU23"]
-/*  Boats                */	,["B_Boat_Transport_01_F"]
-/*  UAV                  */	,[]
-/*  UGV                  */	,[]
-/*  Support              */	,[]
-/*  Submarines           */	,[]
-/*  MRAP Vehicles        */     ,["rhsusf_M1117_W"]
+/*  Anti Air Vehicles */ ["RHS_Ural_Zu23_VMF_01","rhs_zsu234_aa"]
+/*  Attack Helos      */,["RHS_Mi24V_vdv","rhs_uh1h_hidf_gunship"]
+/*  Attack Planes     */,[]
+/*  Heavy Vehicles    */,["rhs_t72bb_tv","rhs_t72ba_tv","rhs_t80"]
+/*  Light Vehicles    */,["rhsgref_hidf_M998_2dr_fulltop","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025"]
+/*  Medium Vehicles   */,["rhsgref_hidf_m113a3_m2"]
+/*  Mobile Artillery  */,[]
+/*  Transport Helos   */,["RHS_Mi8mt_vdv","rhs_uh1h_hidf","rhs_uh1h_hidf_unarmed"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["rhs_zil131_vmf","rhs_zil131_open_vmf"]
+/*  Static Defence    */,["rhsgref_ins_g_reg_d30", "rhsgref_ins_g_reg_d30", "rhsgref_ins_g_Igla_AA_pod", "rhsgref_ins_g_DSHKM", "rhsgref_ins_g_DSHKM_Mini_TriPod", "rhsgref_ins_g_NSV_TriPod", "rhsgref_ins_g_SPG9", "rhsgref_ins_g_SPG9M", "rhsgref_ins_g_ZU23"]
+/*  Boats             */,["B_Boat_Transport_01_F"]
+/*  UAV               */,[]
+/*  UGV               */,[]
+/*  Support           */,[]
+/*  Submarines        */,[]
+/*  MRAP Vehicles     */,["rhsusf_M1117_W"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "flag_gal",
-/* Objects      */ ["rhs_weapon_crate"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["Land_Fort_Watchtower"]
+/* Flag         */ "flag_gal"
+/* Objects      */,["rhs_weapon_crate"]
+/* Walls        */,["Land_BagFence_Long_F"]
+/* Structures   */,["Land_Fort_Watchtower"]
 ];
-
-// =============================================================================

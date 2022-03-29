@@ -1,19 +1,19 @@
 // INFO ========================================================================
 /*
-    Unified military of Canada.
+    Swedish Armed Forces
 */
 
-_factionID = "CAF";
-_factionName = "Canada armed forces";
+_factionID = "SWEDEN";
+_factionName = "Swedish Armed Forces";
 _factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
 _defaultSide = WEST;
-_defaultVoice = [_voiceAMERICAN];
-_defaultFace = [_faceWHITE, _faceBLACK, _faceASIAN];
+_defaultVoice = _allVoices;
+_defaultFace = _allFaces;
 _defaultName = [_nameAMERICAN];
-_defaultInsignia = "USP_PATCH_CAN_BASE";
+_defaultInsignia = "";
 _defaultColor = "blue";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
@@ -21,51 +21,48 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // CAMO ========================================================================
 /*
-    Set in mission with: BRM_FMK_LoadoutCamo_CAF
-	"CADPATD"
-	"CADPATW"
+    Set in mission with: BRM_FMK_LoadoutCamo_SWEDEN
+	"m90w" woodland
+	"m90d" desert
 */
 
-_camo = "CADPATW";
-if(!isNil "BRM_FMK_LoadoutCamo_CAF")then{_camo=BRM_FMK_LoadoutCamo_CAF};
+_camo = "m90w";
+if(!isNil "BRM_FMK_LoadoutCamo_SWEDEN")then{_camo=BRM_FMK_LoadoutCamo_SWEDEN};
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = ["tfc_w_c7a2","rhs_mag_30Rnd_556x45_M855A1_Stanag"];
-_commonRIFLEGL = ["tfc_w_c7a2_m203","rhs_mag_30Rnd_556x45_M855A1_Stanag","rhs_mag_M441_HE"];
-_commonPISTOL = ["UK3CB_BHP","UK3CB_BHP_9_13Rnd"];
-_commonAR = ["tfc_w_c9a2","rhsusf_200rnd_556x45_M855_mixed_box"];
-_commonMG = ["UK3CB_BAF_L7A2","UK3CB_BAF_762_100Rnd_T"];
-_commonMARKSMAN = ["hlc_rifle_samr2","hlc_30rnd_556x45_EPR"];
-_commonSNIPER = ["R3F_TAC50","R3F_5Rnd_127x99_TAC50"];
+_commonRIFLE = ["sfp_ak5c","rhs_mag_30Rnd_556x45_M855A1_PMAG"];
+_commonRIFLEGL = ["sfp_ak5c_m203","30Rnd_556x45_Stanag","rhs_mag_M433_HEDP"];
+_commonPISTOL = ["R3F_G17","R3F_17Rnd_9x19_G17"];
+_commonAR = ["rhs_weap_m249","rhsusf_100Rnd_556x45_M855_soft_pouch"];
+_commonMG = ["rhs_weap_m249","rhsusf_100Rnd_556x45_M855_soft_pouch"];
+_commonMARKSMAN = _commonRIFLE;
+_commonSNIPER = ["hlc_rifle_awcovert","hlc_5rnd_300WM_FMJ_AWM"];
 _commonAT = _M72A7;
 _specAT = _GUSTAV;
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 _commonSMG = _MP5A5;
-_commonRCO = "tfc_wa_c79_elcan";
-_marksmanSCOPE = "rhsusf_acc_m8541";
+_commonRCO = "rhsusf_acc_acog_rmr";
+_commonCCO = "rhsusf_acc_compm4";
 _specATSCOPE = "rhs_optic_maaws";
-_commonCCO = "rhsusf_acc_eotech_552_wd";
 _commonMAGNIFIED = "rksl_optic_pmii_525_des";
 _commonSUPPRESSOR = "hlc_muzzle_556nato_rotexiiic_grey";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_14";
 
-_mgSCOPE = "rhsusf_acc_eotech_552_wd";
-_rifleSCOPE = "rhsusf_acc_eotech_552_wd";
+_rifleSCOPE = "rhsusf_acc_compm4";
 
 // AMMO COUNT ==================================================================
 
-_countRIFLE = 9;
-_countRIFLELOW = 6;
+_countRIFLE = 7;
+_countRIFLELOW = 4;
 _countPISTOL = 2;
-_countAR = 5;
 _countMG = 3;
 _countSNIPER = 5;
 _countAT = 3;
 _countGRENADES = 3;
-_count40mm = 15;
+_count40mm = 20;
 
 _countTracerRIFLE = 2;
 _countTracerMG = 1;
@@ -73,7 +70,6 @@ _countHE = 1;
 
 _countRifleCARGO = 30;
 _countPistolCARGO = 10;
-_countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
 _countATCARGO = 15;
@@ -97,40 +93,31 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_headsLIST = [
-    "BRM_LWH_"+_camo,
-    "BRM_LWH_COMS_"+_camo,
-    "BRM_LWH_MASK_"+_camo,
-    "BRM_LWH_MASK_COMS_"+_camo,
-    "BRM_LWH_GHILLIE_"+_camo,
-    "BRM_LWH_COMS_GHILLIE_"+_camo
-];
-
-_uniformsLIST = [
-    "BRM_BattleUNI_"+_camo,
-    "BRM_BattleUNIRS_"+_camo
-];
-
-_randomHEAD = selectRandom _headsLIST;
-_randomUNIFORM = selectRandom _uniformsLIST;
 _randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
 
-_commonHEAD = _randomHEAD;
+_commonHEAD = selectRandom [
+	"BRM_LWH_"+_camo,
+	"BRM_LWH_COMS_"+_camo,
+	"BRM_LWH_COMS_GHILLIE_"+_camo
+];
 _leaderHEAD = _commonHEAD;
-_officerHEAD = "BRM_PatrolCap_"+_camo;
+_officerHEAD = "rhs_beret_milp";
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhsusf_cvc_green_ess";
+_crewmanHEAD = "rhsusf_cvc_green_alt_helmet";
 _pilotHEAD = "RHS_jetpilot_usaf";
 _helicrewHEAD = "rhsusf_hgu56p_visor_green";
 _helipilotHEAD = "rhsusf_hgu56p_visor_green";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "BRM_BoonieCOMS_"+_camo;
+_reconHEAD = if(_camo == "m90w") then {"rhsusf_opscore_rg_cover_pelt"} else {"rhsusf_opscore_ut_pelt_nsw_cam"};
 
-_commonUNIFORM = _randomUNIFORM;
+_commonUNIFORM = selectRandom [
+	"BRM_BattleUNI_"+_camo,
+	"BRM_BattleUNIRS_"+_camo
+];
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
-_sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
+_sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
 _crewUNIFORM = _commonUNIFORM;
@@ -139,32 +126,26 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "BRM_Protec_"+_camo+"_RFL";
-_officerVEST = "BRM_Protec_"+_camo+"_SL";
-_ftlVEST = "BRM_Protec_"+_camo+"_TL";
-_slVEST = _officerVEST;
-_mgVEST = "BRM_Protec_"+_camo+"_MG";
-_grenadierVEST = "BRM_Protec_"+_camo+"_GL";
-_medicVEST = _commonVEST;
+_commonVEST = if(_camo == "m90w") then {"BRM_RRV_GREEN_RFL"} else {"BRM_RRV_BROWN_RFL"};
+_officerVEST = if(_camo == "m90w") then {"BRM_RRV_GREEN_RECLEAD"} else {"BRM_RRV_BROWN_RECLEAD"};
+_ftlVEST = _officerVEST;
+_slVEST = _ftlVEST;
+_mgVEST = if(_camo == "m90w") then {"BRM_RRV_GREEN_MG"} else {"BRM_RRV_BROWN_MG"};
+_grenadierVEST = _commonVEST;
+_medicVEST = if(_camo == "m90w") then {"BRM_RRV_GREEN_RECMED"} else {"BRM_RRV_BROWN_RECMED"};
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
-_reconVEST = "BRM_LBT_GREEN_RFL";
+_reconVEST = _commonVEST;
 _pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _commonBACKPACK = "BRM_PatrolBP_"+_camo;
-_bigBACKPACK = "BRM_PatrolBP_"+_camo;
-_reconBACKPACK = "BRM_PatrolBPH_"+_camo;
+_bigBACKPACK = "BRM_PatrolBPH_"+_camo;
 
 if (_assignLoadoutMode) then {
     if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
         _unit addGoggles _randomGOGGLE;
     };
 };
-
-// MISC EQUIPMENT ==============================================================
-
-_rangefinder = "rhsusf_bino_lerca_1200_black";
-_laserdesignator = "UK3CB_BAF_Soflam_Laserdesignator";
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -183,30 +164,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */ ["B_APC_Tracked_01_AA_F", "RHS_M6_wd"]
-/*  Attack Helos      */,["RHS_AH64D_wd", "TFC_CH146444_dynamicLoadout_F"]
-/*  Attack Planes     */,["RHS_A10_AT", "RHS_A10", "rhsusf_f22"]
-/*  Heavy Vehicles    */,["ffaa_et_leopardo"]
-/*  Light Vehicles    */,["TFC_vs_luvw_F", "rhsusf_m966_w", "rhsusf_m1151_m2_v1_usarmy_wd", "rhsusf_m1151_mk19_v1_usarmy_wd"]
-/*  Medium Vehicles   */,["UK3CB_CW_US_B_LATE_LAV25"]
-/*  Mobile Artillery  */,["rhsusf_m109_usarmy"]
-/*  Transport Helos   */,["TFC_CH146402_unarmed_F"]
-/*  Transport Planes  */,["RHS_C130J"]
-/*  Transport Trucks  */,["C_TFC_VS_LSVW_transport_covered_F", "C_TFC_VS_LSVW_transport_uncovered_F"]
+/*  Anti Air Vehicles */ ["sfp_lvkv90c"]
+/*  Attack Helos      */,[]
+/*  Attack Planes     */,["UK3CB_AAF_B_Gripen_G"]
+/*  Heavy Vehicles    */,["sfp_strv122b","sfp_strv122","sfp_strv122_snow"]
+/*  Light Vehicles    */,["sfp_bv206"]
+/*  Medium Vehicles   */,["sfp_strf90c","sfp_strf90c_snow"]
+/*  Mobile Artillery  */,["sfp_grkpbv90120"]
+/*  Transport Helos   */,[]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,[]
 /*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_M2StaticMG_MiniTripod_D", "RHS_TOW_TriPod_D"]
-/*  Boats             */,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
+/*  Boats             */,[]
 /*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
-/*  Support           */,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd", "B_Truck_01_fuel_F"]
-/*  Submarines        */,["B_SDV_01_F"]
-/*  MRAP Vehicles     */,["rhsusf_m113_usarmy_M2_90", "rhsusf_m113_usarmy_MK19", "rhsusf_M1117_D"]
+/*  UGV               */,[]
+/*  Support           */,["UK3CB_BAF_MAN_HX58_Repair_Green","UK3CB_BAF_MAN_HX58_Fuel_Green","UK3CB_BAF_MAN_HX58_Cargo_Green_B"]
+/*  Submarines        */,[]
+/*  MRAP Vehicles     */,[]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "BRM_Flag_canada"
+/* Flag         */ "Flag_NATO_F"
 /* Objects      */,["B_CargoNet_01_ammo_F"]
-/* Walls        */,["Land_HBarrierWall4_F"]
+/* Walls        */,["Land_Mil_WallBig_4m_F"]
 /* Structures   */,["Land_Cargo_House_V3_F"]
 ];

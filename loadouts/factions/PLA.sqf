@@ -5,7 +5,7 @@
 
 _factionID        = "PLA";
 _factionName      = "Chinese PLA";
-_factionStructure = "HIGH-TIER-CCO";
+_factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 
@@ -19,24 +19,41 @@ _defaultColor    = "red";
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
 
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_PLA
+	"UNI"
+	"NAVY"
+	"ARTY"
+	"PLAT"
+*/
+
+_camo = "UNI";
+if(!isNil "BRM_FMK_UNIFORMS_PLACammo" && {BRM_FMK_UNIFORMS_PLACammo})then{_camo=BRM_FMK_UNIFORMS_PLACammo}; // Backward compatibility
+if(!isNil "BRM_FMK_LoadoutCamo_PLA")then{_camo=BRM_FMK_LoadoutCamo_PLA};
+
 // WEAPONS =====================================================================
 
-_commonRIFLE            = ["arifle_CTAR_blk_F","30Rnd_580x42_Mag_F"];
-_commonRIFLEGL          = ["arifle_CTAR_GL_blk_F","30Rnd_580x42_Mag_F","1Rnd_HE_Grenade_shell"];
-_commonPISTOL           = _Rook;
-_commonAR               = ["arifle_CTARS_blk_F","100Rnd_580x42_Mag_F"];
-_commonMG               = _PKP;
-_commonMARKSMAN         = ["srifle_DMR_07_blk_F","20Rnd_650x39_Cased_Mag_F"];
-_commonSNIPER           = _GM6;
-_commonAT               = _RPG26;
-_specAT                 = _RPG42;
-_commonSMG              = ["SMG_02_F","30Rnd_9x21_Mag_SMG_02"];
-_commonRCO              = "optic_MRCO";
-_commonCCO              = "optic_Holosight_blk_F";
-_commonMAGNIFIED        = _SOS;
-_commonSUPPRESSOR       = "muzzle_snds_58_blk_F";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
-_NVG                    = _NVGEN4;
+_commonRIFLE            = ["vme_pla_qbz95_1","VME_QBZ95_1_30Rnd_DBP10"];
+_commonRIFLEGL          = ["vme_pla_qbz95_1GL","VME_QBZ95_1_30Rnd_DBP10","VME_1Rnd_HE_GL"];
+_commonPISTOL           = ["vme_pla_qsz92","VME_QSZ92_20Rnd_DAP92"];
+_commonAR               = ["vme_pla_qjb95_1","VME_QJB95_1_75Rnd_DBP87"];
+_commonMG               = ["VME_PLA_QJY88","VME_QJY88_200Rnd_DVP88_Heavy"];
+_commonMARKSMAN         = _commonRIFLE;
+_commonSNIPER           = ["vme_pla_LR4","vme_lr4_scope"];
+_commonAT               = ["vme_pla_PF89","vme_pla_PF89_Rocket"];
+_specAT                 = ["vme_pla_PF98","vme_pla_PF98_AT_Rocket"];
+_weaponsAA              = ["vme_pla_FN6","vme_pla_FN6_Rocket"];
+_weaponsAT              = _specAT;
+_commonSMG              = ["vme_pla_qcw05","VME_QCW05_50Rnd_DAP92"];
+_commonRCO              = "vme_95_1_pst";
+_commonCCO              = "vme_eotech553";
+_commonMAGNIFIED        = "vme_lr4_scope";
+_commonSUPPRESSOR       = "vme_qbz95_1_silencer";
+_commonPISTOLSUPPRESSOR = "";
+_NVG                    = "rhs_1PN138";
+
+_rifleSCOPE = _commonCCO;
 
 // AMMO COUNT ==================================================================
 
@@ -78,24 +95,11 @@ _countEpiCARGO      = 30;
 _countBloodbagCARGO = 20;
 _countPAKCARGO      = 20;
 
-// CAMO ========================================================================
-/*
-    Set in mission with: BRM_FMK_UNIFORMS_PLACammo
-	"UNI"
-	"NAVY"
-	"ARTY"
-	"PLAT"
-*/
-
-_camo = "UNI";
-
 // UNIFORMS ====================================================================
-if(!isNil "BRM_FMK_UNIFORMS_PLACammo")then{_camo=BRM_FMK_UNIFORMS_PLACammo};
 
 _uniformsLIST = [
     "BRM_EBattleUNI_T07"+_camo,
-    "BRM_EBattleUNIRS_T07"+_camo,
-    "BRM_EBattleUNITS_T07"+_camo
+    "BRM_EBattleUNIRS_T07"+_camo
 ];
 _headsLIST = [
     "BRM_LWH_COMS_T07"+_camo,
@@ -108,10 +112,10 @@ _randomUNIFORM = selectRandom _uniformsLIST;
 _randomHEAD = selectRandom _headsLIST;
 
 _commonHEAD = _randomHEAD;
-_leaderHEAD = "BRM_PatrolCap_T07"+_camo;
-_officerHEAD = _commonHEAD;
+_leaderHEAD = _commonHEAD;
+_officerHEAD = "BRM_PatrolCap_T07"+_camo;
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhsusf_cvc_ess";
+_crewmanHEAD = "rhs_tsh4_ess";
 _pilotHEAD = "rhs_zsh7a_alt";
 _helicrewHEAD = "rhs_zsh7a_mike_alt";
 _helipilotHEAD = "rhs_zsh7a_mike";
@@ -122,7 +126,7 @@ _reconHEAD = "rhsusf_opscore_bk_pelt";
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15";
-_sniperUNIFORM = _commonUNIFORM;
+_sniperUNIFORM = "U_I_FullGhillie_sard";
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "rhs_uniform_df15";
 _crewUNIFORM = _commonUNIFORM;
@@ -141,17 +145,19 @@ _medicVEST     = "BMR_MLBVARMOR_T07"+_camo+"_MED";
 _demoVEST      = _commonVEST;
 _marksmanVEST  = _commonVEST;
 _reconVEST     = "BRM_LBT_BLACK_RFL";
+_pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "BRM_PatrolBP_T07"+_camo;
 _bigBACKPACK = "BRM_PatrolBPH_T07"+_camo;
+_reconBACKPACK = _bigBACKPACK;
 
 // EXTRA EQUIPMENT =============================================================
 
-_HMG = "RHS_NSV_Gun_Bag";
-_HMGTripod = "RHS_NSV_Tripod_Bag";
+_HMG = "VME_PLA_QJZ89A_bag";
+_HMGTripod = "VME_PLA_Static_tripod";
 
-_StaticAT = "RHS_Kornet_Gun_Bag";
-_ATTripod = "RHS_Kornet_Tripod_Bag";
+_StaticAT = "VME_PLA_HJ11_bag";
+_ATTripod = "VME_PLA_Static_tripod";
 
 _mortar = "RHS_Podnos_Gun_Bag";
 _mortarTripod = "RHS_Podnos_Bipod_Bag";
@@ -162,32 +168,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */     ["rhs_zsu234_aa", "rhs_zsu234_aa"]
-/*  Attack Helos      */    ,["RHS_Ka52_vvs", "RHS_Ka52_UPK23_vvs", "RHS_Ka52_UPK23_vvs", "RHS_Mi24P_AT_vvs", "RHS_Mi24P_vvs", "RHS_Mi24V_AT_vvs"]
-/*  Attack Planes     */    ,["RHS_Su25SM_vvs", "RHS_Su25SM_CAS_vvs", "RHS_Su25SM_KH29_vvs", "RHS_T50_vvs_054"]
-/*  Heavy Vehicles    */    ,["rhs_t90a_tv", "rhs_t90_tv", "rhs_t80um", "rhs_t80uk", "rhs_t72bd_tv"]
-/*  Light Vehicles    */    ,["rhs_tigr_vdv", "rhs_tigr_sts_vdv", "rhs_tigr_m_vdv"]
-/*  Medium Vehicles   */    ,["rhs_btr80a_vdv", "rhs_bmp2d_vdv", "rhs_bmp2_vdv"]
-/*  Mobile Artillery  */    ,["rhs_2s3_tv", "rhs_9k79_B", "RHS_BM21_VV_01"]
-/*  Transport Helos   */    ,["RHS_Mi8mt_Cargo_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8MTV3_UPK23_vvs", "RHS_Mi8MTV3_FAB_vvs"]
-/*  Transport Planes  */    ,["RHS_AN2_B", "RHS_AN2_B"]
-/*  Transport Trucks  */    ,["rhs_gaz66_msv", "rhs_gaz66_flat_msv"]
-/*  Static Defence    */    ,["rhs_Kornet_9M133_2_msv", "rhs_Igla_AA_pod_msv", "rhs_KORD_high_MSV", "rhs_2b14_82mm_msv"]
-/*  Boats             */    ,["O_Boat_Armed_01_hmg_F", "O_Boat_Transport_01_F"]
-/*  UAV               */    ,["rhs_pchela1t_vvs", "rhs_pchela1t_vvs"]
-/*  UGV               */    ,["O_UGV_01_rcws_F"]
-/*  Support           */    ,["rhs_gaz66_ammo_vv", "RHS_Ural_Fuel_VDV_01", "O_Truck_02_box_F"]
-/*  Submarines        */    ,["O_SDV_01_F", "O_SDV_01_F"]
-/*  MRAP Vehicles     */    ,["rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
+/*  Anti Air Vehicles */ ["O_PGZ09_AA"]
+/*  Attack Helos      */,["VME_WZ10"]
+/*  Attack Planes     */,["VME_PLA_J16", "VME_PLA_J16", "VME_PLA_JH7", "VME_PLA_J10B"]
+/*  Heavy Vehicles    */,["O_ZTQ15", "O_ZTZ96B", "O_ZTZ99", "O_ZTZ99A"]
+/*  Light Vehicles    */,["VME_PLA_BJ2022", "VME_PLA_EQ2050_MG"]
+/*  Medium Vehicles   */,["O_ZBD04A","O_ZBL09","O_ZTL11"]
+/*  Mobile Artillery  */,["O_PLZ05", "O_PLL09", "RHS_BM21_VV_01"]
+/*  Transport Helos   */,["VME_PLA_Mi17"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["VME_PLA_SX2190"]
+/*  Static Defence    */,["VME_PLA_HJ11", "VME_QJY88_Static_AA"]
+/*  Boats             */,[]
+/*  UAV               */,[]
+/*  UGV               */,[]
+/*  Support           */,["VME_PLA_SX2190Repair", "VME_PLA_SX2190Refuel"]
+/*  Submarines        */,["O_SDV_01_F", "O_SDV_01_F"]
+/*  MRAP Vehicles     */,[]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_Red_F",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_Mil_WallBig_4m_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "Flag_Red_F"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_Mil_WallBig_4m_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================

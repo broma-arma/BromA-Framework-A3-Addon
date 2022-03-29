@@ -69,3 +69,21 @@ if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") t
 if (isNil "_countTourniquetCARGO") then { _countTourniquetCARGO = _countTourniquet * 10; };
 if (isNil "_countSplint") then { _countSplint = 4; };
 if (isNil "_countSplintCARGO") then { _countSplintCARGO = _countSplint * 10; };
+
+if (isNil "_reconRIFLE") then { _reconRIFLE = _commonRIFLE; };
+if (isNil "_reconSCOPE") then { _reconSCOPE = _commonRCO; };
+if (isNil "_marksmanSCOPE") then { _marksmanSCOPE = _commonMAGNIFIED; };
+if (isNil "_specATSCOPE") then { _specATSCOPE = ""; };
+if (isNil "_specATBACKPACK") then { _specATBACKPACK = _bigBACKPACK; };
+if (isNil "_medicalBACKPACK") then { _medicalBACKPACK = _bigBACKPACK; };
+if (isNil "_reconBACKPACK") then { _reconBACKPACK = _commonBACKPACK; };
+if (isNil "_commonRAIL") then { _commonRAIL = ""; };
+if (isNil "_commonBIPOD") then { _commonBIPOD = ""; };
+
+if (isNil "_binoc") then { _binoc = "binoc"; };
+if (isNil "_rangefinder") then { _rangefinder = "rangefinder"; };
+if (isNil "_laserdesignator") then { _laserdesignator = "laserdesignator"; };
+
+if (isNil "_nightOnlyNVGs") then { _nightOnlyNVGs = false; };
+if (isNil "_aiBackpackRadios") then { _aiBackpackRadios = false; };
+if (!_aiBackpackRadios && _assignLoadoutMode) then { _aiBackpackRadios = isPlayer _unit; };

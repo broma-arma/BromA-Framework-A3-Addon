@@ -1,34 +1,40 @@
 // INFO ========================================================================
 /*
-    Although the communist insurgency has its roots as an underground movement,
-    it is now a conventional force with military structure and weapon platforms
-    captured from the Chernarussian government or provided by arms dealers.
-
-    This has given the Chedaki enough power to start a coup against the government.
+    Glorious Soviet Union
 */
 
-_factionID = "CHEDAKI";
-_factionName = "Chedaki Forces";
-_factionStructure = "LOW-TIER";
+_factionID = "SOVIETS";
+_factionName = "Soviet Union";
+_factionStructure = "MID-TIER";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 
 _defaultSide = EAST;
 _defaultVoice = [_voiceRUSSIAN];
-_defaultFace = [_faceWHITE];
+_defaultFace = [_faceWHITE, _faceASIAN];
 _defaultName = [_nameRUSSIAN];
-_defaultInsignia = "";
+_defaultInsignia = "USP_PATCH_RUS_ARMY_ARMED_FORCES";
 _defaultColor = "red";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_SOVIETS
+    "vsr" vsr
+    "afg" afghan
+	"khk" khaki
+*/
+
+_camo = "vsr";
+if(!isNil "BRM_FMK_LoadoutCamo_SOVIETS")then{_camo=BRM_FMK_LoadoutCamo_SOVIETS};
 
 // WEAPONS =====================================================================
 
 _commonRIFLE = _AK74N;
 _commonRIFLEGL = _AK74NGL;
 _commonPISTOL = _Makarov;
-_commonAR = _RPK;
 _commonMG = _PKM;
 _commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
 _commonSNIPER = _commonMARKSMAN;
@@ -36,28 +42,25 @@ _commonAT = ["rhs_weap_rpg18","rhs_rpg18_mag"];
 _specAT = _RPG7PGO;
 _weaponsAA = _IGLA;
 _weaponsAT = _specAT;
-_commonSMG = _AKS74U;
-_commonRCO = "rhs_acc_1p29";
-_commonCCO = "rhs_acc_ekp1";
+_commonSMG = ["rhs_weap_aks74un", "rhs_30Rnd_545x39_AK"];
+_commonRCO = "";
 _marksmanSCOPE = "rhs_acc_pso1m2";
+_commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
-_nightOnlyNVGs = true;
-
 // AMMO COUNT ==================================================================
 
-_countRIFLE = 9;
-_countRIFLELOW = 6;
+_countRIFLE = 7;
+_countRIFLELOW = 4;
 _countPISTOL = 2;
-_countAR = 7;
-_countMG = 5;
+_countMG = 3;
 _countSNIPER = 5;
 _countAT = 3;
 _countGRENADES = 3;
-_count40mm = 15;
+_count40mm = 20;
 
 _countTracerRIFLE = 2;
 _countTracerMG = 1;
@@ -65,7 +68,6 @@ _countHE = 1;
 
 _countRifleCARGO = 30;
 _countPistolCARGO = 10;
-_countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
 _countATCARGO = 15;
@@ -77,7 +79,7 @@ _count40mmCARGO = 40;
 _countBANDAGE = 20;
 _countMORPHINE = 10;
 _countEPI = 5;
-_countTourniquet = 3;
+_countCAT = 3;
 _countBLOODBAG = 5;
 _countPAK = 2;
 
@@ -89,64 +91,135 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_commonHEAD = ["empty","BRM_Beanie_Green"] selectRandomWeighted [0.7,0.3];
-_leaderHEAD = "rhs_vkpo_cap";
-_officerHEAD = "UK3CB_H_Beret_Officer_Red_Star";
+_commonHEAD = "UK3CB_TKA_I_H_SSh68_Oli";
+_leaderHEAD = "rhsgref_fieldcap_ttsko_forest";
+_officerHEAD = "rhs_beret_mvd";
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhs_tsh4_bala";
-_pilotHEAD = "rhs_zsh7a_alt";
+_crewmanHEAD = "rhs_tsh4_ess";
+_pilotHEAD = "rhs_zsh7a";
 _helicrewHEAD = "rhs_zsh7a_mike";
 _helipilotHEAD = "rhs_zsh7a_mike";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "BRM_Beanie_Green";
+_reconHEAD = _commonHEAD;
 
-_commonUNIFORM = selectRandom [
-    "UK3CB_CHD_B_U_H_Pilot_Uniform_02",
-    "UK3CB_CHD_B_U_H_Pilot_Uniform_01",
-    "UK3CB_CHD_B_U_CombatUniform_01",
-    "UK3CB_CHD_B_U_CombatUniform_02",
-    "UK3CB_CHD_B_U_CombatUniform_03",
-    "UK3CB_CHD_B_U_CombatUniform_04",
-    "UK3CB_CHD_B_U_CombatUniform_07"
-];
-_SLUNIFORM = _commonUNIFORM;
-_FTLUNIFORM = _commonUNIFORM;
-_officerUNIFORM = "UK3CB_CHD_B_U_CombatUniform_09";
-_pilotUNIFORM = "rhs_uniform_df15_tan";
-_sniperUNIFORM = "UK3CB_CHD_B_U_Sniper_Uniform_01_Ghillie_Top_Underbrush_Green";
+_commonUNIFORM = "rhsgref_uniform_ttsko_forest";
+_officerUNIFORM = _commonUNIFORM;
+_pilotUNIFORM = "rhs_uniform_df15";
+_sniperUNIFORM = "U_B_FullGhillie_lsh";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "rhs_uniform_df15_tan";
+_helicrewUNIFORM = "rhs_uniform_df15";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhs_6b3";
-_officerVEST = "rhs_6b3_R148";
+_commonVEST = "rhs_6b5_rifleman";
+_officerVEST = "rhs_6b5_officer";
 _ftlVEST = _commonVEST;
-_slVEST = "rhs_6b3_R148";
-_mgVEST = "rhs_6b3_RPK";
-_grenadierVEST = "rhs_6b3_VOG_2";
-_medicVEST = _commonVEST;
+_slVEST = "rhs_6b5_officer";
+_mgVEST = _commonVEST;
+_grenadierVEST = _commonVEST;
+_medicVEST = "rhs_6b5_medic";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
-_pilotVEST = "rhs_belt_AK";
+_pilotVEST = "rhs_vest_commander";
 
-_commonBACKPACK = "TRYK_B_Alicepack";
-_bigBACKPACK = "TRYK_B_Alicepack";
-_medicalBACKPACK = _bigBACKPACK;
+_commonBACKPACK = "UK3CB_UN_B_B_RIF";
+_bigBACKPACK = "UK3CB_UN_B_B_RIF";
 _specATBACKPACK = "rhs_rpg_2";
-_reconBACKPACK = _bigBACKPACK;
 
-_commonGOGGLES = selectRandom ["G_Balaclava_blk","G_Balaclava_oli"];
+switch (_camo) do {
+	case "afg": {
+		_commonHEAD = "rhs_ssh68_2";
+		_leaderHEAD = selectRandom ["rhs_fieldcap_m88","rhs_fieldcap_m88_back"];
+		_officerHEAD = "UK3CB_CW_SOV_O_EARLY_H_Officer_Cap";
+		_medicHEAD = _commonHEAD;
+		_crewmanHEAD = "rhs_tsh4_ess";
+		_pilotHEAD = "rhs_zsh7a";
+		_helicrewHEAD = "rhs_zsh7a_mike";
+		_helipilotHEAD = "rhs_zsh7a_mike";
+		_sniperHEAD = _commonHEAD;
+		_demoHEAD = _commonHEAD;
+		_reconHEAD = _commonHEAD;
 
-if (_assignLoadoutMode) then {
-    if (_commonHEAD == "empty" && !(_isTeamLeader  || _isOfficer || _isSquadLeader || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
-        _unit addGoggles _commonGOGGLES;
-    };
+		_commonUNIFORM = "rhs_uniform_afghanka_para";
+		_officerUNIFORM = _commonUNIFORM;
+		_pilotUNIFORM = "rhs_uniform_df15";
+		_sniperUNIFORM = "U_O_FullGhillie_ard";
+		_marksmanUNIFORM = _commonUNIFORM;
+		_helicrewUNIFORM = "rhs_uniform_df15";
+		_crewUNIFORM = _commonUNIFORM;
+		_mgUNIFORM = _commonUNIFORM;
+		_medicUNIFORM = _commonUNIFORM;
+		_demoUNIFORM = _commonUNIFORM;
+		_reconUNIFORM = _commonUNIFORM;
+
+		_commonVEST = "rhs_lifchik";
+		_officerVEST = _commonVEST;
+		_ftlVEST = _commonVEST;
+		_slVEST = _commonVEST;
+		_mgVEST = _commonVEST;
+		_grenadierVEST = _commonVEST;
+		_medicVEST = _commonVEST;
+		_demoVEST = _commonVEST;
+		_marksmanVEST = _commonVEST;
+		_reconVEST = _commonVEST;
+		_pilotVEST = "rhs_vest_commander";
+
+		_commonBACKPACK = "rhs_rd54";
+		_bigBACKPACK = "rhs_rd54";
+		_specATBACKPACK = "rhs_rpg_2";
+	};
+	case "khk": {
+
+		_commonRIFLE = _RHSAKM;
+		_commonRIFLEGL = _RHSAKMGL;
+		_commonMG = _RPK;
+		_commonMG = _RPK;
+
+		_commonHEAD = selectRandom ["rhs_ssh60","rhs_pilotka"];
+		_leaderHEAD = "rhs_fieldcap_khk";
+		_officerHEAD = "rhs_beret_vdv_early";
+		_medicHEAD = _commonHEAD;
+		_crewmanHEAD = "rhs_tsh4_ess";
+		_pilotHEAD = "rhs_zsh7a";
+		_helicrewHEAD = "rhs_zsh7a_mike";
+		_helipilotHEAD = "rhs_zsh7a_mike";
+		_sniperHEAD = _commonHEAD;
+		_demoHEAD = _commonHEAD;
+		_reconHEAD = _commonHEAD;
+
+		_commonUNIFORM = "UK3CB_CW_SOV_O_Early_U_CombatUniform_01_KHK";
+		_officerUNIFORM = _commonUNIFORM;
+		_pilotUNIFORM = "rhs_uniform_df15";
+		_sniperUNIFORM = "U_O_FullGhillie_ard";
+		_marksmanUNIFORM = _commonUNIFORM;
+		_helicrewUNIFORM = "rhs_uniform_df15";
+		_crewUNIFORM = _commonUNIFORM;
+		_mgUNIFORM = _commonUNIFORM;
+		_medicUNIFORM = _commonUNIFORM;
+		_demoUNIFORM = _commonUNIFORM;
+		_reconUNIFORM = _commonUNIFORM;
+
+		_commonVEST = "rhs_lifchik_light";
+		_officerVEST = "rhs_lifchik_NCO";
+		_ftlVEST = "rhs_lifchik_vog";
+		_slVEST = _commonVEST;
+		_mgVEST = _commonVEST;
+		_grenadierVEST = "rhs_lifchik_vog";
+		_medicVEST = _commonVEST;
+		_demoVEST = _commonVEST;
+		_marksmanVEST = _commonVEST;
+		_reconVEST = _commonVEST;
+		_pilotVEST = "rhs_vest_commander";
+
+		_commonBACKPACK = "rhs_rd54";
+		_bigBACKPACK = "rhs_rd54";
+		_specATBACKPACK = "rhs_rpg_2";
+	};
 };
 
 // MISC EQUIPMENT ==============================================================
@@ -195,7 +268,7 @@ _factionVehicles = [
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "FlagCarrierINS"
+/* Flag         */ "rhs_Flag_Russia_F"
 /* Objects      */,["rhs_weapon_crate"]
 /* Walls        */,["Land_BagFence_Long_F"]
 /* Structures   */,["CDF_WarfareBLightFactory"]

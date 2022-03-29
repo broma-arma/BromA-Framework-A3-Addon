@@ -1,7 +1,6 @@
+// INFO ========================================================================
 /*
-    This is the template you can use to create your own loadouts.
-
-    Customize it as you wish.
+    Lingor Rebels
 */
 
 _factionID = "LINGOR_REBELS";
@@ -22,8 +21,19 @@ _factionSkill = [[0.4,0.6],   [0.5,0.6],      [0.7,0.8],     [0.7,0.9],      [0.
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = _AK74N;
-_commonRIFLEGL = _AK74NGL;
+_rifleLIST = [
+	_RHSAKM,
+	_RHSAKMS,
+	_AK74UN,
+	_AK74N
+];
+
+_commonRIFLE = _rifleLIST selectRandomWeighted [0.3,0.2,0.3,0.2];
+
+_commonRIFLEGL = selectRandom [
+	_RHSAKMGL,
+	_RHSAKMSGL
+];
 _commonPISTOL = _Makarov;
 _commonMG = _PKM;
 _commonAR = _RPK;
@@ -31,13 +41,18 @@ _commonMARKSMAN = _M76;
 _commonSNIPER = _M76;
 _commonAT = _RSHG2;
 _specAT = _RPG7;
+_weaponsAA = _IGLA;
+_weaponsAT = _RPG7PGO;
 _commonSMG = _AK74UN;
 _commonRCO = "rhs_acc_1p29";
-_commonCCO = "rhs_acc_ekp8_02";
+_marksmanSCOPE = "rhs_acc_pso1m21";
+_commonCCO = "";
 _commonMAGNIFIED = "rhs_acc_pso1m21";
-_commonSUPPRESSOR = "rhs_acc_dtk4short";
+_commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
+
+_nightOnlyNVGs = true;
 
 // AMMO COUNT ==================================================================
 
@@ -82,30 +97,26 @@ _countPAKCARGO = 10;
 _headsLIST = [
     "H_Bandanna_camo",
 	"H_Booniehat_oli",
-	"H_Cap_blk",
 	"TRYK_H_Bandana_H",
+	"BRM_PatrolCap_green",
 	"empty"
 ];
 
 _uniformsLIST = [
-    "U_I_C_Soldier_Para_2_F",
-	"U_I_C_Soldier_Para_3_F",
-	"U_I_C_Soldier_Para_4_F",
-	"U_I_C_Soldier_Para_1_F"
-];
-
-_vestsLIST = [
-	"V_TacChestrig_cbr_F",
-	"V_TacChestrig_grn_F",
-	"V_TacChestrig_oli_F"
-];
-
-_gogglesLIST = [
+    "UK3CB_MDF_B_U_CombatUniform_02_LIZ_OD",
+	"UK3CB_MDF_B_U_Crew_Uniform_01",
+	"UK3CB_ADM_B_U_Shirt_Pants_01_GRN_WDL_ALT",
+	"UK3CB_ADM_B_U_Shirt_Pants_01_GRN_WDL",
+	"UK3CB_ADE_O_U_02_I",
+	"UK3CB_ADE_O_U_02_C",
+	"UK3CB_ADE_O_U_02_G",
+	"UK3CB_ADE_O_U_02_H",
+	"UK3CB_ADE_O_U_02_D"
 ];
 
 _randomHEAD = selectRandom _headsLIST;
 _randomUNIFORM = selectRandom _uniformsLIST;
-_randomVEST = selectRandom _vestsLIST;
+_randomGOGGLE = ["rhs_scarf","empty"] selectRandomWeighted [0.3,0.7];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
@@ -131,19 +142,28 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = _randomVEST;
-_officerVEST = _commonVEST;
-_ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
-_mgVEST = _commonVEST;
+_commonVEST = "BRM_ALICE_RFL";
+_officerVEST = "BRM_ALICE_SL";
+_ftlVEST = "BRM_ALICE_SL";
+_slVEST = "BRM_ALICE_SL";
+_mgVEST = "BRM_ALICE_MG";
 _grenadierVEST = _commonVEST;
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = _commonVEST;
 
 _commonBACKPACK = "TRYK_B_Alicepack";
 _bigBACKPACK = "TRYK_B_Alicepack";
+_specATBACKPACK = "rhs_rpg_2";
+
+if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_grenade_mkii_mag";
+_binoc = "rhssaf_zrak_rd7j";
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -162,33 +182,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles    */      ["RHS_Ural_Zu23_VMF_01","rhs_zsu234_aa"]
-/*  Attack Helos 	 */	,["RHS_Mi24V_vdv"]
-/*  Attack Planes 	 */	,[]
-/*  Heavy Vehicles 	 */	,["rhs_t72bb_tv","rhs_t72ba_tv","rhs_t80"]
-/*  Light Vehicles 	 */	,["rhsgref_cdf_reg_uaz_open","rhsgref_cdf_reg_uaz","rhsgref_cdf_reg_uaz_dshkm","rhsgref_cdf_reg_uaz_spg9"]
-/*  Medium Vehicles 	 */	,["rhs_brm1k_vmf","rhs_bmp2d_vmf","rhs_bmp1_vmf","rhs_btr60_vdv"]
-/*  Mobile Artillery     */	,[]
-/*  Transport Helos      */	,["RHS_Mi8mt_vdv"]
-/*  Transport Planes     */	,[]
-/*  Transport Trucks     */	,["rhs_zil131_vmf","rhs_zil131_open_vmf"]
-/*  Static Defence       */	,["rhsgref_ins_g_reg_d30", "rhsgref_ins_g_reg_d30", "rhsgref_ins_g_Igla_AA_pod", "rhsgref_ins_g_DSHKM", "rhsgref_ins_g_DSHKM_Mini_TriPod", "rhsgref_ins_g_NSV_TriPod", "rhsgref_ins_g_SPG9", "rhsgref_ins_g_SPG9M", "rhsgref_ins_g_ZU23"]
-/*  Boats                */	,["B_Boat_Transport_01_F"]
-/*  UAV                  */	,[]
-/*  UGV                  */	,[]
-/*  Support              */	,[]
-/*  Submarines           */	,[]
-/*  MRAP Vehicles        */     ,["rhsgref_BRDM2_vmf"]
+/*  Anti Air Vehicles */ ["RHS_Ural_Zu23_VMF_01","rhs_zsu234_aa"]
+/*  Attack Helos      */,["RHS_Mi24V_vdv"]
+/*  Attack Planes     */,[]
+/*  Heavy Vehicles    */,["rhs_t72bb_tv","rhs_t72ba_tv","rhs_t80"]
+/*  Light Vehicles    */,["rhsgref_cdf_reg_uaz_open","rhsgref_cdf_reg_uaz","rhsgref_cdf_reg_uaz_dshkm","rhsgref_cdf_reg_uaz_spg9"]
+/*  Medium Vehicles   */,["rhs_brm1k_vmf","rhs_bmp2d_vmf","rhs_bmp1_vmf","rhs_btr60_vdv"]
+/*  Mobile Artillery  */,[]
+/*  Transport Helos   */,["RHS_Mi8mt_vdv"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["rhs_zil131_vmf","rhs_zil131_open_vmf"]
+/*  Static Defence    */,["rhsgref_ins_g_reg_d30", "rhsgref_ins_g_reg_d30", "rhsgref_ins_g_Igla_AA_pod", "rhsgref_ins_g_DSHKM", "rhsgref_ins_g_DSHKM_Mini_TriPod", "rhsgref_ins_g_NSV_TriPod", "rhsgref_ins_g_SPG9", "rhsgref_ins_g_SPG9M", "rhsgref_ins_g_ZU23"]
+/*  Boats             */,["B_Boat_Transport_01_F"]
+/*  UAV               */,[]
+/*  UGV               */,[]
+/*  Support           */,[]
+/*  Submarines        */,[]
+/*  MRAP Vehicles     */,["rhsgref_BRDM2_vmf"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "FlagCarrierTKMilitia_EP1",
-/* Objects      */ ["rhs_weapon_crate"],
-/* Walls        */ ["Land_BagFence_Long_F"],
-/* Structures   */ ["Land_Fort_Watchtower"]
+/* Flag         */ "FlagCarrierTKMilitia_EP1"
+/* Objects      */,["rhs_weapon_crate"]
+/* Walls        */,["Land_BagFence_Long_F"]
+/* Structures   */,["Land_Fort_Watchtower"]
 ];
-
-// =============================================================================
-// INFO ==================================================

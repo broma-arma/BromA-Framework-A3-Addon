@@ -1,23 +1,23 @@
 // INFO ========================================================================
 /*
-    The Sahrani Liberation Army aims to dismantle the monarchy in the southern
-    region and unite the entire island under a communist regime backed by Russia.
-
-    Mostly uses Russian equipment and tactics.
+    Chernarussian military has been trained by Western armies in past years,
+    but it retains weapons and equipment of the Soviet Army, its direct predecessor.
+    Its main task during the past years for was to fight challenging counter-insurgecy
+    campaign in the mountaineous regions of Northern Chernarus.
 */
 
-_factionID = "SLA";
-_factionName = "Sahrani Liberation Army";
+_factionID = "UKRAINE";
+_factionName = "Ukranian Armed Forces";
 _factionStructure = "MID-TIER";
 
-_factionCallsigns = _defaultCallsignOPFOR;
+_factionCallsigns = _defaultCallsignBLUFOR;
 
-_defaultSide = EAST;
-_defaultVoice = [_voiceBRITISH];
+_defaultSide = WEST;
+_defaultVoice = [_voiceRUSSIAN];
 _defaultFace = [_faceWHITE];
-_defaultName = [_nameSPANISH];
+_defaultName = [_nameRUSSIAN];
 _defaultInsignia = "";
-_defaultColor = "red";
+_defaultColor = "green";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
@@ -27,23 +27,24 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 _commonRIFLE = _AK74N;
 _commonRIFLEGL = _AK74NGL;
 _commonPISTOL = _Makarov;
-_commonAR = _RPK;
-_commonMG = _PKM;
-_commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];;
+_commonAR = selectRandom [_RPK,_PKM];
+_commonMG = _commonAR;
+_commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
 _commonSNIPER = _commonMARKSMAN;
 _commonAT = _RPG26;
 _specAT = _RPG7PGO;
 _weaponsAA = _IGLA;
-_weaponsAT = _specAT;
+_weaponsAT = _RPG7PGO;
 _commonSMG = _AK74UN;
-_commonRCO = "rhs_acc_1p29";
+_marksmanSCOPE = "rhs_acc_pso1m2";
+_commonRCO = "";
 _commonCCO = "";
-_commonMAGNIFIED = "rhs_acc_pso1m21_ak";
+_commonMAGNIFIED = "rhs_acc_pso1m2";
 _commonSUPPRESSOR = "rhs_acc_tgpa";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhs_1PN138";
 
-_nightOnlyNVGs = true;
+_reconSCOPE = "rhs_acc_ekp8_02";
 
 // AMMO COUNT ==================================================================
 
@@ -87,22 +88,29 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_commonHEAD = "UK3CB_TKA_I_H_SSh68_Oli";
-_leaderHEAD = "rhs_fieldcap_vsr";
-_officerHEAD = "BRM_Beret2_Red";
+_commonHEAD = selectRandom [
+    "BRM_ACH_MASK_MCU",
+    "BRM_ACH_MCU",
+    "PSZ_H_wz2005_OLIVE",
+    "PSZ_H_wz2005_OLIVE_ESS",
+    "rhssaf_helmet_m97_olive_nocamo",
+    "rhssaf_helmet_m97_olive_nocamo_black_ess"
+];
+_leaderHEAD = _commonHEAD;
+_officerHEAD = "BRM_PatrolCap_MCU";
 _medicHEAD = _commonHEAD;
-_crewmanHEAD = "rhs_tsh4";
-_pilotHEAD = "rhs_zsh7a_alt";
-_helicrewHEAD = "rhs_zsh7a_mike_alt";
-_helipilotHEAD = "rhs_zsh7a_mike_alt";
+_crewmanHEAD = "rhs_tsh4_ess";
+_pilotHEAD = "rhs_zsh7a";
+_helicrewHEAD = "rhs_zsh7a_mike";
+_helipilotHEAD = "rhs_zsh7a_mike";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "BRM_BeretPELTOR_Red";
+_reconHEAD = _commonHEAD;
 
-_commonUNIFORM = "rhsgref_uniform_vsr";
+_commonUNIFORM = "BRM_BattleUNI_MCU";
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "rhs_uniform_df15";
-_sniperUNIFORM = _commonUNIFORM;
+_pilotUNIFORM = "rhs_uniform_df15_tan";
+_sniperUNIFORM = "U_O_FullGhillie_ard";
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = "rhs_uniform_df15";
 _crewUNIFORM = _commonUNIFORM;
@@ -111,20 +119,20 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "rhs_6b23_vydra_3m";
-_officerVEST = _commonVEST;
+_commonVEST = "BMR_MLBVARMOR_BROWN_RFL";
+_officerVEST = "BMR_MLBVARMOR_BROWN_SL";
 _ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
-_mgVEST = _commonVEST;
+_slVEST = "BMR_MLBVARMOR_BROWN_SL";
+_mgVEST = "BMR_MLBVARMOR_BROWN_MG";
 _grenadierVEST = _commonVEST;
-_medicVEST = _commonVEST;
+_medicVEST = "BMR_MLBVARMOR_BROWN_MED";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 _pilotVEST = "rhs_belt_AK";
 
-_commonBACKPACK = "TRYK_B_Alicepack";
-_bigBACKPACK = "TRYK_B_Alicepack";
+_commonBACKPACK = "BRM_SqBackpack_Brown";
+_bigBACKPACK = "BRM_SqBackpack_Brown";
 _specATBACKPACK = "rhs_rpg_2";
 
 // MISC EQUIPMENT ==============================================================
@@ -156,7 +164,7 @@ _factionVehicles = [
 /*  Attack Planes     */,["rhs_l159_cdf_b_CDF_CAP", "rhs_l159_cdf_b_CDF_CAS", "rhs_l159_cdf_b_CDF_plamen", "rhs_l159_cdf_b_CDF", "rhs_l39_cdf_b_cdf", "rhsgref_cdf_b_su25"]
 /*  Heavy Vehicles    */,["rhs_sprut_vdv", "rhs_t72bd_tv"]
 /*  Light Vehicles    */,["rhsgref_cdf_reg_uaz", "rhsgref_cdf_reg_uaz_dshkm", "rhsgref_cdf_reg_uaz_open", "rhsgref_cdf_reg_uaz_spg9"]
-/*  Medium Vehicles   */,["rhs_btr60_vdv", "rhs_btr70_vdv", "rhs_btr80_vdv", "rhs_btr80a_vdv", "rhs_bmp2d_vdv", "rhs_bmp2_vdv"]
+/*  Medium Vehicles   */,["rhsgref_cdf_bmd1", "rhsgref_cdf_bmd1k", "rhsgref_cdf_bmd1p", "rhsgref_cdf_bmd1","rhsgref_cdf_bmd1k","rhsgref_cdf_bmd1p","rhsgref_cdf_bmd1pk","rhsgref_cdf_bmd2","rhsgref_cdf_bmd2k","rhsgref_cdf_bmp1","rhsgref_cdf_bmp1d","rhsgref_cdf_bmp1k","rhsgref_cdf_bmp1p","rhsgref_cdf_bmp2","rhsgref_cdf_bmp2d","rhsgref_cdf_bmp2k"]
 /*  Mobile Artillery  */,["rhsgref_cdf_reg_BM21", "rhsgref_cdf_reg_BM21"]
 /*  Transport Helos   */,["rhsgref_cdf_reg_Mi8amt", "rhsgref_cdf_reg_Mi17Sh"]
 /*  Transport Planes  */,["RHS_AN2_B", "RHS_AN2_B"]
@@ -167,14 +175,14 @@ _factionVehicles = [
 /*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
 /*  Support           */,["rhsgref_cdf_gaz66_ammo","rhsgref_cdf_ural_fuel"]
 /*  Submarines        */,["B_SDV_01_F"]
-/*  MRAP Vehicles     */,["rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2UM_b", "rhsgref_BRDM2_HQ_b"]
+/*  MRAP Vehicles     */,["rhsgref_BRDM2_vdv", "rhsgref_BRDM2_HQ_vdv"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "FlagCarrierNorth"
-/* Objects      */,["rhs_weapon_crate"]
-/* Walls        */,["Land_BagFence_Long_F"]
-/* Structures   */,["Land_Fort_Watchtower"]
+/* Flag       */ "FlagCarrierCDFEnsign_EP1"
+/* Objects    */,["B_CargoNet_01_ammo_F"]
+/* Walls      */,["Land_BagFence_Long_F"]
+/* Structures */,["CDF_WarfareBLightFactory"]
 ];

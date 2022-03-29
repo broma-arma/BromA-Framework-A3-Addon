@@ -11,7 +11,7 @@
 
 _factionID        = "OFPFIA";
 _factionName      = "FIA forces";
-_factionStructure = "HIGH-TIER-CCO";
+_factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -38,10 +38,11 @@ _commonAT               = _RPG26;
 _specAT                 = _RPG7;
 _commonSMG              = _HK51;
 _commonRCO              = "rhsusf_acc_ELCAN";
+_marksmanSCOPE          = "";
 _commonCCO              = "rhsusf_acc_eotech_552";
 _commonMAGNIFIED        = "optic_LRPS";
 _commonSUPPRESSOR       = _sup762;
-_commonPISTOLSUPPRESSOR = _sup9mm;
+_commonPISTOLSUPPRESSOR = "";
 _NVG                    = _NVGEN1;
 
 // AMMO COUNT ==================================================================
@@ -158,9 +159,17 @@ _medicVEST     = "TAC_EI_RRV27L_RG";
 _demoVEST      = "TAC_PBDFG2CPL_BK";
 _marksmanVEST  = "TAC_EI_RRV25_RG";
 _reconVEST     = _randomVEST;
+_pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "TRYK_B_Coyotebackpack_OD";
 _bigBACKPACK = "TRYK_B_Carryall_wood";
+
+// MISC EQUIPMENT ==============================================================
+
+_grenade = "rhs_mag_rgd5";
+_wsmoke = "rhs_mag_rdg2_white";
+_binoc = "rhssaf_zrak_rd7j";
+_rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -179,32 +188,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/* 0 - Anti Air Vehicles */  ["rhs_zsu234_aa", "rhs_zsu234_aa"]
-/* 1 - Attack Helos      */ ,["RHS_Mi24P_AT_vvs", "RHS_Mi24P_vvs", "RHS_Mi24V_AT_vvs"]
-/* 2 - Attack Planes     */ ,["RHS_Su25SM_vvs", "RHS_Su25SM_CAS_vvs", "RHS_Su25SM_KH29_vvs"]
-/* 3 - Heavy Vehicles    */ ,["rhs_sprut_vdv", "rhs_t72ba_tv"]
-/* 4 - Light Vehicles    */ ,["rhs_uaz_vdv", "rhs_uaz_open_vdv"]
-/* 5 - Medium Vehicles   */ ,["rhs_btr60_vdv", "rhs_bmd1", "rhs_bmp1d_vdv"]
-/* 6 - Mobile Artillery  */ ,["rhs_2s3_tv", "rhs_9k79_B", "RHS_BM21_VV_01"]
-/* 7 - Transport Helos   */ ,["RHS_Mi8mt_vvs"]
-/* 8 - Transport Planes  */ ,["RHS_AN2_B", "RHS_AN2_B"]
-/* 9 - Transport Trucks  */ ,["rhs_gaz66_msv", "rhs_gaz66_flat_msv"]
-/*10 - Static Defence    */ ,["rhs_Metis_9k115_2_msv", "rhs_Kornet_9M133_2_msv", "rhs_Igla_AA_pod_msv", "rhs_KORD_MSV", "rhs_KORD_high_MSV", "rhs_SPG9M_MSV", "RHS_ZU23_MSV"]
-/*11 - Boats             */ ,["O_Boat_Armed_01_hmg_F", "O_Boat_Transport_01_F"]
-/*12 - UAV               */ ,["rhs_pchela1t_vvs", "rhs_pchela1t_vvs"]
-/*13 - UGV               */ ,["O_UGV_01_rcws_F"]
-/*14 - Support           */ ,["rhs_gaz66_ammo_vv", "RHS_Ural_Fuel_VDV_01", "O_Truck_02_box_F"]
-/*15 - Submarines        */ ,["O_SDV_01_F", "O_SDV_01_F"]
-/*     MRAP Vehicles     */ ,["rhsusf_rg33_o", "rhsusf_rg33_m2_o", "rhsusf_M1117_O"]
+/*  Anti Air Vehicles */ ["rhs_zsu234_aa", "rhs_zsu234_aa"]
+/*  Attack Helos      */,["RHS_Mi24P_AT_vvs", "RHS_Mi24P_vvs", "RHS_Mi24V_AT_vvs"]
+/*  Attack Planes     */,["RHS_Su25SM_vvs", "RHS_Su25SM_CAS_vvs", "RHS_Su25SM_KH29_vvs"]
+/*  Heavy Vehicles    */,["rhs_sprut_vdv", "rhs_t72ba_tv"]
+/*  Light Vehicles    */,["rhs_uaz_vdv", "rhs_uaz_open_vdv"]
+/*  Medium Vehicles   */,["rhs_btr60_vdv", "rhs_bmd1", "rhs_bmp1d_vdv"]
+/*  Mobile Artillery  */,["rhs_2s3_tv", "rhs_9k79_B", "RHS_BM21_VV_01"]
+/*  Transport Helos   */,["RHS_Mi8mt_vvs"]
+/*  Transport Planes  */,["RHS_AN2_B", "RHS_AN2_B"]
+/*  Transport Trucks  */,["rhs_gaz66_msv", "rhs_gaz66_flat_msv"]
+/*  Static Defence    */,["rhs_Metis_9k115_2_msv", "rhs_Kornet_9M133_2_msv", "rhs_Igla_AA_pod_msv", "rhs_KORD_MSV", "rhs_KORD_high_MSV", "rhs_SPG9M_MSV", "RHS_ZU23_MSV"]
+/*  Boats             */,["O_Boat_Armed_01_hmg_F", "O_Boat_Transport_01_F"]
+/*  UAV               */,["rhs_pchela1t_vvs", "rhs_pchela1t_vvs"]
+/*  UGV               */,["O_UGV_01_rcws_F"]
+/*  Support           */,["rhs_gaz66_ammo_vv", "RHS_Ural_Fuel_VDV_01", "O_Truck_02_box_F"]
+/*  Submarines        */,["O_SDV_01_F", "O_SDV_01_F"]
+/*  MRAP Vehicles     */,["rhsusf_rg33_o", "rhsusf_rg33_m2_o", "rhsusf_M1117_O"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_NATO_F",
-/* Objects      */ ["B_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_Mil_WallBig_4m_F"],
-/* Structures   */ ["Land_Cargo_House_V3_F"]
+/* Flag         */ "Flag_NATO_F"
+/* Objects      */,["B_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_Mil_WallBig_4m_F"]
+/* Structures   */,["Land_Cargo_House_V3_F"]
 ];
-
-// =============================================================================

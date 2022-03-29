@@ -4,7 +4,6 @@
     states is built upon the goals of mutual defence, expanded global influence, and
     sustained economic growth.
 */
-// =============================================================================
 
 _factionID = "CSAT";
 _factionName = "CSAT Forces";
@@ -19,11 +18,20 @@ _defaultName = [_nameARABIC];
 _defaultInsignia = "";
 _defaultColor = "red";
 
-// Set in mission with: BRM_FMK_UNIFORMS_CSATUrban
-_enableUrbanUniforms = false;
-
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
 _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
+
+// CAMO ========================================================================
+/*
+    Set in mission with: BRM_FMK_LoadoutCamo_CSAT
+	"BRN"
+    "GRY"
+*/
+_camo = "BRN";
+if(!isNil "BRM_FMK_UNIFORMS_CSATUrban" && {BRM_FMK_UNIFORMS_CSATUrban})then{_camo="GRY"}; // Backward compatibility
+if(!isNil "BRM_FMK_LoadoutCamo_CSAT")then{_camo=BRM_FMK_LoadoutCamo_CSAT};
+_lp = "o"; // Loadout Pattern
+if (_camo == "GRY") then { _lp = "ou"; };
 
 // WEAPONS =====================================================================
 
@@ -85,8 +93,6 @@ _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
-if(!isNil"BRM_FMK_UNIFORMS_CSATUrban")then{_enableUrbanUniforms=BRM_FMK_UNIFORMS_CSATUrban};
-_lp="o";_vp="brn";if(_enableUrbanUniforms)then{_lp="ou";_vp= "gry"};
 
 _commonHEAD = "H_HelmetO_"+_lp+"camo";
 _leaderHEAD = "H_HelmetLeaderO_"+_lp+"camo";
@@ -112,16 +118,17 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = "V_HarnessO_"+_vp;
+_commonVEST = "V_HarnessO_"+_camo;
 _officerVEST = "V_BandollierB_cbr";
 _ftlVEST = _commonVEST;
 _slVEST = _commonVEST;
 _mgVEST = _commonVEST;
-_grenadierVEST = "V_HarnessOGL_"+_vp;
+_grenadierVEST = "V_HarnessOGL_"+_camo;
 _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
-_reconVEST = "V_HarnessOSpec_"+_vp;
+_reconVEST = "V_HarnessOSpec_"+_camo;
+_pilotVEST = "V_BandollierB_cbr";
 
 _commonBACKPACK = "B_AssaultPack_"+_lp+"camo";
 _bigBACKPACK = "B_Carryall_"+_lp+"camo";
@@ -143,32 +150,30 @@ _UAVTerminal = "auto";
 // VEHICLES ====================================================================
 
 _factionVehicles = [
-/*  Anti Air Vehicles */	 ["O_APC_Tracked_02_AA_F", "O_APC_Tracked_02_AA_F"]
-/*  Attack Helos      */        ,["O_Heli_Attack_02_black_F","O_Heli_Attack_02_F"]
-/*  Attack Planes     */	,["O_Plane_CAS_02_F"]
-/*  Heavy Vehicles    */	,["O_MBT_02_cannon_F","O_APC_Tracked_02_cannon_F"]
-/*  Light Vehicles    */	,["O_MRAP_02_hmg_F", "O_MRAP_02_hmg_F"]
-/*  Medium Vehicles   */	,["O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F"]
-/*  Mobile Artillery  */	,["O_MBT_02_arty_F", "O_MBT_02_arty_F"]
-/*  Transport Helos   */	,["O_Heli_Light_02_F","O_Heli_Light_02_unarmed_F"]
-/*  Transport Planes  */	,[]
-/*  Transport Trucks  */	,["O_Truck_03_transport_F", "O_Truck_03_covered_F"]
-/*  Static Defence    */	,["O_HMG_01_high_F","O_static_AA_F","O_static_AT_F","O_Mortar_01_F"]
-/*  Boats             */	,["O_Boat_Armed_01_hmg_F"]
-/*  UAV               */	,["O_UAV_02_CAS_F","O_UAV_02_F"]
-/*  UGV               */	,["O_UGV_01_F","O_UGV_01_rcws_F"]
-/*  Support           */	,["O_Truck_03_ammo_F","O_Truck_03_fuel_F", "O_Truck_03_medical_F", "O_Truck_03_repair_F"]
-/*  Submarines        */	,["O_SDV_01_F"]
-/*  MRAP Vehicles     */        ,["O_MRAP_02_hmg_F", "O_MRAP_02_hmg_F"]
+/*  Anti Air Vehicles */ ["O_APC_Tracked_02_AA_F", "O_APC_Tracked_02_AA_F"]
+/*  Attack Helos      */,["O_Heli_Attack_02_black_F","O_Heli_Attack_02_F"]
+/*  Attack Planes     */,["O_Plane_CAS_02_F"]
+/*  Heavy Vehicles    */,["O_MBT_02_cannon_F","O_APC_Tracked_02_cannon_F"]
+/*  Light Vehicles    */,["O_MRAP_02_hmg_F", "O_MRAP_02_hmg_F"]
+/*  Medium Vehicles   */,["O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F"]
+/*  Mobile Artillery  */,["O_MBT_02_arty_F", "O_MBT_02_arty_F"]
+/*  Transport Helos   */,["O_Heli_Light_02_F","O_Heli_Light_02_unarmed_F"]
+/*  Transport Planes  */,[]
+/*  Transport Trucks  */,["O_Truck_03_transport_F", "O_Truck_03_covered_F"]
+/*  Static Defence    */,["O_HMG_01_high_F","O_static_AA_F","O_static_AT_F","O_Mortar_01_F"]
+/*  Boats             */,["O_Boat_Armed_01_hmg_F"]
+/*  UAV               */,["O_UAV_02_CAS_F","O_UAV_02_F"]
+/*  UGV               */,["O_UGV_01_F","O_UGV_01_rcws_F"]
+/*  Support           */,["O_Truck_03_ammo_F","O_Truck_03_fuel_F", "O_Truck_03_medical_F", "O_Truck_03_repair_F"]
+/*  Submarines        */,["O_SDV_01_F"]
+/*  MRAP Vehicles     */,["O_MRAP_02_hmg_F", "O_MRAP_02_hmg_F"]
 ];
 
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_CSAT_F",
-/* Objects      */ ["O_CargoNet_01_ammo_F"],
-/* Walls        */ ["Land_HBarrierWall4_F"],
-/* Structures   */ ["Land_Cargo_Tower_V3_F"]
+/* Flag         */ "Flag_CSAT_F"
+/* Objects      */,["O_CargoNet_01_ammo_F"]
+/* Walls        */,["Land_HBarrierWall4_F"]
+/* Structures   */,["Land_Cargo_Tower_V3_F"]
 ];
-
-// =============================================================================
