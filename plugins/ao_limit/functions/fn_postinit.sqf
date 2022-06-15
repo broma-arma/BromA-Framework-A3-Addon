@@ -1,4 +1,4 @@
-if !(hasInterface && !player_is_spectator) exitWith {};
+if !(hasInterface && !player_is_spectator && markerShape "ao" != "") exitWith {};
 
 if (isNil "left_ao_do") then {
 	left_ao_do = { hintSilent "Please remain within the area of operations." };

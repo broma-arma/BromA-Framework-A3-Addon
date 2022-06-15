@@ -1,4 +1,4 @@
-if !(hasInterface) exitWith {};
+if !(hasInterface && markerShape "ao" != "") exitWith {};
 
 markerPos "ao" params ["_posX", "_posY"];
 markerSize "ao" params ["_sizeX", "_sizeY"];
