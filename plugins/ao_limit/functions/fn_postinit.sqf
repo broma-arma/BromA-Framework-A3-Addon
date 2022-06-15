@@ -1,22 +1,15 @@
-if !(hasInterface && {!player_is_spectator}) exitWith {};
+if !(hasInterface && !player_is_spectator) exitWith {};
 
-#include "includes\settings.sqf"
-
-private _aoMarker = "ao";
-private _aoPos = [(getMarkerPos _aoMarker) select 0, (getMarkerPos _aoMarker) select 1, 0];
+if (isNil "left_ao_do") then {
+	left_ao_do = { hintSilent "Please remain within the area of operations." };
+};
 
 [{
-    (_this select 0) params["_aoMarker", "_aoPos"];
-
-    private _targetObject = (vehicle player);
-    private _isDead = player getVariable ["isDead", false];
-
-    if (!_isDead) then {
-        if (_targetObject isKindOf "Land") then {
-            if (!((getPos _targetObject) inArea "ao")) then {
-                private _pos = _targetObject getPos [1, _targetObject getDir _aoPos];
-                [] call left_ao_do;
-            };
+    if !(player getVariable ["isDead", false]) then {
+		private _targetObject = vehicle player;
+        if (_targetObject isKindOf "Land" && !(_targetObject inArea "ao")) then {
+			private _pos = _targetObject getPos [1, _targetObject getDir markerPos "ao"];
+			[] call left_ao_do;
         };
     };
-}, 0.1, [_aoMarker, _aoPos]] call CBA_fnc_addPerFrameHandler;
+}, 0.1] call CBA_fnc_addPerFrameHandler;
