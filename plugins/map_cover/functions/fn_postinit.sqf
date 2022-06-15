@@ -1,45 +1,46 @@
-if (isServer) then {
-    private _group = createGroup sideLogic;
-    private _pos = getMarkerPos "ao";
-    private _size = getMarkerSize "ao";
-    private _rot = markerDir "ao";
+if !(hasInterface) exitWith {};
 
-    private _logic = _group createUnit ["Logic", _pos, [], 0, "CAN_COLLIDE"];
-    _logic setVariable ["objectArea", [_size select 0, _size select 1, _rot, true, 0]];
+markerPos "ao" params ["_posX", "_posY"];
+markerSize "ao" params ["_sizeX", "_sizeY"];
+if (_sizeX < 1 || _sizeY < 1) exitWith {};
+private _dir = markerDir "ao";
 
-    [_logic, nil, true] call BIS_fnc_moduleCoverMap;
-
-    BRM_FMK_MapCover_VAR_coverCreated = true;
-    publicVariable "BRM_FMK_MapCover_VAR_coverCreated";
+private _sizeOut = 50000;
+for "_i" from 0 to 270 step 90 do {
+	private _dirI = _dir + _i;
+	private _marker = createMarkerLocal [format ["BRM_FMK_MapCover_marker%1", _i], [_posX + sin _dirI * _sizeOut, _posY + cos _dirI * _sizeOut]];
+	_marker setMarkerSizeLocal [[_sizeX, _sizeOut] select abs sin _i, _sizeOut - ([_sizeX, _sizeY] select abs cos _i)];
+	_marker setMarkerDirLocal _dirI;
+	_marker setMarkerShapeLocal "RECTANGLE";
+	_marker setMarkerBrushLocal "Solid";
+	_marker setMarkerColorLocal "ColorBlack";
+	_marker setMarkerAlphaLocal 1;
 };
 
-if (hasInterface) then {
-    [{!(isNil "BRM_FMK_MapCover_VAR_coverCreated")}, {
-        BRM_FMK_MapCover_VAR_mapOpacity = 0.5;
-        BRM_FMK_MapCover_VAR_mapColor = "ColorBlack";
-        BRM_FMK_MapCover_VAR_mapBrush = "SolidFull";
+private _fnc_configOptions = {
+	params ["_config", "_default", ["_blacklist", []]];
 
-        private _BRM_FMK_MapCover_VALUES_brushTypes = [
-            ["SolidFull", "SolidBorder", "Solid", "Horizontal", "Vertical", "Grid", "FDiagonal", "BDiagonal", "DiagGrid", "Cross", "Border"],
-            ["Full Solid", "Solid with Border", "Solid", "Horizontal", "Vertical", "Grid", "Diagonal Frame", "Backwards Diagonal Frame", "Diagonal Grid", "Cross", "Border"]
-        ];
-
-        private _BRM_FMK_MapCover_VALUES_validColors = [
-            ["ColorBlack", "ColorGrey", "ColorWhite", "ColorEAST", "ColorGUER", "ColorWEST", "ColorYellow", "ColorOrange", "ColorBrown", "ColorKhaki", "ColorPink"],
-            ["Black", "Grey", "White", "Red", "Green", "Blue", "Yellow", "Orange", "Brown", "Khaki", "Pink"]
-        ];
-
-        private _BRM_FMK_MapCover_fnc_renderMap = {
-            for "_i" from 0 to 270 step 90 do {
-                private _coverMap = (format ["BIS_fnc_moduleCoverMap_%1", _i]);
-                _coverMap setMarkerBrushLocal BRM_FMK_MapCover_VAR_mapBrush;
-                _coverMap setMarkerAlphaLocal BRM_FMK_MapCover_VAR_mapOpacity;
-                _coverMap setMarkerColorLocal BRM_FMK_MapCover_VAR_mapColor;
-            };
-        };
-
-        ["BRM_FMK_MapCover_VAR_mapBrush", "LIST", ["MAP COVER -          Brush type", "The style of the cover."], "BromA Framework", _BRM_FMK_MapCover_VALUES_brushTypes, 0, _BRM_FMK_MapCover_fnc_renderMap] call CBA_settings_fnc_init;
-        ["BRM_FMK_MapCover_VAR_mapOpacity", "SLIDER", ["MAP COVER -               Opacity", "The opacity of the cover."], "BromA Framework", [0, 1, 0.7, 1], 0, _BRM_FMK_MapCover_fnc_renderMap] call CBA_settings_fnc_init;
-        ["BRM_FMK_MapCover_VAR_mapColor", "LIST", ["MAP COVER -                    Color", "The color of the cover."], "BromA Framework", _BRM_FMK_MapCover_VALUES_validColors, 0, _BRM_FMK_MapCover_fnc_renderMap] call CBA_settings_fnc_init;
-    }, []] call CBA_fnc_waitUntilAndExecute;
+	private _options = [[], [], 0];
+	{
+		private _configName = configName _x;
+		if !(_configName in _blacklist) then {
+			_options#0 pushBack _configName;
+			_options#1 pushBack getText (_x >> "name");
+		};
+	} forEach ("getNumber (_x >> 'scope') > 0" configClasses _config);
+	_options set [2, _options#0 find _default]; // Default index
+	_options
 };
+
+private _fnc_updateMapCover = {
+	for "_i" from 0 to 270 step 90 do {
+		private _marker = (format ["BRM_FMK_MapCover_marker%1", _i]);
+		_marker setMarkerBrushLocal BRM_FMK_MapCover_setting_brush;
+		_marker setMarkerAlphaLocal BRM_FMK_MapCover_setting_alpha;
+		_marker setMarkerColorLocal BRM_FMK_MapCover_setting_color;
+	};
+};
+
+["BRM_FMK_MapCover_setting_brush", "LIST", ["Brush", "The style of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerBrushes", "SolidFull"] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
+["BRM_FMK_MapCover_setting_color", "LIST", ["Color", "The color of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerColors", "ColorBlack", ["Default"]] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
+["BRM_FMK_MapCover_setting_alpha", "SLIDER", ["Alpha", "The alpha of the cover."], ["BromA Framework", "Map Cover"], [0, 1, 0.7, 1], 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
