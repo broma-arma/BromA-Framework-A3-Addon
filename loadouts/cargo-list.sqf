@@ -149,6 +149,169 @@ switch (toLower _x) do {
 		] call BRM_FMK_fnc_addItems;
 	};
 
+	case "rifle": {
+		[_object, [_commonRIFLE select RAMMO, _countRifleCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "riflegl": {
+		[_object, [_commonRIFLEGL select RAMMO, _countRifleCARGO], [_commonRIFLEGL select GL, _count40mmCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "pistol": {
+		[_object, [_commonPISTOL select RAMMO, _countPistolCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "ar": {
+		[_object, [_commonAR select RAMMO, _countARCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "mg": {
+		[_object, [_commonMG select RAMMO, _countMGCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "marksman": {
+		[_object, [_commonMARKSMAN select RAMMO, _countRifleCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "sniper": {
+		[_object, [_commonSNIPER select RAMMO, _countSNIPERCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "smg": {
+		[_object, [_commonSMG select RAMMO, _countRifleCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "lat": {
+		[_object, [_commonAT select GUN, _countATCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "mat": {
+		[_object, [_specAT select ([RAMMO, GUN] select _isSpecATDisposable), _countSpecATCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "hat": {
+		[_object, [_weaponsAT select RAMMO, _countWeaponsATCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "haa": {
+		[_object, [_weaponsAA select RAMMO, _countWeaponsAACARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "rifle_recon": {
+		[_object, [_reconRIFLE select RAMMO, _countRifleCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "gl": {
+		[_object, [_commonGL select RAMMO, _count40mmCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "grenade": {
+		[_object, [_grenade, _countGRENADESCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "chemlight": {
+		[_object, [_bchemlight, 25], [_rchemlight, 25], [_gchemlight, 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "chemlight_blue": {
+		[_object, [_bchemlight, 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "chemlight_red": {
+		[_object, [_rchemlight, 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "chemlight_green": {
+		[_object, [_gchemlight, 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "smoke": {
+		[_object, [_wsmoke, 25], [_rsmoke, 25], [_gsmoke, 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "smoke_white": {
+		[_object, [_wsmoke, 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "smoke_red": {
+		[_object, [_rsmoke, 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "smoke_green": {
+		[_object, [_gsmoke, 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "smoke_yellow": {
+		[_object, ["SmokeShellYellow", 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "smoke_purple": {
+		[_object, ["SmokeShellPurple", 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "smoke_blue": {
+		[_object, ["SmokeShellBlue", 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "smoke_orange": {
+		[_object, ["SmokeShellOrange", 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "bandage": {
+		private _supplies = [];
+		if (ace_medical_treatment_advancedBandages == 0) then { // Disabled
+			_supplies pushBack [_bandage, _countBandageCARGO];
+		} else { // Enabled
+			_supplies append [
+				[_fieldDressing,  _countBandageCARGO],
+				[_packingBandage, _countBandageCARGO],
+				[_elasticBandage, _countBandageCARGO],
+				[_quickClot,      _countBandageCARGO]
+			];
+		};
+		[_object] + _supplies call BRM_FMK_fnc_addItems;
+	};
+
+	case "tourniquet": {
+		[_object, [_tourniquet, _countTourniquetCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "splint": {
+		if (ace_medical_fractures > 0) then {
+			[_object, [_splint, _countSplintCARGO]] call BRM_FMK_fnc_addItems;
+		};
+	};
+
+	case "morphine": {
+		[_object, [_morphine, _countMorphineCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "epinephrine";
+	case "epi": {
+		[_object, [_epi, _countEpiCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "blood": {
+		[_object, [_blood250, _countBloodbagCARGO], [_blood500, _countBloodbagCARGO], [_blood1000, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "blood250": {
+		[_object, [_blood250, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "blood500": {
+		[_object, [_blood500, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "blood1000": {
+		[_object, [_blood1000, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "personalaidkit";
+	case "pak": {
+		[_object, [_personalAidKit, _countPAKCARGO]] call BRM_FMK_fnc_addItems;
+	};
+
 	default {
 		["Unknown cargo type: '%1' (%2)", _x, _type] call BIS_fnc_error;
 	};
