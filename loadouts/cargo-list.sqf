@@ -3,8 +3,11 @@ switch (toLower _x) do {
 		private _supplies = [];
 
 		if (mission_ACE3_enabled) then {
+			if (ace_hearing_enableCombatDeafness) then {
+				_supplies pushBack [_earPlugs, 25];
+			};
+
 			_supplies append [
-				[_earPlugs,        25],
 				[_morphine,       _countMorphineCARGO],
 				[_epi,            _countEpiCARGO],
 				[_tourniquet,     _countTourniquetCARGO],
