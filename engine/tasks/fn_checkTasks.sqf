@@ -93,20 +93,25 @@ while { mission_running } do {
 					if ((missionNamespace getVariable format ["side_%1_side", _sideChar]) in mission_require_extraction) then {
 						missionNamespace getVariable format ["brm_fmk_extraction_%1", _sideChar] params ["_extractionObjects", "_extractionTargets"];
 
-						[
-							missionNamespace getVariable format ["side_%1_side", _sideChar], format ["%1Extract", _sideChar],
-							["Extract", "Make your way to an extraction zone.", "exit", []],
-							["true", format ["!(side_%1_side in mission_require_extraction)", _sideChar]], PRIORITY_PRIMARY,
-							["if (mission_extraction_enable_music) then {[selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal}", "", ""]
-						] spawn BRM_FMK_fnc_newTask;
+						if (count _extractionTargets > 0) then {
+							[
+								missionNamespace getVariable format ["side_%1_side", _sideChar], format ["%1Extract", _sideChar],
+								["Extract", "Make your way to an extraction zone.", "exit", []],
+								["true", format ["!(side_%1_side in mission_require_extraction)", _sideChar]], PRIORITY_PRIMARY,
+								["if (mission_extraction_enable_music) then {[selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal}", "", ""]
+							] spawn BRM_FMK_fnc_newTask;
 
-						[
-							_extractionObjects apply { if (_x isEqualType "") then { call compile _x } else { _x } },
-							_extractionTargets,
-							compile format ["mission_require_extraction = mission_require_extraction - [side_%1_side];", _sideChar],
-							100,
-							10
-						] call BRM_FMK_fnc_reachTarget;
+							[
+								_extractionObjects apply { if (_x isEqualType "") then { call compile _x } else { _x } },
+								_extractionTargets,
+								compile format ["mission_require_extraction = mission_require_extraction - [side_%1_side];", _sideChar],
+								100,
+								10
+							] call BRM_FMK_fnc_reachTarget;
+						} else {
+							["CLIENTS", "CHAT", format ["WARNING: Skipping extraction task. Mission requires extraction, but has no extraction points for %1.", missionNamespace getVariable format ["side_%1_side", _sideChar]]] call BRM_FMK_fnc_doLog;
+							mission_require_extraction = mission_require_extraction - [missionNamespace getVariable format ["side_%1_side", _sideChar]];
+						};
 					} else {
 						if (mission_game_mode != "coop") then {
 							[missionNamespace getVariable format ["endings_tvt_side_%1_victory", _sideChar]] call BRM_FMK_fnc_callEnding;
