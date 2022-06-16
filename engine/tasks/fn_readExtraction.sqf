@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_fnc_readExtraction
+    BRM_FMK_fnc_readExtraction
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] call BRM_fnc_readExtraction
+    PostInit
 
 RETURNS:
     Nothing.
@@ -47,7 +47,10 @@ private _extractionPoints = [[], [], [], []]; // Blu, Op, Ind, Civ
 
 			"ColorBlack"
 		};
-		["global", getPos _x, "mil_end", _color, format ["Extraction #%1", _extName select [2, count _extName] joinString "_"], [1, 1], (getDir _x) + 180, 1] call BRM_FMK_fnc_newMarkerIcon;
+
+		if (_index != -1) then {
+			[_sides select _index, getPos _x, getDir _x, _color, format ["Extraction #%1", _extName select [2, count _extName] joinString "_"]] remoteExec ["BRM_FMK_fnc_createExtractionMarker", 0, format ["BRM_FMK_fnc_createExtractionMarker_%1", _index]];
+		};
 	};
 } forEach (allMissionObjects "");
 

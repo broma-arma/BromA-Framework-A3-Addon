@@ -4,4 +4,5 @@ class tasks {
 	class newTask {};
 	class setTask{};
 	class checkTasks{};
+	class createExtractionMarker{};
 };
