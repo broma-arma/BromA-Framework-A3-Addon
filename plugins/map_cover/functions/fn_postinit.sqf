@@ -35,12 +35,12 @@ private _fnc_configOptions = {
 private _fnc_updateMapCover = {
 	for "_i" from 0 to 270 step 90 do {
 		private _marker = (format ["BRM_FMK_MapCover_marker%1", _i]);
-		_marker setMarkerBrushLocal BRM_FMK_MapCover_setting_brush;
-		_marker setMarkerAlphaLocal BRM_FMK_MapCover_setting_alpha;
-		_marker setMarkerColorLocal BRM_FMK_MapCover_setting_color;
+		_marker setMarkerBrushLocal BRM_FMK_MapCover_VAR_mapBrush;
+		_marker setMarkerAlphaLocal BRM_FMK_MapCover_VAR_mapOpacity;
+		_marker setMarkerColorLocal BRM_FMK_MapCover_VAR_mapColor;
 	};
 };
 
-["BRM_FMK_MapCover_setting_brush", "LIST", ["Brush", "The style of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerBrushes", "SolidFull"] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
-["BRM_FMK_MapCover_setting_color", "LIST", ["Color", "The color of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerColors", "ColorBlack", ["Default"]] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
-["BRM_FMK_MapCover_setting_alpha", "SLIDER", ["Alpha", "The alpha of the cover."], ["BromA Framework", "Map Cover"], [0, 1, 0.7, 1], 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
+["BRM_FMK_MapCover_VAR_mapBrush", "LIST", ["Brush", "The style of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerBrushes", "SolidFull"] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
+["BRM_FMK_MapCover_VAR_mapColor", "LIST", ["Color", "The color of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerColors", "ColorBlack", ["Default"]] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
+["BRM_FMK_MapCover_VAR_mapOpacity", "SLIDER", ["Alpha", "The alpha of the cover."], ["BromA Framework", "Map Cover"], [0, 1, 0.7, 1], 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
