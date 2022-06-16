@@ -1,4 +1,4 @@
-switch (_x) do {
+switch (toLower _x) do {
 	case "medical": {
 		private _supplies = [];
 
