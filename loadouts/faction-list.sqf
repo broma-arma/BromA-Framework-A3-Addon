@@ -28,7 +28,7 @@ switch (toUpper(_faction)) do {
     };
 
     case "CAF": {
-        #include "factions\Canada.sqf"
+        #include "factions\caf.sqf"
     };
 
     case "CDF": {
@@ -144,7 +144,7 @@ switch (toUpper(_faction)) do {
     };
 
     case "SPRG": {
-        #include "factions\sprg-report.sqf"
+        #include "factions\sprg.sqf"
     };
 
     case "SWEDEN": {
@@ -176,18 +176,15 @@ switch (toUpper(_faction)) do {
     };
 
     case "USFS": {
-        #include "factions\usarmy_future.sqf"
+        #include "factions\usfs.sqf"
     };
 
     case "YUGO": {
         #include "factions\yugo.sqf"
     };
 
-    case "DEFAULT": {
-        #include "factions\template.sqf"
-    };
-
+    case "DEFAULT";
     default {
-        #include "factions\template.sqf"
+        #include "factions\default.sqf"
     };
 };
