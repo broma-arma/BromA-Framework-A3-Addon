@@ -11,6 +11,7 @@ class BRM_FMK_DAC {
 		class createDACCamp {};
 		class createDACZone {};
 		class strToNum {};
+		class numToAny {};
 		class generateCampInfo {};
 		class DACZone {};
 		class createZone {};
