@@ -8,7 +8,7 @@ AUTHOR(s):
     Nife
 
 DESCRIPTION:
-    Get the faction and side of the faction.
+    Get the faction name and side of the faction.
 
 PARAMETERS:
     0 - The side or faction name. (STRING)

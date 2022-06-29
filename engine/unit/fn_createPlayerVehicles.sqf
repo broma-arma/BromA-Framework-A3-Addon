@@ -30,7 +30,7 @@ if (!isServer) exitWith {};
 		}) params [["_index", -1], ["_cargo", []]];
 
 		if (_index > -1) then {
-			([_side] call BRM_FMK_fnc_getFaction) params ["_faction", "_factionSide"];
+			([_side] call BRM_FMK_fnc_getFactionInfo) params ["_faction", "_factionSide"];
 
 			private _vehicles = ([_faction, "VEHICLES"] call BRM_fnc_getLoadoutProperty) select _index;
 			if (count _vehicles > 0) then {
