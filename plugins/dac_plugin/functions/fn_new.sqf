@@ -57,9 +57,9 @@ switch (_command) do {
 		];
 		_arguments deleteRange [0, 7];
 
-		_side = ["SIDE", _side] call BRM_FMK_DAC_fnc_getDACStat;
-		_skill = ["SKILL", _skill] call BRM_FMK_DAC_fnc_getDACStat;
-		_faction = ["FACTION", _faction] call BRM_FMK_DAC_fnc_getDACStat;
+		_side = ["SIDE", _side] call BRM_FMK_DAC_fnc_strToNum;
+		_skill = ["SKILL", _skill] call BRM_FMK_DAC_fnc_strToNum;
+		_faction = ["FACTION", _faction] call BRM_FMK_DAC_fnc_strToNum;
 
 		switch (_kind) do {
 			case "zone": {

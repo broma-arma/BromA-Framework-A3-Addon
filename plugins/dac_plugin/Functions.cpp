@@ -10,7 +10,7 @@ class BRM_FMK_DAC {
 		class new {};
 		class createDACCamp {};
 		class createDACZone {};
-		class getDACStat {};
+		class strToNum {};
 		class generateCampInfo {};
 		class DACZone {};
 		class createZone {};
