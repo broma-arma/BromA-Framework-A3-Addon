@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_fnc_initAI
+    BRM_FMK_fnc_initAI
 
 AUTHOR(s):
     Nife
@@ -15,8 +15,8 @@ PARAMETERS:
     1 - Faction the unit belongs to. (STRING)
 
 USAGE:
-    [aiUnit, "SLA"] call BRM_fnc_initAI;
-    [this, "RACS"] call BRM_fnc_initAI;
+    [aiUnit, "SLA"] call BRM_FMK_fnc_initAI;
+    [this, "RACS"] call BRM_FMK_fnc_initAI;
 
 RETURNS:
     Nothing.
@@ -56,7 +56,7 @@ RETURNS:
 	// Assigns the Unit's loadout depending on mission settings. ===============
 
 	if (!(_faction in _aliasNONE) && !units_AI_useVanillaGear) then {
-		[_unit, _faction] call BRM_fnc_assignLoadout;
+		[_unit, _faction] call BRM_FMK_fnc_assignLoadout;
 	};
 
 	// Adds the relevant Event Handlers. =======================================

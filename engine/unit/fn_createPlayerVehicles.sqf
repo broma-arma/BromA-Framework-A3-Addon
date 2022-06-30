@@ -32,7 +32,7 @@ if (!isServer) exitWith {};
 		if (_index > -1) then {
 			([_side] call BRM_FMK_fnc_getFactionInfo) params ["_faction", "_factionSide"];
 
-			private _vehicles = ([_faction, "VEHICLES"] call BRM_fnc_getLoadoutProperty) select _index;
+			private _vehicles = ([_faction, "VEHICLES"] call BRM_FMK_fnc_getLoadoutProperty) select _index;
 			if (count _vehicles > 0) then {
 				private _vehicleClass = "";
 				if ({ _x > 47 && _x < 58 } count (toArray _vehId) != count _vehId) then { // [0-9]+
@@ -53,7 +53,7 @@ if (!isServer) exitWith {};
 						missionNamespace setVariable [_vehVar select [3], _vehicle, true];
 					};
 
-					[_vehicle, _faction, _cargo] call BRM_fnc_assignCargo;
+					[_vehicle, _faction, _cargo] call BRM_FMK_fnc_assignCargo;
 
 					["LOCAL", "F_LOG", format ["MARKER VEHICLE === Created '%1' for '%2' @ %3", _vehicleClass, _x, _pos]] call BRM_FMK_fnc_doLog;
 				} else {

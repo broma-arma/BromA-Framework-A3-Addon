@@ -18,8 +18,8 @@ PARAMETERS:
 USAGE:
     ON A TRIGGER'S INIT FIELD (make sure you set the condition to TRUE):
 
-    _nul = [thisTrigger, "(side _x == east)", "[_x, 'side_b'] call BRM_fnc_initAI"] spawn BRM_FMK_fnc_callCodeArea
-    _nul = [thisTrigger, "(side _x == civilian) && (alive _x)", "[_x, 'RACS'] call BRM_fnc_initAI"] spawn BRM_FMK_fnc_callCodeArea
+    _nul = [thisTrigger, "(side _x == east)", "[_x, 'side_b'] call BRM_FMK_fnc_initAI"] spawn BRM_FMK_fnc_callCodeArea
+    _nul = [thisTrigger, "(side _x == civilian) && (alive _x)", "[_x, 'RACS'] call BRM_FMK_fnc_initAI"] spawn BRM_FMK_fnc_callCodeArea
 
 RETURNS:
     Nothing.

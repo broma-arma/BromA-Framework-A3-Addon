@@ -4,7 +4,7 @@ private _properties = ["_side", "_color", "_name", "_skill", "_callsigns", "_uni
 
 {
 	private _sideChar = _x;
-	private _sideProperties = [missionNamespace getVariable format ["side_%1_faction", _sideChar]] call BRM_fnc_getLoadoutProperty;
+	private _sideProperties = [missionNamespace getVariable format ["side_%1_faction", _sideChar]] call BRM_FMK_fnc_getLoadoutProperty;
 	{
 		private _propertyName = _x;
 		if (_forEachIndex > 0) then { // Skip `_side`

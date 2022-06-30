@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_fnc_logPlugins
+    BRM_FMK_fnc_logPlugins
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     Nothing.
 
 USAGE:
-    [] call BRM_fnc_logPlugins
+    [] call BRM_FMK_fnc_logPlugins
 
 RETURNS:
     Nothing.

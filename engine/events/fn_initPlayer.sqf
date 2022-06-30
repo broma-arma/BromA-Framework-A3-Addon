@@ -92,7 +92,7 @@ if (toUpper _role in _aliasAUTO) then {
 };
 
 if (!(_faction in _aliasNONE) && !units_player_useVanillaGear) then {
-    [player, _faction, _role] call BRM_fnc_assignLoadout;
+    [player, _faction, _role] call BRM_FMK_fnc_assignLoadout;
 };
 
 // Holster player's weapon. ====================================================

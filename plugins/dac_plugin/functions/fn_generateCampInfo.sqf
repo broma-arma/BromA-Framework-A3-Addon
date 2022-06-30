@@ -31,8 +31,8 @@ params [
 
 private _faction = [_side, "FACTION"] call BRM_FMK_fnc_getSideInfo;
 
-private _campInfo = [_faction, "DACCAMPS"] call BRM_fnc_getLoadoutProperty;
-private _staticVehicles = [_faction, "VEHICLES"] call BRM_fnc_getLoadoutProperty select STATIC_DEFENSE;
+private _campInfo = [_faction, "DACCAMPS"] call BRM_FMK_fnc_getLoadoutProperty;
+private _staticVehicles = [_faction, "VEHICLES"] call BRM_FMK_fnc_getLoadoutProperty select STATIC_DEFENSE;
 
 _campInfo params [
 	"_basic",

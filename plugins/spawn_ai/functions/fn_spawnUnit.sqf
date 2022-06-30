@@ -1,7 +1,7 @@
 _unit = (_this select 0) createUnit [(_this select 1), (_this select 2), [], 0, "FORM"];
 _unit setSkill (_this select 3);
 
-[_unit, (_this select 4)] spawn BRM_fnc_initAI;
+[_unit, (_this select 4)] call BRM_FMK_fnc_initAI;
 
 if (!isMultiplayer) then {
     [_unit, (_this select 5)] spawn {
