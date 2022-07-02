@@ -43,6 +43,7 @@ class CfgFunctions {
 		#include "\broma_framework\engine\plugins\functions.cpp"
 		#include "\broma_framework\engine\tasks\functions.cpp"
 		#include "\broma_framework\engine\unit\functions.cpp"
+		#include "\broma_framework\engine\loadouts\functions.cpp"
 
 		#include "\broma_framework\loadouts\functions.cpp"
 	};
