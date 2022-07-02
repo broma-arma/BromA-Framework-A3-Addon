@@ -74,3 +74,7 @@ class Extended_DisplayUnload_EventHandlers {
 		BRM_FRAMEWORK = "['BRM_FMK_DisplayUnload_EGSpectator', _this] call CBA_fnc_localEvent;";
 	};
 };
+
+class BRM_FMK_LoadoutFactions {
+	#include "loadouts\factions.cpp"
+};
