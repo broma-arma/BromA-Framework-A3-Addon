@@ -134,6 +134,6 @@ private _defaultCallsignOPFOR = [
 
 private _defaultCallsignINDFOR = [
 	"Papa",
-	"Anna", "Beatrice", "Clara", "Denise",
-	"Rose", "Sarah", "Whitney", "Shirley", "Penny", "Mary", "Lucy", "Tanya", "Helen", "Petunia"
+	"Antler", "Breaker", "Clapper", "Dagger",
+	"Specter", "Slinger", "Whiplash", "Shaker", "Prince", "Mace", "Lucy", "Thunder", "Hercules", "Poacher"
 ];
