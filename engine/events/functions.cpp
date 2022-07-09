@@ -4,4 +4,7 @@ class events {
 	class initAI {};
 	class initSpectator {};
 	class endSpectator {};
+	class onPlayerKilled {};
+	class onPlayerRespawn {};
+	class onAIKilled {};
 };

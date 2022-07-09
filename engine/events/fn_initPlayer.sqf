@@ -116,9 +116,9 @@ if (isNil {player getVariable "unit_deaths"}) then {
 
 // Adds Event Handlers with pre-configured functions. ==========================
 
-player addEventHandler ["Respawn", BRM_fnc_onPlayerRespawn];
+player addEventHandler ["Respawn", { _this call BRM_FMK_fnc_onPlayerRespawn }];
 player addEventHandler ["Hit", { (_this select 0) setVariable ["last_damage", _this select 1] }];
-player addEventHandler ["Killed", BRM_fnc_onPlayerKilled];
+player addEventHandler ["Killed", { _this call BRM_FMK_fnc_onPlayerKilled }];
 
 addMissionEventHandler ["EntityKilled", {
     params ["_unit", "_killer", "_instigator", "_useEffects"];

@@ -1,6 +1,10 @@
 #include "includes\settings.sqf"
 
-call compile format ["co_lock_units = %1", co_lock_units];
+if (co_lock_units isEqualType "") then { // Backwards compatibility
+	co_lock_units = call compile co_lock_units;
+} else {
+	co_lock_units = co_lock_units apply { missionNamespace getVariable [_x, objNull] };
+};
 
 if (isServer) then {
     locked_sides = [];

@@ -62,7 +62,7 @@ RETURNS:
 	// Adds the relevant Event Handlers. =======================================
 
 	_unit addEventHandler ["Hit", { (_this select 0) setVariable ["last_damage", _this select 1] }];
-	_unit addEventHandler ["Killed", BRM_fnc_onAIKilled];
+	_unit addEventHandler ["Killed", { _this call BRM_FMK_fnc_onAIKilled }];
 
 	// Finishes loading. =======================================================
 

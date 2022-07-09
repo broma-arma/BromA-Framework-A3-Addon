@@ -63,6 +63,8 @@ class CfgBRMPlugins {
 	#include "plugins\plugins.cpp"
 #undef BRM_PLUGIN_DIALOGS
 
+#include "CfgNotifications.hpp"
+
 class Extended_DisplayLoad_EventHandlers {
 	class RscDisplayEGSpectator {
 		BRM_FRAMEWORK = "['BRM_FMK_DisplayLoad_EGSpectator', _this] call CBA_fnc_localEvent;";

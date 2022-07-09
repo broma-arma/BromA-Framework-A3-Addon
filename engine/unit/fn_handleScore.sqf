@@ -12,7 +12,9 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Unit killed. (OBJECT)
-    1 - Killer of said unit. (OBJECT)
+    1 - Killer of the unit. (OBJECT)
+    2 - Unit that pulled the trigger. (OBJECT)
+    3 - Use destruction effects. (BOOL)
 
 USAGE:
     [player, myKiller] call BRM_FMK_fnc_handleScore
@@ -23,7 +25,7 @@ RETURNS:
 ================================================================================
 */
 
-params ["_unit", "_killer"];
+params ["_unit", "_killer", "_instigator", "_useEffects"];
 
 if !(_unit isKindOf "CAManBase") exitWith {};
 
