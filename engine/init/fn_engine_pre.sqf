@@ -22,11 +22,10 @@ RETURNS:
 ================================================================================
 */
 
-private _cfgMissionVersion = missionConfigFile >> "BRM_Framework" >> "mission_version";
-if (isArray _cfgMissionVersion) then {
-	BRM_version = getArray _cfgMissionVersion;
-} else {
-	// Backwards compatibility
+if (!isNil "BRM_FMK_pre") exitWith {};
+BRM_FMK_pre = true;
+
+if (fileExists "framework\local_version.txt") then { // Mission <= v0.7.5
 	private _localVersion = call compile preprocessFile "framework\local_version.txt" splitString "" apply { parseNumber _x };
 	for "_i" from count _localVersion to 3 do {
 		_localVersion pushBack 0;
@@ -34,7 +33,14 @@ if (isArray _cfgMissionVersion) then {
 	BRM_version = _localVersion;
 };
 
-if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then { // > v0.7.5
+private _cfgMissionVersion = missionConfigFile >> "BRM_Framework" >> "mission_version";
+if (isArray _cfgMissionVersion) then { // Mission > v0.7.5
+	BRM_version = getArray _cfgMissionVersion;
+};
+
+if (isNil "BRM_version") exitWith {}; // Not a BromA Framework mission
+
+if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	[] call BRM_FMK_fnc_initVariables;
 
 	if (hasInterface) then {
@@ -178,19 +184,52 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then { // > v0
 			};
 		};
 
-		call compile preprocessFileLineNumbers "mission\settings\plugin-settings.sqf";
+		// TODO 'Automate' this
+		call compile preprocessFileLineNumbers "mission\settings\plugins\ao_limit.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\block_tp.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\ch_view_distance.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\civilian_casualty_cap.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\commander_lock.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\friendly_fire.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\f_remove_body.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\intros.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\plank_building.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\prevent_reslot.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\respawn_system.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\round_system.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\setup_zone.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\spawn_ai.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\spawn_protection.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\time_limit.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\vanilla_spectator.sqf";
+		call compile preprocessFileLineNumbers "mission\settings\plugins\plank_building.sqf";
 
 		DAC_STRPlayers = [false] call _fnc_playableMissionEntities apply { _x select 1 };
 
 		[] call BRM_FMK_fnc_assignSideProperties;
 		mission_settings_loaded = true;
 	};
-	mission_objectives = [] execVM "mission\objectives\tasks.sqf"; // Needs to be done after mission-settings.sqf and BRM_FMK_fnc_createPlayerVehicles (PostInit)
-	mission_init_enemies = [] execVM "mission\objectives\mission_AI.sqf"; // mission_AI_controller (headless_client plugin PostInit) and BRM_fnc_logPlugins (PostInit)
 
-	BRM_fnc_onAIKilled = compile preprocessFileLineNumbers "mission\events\onAIKilled.sqf"
-	BRM_fnc_onPlayerKilled = compile preprocessFileLineNumbers "mission\events\onPlayerKilled.sqf"
-	BRM_fnc_onPlayerRespawn = compile preprocessFileLineNumbers "mission\events\onPlayerRespawn.sqf"
+	if (isServer) then {
+		mission_objectives = 0 spawn { // Needs to be done after mission-settings.sqf and BRM_FMK_fnc_createPlayerVehicles (PostInit)
+			waitUntil { scriptDone(mission_settings) && !isNil "server_vehicles_created" };
+			[] call compile preprocessFileLineNumbers "mission\objectives\tasks.sqf";
+
+			[] spawn BRM_FMK_fnc_checkTasks
+		};
+	};
+
+	mission_init_enemies = 0 spawn { // mission_AI_controller (headless_client plugin PostInit) and BRM_fnc_logPlugins (PostInit)
+		waitUntil { !isNil "mission_AI_controller" && time > 5 };
+
+		if (mission_AI_controller) then {
+			[] call compile preprocessFileLineNumbers "mission\objectives\mission_AI.sqf";
+		};
+	};
+
+	BRM_fnc_onAIKilled = compile preprocessFileLineNumbers "mission\events\onAIKilled.sqf";
+	BRM_fnc_onPlayerKilled = compile preprocessFileLineNumbers "mission\events\onPlayerKilled.sqf";
+	BRM_fnc_onPlayerRespawn = compile preprocessFileLineNumbers "mission\events\onPlayerRespawn.sqf";
 };
 
 ["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;
@@ -199,3 +238,36 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then { // > v0
 
 startTime = diag_tickTime;
 pluginsLoaded = false;
+
+BRM_FMK_plugins = "true" configClasses (configFile >> "BRM_FMK_Plugins") apply { configName _x };
+BRM_FMK_plugins sort true;
+
+if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
+	private _plugins = call compile preprocessFileLineNumbers "mission\settings\plugins.sqf";
+	private _unknownPlugins = _plugins apply { _x select 0 } select { !(_x in BRM_FMK_plugins) };
+	if (count _unknownPlugins > 0) then {
+		["[BromA Framework] Warning: The mission contains unknown plugins in ""mission\settings\plugins.sqf"", %1.", _unknownPlugins joinString ", "] call BIS_fnc_error;
+	};
+
+	BRM_plugins = [];
+	{
+		if ([_plugins, _x, getNumber (configFile >> "BRM_FMK_Plugins" >> _x >> "disabled") == 0] call BIS_fnc_getFromPairs) then {
+			BRM_plugins pushBack _x;
+		};
+	} forEach BRM_FMK_plugins;
+} else {
+	BRM_plugins = "true" configClasses (missionConfigFile >> "CfgPlugins") apply { configName _x };
+	BRM_plugins sort true;
+};
+
+private _preInitArgs = ["preInit"];
+{
+	private _plugin = _x;
+	{
+		if (!isNil _x) then {
+			_preInitArgs call (missionNamespace getVariable _x);
+		} else {
+			["[BromA Framework] Internal Error: Unknown ""%2"" plugin preInit function, %2.", _plugin, _x] call BIS_fnc_error;
+		};
+	} forEach getArray (configFile >> "BRM_FMK_Plugins" >> _plugin >> "preInit");
+} forEach BRM_plugins;

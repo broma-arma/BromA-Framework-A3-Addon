@@ -1,3 +1,7 @@
+mission_allow_respawn = ["p_allow_respawn", 0] call BIS_fnc_getParamValue > 0;
+mission_player_lives = ["p_player_lives", -1] call BIS_fnc_getParamValue;
+mission_respawn_objective = ["p_respawn_objective", -1] call BIS_fnc_getParamValue;
+
 if (hasInterface) then {
 	["BRM_FMK_RespawnSystem_respawn", {
 		if (player getVariable ["isDead", false]) then {

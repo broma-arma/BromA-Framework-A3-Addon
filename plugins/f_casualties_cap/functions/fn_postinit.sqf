@@ -1,3 +1,5 @@
+mission_cas_cap = ["p_cas_cap", -1] call BIS_fnc_getParamValue;
+
 if !(isMultiplayer && isServer) exitWith {};
 
 [{

@@ -4,6 +4,7 @@
 		version = 1;
 		authors[] = {"Nife"};
 		description = "Constantly sends your current position and over relevant data to the server, and synchronizes it every time you JIP back into the session.";
+		postInit[] = {"BRM_FMK_SyncStatus_fnc_postInit"};
 	};
 #endif
 

@@ -22,24 +22,14 @@ RETURNS:
 ================================================================================
 */
 
-plugins_loaded = false;
-
-usedPlugins = "true" configClasses (missionConfigFile >> "CfgPlugins") apply { configName _x };
-usedPlugins sort true;
-
-ENGINE_plugins = "true" configClasses (configFile >> "CfgBRMPlugins") apply { configName _x };
-ENGINE_plugins sort true;
-
-plugins_loaded = true;
-
 0 spawn {
-	waitUntil { !isNil "framework_init_time" };
+	waitUntil { !isNil "plugins_loaded" && !isNil "framework_init_time" && { plugins_loaded } };
 
 	private _subject = "BRM_FMK_diary";
 	player createDiarySubject [_subject, "BromA Framework"];
 
 	private _plugins = usedPlugins apply {
-		private _cfg = configFile >> "CfgBRMPlugins" >> _x;
+		private _cfg = configFile >> "BRM_FMK_Plugins" >> _x;
 		format [
 			"  <execute expression='hint ""%1 v%2\nby %3\n\n%4""'>[?]</execute> <font color='#E6E682'>%1 v%2</font> by %3.",
 			getText ( _cfg >> "name"),

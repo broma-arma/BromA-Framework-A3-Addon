@@ -5,6 +5,7 @@
 		version = 1;
 		authors[] = {"Nife"};
 		description = "Highlights the AO in the map by enclosing it and darkening the unused part.";
+		postInit[] = {"BRM_FMK_MapCover_fnc_postInit"};
 	};
 #endif
 

@@ -1,10 +1,16 @@
 if (!isServer) exitWith {};
 
+mission_spawn_protection_time = ["p_spawn_protection_time", -1] call BIS_fnc_getParamValue;
+if (mission_spawn_protection_time == 99999) then { // Backwards compatibility
+	mission_spawn_protection_time = -1;
+};
+if (mission_spawn_protection_time > 0) then {
+	mission_spawn_protection_time = mission_spawn_protection_time * 60;
+};
+
+if (mission_spawn_protection_time == 0) exitWith {};
+
 0 spawn {
-	waitUntil { !isNil "mission_spawn_protection_time" };
-
-	if (mission_spawn_protection_time == 0) exitWith {};
-
 	if (isNil "spawn_protection_area") then {
 		spawn_protection_area = 50;
 	};

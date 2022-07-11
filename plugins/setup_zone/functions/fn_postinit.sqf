@@ -1,3 +1,5 @@
+mission_setup_time = [15, 60, 180, 300, 600] select (["p_setup_time", 0] call BIS_fnc_getParamValue);
+
 if (mission_game_mode == "coop") exitWith {};
 
 if (isNil "setup_zone_area") then {

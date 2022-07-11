@@ -1,3 +1,5 @@
+mission_enable_hc = ["p_enable_hc", 0] call BIS_fnc_getParamValue > 0;
+
 mission_AI_controller = if (mission_enable_hc) then { !isServer && !hasInterface } else { isServer };
 
 if (mission_AI_controller && !isServer && !hasInterface) then {

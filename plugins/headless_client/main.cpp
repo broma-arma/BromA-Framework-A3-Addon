@@ -5,7 +5,12 @@
 		version = 1;
 		authors[] = {"Naught","Nife"};
 		description = "Suite of functions made to facilitate the usage of the Headless Client and its environment variables.";
+		postInit[] = {"BRM_FMK_HC_fnc_postInit"};
 	};
+#endif
+
+#ifdef BRM_PARAMS_AI
+	#include "Parameters.cpp"
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS

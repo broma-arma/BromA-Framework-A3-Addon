@@ -4,6 +4,7 @@
 		version = "1.13";
 		authors[] = {"Champ"};
 		description = "Allows for the player to change their view/object draw distance. Default key is Ctrl + \.";
+		postInit[] = {"BRM_FMK_CHVD_fnc_postInit"};
 	};
 #endif
 

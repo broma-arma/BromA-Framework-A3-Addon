@@ -1,3 +1,5 @@
+mission_dead_civilian_limit = ["p_dead_civies", -1] call BIS_fnc_getParamValue;
+
 if (!isServer || mission_dead_civilian_limit < 0) exitWith {};
 
 if (isNil "responsible_sides") then { responsible_sides = [side_a_side, side_b_side]; };

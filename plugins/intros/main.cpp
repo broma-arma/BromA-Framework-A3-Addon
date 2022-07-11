@@ -4,6 +4,7 @@
 		version = 1;
 		authors[] = {"Nife"};
 		description = "Plays a pre-made intro cutscene to set the mood for the mission.";
+		postInit[] = {"BRM_FMK_Intros_fnc_postInit"};
 	};
 #endif
 

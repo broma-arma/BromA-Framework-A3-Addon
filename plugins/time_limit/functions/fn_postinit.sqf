@@ -1,3 +1,6 @@
+mission_time_limit = ["p_time_limit", -1] call BIS_fnc_getParamValue;
+mission_time_added = (["p_time_added", 0] call BIS_fnc_getParamValue) * 60;
+
 if (!isServer) exitWith {};
 
 waitUntil { !isNil "mission_time_limit" };

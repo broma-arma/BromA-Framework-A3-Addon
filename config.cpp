@@ -53,7 +53,7 @@ class CfgFunctions {
 	#undef BRM_PLUGIN_FUNCTIONS
 };
 
-class CfgBRMPlugins {
+class BRM_FMK_Plugins {
     #define BRM_PLUGIN_META
         #include "\broma_framework\plugins\plugins.cpp"
     #undef BRM_PLUGIN_META

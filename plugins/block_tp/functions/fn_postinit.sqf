@@ -1,3 +1,5 @@
+BrmFmk_blockTP_allow = ["p_allow_tp_veh", 2] call BIS_fnc_getParamValue;
+
 if !(hasInterface) exitWith {};
 
 0 spawn {

@@ -5,6 +5,7 @@
 		version = 1;
 		authors[] = {"columdrum","Nife"};
 		description = "Teleports JIPs to their nearest living team-member.";
+		postInit[] = {"BRM_FMK_JIPTeleport_fnc_postInit"};
 	};
 #endif
 

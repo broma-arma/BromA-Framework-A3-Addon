@@ -2,7 +2,6 @@ class BRM_FMK_Round_System {
 	class init {
 		file = "\broma_framework\plugins\round_system\functions";
 		class preInit {};
-		class setParams {};
 		class postInit {};
 	};
 

@@ -1,7 +1,12 @@
 if !(isClass (configFile >> "CfgPatches" >> "ace_medical")) exitWith {};
 
-if (isNil "mission_ace3_revive_lives") then { mission_ace3_revive_lives = -1; };
-if (isNil "mission_ace3_everyone_medic") then { mission_ace3_everyone_medic = false; };
+mission_ace3_revive_lives = ["p_ace3_revive_lives", -1] call BIS_fnc_getParamValue;
+if (mission_ace3_revive_lives == 9999) then { mission_ace3_revive_lives = -1; }; // Mission <= v0.7.5
+
+mission_ace3_everyone_medic = ["p_ace3_everyone_medic", 0] call BIS_fnc_getParamValue > 0;
+
+mission_ace3_medical_level = if (mission_ACE3_enabled) then { [2, 1] select (ace_medical_treatment_advancedBandages == 0) } else { 0 };
+
 if (isNil "mission_ace3_legs") then { mission_ace3_legs = !(missionNamespace getVariable ["ace_medical_treatment_clearTraumaAfterBandage", false]); };
 
 if (hasInterface) then {

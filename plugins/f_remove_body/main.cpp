@@ -4,6 +4,7 @@
 		authors[] = {"Headspace", "Wolfenswan", "Raedor", "Fer"};
 		version = 1;
 		description = "Ensures dead units will have their bodies removed after a certain amount of time, granted they are apart players by a certain distance.";
+		postInit[] = {"BRM_FMK_f_remove_body_fnc_postInit"};
 	};
 #endif
 

@@ -5,6 +5,7 @@
 		version = 1;
 		authors[] = {"Nife"};
 		description = "Generates radio channels and frequencies based on what groups are active in the mission.";
+		postInit[] = {"BRM_FMK_RadioFreq_fnc_postInit"};
 	};
 #endif
 

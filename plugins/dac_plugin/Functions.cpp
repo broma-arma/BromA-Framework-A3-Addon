@@ -3,7 +3,6 @@ class BRM_FMK_DAC {
 		file = "\broma_framework\plugins\dac_plugin\functions";
 		class preinit {};
 		class postinit {};
-		class setParams {};
 	};
 	class Functions {
 		file = "\broma_framework\plugins\dac_plugin\functions";

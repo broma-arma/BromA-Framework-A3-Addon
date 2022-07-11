@@ -27,7 +27,7 @@ RETURNS:
 	waitUntil { !isNil "plugins_loaded" && {plugins_loaded} };
 
 	{
-		private _conflicts = getArray (configFile >> "CfgBRMPlugins" >> _x >> "conflict_plugins") select { _x in usedPlugins };
+		private _conflicts = getArray (configFile >> "BRM_FMK_Plugins" >> _x >> "conflict_plugins") select { _x in usedPlugins };
 
 		if (count _conflicts > 0) then {
 			sleep 0.1;
