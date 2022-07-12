@@ -186,7 +186,7 @@ _factionVehicles = [
 // OBJECTS =====================================================================
 
 _factionObjects = [
-/* Flag         */ "Flag_NATO_F"
+/* Flag         */ "BRM_Flag_sweden"
 /* Objects      */,["B_CargoNet_01_ammo_F"]
 /* Walls        */,["Land_Mil_WallBig_4m_F"]
 /* Structures   */,["Land_Cargo_House_V3_F"]
