@@ -64,6 +64,8 @@ class BRM_FMK_Plugins {
 #undef BRM_PLUGIN_DIALOGS
 
 #include "CfgNotifications.hpp"
+#include "CfgDebriefing.hpp"
+#include "BRM_FMK_Endings.hpp"
 
 class Extended_DisplayLoad_EventHandlers {
 	class RscDisplayEGSpectator {

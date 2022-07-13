@@ -32,20 +32,27 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 	params ["_ending"];
 
 	// Server reads all mission-related ending cases.
-	_this call compile preprocessFile "mission\settings\endings.sqf";
-
-
-	if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then { // > v0.7.5
-		if !(mission_enable_side_c) then {
-			_winningSides = _winningSides - [side_c_side];
-			_losingSides = _losingSides - [side_c_side];
-		};
-		mission_ending_details = [_winningSides, _losingSides, _showStats, _title, _reason, _endNumber];
-		publicVariable "mission_ending_details";
+	if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
+		[_ending] call compile preprocessFile "mission\settings\endings.sqf";
+		_endings = mission_ending_details;
+	} else {
+		private _cfgEndings = [["BRM_FMK_Endings", _ending], configNull] call BIS_fnc_loadClass;
+		_endings = [
+			getArray (_cfgEndings >> "winners") apply { missionNamespace getVariable format ["side_%1_side", _x] },
+			getArray (_cfgEndings >> "losers") apply { missionNamespace getVariable format ["side_%1_side", _x] },
+			missionNamespace getVariable ["mission_ending_stats", true],
+			getText (_cfgEndings >> "title"),
+			getText (_cfgEndings >> "reason")
+		];
 	};
 
 	// Server processes all mission relevant stats.
-	mission_ending_details params ["_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber"];
+	_endings params ["_winningSides", "_losingSides", "_showStats", "_title", "_reason"];
+
+	if (!mission_enable_side_c) then {
+		_winningSides = _winningSides - [side_c_side];
+		_losingSides = _losingSides - [side_c_side];
+	};
 
 	private _margin = "N/A";
 	if (count _winningSides == 0 && count _losingSides == 0) then {
@@ -53,11 +60,11 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		if (mission_enable_side_c) then { _deathPercent pushBack "C"; };
 
 		_deathPercent = _deathPercent apply {
-			private _deaths = (missionNameSpace getVariable format ["mission_dead_side_%1", _x]);
-			private _count = count (missionNameSpace getVariable format ["mission_players_%1", _x]);
+			private _deaths = (missionNamespace getVariable format ["mission_dead_side_%1", _x]);
+			private _count = count (missionNamespace getVariable format ["mission_players_%1", _x]);
 			if (_count == 0) then { _count = 1; };
 
-			[floor (_deaths / _count * 100), missionNameSpace getVariable format ["side_%1_side", _x]]
+			[floor (_deaths / _count * 100), missionNamespace getVariable format ["side_%1_side", _x]]
 
 		};
 		_deathPercent sort true;
@@ -75,9 +82,9 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		};
 	};
 
-	[_ending, _winningSides, _losingSides, _showStats, _title, _reason, _endNumber, _margin] remoteExec ["BRM_FMK_fnc_callEnding", 0];
+	[_ending, _winningSides, _losingSides, _showStats, _title, _reason, _margin] remoteExec ["BRM_FMK_fnc_callEnding", 0];
 } else {
-	params ["_ending", "_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber", "_margin"];
+	params ["_ending", "_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_margin"];
 
 	private _isWinner = true;
 	if (hasInterface) then {
@@ -147,7 +154,16 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		};
 	};
 
-	if (isServer) then { sleep 3 };
+	if (isServer) then {
+		if (_showStats) then {
+			sleep 3 + END_SCREEN_TIME;
+		};
+		sleep 3;
+	};
+
+	if (isNull ([["CfgDebriefing", _ending], configNull] call BIS_fnc_loadClass)) then {
+		_ending = ["defeat", "victory"] select _isWinner;
+	};
 
 	[_ending, _isWinner, true] spawn BIS_fnc_endMission;
 };

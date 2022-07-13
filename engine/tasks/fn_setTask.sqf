@@ -33,18 +33,16 @@ if ([_task] call BIS_fnc_taskState != _state) then {
 	[_task, _state, true] call BIS_fnc_taskSetState;
 
 	{
-		{
-			if (_x select 0 == _task) exitWith {
-				private _index = switch (_state) do {
-					case "SUCCEEDED": { 4 };
-					case "FAILED";
-					case "CANCELED":  { 5 };
-					default           { -1 };
-				};
-				if (_index != -1) then {
-					call (_x select _index);
-				};
+		if (_x select 0 == _task) exitWith {
+			private _index = switch (_state) do {
+				case "SUCCEEDED": { 13 };
+				case "FAILED";
+				case "CANCELED":  { 14 };
+				default           { -1 };
 			};
-		} forEach _x;
+			if (_index != -1) then {
+				call (_x select _index);
+			};
+		};
 	} forEach BRM_FMK_tasks;
 };
