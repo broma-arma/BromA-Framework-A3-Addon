@@ -1,11 +1,11 @@
-mission_cas_cap = ["p_cas_cap", -1] call BIS_fnc_getParamValue;
-
 if !(isMultiplayer && isServer) exitWith {};
 
-[{
-	if (mission_cas_cap <= 0) exitWith {};
+private _cas_cap = ["p_cas_cap", -1] call BIS_fnc_getParamValue;
 
-	private _percent = mission_cas_cap / 100;
+[{
+	if (_cas_cap <= 0) exitWith {};
+
+	private _percent = _cas_cap / 100;
 	if (mission_game_mode == "tvt") then {
 		private _callback = { [endings_tvt_auto] call BRM_FMK_fnc_callEnding; };
 		[side_a_side, _percent, _callback] call BRM_FMK_fnc_checkCasualties;

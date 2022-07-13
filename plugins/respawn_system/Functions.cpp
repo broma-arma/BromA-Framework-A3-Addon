@@ -2,7 +2,6 @@ class BRM_FMK_RespawnSystem {
 	class init {
 		file = "\broma_framework\plugins\respawn_system\functions";
 		class preInit {};
-		class setParams {};
 		class postinit {};
 	};
 

@@ -3,8 +3,8 @@
 	{
 		name = "Casualty cap";
 		version = 1;
-		authors[] = {"Fer", "Head", "Xiathorn", "Headspace", "Wolfenswan"};
-		description = "Ends the mission after a certain parameter determined percentage of mission set groups have died.";
+		authors[] = {"Coryf88"};
+		description = "Ends the mission after a certain parameter determined percentage of players have died.";
 		postInit[] = {"BRM_FMK_f_cas_cap_fnc_postInit"};
 	};
 #endif
