@@ -48,7 +48,21 @@ while { mission_running } do {
 		if (!_created && { call _predicateAssign }) then {
 			_created = true;
 			_x set [18, _created];
+			private _dynamicTaskMarker = nil;
+			if (_position isEqualType [] && { count _position == 2 && { _position select 0 isEqualType objNull && (_position select 1 isEqualType 0 || _position select 1 isEqualType []) } }) then {
+				_position params ["_obj", "_delay"];
+
+				if (_delay isEqualType 0) then { _delay = [_delay, _delay]; };
+				_delay params ["_minDelay", "_maxDelay"];
+				if (_minDelay > 0 && _maxDelay > 0) then {
+					_position = _obj getRelPos [random (([_minDelay, _maxDelay] call BIS_fnc_randomNum) * (random 50 + 50)), random 360];
+					_dynamicTaskMarker = [_id, _obj, [_minDelay, _maxDelay]];
+				};
+			};
 			[_owners, _id, [_description, _title, ""], _position, false, 0, time > 1, _type, true] call BIS_fnc_taskCreate;
+			if (!isNil "_dynamicTaskMarker") then {
+				_dynamicTaskMarker call BRM_FMK_fnc_updateTaskMarker;
+			};
 			call _callbackAssigned;
 		};
 

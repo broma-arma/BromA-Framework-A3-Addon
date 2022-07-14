@@ -5,4 +5,5 @@ class tasks {
 	class setTask{};
 	class checkTasks{};
 	class createExtractionMarker{};
+	class updateTaskMarker{};
 };
