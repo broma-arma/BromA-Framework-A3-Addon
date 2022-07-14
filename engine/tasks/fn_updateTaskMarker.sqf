@@ -11,13 +11,15 @@ DESCRIPTION:
     Updates a task's marker position for an object.
 
 PARAMETERS:
-    Nothing.
+    0 - Task ID (STRING)
+    1 - Object to track (OBJECT)
+    2 - Min and max delay (ARRAY of NUMBER)
 
 USAGE:
     [] call BRM_FMK_fnc_updateTaskMarker
 
 RETURNS:
-    Nothing;
+    Nothing.
 
 ================================================================================
 */
