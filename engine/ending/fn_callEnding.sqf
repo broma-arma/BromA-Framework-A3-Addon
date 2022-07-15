@@ -165,5 +165,9 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		_ending = ["defeat", "victory"] select _isWinner;
 	};
 
+	if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
+		private _cfgDebriefing = [["BRM_FMK_Endings", _ending, "Debriefing"], configNull] call BIS_fnc_loadClass;
+		_ending setDebriefingText (["title", "description", "subtitle", "picture", "background"] apply { getText (_cfgDebriefing >> _x) });
+	};
 	[_ending, _isWinner, true] spawn BIS_fnc_endMission;
 };

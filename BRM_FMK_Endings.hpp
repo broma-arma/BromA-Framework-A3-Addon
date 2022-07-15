@@ -1,55 +1,92 @@
 class BRM_FMK_Endings {
-	class victory { // Win in a COOP mission.
+	class Default {
+		winners[] = {"a", "b", "c"};
+		losers[] = {"a", "b", "c"};
+		title = "The mission is over, maybe?";
+		reason = "%1 defeated %2.";
+
+		class Debriefing {
+			title = "MISSION OVER";
+			subtitle = "";
+			description = "Thank you for playing.<br/><br/>Made with the BromA Framework.";
+			picture = "\broma_framework\assets\images\group-logo.paa";
+		};
+	};
+
+	// Win in a COOP mission.
+	class victory: Default {
 		winners[] = {"a"};
 		losers[] = {"b", "c"};
 		title = "Mission completed!";
 		reason = "%1 have completed all their objectives!";
+
+		class Debriefing: Debriefing {
+			title = "MISSION COMPLETED";
+			subtitle = "All objectives accomplished - good job.";
+		};
 	};
 
-	class defeat: victory { // Lose in a COOP mission.
+	// Lose in a COOP mission.
+	class defeat: Default {
 		winners[] = {"b", "c"};
 		losers[] = {"a"};
 		title = "Mission failed.";
 		reason = "%2 failed the mission.";
+
+		class Debriefing: Debriefing {
+			title = "MISSION FAILED";
+			subtitle = "You have failed your objectives.";
+		};
 	};
 
-	class tvt_end: victory { // Generic win/lose in a TVT mission. Winner is determined from the amount of kills.
+	// Generic win/lose in a TVT mission. Winner is determined from the amount of kills.
+	class tvt_end: Default {
 		winners[] = {};
 		losers[] = {};
 		title = "A team has been defeated.";
 		reason = "%1 achieved %3 victory over %2.";
+
+		class Debriefing: Debriefing {
+			subtitle = "A team is no longer combat effective.";
+		};
 	};
 
-	class side_a_victory: victory { // SIDE_A win in a TVT mission.
+	// SIDE_A win in a TVT mission.
+	class side_a_victory: Default {
 		winners[] = {"a"};
 		losers[] = {"b", "c"};
 		title = "Mission over.";
 		reason = "%1 won the mission and defeated %2.";
 	};
 
-	class side_b_victory: side_a_victory { // SIDE_B win in a TVT mission.
+	// SIDE_B win in a TVT mission.
+	class side_b_victory: side_a_victory {
 		winners[] = {"b"};
 		losers[] = {"a", "c"};
 	};
 
-	class side_c_victory: side_a_victory { // SIDE_C win in a TVT mission.
+	// SIDE_C win in a TVT mission.
+	class side_c_victory: side_a_victory {
 		winners[] = {"c"};
 		losers[] = {"b", "a"};
 	};
 
-	class side_a_defeat: defeat { // SIDE_A lose in a TVT mission.
+	// SIDE_A lose in a TVT mission.
+	class side_a_defeat: Default {
 		winners[] = {"b", "c"};
 		losers[] = {"a"};
 		title = "Mission over.";
 		reason = "%2 failed their objectives.";
 	};
 
-	class side_b_defeat: side_a_defeat { // SIDE_B lose in a TVT mission.
+	// SIDE_B lose in a TVT mission.
+	class side_b_defeat: side_a_defeat {
 		winners[] = {"a", "c"};
 		losers[] = {"b"};
 	};
 
-	class side_c_defeat: side_a_defeat { // SIDE_C lose in a TVT mission.
+	// SIDE_C lose in a TVT mission.
+	class side_c_defeat: side_a_defeat {
 		winners[] = {"b", "a"};
 		losers[] = {"c"};
 	};
