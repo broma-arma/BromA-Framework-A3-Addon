@@ -28,7 +28,7 @@ if (isServer) then {
     #include "\broma_framework\loadouts\content\content-list.sqf"
     #include "\broma_framework\loadouts\includes\get-faction.sqf"
 
-    _loadoutCondition = (!(_faction in read_local_cargo_specific));
+    _loadoutCondition = (!(_faction in read_local_loadouts_specific));
     
     _assignLoadoutMode = false;
 
