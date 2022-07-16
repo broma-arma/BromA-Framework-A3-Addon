@@ -1,3 +1,4 @@
+// Included by Mission Framework <= 0.7.5
 if (_isMan) then {
 	removeAllItems _unit;
 	removeAllWeapons _unit;

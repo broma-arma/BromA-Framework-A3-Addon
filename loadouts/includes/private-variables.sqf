@@ -1,3 +1,4 @@
+// Included by Mission Framework <= 0.7.5
 private [
 	"_unit", "_faction", "_type",
 	"_isLeader", "_isMan",

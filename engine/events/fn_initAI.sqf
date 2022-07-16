@@ -55,7 +55,7 @@ RETURNS:
 
 	// Assigns the Unit's loadout depending on mission settings. ===============
 
-	if (!(_faction in _aliasNONE) && !units_AI_useVanillaGear) then {
+	if !(_faction in _aliasNONE) then {
 		[_unit, _faction] call BRM_FMK_fnc_assignLoadout;
 	};
 

@@ -1,55 +1,28 @@
+[{!isNil "mission_settings_loaded" && { pluginsLoaded }}, {
+	params ["_unit", "_faction"];
 
-[{!(isNil "mission_settings_loaded")}, {
-[{(pluginsLoaded)}, {
-    _unit = _this select 0;
-    _faction = _this select 1;
-    _type = "";
+	private _type = "";
 
-    _isLeader = false;
-    _isMan = _unit isKindOf "Man";
-    if (_isMan) then {
-        _isLeader = isFormationLeader _unit;
-    };
+	private _isMan = _unit isKindOf "Man";
+	if !(_isMan && local _unit) exitWith {};
 
-    if (!_isMan) exitWith {};
-    if (!(local _unit)) exitWith {};
+	private _isLeader = isFormationLeader _unit;
 
-    #include "\broma_framework\loadouts\includes\private-variables.sqf"
-    #include "\broma_framework\loadouts\includes\faction-info-index.sqf"
-    #include "\broma_framework\loadouts\includes\get-faction.sqf"
+	#include "\broma_framework\loadouts\includes\private-variables.sqf"
+	#include "\broma_framework\loadouts\includes\faction-info-index.sqf"
+	#include "\broma_framework\loadouts\includes\get-faction.sqf"
 
-    _loadoutCondition = (!((_faction) in read_local_loadouts_specific));
+	_unit setVariable ["BIS_enableRandomization", false];
 
-    _unit setVariable ["BIS_enableRandomization", false];
+	#include "\broma_framework\loadouts\includes\clear-object.sqf"
+	#include "\broma_framework\loadouts\includes\get-type.sqf"
+	#include "\broma_framework\loadouts\includes\classes-list.sqf"
 
-    // RESETS ITEMS ============================================================
+	private _assignLoadoutMode = true;
 
-    #include "\broma_framework\loadouts\includes\clear-object.sqf"
+	#include "\broma_framework\loadouts\content\content-list.sqf"
+	#include "\broma_framework\loadouts\includes\read-data.sqf"
+	#include "\broma_framework\loadouts\includes\set-identity.sqf"
 
-    // DETERMINE UNIT TYPE =====================================================
-
-    #include "\broma_framework\loadouts\includes\get-type.sqf"
-
-    // CLASSES =================================================================
-
-    #include "\broma_framework\loadouts\includes\classes-list.sqf"
-
-    // ASSIGN LOADOUTS BASED ON FACTION ========================================
-
-    _assignLoadoutMode = true;
-
-    #include "\broma_framework\loadouts\content\content-list.sqf"
-
-    // READ LOADOUT DATA =======================================================
-
-    #include "\broma_framework\loadouts\includes\read-data.sqf"
-
-    // SET IDENTITY ============================================================
-
-    #include "\broma_framework\loadouts\includes\set-identity.sqf"
-
-    // =========================================================================
 
 }, _this] call CBA_fnc_waitUntilAndExecute;
-}, _this] call CBA_fnc_waitUntilAndExecute;
-// ============================================================================================

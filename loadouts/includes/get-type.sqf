@@ -1,3 +1,4 @@
+// Included by Mission Framework <= 0.7.5
 _type = getText (configFile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
 
 if (isPlayer _unit && count _this > 2) then {

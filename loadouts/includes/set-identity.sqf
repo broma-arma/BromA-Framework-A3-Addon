@@ -1,3 +1,4 @@
+// Included by Mission Framework <= 0.7.5
 if (!isPlayer _unit) then {
 	private _voice = selectRandom selectRandom _defaultVoice;
 	private _face = selectRandom selectRandom _defaultFace;

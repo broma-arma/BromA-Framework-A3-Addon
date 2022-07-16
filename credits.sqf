@@ -7,6 +7,7 @@
 //              And most importantly, don't forget to add your name            |
 //                        and mission version below!                           |
 // ============================================================================
+// execVM'd by Mission Framework <= 0.7.5
 
 private _author = "Unknown";
 private _version = "v0";

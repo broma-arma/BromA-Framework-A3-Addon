@@ -1,13 +1,10 @@
-
 params ["_faction"];
 
 #include "\broma_framework\loadouts\includes\private-variables.sqf"
 #include "\broma_framework\loadouts\content\content-list.sqf"
 #include "\broma_framework\loadouts\includes\faction-info-index.sqf"
 
-_assignLoadoutMode = false;
-
-_loadoutCondition = (!((_faction) in read_local_loadouts_specific));
+private _assignLoadoutMode = false;
 
 // READ LOADOUT DATA ===========================================================
 
@@ -15,7 +12,7 @@ _loadoutCondition = (!((_faction) in read_local_loadouts_specific));
 
 // =============================================================================
 
-_ret = [];
+private _ret = [];
 
 #include "\broma_framework\loadouts\includes\return-properties.sqf"
 

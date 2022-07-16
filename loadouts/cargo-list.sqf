@@ -1,3 +1,4 @@
+// Included by Mission Framework <= 0.7.5
 switch (toLower _x) do {
 	case "medical": {
 		private _supplies = [];

@@ -232,6 +232,29 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	BRM_fnc_onPlayerRespawn = compile preprocessFileLineNumbers "mission\events\onPlayerRespawn.sqf";
 };
 
+if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
+	[{ !isNil "mission_settings" && { scriptDone mission_settings } }, {
+		if (!mission_enable_side_c) then {
+			side_c_faction = "";
+		};
+
+		mission_loadout_mods = modified_loadouts;
+		mission_loadout_vanillaPlayer = units_player_useVanillaGear;
+		mission_loadout_vanillaAI = units_AI_useVanillaGear;
+
+		// This isn't quite correct, but should handle most missions.
+		if (units_player_useVanillaGear) then {
+			side_a_faction = "VANILLA";
+		};
+		if (units_AI_useVanillaGear) then {
+			side_b_faction = "VANILLA";
+			if (side_c_faction != "") then {
+				side_c_faction = "VANILLA";
+			};
+		};
+	}] call CBA_fnc_waitUntilAndExecute;
+};
+
 ["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;
 ["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call BRM_FMK_fnc_doLog;
 ["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;

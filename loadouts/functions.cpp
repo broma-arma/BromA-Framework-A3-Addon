@@ -30,4 +30,5 @@ class loadouts_functions {
 	class addWeaponAttachments {};
 	class getFactionInfo {};
 	class addEarplugs {};
+	class loadout {};
 };

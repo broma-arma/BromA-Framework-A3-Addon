@@ -1,3 +1,4 @@
+// Included by Mission Framework <= 0.7.5
 #define AA_VEHICLES 0
 #define ATTACK_HELOS 1
 #define ATTACK_PLANES 2

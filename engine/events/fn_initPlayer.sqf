@@ -91,7 +91,7 @@ if (toUpper _role in _aliasAUTO) then {
     _role = getText (configfile >> "CfgVehicles" >> typeOf player >> "displayName");
 };
 
-if (!(_faction in _aliasNONE) && !units_player_useVanillaGear) then {
+if !(_faction in _aliasNONE) then {
     [player, _faction, _role] call BRM_FMK_fnc_assignLoadout;
 };
 

@@ -1,3 +1,4 @@
+// Included by Mission Framework <= 0.7.5
 // Executed after faction structure
 
 if (isNil "_defaultSide") then { _defaultSide = WEST; };
@@ -105,14 +106,16 @@ if (isNil "_factionDACCamps") then {
 	];
 };
 
-if (!_assignLoadoutMode && !isNil "_object" && !read_local_cargo) then { // assignCargo
-	_type = _type apply {
-		if (_x == "medical_adv") then {
-			if ("medical" in _type) then { "" } else { "medical" }
-		} else {
-			_x
-		}
-	} select { _x != "" };
+if (!_assignLoadoutMode && !isNil "_object") then { // assignCargo
+	if (isNil "read_local_cargo" || { !read_local_cargo }) then {
+		_type = _type apply {
+			if (_x == "medical_adv") then {
+				if ("medical" in _type) then { "" } else { "medical" }
+			} else {
+				_x
+			}
+		} select { _x != "" };
+	};
 
 	// Cannot be done in cargo-list.sqf, due to the function restricts the amount added, based on available inventory space.
 	if (("ammo" in _type || "ammo_big" in _type) && isClass (configFile >> "CfgPatches" >> "UK3CB_BAF_Vehicles_Weapons") && { isArray (configfile >> "CfgVehicles" >> typeOf _object >> "UK3CB_Servicing_GUI" >> "UK3CB_Servicing_GUI_ArrayArmament") }) then {

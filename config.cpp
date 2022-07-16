@@ -78,6 +78,11 @@ class Extended_DisplayUnload_EventHandlers {
 	};
 };
 
-class BRM_FMK_LoadoutFactions {
-	#include "loadouts\factions.cpp"
+class BRM_FMK_Loadouts {
+	class Factions {
+		#include "loadouts\factions.hpp"
+	};
+	class Structures {
+		#include "loadouts\structures.hpp"
+	};
 };

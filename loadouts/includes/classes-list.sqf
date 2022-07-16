@@ -1,3 +1,4 @@
+// Included by Mission Framework <= 0.7.5
 _isOfficer = _type == "Officer";
 _isSquadLeader = _type == "Squad Leader";
 _isTeamLeader = _type == "Team Leader";

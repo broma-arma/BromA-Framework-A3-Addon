@@ -60,9 +60,7 @@ if (isNil "_isSpecATDisposable") then {
 };
 
 if (_isSpecATDisposable) then {
-	if (isNil "read_local_cargo" || { read_local_cargo }) then {
-		_countSpecATCARGO = 0;
-	};
+	_countSpecATCARGO = 0;
 };
 
 if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") then { 4 } else { _countCAT }; };
