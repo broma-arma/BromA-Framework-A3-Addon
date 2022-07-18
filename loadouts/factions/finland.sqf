@@ -101,7 +101,7 @@ _headsLIST = [
     "BRM_ACH_MASK_FM05"+_camo
 ];
 
-if (_camo == "sum") then {_headLIST pushBack "BRM_ACH_GHILLIE_COMS_FM05"+_camo};
+if (_camo == "sum") then {_headsLIST pushBack "BRM_ACH_GHILLIE_COMS_FM05"+_camo};
 
 _randomHEAD = selectRandom _headsLIST;
 _randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
