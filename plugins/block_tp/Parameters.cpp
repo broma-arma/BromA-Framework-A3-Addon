@@ -1,11 +1,16 @@
-#ifndef PLUGIN_PARAM_BLOCK_TP_ENABLE
-#define PLUGIN_PARAM_BLOCK_TP_ENABLE 2
+#define ENABLE 2
+
+#if __has_include("mission\settings\plugins\block_tp.sqf")
+#include "mission\settings\plugins\block_tp.sqf"
 #endif
+
 class p_allow_tp_veh {
 	title = "Third person enabled";
 	values[] = {0,          1,         2};
 	texts[] = { "Disabled", "Enabled", "Drivers/Commanders only"};
-	default = PLUGIN_PARAM_BLOCK_TP_ENABLE;
+	default = ENABLE;
 };
 
 //PARAM_SEPERATOR(block_tp);
+
+#undef ENABLE

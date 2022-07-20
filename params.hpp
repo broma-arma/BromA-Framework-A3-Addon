@@ -1,3 +1,4 @@
+#define PARAMS
 #define PARAM_CATEGORY(ID,TITLE) class bar##ID { title = #TITLE; values[] = {0}; texts[] = {""}; default = 0;}
 #define PARAM_SEPERATOR(ID) PARAM_CATEGORY(ID,)
 
@@ -27,3 +28,4 @@ PARAM_CATEGORY(player,================= PLAYER SETTINGS ================);
 
 #undef PARAM_SEPERATOR
 #undef PARAM_CATEGORY
+#undef PARAMS
