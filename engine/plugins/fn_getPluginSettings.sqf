@@ -17,6 +17,7 @@ PARAMETERS:
         1 - (OPTIONAL) Valid value data types. Default: [] (ARRAY)
         2 - (OPTIONAL) Setting's old global variable or an array of default setting values. Default: "" (STRING|ARRAY)
         3 - (OPTIONAL) Code that modifies the value. Code is also applied to the default value. Default: nil (CODE)
+        4 - (OPTIONAL) Code that modifies the old global variable value. Default: nil (CODE)
 
 USAGE:
     ["plugin", [[], [[]], "plugin_old_array"], [true, [true], "plugin_old_bool"], [0, [0], "plugin_old_number"]] call BRM_FMK_fnc_getPluginSettings;
@@ -49,7 +50,7 @@ private _BRM075 = [BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0;
 
 private _settingsCount = count _settings;
 for "_i" from 1 to count _this - 1 do {
-	_this select _i params ["_defaultValue", ["_expectedDataTypes", [], [[]]], ["_oldVar", "", ["", []]], ["_code", nil, [{}]]];
+	_this select _i params ["_defaultValue", ["_expectedDataTypes", [], [[]]], ["_oldVar", "", ["", []]], ["_code", nil, [{}]], ["_oldCode", nil, [{}]]];
 	private _j = _i - 1;
 	private _value = nil;
 
@@ -61,6 +62,9 @@ for "_i" from 1 to count _this - 1 do {
 	} else {
 		if (_BRM075 && { isNil "_value" && _oldVar != "" }) then {
 			_value = missionNamespace getVariable _oldVar;
+			if (!isNil "_oldCode") then {
+				_value = _value call _oldCode;
+			};
 		};
 	};
 
