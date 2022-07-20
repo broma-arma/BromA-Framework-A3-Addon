@@ -7,12 +7,14 @@ if (isNull _instigator) then {
 private _unitSide = _unit getVariable ["unit_side", side _unit];
 private _instigatorSide = _instigator getVariable ["unit_side", side _instigator];
 
+[] call BRM_FMK_FriendlyFire_fnc_getSettings params ["_delay", "_ai", "_civilian"];
+
 if (
 	isNull _instigator
 	|| { vehicle _unit == vehicle _instigator }
 	|| { name _instigator == "Error: No Unit" }
-	|| { !friendly_fire_count_AI && { !isPlayer _unit || !isPlayer _instigator } }
-	|| { !friendly_fire_civilians && { _unitSide isEqualTo CIVILIAN || _instigatorSide isEqualTo CIVILIAN } }
+	|| { !_ai && { !isPlayer _unit || !isPlayer _instigator } }
+	|| { !_civilian && { _unitSide isEqualTo CIVILIAN || _instigatorSide isEqualTo CIVILIAN } }
 	|| { !([_unitSide, _instigatorSide] call BIS_fnc_sideIsFriendly) }
 ) exitWith {};
 
@@ -26,5 +28,5 @@ if !(BRM_FMK_FriendlyFire_alerts set [_names, true]) then {
 	[{
 		["ALL", "CHAT", format (["FRIENDLY FIRE: %2 has wounded %1!"] + _this)] call BRM_FMK_fnc_doLog;
 		BRM_FMK_FriendlyFire_alerts deleteAt _this;
-	}, _names, friendly_fire_timer_minutes * 60] call CBA_fnc_waitAndExecute;
+	}, _names, _delay] call CBA_fnc_waitAndExecute;
 };

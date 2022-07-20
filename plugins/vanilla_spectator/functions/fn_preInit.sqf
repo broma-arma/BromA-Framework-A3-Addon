@@ -1,7 +1,5 @@
-#include "includes\settings.sqf"
-
 ["BRM_FMK_DisplayLoad_EGSpectator", {
-	if (vanillaspectator_can_view_AI) then {
+	if ([] call BRM_FMK_VanillaSpectator_fnc_getSettings select 1) then { // Allow AI
 		params ["_display"];
 
 		_display displayAddEventHandler ["KeyDown", {

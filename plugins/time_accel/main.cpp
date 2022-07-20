@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class time_accel
-	{
+	class time_accel {
 		name = "Time Acceleration";
 		version = 1;
 		authors[] = {"Nife"};

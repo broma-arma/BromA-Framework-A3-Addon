@@ -7,6 +7,7 @@ class BRM_FMK_Round_System {
 
 	class general {
 		file = "\broma_framework\plugins\round_system\functions";
+		class getSettings {};
 		class beginMatch {};
 	};
 

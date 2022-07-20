@@ -3,7 +3,7 @@ if !(isServer) exitWith {};
 params ["_unit", "_id", "_uid", "_name"];
 
 private _isDead = [_uid, _name, _unit getVariable ["unit_side", side player]] in mission_dead_players;
-private _isValidSlot = !("prevent_reslot" in usedPlugins) || {_unit getVariable ["unit_valid_slot", false]};
+private _isValidSlot = !("prevent_reslot" in BRM_plugins) || {_unit getVariable ["unit_valid_slot", false]};
 if (_isDead || !_isValidSlot) exitWith {};
 
 private _fnc_unitSeat = {

@@ -5,6 +5,7 @@ class BRM_FMK_SpawnAI {
 	};
 	class Functions {
 		file = "\broma_framework\plugins\spawn_ai\functions";
+		class getSettings {};
 		class infantry {};
 		class spawnUnit {};
 		class addDistance {};

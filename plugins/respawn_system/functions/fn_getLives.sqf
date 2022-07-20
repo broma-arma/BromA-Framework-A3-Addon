@@ -6,10 +6,11 @@ if (_index != -1) exitWith {
 	mission_players_lives select _index select 1
 };
 
-private _lives = switch (side _unit) do {
-	case side_a_side: { mission_lives_side_a };
-	case side_b_side: { mission_lives_side_b };
-	case side_c_side: { mission_lives_side_c };
+private _lives = [] call BRM_FMK_RespawnSystem_fnc_getSettings select 0;
+_lives = switch (side _unit) do {
+	case side_a_side: { _lives select 0 };
+	case side_b_side: { _lives select 1 };
+	case side_c_side: { _lives select 2 };
 	default { -1 };
 };
 if (_lives < 0) then {

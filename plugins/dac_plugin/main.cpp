@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class dac_plugin
-	{
+	class dac_plugin {
 		name = "DAC Plugin";
 		version = 1;
 		authors[] = {"Nife"};

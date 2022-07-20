@@ -1,46 +1,29 @@
-class bar11 { title = ""; values[] = {0}; texts[] = {""}; default = 0;};
+#define PARAM_CATEGORY(ID,TITLE) class bar##ID { title = #TITLE; values[] = {0}; texts[] = {""}; default = 0;}
+#define PARAM_SEPERATOR(ID) PARAM_CATEGORY(ID,)
 
-	class bar_ai { title = "AI SETTINGS ========================"; values[] = {0}; texts[] = {""}; default = 0;};
+PARAM_CATEGORY(ai,=================== AI SETTINGS ==================);
 
-class bar10 { title = ""; values[] = {0}; texts[] = {""}; default = 0;};
+#define BRM_PARAMS_AI
+	#include "plugins\plugins.cpp"
+#undef BRM_PARAMS_AI
 
-	// Includes Plugin parameters pertaining to AI.
-	#define BRM_PARAMS_AI
-		#include "framework\plugins\plugins.cpp"
-	#undef BRM_PARAMS_AI
-
-class bar03 { title = ""; values[] = {0}; texts[] = {""}; default = 0;};
-
-class bar_dateweather { title = "MISSION CONDITIONS ======================"; values[] = {0}; texts[] = {""}; default = 0;};
-
-	class bar04 { title = ""; values[] = {0}; texts[] = {""}; default = 0;};
+PARAM_CATEGORY(conditions,=============== MISSION CONDITIONS ===============);
 
 #define BRM_PARAMS_CONDITIONS
-	#include "framework\plugins\plugins.cpp"
+	#include "plugins\plugins.cpp"
 #undef BRM_PARAMS_CONDITIONS
 
-	class bar05 { title = ""; values[] = {0}; texts[] = {""}; default = 0;};
+PARAM_CATEGORY(time,========== TIME AND MISSION CONSTRAINTS ==========);
 
-class bar_time { title = "TIME AND MISSION CONSTRAINTS ======================="; values[] = {0}; texts[] = {""}; default = 0; };
-
-class bar06 { title = ""; values[] = {0}; texts[] = {""}; default = 0;};
-
-// ============================================================================
-//   Includes Plugin parameters pertaining to Time and Constraints.            |
-// ============================================================================
 #define BRM_PARAMS_TIME
-	#include "framework\plugins\plugins.cpp"
+	#include "plugins\plugins.cpp"
 #undef BRM_PARAMS_TIME
 
-class p_fcas_bar1 {title = ""; values[] = {0}; texts[] = {""}; default = 0; };
+PARAM_CATEGORY(player,================= PLAYER SETTINGS ================);
 
-class bar_player { title = "PLAYER SETTINGS ======================="; values[] = {0}; texts[] = {""}; default = 0; };
-
-class bar08 { title = ""; values[] = {0}; texts[] = {""}; default = 0;};
-
-// ============================================================================
-//   Includes Plugin parameters pertaining to Players.                         |
-// ============================================================================
 #define BRM_PARAMS_PLAYER
-	#include "framework\plugins\plugins.cpp"
+	#include "plugins\plugins.cpp"
 #undef BRM_PARAMS_PLAYER
+
+#undef PARAM_SEPERATOR
+#undef PARAM_CATEGORY

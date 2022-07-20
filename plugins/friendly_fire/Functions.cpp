@@ -6,6 +6,7 @@ class BRM_FMK_FriendlyFire {
 
 	class Functions {
 		file = "\broma_framework\plugins\friendly_fire\functions";
+		class getSettings {};
 		class alert {};
 	};
 };

@@ -5,11 +5,11 @@
 titleText ["You are respawning...", "BLACK FADED", 0];
 
 switch (true) do {
-	case ("ace3_spectator" in usedPlugins): {
+	case ("ace3_spectator" in BRM_plugins): {
 		[false] call ace_spectator_fnc_setSpectator;
 	};
-	case ("vanilla_spectator" in usedPlugins): {
-		["Terminate"] call BIS_fnc_EGSpectator;
+	case ("vanilla_spectator" in BRM_plugins): {
+		[false] call BRM_FMK_VanillaSpectator_fnc_setSpectator;
 	};
 };
 

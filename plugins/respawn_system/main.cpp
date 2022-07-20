@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class respawn_system
-	{
+	class respawn_system {
 		name = "Respawn System";
 		version = 1;
 		authors[] = {"Nife"};

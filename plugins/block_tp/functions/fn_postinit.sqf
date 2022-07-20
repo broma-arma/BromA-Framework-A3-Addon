@@ -5,9 +5,7 @@ if !(hasInterface) exitWith {};
 0 spawn {
 	waitUntil { !isNil "BrmFmk_blockTP_allow" };
 
-	if (isNil "tp_allowed_units") then { tp_allowed_units = [] };
-
-	if (difficultyOption "thirdPersonView" != 1 || BrmFmk_blockTP_allow == 1 || player in tp_allowed_units) exitWith {};
+	if (difficultyOption "thirdPersonView" != 1 || BrmFmk_blockTP_allow == 1 || player in (missionNamespace getVariable ["tp_allowed_units", []]) || player getVariable ["BRM_FMK_block_tp_allowed", false]) exitWith {};
 
 	addMissionEventHandler ["EachFrame", {
 		if (cameraView == "EXTERNAL") then {

@@ -7,15 +7,13 @@ intro_cutscene_over = false;
 
 	if !(isMultiplayer && !didJIP && !player_is_spectator) exitWith { intro_cutscene_over = true; };
 
-	if (isNil "intro_cutscene") then { intro_cutscene = "ESTABLISHING" };
-
-	if ("loading_screen" in usedPlugins) then {
+	if ("loading_screen" in BRM_plugins) then {
 		waitUntil { !isNil "loading_screen_finished" && { loading_screen_finished } };
 	} else {
 		sleep 0.1;
 	};
 
-	if ("respawn_system" in usedPlugins) then {
+	if ("respawn_system" in BRM_plugins) then {
 		if ([player] call BRM_FMK_RespawnSystem_fnc_getLives == 0) then {
 			intro_cutscene_over = true;
 		};
@@ -23,7 +21,7 @@ intro_cutscene_over = false;
 
 	if (intro_cutscene_over) exitWith {};
 
-	switch (intro_cutscene) do {
+	switch ([] call BRM_FMK_Intros_fnc_getSettings select 0) do {
 		case "ESTABLISHING": {
 			[player, format ["%1, %2", toUpper worldName, player call BIS_fnc_locationDescription], 1.5, 1, 280, 0] spawn BIS_fnc_establishingShot;
 		};

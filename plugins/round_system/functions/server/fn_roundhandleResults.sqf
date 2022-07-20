@@ -4,6 +4,8 @@ private ["_victoryText","_victory"];
 
 _result = [];
 
+[] call BRM_FMK_Round_System_fnc_getSettings select 9 params ["_winMessageA", "_winMessageB", "_winMessageC"];
+
 _AVictory = {
     _result set [1, "AlertBLU"];
     match_points_a = match_points_a + 1;
@@ -11,7 +13,7 @@ _AVictory = {
 
     ["LOCAL", "CHAT", "BLUFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 
-    _victory = [selectRandom win_messages_a, side_a_name];
+    _victory = [_winMessageA, side_a_name];
 };
 
 _BVictory = {
@@ -21,7 +23,7 @@ _BVictory = {
 
     ["LOCAL", "CHAT", "OPFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 
-    _victory = [selectRandom win_messages_b, side_b_name];
+    _victory = [_winMessageB, side_b_name];
 };
 
 _CVictory = {
@@ -31,22 +33,24 @@ _CVictory = {
 
     ["LOCAL", "CHAT", "INDFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 
-    _victory = [selectRandom win_messages_c, side_c_name];
+    _victory = [_winMessageC, side_c_name];
 };
 
 _DrawVictory = {
     _result set [1, "Alert"];
-    _victory = [selectRandom draw_messages, ""];
+    _victory = [[] call BRM_FMK_Round_System_fnc_getSettings select 8, ""];
 
     ["LOCAL", "CHAT", "Draw.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 };
 
+[] call BRM_FMK_Round_System_fnc_getSettings select 7 params ["_victoryConditionA", "_victoryConditionB", "_victoryConditionC"];
+
 switch (round_end_reason) do {
     case "OBJECTIVE": {
         switch (true) do {
-            case (call compile round_side_a_victory_con): { [] call _AVictory };
-            case (call compile round_side_b_victory_con): { [] call _BVictory };
-            case (call compile round_side_c_victory_con): { [] call _CVictory };
+            case (call _victoryConditionA): { [] call _AVictory };
+            case (call _victoryConditionB): { [] call _BVictory };
+            case (call _victoryConditionC): { [] call _CVictory };
         };
     };
     case "DEATH": {
@@ -57,10 +61,10 @@ switch (round_end_reason) do {
         };
     };
     case "TIME": {
-
-        switch (typeName round_timeout_winner) do {
+		private _winner = [] call BRM_FMK_Round_System_fnc_getSettings select 4;
+        switch (typeName _winner) do {
             case ("STRING"): {
-                switch (round_timeout_winner) do {
+                switch (_winner) do {
                     case ("DRAW"): { [] call _DrawVictory };
                     case ("SCORE"): {
                         _Aunits = {(side _x == side_a_side)} count (allUnits);
@@ -95,7 +99,7 @@ switch (round_end_reason) do {
                 };
             };
             case ("SIDE"): {
-                switch (round_timeout_winner) do {
+                switch (_winner) do {
                     case (side_a_side): { [] call _AVictory };
                     case (side_b_side): { [] call _BVictory };
                     case (side_c_side): { [] call _CVictory };

@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class ace3_spectator
-	{
+	class ace3_spectator {
 		name = "ACE3 Spectator plugin";
 		disabled = 1;
 		version = 1;

@@ -5,6 +5,7 @@ class BRM_FMK_CivilianCasualtyCap {
 	};
 	class functions {
 		file = "\broma_framework\plugins\civilian_casualty_cap\functions";
+		class getSettings {};
 		class civInit {};
 		class civKilled {};
 	};

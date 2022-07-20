@@ -7,5 +7,6 @@ class BRM_FMK_VanillaSpectator {
 		file = "\broma_framework\plugins\vanilla_spectator\functions";
 		class getSettings {};
 		class centerOnTarget {};
+		class setSpectator {};
 	};
 };

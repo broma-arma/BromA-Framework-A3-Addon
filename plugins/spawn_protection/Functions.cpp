@@ -5,6 +5,7 @@ class BRM_FMK_SpawnProtection {
 	};
 	class functions {
 		file = "\broma_framework\plugins\spawn_protection\functions";
+		class getSettings {};
 		class allowDamage {};
 		class clientMarker {};
 	};

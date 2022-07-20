@@ -1,6 +1,7 @@
 class BRM_FMK_CHVD {
 	class functions	{
 		file = "\broma_framework\plugins\ch_view_distance\functions";
+		class getSettings {};
 		class onSliderChange {};
 		class onLBSelChanged {};
 		class onLBSelChanged_syncmode {};

@@ -7,6 +7,7 @@ class BRM_FMK_RespawnSystem {
 
 	class Functions {
 		file = "\broma_framework\plugins\respawn_system\functions";
+		class getSettings {};
 		class removeFromMission {};
 		class onRespawn {};
 		class getLives {};

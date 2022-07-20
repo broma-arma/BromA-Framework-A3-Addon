@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class spawn_ai
-	{
+	class spawn_ai {
 		name = "AI Spawner";
 		version = 0.3;
 		authors[] = {"Nife"};

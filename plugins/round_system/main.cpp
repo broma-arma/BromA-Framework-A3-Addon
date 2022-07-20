@@ -1,11 +1,10 @@
 #ifdef BRM_PLUGIN_META
-	class round_system
-	{
+	class round_system {
 		name = "Round System";
 		disabled = 1;
 		version = 1;
 		authors[] = {"Nife"};
-		conflict_plugins[] = {"spawn_protection", "f_casualties_cap", "commander_lock"};
+		conflict_plugins[] = {"spawn_protection", "casualties_cap", "commander_lock"};
 		description = "This plugin manages rounds for TvT/COTvT missions.";
 		preInit[] = {"BRM_FMK_Round_System_fnc_preInit"};
 		postInit[] = {"BRM_FMK_Round_System_fnc_postInit"};

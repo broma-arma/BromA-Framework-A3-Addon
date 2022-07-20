@@ -1,6 +1,6 @@
-if (isNil "DEPRECATED_BRM_FMK_f_evade_escape_fnc_reachObject") then {
+if (isNil "DEPRECATED_BRM_FMK_evade_escape_fnc_reachObject") then {
 	["Function is deprecated, use BRM_FMK_fnc_reachTarget"] remoteExec ["BIS_fnc_error", 0];
-	DEPRECATED_BRM_FMK_f_evade_escape_fnc_reachObject = true;
+	DEPRECATED_BRM_FMK_evade_escape_fnc_reachObject = true;
 };
 
 if (!isServer) exitWith {};

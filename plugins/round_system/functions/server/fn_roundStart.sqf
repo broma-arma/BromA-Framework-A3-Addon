@@ -1,7 +1,7 @@
 if (!isServer) exitWith {};
 
 0 spawn {
-    sleep round_seconds_between;
+    sleep ([] call BRM_FMK_Round_System_fnc_getSettings select 2);
     setupZoneEnd = true;
     publicVariable "setupZoneEnd";
 };

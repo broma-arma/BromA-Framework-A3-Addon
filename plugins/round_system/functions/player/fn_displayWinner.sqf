@@ -1,11 +1,11 @@
 params["_reason","_color"];
 
-switch (round_end_notification) do {
+switch ([] call BRM_FMK_Round_System_fnc_getSettings select 5) do {
     case "NOTIFICATION": { [_color,[_reason]] call BIS_fnc_showNotification };
     case "HINT": { hint _reason };
 };
 
-if (round_display_score) then {
+if ([] call BRM_FMK_Round_System_fnc_getSettings select 6) then {
 
     _msg = format ["
     <t size='1.3' color='%1'>%2: %3 points</t><br/>

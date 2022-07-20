@@ -3,4 +3,8 @@ class BRM_FMK_SetupZone {
 		file = "\broma_framework\plugins\setup_zone\functions";
 		class postinit {};
 	};
+	class functions {
+		file = "\broma_framework\plugins\setup_zone\functions";
+		class getSettings {};
+	};
 };

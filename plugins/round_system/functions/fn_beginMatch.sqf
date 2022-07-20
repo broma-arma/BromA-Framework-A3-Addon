@@ -1,5 +1,3 @@
-#include "includes\settings.sqf"
-
 // =============================================================================
 // CODE TO BE EXECUTED DURING INIT
 // =============================================================================
@@ -35,9 +33,10 @@ if (hasInterface) then {
 
     sleep 3;
 
-    ["Timer",[format ["The match begins in %1 seconds!", round_prep_time_seconds]]] call BIS_fnc_showNotification;
+	private _prepTime = [] call BRM_FMK_Round_System_fnc_getSettings select 1;
+    ["Timer",[format ["The match begins in %1 seconds!", _prepTime]]] call BIS_fnc_showNotification;
 
-    sleep round_prep_time_seconds;
+    sleep _prepTime;
 
     if (isServer) then {
     // =========================================================================

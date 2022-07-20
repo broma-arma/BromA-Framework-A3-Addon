@@ -36,5 +36,5 @@ if (count match_ending_winner > 0) then {
 
     ["LOCAL", "CHAT", "Waiting to begin new round...", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 
-    sleep round_seconds_between;
+    sleep ([] call BRM_FMK_Round_System_fnc_getSettings select 2);
 };

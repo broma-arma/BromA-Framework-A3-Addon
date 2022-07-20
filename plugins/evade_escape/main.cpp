@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class f_evade_escape
-	{
+	class evade_escape {
 		name = "Evade and Escape";
 		authors[] = {"Fer", "Nife"};
 		version = 1;

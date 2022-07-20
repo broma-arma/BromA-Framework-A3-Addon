@@ -3,4 +3,9 @@ class BRM_FMK_Intros {
 		file = "\broma_framework\plugins\intros\functions";
 		class postinit {};
 	};
+
+	class functions {
+		file = "\broma_framework\plugins\intros\functions";
+		class getSettings {};
+	};
 };

@@ -3,4 +3,9 @@ class BRM_FMK_PreventReslot {
 		file = "\broma_framework\plugins\prevent_reslot\functions";
 		class postInit {};
 	};
+
+	class functions {
+		file = "\broma_framework\plugins\prevent_reslot\functions";
+		class getSettings {};
+	};
 };

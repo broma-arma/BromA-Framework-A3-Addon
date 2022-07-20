@@ -11,9 +11,7 @@ if (mission_spawn_protection_time > 0) then {
 if (mission_spawn_protection_time == 0) exitWith {};
 
 0 spawn {
-	if (isNil "spawn_protection_area") then {
-		spawn_protection_area = 50;
-	};
+	[] call BRM_FMK_SpawnProtection_fnc_getSettings params ["_area"];
 
 	private _fnc_createTrigger = {
 		params ["_side"];
@@ -34,15 +32,15 @@ if (mission_spawn_protection_time == 0) exitWith {};
 		};
 
 		private _pos = getMarkerPos ("respawn_" + _sideStr);
-		private _area = [spawn_protection_area, spawn_protection_area, 0, true];
+		private _triggerArea = [_area, _area, 0, true];
 
 		// Create marker on clients.
-		([_pos] + _area) remoteExec ["BRM_FMK_SpawnProtection_fnc_clientMarker", _side, "BRM_FMK_SpawnProtection_" + _sideStr];
+		([_pos] + _triggerArea) remoteExec ["BRM_FMK_SpawnProtection_fnc_clientMarker", _side, "BRM_FMK_SpawnProtection_" + _sideStr];
 
 		// Create and configure trigger
 		private _trigger = createTrigger ["EmptyDetector", _pos, false];
 		_trigger setVariable ["BRM_FMK_SpawnProtection_protected", []];
-		_trigger setTriggerArea _area;
+		_trigger setTriggerArea _triggerArea;
 		_trigger setTriggerActivation ["ANY", "PRESENT", true];
 		_trigger setTriggerStatements [
 			// Condition

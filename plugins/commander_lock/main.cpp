@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class commander_lock
-	{
+	class commander_lock {
 		name = "Commander Lock";
 		version = 1;
 		authors[] = {"Nife"};

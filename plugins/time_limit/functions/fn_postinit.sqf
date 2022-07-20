@@ -1,22 +1,17 @@
-mission_time_limit = ["p_time_limit", -1] call BIS_fnc_getParamValue;
-mission_time_added = (["p_time_added", 0] call BIS_fnc_getParamValue) * 60;
-
 if (!isServer) exitWith {};
 
-waitUntil { !isNil "mission_time_limit" };
+private _timeLimit = ["p_time_limit", -1] call BIS_fnc_getParamValue;
 
-if (mission_time_limit == -1) exitWith {};
+if (_timeLimit == -1) exitWith {};
 
-if (isNil "time_alerted_minutes") then { time_alerted_minutes = [120, 60, 15, 1] };
+private _alertTimes = [] call BRM_FMK_TimeLimit_fnc_getSettings select 0;
 
-time_alerted_minutes = time_alerted_minutes apply { _x * 60 };
-
-BrmFmk_TimeLimit_countdown = mission_time_limit;
+BRM_FMK_TimeLimit_countdown = _timeLimit;
 
 0 spawn {
-	while {BrmFmk_TimeLimit_countdown > 0} do {
-		if (BrmFmk_TimeLimit_countdown <= 10 || {BrmFmk_TimeLimit_countdown in time_alerted_minutes}) then {
-			private _time = BrmFmk_TimeLimit_countdown;
+	while {BRM_FMK_TimeLimit_countdown > 0} do {
+		if (BRM_FMK_TimeLimit_countdown <= 10 || {BRM_FMK_TimeLimit_countdown in _alertTimes}) then {
+			private _time = BRM_FMK_TimeLimit_countdown;
 			private _timeUnit = if (_time >= 60) then {
 				_time = floor (_time / 60);
 
@@ -28,7 +23,7 @@ BrmFmk_TimeLimit_countdown = mission_time_limit;
 				_timeUnit = _timeUnit + "s";
 			};
 
-			if (BrmFmk_TimeLimit_countdown <= 10) then {
+			if (BRM_FMK_TimeLimit_countdown <= 10) then {
 				["CLIENTS", "HINT", format ["%1 %2 remaining in the mission!", _time, _timeUnit]] call BRM_FMK_fnc_doLog;
 			} else {
 				["Timer", [format ["%1 %2 remaining in the mission!", _time, _timeUnit]]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
@@ -36,7 +31,7 @@ BrmFmk_TimeLimit_countdown = mission_time_limit;
 		};
 
 		sleep 1;
-		BrmFmk_TimeLimit_countdown = BrmFmk_TimeLimit_countdown - 1;
+		BRM_FMK_TimeLimit_countdown = BRM_FMK_TimeLimit_countdown - 1;
 	};
 
 	["Timer", ["Time's up!"]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];

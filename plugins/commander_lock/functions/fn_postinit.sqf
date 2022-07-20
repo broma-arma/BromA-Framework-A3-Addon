@@ -1,9 +1,11 @@
-#include "includes\settings.sqf"
+[] call BRM_FMK_CommanderLock_fnc_getSettings params ["_tvt"];
 
-if (co_lock_units isEqualType "") then { // Backwards compatibility
-	co_lock_units = call compile co_lock_units;
+// TODO Automate commanders list
+private _commanders = missionNamespace getVariable ["co_lock_units", ["blu_0_0_1", "blu_1_0_1", "op_0_0_1", "op_1_0_1", "ind_0_0_1", "ind_1_0_1"]];
+if (_commanders isEqualType "") then { // Backwards compatibility
+	_commanders = call compile _commanders;
 } else {
-	co_lock_units = co_lock_units apply { missionNamespace getVariable [_x, objNull] };
+	_commanders = _commanders apply { missionNamespace getVariable [_x, objNull] };
 };
 
 if (isServer) then {
@@ -15,7 +17,7 @@ if (isServer) then {
         if ((!(side _x in locked_sides))&&!(str _x == "<NULL-object>")) then {
             locked_sides pushBack (side _x);
         };
-    } forEach co_lock_units;
+    } forEach _commanders;
     publicVariable "locked_sides";
 };
 
@@ -23,12 +25,14 @@ if (hasInterface) then {
     [{(!isNil "co_lock_allSidesReady") && (!isNil "locked_sides")}, {
         if (!(side player in locked_sides)) exitWith {};
 
-        private _coLockTextSelect = if (co_lock_tvt_mode) then {1} else {0};
+		params ["_commanders", "_tvt"];
 
-        if (player in co_lock_units) then {
+        private _coLockTextSelect = if (_tvt) then {1} else {0};
+
+        if (player in _commanders) then {
             private _coLockTextStart = ["Start the mission.", "Ready your side."];
             private _coLockTextStarted = ["The commander declares the mission as go!", "All sides are ready - mission start."];
-            private _coLockActionCondition = "(player in co_lock_units)&&(side player in locked_sides)";
+            private _coLockActionCondition = "(side player in locked_sides)";
 
             _coLockTextStart = _coLockTextStart select _coLockTextSelect;
             _coLockTextStarted = _coLockTextStarted select _coLockTextSelect;
@@ -46,12 +50,12 @@ if (hasInterface) then {
 
             player addAction [_addActionText, {
                 params ["_caller", "_target", "_index", "_arguments"];
-                _arguments params ["_alertNotificationColor", "_coLockTextStarted"];
+                _arguments params ["_alertNotificationColor", "_coLockTextStarted", "_tvt"];
 
                 locked_sides = locked_sides - [side player]; publicVariable "locked_sides";
                 if (count locked_sides <= 0) then { co_lock_allSidesReady = true; publicVariable "co_lock_allSidesReady" };
 
-                private _coLockNotificationParameters = if (co_lock_tvt_mode) then {
+                private _coLockNotificationParameters = if (_tvt) then {
                     private _returnValues = [_alertNotificationColor, 0];
 
                     if !(co_lock_allSidesReady) then {
@@ -65,10 +69,10 @@ if (hasInterface) then {
 
                 _coLockNotificationParameters params ["_coLockNotificationColor", "_notificationCondition", ["_coLockNotificationText", _coLockTextStarted]];
                 [_coLockNotificationColor, [_coLockNotificationText]] remoteExec ["BIS_fnc_showNotification", _notificationCondition];
-            }, [_alertNotificationColor, _coLockTextStarted], 0.5, true, true,"'", _coLockActionCondition];
+            }, [_alertNotificationColor, _coLockTextStarted, _tvt], 0.5, true, true, "", _coLockActionCondition];
 
         } else {
-            private _coLockPlayerFreeCondition = (((!co_lock_tvt_mode) && (side player in locked_sides)) || ((co_lock_tvt_mode) && (!co_lock_allSidesReady)));
+            private _coLockPlayerFreeCondition = (((!_tvt) && (side player in locked_sides)) || ((_tvt) && (!co_lock_allSidesReady)));
 
             if (_coLockPlayerFreeCondition) then {
                 private _coLockTextWait = ["Please wait until the Commander clears the mission to begin.", "Please wait until all teams are ready."];
@@ -88,15 +92,15 @@ if (hasInterface) then {
                     };
                 }, 0.5, _coLockTextWait] call CBA_fnc_addPerFrameHandler;
 
-                [{!(((!co_lock_tvt_mode) && (side player in locked_sides)) || ((co_lock_tvt_mode) && (!co_lock_allSidesReady)))}, {
+                [{!((!(_this select 4) && (side player in locked_sides)) || ((_this select 4) && (!co_lock_allSidesReady)))}, {
                     params["_removeBulletsEH", "_perFrameHandlePlayer", "_removeACEThrowingEH", "_removeExplosivesEH"];
 
                     player removeEventHandler ["Fired", _removeBulletsEH];
                     [_perFrameHandlePlayer] call CBA_fnc_removePerFrameHandler;
                     ["ACE_advanced_throwing_throwFiredXEH", _removeACEThrowingEH] call CBA_fnc_removeEventHandler;
                     ["ACE_explosives_place", _removeExplosivesEH] call CBA_fnc_removeEventHandler;
-                },[_removeBulletsEH, _perFrameHandlePlayer, _removeACEThrowingEH, _removeExplosivesEH]] call CBA_fnc_waitUntilAndExecute;
+                },[_removeBulletsEH, _perFrameHandlePlayer, _removeACEThrowingEH, _removeExplosivesEH, _tvt]] call CBA_fnc_waitUntilAndExecute;
             };
         };
-    }] call CBA_fnc_waitUntilAndExecute;
+    }, [_commanders, _tvt]] call CBA_fnc_waitUntilAndExecute;
 };

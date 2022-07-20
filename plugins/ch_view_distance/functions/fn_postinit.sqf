@@ -8,9 +8,10 @@
 	if (_scriptVersion) exitWith {systemChat "CH View Distance: Script version is running, addon disabled"};
 
 	//Define variables, load from profileNamespace
-	CHVD_allowNoGrass = if (isNil "CHVD_allowNoGrass") then {true} else {CHVD_allowNoGrass};
-	CHVD_maxView = if (isNil "CHVD_maxView") then {12000} else {CHVD_maxView};
-	CHVD_maxObj = if (isNil "CHVD_maxObj") then {12000} else {CHVD_maxObj};
+	[] call BRM_FMK_CHVD_fnc_getSettings params ["_grass", "_terrain", "_object"];
+	CHVD_allowNoGrass = if (isNil "CHVD_allowNoGrass") then {_grass} else {CHVD_allowNoGrass};
+	CHVD_maxView = if (isNil "CHVD_maxView") then {_terrain} else {CHVD_maxView};
+	CHVD_maxObj = if (isNil "CHVD_maxObj") then {_object} else {CHVD_maxObj};
 
 	CHVD_footSyncMode = profileNamespace getVariable ["CHVD_footSyncMode",0];
 	CHVD_footSyncPercentage = profileNamespace getVariable ["CHVD_footSyncPercentage",0.8];

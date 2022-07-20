@@ -2,8 +2,6 @@ mission_dead_civilian_limit = ["p_dead_civies", -1] call BIS_fnc_getParamValue;
 
 if (!isServer || mission_dead_civilian_limit < 0) exitWith {};
 
-if (isNil "responsible_sides") then { responsible_sides = [side_a_side, side_b_side]; };
-
 BRM_FMK_CivilianCasualtyCap_civsKilled = [0, 0, 0]; // Side A, B, C
 
 if (isClass (configFile >> "CfgPatches" >> "ace_medical")) then {

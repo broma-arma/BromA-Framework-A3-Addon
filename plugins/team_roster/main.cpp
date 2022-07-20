@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class team_roster
-	{
+	class team_roster {
 		name = "Team Roster";
 		version = 1;
 		authors[] = {"Coryf88"};

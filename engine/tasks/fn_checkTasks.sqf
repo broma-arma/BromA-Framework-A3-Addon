@@ -88,14 +88,14 @@ while { mission_running } do {
 							[_id, "SUCCEEDED", true] call BIS_fnc_taskSetState;
 							call _callbackCompleted;
 
-							if ("respawn_system" in usedPlugins) then {
+							if ("respawn_system" in BRM_plugins) then {
 								{
 									[_x, mission_respawn_objective] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
 								} forEach _sides;
 							};
 
-							if ("time_limit" in usedPlugins) then {
-								[mission_time_added] call BRM_FMK_TimeLimit_fnc_addTime;
+							if ("time_limit" in BRM_plugins) then {
+								[(["p_time_added", 0] call BIS_fnc_getParamValue) * 60] call BRM_FMK_TimeLimit_fnc_addTime;
 							};
 
 							{

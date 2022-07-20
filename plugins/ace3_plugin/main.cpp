@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class ace3_plugin
-	{
+	class ace3_plugin {
 		name = "ACE3 Plugin";
 		version = 1;
 		authors[] = {"nigel"};

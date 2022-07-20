@@ -6,8 +6,6 @@ if (isServer) then {
 if (hasInterface) then {
 	["LOCAL", "F_LOG", "LOADED SLOT PREVENTION PLUGIN"] call BRM_FMK_fnc_doLog;
 
-	if (isNil "mission_preventreslot_timer") then { mission_preventreslot_timer = 600 };
-
 	if (player_is_spectator) exitWith {};
 
 	0 spawn {
@@ -28,7 +26,7 @@ if (hasInterface) then {
 
 		if (_index == -1) exitWith {
 			player setVariable ["unit_valid_slot", true, true];
-			sleep mission_preventreslot_timer;
+			sleep ([] call BRM_FMK_PreventReslot_fnc_getSettings select 0);
 
 			["Alert", ["Your slot has been locked for the remainder of the mission."]] call BIS_fnc_showNotification;
 

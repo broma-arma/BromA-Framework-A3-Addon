@@ -28,7 +28,7 @@ RETURNS:
 	private _subject = "BRM_FMK_diary";
 	player createDiarySubject [_subject, "BromA Framework"];
 
-	private _plugins = usedPlugins apply {
+	private _plugins = BRM_plugins apply {
 		private _cfg = configFile >> "BRM_FMK_Plugins" >> _x;
 		format [
 			"  <execute expression='hint ""%1 v%2\nby %3\n\n%4""'>[?]</execute> <font color='#E6E682'>%1 v%2</font> by %3.",

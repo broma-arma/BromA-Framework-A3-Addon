@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class map_cover
-	{
+	class map_cover {
 		name = "Map Cover";
 		version = 1;
 		authors[] = {"Nife"};

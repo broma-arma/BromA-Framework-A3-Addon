@@ -20,7 +20,7 @@ if (BrmFmk_LoadingScreen_count != -1) then {
 				{ diag_fpsMin >= SERVER_FPS_METRIC }
 			];
 
-			if ("dac_plugin" in usedPlugins) then {
+			if ("dac_plugin" in BRM_plugins) then {
 				_metrics pushBack { !isNil "DAC_Basic_Value" && {DAC_Basic_Value > 0} };
 			};
 

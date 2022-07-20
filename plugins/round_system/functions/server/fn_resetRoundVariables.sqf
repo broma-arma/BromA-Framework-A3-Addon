@@ -1,6 +1,12 @@
-sideAcondition = false;
-sideBcondition = false;
-sideCcondition = false;
+if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
+	sideAcondition = false;
+	sideBcondition = false;
+	sideCcondition = false;
+} else {
+	BRM_RoundSystem_conditionA = false;
+	BRM_RoundSystem_conditionB = false;
+	BRM_RoundSystem_conditionC = false;
+};
 
 round_dead_sides = [];
 

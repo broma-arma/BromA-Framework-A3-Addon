@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class ao_limit
-	{
+	class ao_limit {
 		name = "AO Limit";
 		version = 1;
 		authors[] = {"Nife"};

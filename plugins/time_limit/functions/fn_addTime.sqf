@@ -6,7 +6,7 @@ params ["_time"];
 
 if (_time == 0) exitWith {};
 
-BrmFmk_TimeLimit_countdown = BrmFmk_TimeLimit_countdown + _time;
+BRM_FMK_TimeLimit_countdown = BRM_FMK_TimeLimit_countdown + _time;
 
 private _action = if (_time > 0) then { "added to" } else { "removed from" };
 
