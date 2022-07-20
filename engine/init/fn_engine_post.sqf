@@ -86,6 +86,27 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
 };
 
+if (hasInterface) then {
+	private _channelSettings = [];
+	for "_i" from 0 to 5 do {
+		_channelSettings pushBack channelEnabled _i;
+		_i enableChannel [true, false];
+	};
+
+	setCurrentChannel 1; // Side
+
+	_channelSettings spawn {
+		sleep 1;
+
+		if ("commander_lock" in BRM_plugins) then {
+			waitUntil { !isNil "locked_sides" && { !(side player in locked_sides) } };
+		};
+		{
+			_forEachIndex enableChannel _x;
+		} forEach _this;
+	};
+};
+
 [] call BRM_FMK_OCAP_fnc_init;
 
 enableSentences false; // Hacky shit to try to stop low FPS
