@@ -27,12 +27,9 @@ RETURNS:
 
 params ["_unit", "_killer", "_instigator", "_useEffects"];
 
-if (!isNil { _unit getVariable "BRM_FMK_onAIKilled" }) exitWith {}; // TODO Is this needed?
-_unit setVariable ["BRM_FMK_onAIKilled", true];
-
+_this call BRM_FMK_fnc_handleScore;
+["BRM_FMK_aiKilled", _this] call CBA_fnc_localEvent;
 if ("remove_body" in BRM_plugins) then {
-	_unit spawn BRM_FMK_remove_body_fnc_removeBody; // TODO Use CBA events for this?
+	_unit spawn BRM_FMK_remove_body_fnc_removeBody; // TODO Use CBA events for this
 };
-
-[_unit, _killer, _instigator, _useEffects] call BRM_FMK_fnc_handleScore;
-[_unit, _killer, _instigator, _useEffects] call BRM_fnc_onAIKilled; // TODO Use CBA events for this?
+_this call BRM_fnc_onAIKilled;

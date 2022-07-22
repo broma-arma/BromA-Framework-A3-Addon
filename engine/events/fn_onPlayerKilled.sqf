@@ -27,5 +27,6 @@ RETURNS:
 
 params ["_unit", "_killer", "_instigator", "_useEffects"];
 
-[_unit, _killer, _instigator, _useEffects] call BRM_FMK_fnc_handleScore;
-[_unit, _killer, _instigator, _useEffects] call BRM_fnc_onPlayerKilled; // TODO Use CBA events for this?
+["BRM_FMK_playerKilled", _this] call CBA_fnc_localEvent;
+_this call BRM_FMK_fnc_handleScore;
+_this call BRM_fnc_onPlayerKilled;

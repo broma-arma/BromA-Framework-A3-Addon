@@ -25,4 +25,5 @@ RETURNS:
 
 params ["_unit", "_corpse"];
 
-[_unit, _corpse] call BRM_fnc_onPlayerRespawn; // TODO Use CBA events for this?
+["BRM_FMK_playerRespawn", _this] call CBA_fnc_localEvent;
+_this call BRM_fnc_onPlayerRespawn;
