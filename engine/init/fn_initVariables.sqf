@@ -43,7 +43,6 @@ RETURNS:
 	["mission_running", true],
 
 	["mission_AI_controller", false],
-	["mission_HC_enabled",    false],
 
 	["BRM_FRAMEWORK_ADDON", "BRM_FRAMEWORK"],
 
