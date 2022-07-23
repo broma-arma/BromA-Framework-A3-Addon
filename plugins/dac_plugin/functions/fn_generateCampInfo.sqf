@@ -48,9 +48,7 @@ private _staticGunner = switch (_side) do {
 	case INDEPENDENT: { "I_Soldier_F" };
 	default           { "B_Soldier_F" };
 };
-_static = _static apply {
-	[selectRandom _staticVehicles, _x select 0, _x select 1, _x select 2, _staticGunner]
-};
+_static = if (count _staticVehicles > 0) then { _static apply { [selectRandom _staticVehicles, _x select 0, _x select 1, _x select 2, _staticGunner] } } else { [] };
 
 // An additional guard is needed to initAI of camp units in mission framework version <= 075
 private _additionalGuards = [_staticGunner];
