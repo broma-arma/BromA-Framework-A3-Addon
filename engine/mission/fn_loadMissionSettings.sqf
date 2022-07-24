@@ -5,7 +5,40 @@ if (!fileExists "mission\settings\mission-settings.sqf") exitWith {
 	["END1", false, 0, false] call BIS_fnc_endMission;
 };
 
-call compile preprocessFileLineNumbers "mission\settings\mission-settings.sqf";
+call compile preprocessFileLineNumbers "mission\settings\mission-settings.sqf" params [
+	"_mode", "_factionA", "_factionB", "_factionC", "_extractMusic", "_jip", "_stats"
+];
+
+mission_game_mode = _mode;
+mission_require_extraction = [];
+mission_extraction_BLU = "*";
+mission_extraction_OP = "*";
+mission_extraction_IND = "*";
+mission_extraction_CIV = "*";
+
+{
+	_x params ["_sideChar", "_sideData"];
+
+	_sideData params [
+		"_side",
+		"_faction",
+		"_extract",
+		"_extractPoints",
+		"_extractGroups"
+	];
+
+	missionNamespace setVariable [format ["side_%1_side", _sideChar], _side];
+	missionNamespace setVariable [format ["side_%1_faction", _sideChar], _faction];
+	if (_extract) then {
+		mission_require_extraction = mission_require_extraction + [_side];
+	};
+	missionNamespace setVariable [format ["mission_extraction_points_%1", _sideChar], _extractPoints];
+	missionNamespace setVariable [format ["mission_extraction_%1", ["BLU", "OP", "IND", "CIV"] select ([WEST, EAST, INDEPENDENT, CIVILIAN] find _side)], _extractGroups];
+} forEach [["a", _factionA], ["b", _factionB], ["c", _factionC]];
+
+mission_extraction_tracks = _extractMusic;
+mission_allow_jip = _jip;
+mission_ending_stats = _stats;
 
 mission_enable_side_c = side_c_faction != "";
 
