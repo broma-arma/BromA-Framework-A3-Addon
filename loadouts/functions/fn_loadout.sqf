@@ -35,7 +35,15 @@ if (!isNil "_code") exitWith {
 
 private _file = getText ("BRM_FMK_Loadouts" >> ["Factions", "Structures"] select _structure >> _id);
 if (_file != "" && { fileExists _file }) exitWith {
-	_code = compile preprocessFileLineNumbers _file
+	_code = preprocessFileLineNumbers _file;
+	if (!_structure) then {
+		private _modFile = format ["mission\loadouts\mods\%1.sqf", toLower _id];
+		if (fileExists _modFile) then {
+			_code = _code + toString [10] + preprocessFileLineNumbers _modFile;
+		};
+	};
+	_code = compileFinal _code;
+
 	missionNamespace setVariable [_var, _code];
 	if (_defVar != "") then {
 		missionNamespace setVariable [_defVar, _code];
