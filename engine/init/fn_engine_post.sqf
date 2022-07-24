@@ -93,7 +93,7 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 
 	if (mission_AI_controller) then {
 		[{ time > 5 }, {
-			[] call compile preprocessFileLineNumbers "mission\objectives\mission_AI.sqf";
+			[] call compile preprocessFileLineNumbers "mission\objectives\ai.sqf";
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
 

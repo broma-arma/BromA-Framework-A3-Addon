@@ -38,7 +38,7 @@ RETURNS:
     Nothing.
 
 NOTES:
-    It is recommended to use this script inside the mission_AI.sqf file for HC compatibility.
+    It is recommended to use this script inside the ai.sqf file for HC compatibility.
 
 ================================================================================
 */
