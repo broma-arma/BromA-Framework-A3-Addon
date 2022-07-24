@@ -3,8 +3,8 @@
 #define FOG 15
 #define WIND 11
 
-#if __has_include("mission\settings\plugins\mission_conditions.sqf")
-#include "mission\settings\plugins\mission_conditions.sqf"
+#if __has_include("settings\plugins\mission_conditions.sqf")
+#include "settings\plugins\mission_conditions.sqf"
 #endif
 
 class p_time_of_day {

@@ -1,7 +1,7 @@
 #define TIME 0
 
-#if __has_include("mission\settings\plugins\setup_zone.sqf")
-#include "mission\settings\plugins\setup_zone.sqf"
+#if __has_include("settings\plugins\setup_zone.sqf")
+#include "settings\plugins\setup_zone.sqf"
 #endif
 
 class p_setup_time {

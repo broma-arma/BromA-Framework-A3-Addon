@@ -37,7 +37,7 @@ private _file = getText ("BRM_FMK_Loadouts" >> ["Factions", "Structures"] select
 if (_file != "" && { fileExists _file }) exitWith {
 	_code = preprocessFileLineNumbers _file;
 	if (!_structure) then {
-		private _modFile = format ["mission\loadouts\mods\%1.sqf", toLower _id];
+		private _modFile = format ["loadouts\mods\%1.sqf", toLower _id];
 		if (fileExists _modFile) then {
 			_code = _code + toString [10] + preprocessFileLineNumbers _modFile;
 		};

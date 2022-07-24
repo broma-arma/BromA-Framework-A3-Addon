@@ -1,8 +1,8 @@
 #define LIMIT -1
 #define OBJECTIVE 0
 
-#if __has_include("mission\settings\plugins\time_limit.sqf")
-#include "mission\settings\plugins\time_limit.sqf"
+#if __has_include("settings\plugins\time_limit.sqf")
+#include "settings\plugins\time_limit.sqf"
 #endif
 
 class p_time_limit {

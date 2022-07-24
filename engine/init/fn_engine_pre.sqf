@@ -80,9 +80,9 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 
 	[] call BRM_FMK_fnc_loadMissionSettings;
 
-	BRM_fnc_onAIKilled = if (fileExists "mission\scripts\onAIKilled.sqf") then { compile preprocessFileLineNumbers "mission\scripts\onAIKilled.sqf"; } else { {} };
-	BRM_fnc_onPlayerKilled = if (fileExists "mission\scripts\onPlayerKilled.sqf") then { compile preprocessFileLineNumbers "mission\scripts\onPlayerKilled.sqf"; } else { {} };
-	BRM_fnc_onPlayerRespawn = if (fileExists "mission\scripts\onPlayerRespawn.sqf") then { compile preprocessFileLineNumbers "mission\scripts\onPlayerRespawn.sqf"; } else { {} };
+	BRM_fnc_onAIKilled = if (fileExists "scripts\onAIKilled.sqf") then { compile preprocessFileLineNumbers "scripts\onAIKilled.sqf"; } else { {} };
+	BRM_fnc_onPlayerKilled = if (fileExists "scripts\onPlayerKilled.sqf") then { compile preprocessFileLineNumbers "scripts\onPlayerKilled.sqf"; } else { {} };
+	BRM_fnc_onPlayerRespawn = if (fileExists "scripts\onPlayerRespawn.sqf") then { compile preprocessFileLineNumbers "scripts\onPlayerRespawn.sqf"; } else { {} };
 };
 
 ["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;
@@ -108,10 +108,10 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 		["BRM_FMK_f_evade_escape_fnc_reachObject", "BRM_FMK_evade_escape_fnc_reachObject"]
 	];
 } else {
-	private _plugins = if (fileExists "mission\settings\plugins.sqf") then { call compile preprocessFileLineNumbers "mission\settings\plugins.sqf" } else { [] };
+	private _plugins = if (fileExists "settings\plugins.sqf") then { call compile preprocessFileLineNumbers "settings\plugins.sqf" } else { [] };
 	private _unknownPlugins = _plugins apply { _x select 0 } select { !(_x in BRM_FMK_plugins) };
 	if (count _unknownPlugins > 0) then {
-		["[BromA Framework] Warning: The mission contains unknown plugins in ""mission\settings\plugins.sqf"", %1.", _unknownPlugins joinString ", "] call BIS_fnc_error;
+		["[BromA Framework] Warning: The mission contains unknown plugins in ""settings\plugins.sqf"", %1.", _unknownPlugins joinString ", "] call BIS_fnc_error;
 	};
 
 	BRM_plugins = [];

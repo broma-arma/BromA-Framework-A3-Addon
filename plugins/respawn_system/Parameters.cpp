@@ -2,8 +2,8 @@
 #define LIVES -1
 #define OBJECTIVE -1
 
-#if __has_include("mission\settings\plugins\respawn_system.sqf")
-#include "mission\settings\plugins\respawn_system.sqf"
+#if __has_include("settings\plugins\respawn_system.sqf")
+#include "settings\plugins\respawn_system.sqf"
 #endif
 
 class p_allow_respawn {

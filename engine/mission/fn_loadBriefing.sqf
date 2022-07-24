@@ -13,8 +13,8 @@
 
 	["LOCAL", "F_LOG", format ["PLAYER: ASSIGNING %1 BRIEFING", _side]] call BRM_FMK_fnc_doLog;
 
-	if (fileExists "mission\settings\briefings.sqf") then {
-		private _breifing = call compile preprocessFileLineNumbers "mission\settings\briefings.sqf" select _sideIndex;
+	if (fileExists "settings\briefings.sqf") then {
+		private _breifing = call compile preprocessFileLineNumbers "settings\briefings.sqf" select _sideIndex;
 		if (_breifing != "") then {
 			player createDiaryRecord ["Diary", ["Mission", _breifing], taskNull, "", false];
 		};

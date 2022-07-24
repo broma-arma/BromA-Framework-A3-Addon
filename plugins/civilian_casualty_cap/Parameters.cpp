@@ -1,7 +1,7 @@
 #define LIMIT -1
 
-#if __has_include("mission\settings\plugins\civilian_casualty_cap.sqf")
-#include "mission\settings\plugins\civilian_casualty_cap.sqf"
+#if __has_include("settings\plugins\civilian_casualty_cap.sqf")
+#include "settings\plugins\civilian_casualty_cap.sqf"
 #endif
 
 class p_dead_civies {

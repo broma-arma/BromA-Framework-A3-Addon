@@ -1,7 +1,7 @@
 #define TIME -1
 
-#if __has_include("mission\settings\plugins\spawn_protection.sqf")
-#include "mission\settings\plugins\spawn_protection.sqf"
+#if __has_include("settings\plugins\spawn_protection.sqf")
+#include "settings\plugins\spawn_protection.sqf"
 #endif
 
 class p_spawn_protection_time {

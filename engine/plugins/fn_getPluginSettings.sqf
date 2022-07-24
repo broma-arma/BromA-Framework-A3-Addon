@@ -38,7 +38,7 @@ if (_plugin isEqualType "") then {
 	if (!isNil "_settings") exitWith { _settings };
 	_settings = [];
 
-	private _settingFile = format ["mission\settings\plugins\%1.sqf", _plugin];
+	private _settingFile = format ["settings\plugins\%1.sqf", _plugin];
 	if (fileExists _settingFile) then {
 		_settings = call compile preprocessFileLineNumbers _settingFile;
 	};

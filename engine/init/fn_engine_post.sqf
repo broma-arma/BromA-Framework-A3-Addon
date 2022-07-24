@@ -70,18 +70,18 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	pluginsLoaded = true;
 
 	mission_init_server = scriptNull;
-	if (isServer && fileExists "mission\scripts\initServer.sqf") then {
-		mission_init_server = [] spawn compile preprocessFileLineNumbers "mission\scripts\initServer.sqf";
+	if (isServer && fileExists "scripts\initServer.sqf") then {
+		mission_init_server = [] spawn compile preprocessFileLineNumbers "scripts\initServer.sqf";
 	};
 
 	mission_init_player = scriptNull;
-	if (hasInterface && fileExists "mission\scripts\initPlayer.sqf") then {
-		mission_init_player = [] spawn compile preprocessFileLineNumbers "mission\scripts\initPlayer.sqf";
+	if (hasInterface && fileExists "scripts\initPlayer.sqf") then {
+		mission_init_player = [] spawn compile preprocessFileLineNumbers "scripts\initPlayer.sqf";
 	};
 
 	mission_init = scriptNull;
-	if (fileExists "mission\scripts\init.sqf") then {
-		mission_init = [] spawn compile preprocessFileLineNumbers "mission\scripts\init.sqf";
+	if (fileExists "scripts\init.sqf") then {
+		mission_init = [] spawn compile preprocessFileLineNumbers "scripts\init.sqf";
 	};
 
 	// TODO Force wait for init*.sqf to complete?
@@ -90,17 +90,17 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	// Stops civilian randomized gear. =============================================
 	{ if (side _x == civilian) then { _x setVariable ["BIS_enableRandomization", false] } } forEach allUnits;
 
-	if (isServer && fileExists "mission\objectives\tasks.sqf") then {
+	if (isServer && fileExists "objectives\tasks.sqf") then {
 		[{ scriptDone mission_settings && !isNil "server_vehicles_created" }, { // Needs to be done after mission-settings.sqf and BRM_FMK_fnc_createPlayerVehicles (PostInit)
-			[] call compile preprocessFileLineNumbers "mission\objectives\tasks.sqf";
+			[] call compile preprocessFileLineNumbers "objectives\tasks.sqf";
 
 			[] spawn BRM_FMK_fnc_checkTasks
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
 
-	if (mission_AI_controller && fileExists "mission\objectives\ai.sqf") then {
+	if (mission_AI_controller && fileExists "objectives\ai.sqf") then {
 		[{ time > 5 }, {
-			[] call compile preprocessFileLineNumbers "mission\objectives\ai.sqf";
+			[] call compile preprocessFileLineNumbers "objectives\ai.sqf";
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
 

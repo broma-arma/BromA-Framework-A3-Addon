@@ -21,7 +21,7 @@ if (!isServer) exitWith {};
 
 	#include "\broma_framework\loadouts\includes\read-data.sqf"
 
-	private _fnc_cargoList = compile preprocessFile (["\broma_framework\loadouts\cargo-list.sqf", "mission\loadouts\cargo-list.sqf"] select fileExists "mission\loadouts\cargo-list.sqf");
+	private _fnc_cargoList = compile preprocessFile (["\broma_framework\loadouts\cargo-list.sqf", "loadouts\cargo-list.sqf"] select fileExists "loadouts\cargo-list.sqf");
 	{
 		call _fnc_cargoList;
 	} forEach _type;

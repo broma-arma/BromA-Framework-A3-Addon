@@ -1,6 +1,6 @@
 [{(time > 1)}, {
-	if (fileExists "mission\plugin_settings\plank_building.sqf") then {
-		call compile preprocessFileLineNumbers "mission\plugin-settings\plank_building.sqf" params ["_speed", "_objects", "_fortifications"];
+	if (fileExists "settings\plugins\plank_building.sqf") then {
+		call compile preprocessFileLineNumbers "settings\plugins\plank_building.sqf" params ["_speed", "_objects", "_fortifications"];
 
 		PLANK_FMK_buildSpeed = _speed;
 

@@ -1,7 +1,7 @@
 #define ACCELERATION 1
 
-#if __has_include("mission\settings\plugins\time_accel.sqf")
-#include "mission\settings\plugins\time_accel.sqf"
+#if __has_include("settings\plugins\time_accel.sqf")
+#include "settings\plugins\time_accel.sqf"
 #endif
 
 class p_time_accel {

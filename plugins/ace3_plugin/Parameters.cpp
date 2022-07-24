@@ -1,8 +1,8 @@
 #define LIVES -1
 #define MEDICS 0
 
-#if __has_include("mission\settings\plugins\ace3_plugin.sqf")
-#include "mission\settings\plugins\ace3_plugin.sqf"
+#if __has_include("settings\plugins\ace3_plugin.sqf")
+#include "settings\plugins\ace3_plugin.sqf"
 #endif
 
 class p_ace3_revive_lives {

@@ -1,7 +1,7 @@
 #define ENABLE 2
 
-#if __has_include("mission\settings\plugins\block_tp.sqf")
-#include "mission\settings\plugins\block_tp.sqf"
+#if __has_include("settings\plugins\block_tp.sqf")
+#include "settings\plugins\block_tp.sqf"
 #endif
 
 class p_allow_tp_veh {
