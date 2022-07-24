@@ -70,18 +70,18 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	pluginsLoaded = true;
 
 	mission_init_server = scriptNull;
-	if (isServer && fileExists "mission\custom-scripts\initServer.sqf") then {
-		mission_init_server = [] spawn compile preprocessFileLineNumbers "mission\custom-scripts\initServer.sqf";
+	if (isServer && fileExists "mission\scripts\initServer.sqf") then {
+		mission_init_server = [] spawn compile preprocessFileLineNumbers "mission\scripts\initServer.sqf";
 	};
 
 	mission_init_player = scriptNull;
-	if (hasInterface && fileExists "mission\custom-scripts\initPlayer.sqf") then {
-		mission_init_player = [] spawn compile preprocessFileLineNumbers "mission\custom-scripts\initPlayer.sqf";
+	if (hasInterface && fileExists "mission\scripts\initPlayer.sqf") then {
+		mission_init_player = [] spawn compile preprocessFileLineNumbers "mission\scripts\initPlayer.sqf";
 	};
 
 	mission_init = scriptNull;
-	if (fileExists "mission\custom-scripts\init.sqf") then {
-		mission_init = [] spawn compile preprocessFileLineNumbers "mission\custom-scripts\init.sqf";
+	if (fileExists "mission\scripts\init.sqf") then {
+		mission_init = [] spawn compile preprocessFileLineNumbers "mission\scripts\init.sqf";
 	};
 
 	// TODO Force wait for init*.sqf to complete?
