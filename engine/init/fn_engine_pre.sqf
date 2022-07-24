@@ -80,9 +80,9 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 
 	[] call BRM_FMK_fnc_loadMissionSettings;
 
-	BRM_fnc_onAIKilled = if (fileExists "mission\events\onAIKilled.sqf") then { compile preprocessFileLineNumbers "mission\events\onAIKilled.sqf"; } else { {} };
-	BRM_fnc_onPlayerKilled = if (fileExists "mission\events\onPlayerKilled.sqf") then { compile preprocessFileLineNumbers "mission\events\onPlayerKilled.sqf"; } else { {} };
-	BRM_fnc_onPlayerRespawn = if (fileExists "mission\events\onPlayerRespawn.sqf") then { compile preprocessFileLineNumbers "mission\events\onPlayerRespawn.sqf"; } else { {} };
+	BRM_fnc_onAIKilled = if (fileExists "mission\scripts\onAIKilled.sqf") then { compile preprocessFileLineNumbers "mission\scripts\onAIKilled.sqf"; } else { {} };
+	BRM_fnc_onPlayerKilled = if (fileExists "mission\scripts\onPlayerKilled.sqf") then { compile preprocessFileLineNumbers "mission\scripts\onPlayerKilled.sqf"; } else { {} };
+	BRM_fnc_onPlayerRespawn = if (fileExists "mission\scripts\onPlayerRespawn.sqf") then { compile preprocessFileLineNumbers "mission\scripts\onPlayerRespawn.sqf"; } else { {} };
 };
 
 ["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;
