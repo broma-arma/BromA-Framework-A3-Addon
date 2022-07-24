@@ -6,7 +6,7 @@
 // ============================================================================
 
 0 spawn {
-	[] execVM "broma_framework\credits.sqf";
+	[] call compile preprocessFileLineNumbers "broma_framework\credits.sqf";
 
 	private _side = side player;
 	private _sideIndex = [WEST, EAST, RESISTANCE, CIVILIAN] find _side;

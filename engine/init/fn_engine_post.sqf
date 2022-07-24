@@ -41,18 +41,6 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 		["f_evade_escape", "evade_escape"],
 		["f_remove_body", "remove_body"]
 	];
-} else {
-	private _postInitArgs = ["postInit", didJIP];
-	{
-		private _plugin = _x;
-		{
-			if (!isNil _x) then {
-				_postInitArgs call (missionNamespace getVariable _x);
-			} else {
-				["[BromA Framework] Internal Error: Unknown ""%2"" plugin postInit function, %2.", _plugin, _x] call BIS_fnc_error;
-			};
-		} forEach getArray (configFile >> "BRM_FMK_Plugins" >> _plugin >> "postInit");
-	} forEach BRM_plugins;
 };
 
 plugins_loaded = true;
@@ -66,16 +54,48 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	[] call BRM_FMK_fnc_initPlayer;
 	[] call BRM_FMK_fnc_loadBriefing;
 
-	//pluginsLoaded = true; // TODO Why was this here?
+	private _postInitArgs = ["postInit", didJIP];
+	{
+		private _plugin = _x;
+		{
+			if (!isNil _x) then {
+				_postInitArgs call (missionNamespace getVariable _x);
+			} else {
+				["[BromA Framework] Internal Error: Unknown ""%2"" plugin postInit function, %2.", _plugin, _x] call BIS_fnc_error;
+			};
+		} forEach getArray (configFile >> "BRM_FMK_Plugins" >> _plugin >> "postInit");
+	} forEach BRM_plugins;
 
-	if (isServer) then { mission_init_server = [] execVM "mission\custom-scripts\initServer.sqf" };
+	// Prevents assignLoadout and assignCargo from executing before this
+	pluginsLoaded = true;
 
-	if (hasInterface) then { mission_init_player = [] execVM "mission\custom-scripts\initPlayer.sqf" };
+	mission_init_server = scriptNull;
+	if (isServer) then { mission_init_server = [] spawn compile preprocessFileLineNumbers "mission\custom-scripts\initServer.sqf" };
 
-	mission_init = [] execVM "mission\custom-scripts\init.sqf";
+	mission_init_player = scriptNull;
+	if (hasInterface) then { mission_init_player = [] spawn compile preprocessFileLineNumbers "mission\custom-scripts\initPlayer.sqf" };
+
+	mission_init = [] spawn compile preprocessFileLineNumbers "mission\custom-scripts\init.sqf";
+
+	// TODO Force wait for init*.sqf to complete?
+	//waitUntil { isNull mission_init_server && isNull mission_init_player && isNull mission_init };
 
 	// Stops civilian randomized gear. =============================================
 	{ if (side _x == civilian) then { _x setVariable ["BIS_enableRandomization", false] } } forEach allUnits;
+
+	if (isServer) then {
+		[{ scriptDone mission_settings && !isNil "server_vehicles_created" }, { // Needs to be done after mission-settings.sqf and BRM_FMK_fnc_createPlayerVehicles (PostInit)
+			[] call compile preprocessFileLineNumbers "mission\objectives\tasks.sqf";
+
+			[] spawn BRM_FMK_fnc_checkTasks
+		}] call CBA_fnc_waitUntilAndExecute;
+	};
+
+	if (mission_AI_controller) then {
+		[{ time > 5 }, {
+			[] call compile preprocessFileLineNumbers "mission\objectives\mission_AI.sqf";
+		}] call CBA_fnc_waitUntilAndExecute;
+	};
 
 	// Calculates the loading time and logs it. ====================================
 
