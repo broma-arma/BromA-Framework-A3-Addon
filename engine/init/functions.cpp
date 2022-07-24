@@ -1,6 +1,5 @@
 class init {
 	file = "\broma_framework\engine\init";
-	class doLog {};
 	class engine_pre {preInit = 1;};
 	class initVariables {};
 	class assignSideProperties {};

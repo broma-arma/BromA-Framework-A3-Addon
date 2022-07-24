@@ -5,4 +5,5 @@ class misc {
 	class syncTime{};
 	class getMusic {};
 	class versionCompare {};
+	class doLog {};
 };
