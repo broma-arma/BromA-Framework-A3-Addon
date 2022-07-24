@@ -1,4 +1,10 @@
 mission_settings_loaded = false;
+
+if (!fileExists "mission\settings\mission-settings.sqf") exitWith {
+	["[BromA Framework] Critical Error: File ""mission\settings\mission-settings.sqf"" not found."] call BIS_fnc_error;
+	["END1", false, 0, false] call BIS_fnc_endMission;
+};
+
 call compile preprocessFileLineNumbers "mission\settings\mission-settings.sqf";
 
 mission_enable_side_c = side_c_faction != "";

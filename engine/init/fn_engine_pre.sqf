@@ -80,9 +80,9 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 
 	[] call BRM_FMK_fnc_loadMissionSettings;
 
-	BRM_fnc_onAIKilled = compile preprocessFileLineNumbers "mission\events\onAIKilled.sqf";
-	BRM_fnc_onPlayerKilled = compile preprocessFileLineNumbers "mission\events\onPlayerKilled.sqf";
-	BRM_fnc_onPlayerRespawn = compile preprocessFileLineNumbers "mission\events\onPlayerRespawn.sqf";
+	BRM_fnc_onAIKilled = if (fileExists "mission\events\onAIKilled.sqf") then { compile preprocessFileLineNumbers "mission\events\onAIKilled.sqf"; } else { {} };
+	BRM_fnc_onPlayerKilled = if (fileExists "mission\events\onPlayerKilled.sqf") then { compile preprocessFileLineNumbers "mission\events\onPlayerKilled.sqf"; } else { {} };
+	BRM_fnc_onPlayerRespawn = if (fileExists "mission\events\onPlayerRespawn.sqf") then { compile preprocessFileLineNumbers "mission\events\onPlayerRespawn.sqf"; } else { {} };
 };
 
 ["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;
@@ -108,7 +108,7 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 		["BRM_FMK_f_evade_escape_fnc_reachObject", "BRM_FMK_evade_escape_fnc_reachObject"]
 	];
 } else {
-	private _plugins = call compile preprocessFileLineNumbers "mission\settings\plugins.sqf";
+	private _plugins = if (fileExists "mission\settings\plugins.sqf") then { call compile preprocessFileLineNumbers "mission\settings\plugins.sqf" } else { [] };
 	private _unknownPlugins = _plugins apply { _x select 0 } select { !(_x in BRM_FMK_plugins) };
 	if (count _unknownPlugins > 0) then {
 		["[BromA Framework] Warning: The mission contains unknown plugins in ""mission\settings\plugins.sqf"", %1.", _unknownPlugins joinString ", "] call BIS_fnc_error;
