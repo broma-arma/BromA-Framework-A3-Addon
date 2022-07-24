@@ -39,11 +39,12 @@ class CfgFunctions {
 		#include "\broma_framework\engine\ending\functions.cpp"
 		#include "\broma_framework\engine\events\functions.cpp"
 		#include "\broma_framework\engine\init\functions.cpp"
+		#include "\broma_framework\engine\loadouts\functions.cpp"
 		#include "\broma_framework\engine\misc\functions.cpp"
+		#include "\broma_framework\engine\mission\functions.cpp"
 		#include "\broma_framework\engine\plugins\functions.cpp"
 		#include "\broma_framework\engine\tasks\functions.cpp"
 		#include "\broma_framework\engine\unit\functions.cpp"
-		#include "\broma_framework\engine\loadouts\functions.cpp"
 
 		#include "\broma_framework\loadouts\functions.cpp"
 	};
