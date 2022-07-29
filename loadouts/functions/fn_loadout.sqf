@@ -33,7 +33,7 @@ if (!isNil "_code") exitWith {
 	call _code
 };
 
-private _file = getText ("BRM_FMK_Loadouts" >> ["Factions", "Structures"] select _structure >> _id);
+private _file = getText ([["BRM_FMK_Loadouts", ["Factions", "Structures"] select _structure, _id], configNull] call BIS_fnc_loadEntry);
 if (_file != "" && { fileExists _file }) exitWith {
 	_code = preprocessFileLineNumbers _file;
 	if (!_structure) then {
