@@ -4,7 +4,7 @@
 		version = 0.3;
 		authors[] = {"Nife"};
 		description = "This plugin has several handy functions in order to spawn AI units to perform several tasks.";
-		postInit[] = {"BRM_SpawnAI_fnc_postInit"};
+		postInit[] = {"BRM_FMK_SpawnAI_fnc_postInit"};
 	};
 #endif
 
