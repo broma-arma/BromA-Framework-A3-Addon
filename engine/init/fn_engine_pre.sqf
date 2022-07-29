@@ -102,10 +102,10 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 	{
 		missionNamespace setVariable _x;
 	} forEach [
-		["BRM_FMK_f_cas_cap_fnc_postinit", "BRM_FMK_casualties_cap_fnc_postinit"],
-		["BRM_FMK_f_remove_body_fnc_postinit", "BRM_FMK_remove_body_fnc_postinit"],
-		["BRM_FMK_f_remove_body_fnc_removeBody", "BRM_FMK_remove_body_fnc_removeBody"],
-		["BRM_FMK_f_evade_escape_fnc_reachObject", "BRM_FMK_evade_escape_fnc_reachObject"]
+		["BRM_FMK_f_cas_cap_fnc_postinit", BRM_FMK_casualties_cap_fnc_postinit],
+		["BRM_FMK_f_remove_body_fnc_postinit", BRM_FMK_remove_body_fnc_postinit],
+		["BRM_FMK_f_remove_body_fnc_removeBody", BRM_FMK_remove_body_fnc_removeBody],
+		["BRM_FMK_f_evade_escape_fnc_reachObject", BRM_FMK_evade_escape_fnc_reachObject]
 	];
 } else {
 	private _unknownPlugins = mission_plugins apply { _x select 0 } select { !(_x in BRM_FMK_plugins) };
