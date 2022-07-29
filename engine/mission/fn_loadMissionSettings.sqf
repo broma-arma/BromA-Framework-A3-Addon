@@ -6,7 +6,7 @@ if (!fileExists "settings\settings.sqf") exitWith {
 };
 
 call compile preprocessFileLineNumbers "settings\settings.sqf" params [
-	"_mode", "_factionA", "_factionB", "_factionC", "_extractMusic", "_jip", "_stats"
+	"_mode", "_factionA", "_factionB", "_factionC", "_extractMusic", "_jip", "_stats", "_plugins"
 ];
 
 mission_game_mode = _mode;
@@ -39,6 +39,7 @@ mission_extraction_CIV = "*";
 mission_extraction_tracks = _extractMusic;
 mission_allow_jip = _jip;
 mission_ending_stats = _stats;
+mission_plugins = _plugins;
 
 mission_enable_side_c = side_c_faction != "";
 

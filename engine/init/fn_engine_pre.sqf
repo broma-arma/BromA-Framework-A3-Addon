@@ -108,15 +108,14 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 		["BRM_FMK_f_evade_escape_fnc_reachObject", "BRM_FMK_evade_escape_fnc_reachObject"]
 	];
 } else {
-	private _plugins = if (fileExists "settings\plugins.sqf") then { call compile preprocessFileLineNumbers "settings\plugins.sqf" } else { [] };
-	private _unknownPlugins = _plugins apply { _x select 0 } select { !(_x in BRM_FMK_plugins) };
+	private _unknownPlugins = mission_plugins apply { _x select 0 } select { !(_x in BRM_FMK_plugins) };
 	if (count _unknownPlugins > 0) then {
-		["[BromA Framework] Warning: The mission contains unknown plugins in ""settings\plugins.sqf"", %1.", _unknownPlugins joinString ", "] call BIS_fnc_error;
+		["[BromA Framework] Warning: The mission contains unknown plugins in ""settings\settings.sqf"", %1.", _unknownPlugins joinString ", "] call BIS_fnc_error;
 	};
 
 	BRM_plugins = [];
 	{
-		if ([_plugins, _x, getNumber (configFile >> "BRM_FMK_Plugins" >> _x >> "disabled") == 0] call BIS_fnc_getFromPairs) then {
+		if ([mission_plugins, _x, getNumber (configFile >> "BRM_FMK_Plugins" >> _x >> "disabled") == 0] call BIS_fnc_getFromPairs) then {
 			BRM_plugins pushBack _x;
 		};
 	} forEach BRM_FMK_plugins;
