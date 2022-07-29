@@ -33,6 +33,7 @@ private _sideWin = ["", "", ""];
 while { mission_running } do {
 	private _sideTasks = [0, 0, 0];
 	private _sideUncreatedTasks = [0, 0, 0];
+	private _sideWinTasks = [0, 0, 0];
 
 	{
 		if (!mission_running) exitWith {};
