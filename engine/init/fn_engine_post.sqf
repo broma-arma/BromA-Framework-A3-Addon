@@ -75,10 +75,10 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	{
 		private _plugin = _x;
 		{
-			if (!isNil _x) then {
+			if (!isNil _x && { _x isEqualType {} }) then {
 				_postInitArgs call (missionNamespace getVariable _x);
 			} else {
-				["[BromA Framework] Internal Error: Unknown ""%2"" plugin postInit function, %2.", _plugin, _x] call BIS_fnc_error;
+				["[BromA Framework] Internal Error: Missing %1 plugin postInit function, %2.", _plugin, _x] call BIS_fnc_error;
 			};
 		} forEach getArray (configFile >> "BRM_FMK_Plugins" >> _plugin >> "postInit");
 	} forEach BRM_plugins;
