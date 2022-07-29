@@ -355,5 +355,5 @@ for "_i" from 1 to _amount do {
         _group setCombatMode _combat;
     };
 
-    if (AI_spawn_enable_caching) then { [_group, _loadout, _skill, _color] spawn BRM_FMK_SpawnAI_fnc_cacheUnits };
+    if ([] call BRM_FMK_SpawnAI_fnc_getSettings select 0) then { [_group, _loadout, _skill, _color] spawn BRM_FMK_SpawnAI_fnc_cacheUnits };
 };

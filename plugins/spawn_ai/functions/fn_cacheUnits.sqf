@@ -6,7 +6,7 @@ _color = _this select 3;
 _groupIsCached = false;
 _groupCachedUnits = [];
 
-_allowedDistance = AI_spawn_cache_distance;
+_allowedDistance = [] call BRM_FMK_SpawnAI_fnc_getSettings select 1;
 
 _targetCheck = playableUnits;
 if (!isMultiplayer) then { _targetCheck = switchableUnits };
