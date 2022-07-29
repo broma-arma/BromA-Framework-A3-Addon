@@ -12,7 +12,7 @@ for "_i" from 0 to _items - 1 do {
 		private _items = getNumber (_cfgGroupEntities >> "items");
 		for "_i" from 0 to _items - 1 do {
 			private _cfgAttributes = _cfgGroupEntities >> format ["Item%1", _i] >> "Attributes";
-			if (getNumber (_cfgAttributes >> "isPlayable")) then {
+			if (getNumber (_cfgAttributes >> "isPlayable") > 0) then {
 				_entities pushBack [getText (_cfgAttributes >> "type"), getText (_cfgAttributes >> "name")];
 			};
 		};
