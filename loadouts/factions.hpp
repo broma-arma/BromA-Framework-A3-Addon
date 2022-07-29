@@ -1,4 +1,5 @@
 AAF = "\broma_framework\loadouts\factions\aaf.sqf";
+CSAT = "\broma_framework\loadouts\factions\csat.sqf";
 FIA = "\broma_framework\loadouts\factions\fia.sqf";
 NATO = "\broma_framework\loadouts\factions\nato.sqf";
 NATOP = "\broma_framework\loadouts\factions\natop.sqf";
@@ -15,7 +16,6 @@ DEFAULT = "\broma_framework\loadouts\factions\default.sqf";
 //CAF = "\broma_framework\loadouts\factions\caf.sqf";
 //CDF = "\broma_framework\loadouts\factions\cdf.sqf";
 //CHEDAKI = "\broma_framework\loadouts\factions\chedaki.sqf";
-//CSAT = "\broma_framework\loadouts\factions\csat.sqf";
 //ESTONIA = "\broma_framework\loadouts\factions\estonia.sqf";
 //FINLAND = "\broma_framework\loadouts\factions\finland.sqf";
 //FRANCE = "\broma_framework\loadouts\factions\france.sqf";
