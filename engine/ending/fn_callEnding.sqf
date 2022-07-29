@@ -31,9 +31,11 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 
 	params ["_ending"];
 
+	private _endings = [];
+
 	// Server reads all mission-related ending cases.
 	if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
-		[_ending] call compile preprocessFile "settings\endings.sqf";
+		[_ending] call compile preprocessFileLineNumbers "mission\settings\endings.sqf";
 		_endings = mission_ending_details;
 	} else {
 		private _cfgEndings = [["BRM_FMK_Endings", _ending], configNull] call BIS_fnc_loadClass;
