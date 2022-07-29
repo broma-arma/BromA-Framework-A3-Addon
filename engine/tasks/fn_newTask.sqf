@@ -111,7 +111,7 @@ _this spawn {
 		_position = objNull;
 	};
 
-	if (_position isEqualType objNull && !isNull _position) then {
+	if (_position isEqualType objNull && { !isNull _position }) then {
 		// always show marker on the object, even if player doesn't 'knowsAbout' it
 		_position = [_position, true];
 	};
