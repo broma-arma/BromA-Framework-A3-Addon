@@ -71,10 +71,10 @@ _radius = _this select _c;_c=_c+1;
 private ["_uPrefix","_color","_groupType","_hq","_uUnits"];
 
 switch (_side) do {
-    case WEST: { _uPrefix = "B"; _hq = WEST_HQ; _color = "Blue" };
-    case EAST: { _uPrefix = "O"; _hq = EAST_HQ; _color = "Red" };
-    case RESISTANCE: { _uPrefix = "I"; _hq = IND_HQ; _color = "Green" };
-    default { _uPrefix = "B"; _hq = WEST_HQ };
+    case WEST: { _uPrefix = "B"; _hq = WEST; _color = "Blue" };
+    case EAST: { _uPrefix = "O"; _hq = EAST; _color = "Red" };
+    case RESISTANCE: { _uPrefix = "I"; _hq = RESISTANCE; _color = "Green" };
+    default { _uPrefix = "B"; _hq = WEST };
 };
 
 switch (_size) do {
