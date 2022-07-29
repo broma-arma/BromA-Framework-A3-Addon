@@ -1,5 +1,9 @@
 if (!mission_AI_controller) exitWith {};
 
+["BRM_FMK_aiControllerInit", {
+	[] call ([] call BRM_FMK_DAC_fnc_getSettings select 0);
+}] call CBA_fnc_addEventHandler;
+
 private _aiSkill = ["p_ai_level", 3] call BIS_fnc_getParamValue;
 
 DAC_AI_Level = _aiSkill + 1;

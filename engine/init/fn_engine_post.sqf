@@ -98,9 +98,9 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
 
-	if (mission_AI_controller && fileExists "objectives\ai.sqf") then {
+	if (mission_AI_controller) then {
 		[{ time > 5 }, {
-			[] call compile preprocessFileLineNumbers "objectives\ai.sqf";
+			["BRM_FMK_aiControllerInit"] call CBA_fnc_localEvent;
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
 

@@ -6,6 +6,7 @@ class BRM_FMK_DAC {
 	};
 	class Functions {
 		file = "\broma_framework\plugins\dac_plugin\functions";
+		class getSettings {};
 		class new {};
 		class createDACCamp {};
 		class createDACZone {};
