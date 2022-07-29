@@ -70,8 +70,8 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0 && count _this
 		_missionFail = false;
 	};
 	if (_priority == 1) then {
-		_missionComplete = false;
-		_missionFail = true;
+		_missionComplete = true;
+		_missionFail = false;
 	};
 
 	_this = [
