@@ -1,4 +1,4 @@
-private _settings = [
+[
 	"round_system",
 	[10, [0], "round_setup_size"], // area
 	[10, [0], "round_prep_time_seconds"], // prep
@@ -18,6 +18,4 @@ private _settings = [
 		["%1 have won the round!", ["", []], "win_messages_b", { if (_this isEqualType []) exitWith { _this select 0 }; _this }], // B
 		["%1 have won the round!", ["", []], "win_messages_c", { if (_this isEqualType []) exitWith { _this select 0 }; _this }] // C
 	]]
-] call BRM_FMK_fnc_getPluginSettings
-
-_settings
+] call BRM_FMK_fnc_getPluginSettings;
