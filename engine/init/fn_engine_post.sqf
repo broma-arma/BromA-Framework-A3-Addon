@@ -46,6 +46,23 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 plugins_loaded = true;
 
 if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
+	if (hasInterface) then {
+		// Remove side-specific markers
+		private _playerSide = side player;
+		{
+			_x params ["_side", "_layerName"];
+
+			if (_playerSide != _side) then {
+				private _layerEntities = getMissionLayerEntities _layerName;
+				if (_layerEntities isNotEqualTo []) then {
+					{
+						deleteMarkerLocal _x;
+					} forEach (getMissionLayerEntities _layerName select 1);
+				};
+			};
+		} forEach [[WEST, "BLU"], [EAST, "OP"], [RESISTANCE, "IND"], [CIVILIAN, "CIV"]];
+	};
+
 	[] call BRM_FMK_fnc_logPlugins;
 	[] call BRM_FMK_fnc_warnConflict;
 	[] call BRM_FMK_fnc_defineGroups;

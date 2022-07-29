@@ -64,20 +64,6 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 } else {
 	[] call BRM_FMK_fnc_initVariables;
 
-	if (hasInterface) then {
-		// Remove side-specific markers
-		private _playerSide = side player;
-		{
-			_x params ["_side", "_layerName"];
-
-			if (_playerSide != _side) then {
-				{
-					deleteMarkerLocal _x;
-				} forEach (getMissionLayerEntities _layerName select 1);
-			};
-		} forEach [[WEST, "BLU"], [EAST, "OP"], [RESISTANCE, "IND"], [CIVILIAN, "CIV"]];
-	};
-
 	[] call BRM_FMK_fnc_loadMissionSettings;
 
 	BRM_fnc_onAIKilled = if (fileExists "scripts\onAIKilled.sqf") then { compile preprocessFileLineNumbers "scripts\onAIKilled.sqf"; } else { {} };
