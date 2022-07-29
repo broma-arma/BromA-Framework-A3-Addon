@@ -91,7 +91,7 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	{ if (side _x == civilian) then { _x setVariable ["BIS_enableRandomization", false] } } forEach allUnits;
 
 	if (isServer && fileExists "settings\tasks.sqf") then {
-		[{ scriptDone mission_settings && !isNil "server_vehicles_created" }, { // Needs to be done after mission-settings.sqf and BRM_FMK_fnc_createPlayerVehicles (PostInit)
+		[{ scriptDone mission_settings && !isNil "server_vehicles_created" }, { // Needs to be done after settings.sqf and BRM_FMK_fnc_createPlayerVehicles (PostInit)
 			[] call compile preprocessFileLineNumbers "settings\tasks.sqf";
 
 			[] spawn BRM_FMK_fnc_checkTasks

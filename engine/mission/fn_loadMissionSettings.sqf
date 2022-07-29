@@ -1,11 +1,11 @@
 mission_settings_loaded = false;
 
-if (!fileExists "settings\mission-settings.sqf") exitWith {
-	["[BromA Framework] Critical Error: File ""settings\mission-settings.sqf"" not found."] call BIS_fnc_error;
+if (!fileExists "settings\settings.sqf") exitWith {
+	["[BromA Framework] Critical Error: File ""settings\settings.sqf"" not found."] call BIS_fnc_error;
 	["END1", false, 0, false] call BIS_fnc_endMission;
 };
 
-call compile preprocessFileLineNumbers "settings\mission-settings.sqf" params [
+call compile preprocessFileLineNumbers "settings\settings.sqf" params [
 	"_mode", "_factionA", "_factionB", "_factionC", "_extractMusic", "_jip", "_stats"
 ];
 
