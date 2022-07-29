@@ -59,28 +59,56 @@ switch (_type) do {
 		};
 	};
 	case "FACTION": {
-		private _num = ([
-			"default", "vanilla", "racs", "sla", "mujahideen", "ana", "ahkma-pmc", "chedaki",
-			"marines", "ionpmc", "tkmilitia", "finns", "csat", "nato", "aaf", "fia", "vdv"
-		] find _str) + 1;
+		if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
+			private _num = ([
+				"default", "vanilla", "racs", "sla", "mujahideen", "ana", "ahkma-pmc", "chedaki",
+				"marines", "ionpmc", "tkmilitia", "finns", "csat", "nato", "aaf", "fia", "vdv"
+			] find _str) + 1;
 
-		if (_num == 0) then {
-			_num = switch (_str) do {
+			if (_num == 0) then {
+				_num = switch (_str) do {
+					case "side_a": { side_a_side };
+					case "side_b": { side_b_side };
+					case "side_c": { side_c_side };
+					case CASE_BLUFOR: { west };
+					case CASE_OPFOR: { east };
+					case CASE_INDFOR: { resistance };
+					default { ["[WARN ] [DAC Plugin] Unknown faction '%1', defaulting to 'default'", _str] call BIS_fnc_error; 1 };
+				};
+
+				if (_num isEqualType sideUnknown) then {
+					_num = [_type, [_num, "FACTION"] call BRM_FMK_fnc_getSideInfo] call BRM_FMK_DAC_fnc_strToNum;
+				};
+			};
+
+			_num
+		} else {
+			private _side = switch (_str) do {
 				case "side_a": { side_a_side };
 				case "side_b": { side_b_side };
 				case "side_c": { side_c_side };
 				case CASE_BLUFOR: { west };
 				case CASE_OPFOR: { east };
 				case CASE_INDFOR: { resistance };
-				default { ["[WARN ] [DAC Plugin] Unknown faction '%1', defaulting to 'default'", _str] call BIS_fnc_error; 1 };
+			};
+			if (!isNil "_side") then {
+				_str = [_side, "FACTION"] call BRM_FMK_fnc_getSideInfo;
 			};
 
-			if (_num isEqualType sideUnknown) then {
-				_num = [_type, [_num, "FACTION"] call BRM_FMK_fnc_getSideInfo] call BRM_FMK_DAC_fnc_strToNum;
+			if (_str != "auto") then {
+				private _factionFile = getText ([["BRM_FMK_Loadouts", "Factions", _str], configNull] call BIS_fnc_loadEntry);
+				if (_factionFile == "" || { !fileExists _factionFile }) then {
+					["[WARN ] [DAC Plugin] Unknown faction '%1', defaulting to 'auto'", _str] call BIS_fnc_error;
+					_str = "auto";
+				};
 			};
+			_str = toUpper _str;
+			private _num = BRM_FMK_DAC_strToNum_factions find _str;
+			if (_num == -1) then {
+				_num = BRM_FMK_DAC_strToNum_factions pushBack _str;
+			};
+			_num + 1
 		};
-
-		_num
 	};
 	default {
 		["[ERROR] [DAC Plugin] Unknown type: %1", _type] call BIS_fnc_error; 0
