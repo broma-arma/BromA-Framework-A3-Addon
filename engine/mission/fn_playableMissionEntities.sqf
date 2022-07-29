@@ -1,4 +1,4 @@
-params ["_includeLogic", true, [true]];
+params [["_includeLogic", true, [true]]];
 
 private _entities = [];
 
