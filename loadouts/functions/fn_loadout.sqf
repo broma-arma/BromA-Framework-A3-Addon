@@ -53,7 +53,7 @@ if (_file != "" && { fileExists _file }) exitWith {
 
 if (_id != "DEFAULT") exitWith {
 	["[WARN ] [Loadouts] Unknown %1 '%2', defaulting to 'default'", ["faction", "structure"] select _structure, _id] call BIS_fnc_error;
-	["DEFAULT", _var] call BRM_FMK_fnc_loadout
+	["DEFAULT", _structure, _var] call BRM_FMK_fnc_loadout
 };
 
 ["[ERROR] [Loadouts] Unknown %1 '%2'", ["faction", "structure"] select _structure, _id] call BIS_fnc_error;
