@@ -54,7 +54,7 @@ RETURNS:
 
 if (!isServer) exitWith {};
 
-if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
+if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0 && count _this == 6) then {
 	params ["_owner", "_id", "_details", "_predicates", "_priority", "_callbacks"];
 
 	_details params ["_title", "_description", "_type", ["_position", objNull, [[], objNull, ""]]];
