@@ -24,6 +24,13 @@ RETURNS:
 
 params ["_id", ["_structure", false, [false]], ["_defVar", "", [""]]];
 
+if (_structure && { [BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0 }) then {
+	private _index = ["HIGH-TIER", "MID-TIER", "LOW-TIER", "FRANCE_STRUCTURE", "US_STRUCTURE"] find toUpper _id;
+	if (_index != -1) then {
+		_id = ["HIGH", "MID", "LOW", "FRANCE", "US"] select _index;
+	};
+};
+
 private _var = format ["BRM_FMK_fnc_%1%2", ["faction", "structure"] select _structure, toUpper _id];
 private _code = missionNamespace getVariable _var;
 if (!isNil "_code") exitWith {
