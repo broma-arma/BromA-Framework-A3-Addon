@@ -69,25 +69,16 @@ if (mission_extraction_BLU isEqualTo "*" || mission_extraction_OP isEqualTo "*" 
 	private _sideStrs = ["West", "East", "Independent", "Civilian"];
 	private _sideSquadNameIndexes = [[0, 0, -1], [0, 0, -1], [0, 0, -1], [0, 0, -1]];
 	private _groupVars = [[], [], [], []];
+
 	private _cfgEntities = missionConfigFile >> "Mission" >> "Mission" >> "Entities";
 	private _items = getNumber (_cfgEntities >> "items");
 	for "_i" from 0 to _items - 1 do {
 		private _cfgItem = _cfgEntities >> format ["Item%1", _i];
 		private _dataType = getText (_cfgItem >> "dataType");
 		if (_dataType == "Group") then {
-			private _squadName = call {
-				// CBA custom squad names
-				private _squadName = "";
-				private _cfgCustomAttributes = _cfgItem >> "CustomAttributes";
-				private _nAttributes = getNumber (_cfgCustomAttributes >> "nAttributes");
-				for "_i" from 0 to _nAttributes - 1 do {
-					private _cfgAttribute = _cfgCustomAttributes >> format ["Attribute%1", _i];
-					if (getText (_cfgAttribute >> "property") == "groupID") exitWith {
-						_squadName = getText (_cfgAttribute >> "Value" >> "data" >> "value");
-					};
-				};
-				if (_squadName != "") exitWith { _squadName };
+			private _sideIndex = _sideStrs find getText (_cfgItem >> "side");
 
+			private _squadName = call {
 				// Vanilla squad names
 				private _indexes = _sideSquadNameIndexes select _sideIndex;
 				for "_i" from count _squadNames - 1 to 0 step -1 do {
@@ -102,17 +93,29 @@ if (mission_extraction_BLU isEqualTo "*" || mission_extraction_OP isEqualTo "*" 
 					};
 				};
 
+				// Custom squad names
+				private _squadName = "";
+				private _cfgCustomAttributes = _cfgItem >> "CustomAttributes";
+				private _nAttributes = getNumber (_cfgCustomAttributes >> "nAttributes");
+				for "_i" from 0 to _nAttributes - 1 do {
+					private _cfgAttribute = _cfgCustomAttributes >> format ["Attribute%1", _i];
+					if (getText (_cfgAttribute >> "property") == "groupID") exitWith {
+						_squadName = getText (_cfgAttribute >> "Value" >> "data" >> "value");
+					};
+				};
+				if (_squadName != "") exitWith { _squadName };
+
 				private _squadNameParts = [];
 				for "_i" from 0 to 2 do {
 					_squadNameParts pushBack (_squadNames select _i select 1 select (_indexes select _i));
 				};
 				format (["%1 %2-%3"] + _squadNameParts) // "%GroupCompany %GroupPlatoon-%GroupSquad"
 			};
-			private _sideIndex = _sideStrs find getText (_cfgItem >> "side");
-			private _cfgAttributes = _cfgItem >> "Attributes";
-			if (isClass _cfgAttributes) then {
-				_groupVars select _sideIndex pushBack getText (_cfgAttributes >> "name");
-			} else { // Create group variable
+
+			private _name = getText (_cfgItem >> "Attributes" >> "name");
+			if (_name != "") then {
+				_groupVars select _sideIndex pushBack _name;
+			} else {
 				["[BromA Framework] Error: Group ""%1"" doesn't have a variable name.", _squadName] call BIS_fnc_error;
 			};
 		};
