@@ -6,7 +6,7 @@
 
 _factionID = "MARINES";
 _factionName = "United States Marine Corps";
-_factionStructure = "US_STRUCTURE";
+_factionStructure = "US";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

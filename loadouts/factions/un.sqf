@@ -9,7 +9,7 @@
 
 _factionID = "UN";
 _factionName = "United Nations Troops";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignINDFOR;
 

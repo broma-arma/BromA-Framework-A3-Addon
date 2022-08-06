@@ -6,7 +6,7 @@
 
 _factionID        = "AFRENIAN";
 _factionName      = "Afrenian Armed Forces";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

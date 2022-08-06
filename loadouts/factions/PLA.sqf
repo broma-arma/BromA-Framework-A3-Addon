@@ -5,7 +5,7 @@
 
 _factionID        = "PLA";
 _factionName      = "Chinese PLA";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

@@ -5,7 +5,7 @@
 
 _factionID = "LINGOR_ARMY";
 _factionName = "Lingor Defense Force";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

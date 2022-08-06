@@ -9,7 +9,7 @@
 
 _factionID = "RACS";
 _factionName = "Royal Army Corps of Sahrani";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

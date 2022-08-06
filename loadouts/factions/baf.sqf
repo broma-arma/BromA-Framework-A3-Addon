@@ -8,7 +8,7 @@
 
 _factionID = "BAF";
 _factionName = "British Armed Forces";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

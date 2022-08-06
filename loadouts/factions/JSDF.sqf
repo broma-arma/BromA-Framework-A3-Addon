@@ -6,7 +6,7 @@
 
 _factionID = "JSDF";
 _factionName = "Japanese Self Defense Force";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

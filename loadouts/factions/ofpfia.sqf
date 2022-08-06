@@ -11,7 +11,7 @@
 
 _factionID        = "OFPFIA";
 _factionName      = "FIA forces";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

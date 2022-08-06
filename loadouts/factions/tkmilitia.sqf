@@ -7,7 +7,7 @@
 
 _factionID = "TKMILITIA";
 _factionName = "Takistani Militia";
-_factionStructure = "LOW-TIER";
+_factionStructure = "LOW";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

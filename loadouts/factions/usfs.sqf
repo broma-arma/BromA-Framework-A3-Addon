@@ -6,7 +6,7 @@
 
 _factionID = "USFS";
 _factionName = "US Future Soldier Program Unit";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

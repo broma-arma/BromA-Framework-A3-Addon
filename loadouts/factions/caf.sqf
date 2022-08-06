@@ -5,7 +5,7 @@
 
 _factionID = "CAF";
 _factionName = "Canada armed forces";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

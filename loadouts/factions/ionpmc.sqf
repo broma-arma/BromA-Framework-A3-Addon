@@ -6,7 +6,7 @@
 
 _factionID = "IONPMC";
 _factionName = "I.O.N. PMC";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignINDFOR;
 

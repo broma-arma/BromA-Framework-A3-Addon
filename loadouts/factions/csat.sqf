@@ -7,7 +7,7 @@
 
 _factionID = "CSAT";
 _factionName = "CSAT Forces";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

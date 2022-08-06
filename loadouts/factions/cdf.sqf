@@ -8,7 +8,7 @@
 
 _factionID = "CDF";
 _factionName = "Chernarus Defense Force";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

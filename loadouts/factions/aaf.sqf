@@ -7,7 +7,7 @@
 
 _factionID = "AAF";
 _factionName = "AAF Units";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignINDFOR;
 

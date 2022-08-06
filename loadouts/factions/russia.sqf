@@ -6,7 +6,7 @@
 
 _factionID = "RUSSIA";
 _factionName = "Russian Army";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

@@ -5,7 +5,7 @@
 
 _factionID = "AFRICAN_REBELS";
 _factionName = "African Rebels";
-_factionStructure = "LOW-TIER";
+_factionStructure = "LOW";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

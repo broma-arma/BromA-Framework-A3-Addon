@@ -8,7 +8,7 @@
 
 _factionID = "TKARMY";
 _factionName = "Takistani Army";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

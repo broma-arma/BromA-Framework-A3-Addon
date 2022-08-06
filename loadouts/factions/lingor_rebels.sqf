@@ -5,7 +5,7 @@
 
 _factionID = "LINGOR_REBELS";
 _factionName = "Lingor Rebels";
-_factionStructure = "LOW-TIER";
+_factionStructure = "LOW";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

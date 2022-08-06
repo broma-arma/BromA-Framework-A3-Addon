@@ -6,7 +6,7 @@
 
 _factionID = "MEC";
 _factionName = "Middle Eastern Coalition";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

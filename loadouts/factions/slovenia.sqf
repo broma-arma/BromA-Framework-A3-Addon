@@ -5,7 +5,7 @@
 
 _factionID        = "SLOVENIA";
 _factionName      = "Slovenian Armed Forces";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

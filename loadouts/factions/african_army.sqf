@@ -5,7 +5,7 @@
 
 _factionID = "AFRICAN_ARMY";
 _factionName = "African Army";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

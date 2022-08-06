@@ -5,7 +5,7 @@
 
 _factionID = "FINLAND";
 _factionName = "FINNISH DEFENCE FORCE";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

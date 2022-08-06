@@ -8,7 +8,7 @@
 
 _factionID = "SLA";
 _factionName = "Sahrani Liberation Army";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

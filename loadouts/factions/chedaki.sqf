@@ -9,7 +9,7 @@
 
 _factionID = "CHEDAKI";
 _factionName = "Chedaki Forces";
-_factionStructure = "LOW-TIER";
+_factionStructure = "LOW";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

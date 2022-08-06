@@ -5,7 +5,7 @@
 
 _factionID        = "GERMAN";
 _factionName      = "Bundeswehr";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

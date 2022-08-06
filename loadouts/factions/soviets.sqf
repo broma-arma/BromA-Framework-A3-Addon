@@ -5,7 +5,7 @@
 
 _factionID = "SOVIETS";
 _factionName = "Soviet Union";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

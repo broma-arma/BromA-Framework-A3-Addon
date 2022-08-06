@@ -5,7 +5,7 @@
 
 _factionID = "ANZAC";
 _factionName = "ANZAC";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

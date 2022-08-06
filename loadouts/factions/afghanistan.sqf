@@ -8,7 +8,7 @@
 
 _factionID = "AFGHANISTAN";
 _factionName = "Afghanistan National Army";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

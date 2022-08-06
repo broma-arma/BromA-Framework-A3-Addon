@@ -7,7 +7,7 @@
 
 _factionID = "FIA";
 _factionName = "Freedom and Independence Army";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

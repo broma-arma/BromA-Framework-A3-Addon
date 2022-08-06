@@ -7,7 +7,7 @@
 
 _factionID = "NATO";
 _factionName = "NATO Troops";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

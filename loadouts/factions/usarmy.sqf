@@ -7,7 +7,7 @@
 
 _factionID = "USARMY";
 _factionName = "United States Army";
-_factionStructure = "US_STRUCTURE";
+_factionStructure = "US";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

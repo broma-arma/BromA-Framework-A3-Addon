@@ -11,7 +11,7 @@
 
 _factionID        = "NATOP";
 _factionName      = "NATO Pacific Troops";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

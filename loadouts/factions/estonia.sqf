@@ -5,7 +5,7 @@
 
 _factionID        = "ESTONIA";
 _factionName      = "Estonian Defense Forces";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

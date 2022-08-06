@@ -5,7 +5,7 @@
 
 _factionID = "POLAND";
 _factionName = "Polish Armed Forces";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

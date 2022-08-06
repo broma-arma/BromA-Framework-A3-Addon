@@ -5,7 +5,7 @@
 
 _factionID        = "FRANCE";
 _factionName      = "French armed forces";
-_factionStructure = "FRANCE_STRUCTURE";
+_factionStructure = "FRANCE";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

@@ -5,7 +5,7 @@
 
 _factionID        = "YUGO";
 _factionName      = "Yugoslav People's Army";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignOPFOR;
 

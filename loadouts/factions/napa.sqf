@@ -8,7 +8,7 @@
 
 _factionID = "NAPA";
 _factionName = "NAPA";
-_factionStructure = "LOW-TIER";
+_factionStructure = "LOW";
 
 _factionCallsigns = _defaultCallsignINDFOR;
 

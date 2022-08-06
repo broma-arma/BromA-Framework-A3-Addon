@@ -8,7 +8,7 @@
 
 _factionID = "UKRAINE";
 _factionName = "Ukranian Armed Forces";
-_factionStructure = "MID-TIER";
+_factionStructure = "MID";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 

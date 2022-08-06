@@ -6,7 +6,7 @@
 
 _factionID = "ISIS";
 _factionName = "Islamic State";
-_factionStructure = "LOW-TIER";
+_factionStructure = "LOW";
 
 _factionCallsigns = _defaultCallsignINDFOR;
 

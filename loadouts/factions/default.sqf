@@ -7,7 +7,7 @@
 
 _factionID = "TEMPLATE";
 _factionName = "Template";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
