@@ -75,10 +75,6 @@ switch (toLower _x) do {
 			_supplies pushBack [_specAT select RAMMO, _countSpecATCARGO];
 		};
 
-		if (_x == "ammo_big") then {
-			_supplies apply { [_x select 0, (_x select 1) * 3] };
-		};
-
 		if (!isNil "_reconRIFLE") then {
 			_supplies pushBack [_reconRIFLE select RAMMO, _countRifleCARGO];
 		};
@@ -89,6 +85,10 @@ switch (toLower _x) do {
 					_supplies pushBack [_x select RAMMO, _countRifleCARGO];
 				};
 			} forEach _rifleLIST;
+		};
+
+		if (_x == "ammo_big") then {
+			_supplies apply { [_x select 0, (_x select 1) * 3] };
 		};
 
 		[_object] + _supplies call BRM_FMK_fnc_addItems;
