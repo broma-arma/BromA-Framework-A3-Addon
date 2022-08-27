@@ -1,6 +1,9 @@
 /*
 ================================================================================
 
+DEPRECATED:
+    Used by Mission Framework <= 0.7.5
+
 NAME:
     BRM_FMK_fnc_readExtraction
 

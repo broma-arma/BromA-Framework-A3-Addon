@@ -1,3 +1,5 @@
+// Mission Framework > 0.7.5
+
 mission_settings_loaded = false;
 
 if (!fileExists "settings\settings.sqf") exitWith {
@@ -11,55 +13,29 @@ call compile preprocessFileLineNumbers "settings\settings.sqf" params [
 
 mission_game_mode = _mode;
 mission_require_extraction = [];
-mission_extraction_BLU = "*";
-mission_extraction_OP = "*";
-mission_extraction_IND = "*";
-mission_extraction_CIV = "*";
 
-{
-	_x params ["_sideChar", "_sideData"];
+private _extractionPoints = [];
+private _groupVars = [[], [], [], []];
+if (isServer) then {
+	_extractionPoints = call {
+		private _sideStrs = ["blu", "op", "ind", "civ"];
 
-	_sideData params [
-		"_side",
-		"_faction",
-		"_extract",
-		"_extractPoints",
-		"_extractGroups"
-	];
+		private _extractionPoints = [[], [], [], []]; // Blu, Op, Ind, Civ
+		{
+			private _extName = str _x splitString "_";
+			if (count _extName > 1 && {_extName select 1 == "extraction"}) then {
+				private _index = _sideStrs find (_extName select 0);
+				if (_index != -1) then {
+					_extractionPoints select _index pushBackUnique _x;
+				} else {
+					["Error: Extraction point '%1' has unknown side '%2'", _x, _extName select 0] call BIS_fnc_error;
+				};
+			};
+		} forEach (allMissionObjects "");
 
-	missionNamespace setVariable [format ["side_%1_side", _sideChar], _side];
-	missionNamespace setVariable [format ["side_%1_faction", _sideChar], _faction];
-	if (_extract) then {
-		mission_require_extraction = mission_require_extraction + [_side];
+		_extractionPoints
 	};
-	missionNamespace setVariable [format ["mission_extraction_points_%1", _sideChar], _extractPoints];
-	missionNamespace setVariable [format ["mission_extraction_%1", ["BLU", "OP", "IND", "CIV"] select ([WEST, EAST, INDEPENDENT, CIVILIAN] find _side)], _extractGroups];
-} forEach [["a", _factionA], ["b", _factionB], ["c", _factionC]];
 
-mission_extraction_tracks = _extractMusic;
-mission_allow_jip = _jip;
-mission_ending_stats = _stats;
-mission_plugins = _plugins;
-
-mission_enable_side_c = side_c_faction != "";
-
-if (mission_extraction_tracks isEqualTo "*") then {
-	mission_extraction_tracks = [] call BRM_FMK_fnc_getMusic;
-};
-mission_extraction_enable_music = mission_extraction_tracks isEqualType [] && {count mission_extraction_tracks > 0};
-
-if (isNil "DAC_Res_Side") then {
-	private _cfgIntel = missionConfigFile >> "Mission" >> "Mission" >> "Intel";
-	private _resistanceWest = if (isNumber (_cfgIntel >> "resistanceWest")) then { getNumber (_cfgIntel >> "resistanceEast") } else { 1 };
-	private _resistanceEast = getNumber (_cfgIntel >> "resistanceEast");
-	if (_resistanceWest == 0) then {
-		_resistanceEast = 1 - _resistanceEast;
-	};
-	// Independent friendly to: 0 = EAST, 1 = WEST, 2 = NONE, 3 = BOTH
-	DAC_Res_Side = [_resistanceWest, _resistanceEast] call BIS_fnc_encodeFlags2;
-};
-
-if (mission_extraction_BLU isEqualTo "*" || mission_extraction_OP isEqualTo "*" || mission_extraction_IND isEqualTo "*" || mission_extraction_CIV isEqualTo "*") then {
 	private _squadNames = ["GroupCompany", "GroupPlatoon", "GroupSquad"] apply {
 		private _names = "true" configClasses (configfile >> "CfgWorlds" >> _x) apply { getText (_x >> "name") };
 		[count _names, _names]
@@ -68,7 +44,6 @@ if (mission_extraction_BLU isEqualTo "*" || mission_extraction_OP isEqualTo "*" 
 	// Get all group variables
 	private _sideStrs = ["West", "East", "Independent", "Civilian"];
 	private _sideSquadNameIndexes = [[0, 0, -1], [0, 0, -1], [0, 0, -1], [0, 0, -1]];
-	private _groupVars = [[], [], [], []];
 
 	private _cfgEntities = missionConfigFile >> "Mission" >> "Mission" >> "Entities";
 	private _items = getNumber (_cfgEntities >> "items");
@@ -120,22 +95,57 @@ if (mission_extraction_BLU isEqualTo "*" || mission_extraction_OP isEqualTo "*" 
 			};
 		};
 	};
-
-	if (mission_extraction_BLU isEqualTo "*") then {
-		mission_extraction_BLU = _groupVars select 0;
-	};
-	if (mission_extraction_OP isEqualTo "*") then {
-		mission_extraction_OP = _groupVars select 1;
-	};
-	if (mission_extraction_IND isEqualTo "*") then {
-		mission_extraction_IND = _groupVars select 2;
-	};
-	if (mission_extraction_CIV isEqualTo "*") then {
-		mission_extraction_CIV = _groupVars select 3;
-	};
 };
 
-DAC_STRPlayers = [false] call BRM_FMK_fnc_playableMissionEntities apply { _x select 1 };
+{
+	_x params ["_sideChar", "_sideData"];
+
+	_sideData params [
+		["_side", WEST, [WEST]],
+		["_faction", "", ["", []]],
+		["_extraction", [], [[]]]
+	];
+
+	// TODO Sanity checking, e.g. _side should be unique
+
+	private _sideIndex = [WEST, EAST, RESISTANCE, CIVILIAN] find _side;
+
+	if (_faction isEqualTo "") then {
+		_faction = ["NATO", "CSAT", "AAF", "FIA"] select _sideIndex;
+	};
+
+	missionNamespace setVariable [format ["side_%1_side", _sideChar], _side];
+	missionNamespace setVariable [format ["side_%1_faction", _sideChar], _faction];
+
+	if (isServer) then {
+		_extraction params [
+			["_extractTargets", [], [[]]],
+			["_extractGroups", "*", ["", []]]
+		];
+		_extractTargets append (_extractionPoints select _sideIndex);
+		if (count _extractTargets > 0) then {
+			mission_require_extraction pushBack _side;
+		};
+
+		if (_extractGroups isEqualTo "*") then {
+			_extractGroups = _groupVars select _sideIndex;
+		};
+
+		missionNamespace setVariable [format ["brm_fmk_extraction_%1", _sideChar], [_extractGroups, _extractTargets]];
+	};
+} forEach [["a", _factionA], ["b", _factionB], ["c", _factionC]];
+
+mission_extraction_tracks = _extractMusic;
+mission_allow_jip = _jip;
+mission_ending_stats = _stats;
+mission_plugins = _plugins;
+
+mission_enable_side_c = side_c_faction != "";
+
+if (mission_extraction_tracks isEqualTo "*") then {
+	mission_extraction_tracks = [] call BRM_FMK_fnc_getMusic;
+};
+mission_extraction_enable_music = mission_extraction_tracks isEqualType [] && {count mission_extraction_tracks > 0};
 
 [] call BRM_FMK_fnc_assignSideProperties;
 mission_settings_loaded = true;
