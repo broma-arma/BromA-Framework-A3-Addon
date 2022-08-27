@@ -14,6 +14,8 @@ call compile preprocessFileLineNumbers "settings\settings.sqf" params [
 mission_game_mode = _mode;
 mission_require_extraction = [];
 
+BRM_FMK_missionSQM = loadConfig "mission.sqm";
+
 private _extractionPoints = [];
 private _groupVars = [[], [], [], []];
 if (isServer) then {
@@ -45,7 +47,7 @@ if (isServer) then {
 	private _sideStrs = ["West", "East", "Independent", "Civilian"];
 	private _sideSquadNameIndexes = [[0, 0, -1], [0, 0, -1], [0, 0, -1], [0, 0, -1]];
 
-	private _cfgEntities = missionConfigFile >> "Mission" >> "Mission" >> "Entities";
+	private _cfgEntities = BRM_FMK_missionSQM >> "Mission" >> "Entities";
 	private _items = getNumber (_cfgEntities >> "items");
 	for "_i" from 0 to _items - 1 do {
 		private _cfgItem = _cfgEntities >> format ["Item%1", _i];

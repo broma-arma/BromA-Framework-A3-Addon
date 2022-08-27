@@ -2,7 +2,7 @@ params [["_includeLogic", true, [true]]];
 
 private _entities = [];
 
-private _cfgEntities = missionConfigFile >> "Mission" >> "Mission" >> "Entities";
+private _cfgEntities = BRM_FMK_missionSQM >> "Mission" >> "Entities";
 private _items = getNumber (_cfgEntities >> "items");
 for "_i" from 0 to _items - 1 do {
 	private _cfgItem = _cfgEntities >> format ["Item%1", _i];
