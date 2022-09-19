@@ -125,7 +125,7 @@ _crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk";
 _mgUNIFORM       = _commonUNIFORM;
 _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
-_reconUNIFORM    = _randomUNIFORM;
+_reconUNIFORM    = _commonUNIFORM;
 
 _commonVEST    = "BRM_Protec_BROWN_RFL";
 _officerVEST   = "BRM_Protec_BROWN_SL";
