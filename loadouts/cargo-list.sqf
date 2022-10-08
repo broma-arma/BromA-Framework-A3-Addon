@@ -86,6 +86,22 @@ switch (toLower _x) do {
 				};
 			} forEach _rifleLIST;
 		};
+		
+		if (!isNil "_arLIST") then {
+			{
+				if (_x select GUN != _commonAR select GUN) then {
+					_supplies pushBack [_x select RAMMO, _countRifleCARGO];
+				};
+			} forEach _arLIST;
+		};
+		
+		if (!isNil "_smgLIST") then {
+			{
+				if (_x select GUN != _commonSMG select GUN) then {
+					_supplies pushBack [_x select RAMMO, _countRifleCARGO];
+				};
+			} forEach _smgLIST;
+		};		
 
 		if (_x == "ammo_big") then {
 			_supplies apply { [_x select 0, (_x select 1) * 3] };
