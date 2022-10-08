@@ -98,8 +98,10 @@ switch (true) do {
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
         [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
-        [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+        if (!_isSpecATDisposable) then {
+                [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+                [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+        };
     };
 
     case (_isWeaponsAT): {
@@ -251,8 +253,10 @@ switch (true) do {
         [_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
         [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
-        [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+        if (!_isSpecATDisposable) then {
+                [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+                [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+        };
         [_unit, "primary", _reconSCOPE] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
     };
