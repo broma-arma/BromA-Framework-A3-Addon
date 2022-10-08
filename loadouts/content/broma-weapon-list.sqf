@@ -822,7 +822,16 @@ _5rnd300win = "rhsusf_5Rnd_300winmag_xm2010";
 _5rndBuck = "rhsusf_5Rnd_00Buck";
 _8rndBuck = "rhsusf_8Rnd_00Buck";
 
+_RPGV    = "rhs_rpg7_PG7V_mag";
 _RPGVL    = "rhs_rpg7_PG7VL_mag";
+_RPGVOGV    = "rhs_rpg7_OG7V_mag";
+_RPGVM    = "rhs_rpg7_PG7VM_mag";
+_RPGVMHEAT    = "RPG7_F";
+_RPGVR    = "rhs_rpg7_PG7VR_mag";
+_RPGVS    = "rhs_rpg7_PG7VS_mag";
+_RGPTBG = "rhs_rpg7_TBG7V_mag";
+_RPGTYPE69 = "rhs_rpg7_type69_airburst_mag";
+
 _Igla9K38 = "rhs_mag_9k38_rocket";
 _FGM8Jav  = "rhs_fgm148_magazine_AT";
 _FIM92    = "rhs_fim92_mag";
