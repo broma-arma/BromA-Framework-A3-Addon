@@ -164,6 +164,21 @@ switch (toLower _x) do {
 			["R3F_FUM40",  40]
 		] call BRM_FMK_fnc_addItems;
 	};
+	
+	case "rpg7_ammo": {
+		[_object,
+			[_RPGV, _countAT],
+			[_RPGVL, _countAT],
+			[_RPGVOGV, _countAT],
+			[_RPGVM, _countAT],
+			[_RPGVMHEAT, _countAT],
+			[_RPGVR, _countAT],
+			[_RPGVS, _countAT],
+			[_RPGVS, _countAT],
+			[_RGPTBG, _countAT],
+			[_RPGTYPE69, _countAT]
+		] call BRM_FMK_fnc_addItems;
+	};	
 
 	case "rifle": {
 		[_object, [_commonRIFLE select RAMMO, _countRifleCARGO]] call BRM_FMK_fnc_addItems;
