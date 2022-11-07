@@ -126,6 +126,10 @@ switch (toUpper(_faction)) do {
     case "RACS": {
         #include "factions\racs.sqf"
     };
+    
+    case "ROKA": {
+        #include "factions\Korea.sqf"
+    };
 
     case "RUSSIA": {
         #include "factions\russia.sqf"
