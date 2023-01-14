@@ -33,7 +33,7 @@ if(!isNil "BRM_FMK_LoadoutCamo_FINLAND")then{_camo=BRM_FMK_LoadoutCamo_FINLAND};
 
 _commonRIFLE = ["ffp_rk95","ffp_30Rnd_762x39"];
 _commonRIFLEGL = _commonRIFLE;
-_commonGL = ["r3f_M320","rhs_mag_M441_HE"];
+_commonGL = ["rhs_weap_M320","rhs_mag_M441_HE"];
 _commonPISTOL = _P226WG;
 _commonMG = ["PSZ_PKM","rhs_100Rnd_762x54mmR"];
 _commonAR = _commonMG;
