@@ -54,6 +54,13 @@ class CfgFunctions {
 	#undef BRM_PLUGIN_FUNCTIONS
 };
 
+class CfgSounds {
+    //sounds[] = {}; // TODO This might be needed, test
+	#define BRM_PLUGIN_SOUNDS
+		#include "plugins\plugins.cpp"
+	#undef BRM_PLUGIN_SOUNDS
+};
+
 class BRM_FMK_Plugins {
 	#define BRM_PLUGIN_META
 		#include "\broma_framework\plugins\plugins.cpp"
