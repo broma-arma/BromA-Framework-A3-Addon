@@ -9,7 +9,7 @@ private _side = side _group;
 	private _marker = createMarker ["ais_mrk_"+str(_x), _x];
 	_marker setMarkerShape "ICON";
 	_marker setMarkerType "mil_dot_noShadow";
-	_marker setMarkerColor ([_side] call BRM_FMK_AIS_getSideColor);
+	_marker setMarkerColor ([_side] call BRM_FMK_AIS_fnc_getSideColor);
 
 	if (_x != leader _x) then {
 		_marker setMarkerSize [GRUNT_MARKER_SIZE,GRUNT_MARKER_SIZE];

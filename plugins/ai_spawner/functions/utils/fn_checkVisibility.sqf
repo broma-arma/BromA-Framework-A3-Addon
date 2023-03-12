@@ -13,7 +13,7 @@ private _positionASLHigh = _positionASL  vectorAdd [0, 0, 1.5];
         };
     };
 
-    if ([_position,_radius,_x] call BRM_FMK_AIS_checkNearPlayers) then {
+    if ([_position,_radius,_x] call BRM_FMK_AIS_fnc_checkNearPlayers) then {
         _visible = true;
     };
 

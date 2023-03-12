@@ -25,32 +25,32 @@ private _knownTargets = [];
 
 waitUntil _startCondition;
 
-_settings = ([_settings,AIS_spawnerSettings] call BRM_FMK_AIS_getById) select 1;
+_settings = ([_settings,AIS_spawnerSettings] call BRM_FMK_AIS_fnc_getById) select 1;
 _settings params ["_cleanup","_safeSpawnDistance","_disableLAMBS","_aiAggressive","_disableCaching","_aiSkill"];
 
 {
 	_x params ["_type","_count","_waypointSettings","_waypointCount"];
 
-	private _hasVehicle = [_type] call BRM_FMK_AIS_typeHasVehicle;
+	private _hasVehicle = [_type] call BRM_FMK_AIS_fnc_typeHasVehicle;
 
 	for "_i" from 1 to _count do {
 		private _spawnPosition = if (!(_hasVehicle)) then {
-			[_zone,0,_zone,5] call BRM_FMK_AIS_findPosition;
+			[_zone,0,_zone,5] call BRM_FMK_AIS_fnc_findPosition;
 		} else {
-			[_zone,0,_zone,10] call BRM_FMK_AIS_findPosition;
+			[_zone,0,_zone,10] call BRM_FMK_AIS_fnc_findPosition;
 		};
 
-		private _group = [_spawnPosition,_type,_side] call BRM_FMK_AIS_createGroup;
+		private _group = [_spawnPosition,_type,_side] call BRM_FMK_AIS_fnc_createGroup;
 
-		[_group,_type,_side,_zone] spawn BRM_FMK_AIS_checkBadSpawn;
+		[_group,_type,_side,_zone] spawn BRM_FMK_AIS_fnc_checkBadSpawn;
 
 		_spawnedGroups append [[_type,_group]];
 		_spawnCount = _spawnCount + 1;
 		_groupTotal = _groupTotal + 1;
 
-		[_group,_loadout,_type,_settings] spawn BRM_FMK_AIS_initGroup;
+		[_group,_loadout,_type,_settings] spawn BRM_FMK_AIS_fnc_initGroup;
 
-		[_group,_zone,_waypointCount,_waypointSettings] spawn BRM_FMK_AIS_taskPatrol;
+		[_group,_zone,_waypointCount,_waypointSettings] spawn BRM_FMK_AIS_fnc_taskPatrol;
 
 		_unitTotal = _unitTotal + count(units _group);
 
@@ -75,8 +75,8 @@ AIS_Spawners append [[
 ]];
 
 if (AIS_debug) then {
-	[_id,_zone] call  BRM_FMK_AIS_createZoneMarker;
-	[_id,_camps,_zone] call  BRM_FMK_AIS_createCampsMarkers;
+	[_id,_zone] call  BRM_FMK_AIS_fnc_createZoneMarker;
+	[_id,_camps,_zone] call  BRM_FMK_AIS_fnc_createCampsMarkers;
 };
 
 while {(count _spawnedGroups) > 0 && !(call _endCondition)} do {
@@ -97,7 +97,7 @@ while {(count _spawnedGroups) > 0 && !(call _endCondition)} do {
 					_zoneAlarmed = true;
 					{
 						[(_x select 1)] call CBA_fnc_clearWaypoints;
-						[(_x select 1),_zone, 10,"AWARE"] spawn BRM_FMK_AIS_taskPatrol;
+						[(_x select 1),_zone, 10,"AWARE"] spawn BRM_FMK_AIS_fnc_taskPatrol;
 					} forEach _spawnedGroups;
 				};
 			} forEach units _group;
@@ -115,7 +115,7 @@ while {(count _spawnedGroups) > 0 && !(call _endCondition)} do {
 		private _campIndex = _camps find _x;
 
 		// check if players are near spawn point or it's without spawninings and deactivate it
-		if (([_camp,_safeDistance] call BRM_FMK_AIS_checkNearPlayers || _count == 0) && !(_camp getVariable ["AIS_isCampDisabled",false]))  then {
+		if (([_camp,_safeDistance] call BRM_FMK_AIS_fnc_checkNearPlayers || _count == 0) && !(_camp getVariable ["AIS_isCampDisabled",false]))  then {
 			_camps set [_campIndex,[_camp,_type,0,_delay,_safeDistance]];
 			_camp setVariable ["AIS_isDisabled",true];
 			if (AIS_debug) then {
@@ -123,24 +123,24 @@ while {(count _spawnedGroups) > 0 && !(call _endCondition)} do {
 			};
 		} else {
 			// check if units can be spawned
-			if (((_activeUnits + ([_currentGroupType] call BRM_FMK_AIS_countGroupType)) <= _unitTotal)) then {
+			if (((_activeUnits + ([_currentGroupType] call BRM_FMK_AIS_fnc_countGroupType)) <= _unitTotal)) then {
 
 				if (_type == _currentGroupType && _count > 0) then {
 
-					private _spawnPosition = [_camp] call BRM_FMK_AIS_toPosition;
+					private _spawnPosition = [_camp] call BRM_FMK_AIS_fnc_toPosition;
 
-					if (!([_spawnPosition,_safeDistance] call BRM_FMK_AIS_checkVisibility)) then {
+					if (!([_spawnPosition,_safeDistance] call BRM_FMK_AIS_fnc_checkVisibility)) then {
 
-						private _group = [_spawnPosition,_type,_side] call BRM_FMK_AIS_createGroup;
+						private _group = [_spawnPosition,_type,_side] call BRM_FMK_AIS_fnc_createGroup;
 
 						_spawnedGroups append [[_type,_group]];
 						_spawnCount = _spawnCount + 1;
 						_groupTotal = _groupTotal + 1;
 						_activeUnits = _activeUnits + ({alive _x} count (units _group));
 
-						[_group,_loadout,_type,_settings] spawn BRM_FMK_AIS_initGroup;
+						[_group,_loadout,_type,_settings] spawn BRM_FMK_AIS_fnc_initGroup;
 
-						[_group,_zone,10,"AWARE"] spawn BRM_FMK_AIS_taskPatrol;
+						[_group,_zone,10,"AWARE"] spawn BRM_FMK_AIS_fnc_taskPatrol;
 
 						_camps set [_campIndex,[_camp,_type,(_count - 1),_delay,_safeDistance]];
 
@@ -150,7 +150,7 @@ while {(count _spawnedGroups) > 0 && !(call _endCondition)} do {
 
 							{
 								if (!isObjectHidden _x) then {
-									[_x,true] call BRM_FMK_AIS_cacheUnit;
+									[_x,true] call BRM_FMK_AIS_fnc_cacheUnit;
 								};
 
 								if (vehicle _x != _x && !isObjectHidden(vehicle _x)) then {
@@ -191,15 +191,15 @@ while {(count _spawnedGroups) > 0 && !(call _endCondition)} do {
 			[AIS_SPAWNER_GROUP_TOTAL,_groupTotal],
 			[AIS_SPAWNER_CAMPS,_camps]
 		]
-	] call BRM_FMK_AIS_updateSpawner;
+	] call BRM_FMK_AIS_fnc_updateSpawner;
 
 	if (AIS_debug) then {
-		[_id,_zone] call  BRM_FMK_AIS_updateZoneMarker;
-		[_id,_camps,_zone] call  BRM_FMK_AIS_updateCampsMarkers;
+		[_id,_zone] call  BRM_FMK_AIS_fnc_updateZoneMarker;
+		[_id,_camps,_zone] call  BRM_FMK_AIS_fnc_updateCampsMarkers;
 	};
 
 	sleep 0.05;
 
 };
 
-[_id] call BRM_FMK_AIS_deleteSpawner;
+[_id] call BRM_FMK_AIS_fnc_deleteSpawner;

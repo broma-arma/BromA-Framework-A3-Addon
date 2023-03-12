@@ -19,7 +19,7 @@ _conditions params ["_startCondition","_endCondition"];
 _positions params ["_spawnPositions","_attackPosition"];
 _events params ["_eventStart","_eventEnd","_eventEachWave","_eventEndWaypoint"];
 
-_settings = ([_settings,AIS_spawnerSettings] call BRM_FMK_AIS_getById) select 1;
+_settings = ([_settings,AIS_spawnerSettings] call BRM_FMK_AIS_fnc_getById) select 1;
 _settings params ["_cleanup","_safeSpawnDistance","_disableLAMBS","_aiAggressive","_disableCaching","_aiSkill"];
 
 private _spawnedGroups = [];
@@ -27,7 +27,7 @@ private _spawnCount = 0;
 private _spawnLimit = 9999;
 private _spawnerType = if (typeName _attackPosition == "GROUP") then {"STALK"} else {"ATTACK"};
 private _spawnRadius = if (_spawnerType == "STALK" && typeName _spawnPositions == "SCALAR") then {_spawnPositions} else {0};
-private _groupTypeCount = [_groupType] call BRM_FMK_AIS_countGroupType;
+private _groupTypeCount = [_groupType] call BRM_FMK_AIS_fnc_countGroupType;
 private _unitTotal = _groupTypeCount * _groupTotal;
 
 waitUntil _startCondition;
@@ -54,16 +54,16 @@ AIS_Spawners append [[
 ]];
 
 if (AIS_debug) then {
-	[_id,_positions] spawn BRM_FMK_AIS_createAttackMarkers;
+	[_id,_positions] spawn BRM_FMK_AIS_fnc_createAttackMarkers;
 };
 
 while {!(call _endCondition)} do {
 
 	_spawnPositions = _spawnPositions apply {
-		[_x] call BRM_FMK_AIS_toPosition;
+		[_x] call BRM_FMK_AIS_fnc_toPosition;
 	};
 
-	_attackPosition = [_attackPosition] call BRM_FMK_AIS_toPosition;
+	_attackPosition = [_attackPosition] call BRM_FMK_AIS_fnc_toPosition;
 
 	{
 		if (_spawnCount > _spawnLimit) exitWith {};
@@ -71,7 +71,7 @@ while {!(call _endCondition)} do {
 		waitUntil {
 			private _activeUnits = 0;
 
-			_endCondition = (([_id] call BRM_FMK_AIS_getSpawner) select AIS_SPAWNER_CONDITIONS) select 1;
+			_endCondition = (([_id] call BRM_FMK_AIS_fnc_getSpawner) select AIS_SPAWNER_CONDITIONS) select 1;
 
 			if (typeName _endCondition == "SCALAR") then {
 				_spawnLimit = _endCondition;
@@ -98,7 +98,7 @@ while {!(call _endCondition)} do {
 					[AIS_SPAWNER_UNIT_TOTAL,_unitTotal],
 					[AIS_SPAWNER_GROUP_TOTAL,_groupTotal]
 				]
-			] call BRM_FMK_AIS_updateSpawner;
+			] call BRM_FMK_AIS_fnc_updateSpawner;
 
 			sleep 0.05;
 
@@ -109,13 +109,13 @@ while {!(call _endCondition)} do {
 
 		private _spawnPosition = _x;
 
-		if (!([_spawnPosition,_safeSpawnDistance] call BRM_FMK_AIS_checkVisibility)) then {
+		if (!([_spawnPosition,_safeSpawnDistance] call BRM_FMK_AIS_fnc_checkVisibility)) then {
 
-			private _group = [_spawnPosition,_groupType,_side] call BRM_FMK_AIS_createGroup;
+			private _group = [_spawnPosition,_groupType,_side] call BRM_FMK_AIS_fnc_createGroup;
 
-			[_group,_loadout,_groupType,_settings] spawn BRM_FMK_AIS_initGroup;
+			[_group,_loadout,_groupType,_settings] spawn BRM_FMK_AIS_fnc_initGroup;
 
-			[_group,_attackPosition,_waypointSettings,_eventEndWaypoint] spawn BRM_FMK_AIS_taskAttack;
+			[_group,_attackPosition,_waypointSettings,_eventEndWaypoint] spawn BRM_FMK_AIS_fnc_taskAttack;
 
 			_spawnedGroups append [[_groupType,_group]];
 			_spawnCount = _spawnCount + 1;
@@ -143,4 +143,4 @@ while {!(call _endCondition)} do {
 
 };
 
-[_id] spawn BRM_FMK_AIS_deleteSpawner;
+[_id] spawn BRM_FMK_AIS_fnc_deleteSpawner;

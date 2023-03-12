@@ -6,7 +6,7 @@ if (_disableLAMBS) then {
 	_group setVariable ["lambs_danger_disableGroupAI", true];
 };
 
-_aiSkill = ([_aiSkill,AIS_aiSkills] call BRM_FMK_AIS_getById) select 1;
+_aiSkill = ([_aiSkill,AIS_aiSkills] call BRM_FMK_AIS_fnc_getById) select 1;
 _group allowFleeing 0;
 
 {
@@ -14,10 +14,10 @@ _group allowFleeing 0;
 
 	[_unit, _loadout] call BRM_fnc_initAI;
 
-	_unit addEventHandler ["Killed",{_this spawn  BRM_FMK_AIS_garbageCollector}];
+	_unit addEventHandler ["Killed",{_this spawn  BRM_FMK_AIS_fnc_garbageCollector}];
 
 	if (AIS_aiDeathSounds) then {
-		_unit addEventHandler ["Killed",{_this spawn BRM_FMK_AIS_eventKilled}];
+		_unit addEventHandler ["Killed",{_this spawn BRM_FMK_AIS_fnc_eventKilled}];
 	};
 
 	if (_aiAggressive) then {
@@ -39,16 +39,16 @@ _group allowFleeing 0;
 
 	if (AIS_aiInfiniteAmmo) then {
 		_unit addEventHandler ["Reloaded", {
-			_this spawn BRM_FMK_AIS_eventReloaded;
+			_this spawn BRM_FMK_AIS_fnc_eventReloaded;
 		}];
 	};
 
 } forEach units _group;
 
 if (AIS_debug) then {
-	[_group,_type] spawn BRM_FMK_AIS_createGroupMarker;
+	[_group,_type] spawn BRM_FMK_AIS_fnc_createGroupMarker;
 };
 
 if(_caching) then {
-	[_group,_cachingDistances] spawn BRM_FMK_AIS_cacheGroup;
+	[_group,_cachingDistances] spawn BRM_FMK_AIS_fnc_cacheGroup;
 };

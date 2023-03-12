@@ -6,8 +6,8 @@ params [
 	"_size"
 ];
 
-_start = [_start] call BRM_FMK_AIS_toPosition;
-_end = [_end] call BRM_FMK_AIS_toPosition;
+_start = [_start] call BRM_FMK_AIS_fnc_toPosition;
+_end = [_end] call BRM_FMK_AIS_fnc_toPosition;
 
 private _distance = sqrt(((_end select 0)-(_start select 0))^2+((_end select 1)-(_start select 1))^2) * 0.5;
 private _angle = ((_end select 0)-(_start select 0)) atan2 ((_end select 1)-(_start select 1));

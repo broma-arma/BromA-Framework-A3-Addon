@@ -1,6 +1,6 @@
 params ["_id"];
 
-private _spawner = [_id] call BRM_FMK_AIS_getSpawner;
+private _spawner = [_id] call BRM_FMK_AIS_fnc_getSpawner;
 
 AIS_spawners = AIS_spawners - [_spawner];
 

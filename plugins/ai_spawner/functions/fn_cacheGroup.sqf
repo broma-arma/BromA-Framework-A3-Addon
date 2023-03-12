@@ -17,20 +17,20 @@ while {{alive _x} count (units _group) > 0} do {
 
 	{
 		private _cached = _x getVariable ["AIS_isCached",false];
-		private _isCacheable = [_x] call BRM_FMK_AIS_isCacheable;
+		private _isCacheable = [_x] call BRM_FMK_AIS_fnc_isCacheable;
 
 		if (!(_isCacheable) && _group getVariable ["AIS_groupDeployed",true]) then {
 			if (_cached) then {
-				[_x,false] call BRM_FMK_AIS_cacheUnit;
+				[_x,false] call BRM_FMK_AIS_fnc_cacheUnit;
 			};
 		} else {
 			// cache units if no players near
 			if (!_cached && !_closeUnits) then {
-				[_x,true] call BRM_FMK_AIS_cacheUnit;
+				[_x,true] call BRM_FMK_AIS_fnc_cacheUnit;
 			};
 			// uncache unit if players near
 			if (_cached && _closeUnits) then {
-				[_x,false] call BRM_FMK_AIS_cacheUnit;
+				[_x,false] call BRM_FMK_AIS_fnc_cacheUnit;
 			};
 			// update the position of the cached unit (only for infantry)
 			/*

@@ -1,6 +1,6 @@
 params ["_group","_zone","_waypointCount","_waypointSettings"];
 
-_waypointSettings = ([_waypointSettings,AIS_waypointSettings] call BRM_FMK_AIS_getById) select 1;
+_waypointSettings = ([_waypointSettings,AIS_waypointSettings] call BRM_FMK_AIS_fnc_getById) select 1;
 
 _waypointSettings params [
 	"_waypointRadius",
@@ -18,9 +18,9 @@ private _waypointType = "MOVE";
 
 for "_i" from 1 to _waypointCount do {
 	private _position = if (vehicle (leader _group) isKindOf "LandVehicle") then {
-		[_zone,0,_zone,10] call BRM_FMK_AIS_findPosition;
+		[_zone,0,_zone,10] call BRM_FMK_AIS_fnc_findPosition;
 	} else {
-		[_zone,0,_zone] call BRM_FMK_AIS_findPosition;
+		[_zone,0,_zone] call BRM_FMK_AIS_fnc_findPosition;
 	};
 
 	if (_i == 1) then {

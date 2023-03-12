@@ -15,7 +15,7 @@ if (_unit isKindOf "Man") then {
 	private _weaponHolders = nearestObjects [_unit,_weaponHolderTypes,20];
 
 	if (!(_unit getVariable ["AIS_isCached",false])) then {
-		[_unit,AIS_garbageCollector] call BRM_FMK_AIS_garbageCollectorCheck;
+		[_unit,AIS_garbageCollector] call BRM_FMK_AIS_fnc_garbageCollectorCheck;
 	};
 
 	hideBody _unit;
@@ -37,7 +37,7 @@ if (_unit isKindOf "Man") then {
 			if ({alive _x } count (crew _vehicle) == 0) exitWith {};
 		};
 
-		[_vehicle,AIS_garbageCollector] call BRM_FMK_AIS_garbageCollectorCheck;
+		[_vehicle,AIS_garbageCollector] call BRM_FMK_AIS_fnc_garbageCollectorCheck;
 
 		deleteVehicle _vehicle;
 

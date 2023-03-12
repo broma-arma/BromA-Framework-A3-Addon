@@ -1,6 +1,6 @@
 params ["_id","_zone"];
 
-private _spawner = [_id] call BRM_FMK_AIS_getSpawner;
+private _spawner = [_id] call BRM_FMK_AIS_fnc_getSpawner;
 
 private _groups =  (_spawner select AIS_SPAWNER_GROUPS);
 private _totalUnits = 0;

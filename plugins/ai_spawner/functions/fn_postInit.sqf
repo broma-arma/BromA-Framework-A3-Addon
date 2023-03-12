@@ -6,16 +6,11 @@ if (!mission_ai_controller) exitWith {};
 
 	sleep 1; // After briefing
 
-	publicVariable "BRM_FMK_AIS_garbageCollectorCheck";
-	publicVariable "BRM_FMK_AIS_garbageCollector";
-	publicVariable "BRM_FMK_AIS_eventReloaded";
-	publicVariable "BRM_FMK_AIS_eventKilled";
-
 	AIS_spawners = [];
 	AIS_debug = !isMultiplayer;
 
 	if (AIS_debug) then {
-		0 spawn BRM_FMK_AIS_spawnersInfo;
+		0 spawn BRM_FMK_AIS_fnc_spawnersInfo;
 	};
 
 	{
@@ -39,7 +34,7 @@ if (!mission_ai_controller) exitWith {};
 	publicVariable "AIS_garbageCollectorVehicle";
 
 	{
-		private _fnc = missionNamespace getVariable format ["BRM_FMK_AIS_%1Spawner", _x select 0];
+		private _fnc = missionNamespace getVariable format ["BRM_FMK_AIS_fnc_%1Spawner", _x select 0];
 		if (!isNil "_fnc") then {
 			_x select [1] spawn _fnc;
 		} else {
@@ -47,5 +42,5 @@ if (!mission_ai_controller) exitWith {};
 		};
 	} forEach AIS_aiSpawners;
 
-	0 spawn BRM_FMK_AIS_applyToAllAi;
+	0 spawn BRM_FMK_AIS_fnc_applyToAllAi;
 };

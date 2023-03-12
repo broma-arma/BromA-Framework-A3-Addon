@@ -12,7 +12,7 @@ private _unitCount = 0;
 			if (_classname isKindOf "Man") then {
 				_unitCount = _unitCount + 1;
 			} else {
-				_unitCount = _unitCount + (count ([_classname,["cargo","turret"]] call BRM_FMK_AIS_getVehicleSeats));
+				_unitCount = _unitCount + (count ([_classname,["cargo","turret"]] call BRM_FMK_AIS_fnc_getVehicleSeats));
 			};
 		} forEach _units;
 	};

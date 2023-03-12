@@ -1,7 +1,7 @@
 params ["_center",["_radius",0],["_trigger",objNull],["_objectDistance",5],["_occupiedPositions",[]]];
 
 private _position = [];
-_center = [_center] call BRM_FMK_AIS_toPosition;
+_center = [_center] call BRM_FMK_AIS_fnc_toPosition;
 
 if (isNull _trigger) then {
 	_position = [_center, 0, _radius+50, _objectDistance, 0, 0, 0,_occupiedPositions,[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;

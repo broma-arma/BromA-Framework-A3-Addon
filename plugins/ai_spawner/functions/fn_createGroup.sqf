@@ -27,8 +27,8 @@ _group deleteGroupWhenEmpty true;
 		};
 
 		private _vehicle = createVehicle [_classname, _spawnPosition, [], 20, _spawnType];
-		[_vehicle] spawn BRM_FMK_AIS_garbageCollector;
-		[_vehicle,_group] call BRM_FMK_AIS_createVehicleCrew;
+		[_vehicle] spawn BRM_FMK_AIS_fnc_garbageCollector;
+		[_vehicle,_group] call BRM_FMK_AIS_fnc_createVehicleCrew;
 	};
 
 } forEach _groupUnits;
