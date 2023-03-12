@@ -3,7 +3,7 @@ params ["_id","_positions"];
 #define SPAWN_MARKER_ICON "loc_move"
 #define ATTACK_MARKER_ICON "mil_dot"
 
-private _side = ([_id] call BRM_FMK_AIS_fnc_getSpawner) select AIS_SPAWNER_SIDE;
+private _side = ([_id] call BRM_FMK_AIS_fnc_getSpawner) select BRM_FMK_AIS_SPAWNER_SIDE;
 
 BRM_FMK_AIS_fnc_createMarker = {
 	params ["_id","_entity","_icon","_side"];
@@ -21,7 +21,7 @@ BRM_FMK_AIS_fnc_createMarker = {
 _positions params ["_spawnPositions","_attackPosition"];
 
 {
-	private _markerId = format ["ais_%1_%2",_id,_x];
+	private _markerId = format ["BRM_FMK_AIS_%1_%2",_id,_x];
 	private _icon = "";
 
 	if (_forEachIndex == (count(_spawnPositions + [_attackPosition]) - 1)) then {

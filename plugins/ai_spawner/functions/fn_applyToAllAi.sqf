@@ -11,7 +11,7 @@ private _players = if (isMultiplayer) then {playableUnits} else {switchableUnits
 			switch (_forEachIndex) do {
 				case 0: { // caching
 					_group deleteGroupWhenEmpty true;
-					[_group,[AIS_infantryCacheDistance,AIS_vehicleCacheDistance]] spawn BRM_FMK_AIS_fnc_cacheGroup;
+					[_group,[BRM_FMK_AIS_infantryCacheDistance,BRM_FMK_AIS_vehicleCacheDistance]] spawn BRM_FMK_AIS_fnc_cacheGroup;
 				};
 				case 1: { // death sounds
 					{
@@ -29,11 +29,11 @@ private _players = if (isMultiplayer) then {playableUnits} else {switchableUnits
 					} forEach units _group;
 				};
 				case 4: { // debug marker
-					if (AIS_debug) then {
+					if (BRM_FMK_AIS_debug) then {
 						[_group] spawn BRM_FMK_AIS_fnc_createGroupMarker;
 					};
 				};
 			};
 		};
-	} forEach AIS_aiSettingsAllMap;
+	} forEach BRM_FMK_AIS_aiSettingsAllMap;
 } forEach allGroups;

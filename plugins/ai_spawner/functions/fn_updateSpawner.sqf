@@ -27,6 +27,6 @@ params ["_id","_values"];
 			_spawner set [_index,_value];
 		} forEach _values;
 
-		AIS_Spawners set [_spawnerIndex,_spawner];
+		BRM_FMK_AIS_Spawners set [_spawnerIndex,_spawner];
 	};
-} forEach AIS_Spawners;
+} forEach BRM_FMK_AIS_Spawners;

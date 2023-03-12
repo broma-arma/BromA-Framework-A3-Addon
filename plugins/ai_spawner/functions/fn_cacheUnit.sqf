@@ -8,4 +8,4 @@ if (!_cache && vehicle _unit == _unit) then {
 	_unit setPosATL [((formationPosition _unit) select 0),((formationPosition _unit) select 1),0];
 };
 
-_unit setVariable ["AIS_isCached",_cache];
+_unit setVariable ["BRM_FMK_AIS_isCached",_cache];

@@ -7,7 +7,7 @@ if ("dac_plugin" in usedPlugins) then {
 while {true} do {
 	_infoText = "<t size='1.25' font='PuristaBold' color='#ffcc00'>Spawner Information</t>";
 
-	if (count AIS_spawners == 0) then {
+	if (count BRM_FMK_AIS_spawners == 0) then {
 		_infoText = _infoText + '
 			<br/><br/>
 			<t size=''1'' font=''PuristaBold''>No spawners are active!</t>
@@ -35,7 +35,7 @@ while {true} do {
 			<br/>
 			<t size=''0.8'' font=''PuristaBold''>Side: '+str(_side)+'</t>
 			';
-		} forEach AIS_spawners;
+		} forEach BRM_FMK_AIS_spawners;
 	};
 
 	hintSilent parseText _infoText;

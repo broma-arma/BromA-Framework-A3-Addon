@@ -6,7 +6,7 @@ params ["_group",["_type",""]];
 private _side = side _group;
 
 {
-	private _marker = createMarker ["ais_mrk_"+str(_x), _x];
+	private _marker = createMarker ["BRM_FMK_AIS_mrk_"+str(_x), _x];
 	_marker setMarkerShape "ICON";
 	_marker setMarkerType "mil_dot_noShadow";
 	_marker setMarkerColor ([_side] call BRM_FMK_AIS_fnc_getSideColor);

@@ -13,7 +13,7 @@ private _spawnerIndex = 0;
 		_spawner = _x;
 		_spawnerIndex = _forEachIndex;
 	}
-} forEach AIS_spawners;
+} forEach BRM_FMK_AIS_spawners;
 
 if (count _spawner > 0) then {
 	private _conditions = if (_state) then {
@@ -23,5 +23,5 @@ if (count _spawner > 0) then {
 	};
 
 	_spawner set [11,_conditions];
-	AIS_spawners set [_spawnerIndex,_spawner];
+	BRM_FMK_AIS_spawners set [_spawnerIndex,_spawner];
 };

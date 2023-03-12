@@ -16,6 +16,6 @@ private _unitCount = 0;
 			};
 		} forEach _units;
 	};
-} forEach AIS_groupTypes;
+} forEach BRM_FMK_AIS_groupTypes;
 
 _unitCount

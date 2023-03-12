@@ -1,6 +1,6 @@
 params ["_group","_zone","_waypointCount","_waypointSettings"];
 
-_waypointSettings = ([_waypointSettings,AIS_waypointSettings] call BRM_FMK_AIS_fnc_getById) select 1;
+_waypointSettings = ([_waypointSettings,BRM_FMK_AIS_waypointSettings] call BRM_FMK_AIS_fnc_getById) select 1;
 
 _waypointSettings params [
 	"_waypointRadius",

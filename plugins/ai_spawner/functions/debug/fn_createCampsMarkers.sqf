@@ -1,6 +1,6 @@
 params ["_id","_camps","_zone"];
 
-private _side = ([_id] call BRM_FMK_AIS_fnc_getSpawner) select AIS_SPAWNER_SIDE;
+private _side = ([_id] call BRM_FMK_AIS_fnc_getSpawner) select BRM_FMK_AIS_SPAWNER_SIDE;
 
 {
 	_x params ["_entity"];

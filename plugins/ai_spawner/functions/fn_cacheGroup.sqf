@@ -16,10 +16,10 @@ while {{alive _x} count (units _group) > 0} do {
 	} forEach _targetCheck;
 
 	{
-		private _cached = _x getVariable ["AIS_isCached",false];
+		private _cached = _x getVariable ["BRM_FMK_AIS_isCached",false];
 		private _isCacheable = [_x] call BRM_FMK_AIS_fnc_isCacheable;
 
-		if (!(_isCacheable) && _group getVariable ["AIS_groupDeployed",true]) then {
+		if (!(_isCacheable) && _group getVariable ["BRM_FMK_AIS_groupDeployed",true]) then {
 			if (_cached) then {
 				[_x,false] call BRM_FMK_AIS_fnc_cacheUnit;
 			};
@@ -34,7 +34,7 @@ while {{alive _x} count (units _group) > 0} do {
 			};
 			// update the position of the cached unit (only for infantry)
 			/*
-			if (_cached && vehicle _x == _x && _x getVariable ["AIS_setCachedPos",true]) then {
+			if (_cached && vehicle _x == _x && _x getVariable ["BRM_FMK_AIS_setCachedPos",true]) then {
 				private _position = (formationPosition _x);
 				_x setPosATL [(_position select 0),(_position select 1),0];
 			};

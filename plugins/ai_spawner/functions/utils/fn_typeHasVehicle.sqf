@@ -1,6 +1,6 @@
 params ["_type"];
 
-private _groupType = [_type,AIS_groupTypes] call BRM_FMK_AIS_fnc_getById;
+private _groupType = [_type,BRM_FMK_AIS_groupTypes] call BRM_FMK_AIS_fnc_getById;
 private _hasVehicle = false;
 
 // only check for land vehicle

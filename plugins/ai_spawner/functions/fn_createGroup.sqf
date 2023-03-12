@@ -10,7 +10,7 @@ _group deleteGroupWhenEmpty true;
 	if ( _type == _groupType ) then {
 		_groupUnits = _units;
 	};
-} forEach AIS_groupTypes;
+} forEach BRM_FMK_AIS_groupTypes;
 
 {
 	private _classname = if (typeName _x == "ARRAY") then {selectRandom _x} else {_x};

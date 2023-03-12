@@ -6,15 +6,15 @@ if (!mission_ai_controller) exitWith {};
 
 	sleep 1; // After briefing
 
-	AIS_spawners = [];
-	AIS_debug = !isMultiplayer;
+	BRM_FMK_AIS_spawners = [];
+	BRM_FMK_AIS_debug = !isMultiplayer;
 
-	if (AIS_debug) then {
+	if (BRM_FMK_AIS_debug) then {
 		0 spawn BRM_FMK_AIS_fnc_spawnersInfo;
 	};
 
 	{
-		missionNamespace setVariable ["AIS_SPAWNER_" + _x, _forEachIndex];
+		missionNamespace setVariable ["BRM_FMK_AIS_SPAWNER_" + _x, _forEachIndex];
 	} forEach [
 		"ID", "TYPE", "GROUPS", "SPAWN_COUNT", "SPAWN_LIMIT", "UNIT_TOTAL",
 		"GROUP_TOTAL", "SIDE", "LOADOUT", "CLEANUP", "CONDITIONS",
@@ -22,7 +22,7 @@ if (!mission_ai_controller) exitWith {};
 	];
 
 	{
-		missionNamespace setVariable ["AIS_" + _x, _settings select _forEachIndex];
+		missionNamespace setVariable ["BRM_FMK_AIS_" + _x, _settings select _forEachIndex];
 	} forEach [
 		"aiDeathSounds", "aiInfiniteAmmo", "aiSettingsAllMap", "cleanUpPlayerRadius", "stalkMaximumDistance", "garbageCollector",
 		"garbageCollectorVehicle", "infantryCacheDistance", "vehicleCacheDistance", "spawnerSettings", "waypointSettings",
@@ -30,8 +30,8 @@ if (!mission_ai_controller) exitWith {};
 	];
 
 	// public variables to be used by server side editor units
-	publicVariable "AIS_garbageCollector";
-	publicVariable "AIS_garbageCollectorVehicle";
+	publicVariable "BRM_FMK_AIS_garbageCollector";
+	publicVariable "BRM_FMK_AIS_garbageCollectorVehicle";
 
 	{
 		private _fnc = missionNamespace getVariable format ["BRM_FMK_AIS_fnc_%1Spawner", _x select 0];
@@ -40,7 +40,7 @@ if (!mission_ai_controller) exitWith {};
 		} else {
 			["[BrmFmk.AIS] Invalid spawner type in configuration: %1", _x select 0] call BIS_fnc_error;
 		};
-	} forEach AIS_aiSpawners;
+	} forEach BRM_FMK_AIS_aiSpawners;
 
 	0 spawn BRM_FMK_AIS_fnc_applyToAllAi;
 };

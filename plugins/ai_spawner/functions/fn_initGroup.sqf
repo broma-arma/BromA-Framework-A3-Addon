@@ -6,7 +6,7 @@ if (_disableLAMBS) then {
 	_group setVariable ["lambs_danger_disableGroupAI", true];
 };
 
-_aiSkill = ([_aiSkill,AIS_aiSkills] call BRM_FMK_AIS_fnc_getById) select 1;
+_aiSkill = ([_aiSkill,BRM_FMK_AIS_aiSkills] call BRM_FMK_AIS_fnc_getById) select 1;
 _group allowFleeing 0;
 
 {
@@ -16,7 +16,7 @@ _group allowFleeing 0;
 
 	_unit addEventHandler ["Killed",{_this spawn  BRM_FMK_AIS_fnc_garbageCollector}];
 
-	if (AIS_aiDeathSounds) then {
+	if (BRM_FMK_AIS_aiDeathSounds) then {
 		_unit addEventHandler ["Killed",{_this spawn BRM_FMK_AIS_fnc_eventKilled}];
 	};
 
@@ -37,7 +37,7 @@ _group allowFleeing 0;
 		_unit setSkill [_skillName,_skillValue];
 	} forEach _aiSkill;
 
-	if (AIS_aiInfiniteAmmo) then {
+	if (BRM_FMK_AIS_aiInfiniteAmmo) then {
 		_unit addEventHandler ["Reloaded", {
 			_this spawn BRM_FMK_AIS_fnc_eventReloaded;
 		}];
@@ -45,7 +45,7 @@ _group allowFleeing 0;
 
 } forEach units _group;
 
-if (AIS_debug) then {
+if (BRM_FMK_AIS_debug) then {
 	[_group,_type] spawn BRM_FMK_AIS_fnc_createGroupMarker;
 };
 

@@ -5,7 +5,7 @@ params [
 	"_eventWaypoint"
 ];
 
-_waypointSettings = (((AIS_waypointSettings select {_x select 0 == _waypointSettings}) select 0) select 1);
+_waypointSettings = (((BRM_FMK_AIS_waypointSettings select {_x select 0 == _waypointSettings}) select 0) select 1);
 
 _waypointSettings params [
 	"_waypointRadius",
