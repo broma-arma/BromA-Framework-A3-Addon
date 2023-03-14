@@ -13,20 +13,9 @@
 	11- conditions
 	12- reinforcements (ATTACK)
 */
-params ["_id","_values"];
+params ["_id", "_values"];
 
-
+private _spawner = [BRM_FMK_AIS_Spawners, _id] call BIS_fnc_getFromPairs;
 {
-	if (_id == _x select 0) then {
-
-		private _spawner = _x;
-		private _spawnerIndex = _forEachIndex;
-
-		{
-			_x params ["_index","_value"];
-			_spawner set [_index,_value];
-		} forEach _values;
-
-		BRM_FMK_AIS_Spawners set [_spawnerIndex,_spawner];
-	};
-} forEach BRM_FMK_AIS_Spawners;
+	_spawner set _x;
+} forEach _values;

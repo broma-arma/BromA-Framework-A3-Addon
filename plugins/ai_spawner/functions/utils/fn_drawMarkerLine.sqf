@@ -1,24 +1,16 @@
-params [
-	"_id",
-	"_start",
-	"_end",
-	"_color",
-	"_size"
-];
+// TODO Instead of rectangle marker, could use a polyline marker.
+params ["_id", "_start", "_end", "_color", "_size"];
 
-_start = [_start] call BRM_FMK_AIS_fnc_toPosition;
-_end = [_end] call BRM_FMK_AIS_fnc_toPosition;
+_start = [_start] call BRM_FMK_AIS_fnc_toPosition select [0, 2];
+_end = [_end] call BRM_FMK_AIS_fnc_toPosition select [0, 2];
+private _diff = _end vectorDiff _start;
 
-private _distance = sqrt(((_end select 0)-(_start select 0))^2+((_end select 1)-(_start select 1))^2) * 0.5;
-private _angle = ((_end select 0)-(_start select 0)) atan2 ((_end select 1)-(_start select 1));
-private _center = [(_start select 0)+sin(_angle)*_distance,(_start select 1)+cos(_angle)*_distance];
+private _distance = vectorMagnitude _diff * 0.5;
+private _angle = _diff#0 atan2 _diff#1;
+private _center = _start vectorAdd ([sin _angle, cos _angle] vectorMultiply _distance);
 
-private _marker = createMarker [format ["BRM_FMK_AIS_line_%1_%2_%3",_id,_start,_end],_center];
-_marker setMarkerDir _angle;
-_marker setMarkerPos _center;
-_marker setMarkerShape "RECTANGLE";
-_marker setMarkerBrush "SOLID";
-_marker setMarkerColor _color;
-_marker setMarkerSize [_size, _distance];
-
-_marker
+[global, format ["BRM_FMK_AIS_line_%1_%2_%3", _id, _start, _end], _center,
+	"RECTANGLE", "SOLID", nil,
+	_color, [_size, _distance], nil,
+	_angle
+] call BRM_FMK_fnc_newMarker

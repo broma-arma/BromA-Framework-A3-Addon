@@ -1,11 +1,14 @@
-params ["_unit","_cache"];
+params ["_unit", "_cache"];
 
-// true - cache, false - uncache
-[_unit,(!(_cache))] remoteExec ["enableSimulationGlobal",2];
-[_unit,_cache] remoteExec ["hideObjectGlobal",2];
+[_cache, {
+	_unit enableSimulationGlobal !_this;
+	_unit hideObjectGlobal _this;
+}] remoteExec ["call", 2];
 
-if (!_cache && vehicle _unit == _unit) then {
-	_unit setPosATL [((formationPosition _unit) select 0),((formationPosition _unit) select 1),0];
+if (!_cache && isNull objectParent _unit) then {
+	private _pos = formationPosition _unit;
+	_pos set [2, 0];
+	_unit setPosATL _pos; // TODO ATL would result in unit being placed inside rocks?
 };
 
-_unit setVariable ["BRM_FMK_AIS_isCached",_cache];
+_unit setVariable ["BRM_FMK_AIS_isCached", _cache];

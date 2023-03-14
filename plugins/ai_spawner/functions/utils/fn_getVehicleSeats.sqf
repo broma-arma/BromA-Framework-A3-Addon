@@ -1,4 +1,4 @@
-params ["_vehicleType","_excludedSeats","_vehicle"];
+params ["_vehicleType", ["_excludedSeats", [], [[]]], "_vehicle"];
 
 private _seats = [];
 private _seatTypes = [
@@ -7,18 +7,18 @@ private _seatTypes = [
 	"gunner",
 	"turret",
 	"cargo"
-];
+] - _excludedSeats;
 
-private _vehicleExists = if (isNil "_vehicle") then {false} else {true};
-_seatTypes = if (isNil "_excludedSeats") then {_seatTypes} else {_seatTypes - _excludedSeats};
+private _vehicleExists = !isNil "_vehicle";
 
 if (!_vehicleExists) then {
-	_vehicle = createVehicle [_vehicleType, [0,0,0], [], 20, "NONE"];
+	// TODO Config based `fullCrew`?
+	_vehicle = _vehicleType createVehicle [0, 0, 0];
 	_vehicle allowDamage false;
 };
 
 {
-	_seats = _seats + (fullCrew [_vehicle,_x,true]);
+	_seats append fullCrew [_vehicle, _x, true];
 } forEach _seatTypes;
 
 if (!_vehicleExists) then {

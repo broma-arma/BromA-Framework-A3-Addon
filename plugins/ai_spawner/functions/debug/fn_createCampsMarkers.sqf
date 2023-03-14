@@ -1,10 +1,12 @@
-params ["_id","_camps","_zone"];
+params ["_id", "_camps", "_zone"];
 
-private _side = ([_id] call BRM_FMK_AIS_fnc_getSpawner) select BRM_FMK_AIS_SPAWNER_SIDE;
+private _spawner = [_id] call BRM_FMK_AIS_fnc_getSpawner;
+private _side = _spawner select BRM_FMK_AIS_SPAWNER_SIDE;
+private _color = [_side, true] call BRM_FMK_AIS_fnc_getSideColor;
 
 {
-	_x params ["_entity"];
+	_x params ["_entity", "_type", "_spawns"];
 
-	private _marker = [_id,_entity,"loc_move",([_side,true] call BRM_FMK_AIS_fnc_getSideColor),""] call BRM_FMK_AIS_fnc_createIconMarker;
-	private _line = [_id,_entity,_zone,([_side,true] call BRM_FMK_AIS_fnc_getSideColor),2] call BRM_FMK_AIS_fnc_drawMarkerLine;
+	[_id, _entity, "loc_move", _color, format ["%1 (%2)", _type, _spawns]] call BRM_FMK_AIS_fnc_createIconMarker;
+	[_id, _entity, _zone, _color, 2] call BRM_FMK_AIS_fnc_drawMarkerLine;
 } forEach _camps;

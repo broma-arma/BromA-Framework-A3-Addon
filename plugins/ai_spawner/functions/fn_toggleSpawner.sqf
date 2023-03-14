@@ -1,27 +1,15 @@
-/*
-	state - true - force start spawner / false - force end spawner
-*/
 if (!mission_ai_controller) exitWith {};
 
-params ["_id","_state"];
+// state: force start/end spawner
+params ["_id", "_state"];
 
-private _spawner = [];
-private _spawnerIndex = 0;
-
-{
-	if (_x select 0 == _id) then {
-		_spawner = _x;
-		_spawnerIndex = _forEachIndex;
-	}
-} forEach BRM_FMK_AIS_spawners;
-
-if (count _spawner > 0) then {
+private _spawner = [_id] call BRM_FMK_AIS_fnc_getSpawner;
+if (!isNil "_spawner") then {
 	private _conditions = if (_state) then {
-		[{(true)},((_spawner select 11) select 1)];
+		[{true}, _spawner select BRM_FMK_AIS_SPAWNER_CONDITIONS select 1];
 	} else {
-		[((_spawner select 11) select 0),{(true)}];
+		[_spawner select BRM_FMK_AIS_SPAWNER_CONDITIONS select 0, {true}];
 	};
 
-	_spawner set [11,_conditions];
-	BRM_FMK_AIS_spawners set [_spawnerIndex,_spawner];
+	_spawner set [BRM_FMK_AIS_SPAWNER_CONDITIONS, _conditions];
 };

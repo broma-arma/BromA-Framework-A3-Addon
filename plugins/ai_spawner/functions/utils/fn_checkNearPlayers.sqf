@@ -1,15 +1,8 @@
-params ["_position","_radius",["_unit",objNull]];
+params ["_position", "_radius", ["_unit", objNull]];
 
-private _isPlayerNear = false;
-
-if (isNull _unit) then {
-	{
-		if (_x distance2D _position < _radius) then {
-			_isPlayerNear = true;
-		};
-	} forEach allPlayers;
-} else {
-	_isPlayerNear = (_unit distance2D _position < _radius)
-};
-
-_isPlayerNear
+private _distSqr = _radius ^ 2;
+(if (isNull _unit) then { allPlayers } else { [_unit] }) findIf {
+	private _pos = getPosWorld _x;
+	_pos set [2, 0];
+	_pos distanceSqr _position < _distSqr
+} != -1

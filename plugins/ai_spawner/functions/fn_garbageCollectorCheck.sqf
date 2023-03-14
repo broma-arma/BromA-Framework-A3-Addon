@@ -1,18 +1,16 @@
-params ["_object","_settings"];
+// delete the object after the minimum time when no players nearby, otherwise delete it after _maxTime has elapsed
 
-_settings params ["_minTime","_playerRadius","_maxTime"];
+params ["_object", "_settings"];
+
+_settings params ["_minTime", "_playerRadius", "_maxTime"];
 
 private _timeOfDeath = time;
 
-waitUntil{
-	(({isPlayer _x} count (_object nearEntities _playerRadius) == 0) || (time > _timeOfDeath+_maxTime))
+waitUntil {
+	{ isPlayer _x } count (_object nearEntities _playerRadius) == 0
+	|| time > _timeOfDeath + _maxTime // TODO Remove or add body/wreck limit before allowing this
 };
 
-/*
-if the object has no players nearby delete it after the minimum time,
-otherwise delete it right away when there's no players nearby
-*/
-
-if !(time > _timeOfDeath+_maxTime) then {
+if (time <= _timeOfDeath + _maxTime) then {
 	sleep _minTime;
 };

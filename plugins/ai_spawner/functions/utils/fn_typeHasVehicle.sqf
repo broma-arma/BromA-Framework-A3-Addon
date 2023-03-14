@@ -1,18 +1,9 @@
 params ["_type"];
 
-private _groupType = [_type,BRM_FMK_AIS_groupTypes] call BRM_FMK_AIS_fnc_getById;
-private _hasVehicle = false;
-
-// only check for land vehicle
-{
-	// if it's random  unit array
-	_units = if (typeName _x != "ARRAY") then {[_x]} else {_x};
-
-	{
-		if (_x isKindOf "LandVehicle") then {
-			_hasVehicle = true;
-		};
-	} forEach _units;
-} forEach (_groupType select 1);
-
-_hasVehicle;
+[BRM_FMK_AIS_groupTypes, _type] call BIS_fnc_getFromPairs findIf {
+	if (_x isEqualType []) then { // random unit array
+		_x findIf { _x isKindOf "LandVehicle" } != -1
+	} else {
+		_x isKindOf "LandVehicle"
+	}
+} != -1

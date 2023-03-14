@@ -60,7 +60,6 @@ class BRM_FMK_AIS {
 		class checkNearPlayers {};
 		class findPosition {};
 		class toPosition {};
-		class getById {};
 		class drawMarkerLine {};
 		class typeHasVehicle {};
 		class isCacheable {};

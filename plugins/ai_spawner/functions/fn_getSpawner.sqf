@@ -1,5 +1,7 @@
 params ["_id"];
 
-private _spawner = (BRM_FMK_AIS_spawners select {(_x select 0) == _id}) select 0;
+// TODO Change BRM_FMK_AIS_spawners to be in BIS_fnc_getFromPairs format
+private _index = BRM_FMK_AIS_spawners findIf { _x select 0 == _id };
+if (_index == -1) exitWith { nil };
 
-_spawner
+BRM_FMK_AIS_spawners select _index

@@ -1,19 +1,10 @@
 params ["_unit"];
 
-private _unitVehicle = (vehicle _unit);
+private _vehicle = objectParent _unit;
 
-private _cacheable = if (_unitVehicle isKindOf "StaticWeapon" && gunner (_unitVehicle) == _unit) then {
-	false
-} else {
-	if (_unit != _unitVehicle && (driver _unitVehicle) == _unit) then {
-		false
-	} else {
-		if (_unit == _unitVehicle && leader (group _unit) == _unit) then {
-			false
-		} else {
-			true
-		};
-	}
+if (isNull _vehicle) exitWith {
+	leader _unit != _unit
 };
 
-_cacheable
+// TODO Caching leader in vehicle will probably cause issues. Especially if leader is vehicle commander.
+driver _vehicle != _unit && { !(_vehicle isKindOf "StaticWeapon") && { gunner _vehicle != _unit }}

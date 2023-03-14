@@ -1,3 +1,4 @@
-params ["_stalker","_stalked"];
+params ["_stalker", "_stalked"];
 
+// TODO Might be better to just use own custom code for this 
 [_stalker, _stalked] spawn BIS_fnc_stalk;

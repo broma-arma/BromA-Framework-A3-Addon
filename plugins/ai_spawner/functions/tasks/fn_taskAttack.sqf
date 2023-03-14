@@ -1,38 +1,26 @@
 params [
 	"_group",
-	"_attackPosition",
+	"_position",
 	"_waypointSettings",
-	"_eventWaypoint"
+	"_onComplete"
 ];
 
-_waypointSettings = (((BRM_FMK_AIS_waypointSettings select {_x select 0 == _waypointSettings}) select 0) select 1);
-
-_waypointSettings params [
-	"_waypointRadius",
-	"_waypointSearchRadius",
-	"_waypointBehaviour",
-	"_waypointCombatMode",
-	"_waypointFormation",
-	"_waypointSpeed",
+[BRM_FMK_AIS_waypointSettings, _waypointSettings] call BIS_fnc_getFromPairs params [
+	"_radius",
+	"_searchRadius",
+	"_behaviour",
+	"_combat",
+	"_formation",
+	"_speed",
 	"_waypointCodeToExecute",
-	"_waypointTimeout"
+	"_timeout"
 ];
 
-_eventWaypoint = if (_eventWaypoint == "") then {
-	format ["[this, getPos (leader this), %1] call CBA_fnc_taskPatrol",_waypointSearchRadius];
-} else {
-	_eventWaypoint
+if (_onComplete == "") then {
+	// TODO Would a "SAD" waypoint be better?
+	//      If not, should change to use AIS's taskPatrol or use CBA's taskPatrol for all of AIS, so more consistent behavior.
+	_onComplete = format ["[group this, getPos this, %1] call CBA_fnc_taskPatrol", _searchRadius];
 };
 
-[
-	_group,
-	_attackPosition,
-	_waypointRadius,
-	"MOVE",
-	_waypointBehaviour,
-	_waypointCombatMode,
-	_waypointSpeed,
-	_waypointFormation,
-	_eventWaypoint,
-	_waypointTimeout
-] call CBA_fnc_addWaypoint;
+[_group, _position, _radius, "MOVE", _behaviour, _combat, _speed, _formation, _onComplete, _timeout] call CBA_fnc_addWaypoint;
+// TODO setWaypointForceBehaviour might be beneficial for more of a banzai style charge?

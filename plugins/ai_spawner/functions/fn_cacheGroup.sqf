@@ -1,47 +1,51 @@
-params ["_group","_cachingDistances"];
+params ["_group", ["_cachingDistances", [BRM_FMK_AIS_infantryCacheDistance, BRM_FMK_AIS_vehicleCacheDistance]]];
 
-_cachingDistances params ["_infantryDistance","_vehicleDistance"];
+private _distanceSqr = (_cachingDistances select !isNull objectParent leader _group) ^ 2;
 
-private _distance = if (vehicle (leader _group) == (leader _group)) then {_infantryDistance} else {_vehicleDistance};
-
-while {{alive _x} count (units _group) > 0} do {
-
+private _loop = true;
+while {_loop} do {
 	private _leader = leader _group;
-	private _units = units _group;
-	private _targetCheck = if (isMultiplayer) then {playableUnits} else {switchableUnits};
-	private _closeUnits = false;
+	// TODO 2d distance?
+	private _cacheUnits = (if (isMultiplayer) then {playableUnits} else {switchableUnits}) findIf { // Don't `select` units
+		_leader distanceSqr _x <= _distanceSqr
+	} == -1;
 
+	// TODO Add cooldown for re-caching, so don't end up repeatedly caching and recaching a group when players are on edge of cache distance?
+
+	_loop = false;
 	{
-		if ((getPos _leader) distance (getPos _x) <= _distance) then {_closeUnits = true};
-	} forEach _targetCheck;
+		if (alive _x) then {
+			_loop = true;
 
-	{
-		private _cached = _x getVariable ["BRM_FMK_AIS_isCached",false];
-		private _isCacheable = [_x] call BRM_FMK_AIS_fnc_isCacheable;
+			private _cached = _x getVariable ["BRM_FMK_AIS_isCached", false];
+			private _isCacheable = [_x] call BRM_FMK_AIS_fnc_isCacheable;
 
-		if (!(_isCacheable) && _group getVariable ["BRM_FMK_AIS_groupDeployed",true]) then {
-			if (_cached) then {
-				[_x,false] call BRM_FMK_AIS_fnc_cacheUnit;
+			// TODO This seems problematic
+			if (!_isCacheable && _group getVariable ["BRM_FMK_AIS_groupDeployed", true]) then {
+				if (_cached) then { // TODO ~~This shouldn't be possible?~~ Used by defense spawner for *delayed* spawning.
+					[_x, false] call BRM_FMK_AIS_fnc_cacheUnit;
+				};
+			} else {
+				if (_cached) then {
+					// uncache unit if players near
+					if (!_cacheUnits) then {
+						[_x, false] call BRM_FMK_AIS_fnc_cacheUnit;
+					};
+					// update the position of the cached unit (only for infantry)
+					/*
+					if (isNull objectParent _x && _x getVariable ["BRM_FMK_AIS_setCachedPos", true]) then {
+						private _position = formationPosition _x;
+						_position set [2, 0];
+						_x setPosATL _position; // TODO ATL would result in unit being placed inside rocks?
+					};
+					*/
+				} else if (_cacheUnits) then { // cache units if no players near
+					[_x, true] call BRM_FMK_AIS_fnc_cacheUnit;
+				};
 			};
-		} else {
-			// cache units if no players near
-			if (!_cached && !_closeUnits) then {
-				[_x,true] call BRM_FMK_AIS_fnc_cacheUnit;
-			};
-			// uncache unit if players near
-			if (_cached && _closeUnits) then {
-				[_x,false] call BRM_FMK_AIS_fnc_cacheUnit;
-			};
-			// update the position of the cached unit (only for infantry)
-			/*
-			if (_cached && vehicle _x == _x && _x getVariable ["BRM_FMK_AIS_setCachedPos",true]) then {
-				private _position = (formationPosition _x);
-				_x setPosATL [(_position select 0),(_position select 1),0];
-			};
-			*/
 		};
-
 	} forEach units _group;
 
+	// TODO Increase delay?
 	sleep 1;
 };

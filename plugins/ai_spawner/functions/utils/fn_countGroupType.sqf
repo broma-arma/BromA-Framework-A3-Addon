@@ -3,19 +3,21 @@ params ["_groupType"];
 private _unitCount = 0;
 
 {
-	_x params ["_type","_units"];
-
-	if (_type == _groupType) exitWith {
-		{
-			private _classname = if (typeName _x == "ARRAY") then {_x select 0} else {_x};
-
-			if (_classname isKindOf "Man") then {
-				_unitCount = _unitCount + 1;
+	if (_x isEqualType []) then {
+		_unitCount = _unitCount selectMax _x apply {
+			if (_x isKindOf "Man") then {
+				1
 			} else {
-				_unitCount = _unitCount + (count ([_classname,["cargo","turret"]] call BRM_FMK_AIS_fnc_getVehicleSeats));
-			};
-		} forEach _units;
+				count ([_x, ["cargo", "turret"]] call BRM_FMK_AIS_fnc_getVehicleSeats)
+			}
+		};
+	} else {
+		if (_x isKindOf "Man") then {
+			_unitCount = _unitCount + 1;
+		} else {
+			_unitCount = _unitCount + (count ([_x, ["cargo", "turret"]] call BRM_FMK_AIS_fnc_getVehicleSeats));
+		};
 	};
-} forEach BRM_FMK_AIS_groupTypes;
+} forEach [BRM_FMK_AIS_groupTypes, _groupType, []] call BIS_fnc_getFromPairs;
 
 _unitCount

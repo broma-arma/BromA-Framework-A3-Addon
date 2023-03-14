@@ -1,37 +1,23 @@
-params ["_id","_positions"];
-
 #define SPAWN_MARKER_ICON "loc_move"
 #define ATTACK_MARKER_ICON "mil_dot"
 
-private _side = ([_id] call BRM_FMK_AIS_fnc_getSpawner) select BRM_FMK_AIS_SPAWNER_SIDE;
+params ["_id", "_positions"];
+_positions params ["_spawnPositions", "_attackPosition"];
 
-BRM_FMK_AIS_fnc_createMarker = {
-	params ["_id","_entity","_icon","_side"];
-
-	private _position = [_entity] call BRM_FMK_AIS_fnc_toPosition;
-	private _marker = createMarker [_id, _position];
-
-	_marker setMarkerShape "ICON";
-	_marker setMarkerType _icon;
-	_marker setMarkerColor ([_side,true] call BRM_FMK_AIS_fnc_getSideColor);
-
-	_marker
-};
-
-_positions params ["_spawnPositions","_attackPosition"];
+private _side = [_id] call BRM_FMK_AIS_fnc_getSpawner select BRM_FMK_AIS_SPAWNER_SIDE;
 
 {
-	private _markerId = format ["BRM_FMK_AIS_%1_%2",_id,_x];
 	private _icon = "";
-
-	if (_forEachIndex == (count(_spawnPositions + [_attackPosition]) - 1)) then {
+	if (_forEachIndex == count _spawnPositions) then {
 		_icon = ATTACK_MARKER_ICON;
 	} else {
 		_icon = SPAWN_MARKER_ICON;
-		private _line = [_id,_x,_attackPosition,([_side,true] call BRM_FMK_AIS_fnc_getSideColor),2] call BRM_FMK_AIS_fnc_drawMarkerLine;
+		[_id, _x, _attackPosition, [_side, true] call BRM_FMK_AIS_fnc_getSideColor, 2] call BRM_FMK_AIS_fnc_drawMarkerLine;
 	};
 
-	if (!(_markerId in allMapMarkers)) then {
-		[_markerId,_x,_icon,_side] call BRM_FMK_AIS_fnc_createMarker;
+	private _markerId = format ["BRM_FMK_AIS_%1_%2", _id, _x];
+	if (markerShape _markerId == "ERROR") then { // TODO Test if `markerShape` returns `"ERROR"` when marker doesn't exist. If not, the following would work:
+	//if (getMarkerType _markerId == "") then {
+		[true, _markerId, _position, "ICON", nil, _icon, [_side, true] call BRM_FMK_AIS_fnc_getSideColor] call BRM_FMK_fnc_newMarker;
 	};
 } forEach _spawnPositions + [_attackPosition];

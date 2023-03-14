@@ -1,36 +1,28 @@
-params ["_spawnPosition","_groupType","_side"];
+params ["_spawnPosition", "_groupType", "_side"];
 
 private _group = createGroup [_side, true];
-private _groupUnits = [];
 
-_group deleteGroupWhenEmpty true;
+_group deleteGroupWhenEmpty true; // TODO Were there issues with just using the deleteWhenEmpty parameter in `createGroup`?
 
-{
-	_x params ["_type","_units"];
-	if ( _type == _groupType ) then {
-		_groupUnits = _units;
-	};
-} forEach BRM_FMK_AIS_groupTypes;
+private _groupUnits = [BRM_FMK_AIS_groupTypes, _groupType, []] call BIS_fnc_getFromPairs;
 
 {
-	private _classname = if (typeName _x == "ARRAY") then {selectRandom _x} else {_x};
+	// TODO Support selectRandomWeighted?
+	private _classname = if (_x isEqualType []) then {selectRandom _x} else {_x};
 
 	if (_classname isKindOf "Man") then {
-		private _unit = _group createUnit [_classname, _spawnPosition, [], 5, "NONE"];
+		_group createUnit [_classname, _spawnPosition, [], 0, "NONE"];
 	} else {
-
 		private _spawnType = "NONE";
-
 		if (_classname isKindOf "Air") then {
-			_spawnPosition = [_spawnPosition select 0, _spawnPosition select 1, 100];
-			_spawnType = "FLY";
+			_spawnPosition set [2, [100, 500] select (_classname isKindOf "Plane")];
+			_spawnType = "FLY"; // TODO This might conflict with the specified altitude or it might be irrelevant.
 		};
 
-		private _vehicle = createVehicle [_classname, _spawnPosition, [], 20, _spawnType];
+		private _vehicle = createVehicle [_classname, _spawnPosition, [], 0, _spawnType];
 		[_vehicle] spawn BRM_FMK_AIS_fnc_garbageCollector;
-		[_vehicle,_group] call BRM_FMK_AIS_fnc_createVehicleCrew;
+		[_vehicle, _group] call BRM_FMK_AIS_fnc_createVehicleCrew; // TODO Vehicle crew should be in a seperate group?
 	};
-
 } forEach _groupUnits;
 
 _group

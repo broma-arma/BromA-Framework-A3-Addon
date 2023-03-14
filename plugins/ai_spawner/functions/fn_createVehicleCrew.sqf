@@ -1,25 +1,29 @@
-params ["_vehicle","_group"];
+params ["_vehicle", "_group"];
 
-private _riflemanType = if (side _group == west) then {"B_Soldier_F"} else { if (side _group == east) then {"O_Soldier_F"} else {"I_Soldier_F"}};
-private _crewmanType = if (side _group == west) then {"B_Crew_F"} else { if (side _group == east) then {"O_Crew_F"} else {"I_Crew_F"}};
-private _pilotType = if (side _group == west) then {"B_helipilot_F"} else { if (side _group == east) then {"O_helipilot_F"} else {"I_helipilot_F"}};
-private _crewmanClassname = if (_vehicle isKindOf "LandVehicle") then {if (_vehicle isKindOf "Car") then {_riflemanType} else {_crewmanType}} else {_pilotType};
-private _vehicleSeats = [typeOf _vehicle,["cargo","turret"],_vehicle] call BRM_FMK_AIS_fnc_getVehicleSeats;
+private _sideIndex = [west, east, resistance] find side _group;
+if (_sideIndex == -1) exitWith {
+	["[BrmFmk.AIS] Cannot create vehicle crew for side %1 (%2, %3)", side _group, _vehicle, _group] call BIS_fnc_error;
+};
+
+private _sideChar = ["B", "O", "I"] select _sideIndex;
+private _riflemanType = _sideChar + "_Soldier_F";
+private _crewmanType = _sideChar + "_Crew_F";
+private _pilotType = _sideChar + "_helipilot_F";
+
+private _type = if (_vehicle isKindOf "LandVehicle") then {
+	[_crewmanType, _riflemanType] select (_vehicle isKindOf "Car")
+} else {
+	_pilotType
+};
 
 {
-	_x params ["_unit","_role","_cargoIndex","_turretPath","_personTurret"];
-
-	private _crewman = _group createUnit [_crewmanClassname, getPos _vehicle, [], 50, "NONE"];
-
-	switch (_role) do {
-		case "driver": { _crewman moveInDriver _vehicle};
-		case "commander": { _crewman moveInCommander _vehicle };
-		case "gunner": { _crewman moveInGunner _vehicle };
-		case "turret": { _crewman moveInTurret [_vehicle,_turretPath] };
+	_x params ["_unit", "_role", ""/*_cargoIndex*/, ""/*_turretPath*/, ""/*_personTurret*/, "_assignedUnit"/*, "_positionName"*/];
+	if (isNull _unit && isNull _assignedUnit && _role in ["driver", "commander", "gunner"]) {
+		private _unit = _group createUnit [_type, _vehicle, [], 0, "NONE"];
+		switch (_role) do {
+			case "driver":    { _unit moveInDriver _vehicle; };
+			case "commander": { _unit moveInCommander _vehicle; };
+			case "gunner":    { _unit moveInGunner _vehicle; };
+		};
 	};
-
-	if (vehicle _crewman == _crewman) then {
-		deleteVehicle _crewman;
-	};
-
-} forEach _vehicleSeats;
+} forEach ([typeOf _vehicle, ["cargo", "turret"], _vehicle] call BRM_FMK_AIS_fnc_getVehicleSeats);
