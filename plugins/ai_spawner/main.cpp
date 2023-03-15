@@ -11,7 +11,3 @@
 #ifdef BRM_PLUGIN_FUNCTIONS
 	#include "Functions.cpp"
 #endif
-
-#ifdef BRM_PLUGIN_SOUNDS
-	#include "sounds\classes.cpp"
-#endif

@@ -55,7 +55,6 @@ class CfgFunctions {
 };
 
 class CfgSounds {
-    //sounds[] = {}; // TODO This might be needed, test
 	#define BRM_PLUGIN_SOUNDS
 		#include "plugins\plugins.cpp"
 	#undef BRM_PLUGIN_SOUNDS
