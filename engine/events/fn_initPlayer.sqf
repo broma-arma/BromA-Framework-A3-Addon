@@ -30,7 +30,9 @@ waitUntil { player == player && !isNull player };
 
 private _playerLog = format ["INITIALIZING PLAYER '%1' (%2)", name player, player];
 ["LOCAL", "F_LOG", _playerLog] call BRM_FMK_fnc_doLog;
-["SERVER", "F_LOG", _playerLog] call BRM_FMK_fnc_doLog;
+if (!isServer) then {
+    ["SERVER", "F_LOG", _playerLog] call BRM_FMK_fnc_doLog;
+};
 
 // Assigns JIP status. =========================================================
 
