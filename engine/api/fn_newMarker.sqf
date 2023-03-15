@@ -68,7 +68,7 @@ if (_global) then {
 	if (_brush != "Solid") then { _name setMarkerBrush _brush; };
 	if (_type != "") then { _name setMarkerType _type; };
 	if (_color != "") then { _name setMarkerColor _color; };
-	if !(_size isEqualTo [1, 1]) then { _name setMarkerSize _size; };
+	if (_size isNotEqualTo [1, 1]) then { _name setMarkerSize _size; };
 	if (_text != "") then { _name setMarkerText _text; };
 	if (_dir != 0) then { _name setMarkerDir _dir; };
 	if (_alpha != 1) then { _name setMarkerAlpha _alpha; };
@@ -78,7 +78,7 @@ if (_global) then {
 	if (_brush != "Solid") then { _name setMarkerBrushLocal _brush; };
 	if (_type != "") then { _name setMarkerTypeLocal _type; };
 	if (_color != "") then { _name setMarkerColorLocal _color; };
-	if !(_size isEqualTo [1, 1]) then { _name setMarkerSizeLocal _size; };
+	if (_size isNotEqualTo [1, 1]) then { _name setMarkerSizeLocal _size; };
 	if (_text != "") then { _name setMarkerTextLocal _text; };
 	if (_dir != 0) then { _name setMarkerDirLocal _dir; };
 	if (_alpha != 1) then { _name setMarkerAlphaLocal _alpha; };

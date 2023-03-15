@@ -30,7 +30,7 @@ params ["_unit", "_items"];
 {
 	_x params ["_item", "_amount"];
 
-	if !(_item isEqualTo "") then {
+	if (_item isNotEqualTo "") then {
 		for "_i" from 1 to _amount do {
 			if !(_unit canAddItemToUniform _item) exitWith {};
 

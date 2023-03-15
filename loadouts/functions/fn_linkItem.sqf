@@ -28,7 +28,7 @@ RETURNS:
 params ["_unit", "_items"];
 
 {
-	if !(_x isEqualTo "") then {
+	if (_x isNotEqualTo "") then {
 		_unit linkItem _x;
 	};
 } forEach _items;

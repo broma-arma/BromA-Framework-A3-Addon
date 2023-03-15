@@ -18,7 +18,7 @@ private _startCondition = {(call TFAR_fnc_haveSWRadio)
 		private _groupFrequencies = (group player getVariable _groupVarName) select 2;
 		{
 			private _settings = _x call _fnc_getSettings;
-			if !((_settings select 2) isEqualTo _groupFrequencies) then {
+			if ((_settings select 2) isNotEqualTo _groupFrequencies) then {
 				_settings set [2, _groupFrequencies];
 				[_x, _settings] call _fnc_setSettings;
 			};

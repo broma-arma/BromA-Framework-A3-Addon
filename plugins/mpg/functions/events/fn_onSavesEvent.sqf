@@ -64,10 +64,10 @@ switch (_event) do {
 			private _lbIndex = _ctrlList lbAdd _name;
 			_ctrlList lbSetPicture [_lbIndex, _picture];
 			_ctrlList lbSetValue [_lbIndex, _value];
-			if !(_tooltip isEqualTo "") then {
+			if (_tooltip isNotEqualTo "") then {
 				_ctrlList lbSetTooltip [_lbIndex, _tooltip];
 			};
-			if !(_color isEqualTo []) then {
+			if (_color isNotEqualTo []) then {
 				_ctrlList lbSetColor [_lbIndex, _color];
 			};
 		} forEach _savesSort;

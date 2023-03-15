@@ -106,7 +106,7 @@ switch (_command) do {
 						default { ["[WARN ] [DAC Plugin] Unknown group type '%1', defaulting to 'infantry'", _typeStr] call BIS_fnc_error; 0 };
 					};
 
-					if !(_units select _type isEqualTo []) then {
+					if (_units select _type isNotEqualTo []) then {
 						["[WARN ] [DAC Plugin] Duplicate group type '%1', overrides previous definition", _typeStr] call BIS_fnc_error;
 					};
 
