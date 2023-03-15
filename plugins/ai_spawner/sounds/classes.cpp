@@ -1,6 +1,7 @@
+#define QUOTE(var1) #var1
 #define SOUND(NAME) class BRM_FMK_AIS_sound_##NAME {\
 	name = #NAME;\
-	sound[] = {"\mission\custom-scripts\ai_spawner\sounds\##NAME##.ogg", 50, 1};\
+	sound[] = {QUOTE(\broma_framework\plugins\ai_spawner\sounds\NAME.ogg), 50, 1};\
 	titles[] = {};\
 }
 
