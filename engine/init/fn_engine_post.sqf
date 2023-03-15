@@ -74,8 +74,9 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	{
 		private _plugin = _x;
 		{
-			if (!isNil _x && { _x isEqualType {} }) then {
-				_postInitArgs call (missionNamespace getVariable _x);
+			private _fnc = missionNamespace getVariable _x;
+			if (!isNil "_fnc" && { _fnc isEqualType {} }) then {
+				_postInitArgs call _fnc;
 			} else {
 				["[BromA Framework] Internal Error: Missing %1 plugin postInit function, %2.", _plugin, _x] call BIS_fnc_error;
 			};
