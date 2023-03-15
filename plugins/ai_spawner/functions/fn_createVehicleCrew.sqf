@@ -18,7 +18,7 @@ private _type = if (_vehicle isKindOf "LandVehicle") then {
 
 {
 	_x params ["_unit", "_role", ""/*_cargoIndex*/, ""/*_turretPath*/, ""/*_personTurret*/, "_assignedUnit"/*, "_positionName"*/];
-	if (isNull _unit && isNull _assignedUnit && _role in ["driver", "commander", "gunner"]) {
+	if (isNull _unit && isNull _assignedUnit && _role in ["driver", "commander", "gunner"]) then {
 		private _unit = _group createUnit [_type, _vehicle, [], 0, "NONE"];
 		switch (_role) do {
 			case "driver":    { _unit moveInDriver _vehicle; };
