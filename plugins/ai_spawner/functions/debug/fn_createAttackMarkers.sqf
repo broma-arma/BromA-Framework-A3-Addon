@@ -16,8 +16,7 @@ private _side = [_id] call BRM_FMK_AIS_fnc_getSpawner select BRM_FMK_AIS_SPAWNER
 	};
 
 	private _markerId = format ["BRM_FMK_AIS_%1_%2", _id, _x];
-	if (markerShape _markerId == "ERROR") then { // TODO Test if `markerShape` returns `"ERROR"` when marker doesn't exist. If not, the following would work:
-	//if (getMarkerType _markerId == "") then {
+	if (getMarkerType _markerId == "") then {
 		[true, _markerId, _position, "ICON", nil, _icon, [_side, true] call BRM_FMK_AIS_fnc_getSideColor] call BRM_FMK_fnc_newMarker;
 	};
 } forEach _spawnPositions + [_attackPosition];
