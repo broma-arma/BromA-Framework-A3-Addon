@@ -93,7 +93,17 @@ if (isServer) then {
 			if (_name != "") then {
 				_groupVars select _sideIndex pushBack _name;
 			} else {
-				["[BromA Framework] Error: Group ""%1"" doesn't have a variable name.", _squadName] call BIS_fnc_error;
+				private _cfgEntities = _cfgItem >> "Entities";
+				private _groupPlayable = for "_i" from 0 to getNumber (_cfgEntities >> "items") - 1 do {
+					private _cfgEntity = _cfgEntities >> format ["Item%1", _i];
+					if (getNumber (_cfgEntity >> "Attributes" >> "isPlayable") == 1) exitWith {
+						_groupPlayable = true;
+					};
+					false
+				};
+				if (_groupPlayable) then {
+					["[BromA Framework] Error: Group ""%1"" on side %2 doesn't have a variable name. (Item%3)", _squadName, _sideStrs select _sideIndex, _i] call BIS_fnc_error;
+				};
 			};
 		};
 	};
