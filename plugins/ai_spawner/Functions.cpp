@@ -22,6 +22,7 @@ class BRM_FMK_AIS {
 
 	class spawners {
 		file = "\broma_framework\plugins\ai_spawner\functions\spawners";
+		class spawner {};
 		class attackSpawner {};
 		class defenseSpawner {};
 		class stalkSpawner {};

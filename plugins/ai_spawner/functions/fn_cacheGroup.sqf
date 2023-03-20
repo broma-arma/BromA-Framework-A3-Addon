@@ -1,3 +1,5 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_group", ["_cachingDistances", [BRM_FMK_AIS_infantryCacheDistance, BRM_FMK_AIS_vehicleCacheDistance]]];
 
 private _distanceSqr = (_cachingDistances select !isNull objectParent leader _group) ^ 2;
@@ -39,9 +41,11 @@ while {_loop} do {
 						_x setPosATL _position; // TODO ATL would result in unit being placed inside rocks?
 					};
 					*/
-				} else if (_cacheUnits) then { // cache units if no players near
-					[_x, true] call BRM_FMK_AIS_fnc_cacheUnit;
-				};
+				} else {
+					if (_cacheUnits) then { // cache units if no players near
+						[_x, true] call BRM_FMK_AIS_fnc_cacheUnit;
+					};
+				}
 			};
 		};
 	} forEach units _group;

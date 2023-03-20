@@ -1,8 +1,10 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_id", "_zone"];
 
 private _spawner = [_id] call BRM_FMK_AIS_fnc_getSpawner;
 
-private _groups = _spawner select BRM_FMK_AIS_SPAWNER_GROUPS;
+private _groups = _spawner get "groups";
 
 private _totalUnits = 0;
 private _uncachedUnits = 0;

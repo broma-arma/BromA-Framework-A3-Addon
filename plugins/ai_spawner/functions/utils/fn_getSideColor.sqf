@@ -1,3 +1,5 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_side", ["_primaryColors", false]];
 
 switch (_side) do {

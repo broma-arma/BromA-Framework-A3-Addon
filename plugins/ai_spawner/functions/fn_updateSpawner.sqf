@@ -13,9 +13,11 @@
 	11- conditions
 	12- reinforcements (ATTACK)
 */
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_id", "_values"];
 
-private _spawner = [BRM_FMK_AIS_Spawners, _id] call BIS_fnc_getFromPairs;
+private _spawner = [_id] call BRM_FMK_AIS_fnc_getSpawner;
 {
-	_spawner set _x;
+	_spawner setVariable _x;
 } forEach _values;

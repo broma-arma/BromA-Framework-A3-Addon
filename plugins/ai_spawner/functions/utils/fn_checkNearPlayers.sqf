@@ -1,3 +1,5 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_position", "_radius", ["_unit", objNull]];
 
 private _distSqr = _radius ^ 2;

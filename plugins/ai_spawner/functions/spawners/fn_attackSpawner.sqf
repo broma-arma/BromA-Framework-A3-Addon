@@ -1,4 +1,6 @@
 // TODO Merge attack, defense, and stalk spawner code into a single function.
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 if (!mission_ai_controller) exitWith {};
 
 params [
@@ -21,15 +23,15 @@ _positions params ["_spawnPositions", "_attackPosition"];
 _events params ["_eventStart", "_eventEnd", "_eventEachWave", "_eventEndWaypoint"];
 
 _eventStart = if (_eventStart isEqualType "") then { compile _eventStart } else { _eventStart };
-_eventEachWave = if (_eventEachWave isEqualType "") then { compile _eventEachWave } else { _eventEachWave };
 _eventEnd = if (_eventEnd isEqualType "") then { compile _eventEnd } else { _eventEnd };
+_eventEachWave = if (_eventEachWave isEqualType "") then { compile _eventEachWave } else { _eventEachWave };
 
 _settings = [BRM_FMK_AIS_spawnerSettings, _settings] call BIS_fnc_getFromPairs;
-_settings params ["_cleanup", "_safeSpawnDistance", "_disableLAMBS", "_aiAggressive", "_disableCaching", "_aiSkill"];
+_settings params ["_cleanup", "_safeSpawnDistance", "_disableLAMBS", "_aiAggressive", "_caching", "_cachingDistances", "_aiSkill"];
 
 private _spawnedGroups = [];
 private _spawnCount = 0;
-private _spawnLimit = 9999; // TODO Why 9999?
+private _spawnLimit = -1;
 private _spawnerType = ["ATTACK", "STALK"] select (_attackPosition isEqualType grpNull);
 private _spawnRadius = [0, _spawnPositions] select (_spawnerType == "STALK" && _spawnPositions isEqualType 0);
 private _groupSize = [_groupType] call BRM_FMK_AIS_fnc_countGroupType;
@@ -41,21 +43,21 @@ sleep _startDelay;
 
 if (_endCondition isEqualType 0) then {
 	_spawnLimit = _endCondition;
-	_endCondition = { _spawnCount > _spawnLimit };
+	_endCondition = { _spawnLimit != -1 && { _spawnCount > _spawnLimit } };
 };
 
 BRM_FMK_AIS_Spawners pushBack [
 	_id,
-	_spawnerType,
-	_spawnedGroups,
-	_spawnCount,
-	_spawnLimit,
-	_unitTotal,
-	_groupTotal,
-	_side,
-	_loadout,
-	_cleanup,
-	_conditions
+	_spawnerType, // "ATTACK", "STALK"
+	_spawnedGroups, // [[_groupType, _group], ...]
+	_spawnCount, // Total number of groups spawned
+	_spawnLimit, // Max number of groups that can be spawned (-1 for no limit)
+	_unitTotal, // Max number of units that can be active
+	_groupTotal, // Max number of groups that can be active
+	_side, // Side
+	_loadout, // Loadout
+	_cleanup, // Auto-cleanup
+	_conditions // Spawner start and end conditions
 ];
 
 if (BRM_FMK_AIS_debug) then {
@@ -70,7 +72,7 @@ _attackPosition = [_attackPosition] call BRM_FMK_AIS_fnc_toPosition;
 
 while {!call _endCondition} do {
 	{
-		if (_spawnCount > _spawnLimit) exitWith {};
+		if (_spawnLimit != -1 && { _spawnCount > _spawnLimit }) exitWith {};
 
 		waitUntil {
 			private _activeUnits = 0;
@@ -79,7 +81,7 @@ while {!call _endCondition} do {
 			_endCondition = (([_id] call BRM_FMK_AIS_fnc_getSpawner) select BRM_FMK_AIS_SPAWNER_CONDITIONS) select 1;
 			if (_endCondition isEqualType 0) then {
 				_spawnLimit = _endCondition;
-				_endCondition = { _spawnCount > _spawnLimit };
+				_endCondition = { _spawnLimit != -1 && { _spawnCount > _spawnLimit } };
 			};
 
 			{
@@ -96,9 +98,9 @@ while {!call _endCondition} do {
 
 			[_id, [
 				[BRM_FMK_AIS_SPAWNER_GROUPS, _spawnedGroups],
-				[BRM_FMK_AIS_SPAWNER_SPAWN_COUNT, _spawnCount], // TODO This value isn't used anywhere, perhaps for debugging or future use? Why is this updated here?
-				[BRM_FMK_AIS_SPAWNER_UNIT_TOTAL, _unitTotal], // TODO This value isn't used anywhere, perhaps for debugging or future use? Why is this updated, it isn't modified here.
-				[BRM_FMK_AIS_SPAWNER_GROUP_TOTAL, _groupTotal] // TODO This value isn't used anywhere, perhaps for debugging or future use?
+				[BRM_FMK_AIS_SPAWNER_SPAWN_COUNT, _spawnCount], // TODO Why is this updated here? (Used in fnc_spawnersInfo)
+				[BRM_FMK_AIS_SPAWNER_UNIT_TOTAL, _unitTotal], // TODO Why is this updated, it isn't modified here. (Used in fnc_spawnersInfo)
+				[BRM_FMK_AIS_SPAWNER_GROUP_TOTAL, _groupTotal] // TODO Not used anywhere, potentially for use in fnc_spawnersInfo
 			]] call BRM_FMK_AIS_fnc_updateSpawner;
 
 			sleep 0.05;
@@ -119,7 +121,7 @@ while {!call _endCondition} do {
 			_spawnedGroups append [[_groupType, _group]];
 			_spawnCount = _spawnCount + 1;
 
-			sleep 0.05;
+			sleep 0.01;
 
 			if (!isNil "_eventStart" && (_spawnCount * _groupSize) % _unitTotal == 0) then { // TODO This would result in _eventStart being called at wave end?
 				0 spawn _eventStart;

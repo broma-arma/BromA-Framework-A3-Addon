@@ -1,10 +1,15 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_spawnPosition", "_groupType", "_side"];
 
 private _group = createGroup [_side, true];
 
-_group deleteGroupWhenEmpty true; // TODO Were there issues with just using the deleteWhenEmpty parameter in `createGroup`?
-
-private _groupUnits = [BRM_FMK_AIS_groupTypes, _groupType, []] call BIS_fnc_getFromPairs;
+if (_groupType isEqualType "") then {
+	_group setVariable ["BRM_FMK_AIS_groupType", _groupType];
+	_groupType = BRM_FMK_AIS_groupTypes get _groupType;
+} else {
+	_group setVariable ["BRM_FMK_AIS_groupType", keys BRM_FMK_AIS_groupTypes select (values BRM_FMK_AIS_groupTypes find _groupType)];
+};
 
 {
 	// TODO Support selectRandomWeighted?
@@ -22,7 +27,8 @@ private _groupUnits = [BRM_FMK_AIS_groupTypes, _groupType, []] call BIS_fnc_getF
 		private _vehicle = createVehicle [_classname, _spawnPosition, [], 0, _spawnType];
 		[_vehicle] spawn BRM_FMK_AIS_fnc_garbageCollector;
 		[_vehicle, _group] call BRM_FMK_AIS_fnc_createVehicleCrew; // TODO Vehicle crew should be in a seperate group?
+		//[_group, _groupType, _side, _spawnPosition] spawn BRM_FMK_AIS_fnc_checkBadSpawn;
 	};
-} forEach _groupUnits;
+} forEach _groupType;
 
 _group

@@ -5,6 +5,7 @@
 		authors[] = {"Royal"};
 		description = "Spawn AI.";
 		postInit[] = {"BRM_FMK_AIS_fnc_postInit"};
+		//requiredPlugins[] = { "headless_client" };
 	};
 #endif
 

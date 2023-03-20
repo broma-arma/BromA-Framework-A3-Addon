@@ -1,3 +1,5 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 if (!mission_ai_controller) exitWith {};
 
 private _playerGroups = allPlayers apply { group _x };
@@ -11,6 +13,7 @@ _playerGroups = _playerGroups arrayIntersect _playerGroups;
 				switch (_forEachIndex) do {
 					// TODO Should AIS caching affect editor units?
 					// TODO Check locality issues of caching server units on HC.
+					// TODO Should not cache groups or units that have a variable name assigned.
 					case 0: { // caching
 						_group deleteGroupWhenEmpty true;
 						[_group] spawn BRM_FMK_AIS_fnc_cacheGroup;

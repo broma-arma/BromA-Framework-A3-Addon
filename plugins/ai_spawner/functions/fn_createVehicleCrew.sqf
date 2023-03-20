@@ -1,3 +1,5 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_vehicle", "_group"];
 
 private _sideIndex = [west, east, resistance] find side _group;
@@ -16,6 +18,7 @@ private _type = if (_vehicle isKindOf "LandVehicle") then {
 	_pilotType
 };
 
+// TODO Should sort unit creation based on leadership priority. E.g. "commander" > "gunner" > "turret" (Non-FFV) > "driver" > "cargo"
 {
 	_x params ["_unit", "_role", ""/*_cargoIndex*/, ""/*_turretPath*/, ""/*_personTurret*/, "_assignedUnit"/*, "_positionName"*/];
 	if (isNull _unit && isNull _assignedUnit && _role in ["driver", "commander", "gunner"]) then {

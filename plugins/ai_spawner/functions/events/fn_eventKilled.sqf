@@ -1,3 +1,5 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_unit", "_killer", "_instigator", "_useEffects"];
 
 if (random 1 >= 0.5) then {

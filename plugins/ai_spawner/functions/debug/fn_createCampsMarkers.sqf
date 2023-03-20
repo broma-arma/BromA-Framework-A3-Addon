@@ -1,7 +1,9 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_id", "_camps", "_zone"];
 
 private _spawner = [_id] call BRM_FMK_AIS_fnc_getSpawner;
-private _side = _spawner select BRM_FMK_AIS_SPAWNER_SIDE;
+private _side = _spawner getVariable "side";
 private _color = [_side, true] call BRM_FMK_AIS_fnc_getSideColor;
 
 {

@@ -1,3 +1,7 @@
+// TODO This doesn't work as intended, fix it
+
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 if (!mission_ai_controller) exitWith {};
 
 // state: force start/end spawner

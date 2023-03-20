@@ -1,3 +1,5 @@
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_group", "_loadout", "_type", "_settings"];
 
 _settings params ["_cleanup", "_safeSpawnDistance", "_disableLAMBS", "_aiAggressive", "_caching", "_cachingDistances", "_aiSkill"];
@@ -6,13 +8,15 @@ if (_disableLAMBS) then {
 	_group setVariable ["lambs_danger_disableGroupAI", true];
 };
 
-_aiSkill = [BRM_FMK_AIS_aiSkills, _aiSkill] call BIS_fnc_getFromPairs;
+if (_aiSkill isEqualType "") then {
+	_aiSkill = BRM_FMK_AIS_aiSkills get _aiSkill;
+};
 _group allowFleeing 0;
 
 {
 	private _unit = _x;
 
-	[_unit, _loadout] call BRM_fnc_initAI;
+	[_unit, _loadout] call BRM_FMK_fnc_initAI;
 
 	_unit addEventHandler ["Killed", {_this spawn BRM_FMK_AIS_fnc_garbageCollector}];
 
@@ -45,7 +49,7 @@ _group allowFleeing 0;
 } forEach units _group;
 
 if (BRM_FMK_AIS_debug) then {
-	[_group, _type] spawn BRM_FMK_AIS_fnc_createGroupMarker;
+	[_group] spawn BRM_FMK_AIS_fnc_createGroupMarker;
 };
 
 if (_caching) then {

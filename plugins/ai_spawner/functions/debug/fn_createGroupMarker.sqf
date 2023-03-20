@@ -1,10 +1,13 @@
-params ["_group", ["_type", ""]];
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
+params ["_group"];
 
 #define GRUNT_MARKER_SIZE [0.5, 0.5]
 #define SL_MARKER_SIZE [0.85, 0.85]
 
 private _color = [side _group] call BRM_FMK_AIS_fnc_getSideColor;
 
+private _type = _group getVariable ["BRM_FMK_AIS_groupType", ""];
 if (_type isNotEqualTo "") then {
 	_type = _type + " ";
 };
@@ -19,7 +22,7 @@ if (_type isNotEqualTo "") then {
 		params ["_unit", "_marker", "_type"];
 
 		private _group = group _unit;
-		private _wasLeader = leader _group;
+		private _wasLeader = _unit == leader _group;
 
 		if (_wasLeader) then {
 			_marker setMarkerSize SL_MARKER_SIZE;

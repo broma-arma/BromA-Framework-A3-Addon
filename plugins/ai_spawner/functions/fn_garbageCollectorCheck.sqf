@@ -1,5 +1,7 @@
 // delete the object after the minimum time when no players nearby, otherwise delete it after _maxTime has elapsed
 
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 params ["_object", "_settings"];
 
 _settings params ["_minTime", "_playerRadius", "_maxTime"];

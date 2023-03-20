@@ -1,4 +1,6 @@
 // TODO Merge attack, defense, and stalk spawner code into a single function.
+diag_log text format ["%1: %2", _fnc_scriptName, _this];
+
 if (!mission_ai_controller) exitWith {};
 
 params [
@@ -25,11 +27,11 @@ _eventEachWave = if (_eventEachWave isEqualType "") then { compile _eventEachWav
 _eventEnd = if (_eventEnd isEqualType "") then { compile _eventEnd } else { _eventEnd };
 
 _settings = [BRM_FMK_AIS_spawnerSettings, _settings] call BIS_fnc_getFromPairs;
-_settings params ["_cleanup", "_safeSpawnDistance", "_disableLAMBS", "_aiAggressive", "_disableCaching", "_aiSkill"];
+_settings params ["_cleanup", "_safeSpawnDistance", "_disableLAMBS", "_aiAggressive", "_caching", "_cachingDistances", "_aiSkill"];
 
 private _spawnedGroups = [];
 private _spawnCount = 0;
-private _spawnLimit = 9999; // TODO Why 9999?
+private _spawnLimit = -1;
 private _spawnerType = "STALK";
 private _spawnRadius = [0, _spawnPositions] select (_spawnPositions isEqualType 0);
 private _groupSize = [_groupType] call BRM_FMK_AIS_fnc_countGroupType;
@@ -41,7 +43,7 @@ sleep _startDelay;
 
 if (_endCondition isEqualType 0) then {
 	_spawnLimit = _endCondition;
-	_endCondition = { _spawnCount > _spawnLimit };
+	_endCondition = { _spawnLimit != -1 && { _spawnCount > _spawnLimit } };
 };
 
 BRM_FMK_AIS_Spawners pushBack [
@@ -71,7 +73,7 @@ while {!call _endCondition} do {
 	};
 
 	{
-		if (_spawnCount > _spawnLimit) exitWith {};
+		if (_spawnLimit != -1 && { _spawnCount > _spawnLimit }) exitWith {};
 
 		waitUntil {
 			private _activeUnits = 0;
@@ -101,9 +103,9 @@ while {!call _endCondition} do {
 				_id,
 				[
 					[BRM_FMK_AIS_SPAWNER_GROUPS, _spawnedGroups],
-					[BRM_FMK_AIS_SPAWNER_SPAWN_COUNT, _spawnCount], // TODO This value isn't used anywhere, perhaps for debugging or future use?
-					[BRM_FMK_AIS_SPAWNER_UNIT_TOTAL, _unitTotal], // TODO This value isn't used anywhere, perhaps for debugging or future use? Why is this updated, it isn't modified here.
-					[BRM_FMK_AIS_SPAWNER_GROUP_TOTAL, _groupTotal] // TODO This value isn't used anywhere, perhaps for debugging or future use?
+					[BRM_FMK_AIS_SPAWNER_SPAWN_COUNT, _spawnCount], // Used in fnc_spawnersInfo
+					[BRM_FMK_AIS_SPAWNER_UNIT_TOTAL, _unitTotal], // TODO Why is this updated, it isn't modified here. (Used in fnc_spawnersInfo)
+					[BRM_FMK_AIS_SPAWNER_GROUP_TOTAL, _groupTotal] // TODO Not used anywhere, potentially for use in fnc_spawnersInfo
 				]
 			] call BRM_FMK_AIS_fnc_updateSpawner;
 
