@@ -44,7 +44,7 @@ RETURNS:
 				format ["<font size='16' face='RobotoCondensedBold'>%1 - v%2 (local v%3)</font>",
 					getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "versionDesc"),
 					getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "version"),
-					call compile preprocessFile "framework\local_version.txt"
+					BRM_version joinString "."
 				],
 				format ["Initialized in %1 seconds.", framework_init_time],
 				"",
