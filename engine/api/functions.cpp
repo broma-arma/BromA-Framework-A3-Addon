@@ -23,6 +23,7 @@ class api {
 	class reachTarget{};
 	class checkCasualties{};
 	class hasActiveCrew{};
+	class clearWaypoints{};
 };
 
 class api_zeus {
