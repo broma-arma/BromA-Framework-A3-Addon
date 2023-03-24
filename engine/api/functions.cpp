@@ -22,6 +22,7 @@ class api {
 	class teamsExist{};
 	class reachTarget{};
 	class checkCasualties{};
+	class hasActiveCrew{};
 };
 
 class api_zeus {
