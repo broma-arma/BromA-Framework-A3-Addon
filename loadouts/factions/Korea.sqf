@@ -5,7 +5,7 @@
 
 _factionID = "ROKA";
 _factionName = "ROK Army";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH-TIER-CCO";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -13,7 +13,7 @@ _defaultSide = WEST;
 _defaultVoice = [_voiceAMERICAN];
 _defaultFace = [_faceASIAN];
 _defaultName = [_nameAMERICAN];
-_defaultInsignia = "USP_PATCH_USA_USMC";
+_defaultInsignia = "USP_PATCH_ROK_ARMY_9INF_DIV";
 _defaultColor = "blue";
 
 /*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
@@ -39,7 +39,7 @@ if (_camo == "ROKMC") then {
 // WEAPONS =====================================================================
 
 _commonRIFLE = ["BRM_K2","rhs_mag_30Rnd_556x45_M855_Stanag"];
-_reconRIFLE = ["R3F_SCAR_L_CQC_CAM","rhs_mag_30Rnd_556x45_M855_Stanag"];
+_reconRIFLE = ["BRM_K2C1","rhs_mag_30Rnd_556x45_M855_Stanag"];
 _commonRIFLEGL = ["BRM_K2GL","rhs_mag_30Rnd_556x45_M855_Stanag","1Rnd_HE_Grenade_shell"];
 _commonPISTOL = _P228;
 _commonAR = _FNMINIMI;
@@ -51,10 +51,10 @@ _specAT = _GUSTAV;
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 _commonSMG = _RHSM4;
-_commonRCO = "rhsusf_acc_ACOG3";
+_commonRCO = "BRM_K2CS";
 _marksmanSCOPE = "rhsusf_acc_m8541_mrds";
 _specATSCOPE = "rhs_optic_maaws";
-_commonCCO = "rhsusf_acc_compm4";
+_commonCCO = "BRM_K2CQS";
 _commonEOT = "rhsusf_acc_eotech_552";
 _commonRAIL = "rhsusf_acc_anpeq15side_bk";
 _commonBIPOD = "rhsusf_acc_tdstubby_blk";
@@ -65,13 +65,13 @@ _NVG = "rhsusf_ANPVS_14";
 
 _mgSCOPE = _commonEOT;
 _rifleSCOPE = _commonCCO;
-_reconSCOPE = "rhsusf_acc_g33_xps3";
+_reconSCOPE = "rhsusf_acc_acog_rmr";
 
 // AMMO COUNT ==================================================================
 
-_countRIFLE = 9;
+_countRIFLE = 13;
 _countRIFLELOW = 6;
-_countPISTOL = 2;
+_countPISTOL = 3;
 _countAR = 5;
 _countMG = 3;
 _countSNIPER = 5;
