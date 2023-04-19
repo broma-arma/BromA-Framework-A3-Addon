@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -27,6 +28,6 @@ RETURNS:
 
 params ["_unit", "_killer", "_instigator", "_useEffects"];
 
-["BRM_FMK_playerKilled", _this] call CBA_fnc_localEvent;
-_this call BRM_FMK_fnc_handleScore;
+[QGVARMAIN(playerKilled), _this] call CBA_fnc_localEvent;
+_this call FUNCMAIN(handleScore);
 _this call BRM_fnc_onPlayerKilled;

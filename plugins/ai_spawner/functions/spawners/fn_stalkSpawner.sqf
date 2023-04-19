@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 // TODO Merge attack, defense, and stalk spawner code into a single function.
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
@@ -26,7 +27,7 @@ _eventStart = if (_eventStart isEqualType "") then { compile _eventStart } else 
 _eventEachWave = if (_eventEachWave isEqualType "") then { compile _eventEachWave } else { _eventEachWave };
 _eventEnd = if (_eventEnd isEqualType "") then { compile _eventEnd } else { _eventEnd };
 
-_settings = [BRM_FMK_AIS_spawnerSettings, _settings] call BIS_fnc_getFromPairs;
+_settings = [GVAR(spawnerSettings), _settings] call BIS_fnc_getFromPairs;
 _settings params ["_cleanup", "_safeSpawnDistance", "_disableLAMBS", "_aiAggressive", "_caching", "_cachingDistances", "_aiSkill"];
 
 private _spawnedGroups = [];
@@ -34,7 +35,7 @@ private _spawnCount = 0;
 private _spawnLimit = -1;
 private _spawnerType = "STALK";
 private _spawnRadius = [0, _spawnPositions] select (_spawnPositions isEqualType 0);
-private _groupSize = [_groupType] call BRM_FMK_AIS_fnc_countGroupType;
+private _groupSize = [_groupType] call FUNC(countGroupType);
 private _unitTotal = _groupSize * _groupTotal;
 
 waitUntil _startCondition;
@@ -46,7 +47,7 @@ if (_endCondition isEqualType 0) then {
 	_endCondition = { _spawnLimit != -1 && { _spawnCount > _spawnLimit } };
 };
 
-BRM_FMK_AIS_Spawners pushBack [
+GVAR(Spawners) pushBack [
 	_id,
 	_spawnerType,
 	_spawnedGroups,
@@ -61,7 +62,7 @@ BRM_FMK_AIS_Spawners pushBack [
 ];
 
 while {!call _endCondition} do {
-	private _attackPosition = [_groupStalked] call BRM_FMK_AIS_fnc_toPosition;
+	private _attackPosition = [_groupStalked] call FUNC(toPosition);
 
 	if (!isNil "_eventStart") then {
 		0 spawn _eventStart;
@@ -69,7 +70,7 @@ while {!call _endCondition} do {
 
 	// if it's a group activate stalk mode
 	if (_spawnRadius > 0 ) then {
-		_spawnPositions = [_attackPosition, _spawnRadius] call BRM_FMK_AIS_fnc_findPosition;
+		_spawnPositions = [_attackPosition, _spawnRadius] call FUNC(findPosition);
 	};
 
 	{
@@ -78,14 +79,14 @@ while {!call _endCondition} do {
 		waitUntil {
 			private _activeUnits = 0;
 
-			_endCondition = [_id] call BRM_FMK_AIS_fnc_getSpawner select BRM_FMK_AIS_SPAWNER_CONDITIONS select 1;
+			_endCondition = [_id] call FUNC(getSpawner) select GVAR(SPAWNER_CONDITIONS) select 1;
 
 			{
 				_x params ["_type", "_group"];
 
 				if (_spawnRadius > 0) then {
 					// TODO 2D distance?
-					if (getPos leader _group distanceSqr getPos leader _groupStalked > BRM_FMK_AIS_stalkMaximumDistance ^ 2) then {
+					if (getPos leader _group distanceSqr getPos leader _groupStalked > GVAR(stalkMaximumDistance) ^ 2) then {
 						{deleteVehicle _x} forEach units _group;
 					};
 				};
@@ -102,12 +103,12 @@ while {!call _endCondition} do {
 			[
 				_id,
 				[
-					[BRM_FMK_AIS_SPAWNER_GROUPS, _spawnedGroups],
-					[BRM_FMK_AIS_SPAWNER_SPAWN_COUNT, _spawnCount], // Used in fnc_spawnersInfo
-					[BRM_FMK_AIS_SPAWNER_UNIT_TOTAL, _unitTotal], // TODO Why is this updated, it isn't modified here. (Used in fnc_spawnersInfo)
-					[BRM_FMK_AIS_SPAWNER_GROUP_TOTAL, _groupTotal] // TODO Not used anywhere, potentially for use in fnc_spawnersInfo
+					[GVAR(SPAWNER_GROUPS), _spawnedGroups],
+					[GVAR(SPAWNER_SPAWN_COUNT), _spawnCount], // Used in fnc_spawnersInfo
+					[GVAR(SPAWNER_UNIT_TOTAL), _unitTotal], // TODO Why is this updated, it isn't modified here. (Used in fnc_spawnersInfo)
+					[GVAR(SPAWNER_GROUP_TOTAL), _groupTotal] // TODO Not used anywhere, potentially for use in fnc_spawnersInfo
 				]
-			] call BRM_FMK_AIS_fnc_updateSpawner;
+			] call FUNC(updateSpawner);
 
 			sleep 0.05;
 
@@ -117,12 +118,12 @@ while {!call _endCondition} do {
 		if (call _endCondition) exitWith {};
 
 		private _spawnPosition = _x;
-		if !([_spawnPosition, _safeSpawnDistance] call BRM_FMK_AIS_fnc_checkVisibility) then {
-			private _group = [_spawnPosition, _groupType, _side] call BRM_FMK_AIS_fnc_createGroup;
+		if !([_spawnPosition, _safeSpawnDistance] call FUNC(checkVisibility)) then {
+			private _group = [_spawnPosition, _groupType, _side] call FUNC(createGroup);
 
-			[_group, _loadout, _groupType, _settings] spawn BRM_FMK_AIS_fnc_initGroup;
+			[_group, _loadout, _groupType, _settings] spawn FUNC(initGroup);
 
-			[_group, _groupStalked] spawn BRM_FMK_AIS_fnc_taskStalk;
+			[_group, _groupStalked] spawn FUNC(taskStalk);
 
 			_spawnedGroups append [[_groupType, _group]];
 			_spawnCount = _spawnCount + 1;
@@ -144,4 +145,4 @@ while {!call _endCondition} do {
 	sleep _waveDelay;
 };
 
-[_id] spawn BRM_FMK_AIS_fnc_deleteSpawner;
+[_id] spawn FUNC(deleteSpawner);

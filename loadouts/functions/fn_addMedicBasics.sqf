@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -38,4 +39,4 @@ _basics params ["_bandageCount", "_morphineCount", "_epiCount"];
 	[_bandage, _bandageCount],
 	[_morphine, _morphineCount],
 	[_epi, _epiCount]
-]] call BRM_FMK_fnc_addToUniform;
+]] call FUNCMAIN(addToUniform);

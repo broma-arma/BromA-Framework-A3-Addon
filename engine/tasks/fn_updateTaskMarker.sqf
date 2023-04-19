@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -36,4 +37,4 @@ if (_position isNotEqualTo []) then {
 	[_id, _position] call BIS_fnc_taskSetDestination;
 };
 
-[{ _this call BRM_FMK_fnc_updateTaskMarker }, [_id, _obj, _delay, getPosVisual _obj], _delay call BIS_fnc_randomNum] call CBA_fnc_waitAndExecute;
+[{ _this call FUNCMAIN(updateTaskMarker) }, [_id, _obj, _delay, getPosVisual _obj], _delay call BIS_fnc_randomNum] call CBA_fnc_waitAndExecute;

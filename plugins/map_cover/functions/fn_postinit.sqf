@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if !(hasInterface && markerShape "ao" != "") exitWith {};
 
 markerPos "ao" params ["_posX", "_posY"];
@@ -8,7 +9,7 @@ private _dir = markerDir "ao";
 private _sizeOut = 50000;
 for "_i" from 0 to 270 step 90 do {
 	private _dirI = _dir + _i;
-	private _marker = createMarkerLocal [format ["BRM_FMK_MapCover_marker%1", _i], [_posX + sin _dirI * _sizeOut, _posY + cos _dirI * _sizeOut]];
+	private _marker = createMarkerLocal [format [QGVAR(marker%1), _i], [_posX + sin _dirI * _sizeOut, _posY + cos _dirI * _sizeOut]];
 	_marker setMarkerSizeLocal [[_sizeX, _sizeOut] select abs sin _i, _sizeOut - ([_sizeX, _sizeY] select abs cos _i)];
 	_marker setMarkerDirLocal _dirI;
 	_marker setMarkerShapeLocal "RECTANGLE";
@@ -34,13 +35,13 @@ private _fnc_configOptions = {
 
 private _fnc_updateMapCover = {
 	for "_i" from 0 to 270 step 90 do {
-		private _marker = (format ["BRM_FMK_MapCover_marker%1", _i]);
-		_marker setMarkerBrushLocal BRM_FMK_MapCover_VAR_mapBrush;
-		_marker setMarkerAlphaLocal BRM_FMK_MapCover_VAR_mapOpacity;
-		_marker setMarkerColorLocal BRM_FMK_MapCover_VAR_mapColor;
+		private _marker = (format [QGVAR(marker%1), _i]);
+		_marker setMarkerBrushLocal GVAR(VAR_mapBrush);
+		_marker setMarkerAlphaLocal GVAR(VAR_mapOpacity);
+		_marker setMarkerColorLocal GVAR(VAR_mapColor);
 	};
 };
 
-["BRM_FMK_MapCover_VAR_mapBrush", "LIST", ["Brush", "The style of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerBrushes", "SolidFull"] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
-["BRM_FMK_MapCover_VAR_mapColor", "LIST", ["Color", "The color of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerColors", "ColorBlack", ["Default"]] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
-["BRM_FMK_MapCover_VAR_mapOpacity", "SLIDER", ["Alpha", "The alpha of the cover."], ["BromA Framework", "Map Cover"], [0, 1, 0.7, 1], 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
+[QGVAR(VAR_mapBrush), "LIST", ["Brush", "The style of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerBrushes", "SolidFull"] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
+[QGVAR(VAR_mapColor), "LIST", ["Color", "The color of the cover."], ["BromA Framework", "Map Cover"], [configFile >> "CfgMarkerColors", "ColorBlack", ["Default"]] call _fnc_configOptions, 0, _fnc_updateMapCover] call CBA_fnc_addSetting;
+[QGVAR(VAR_mapOpacity), "SLIDER", ["Alpha", "The alpha of the cover."], ["BromA Framework", "Map Cover"], [0, 1, 0.7, 1], 0, _fnc_updateMapCover] call CBA_fnc_addSetting;

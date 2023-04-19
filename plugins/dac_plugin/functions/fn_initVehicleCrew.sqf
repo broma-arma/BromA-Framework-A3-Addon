@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -33,8 +34,8 @@ params [
 	["_side", WEST, [WEST]]
 ];
 
-if !(_vehicle getVariable ["BRM_FMK_DAC_Vehicle_Loadout", false]) then {
-	_vehicle setVariable ["BRM_FMK_DAC_Vehicle_Loadout", true];
+if !(_vehicle getVariable [QGVAR(Vehicle_Loadout), false]) then {
+	_vehicle setVariable [QGVAR(Vehicle_Loadout), true];
 
 	[{
 		params ["_args", "_handle"];
@@ -44,7 +45,7 @@ if !(_vehicle getVariable ["BRM_FMK_DAC_Vehicle_Loadout", false]) then {
 		if (alive _vehicle) then {
 			{
 				if (side _x == _side) then {
-					[_x, _faction] call BRM_FMK_fnc_initAI;
+					[_x, _faction] call FUNCMAIN(initAI);
 				};
 			} forEach crew _vehicle;
 		} else {

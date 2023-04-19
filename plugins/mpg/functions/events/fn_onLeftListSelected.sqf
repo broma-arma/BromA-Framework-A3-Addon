@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 #include "../../defines.hpp"
 
 params ["_display", "_control", "_index"];
@@ -41,12 +42,12 @@ private _bbDiag = _bb1 vectorDistance _bb2;
 _cameraData set [2, _bbDiag * 1.5]; // distance
 _cameraData set [3, [_bbDiag * 0.25, _bbDiag * 2]]; // minDistance, maxDistance
 
-["UpdateCamera"] call BRM_FMK_MPGarage_fnc_onGarageEvent;
+["UpdateCamera"] call FUNC(onGarageEvent);
 
 // Reset pylon mirror to false.
 _display displayCtrl IDC_MPG_PYLONCONFIG_MIRROR cbSetChecked false;
 
-private _vehiclePylons = [_vehicle] call BRM_FMK_MPGarage_fnc_getPylons;
+private _vehiclePylons = [_vehicle] call FUNC(getPylons);
 _vehicle setVariable ["MPG_pylons", _vehiclePylons];
 
 // Create GUI controls for vehicle pylons.
@@ -60,7 +61,7 @@ _vehicle setVariable ["MPG_pylons", _vehiclePylons];
 		params ["_control"];
 
 		private _pylonIndex = (ctrlIDC _control - IDC_MPG_LOADOUT_PYLONS_CREATE - 1) / 2;
-		[ctrlParent _control, 2, true, _pylonIndex] call BRM_FMK_MPGarage_fnc_loadRightContent;
+		[ctrlParent _control, 2, true, _pylonIndex] call FUNC(loadRightContent);
 	}];
 
 	_ctrlPylonBackground ctrlSetText "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\icon_ca.paa";
@@ -79,6 +80,6 @@ _vehicle setVariable ["MPG_pylons", _vehiclePylons];
 } forEach _vehiclePylons;
 
 private _ctrlRightTab = _display displayCtrl (IDCS_RIGHT select (_display getVariable ["MPG_rightTab", 0]));
-[_display, _ctrlRightTab, false] call BRM_FMK_MPGarage_fnc_onRightTabSelect;
+[_display, _ctrlRightTab, false] call FUNC(onRightTabSelect);
 
 ctrlSetFocus _control;

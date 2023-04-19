@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_group"];
@@ -5,15 +6,15 @@ params ["_group"];
 #define GRUNT_MARKER_SIZE [0.5, 0.5]
 #define SL_MARKER_SIZE [0.85, 0.85]
 
-private _color = [side _group] call BRM_FMK_AIS_fnc_getSideColor;
+private _color = [side _group] call FUNC(getSideColor);
 
-private _type = _group getVariable ["BRM_FMK_AIS_groupType", ""];
+private _type = _group getVariable [QGVAR(groupType), ""];
 if (_type isNotEqualTo "") then {
 	_type = _type + " ";
 };
 
 {
-	_marker = createMarker [format ["BRM_FMK_AIS_mrk_%1", _x call BIS_fnc_objectVar], _x];
+	_marker = createMarker [format [QGVAR(mrk_%1), _x call BIS_fnc_objectVar], _x];
 	_marker setMarkerShape "ICON";
 	_marker setMarkerType "mil_dot_noShadow";
 	_marker setMarkerColor _color;

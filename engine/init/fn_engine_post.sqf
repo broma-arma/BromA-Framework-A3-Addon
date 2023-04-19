@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -22,13 +23,13 @@ RETURNS:
 ================================================================================
 */
 
-if (isNil "BRM_version" || !isNil "BRM_FMK_post") exitWith {};
-BRM_FMK_post = true;
+if (isNil "BRM_version" || !isNil QGVAR(post)) exitWith {};
+GVAR(post) = true;
 
 plugins_loaded = false;
 
-if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
-	ENGINE_plugins = +BRM_FMK_plugins;
+if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) <= 0) then {
+	ENGINE_plugins = +GVARMAIN(plugins);
 	usedPlugins = +BRM_plugins;
 
 	{
@@ -45,7 +46,7 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 
 plugins_loaded = true;
 
-if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
+if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) > 0) then {
 	if (hasInterface) then {
 		// Remove side-specific markers
 		private _playerSide = side player;
@@ -63,12 +64,11 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 		} forEach [[WEST, "BLU"], [EAST, "OP"], [RESISTANCE, "IND"], [CIVILIAN, "CIV"]];
 	};
 
-	[] call BRM_FMK_fnc_logPlugins;
-	[] call BRM_FMK_fnc_warnConflict;
-	[] call BRM_FMK_fnc_defineGroups;
-	[] call BRM_FMK_fnc_createPlayerVehicles;
-	[] call BRM_FMK_fnc_initPlayer;
-	[] call BRM_FMK_fnc_loadBriefing;
+	[] call FUNCMAIN(warnConflict);
+	[] call FUNCMAIN(defineGroups);
+	[] call FUNCMAIN(createPlayerVehicles);
+	[] call FUNCMAIN(initPlayer);
+	[] call FUNCMAIN(loadBriefing);
 
 	private _postInitArgs = ["postInit", didJIP];
 	{
@@ -80,7 +80,7 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 			} else {
 				["[BromA Framework] Internal Error: Missing %1 plugin postInit function, %2.", _plugin, _x] call BIS_fnc_error;
 			};
-		} forEach getArray (configFile >> "BRM_FMK_Plugins" >> _plugin >> "postInit");
+		} forEach getArray (configFile >> QGVARMAIN(Plugins) >> _plugin >> "postInit");
 	} forEach BRM_plugins;
 
 	// Prevents assignLoadout and assignCargo from executing before this
@@ -108,26 +108,26 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
 	{ if (side _x == civilian) then { _x setVariable ["BIS_enableRandomization", false] } } forEach allUnits;
 
 	if (isServer && fileExists "settings\tasks.sqf") then {
-		[{ scriptDone mission_settings && !isNil "server_vehicles_created" }, { // Needs to be done after settings.sqf and BRM_FMK_fnc_createPlayerVehicles (PostInit)
-			[] call compile preprocessFileLineNumbers "settings\tasks.sqf";
+		[] call compile preprocessFileLineNumbers "settings\tasks.sqf";
 
-			[] spawn BRM_FMK_fnc_checkTasks
-		}] call CBA_fnc_waitUntilAndExecute;
+		[] spawn FUNCMAIN(checkTasks)
 	};
 
 	if (mission_AI_controller) then {
 		[{ time > 5 }, {
-			["BRM_FMK_aiControllerInit"] call CBA_fnc_localEvent;
+			[QGVARMAIN(aiControllerInit)] call CBA_fnc_localEvent;
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
 
 	// Calculates the loading time and logs it. ====================================
 
-	framework_init_time = (diag_tickTime - startTime);
+	private _initTime = diag_tickTime - startTime;
 
-	["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
-	["LOCAL", "F_LOG", format ["BROMA FRAMEWORK INITIALIZED SUCCESSFULLY IN %1 SECONDS.", framework_init_time]] call BRM_FMK_fnc_doLog;
-	["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
+	_initTime call FUNCMAIN(logPlugins);
+
+	["LOCAL", "LOG", "=========================================================================================================="] call FUNCMAIN(doLog);
+	["LOCAL", "F_LOG", format ["BROMA FRAMEWORK INITIALIZED SUCCESSFULLY IN %1 SECONDS.", _initTime]] call FUNCMAIN(doLog);
+	["LOCAL", "LOG", "=========================================================================================================="] call FUNCMAIN(doLog);
 };
 
 if (hasInterface) then {
@@ -151,6 +151,6 @@ if (hasInterface) then {
 	};
 };
 
-[] call BRM_FMK_OCAP_fnc_init;
+[] call EFUNC(OCAP,init); // TODO Remove and postInit it in plugin
 
 enableSentences false; // Hacky shit to try to stop low FPS

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if !(isServer) exitWith {};
 
 params ["_unit", "_id", "_uid", "_name"];
@@ -20,7 +21,7 @@ private _fnc_unitSeat = {
 private _playerVars = [];
 {
 	_playerVars pushBack (_x apply { _unit getVariable (_x select [0, 2]) });
-} forEach (call BRM_FMK_SyncStatus_fnc_playerVars);
+} forEach (call FUNC(playerVars));
 
 private _status = [
 	_uid,

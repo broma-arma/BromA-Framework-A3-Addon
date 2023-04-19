@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 [{!isNil "mission_settings_loaded" && { pluginsLoaded }}, {
 	params ["_unit", "_faction"];
 

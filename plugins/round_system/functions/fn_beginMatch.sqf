@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 // =============================================================================
 // CODE TO BE EXECUTED DURING INIT
 // =============================================================================
@@ -7,7 +8,7 @@ if (isServer) then {
 // SERVER CODE
 // =============================================================================
 
-    [] call BRM_FMK_Round_System_fnc_setMatchVariables;
+    [] call FUNC(setMatchVariables);
 
 // =============================================================================
 };
@@ -33,7 +34,7 @@ if (hasInterface) then {
 
     sleep 3;
 
-	private _prepTime = [] call BRM_FMK_Round_System_fnc_getSettings select 1;
+	private _prepTime = [] call FUNC(getSettings) select 1;
     ["Timer",[format ["The match begins in %1 seconds!", _prepTime]]] call BIS_fnc_showNotification;
 
     sleep _prepTime;
@@ -43,7 +44,7 @@ if (hasInterface) then {
     // SERVER CODE
     // =========================================================================
 
-        [] call BRM_FMK_Round_System_fnc_roundStart;
+        [] call FUNC(roundStart);
 
     // =========================================================================
     };
@@ -53,7 +54,7 @@ if (hasInterface) then {
     // PLAYER CODE
     // =========================================================================
 
-        [] call BRM_FMK_Round_System_fnc_roundStartPlayer;
+        [] call FUNC(roundStartPlayer);
 
     // =========================================================================
     };

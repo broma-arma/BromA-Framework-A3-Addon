@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if !(isClass(configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
 if (!hasInterface) exitWith {};
 
@@ -37,7 +38,7 @@ private _startCondition = {(call TFAR_fnc_haveSWRadio)
     private _currentLRradio = (call TFAR_fnc_activeLRRadio);
 
     private _unitSquad = format["%1_%2", _side, _squad];
-    private _validTeams = [_unitSquad, _teamNumber] call BRM_FMK_fnc_teamsExist;
+    private _validTeams = [_unitSquad, _teamNumber] call FUNCMAIN(teamsExist);
 
     private _teamNumberSquadFrequency = format["%1", (_squadNumber + 30)];
 

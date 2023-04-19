@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 if (!mission_ai_controller) exitWith {};
@@ -93,12 +94,12 @@ if (_events select 3 isEqualType {}) then { // Stringify WP complete
 _events params ["_eventStart", "_eventEnd", "_eventEachWave", "_eventWaypointComplete"];
 
 if (_settings isEqualType "") then {
-	_settings = BRM_FMK_AIS_spawnerSettings get _settings;
+	_settings = GVAR(spawnerSettings) get _settings;
 };
 _settings params ["_cleanup", "_safeSpawnDistance", "_disableLAMBS", "_aiAggressive", "_caching", "_cachingDistances", "_aiSkill"];
 
 if (_aiSkill isEqualType "") then {
-	_aiSkill = BRM_FMK_AIS_aiSkills get _aiSkill;
+	_aiSkill = GVAR(aiSkills) get _aiSkill;
 	_settings set [6, _aiSkill];
 };
 
@@ -117,7 +118,7 @@ switch (_type) do {
 		} else {
 			{
 				if (_x isEqualType "") then {
-					_camps pushBack [[_x] call BRM_FMK_AIS_fnc_toPosition, "", -1, 0, -1];
+					_camps pushBack [[_x] call FUNC(toPosition), "", -1, 0, -1];
 				};
 			} forEach (_typeConfig select 0);
 		};
@@ -125,7 +126,7 @@ switch (_type) do {
 		_waveDelay = _typeConfig select 2 max 0.1;
 
 		if (_type == "ATTACK") then {
-			_target = [_target] call BRM_FMK_AIS_fnc_toPosition;
+			_target = [_target] call FUNC(toPosition);
 		};
 	};
 	case "DEFENSE": {
@@ -141,11 +142,11 @@ private _unitTotal = 0;
 	_waypointSettings = _waypointSettings;
 
 	if (_type isEqualType "") then {
-		_type = BRM_FMK_AIS_groupTypes get _type;
+		_type = GVAR(groupTypes) get _type;
 		_x set [0, _type];
 	};
 
-	private _size = [_type] call BRM_FMK_AIS_fnc_countGroupType;
+	private _size = [_type] call FUNC(countGroupType);
 	_groupCounts pushBack _size;
 	private _total = _size * _count;
 	if (_total > _unitTotal) then {
@@ -175,12 +176,12 @@ private _spawner = call CBA_fnc_createNamespace;
 	["loadout", _loadout] // Loadout
 ];
 
-BRM_FMK_AIS_spawners set [_id, _spawner];
+GVAR(spawners) set [_id, _spawner];
 
 switch (_type) do {
 	case "ATTACK": {
-		if (BRM_FMK_AIS_debug) then {
-			[_id, [_camps apply { _x select 0 }, _target]] spawn BRM_FMK_AIS_fnc_createAttackMarkers;
+		if (GVAR(debug)) then {
+			[_id, [_camps apply { _x select 0 }, _target]] spawn FUNC(createAttackMarkers);
 		};
 	};
 	case "STALK": {
@@ -189,19 +190,19 @@ switch (_type) do {
 		{
 			_x params ["_type", "_count", "_waypointSettings", ["_waypointCount", 10]];
 
-			private _hasVehicle = [_type] call BRM_FMK_AIS_fnc_typeHasVehicle;
+			private _hasVehicle = [_type] call FUNC(typeHasVehicle);
 			for "_i" from 1 to _count do {
 				if (_i > 1) then { sleep 0.5; };
 
-				private _group = [_target, _type, _side] call BRM_FMK_AIS_fnc_createGroup;
+				private _group = [_target, _type, _side] call FUNC(createGroup);
 
 				_spawnedGroups pushBack _group;
 				_spawnCount = _spawnCount + 1;
 				_spawner setVariable ["spawned", _spawnCount];
 
-				[_group, _loadout, _type, _settings] spawn BRM_FMK_AIS_fnc_initGroup;
+				[_group, _loadout, _type, _settings] spawn FUNC(initGroup);
 
-				[_group, _target, _waypointCount, _waypointSettings] spawn BRM_FMK_AIS_fnc_taskPatrol;
+				[_group, _target, _waypointCount, _waypointSettings] spawn FUNC(taskPatrol);
 			};
 		} forEach _groups;
 	};
@@ -211,7 +212,7 @@ switch (_type) do {
 private _groupIndex = 0;
 private _attackCampIndex = 0;
 private _attackWaveStarted = false;
-while {_id in BRM_FMK_AIS_spawners && { !call _conditionEnd }} do {
+while {_id in GVAR(spawners) && { !call _conditionEnd }} do {
 	if (_spawnLimit != -1 && { _spawnCount > _spawnLimit }) exitWith {};
 
 	private _activeUnits = 0;
@@ -229,7 +230,7 @@ while {_id in BRM_FMK_AIS_spawners && { !call _conditionEnd }} do {
 		if (_type == "DEFENSE") then {
 			private _availableCamps = _camps select {
 				_x params ["_camp", "_type", "_count", "_delay", "_safeDistance"];
-				!([_camp, _safeSpawnDistance] call BRM_FMK_AIS_fnc_checkVisibility) // TODO This is problematic, perhaps only check distance?
+				!([_camp, _safeSpawnDistance] call FUNC(checkVisibility)) // TODO This is problematic, perhaps only check distance?
 				&& (_type == "" || _type == _groupType select 0)
 			};
 			private _camp = selectRandom _availableCamps;
@@ -240,9 +241,9 @@ while {_id in BRM_FMK_AIS_spawners && { !call _conditionEnd }} do {
 
 				_camp params ["_campPos", "_campType", "_campCount", "_campDelay", "_campSafeDistance"];
 
-				private _group = [_campPos, _groupType, _side] call BRM_FMK_AIS_fnc_createGroup;
-				[_group, _loadout, _groupType, _settings] spawn BRM_FMK_AIS_fnc_initGroup;
-				[_group, _target, _groupWaypointSettings, _eventWaypointComplete] spawn BRM_FMK_AIS_fnc_taskAttack;
+				private _group = [_campPos, _groupType, _side] call FUNC(createGroup);
+				[_group, _loadout, _groupType, _settings] spawn FUNC(initGroup);
+				[_group, _target, _groupWaypointSettings, _eventWaypointComplete] spawn FUNC(taskAttack);
 
 				_spawnedGroups pushBack _group;
 				_spawnCount = _spawnCount + 1;
@@ -265,15 +266,15 @@ while {_id in BRM_FMK_AIS_spawners && { !call _conditionEnd }} do {
 
 			if !(_campPos select 0 isEqualType 0) then {
 				private _radius = _campPos select 1;
-				_campPos = [_campPos select 0] call BRM_FMK_AIS_fnc_toPosition;
-				_campPos = [_campPos, _radius + 50, nil, [_campPos, _radius]] call BRM_FMK_AIS_fnc_findPosition;
+				_campPos = [_campPos select 0] call FUNC(toPosition);
+				_campPos = [_campPos, _radius + 50, nil, [_campPos, _radius]] call FUNC(findPosition);
 			};
 
 			// TODO Randomize target position if group, unit, or vehicle?
 			//      Or lead the target?
 			//      Or both?
 
-			if !([_campPos, _safeSpawnDistance] call BRM_FMK_AIS_fnc_checkVisibility
+			if !([_campPos, _safeSpawnDistance] call FUNC(checkVisibility)
 				&& (_type == "" || _type == _groupType select 0)) then { // TODO This is problematic, perhaps only check distance?
 				if (!_attackWaveStarted) then {
 					_attackWaveStarted = true;
@@ -282,9 +283,9 @@ while {_id in BRM_FMK_AIS_spawners && { !call _conditionEnd }} do {
 					};
 				};
 
-				private _group = [_campPos, _groupType, _side] call BRM_FMK_AIS_fnc_createGroup;
-				[_group, _loadout, _groupType, _settings] spawn BRM_FMK_AIS_fnc_initGroup;
-				[_group, _target, _groupWaypointSettings, _eventWaypointComplete] spawn BRM_FMK_AIS_fnc_taskAttack;
+				private _group = [_campPos, _groupType, _side] call FUNC(createGroup);
+				[_group, _loadout, _groupType, _settings] spawn FUNC(initGroup);
+				[_group, _target, _groupWaypointSettings, _eventWaypointComplete] spawn FUNC(taskAttack);
 
 				_spawnedGroups pushBack _group;
 				_spawnCount = _spawnCount + 1;
@@ -319,12 +320,12 @@ while {_id in BRM_FMK_AIS_spawners && { !call _conditionEnd }} do {
 	};
 };
 
-private _index = BRM_FMK_AIS_spawners find _spawner;
+private _index = GVAR(spawners) find _spawner;
 if (_index != -1) then {
-	BRM_FMK_AIS_spawners deleteAt _index;
+	GVAR(spawners) deleteAt _index;
 };
 
-if (BRM_FMK_AIS_debug) then {
+if (GVAR(debug)) then {
 	systemChat format ["Spawner %1 has been deleted!", _id];
 	{
 		deleteMarker _x;
@@ -349,7 +350,7 @@ if (_cleanup) then {
 		};
 
 		[{
-			leader _this nearEntities ["CAManBase", BRM_FMK_AIS_cleanUpPlayerRadius] findIf { isPlayer _x } == -1
+			leader _this nearEntities ["CAManBase", GVAR(cleanUpPlayerRadius)] findIf { isPlayer _x } == -1
 		}, _fnc_code, _group, 300, _fnc_code] call CBA_fnc_waitUntilAndExecute;
 	} forEach _spawnedGroups;
 };

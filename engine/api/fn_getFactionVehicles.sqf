@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -26,4 +27,4 @@ RETURNS:
 ================================================================================
 */
 
-_this call BRM_FMK_fnc_appendIndices;
+_this call FUNCMAIN(appendIndices);

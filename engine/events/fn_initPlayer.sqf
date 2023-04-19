@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -29,31 +30,31 @@ finishMissionInit;
 waitUntil { player == player && !isNull player };
 
 private _playerLog = format ["INITIALIZING PLAYER '%1' (%2)", name player, player];
-["LOCAL", "F_LOG", _playerLog] call BRM_FMK_fnc_doLog;
+["LOCAL", "F_LOG", _playerLog] call FUNCMAIN(doLog);
 if (!isServer) then {
-    ["SERVER", "F_LOG", _playerLog] call BRM_FMK_fnc_doLog;
+    ["SERVER", "F_LOG", _playerLog] call FUNCMAIN(doLog);
 };
 
 // Assigns JIP status. =========================================================
 
 player_is_jip = didJIP; // Backward compatibility
 
-["LOCAL", "F_LOG", format ["JIP STATUS: %1 | TIME: %2", didJIP, time]] call BRM_FMK_fnc_doLog;
+["LOCAL", "F_LOG", format ["JIP STATUS: %1 | TIME: %2", didJIP, time]] call FUNCMAIN(doLog);
 
 player_is_spectator = player getVariable ["is_spectator", false] || player isKindOf "VirtualSpectator_F";
 
 if (!mission_allow_jip && didJIP && !player_is_spectator) exitWith {
-	[player] spawn BRM_FMK_fnc_removeJIP;
+	[player] spawn FUNCMAIN(removeJIP);
 	player setVariable ["unit_initialized", true, true];
 };
 
 // Synchronize time with the server. ===========================================
 
-[] spawn BRM_FMK_fnc_syncTime;
+[] spawn FUNCMAIN(syncTime);
 
 // Removes spectators from the game. ===========================================
 
-if (player_is_spectator) exitWith { [player] call BRM_FMK_fnc_initSpectator };
+if (player_is_spectator) exitWith { [player] call FUNCMAIN(initSpectator) };
 
 // Checks if player hasn't already been initialized. ===========================
 
@@ -86,7 +87,7 @@ private _aliasAUTO = ["*", "AUTO", "ANY"];
 private _aliasNONE = ["-", "NONE", "VANILLA"];
 
 if (toUpper _faction in _aliasAUTO) then {
-    _faction = [side player, "faction"] call BRM_FMK_fnc_getSideInfo;
+    _faction = [side player, "faction"] call FUNCMAIN(getSideInfo);
 };
 
 if (toUpper _role in _aliasAUTO) then {
@@ -94,17 +95,17 @@ if (toUpper _role in _aliasAUTO) then {
 };
 
 if !(_faction in _aliasNONE) then {
-    [player, _faction, _role] call BRM_FMK_fnc_assignLoadout;
+    [player, _faction, _role] call FUNCMAIN(assignLoadout);
 };
 
 // Holster player's weapon. ====================================================
 
-[player] spawn BRM_FMK_fnc_weaponAway;
+[player] spawn FUNCMAIN(weaponAway);
 
 // Assigns alias to other units and groups. ====================================
 
 if (didJIP) then {
-    [player, _groupName, _role] call BRM_FMK_fnc_setAlias;
+    [player, _groupName, _role] call FUNCMAIN(setAlias);
 };
 
 // Initializes score related variables. ========================================
@@ -118,9 +119,9 @@ if (isNil {player getVariable "unit_deaths"}) then {
 
 // Adds Event Handlers with pre-configured functions. ==========================
 
-player addEventHandler ["Respawn", { _this call BRM_FMK_fnc_onPlayerRespawn }];
+player addEventHandler ["Respawn", { _this call FUNCMAIN(onPlayerRespawn) }];
 player addEventHandler ["Hit", { (_this select 0) setVariable ["last_damage", _this select 1] }];
-player addEventHandler ["Killed", { _this call BRM_FMK_fnc_onPlayerKilled }];
+player addEventHandler ["Killed", { _this call FUNCMAIN(onPlayerKilled) }];
 
 addMissionEventHandler ["EntityKilled", {
     params ["_unit", "_killer", "_instigator", "_useEffects"];
@@ -163,6 +164,6 @@ if (mission_game_mode == "tvt") then { disableRemoteSensors true };
 
 // Finishes initialization sequence. ===========================================
 
-["LOCAL", "F_LOG", "PLAYER INITIALIZED"] call BRM_FMK_fnc_doLog;
+["LOCAL", "F_LOG", "PLAYER INITIALIZED"] call FUNCMAIN(doLog);
 
 player setVariable ["unit_initialized", true, true];

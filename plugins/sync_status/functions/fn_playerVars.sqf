@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 private _playerVars = [[
 	["unit_score", 0],
 	["unit_deaths", 0]

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_vehicleType", ["_excludedSeats", [], [[]]], "_vehicle"];
@@ -11,7 +12,7 @@ private _seatTypes = [
 	"cargo"
 ] - _excludedSeats;
 
-BRM_FMK_AIS_vehicleSeatsCache getOrDefaultCall [[_vehicleType] + _seatTypes, {
+GVAR(vehicleSeatsCache) getOrDefaultCall [[_vehicleType] + _seatTypes, {
 	private _vehicleExists = !isNil "_vehicle";
 
 	if (!_vehicleExists) then {

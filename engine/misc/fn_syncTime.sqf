@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -27,7 +28,7 @@ if !(didJIP) exitWith {};
 if (isRemoteExecuted) then {
 	private _names = ["DATE", "FOG", "RAIN", "GUSTS", "LIGHTNINGS", "OVERCAST", "RAINBOW", "WIND STRENGTH", "WIND FORCE", "WAVES"];
 	private _i = -1;
-	["LOCAL", "LOG", format ["=== PLAYER SYNCHRONIZED TIME @ %1: %2", time, _this apply { _i = _i + 1; format ["%1: %2", _names select _i, _x] } joinString " | "]] call BRM_FMK_fnc_doLog;
+	["LOCAL", "LOG", format ["=== PLAYER SYNCHRONIZED TIME @ %1: %2", time, _this apply { _i = _i + 1; format ["%1: %2", _names select _i, _x] } joinString " | "]] call FUNCMAIN(doLog);
 
 	params ["_date", "_fogParams", "_rain", "_gusts", "_lightnings", "_overcast", "_rainbow", "_windStr", "_wind", "_waves"];
 
@@ -42,5 +43,5 @@ if (isRemoteExecuted) then {
 	setWind _wind;
 	0 setWaves _waves;
 } else {
-	0 remoteExec ["BRM_FMK_fnc_stampTime", 2];
+	0 remoteExec [QFUNCMAIN(stampTime), 2];
 };

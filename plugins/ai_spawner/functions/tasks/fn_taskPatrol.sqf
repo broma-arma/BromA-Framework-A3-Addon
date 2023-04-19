@@ -1,9 +1,10 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_group", "_zone", "_waypointCount", "_waypointSettings"];
 
 if (_waypointSettings isEqualType "") then {
-	_waypointSettings = BRM_FMK_AIS_waypointSettings get _waypointSettings;
+	_waypointSettings = GVAR(waypointSettings) get _waypointSettings;
 };
 
 _waypointSettings params [
@@ -29,7 +30,7 @@ for "_i" from 1 to _waypointCount do {
 	if (_i == _waypointCount && { _i > 1 }) then {
 		_positionBlacklist pushBack [waypointPosition [_group, 0], 20]; // TODO Same as below
 	};
-	private _position = [_zone, 0, [nil, 10] select !isNull objectParent leader _group, _positionBlacklist] call BRM_FMK_AIS_fnc_findPosition;
+	private _position = [_zone, 0, [nil, 10] select !isNull objectParent leader _group, _positionBlacklist] call FUNC(findPosition);
 
 	// Force waypoints to be a minimum distance away from each other, so don't end up with a group
 	// cycling through waypoints that ended up being within completion radius of each other.

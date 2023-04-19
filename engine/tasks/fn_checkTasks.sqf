@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -25,7 +26,7 @@ RETURNS:
 
 if (!isServer) exitWith {};
 
-if (isNil "BRM_FMK_tasks") then { BRM_FMK_tasks = []; };
+if (isNil QGVARMAIN(tasks)) then { GVARMAIN(tasks) = []; };
 
 private _delayed = false;
 private _sideDelayed = [false, false, false];
@@ -62,7 +63,7 @@ while { mission_running } do {
 			};
 			[_owners, _id, [_description, _title, ""], _position, false, 0, time > 1, _type, true] call BIS_fnc_taskCreate;
 			if (!isNil "_dynamicTaskMarker") then {
-				_dynamicTaskMarker call BRM_FMK_fnc_updateTaskMarker;
+				_dynamicTaskMarker call FUNCMAIN(updateTaskMarker);
 			};
 			call _callbackAssigned;
 		};
@@ -81,7 +82,7 @@ while { mission_running } do {
 					[_id, "FAILED", true] call BIS_fnc_taskSetState;
 					call _callbackFailed;
 					if (_missionFail) then {
-						[_endingFail] call BRM_FMK_fnc_callEnding;
+						[_endingFail] call FUNCMAIN(callEnding);
 					};
 				} else {
 					if (_taskState != "SUCCEEDED") then {
@@ -91,12 +92,12 @@ while { mission_running } do {
 
 							if ("respawn_system" in BRM_plugins) then {
 								{
-									[_x, mission_respawn_objective] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
+									[_x, mission_respawn_objective] call EFUNC(RespawnSystem,callRespawnSide);
 								} forEach _sides;
 							};
 
 							if ("time_limit" in BRM_plugins) then {
-								[(["p_time_added", 0] call BIS_fnc_getParamValue) * 60] call BRM_FMK_TimeLimit_fnc_addTime;
+								[(["p_time_added", 0] call BIS_fnc_getParamValue) * 60] call EFUNC(TimeLimit,addTime);
 							};
 
 							{
@@ -126,7 +127,7 @@ while { mission_running } do {
 				};
 			} forEach ["a", "b", "c"];
 		};
-	} forEach BRM_FMK_tasks;
+	} forEach GVARMAIN(tasks);
 
 	if (!mission_running) exitWith {};
 
@@ -146,18 +147,18 @@ while { mission_running } do {
 			{
 				private _sideChar = ["a", "b", "c"] select _x;
 				if !((missionNamespace getVariable format ["side_%1_side", _sideChar]) in mission_require_extraction) exitWith {
-					[_sideWin select _x] call BRM_FMK_fnc_callEnding;
+					[_sideWin select _x] call FUNCMAIN(callEnding);
 				};
 
-				missionNamespace getVariable format ["brm_fmk_extraction_%1", _sideChar] params ["_extractionObjects", "_extractionTargets"];
+				missionNamespace getVariable format [QGVARMAIN(extraction_%1), _sideChar] params ["_extractionObjects", "_extractionTargets"];
 
 				if (count _extractionTargets > 0) then {
 					[
-						missionNamespace getVariable format ["side_%1_side", _sideChar], format ["BRM_FMK_Extract%1", _sideChar],
+						missionNamespace getVariable format ["side_%1_side", _sideChar], format [QGVARMAIN(Extract%1), _sideChar],
 						"Extract", "Make your way to an extraction zone.", "exit", [], true, true,
 						[{true}, compile format ["!(side_%1_side in mission_require_extraction)", _sideChar]],
-						[{if (mission_extraction_enable_music) then { [selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal; }}]
-					] spawn BRM_FMK_fnc_newTask;
+						[{if (mission_extraction_enable_music) then { [selectRandom mission_extraction_tracks] call FUNCMAIN(playGlobal); }}]
+					] spawn FUNCMAIN(newTask);
 
 					[
 						_extractionObjects apply { if (_x isEqualType "") then { call compile _x } else { _x } },
@@ -165,9 +166,9 @@ while { mission_running } do {
 						compile format ["mission_require_extraction = mission_require_extraction - [side_%1_side];", _sideChar],
 						100,
 						10
-					] call BRM_FMK_fnc_reachTarget;
+					] call FUNCMAIN(reachTarget);
 				} else {
-					["CLIENTS", "CHAT", format ["WARNING: Skipping extraction task. Mission requires extraction, but has no extraction points for %1.", missionNamespace getVariable format ["side_%1_side", _sideChar]]] call BRM_FMK_fnc_doLog;
+					["CLIENTS", "CHAT", format ["WARNING: Skipping extraction task. Mission requires extraction, but has no extraction points for %1.", missionNamespace getVariable format ["side_%1_side", _sideChar]]] call FUNCMAIN(doLog);
 					mission_require_extraction = mission_require_extraction - [missionNamespace getVariable format ["side_%1_side", _sideChar]];
 				};
 			} forEach _winners;

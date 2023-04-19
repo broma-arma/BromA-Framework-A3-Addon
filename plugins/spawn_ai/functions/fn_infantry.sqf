@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -98,8 +99,8 @@ for "_i" from 1 to _amount do {
     _startPos = getMarkerPos (selectRandom _starting);
     _endPos = getMarkerPos (selectRandom _end);
 
-    _startPos = [_startPos, [-(_radius select 0), (_radius select 0)],[-(_radius select 0), (_radius select 0)]] call BRM_FMK_SpawnAI_fnc_addDistance;
-    _endPos = [_endPos, [-(_radius select 2), (_radius select 2)],[-(_radius select 2), (_radius select 2)]] call BRM_FMK_SpawnAI_fnc_addDistance;
+    _startPos = [_startPos, [-(_radius select 0), (_radius select 0)],[-(_radius select 0), (_radius select 0)]] call FUNC(addDistance);
+    _endPos = [_endPos, [-(_radius select 2), (_radius select 2)],[-(_radius select 2), (_radius select 2)]] call FUNC(addDistance);
 
     for "_j" from 0 to _size do {
         private ["_unitIndex"];
@@ -119,7 +120,7 @@ for "_i" from 1 to _amount do {
 
         _unitName = format ["%1_%2_F", _uPrefix, _uUnits select _unitIndex];
 
-        _unit = [_group, _unitName, _startPos, _skill, _loadout, _color, _unitIndex] call BRM_FMK_SpawnAI_fnc_spawnUnit;
+        _unit = [_group, _unitName, _startPos, _skill, _loadout, _color, _unitIndex] call FUNC(spawnUnit);
 
         if (_j == 0) then { _leader = _unit };
 
@@ -132,7 +133,7 @@ for "_i" from 1 to _amount do {
         _finalLZ = _endPos;
         if (count _LZ > 0) then { _finalLZ = getMarkerPos (selectRandom _LZ) };
 
-        _finalLZ = [_finalLZ, [-(_radius select 1), (_radius select 1)],[-(_radius select 1), (_radius select 1)]] call BRM_FMK_SpawnAI_fnc_addDistance;
+        _finalLZ = [_finalLZ, [-(_radius select 1), (_radius select 1)],[-(_radius select 1), (_radius select 1)]] call FUNC(addDistance);
 
         _landingPad = "HeliHEmpty" createVehicle _finalLZ;
 
@@ -170,7 +171,7 @@ for "_i" from 1 to _amount do {
            default { _crew = _unitsInfantry };
         };
 
-        _driver = [_crewGroup, format ["%1_%2_F", _uPrefix, _crew select 0], _startPos, _skill, _loadout, _color] call BRM_FMK_SpawnAI_fnc_spawnUnit;
+        _driver = [_crewGroup, format ["%1_%2_F", _uPrefix, _crew select 0], _startPos, _skill, _loadout, _color] call FUNC(spawnUnit);
 
         _driver setVariable ["can_leave_LZ", true];
 
@@ -183,12 +184,12 @@ for "_i" from 1 to _amount do {
         while {(_spawnCrew)} do {
             switch(true) do {
                 case (_vehicle emptyPositions "commander" > 0) : {
-                    _unit = [_crewGroup, format ["%1_%2_F", _uPrefix, (_crew select ((count _crew)-1))], _startPos, _skill, _loadout, _color] call BRM_FMK_SpawnAI_fnc_spawnUnit;
+                    _unit = [_crewGroup, format ["%1_%2_F", _uPrefix, (_crew select ((count _crew)-1))], _startPos, _skill, _loadout, _color] call FUNC(spawnUnit);
                     _unit moveInCommander _vehicle;
                     _createdCrew pushBack _unit;
                 };
                 case (_vehicle emptyPositions "gunner" > 0) : {
-                    _unit = [_crewGroup, format ["%1_%2_F", _uPrefix, (_crew select ((count _crew)-1))], _startPos, _skill, _loadout, _color] call BRM_FMK_SpawnAI_fnc_spawnUnit;
+                    _unit = [_crewGroup, format ["%1_%2_F", _uPrefix, (_crew select ((count _crew)-1))], _startPos, _skill, _loadout, _color] call FUNC(spawnUnit);
                     _unit moveInGunner _vehicle;
                     _createdCrew pushBack _unit;
                 };
@@ -206,18 +207,18 @@ for "_i" from 1 to _amount do {
                     _unit moveinCargo _vehicle;
                     if (vehicle _unit == _unit) then {
                         deleteVehicle _unit;
-                        ["LOCAL", "CHAT", format ["WARNING: %1 is out of spaces in %2", _unit, _vehicle]] call BRM_FMK_fnc_doLog;
+                        ["LOCAL", "CHAT", format ["WARNING: %1 is out of spaces in %2", _unit, _vehicle]] call FUNCMAIN(doLog);
                     };
                 };
                 case (_vehicle emptyPositions "cargo" <= 0) : {
                     deleteVehicle _unit;
-                    ["LOCAL", "CHAT", format ["WARNING: %1 is out of spaces in %2", _unit, _vehicle]] call BRM_FMK_fnc_doLog;
+                    ["LOCAL", "CHAT", format ["WARNING: %1 is out of spaces in %2", _unit, _vehicle]] call FUNCMAIN(doLog);
                 };
             };
             _toMove = _toMove - [_unit];
         };
 
-        ["LOCAL", "CHAT", format["Group %1 with %2 units finished generating.", _group, count units _group]] call BRM_FMK_fnc_doLog;
+        ["LOCAL", "CHAT", format["Group %1 with %2 units finished generating.", _group, count units _group]] call FUNCMAIN(doLog);
 
         _wp = _crewGroup addWaypoint [_finalLZ, 0];
         [_crewGroup, 0] setWaypointBehaviour _behavior;
@@ -233,20 +234,20 @@ for "_i" from 1 to _amount do {
 
             _vehicle flyInHeight 100;
 
-            ["LOCAL", "CHAT", "Received order to paradrop."] call BRM_FMK_fnc_doLog;
+            ["LOCAL", "CHAT", "Received order to paradrop."] call FUNCMAIN(doLog);
 
             [_group, _driver, _endPos] spawn {
                 _group = _this select 0;
                 _driver = _this select 1;
                 _endPos = _this select 2;
 
-                ["LOCAL", "CHAT", "Waiting to approach LZ."] call BRM_FMK_fnc_doLog;
+                ["LOCAL", "CHAT", "Waiting to approach LZ."] call FUNCMAIN(doLog);
                 waitUntil {
                     sleep 1;
                     _driver getVariable ["drop_ready", false]
                 };
 
-                ["LOCAL", "CHAT", "Everyone jump!"] call BRM_FMK_fnc_doLog;
+                ["LOCAL", "CHAT", "Everyone jump!"] call FUNCMAIN(doLog);
 
                 { removeBackpack _x; _x addBackpack "B_Parachute" } forEach (units _group);
 
@@ -254,7 +255,7 @@ for "_i" from 1 to _amount do {
                     [_x] orderGetIn false;
                     moveOut _x;
                     _x action ["eject", (vehicle _x)];
-                    ["LOCAL", "CHAT", (name _x)+" is now attempting to jump."] call BRM_FMK_fnc_doLog;
+                    ["LOCAL", "CHAT", (name _x)+" is now attempting to jump."] call FUNCMAIN(doLog);
                     sleep random(0.5)+0.5;
                 } forEach (units _group);
             };
@@ -274,7 +275,7 @@ for "_i" from 1 to _amount do {
 
                 sleep 3;
 
-                ["LOCAL", "CHAT", "Transport now returning to base."] call BRM_FMK_fnc_doLog;
+                ["LOCAL", "CHAT", "Transport now returning to base."] call FUNCMAIN(doLog);
 
                 _driver moveInDriver _vehicle;
                 _driver assignAsDriver _vehicle;
@@ -315,7 +316,7 @@ for "_i" from 1 to _amount do {
                     _count == count (units _group)
                 };
 
-                ["LOCAL", "CHAT", "We have paradropped successfully."] call BRM_FMK_fnc_doLog;
+                ["LOCAL", "CHAT", "We have paradropped successfully."] call FUNCMAIN(doLog);
 
                 waitUntil {
                     sleep 1;
@@ -328,12 +329,12 @@ for "_i" from 1 to _amount do {
                     _count == count (units _group)
                 };
 
-                ["LOCAL", "CHAT", format ["All units regrouped, suffered %1 casualties.", _groupSize - (count (units _group))]] call BRM_FMK_fnc_doLog;
+                ["LOCAL", "CHAT", format ["All units regrouped, suffered %1 casualties.", _groupSize - (count (units _group))]] call FUNCMAIN(doLog);
 
                 [_group, _endPos, 50] call CBA_fnc_taskAttack;
             };
 
-            ["LOCAL", "CHAT", "Moving to designated way-point."] call BRM_FMK_fnc_doLog;
+            ["LOCAL", "CHAT", "Moving to designated way-point."] call FUNCMAIN(doLog);
 
             switch (_task) do {
                 case "ATTACK": { [_group, _endPos, 50] call CBA_fnc_taskAttack };
@@ -355,5 +356,5 @@ for "_i" from 1 to _amount do {
         _group setCombatMode _combat;
     };
 
-    if ([] call BRM_FMK_SpawnAI_fnc_getSettings select 0) then { [_group, _loadout, _skill, _color] spawn BRM_FMK_SpawnAI_fnc_cacheUnits };
+    if ([] call FUNC(getSettings) select 0) then { [_group, _loadout, _skill, _color] spawn FUNC(cacheUnits) };
 };

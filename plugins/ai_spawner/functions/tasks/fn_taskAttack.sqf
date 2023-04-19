@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params [
@@ -8,7 +9,7 @@ params [
 ];
 
 if (_waypointSettings isEqualType "") then {
-	_waypointSettings = BRM_FMK_AIS_waypointSettings get _waypointSettings;
+	_waypointSettings = GVAR(waypointSettings) get _waypointSettings;
 };
 
 _waypointSettings params [
@@ -31,7 +32,7 @@ if (_onComplete == "") then {
 	_patrolWPSettings set [0, _searchRadius]; // _radius
 	_patrolWPSettings set [6, ""]; // _onComplete
 
-	_onComplete = format ["[group this, getPos this, 3, %1] call BRM_FMK_AIS_fnc_taskPatrol", _patrolWPSettings];
+	_onComplete = format ["[group this, getPos this, 3, %1] call %2", _patrolWPSettings, QFUNC(taskPatrol)];
 };
 
 [_group, _position, _radius, "MOVE", _behaviour, _combat, _speed, _formation, format ["if (local group this) then { %1 };", _onComplete], _timeout] call CBA_fnc_addWaypoint;

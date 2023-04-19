@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if !(isClass (configFile >> "CfgPatches" >> "ace_medical")) exitWith {};
 
 mission_ace3_revive_lives = ["p_ace3_revive_lives", -1] call BIS_fnc_getParamValue;
@@ -24,7 +25,7 @@ if (hasInterface) then {
 	};
 
     if (mission_ace3_legs) then {
-		["CAManBase", 1, ["ACE_SelfActions"], ["brm_fmk_leg_fix", "<t color='#ff0000'>Fix broken leg</t>", "", {
+		["CAManBase", 1, ["ACE_SelfActions"], [QGVARMAIN(leg_fix), "<t color='#ff0000'>Fix broken leg</t>", "", {
 			_target playAction "medicStart";
 
 			[10, _target, {
@@ -40,5 +41,5 @@ if (hasInterface) then {
 		}, { _target getHitPointDamage "HitLegs" >= 0.5 }] call ace_interact_menu_fnc_createAction] call ace_interact_menu_fnc_addActionToClass;
 	};
 
-    [] call BRM_FMK_ACE3_fnc_addACEHelp;
+    [] call FUNC(addACEHelp);
 };

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 #include "../../defines.hpp"
 
 params ["_display", "_control", ["_autoFocus", true]];
@@ -17,4 +18,4 @@ _ctrlTabLeftBackground ctrlSetPosition _position;
 _ctrlTabLeftBackground ctrlCommit 0;
 
 // Fill the list.
-[_display, _index, _autoFocus] call BRM_FMK_MPGarage_fnc_loadLeftContent;
+[_display, _index, _autoFocus] call FUNC(loadLeftContent);

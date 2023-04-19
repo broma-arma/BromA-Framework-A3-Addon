@@ -1,9 +1,10 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_type"];
 
 if (_type isEqualType "") then {
-	_type = BRM_FMK_AIS_groupTypes get _type;
+	_type = GVAR(groupTypes) get _type;
 };
 
 _type findIf {

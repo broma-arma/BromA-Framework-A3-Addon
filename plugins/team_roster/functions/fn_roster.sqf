@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 disableSerialization;
 
 params ["_mode", "_args"];
@@ -6,7 +7,7 @@ switch (_mode) do {
 	case "onLoad": {
 		_args params ["_control"];
 
-		uiNamespace setVariable ["BRM_FMK_TeamRoster_control", _control];
+		uiNamespace setVariable [QGVAR(control), _control];
 
 		// BIS_fnc_onDiaryChanged doesn't work, so we have to do it...
 		[_control] spawn {
@@ -29,8 +30,8 @@ switch (_mode) do {
 
 				RscDiary_menu0Selected = _ctrl lbData _lbIndex;
 				if (RscDiary_menu0Selected != "Diary") then {
-					if (ctrlFade (uiNamespace getVariable "BRM_FMK_TeamRoster_control") < 1) then {
-						["Hide"] call BRM_FMK_TeamRoster_fnc_roster;
+					if (ctrlFade (uiNamespace getVariable QGVAR(control)) < 1) then {
+						["Hide"] call FUNC(roster);
 					};
 				};
 			}];
@@ -42,12 +43,12 @@ switch (_mode) do {
 
 				RscDiary_menu1Selected = _ctrl lnbText [_lbIndex, 0];
 				if (RscDiary_menu1Selected == "Team Roster") then {
-					if ((ctrlFade (uiNamespace getVariable "BRM_FMK_TeamRoster_control")) > 0) then {
-						["Show"] call BRM_FMK_TeamRoster_fnc_roster;
+					if ((ctrlFade (uiNamespace getVariable QGVAR(control))) > 0) then {
+						["Show"] call FUNC(roster);
 					};
 				} else {
-					if ((ctrlFade (uiNamespace getVariable "BRM_FMK_TeamRoster_control")) < 1) then {
-						["Hide"] call BRM_FMK_TeamRoster_fnc_roster;
+					if ((ctrlFade (uiNamespace getVariable QGVAR(control))) < 1) then {
+						["Hide"] call FUNC(roster);
 					};
 				};
 			}];
@@ -56,19 +57,19 @@ switch (_mode) do {
 				params ["_opened", "_forced"];
 
 				if (RscDiary_menu0Selected == "Diary" && RscDiary_menu1Selected == "Team Roster") then {
-					[["Hide", "Show"] select _opened] call BRM_FMK_TeamRoster_fnc_roster;
+					[["Hide", "Show"] select _opened] call FUNC(roster);
 				};
 			}];
 		};
 	};
 
 	case "Show": {
-		private _control = uiNamespace getVariable "BRM_FMK_TeamRoster_control";
+		private _control = uiNamespace getVariable QGVAR(control);
 
 		// Show and Update BRM_DiaryTeamRoster
 		_control ctrlSetFade 0;
 		_control ctrlCommit 0;
-		["Update"] call BRM_FMK_TeamRoster_fnc_roster;
+		["Update"] call FUNC(roster);
 
 		// Hide CA_Diary
 		private _diaryHtml = ctrlParent _control displayctrl 1003;
@@ -76,13 +77,13 @@ switch (_mode) do {
 		_diaryHtml ctrlCommit 0;
 
 		// Spawn updater, if not already running.
-		if (isNil "BRM_FMK_TeamRoster_update" || {scriptDone BRM_FMK_TeamRoster_update}) then {
-			BRM_FMK_TeamRoster_update = 0 spawn {
+		if (isNil QGVAR(update) || {scriptDone GVAR(update)}) then {
+			GVAR(update) = 0 spawn {
 				disableSerialization;
 
-				while {visibleMap && !isNull (uiNamespace getVariable ["BRM_FMK_TeamRoster_control", controlNull])} do {
+				while {visibleMap && !isNull (uiNamespace getVariable [QGVAR(control), controlNull])} do {
 					uiSleep 1;
-					["Update"] call BRM_FMK_TeamRoster_fnc_roster;
+					["Update"] call FUNC(roster);
 				};
 			};
 		};
@@ -90,7 +91,7 @@ switch (_mode) do {
 
 	case "Update": {
 		// Update the roster.
-		private _control = uiNamespace getVariable "BRM_FMK_TeamRoster_control";
+		private _control = uiNamespace getVariable QGVAR(control);
 		private _ctrlPos = ctrlPosition _control;
 
 		private _aliasAUTO = ["*", "AUTO", "ANY"];
@@ -134,7 +135,7 @@ switch (_mode) do {
 							};
 						} forEach _traits;
 
-						private _color = [_unitInit select 0] call BRM_FMK_fnc_colorToHex;
+						private _color = [_unitInit select 0] call FUNCMAIN(colorToHex);
 
 						_roster = _roster + format ["%1%2<t color='%6'>%3</t> - %4%5<br />", _pad, _rank, _name, _role, _icons, _color];
 					};
@@ -154,7 +155,7 @@ switch (_mode) do {
 	};
 
 	case "Hide": {
-		private _control = uiNamespace getVariable "BRM_FMK_TeamRoster_control";
+		private _control = uiNamespace getVariable QGVAR(control);
 
 		// Show CA_Diary
 		private _diaryHtml = ctrlParent _control displayctrl 1003;
@@ -168,12 +169,12 @@ switch (_mode) do {
 		_control ctrlSetFade 1;
 		_control ctrlCommit 0;
 
-		if !(isNil "BRM_FMK_TeamRoster_update" || {scriptDone BRM_FMK_TeamRoster_update}) then {
-			terminate BRM_FMK_TeamRoster_update;
+		if !(isNil QGVAR(update) || {scriptDone GVAR(update)}) then {
+			terminate FUNC(update);
 		};
 	};
 
 	case "onUnload": {
-		uiNamespace setVariable ["BRM_FMK_TeamRoster_control", nil];
+		uiNamespace setVariable [QGVAR(control), nil];
 	};
 };

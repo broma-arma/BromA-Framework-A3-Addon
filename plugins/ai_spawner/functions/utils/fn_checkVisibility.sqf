@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_position", "_radius"];
@@ -17,7 +18,7 @@ private _positionASLHigh = _positionASL vectorAdd [0, 0, 1.5];
 	};
 
 	// TODO This shouldn't be here.
-	if ([_position, _radius, _x] call BRM_FMK_AIS_fnc_checkNearPlayers) exitWith {
+	if ([_position, _radius, _x] call FUNC(checkNearPlayers)) exitWith {
 		_visible = true;
 	};
 } forEach allPlayers;

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -41,7 +42,7 @@ if (_kind == "rangefinder" && mission_ACE3_enabled) then {
 	_kind = "ACE_Vector";
 };
 
-private _battery = [_kind] call BRM_FMK_fnc_getAmmoClass;
+private _battery = [_kind] call FUNCMAIN(getAmmoClass);
 
 if (_unit isKindOf "Man") then {
 	_unit addWeapon _kind;

@@ -1,8 +1,9 @@
+#include "script_component.hpp"
 if !(isMultiplayer) exitWith {};
 
 if (isServer) then {
 	BrmFmk_SyncStatus_status = [];
-	addMissionEventHandler ["HandleDisconnect", BRM_FMK_SyncStatus_fnc_saveStatus];
+	addMissionEventHandler ["HandleDisconnect", FUNC(saveStatus)];
 };
 
 if (hasInterface) then {
@@ -13,7 +14,7 @@ if (hasInterface) then {
 		sleep 3;
 
 		player allowDamage false;
-		[getPlayerUID player] call BRM_FMK_SyncStatus_fnc_loadStatus;
+		[getPlayerUID player] call FUNC(loadStatus);
 		sleep 3;
 		player allowDamage true;
 	};

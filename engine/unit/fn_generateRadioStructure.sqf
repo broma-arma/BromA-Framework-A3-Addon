@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -24,7 +25,7 @@ RETURNS:
 
 params ["_side"];
 
-private _sideCallsigns = [_side, "callsigns"] call BRM_FMK_fnc_getSideInfo;
+private _sideCallsigns = [_side, "callsigns"] call FUNCMAIN(getSideInfo);
 
 _sideCallsigns params [
 "_z","_a", "_b", "_c", "_d",

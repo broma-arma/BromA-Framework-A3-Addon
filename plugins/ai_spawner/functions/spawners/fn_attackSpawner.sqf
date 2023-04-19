@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 // TODO Merge attack, defense, and stalk spawner code into a single function.
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
@@ -46,7 +47,7 @@ if (_endCondition isEqualType 0) then {
 	_endCondition = { _spawnLimit != -1 && { _spawnCount > _spawnLimit } };
 };
 
-BRM_FMK_AIS_Spawners pushBack [
+GVAR(Spawners) pushBack [
 	_id,
 	_spawnerType, // "ATTACK", "STALK"
 	_spawnedGroups, // [[_groupType, _group], ...]
@@ -60,15 +61,15 @@ BRM_FMK_AIS_Spawners pushBack [
 	_conditions // Spawner start and end conditions
 ];
 
-if (BRM_FMK_AIS_debug) then {
-	[_id, _positions] spawn BRM_FMK_AIS_fnc_createAttackMarkers;
+if (GVAR(debug)) then {
+	[_id, _positions] spawn FUNC(createAttackMarkers);
 };
 
 _spawnPositions = _spawnPositions apply {
-	[_x] call BRM_FMK_AIS_fnc_toPosition;
+	[_x] call FUNC(toPosition);
 };
 
-_attackPosition = [_attackPosition] call BRM_FMK_AIS_fnc_toPosition;
+_attackPosition = [_attackPosition] call FUNC(toPosition);
 
 while {!call _endCondition} do {
 	{
@@ -78,7 +79,7 @@ while {!call _endCondition} do {
 			private _activeUnits = 0;
 
 			// TODO Is this needed, should the end condition support being modified?
-			_endCondition = (([_id] call BRM_FMK_AIS_fnc_getSpawner) select BRM_FMK_AIS_SPAWNER_CONDITIONS) select 1;
+			_endCondition = (([_id] call FUNC(getSpawner)) select GVAR(SPAWNER_CONDITIONS)) select 1;
 			if (_endCondition isEqualType 0) then {
 				_spawnLimit = _endCondition;
 				_endCondition = { _spawnLimit != -1 && { _spawnCount > _spawnLimit } };
@@ -97,11 +98,11 @@ while {!call _endCondition} do {
 			} forEach _spawnedGroups;
 
 			[_id, [
-				[BRM_FMK_AIS_SPAWNER_GROUPS, _spawnedGroups],
-				[BRM_FMK_AIS_SPAWNER_SPAWN_COUNT, _spawnCount], // TODO Why is this updated here? (Used in fnc_spawnersInfo)
-				[BRM_FMK_AIS_SPAWNER_UNIT_TOTAL, _unitTotal], // TODO Why is this updated, it isn't modified here. (Used in fnc_spawnersInfo)
-				[BRM_FMK_AIS_SPAWNER_GROUP_TOTAL, _groupTotal] // TODO Not used anywhere, potentially for use in fnc_spawnersInfo
-			]] call BRM_FMK_AIS_fnc_updateSpawner;
+				[GVAR(SPAWNER_GROUPS), _spawnedGroups],
+				[GVAR(SPAWNER_SPAWN_COUNT), _spawnCount], // TODO Why is this updated here? (Used in fnc_spawnersInfo)
+				[GVAR(SPAWNER_UNIT_TOTAL), _unitTotal], // TODO Why is this updated, it isn't modified here. (Used in fnc_spawnersInfo)
+				[GVAR(SPAWNER_GROUP_TOTAL), _groupTotal] // TODO Not used anywhere, potentially for use in fnc_spawnersInfo
+			]] call FUNC(updateSpawner);
 
 			sleep 0.05;
 
@@ -111,12 +112,12 @@ while {!call _endCondition} do {
 		if (call _endCondition) exitWith {};
 
 		private _spawnPosition = _x;
-		if !([_spawnPosition, _safeSpawnDistance] call BRM_FMK_AIS_fnc_checkVisibility) then {
-			private _group = [_spawnPosition, _groupType, _side] call BRM_FMK_AIS_fnc_createGroup;
+		if !([_spawnPosition, _safeSpawnDistance] call FUNC(checkVisibility)) then {
+			private _group = [_spawnPosition, _groupType, _side] call FUNC(createGroup);
 
-			[_group, _loadout, _groupType, _settings] spawn BRM_FMK_AIS_fnc_initGroup;
+			[_group, _loadout, _groupType, _settings] spawn FUNC(initGroup);
 
-			[_group, _attackPosition, _waypointSettings, _eventEndWaypoint] spawn BRM_FMK_AIS_fnc_taskAttack;
+			[_group, _attackPosition, _waypointSettings, _eventEndWaypoint] spawn FUNC(taskAttack);
 
 			_spawnedGroups append [[_groupType, _group]];
 			_spawnCount = _spawnCount + 1;
@@ -142,4 +143,4 @@ while {!call _endCondition} do {
 	sleep _waveDelay;
 };
 
-[_id] spawn BRM_FMK_AIS_fnc_deleteSpawner;
+[_id] spawn FUNC(deleteSpawner);

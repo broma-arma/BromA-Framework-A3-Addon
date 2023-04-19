@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -36,9 +37,9 @@ switch (true) do {
 	case (_faction == "side_a"): { [side_a_faction, side_a_side] };
 	case (_faction == "side_b"): { [side_b_faction, side_b_side] };
 	case (_faction == "side_c"): { [side_c_faction, side_c_side] };
-	case (_faction in _aliasBLUFOR): { [[WEST, "FACTION"] call BRM_FMK_fnc_getSideInfo, WEST] };
-	case (_faction in _aliasOPFOR): { [[EAST, "FACTION"] call BRM_FMK_fnc_getSideInfo, EAST] };
-	case (_faction in _aliasRESISTANCE): { [[RESISTANCE, "FACTION"] call BRM_FMK_fnc_getSideInfo, RESISTANCE] };
+	case (_faction in _aliasBLUFOR): { [[WEST, "FACTION"] call FUNCMAIN(getSideInfo), WEST] };
+	case (_faction in _aliasOPFOR): { [[EAST, "FACTION"] call FUNCMAIN(getSideInfo), EAST] };
+	case (_faction in _aliasRESISTANCE): { [[RESISTANCE, "FACTION"] call FUNCMAIN(getSideInfo), RESISTANCE] };
 	case (_faction == side_a_faction): { [_faction, side_a_side] };
 	case (_faction == side_b_faction): { [_faction, side_b_side] };
 	case (_faction == side_c_faction): { [_faction, side_c_side] };

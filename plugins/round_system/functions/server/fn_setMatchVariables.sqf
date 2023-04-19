@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 match_points_a = 0;
 match_points_b = 0;
 match_points_c = 0;

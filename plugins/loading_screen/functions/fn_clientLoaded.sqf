@@ -1,8 +1,9 @@
+#include "script_component.hpp"
 #define SERVER_FPS_METRIC 20
 #define SERVER_TIMEOUT 5
 
 if !(isServer) exitWith {
-	0 remoteExec ["BRM_FMK_LoadingScreen_fnc_clientLoaded", 2];
+	0 remoteExec [QFUNC(clientLoaded), 2];
 };
 
 if (isNil "BrmFmk_LoadingScreen_count") then {
@@ -24,7 +25,7 @@ if (BrmFmk_LoadingScreen_count != -1) then {
 				_metrics pushBack { !isNil "DAC_Basic_Value" && {DAC_Basic_Value > 0} };
 			};
 
-			[_metrics, SERVER_TIMEOUT] call BRM_FMK_LoadingScreen_fnc_load;
+			[_metrics, SERVER_TIMEOUT] call FUNC(load);
 
 			BrmFmk_LoadingScreen_loaded = true;
 			publicVariable "BrmFmk_LoadingScreen_loaded";

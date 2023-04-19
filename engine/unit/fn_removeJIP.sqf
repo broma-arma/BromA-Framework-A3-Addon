@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -28,8 +29,8 @@ titleText ["This mission does not allow joining in progress.", "BLACK FADED", 0]
 sleep 5;
 
 if ("respawn_system" in BRM_plugins) then {
-	waitUntil { !isNil "BRM_FMK_RespawnSystem_fnc_killPlayer" };
-	[_unit] call BRM_FMK_RespawnSystem_fnc_killPlayer;
+	waitUntil { !isNil QEFUNC(RespawnSystem,killPlayer) };
+	[_unit] call EFUNC(RespawnSystem,killPlayer);
 } else {
 	_unit setdamage 1;
 };

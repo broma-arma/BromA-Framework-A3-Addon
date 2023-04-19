@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -27,9 +28,9 @@ RETURNS:
 
 params ["_unit", "_killer", "_instigator", "_useEffects"];
 
-_this call BRM_FMK_fnc_handleScore;
-["BRM_FMK_aiKilled", _this] call CBA_fnc_localEvent;
+_this call FUNCMAIN(handleScore);
+[QGVARMAIN(aiKilled), _this] call CBA_fnc_localEvent;
 if ("remove_body" in BRM_plugins) then {
-	_unit spawn BRM_FMK_remove_body_fnc_removeBody; // TODO Use CBA events for this
+	_unit spawn EFUNC(remove_body,removeBody); // TODO Use CBA events for this
 };
 _this call BRM_fnc_onAIKilled;

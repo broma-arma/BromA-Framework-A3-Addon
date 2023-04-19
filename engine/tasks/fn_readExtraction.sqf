@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -52,7 +53,7 @@ private _extractionPoints = [[], [], [], []]; // Blu, Op, Ind, Civ
 		};
 
 		if (_index != -1) then {
-			[_sides select _index, getPos _x, getDir _x, _color, format ["Extraction #%1", _extName select [2, count _extName] joinString "_"]] remoteExec ["BRM_FMK_fnc_createExtractionMarker", 0, format ["BRM_FMK_fnc_createExtractionMarker_%1", _index]];
+			[_sides select _index, getPos _x, getDir _x, _color, format ["Extraction #%1", _extName select [2, count _extName] joinString "_"]] remoteExec [QFUNCMAIN(createExtractionMarker), 0, format [QFUNCMAIN(createExtractionMarker_%1), _index]];
 		};
 	};
 } forEach (allMissionObjects "");
@@ -64,7 +65,7 @@ private _extractionPoints = [[], [], [], []]; // Blu, Op, Ind, Civ
 	if (count _sideExtractionPoints == 0 && { _side in mission_require_extraction }) then {
 		["Warning: %1 (%2) requires extraction, but has no extraction points", format ["side_%1", _x], _side] call BIS_fnc_error;
 	};
-	missionNamespace setVariable [format ["brm_fmk_extraction_%1", _x], [
+	missionNamespace setVariable [format [QGVARMAIN(brm_fmk_extraction_%1), _x], [
 		missionNamespace getVariable format ["mission_extraction_%1", _sideStrs select _index],
 		_sideExtractionPoints
 	]];

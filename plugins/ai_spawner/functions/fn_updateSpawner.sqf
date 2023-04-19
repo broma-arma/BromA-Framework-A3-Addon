@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 	0- id,
 	1- spawnerType,
@@ -17,7 +18,7 @@ diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_id", "_values"];
 
-private _spawner = [_id] call BRM_FMK_AIS_fnc_getSpawner;
+private _spawner = [_id] call FUNC(getSpawner);
 {
 	_spawner setVariable _x;
 } forEach _values;

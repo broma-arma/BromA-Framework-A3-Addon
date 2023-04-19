@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_type"];
@@ -5,7 +6,7 @@ params ["_type"];
 private _unitCount = 0;
 
 if (_type isEqualType "") then {
-	_type = BRM_FMK_AIS_groupTypes get _type;
+	_type = GVAR(groupTypes) get _type;
 };
 
 {
@@ -14,14 +15,14 @@ if (_type isEqualType "") then {
 			if (_x isKindOf "Man") then {
 				1
 			} else {
-				count ([_x, ["cargo", "turret"]] call BRM_FMK_AIS_fnc_getVehicleSeats)
+				count ([_x, ["cargo", "turret"]] call FUNC(getVehicleSeats))
 			}
 		});
 	} else {
 		if (_x isKindOf "Man") then {
 			_unitCount = _unitCount + 1;
 		} else {
-			_unitCount = _unitCount + (count ([_x, ["cargo", "turret"]] call BRM_FMK_AIS_fnc_getVehicleSeats));
+			_unitCount = _unitCount + (count ([_x, ["cargo", "turret"]] call FUNC(getVehicleSeats)));
 		};
 	};
 } forEach _type;

@@ -5,25 +5,25 @@
 PARAM_CATEGORY(ai,=================== AI SETTINGS ==================);
 
 #define BRM_PARAMS_AI
-	#include "plugins\plugins.cpp"
+	#include "plugins\params.hpp"
 #undef BRM_PARAMS_AI
 
 PARAM_CATEGORY(conditions,=============== MISSION CONDITIONS ===============);
 
 #define BRM_PARAMS_CONDITIONS
-	#include "plugins\plugins.cpp"
+	#include "plugins\params.hpp"
 #undef BRM_PARAMS_CONDITIONS
 
 PARAM_CATEGORY(time,========== TIME AND MISSION CONSTRAINTS ==========);
 
 #define BRM_PARAMS_TIME
-	#include "plugins\plugins.cpp"
+	#include "plugins\params.hpp"
 #undef BRM_PARAMS_TIME
 
 PARAM_CATEGORY(player,================= PLAYER SETTINGS ================);
 
 #define BRM_PARAMS_PLAYER
-	#include "plugins\plugins.cpp"
+	#include "plugins\params.hpp"
 #undef BRM_PARAMS_PLAYER
 
 #undef PARAM_SEPERATOR

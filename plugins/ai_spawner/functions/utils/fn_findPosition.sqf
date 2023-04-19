@@ -1,9 +1,10 @@
+#include "script_component.hpp"
 // TODO Remove _trigger? Seems all uses of it has the same value as _center. So could do the same functionality if _center is a trigger
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_center", ["_radius", 0], ["_objectDistance", 5], ["_blacklist", []]];
 
-_center = [_center] call BRM_FMK_AIS_fnc_toPosition;
+_center = [_center] call FUNC(toPosition);
 
 // TODO Use findEmptyPosition instead of BIS_fnc_findSafePos?
 // TODO Why is _radius forcibly increased by 50?

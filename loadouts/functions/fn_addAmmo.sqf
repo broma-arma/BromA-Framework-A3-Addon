@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -28,4 +29,4 @@ RETURNS:
 
 params ["_object", "_kind", ["_amount", 1]];
 
-[_object, _kind, _amount, "vbu"] call BRM_FMK_fnc_addItem
+[_object, _kind, _amount, "vbu"] call FUNCMAIN(addItem)

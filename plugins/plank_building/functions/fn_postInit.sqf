@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 [{(time > 1)}, {
 	if (fileExists "settings\plugins\plank_building.sqf") then {
 		call compile preprocessFileLineNumbers "settings\plugins\plank_building.sqf" params ["_speed", "_objects", "_fortifications"];
@@ -58,9 +59,9 @@
 		!(isNil {BIS_fnc_init} && {BIS_fnc_init});
 	};
 
-	[] call BRM_FMK_PlankBuilding_fnc_deployFunctions;
-	[] call BRM_FMK_PlankBuilding_fnc_uiFunctions;
-	[] call BRM_FMK_PlankBuilding_fnc_apiFunctions;
+	[] call FUNC(deployFunctions);
+	[] call FUNC(uiFunctions);
+	[] call FUNC(apiFunctions);
 
 	plank_isInitialized = true;
 }, []] call CBA_fnc_waitUntilAndExecute;

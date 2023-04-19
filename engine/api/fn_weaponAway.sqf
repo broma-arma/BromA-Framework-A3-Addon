@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -5,7 +6,7 @@ NAME:
     BRM_FMK_fnc_weaponAway
 
 AUTHOR(s):
-    commy2
+    Coryf88
 
 DESCRIPTION:
     The unit will put its current weapon away.

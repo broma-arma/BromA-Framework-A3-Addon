@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 sleep 1;
 _logic =  _this select 0;
 _radius = _this select 1;
@@ -17,11 +18,11 @@ _name setMarkerDirLocal _dir;
 _name setMarkerShapeLocal "RECTANGLE";
 _name setMarkerSizeLocal [_radius, _radius];
 _name setMarkerBrushLocal "Border";
-_name setMarkerColorLocal "color" + ([side player, "color"] call BRM_FMK_fnc_getSideInfo);
+_name setMarkerColorLocal "color" + ([side player, "color"] call FUNCMAIN(getSideInfo));
 
 _message = "Wait until the round setup is over!";
 
-_barrierHandle = [_pos, _radius, _radius, _dir, "rectangle", _message] call BRM_FMK_Round_System_fnc_registerZone;
+_barrierHandle = [_pos, _radius, _radius, _dir, "rectangle", _message] call FUNC(registerZone);
 
 sleep 1;
 _timetype = "";

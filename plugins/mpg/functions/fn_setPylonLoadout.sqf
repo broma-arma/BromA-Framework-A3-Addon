@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 #include "../defines.hpp"
 
 private _params = params [

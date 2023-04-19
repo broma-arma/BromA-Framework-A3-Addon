@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 #include "../../defines.hpp"
 
 params ["_display", "_control"];
@@ -17,9 +18,9 @@ if (_search < 0 || _ctrlContent < 0) exitWith {
 
 // Reload content
 if (_ctrlContent == IDC_MPG_LEFTCONTENT) then {
-	[_display, _display getVariable ["MPG_leftTab", 0], false] call BRM_FMK_MPGarage_fnc_loadLeftContent;
+	[_display, _display getVariable ["MPG_leftTab", 0], false] call FUNC(loadLeftContent);
 } else {
-	[_display, _display getVariable ["MPG_rightTab", 0], false] call BRM_FMK_MPGarage_fnc_loadRightContent;
+	[_display, _display getVariable ["MPG_rightTab", 0], false] call FUNC(loadRightContent);
 };
 
 _search = toLower ctrlText (_display displayCtrl _search);

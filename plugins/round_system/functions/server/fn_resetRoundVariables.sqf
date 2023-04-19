@@ -1,4 +1,5 @@
-if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
+#include "script_component.hpp"
+if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) <= 0) then {
 	sideAcondition = false;
 	sideBcondition = false;
 	sideCcondition = false;

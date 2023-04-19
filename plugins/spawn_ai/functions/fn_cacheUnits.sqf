@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 _group = _this select 0;
 _loadout = _this select 1;
 _skill = _this select 2;
@@ -6,7 +7,7 @@ _color = _this select 3;
 _groupIsCached = false;
 _groupCachedUnits = [];
 
-_allowedDistance = [] call BRM_FMK_SpawnAI_fnc_getSettings select 1;
+_allowedDistance = [] call FUNC(getSettings) select 1;
 
 _targetCheck = playableUnits;
 if (!isMultiplayer) then { _targetCheck = switchableUnits };
@@ -27,7 +28,7 @@ while {(count (units _group) > 0)} do {
             _vehicle = _x select 1;
             _vehicleClass = _x select 2;
 
-            _unit = [_group, _unitClass, [0,0,0], _skill, _loadout, _color] call BRM_FMK_SpawnAI_fnc_spawnUnit;
+            _unit = [_group, _unitClass, [0,0,0], _skill, _loadout, _color] call FUNC(spawnUnit);
 
             if !(str(_vehicle) == "<NULL-object>") then {
                 if ((alive _vehicle) && ((getPos _vehicle) distance (getPos _leader)) < 50) then {
@@ -42,7 +43,7 @@ while {(count (units _group) > 0)} do {
                 _unit setPos [((getPos _leader) select 0) + (5 + random(5)), ((getPos _leader) select 1) + (5 + random(5)), 0];
             };
 
-            ["LOCAL", "CHAT", "De-caching " + (name _unit) + "."] call BRM_FMK_fnc_doLog;
+            ["LOCAL", "CHAT", "De-caching " + (name _unit) + "."] call FUNCMAIN(doLog);
         } forEach _groupCachedUnits;
 
         _groupCachedUnits = [];
@@ -63,7 +64,7 @@ while {(count (units _group) > 0)} do {
 
                         _groupCachedUnits pushBack _array;
 
-                        ["LOCAL", "CHAT", "Cached unit "+(name _x)+"."] call BRM_FMK_fnc_doLog;
+                        ["LOCAL", "CHAT", "Cached unit "+(name _x)+"."] call FUNCMAIN(doLog);
 
                         deleteVehicle _x;
                     };
@@ -75,6 +76,6 @@ while {(count (units _group) > 0)} do {
     sleep 3;
 };
 
-["LOCAL", "CHAT", format ["%1 no longer exists.", _group]] call BRM_FMK_fnc_doLog;
+["LOCAL", "CHAT", format ["%1 no longer exists.", _group]] call FUNCMAIN(doLog);
 
 true

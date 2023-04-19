@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -44,7 +45,7 @@ if (_autoNamed) then {
 		case "civ": { CIVILIAN };
 	};
 
-	_group = ([_side, "callsigns"] call BRM_FMK_fnc_getSideInfo) select (parseNumber _groupCallsign);
+	_group = ([_side, "callsigns"] call FUNCMAIN(getSideInfo)) select (parseNumber _groupCallsign);
 	private _groupNameNumber = if (_actualGroup) then { "" } else { " " + _groupNumber };
 	_groupName = _group + _groupNameNumber;
 } else {

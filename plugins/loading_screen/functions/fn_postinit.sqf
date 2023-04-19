@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 #define CLIENT_FPS_METRIC 10
 #define CLIENT_TIMEOUT 5
 #define CLIENT_SERVER_TIMEOUT 10
@@ -16,14 +17,14 @@ if !(hasInterface && isMultiplayer) exitWith { loading_screen_finished = true; }
 
 	[[
 		{ diag_fpsMin >= CLIENT_FPS_METRIC }
-	], CLIENT_TIMEOUT] call BRM_FMK_LoadingScreen_fnc_load;
+	], CLIENT_TIMEOUT] call FUNC(load);
 
 	if (isNil "BrmFmk_LoadingScreen_loaded" || {!BrmFmk_LoadingScreen_loaded}) then {
-		call BRM_FMK_LoadingScreen_fnc_clientLoaded;
+		call FUNC(clientLoaded);
 
 		[[
 			{ !isNil "BrmFmk_LoadingScreen_loaded" && {BrmFmk_LoadingScreen_loaded} }
-		], CLIENT_SERVER_TIMEOUT] call BRM_FMK_LoadingScreen_fnc_load;
+		], CLIENT_SERVER_TIMEOUT] call FUNC(load);
 	};
 
 	disableUserInput false;

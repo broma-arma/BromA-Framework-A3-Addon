@@ -1,13 +1,14 @@
+#include "script_component.hpp"
 params ["_target", ["_lives", mission_player_lives]];
 
 if (_target isEqualType "") then {
-	_target = [_target] call BRM_FMK_fnc_unitFromName;
+	_target = [_target] call FUNCMAIN(unitFromName);
 };
 
 if (isNull _target) exitWith {};
 
 if (!isServer) exitWith {
-	[_target, _lives] remoteExecCall ["BRM_FMK_RespawnSystem_fnc_setLives", 2];
+	[_target, _lives] remoteExecCall [QFUNC(setLives), 2];
 };
 
 private _playerID = getPlayerUID _target;

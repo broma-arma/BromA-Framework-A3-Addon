@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -54,7 +55,7 @@ RETURNS:
 
 if (!isServer) exitWith {};
 
-if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0 && count _this == 6) then {
+if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) <= 0 && count _this == 6) then {
 	params ["_owner", "_id", "_details", "_predicates", "_priority", "_callbacks"];
 
 	_details params ["_title", "_description", "_type", ["_position", objNull, [[], objNull, ""]]];
@@ -219,8 +220,8 @@ _description = format [
 ] + _description;
 _title = (_missionCondition select [0, 3]) + _title;
 
-if (isNil "BRM_FMK_tasks") then { BRM_FMK_tasks = []; };
-BRM_FMK_tasks pushBack [_taskID,
+if (isNil QGVARMAIN(tasks)) then { GVARMAIN(tasks) = []; };
+GVARMAIN(tasks) pushBack [_taskID,
 	_sides, _owners, _id, _title, _description, _type, _position, _missionComplete, _missionFail, _endingComplete, _endingFail,
 	_predicateAssign, _predicateComplete, _predicateFail,
 	_callbackAssigned, _callbackCompleted, _callbackFailed

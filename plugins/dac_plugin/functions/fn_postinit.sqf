@@ -1,4 +1,5 @@
-["BRM_FMK_aiControllerInit", {
+#include "script_component.hpp"
+[QGVARMAIN(aiControllerInit), {
 	0 spawn {
 		private _aiSkill = ["p_ai_level", 3] call BIS_fnc_getParamValue;
 
@@ -12,8 +13,8 @@
 			default { [0.5, 0.5] };
 		};
 
-		if (isNil "BRM_FMK_DAC_strToNum_factions") then {
-			BRM_FMK_DAC_strToNum_factions = ["AUTO", "VANILLA"];
+		if (isNil QGVAR(strToNum_factions)) then {
+			GVAR(strToNum_factions) = ["AUTO", "VANILLA"];
 		};
 
 		waitUntil { !isNil "DAC_STRPlayers" };
@@ -32,6 +33,6 @@
 		waituntil {scriptdone _scr};
 		[] execVM DAC_Path + "DAC_Config_Creator.sqf";
 
-		[] call ([] call BRM_FMK_DAC_fnc_getSettings select 0);
+		[] call ([] call FUNC(getSettings) select 0);
 	};
 }] call CBA_fnc_addEventHandler;

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -28,6 +29,6 @@ private _names = ["DATE", "FOG",     "RAIN", "GUSTS", "LIGHTNINGS", "OVERCAST", 
 private _stamp = [date,   fogParams, rain,   gusts,   lightnings,   overcast,   rainbow,   windStr,         (wind select [0, 2]) + [false], waves];
 
 private _i = -1;
-["LOCAL", "LOG", format ["=== SERVER TIME STAMP @ %1: %2", time, _stamp apply { _i = _i + 1; format ["%1: %2", _names select _i, _x] } joinString " | "]] call BRM_FMK_fnc_doLog;
+["LOCAL", "LOG", format ["=== SERVER TIME STAMP @ %1: %2", time, _stamp apply { _i = _i + 1; format ["%1: %2", _names select _i, _x] } joinString " | "]] call FUNC(doLog);
 
-_stamp remoteExec ["BRM_FMK_fnc_syncTime", remoteExecutedOwner];
+_stamp remoteExec [QFUNCMAIN(syncTime), remoteExecutedOwner];

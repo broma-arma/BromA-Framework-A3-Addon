@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 [
@@ -30,4 +31,4 @@ diag_log text format ["%1: %2", _fnc_scriptName, _this];
 	[[], [[]]], // groupTypes
 	[[], [[]]], // aiSkills
 	[[], [[]]] // aiSpawners
-] call BRM_FMK_fnc_getPluginSettings
+] call FUNCMAIN(getPluginSettings)

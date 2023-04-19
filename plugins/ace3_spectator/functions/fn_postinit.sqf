@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if !(isClass(configFile>>"CfgPatches">>"ACE_MAIN")) exitWith {};
 
 [allUnits] call ace_spectator_fnc_updateUnits;

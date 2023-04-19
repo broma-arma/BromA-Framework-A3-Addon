@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 // ============================================================================
 //  These are the default credits to everyone who contributed in order to make |
 //                        this framework complete.                             |
@@ -12,8 +13,8 @@
 private _author = "Unknown";
 private _version = "v0";
 
-if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then { // > v0.7.5
-	_author = getText (missionConfigFile >> "Mission" >> "ScenarioData" >> "author");
+if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) > 0) then { // > v0.7.5
+	_author = getMissionConfigValue "Author";
 
 	private _parts = missionName splitString "_";
 	private _lastPart = _parts select count _parts - 1;
@@ -22,7 +23,7 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then { // > v0
 	};
 
 } else {
-	_author = [mission_author_name] call BRM_FMK_fnc_verboseArray;
+	_author = [mission_author_name] call FUNCMAIN(verboseArray);
 	_version = mission_version;
 };
 

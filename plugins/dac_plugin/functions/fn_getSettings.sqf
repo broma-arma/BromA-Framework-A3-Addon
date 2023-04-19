@@ -1,4 +1,5 @@
+#include "script_component.hpp"
 [
 	"dac_plugin",
 	[{}, [{}]] // code
-] call BRM_FMK_fnc_getPluginSettings
+] call FUNCMAIN(getPluginSettings)

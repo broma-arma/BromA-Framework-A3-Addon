@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -27,4 +28,4 @@ RETURNS:
 
 params [["_side", WEST, [WEST]]];
 
-[_side, "units"] call BRM_FMK_fnc_getSideInfo
+[_side, "units"] call FUNCMAIN(getSideInfo)

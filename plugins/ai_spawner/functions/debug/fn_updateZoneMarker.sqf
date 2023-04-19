@@ -1,8 +1,9 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_id", "_zone"];
 
-private _spawner = [_id] call BRM_FMK_AIS_fnc_getSpawner;
+private _spawner = [_id] call FUNC(getSpawner);
 
 private _groups = _spawner get "groups";
 
@@ -19,7 +20,7 @@ private _uncachedUnits = 0;
 	} forEach units (_x select 1);
 } forEach _groups;
 
-format ["BRM_FMK_AIS_ico_%1_%2", _id, _zone] setMarkerText format [
+format [QGVAR(ico_%1_%2), _id, _zone] setMarkerText format [
 	"%1 (%2,%3/%4)",
 	_id,
 	count _groups,

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -48,7 +49,7 @@ RETURNS:
 	private _aliasNONE = ["-", "NONE", "VANILLA"];
 
 	if (toUpper _faction in _aliasAUTO) then {
-		_faction = [side _unit, "FACTION"] call BRM_FMK_fnc_getSideInfo;
+		_faction = [side _unit, "FACTION"] call FUNCMAIN(getSideInfo);
 	};
 
 	if !(_faction isEqualType "") then { _faction = str _faction };
@@ -56,13 +57,13 @@ RETURNS:
 	// Assigns the Unit's loadout depending on mission settings. ===============
 
 	if !(_faction in _aliasNONE) then {
-		[_unit, _faction] call BRM_FMK_fnc_assignLoadout;
+		[_unit, _faction] call FUNCMAIN(assignLoadout);
 	};
 
 	// Adds the relevant Event Handlers. =======================================
 
 	_unit addEventHandler ["Hit", { (_this select 0) setVariable ["last_damage", _this select 1] }];
-	_unit addEventHandler ["Killed", { _this call BRM_FMK_fnc_onAIKilled }];
+	_unit addEventHandler ["Killed", { _this call FUNCMAIN(onAIKilled) }];
 
 	// Finishes loading. =======================================================
 

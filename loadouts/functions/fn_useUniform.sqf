@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -47,5 +48,5 @@ params ["_unit", "_headgear", "_uniform", "_vest", "_backpack"];
 	[_headgear, { removeHeadgear _unit; }, { _unit addHeadgear _item; }],
 	[_uniform,  { removeUniform _unit; },  { _unit forceAddUniform _item; }],
 	[_vest,     { removeVest _unit; },     { _unit addVest _item; }],
-	[_backpack, { removeBackpack _unit; }, { [_unit, _item] call BRM_FMK_fnc_addEmptyBackpack; }]
+	[_backpack, { removeBackpack _unit; }, { [_unit, _item] call FUNCMAIN(addEmptyBackpack); }]
 ];

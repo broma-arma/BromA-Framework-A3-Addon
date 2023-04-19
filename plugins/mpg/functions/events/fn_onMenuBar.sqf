@@ -1,13 +1,14 @@
+#include "script_component.hpp"
 #include "../../defines.hpp"
 
 params ["_control", "_path", "_action"];
 
 switch (_action) do {
 	case "FileOpen": {
-		["Open", false/*save*/] call BRM_FMK_MPGarage_fnc_onSavesEvent;
+		["Open", false/*save*/] call FUNC(onSavesEvent);
 	};
 	case "FileSave": {
-		["Open", true/*save*/] call BRM_FMK_MPGarage_fnc_onSavesEvent;
+		["Open", true/*save*/] call FUNC(onSavesEvent);
 	};
 	case "FileRandom": {
 		private _idcsLeftTabs = IDCS_LEFT;
@@ -22,7 +23,7 @@ switch (_action) do {
 
 		// Select random tab
 		private _ctrlLeftTab = ctrlParent _control displayCtrl (selectRandom _idcsLeftTabs);
-		[ctrlParent _ctrlLeftTab, _ctrlLeftTab] call BRM_FMK_MPGarage_fnc_onLeftTabSelect;
+		[ctrlParent _ctrlLeftTab, _ctrlLeftTab] call FUNC(onLeftTabSelect);
 
 		// Select random vehicle
 		private _ctrlLeftContent = ctrlParent _control displayCtrl IDC_MPG_LEFTCONTENT;

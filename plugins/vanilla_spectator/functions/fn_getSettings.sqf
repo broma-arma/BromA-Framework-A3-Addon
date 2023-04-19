@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
     Returns the spectator settings.
 */
@@ -13,4 +14,4 @@
 	[true, [true], "vanillaspectator_show_controls"], // showControlsHelper
 	[true, [true], "vanillaspectator_show_header"], // showHeader
 	[true, [true], "vanillaspectator_show_entities"] // showLists
-] call BRM_FMK_fnc_getPluginSettings
+] call FUNCMAIN(getPluginSettings)

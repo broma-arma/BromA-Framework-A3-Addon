@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 0 spawn {
 	if (isServer) then {
 		mission_valid_groups = [];
@@ -114,7 +115,7 @@
 		mission_radiochannels_CIV = mission_valid_groups_CIV call _formatChannel; publicVariable "mission_radiochannels_CIV";
 	};
 
-	if (hasInterface && [BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
+	if (hasInterface && [BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) > 0) then {
 		waitUntil{ !isNil "mission_radiochannels_CIV" };
 
 		private _sideId = ["BLU", "OP", "IND", "CIV"] find side player;

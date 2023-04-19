@@ -1,6 +1,7 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
-params ["_group", ["_cachingDistances", [BRM_FMK_AIS_infantryCacheDistance, BRM_FMK_AIS_vehicleCacheDistance]]];
+params ["_group", ["_cachingDistances", [GVAR(infantryCacheDistance), GVAR(vehicleCacheDistance)]]];
 
 private _distanceSqr = (_cachingDistances select !isNull objectParent leader _group) ^ 2;
 
@@ -19,23 +20,23 @@ while {_loop} do {
 		if (alive _x) then {
 			_loop = true;
 
-			private _cached = _x getVariable ["BRM_FMK_AIS_isCached", false];
-			private _isCacheable = [_x] call BRM_FMK_AIS_fnc_isCacheable;
+			private _cached = _x getVariable [QGVAR(isCached), false];
+			private _isCacheable = [_x] call FUNC(isCacheable);
 
 			// TODO This seems problematic
-			if (!_isCacheable && _group getVariable ["BRM_FMK_AIS_groupDeployed", true]) then {
+			if (!_isCacheable && _group getVariable [QGVAR(groupDeployed), true]) then {
 				if (_cached) then { // TODO ~~This shouldn't be possible?~~ Used by defense spawner for *delayed* spawning.
-					[_x, false] call BRM_FMK_AIS_fnc_cacheUnit;
+					[_x, false] call FUNC(cacheUnit);
 				};
 			} else {
 				if (_cached) then {
 					// uncache unit if players near
 					if (!_cacheUnits) then {
-						[_x, false] call BRM_FMK_AIS_fnc_cacheUnit;
+						[_x, false] call FUNC(cacheUnit);
 					};
 					// update the position of the cached unit (only for infantry)
 					/*
-					if (isNull objectParent _x && _x getVariable ["BRM_FMK_AIS_setCachedPos", true]) then {
+					if (isNull objectParent _x && _x getVariable [QGVAR(setCachedPos), true]) then {
 						private _position = formationPosition _x;
 						_position set [2, 0];
 						_x setPosATL _position; // TODO ATL would result in unit being placed inside rocks?
@@ -43,7 +44,7 @@ while {_loop} do {
 					*/
 				} else {
 					if (_cacheUnits) then { // cache units if no players near
-						[_x, true] call BRM_FMK_AIS_fnc_cacheUnit;
+						[_x, true] call FUNC(cacheUnit);
 					};
 				}
 			};

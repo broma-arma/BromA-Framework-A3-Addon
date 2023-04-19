@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -35,5 +36,5 @@ params ["_unit", "_kind", "_amount"];
 
 if (_kind isEqualTo "") exitWith {};
 
-[_unit, _kind, _amount] call BRM_FMK_fnc_addAmmo;
-[_unit, _kind, 1] call BRM_FMK_fnc_addWeapon;
+[_unit, _kind, _amount] call FUNCMAIN(addAmmo);
+[_unit, _kind, 1] call FUNCMAIN(addWeapon);

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -31,17 +32,17 @@ RETURNS:
 params ["_target", ["_lives", mission_player_lives]];
 
 if (!isServer) exitWith {
-	_this remoteExecCall ["BRM_FMK_RespawnSystem_fnc_callRespawn", 2];
+	_this remoteExecCall [QFUNC(callRespawn), 2];
 };
 
 if (_target isEqualType "") exitWith {
 	if (!isNil { mission_dead_players deleteAt (mission_dead_players findIf { _x select 1 == _target }) }) then {
 		publicVariable "mission_dead_players";
 
-		private _unit = [_target] call BRM_FMK_fnc_unitFromName;
+		private _unit = [_target] call FUNCMAIN(unitFromName);
 		if (!isNull _unit) then {
-			[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
-			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
+			[_unit, _lives] call FUNC(setLives);
+			[QGVAR(respawn), [], _unit] call CBA_fnc_targetEvent;
 		};
 	};
 };
@@ -55,10 +56,10 @@ if (_target isEqualType 0) exitWith {
 	for "_i" from 0 to _respawned - 1 do {
 		mission_dead_players select _i params ["_deadUID", "_deadName", "_deadSide"];
 
-		private _unit = [_deadName] call BRM_FMK_fnc_unitFromName;
+		private _unit = [_deadName] call FUNCMAIN(unitFromName);
 		if (!isNull _unit) then {
-			[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
-			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
+			[_unit, _lives] call FUNC(setLives);
+			[QGVAR(respawn), [], _unit] call CBA_fnc_targetEvent;
 		};
 	};
 	mission_dead_players deleteRange [0, _respawned];

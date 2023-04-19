@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_group", "_loadout", "_type", "_settings"];
@@ -9,19 +10,19 @@ if (_disableLAMBS) then {
 };
 
 if (_aiSkill isEqualType "") then {
-	_aiSkill = BRM_FMK_AIS_aiSkills get _aiSkill;
+	_aiSkill = GVAR(aiSkills) get _aiSkill;
 };
 _group allowFleeing 0;
 
 {
 	private _unit = _x;
 
-	[_unit, _loadout] call BRM_FMK_fnc_initAI;
+	[_unit, _loadout] call FUNCMAIN(initAI);
 
-	_unit addEventHandler ["Killed", {_this spawn BRM_FMK_AIS_fnc_garbageCollector}];
+	_unit addEventHandler ["Killed", {_this spawn FUNC(garbageCollector)}];
 
-	if (BRM_FMK_AIS_aiDeathSounds) then {
-		_unit addEventHandler ["Killed", {_this call BRM_FMK_AIS_fnc_eventKilled}];
+	if (GVAR(aiDeathSounds)) then {
+		_unit addEventHandler ["Killed", {_this call FUNC(eventKilled)}];
 	};
 
 	if (_aiAggressive) then {
@@ -42,16 +43,16 @@ _group allowFleeing 0;
 		_unit setSkill [_skillName, _skillValue];
 	} forEach _aiSkill;
 
-	if (BRM_FMK_AIS_aiInfiniteAmmo) then {
-		_unit addEventHandler ["Reloaded", {_this call BRM_FMK_AIS_fnc_eventReloaded}];
+	if (GVAR(aiInfiniteAmmo)) then {
+		_unit addEventHandler ["Reloaded", {_this call FUNC(eventReloaded)}];
 	};
 
 } forEach units _group;
 
-if (BRM_FMK_AIS_debug) then {
-	[_group] spawn BRM_FMK_AIS_fnc_createGroupMarker;
+if (GVAR(debug)) then {
+	[_group] spawn FUNC(createGroupMarker);
 };
 
 if (_caching) then {
-	[_group, _cachingDistances] spawn BRM_FMK_AIS_fnc_cacheGroup;
+	[_group, _cachingDistances] spawn FUNC(cacheGroup);
 };

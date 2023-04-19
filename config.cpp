@@ -1,91 +1,51 @@
-#define MAJOR 0
-#define MINOR 83
-#define REVISION 0
-
-#define VERSION MAJOR.MINOR.REVISION
-#define VERSION_AR MAJOR,MINOR,REVISION
-
-#define QUOTE(var1) #var1
+#include "script_component.hpp"
 
 class CfgPatches {
-	class BRM_FRAMEWORK {
+	// TODO Rhea will need to be updated for CfgPatches name changing from "BRM_FRAMEWORK" to "BRM_FMK_main"
+	class ADDON {
+		name = CSTRING(component);
 		units[] = {};
 		weapons[] = {};
-		requiredVersion = 1;
+		requiredVersion = REQUIRED_VERSION;
+		// For some reason, either of these crash the game when loading framework mission in Eden SP
+		//requiredAddons[] = {"cba_main"};
+		//requiredAddons[] = {"cba_main_a3"};
 		requiredAddons[] = {};
-		author = "Nife";
-		versionDesc = "Broma Framework MK 4 APEX";
-		version = VERSION;
-		versionStr = QUOTE(VERSION);
-		versionAr[] = {VERSION_AR};
+		author = CSTRINGMAINS(Author);
+		authors[] = {};
+		url = CSTRINGMAINS(URL);
+		VERSION_CONFIG;
 	};
 };
 
 class CfgSettings {
 	class CBA {
 		class Versioning {
-			class BRM_FRAMEWORK {
-				main_addon = "BRM_FRAMEWORK";
+			class PREFIX {
+				class Dependencies {
+					CBA[] = {"cba_main", {3, 15, 8}, "true"};
+				};
 			};
 		};
 	};
 };
-
-class CfgFunctions {
-	class BRM_FMK {
-		tag = BRM_FMK;
-
-		#include "\broma_framework\engine\api\functions.cpp"
-		#include "\broma_framework\engine\ending\functions.cpp"
-		#include "\broma_framework\engine\events\functions.cpp"
-		#include "\broma_framework\engine\init\functions.cpp"
-		#include "\broma_framework\engine\loadouts\functions.cpp"
-		#include "\broma_framework\engine\misc\functions.cpp"
-		#include "\broma_framework\engine\mission\functions.cpp"
-		#include "\broma_framework\engine\plugins\functions.cpp"
-		#include "\broma_framework\engine\tasks\functions.cpp"
-		#include "\broma_framework\engine\unit\functions.cpp"
-
-		#include "\broma_framework\loadouts\functions.cpp"
-	};
-
-	#define BRM_PLUGIN_FUNCTIONS
-		#include "plugins\plugins.cpp"
-	#undef BRM_PLUGIN_FUNCTIONS
-};
-
-class CfgSounds {
-	#define BRM_PLUGIN_SOUNDS
-		#include "plugins\plugins.cpp"
-	#undef BRM_PLUGIN_SOUNDS
-};
-
-class BRM_FMK_Plugins {
-	#define BRM_PLUGIN_META
-		#include "\broma_framework\plugins\plugins.cpp"
-	#undef BRM_PLUGIN_META
-};
-
-#define BRM_PLUGIN_DIALOGS
-	#include "plugins\plugins.cpp"
-#undef BRM_PLUGIN_DIALOGS
 
 #include "CfgNotifications.hpp"
 #include "BRM_FMK_Endings.hpp"
 
 class Extended_DisplayLoad_EventHandlers {
 	class RscDisplayEGSpectator {
-		BRM_FRAMEWORK = "['BRM_FMK_DisplayLoad_EGSpectator', _this] call CBA_fnc_localEvent;";
+		ADDON = QUOTE([ARR_2(QQGVARMAIN(DisplayLoad_EGSpectator),_this)] call CBA_fnc_localEvent;);
 	};
 };
 
 class Extended_DisplayUnload_EventHandlers {
 	class RscDisplayEGSpectator {
-		BRM_FRAMEWORK = "['BRM_FMK_DisplayUnload_EGSpectator', _this] call CBA_fnc_localEvent;";
+		ADDON = QUOTE([ARR_2(QQGVARMAIN(DisplayUnload_EGSpectator),_this)] call CBA_fnc_localEvent;);
 	};
 };
 
-class BRM_FMK_Loadouts {
+class GVARMAIN(Loadouts) {
 	class Factions {
 		#include "loadouts\factions.hpp"
 	};

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -36,5 +37,5 @@ if (_kind isEqualTo "") exitWith {};
 if (_kind == "ACE_EarPlugs" && { _object isKindOf "Man" && { _object == player } }) then {
 	[_object] call ace_hearing_fnc_putInEarplugs;
 } else {
-	[_object, _kind, _amount] call BRM_FMK_fnc_addItem;
+	[_object, _kind, _amount] call FUNCMAIN(addItem);
 };

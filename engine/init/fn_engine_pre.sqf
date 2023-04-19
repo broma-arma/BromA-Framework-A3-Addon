@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -22,8 +23,8 @@ RETURNS:
 ================================================================================
 */
 
-if (!isNil "BRM_FMK_pre") exitWith {};
-BRM_FMK_pre = true;
+if (!isNil QGVAR(pre)) exitWith {};
+GVAR(pre) = true;
 
 if (fileExists "framework\local_version.txt") then { // Mission <= v0.7.5
 	private _localVersion = call compile preprocessFileLineNumbers "framework\local_version.txt" splitString "" apply { parseNumber _x };
@@ -40,8 +41,8 @@ if (isArray _cfgMissionVersion) then { // Mission > v0.7.5
 
 if (isNil "BRM_version") exitWith {}; // Not a BromA Framework mission
 
-if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
-	[{ !isNil "mission_settings" && { scriptDone mission_settings } }, {
+if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) <= 0) then {
+	[{ !isNil "mission_settings_loaded" && {mission_settings_loaded} }, {
 		if (!mission_enable_side_c) then {
 			side_c_faction = "";
 		};
@@ -62,59 +63,60 @@ if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
 		};
 	}] call CBA_fnc_waitUntilAndExecute;
 } else {
-	[] call BRM_FMK_fnc_initVariables;
+	[] call FUNCMAIN(initVariables);
 
-	[] call BRM_FMK_fnc_loadMissionSettings;
+	[] call FUNCMAIN(loadMissionSettings);
 
 	BRM_fnc_onAIKilled = if (fileExists "scripts\onAIKilled.sqf") then { compile preprocessFileLineNumbers "scripts\onAIKilled.sqf"; } else { {} };
 	BRM_fnc_onPlayerKilled = if (fileExists "scripts\onPlayerKilled.sqf") then { compile preprocessFileLineNumbers "scripts\onPlayerKilled.sqf"; } else { {} };
 	BRM_fnc_onPlayerRespawn = if (fileExists "scripts\onPlayerRespawn.sqf") then { compile preprocessFileLineNumbers "scripts\onPlayerRespawn.sqf"; } else { {} };
 };
 
-["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;
-["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call BRM_FMK_fnc_doLog;
-["LOCAL", "F_LOG", ""] call BRM_FMK_fnc_doLog;
+["LOCAL", "F_LOG", ""] call FUNCMAIN(doLog);
+["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call FUNCMAIN(doLog);
+["LOCAL", "F_LOG", ""] call FUNCMAIN(doLog);
 
 startTime = diag_tickTime;
 pluginsLoaded = false;
 
-BRM_FMK_plugins = "true" configClasses (configFile >> "BRM_FMK_Plugins") apply { configName _x };
-BRM_FMK_plugins sort true;
+GVARMAIN(plugins) = "true" configClasses (configFile >> QGVARMAIN(Plugins)) apply { configName _x };
+GVARMAIN(plugins) sort true;
 
-if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
+if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) <= 0) then {
 	BRM_plugins = "true" configClasses (missionConfigFile >> "CfgPlugins") apply { configName _x };
 	BRM_plugins sort true;
 
 	{
 		missionNamespace setVariable _x;
 	} forEach [
-		["BRM_FMK_f_cas_cap_fnc_postinit", BRM_FMK_casualties_cap_fnc_postinit],
-		["BRM_FMK_f_remove_body_fnc_postinit", BRM_FMK_remove_body_fnc_postinit],
-		["BRM_FMK_f_remove_body_fnc_removeBody", BRM_FMK_remove_body_fnc_removeBody],
-		["BRM_FMK_f_evade_escape_fnc_reachObject", BRM_FMK_evade_escape_fnc_reachObject]
+		[QEFUNC(f_cas_cap,postinit), EFUNC(casualties_cap,postinit)],
+		[QEFUNC(f_remove_body,postinit), EFUNC(remove_body,postinit)],
+		[QEFUNC(f_remove_body,removeBody), EFUNC(remove_body,removeBody)],
+		[QEFUNC(f_evade_escape,reachObject), EFUNC(evade_escape,reachObject)]
 	];
 } else {
-	private _unknownPlugins = mission_plugins apply { _x select 0 } select { !(_x in BRM_FMK_plugins) };
+	private _unknownPlugins = mission_plugins apply { _x select 0 } select { !(_x in GVARMAIN(plugins)) };
 	if (count _unknownPlugins > 0) then {
 		["[BromA Framework] Warning: The mission contains unknown plugins in ""settings\settings.sqf"", %1.", _unknownPlugins joinString ", "] call BIS_fnc_error;
 	};
 
 	BRM_plugins = [];
 	{
-		if ([mission_plugins, _x, getNumber (configFile >> "BRM_FMK_Plugins" >> _x >> "disabled") == 0] call BIS_fnc_getFromPairs) then {
+		if ([mission_plugins, _x, getNumber (configFile >> QGVARMAIN(Plugins) >> _x >> "disabled") == 0] call BIS_fnc_getFromPairs) then {
 			BRM_plugins pushBack _x;
 		};
-	} forEach BRM_FMK_plugins;
+	} forEach GVARMAIN(plugins);
 
 	private _preInitArgs = ["preInit"];
 	{
 		private _plugin = _x;
 		{
-			if (!isNil _x) then {
-				_preInitArgs call (missionNamespace getVariable _x);
+			private _fnc = missionNamespace getVariable _x;
+			if (!isNil "_fnc" && { _fnc isEqualType {} }) then {
+				_preInitArgs call _fnc;
 			} else {
 				["[BromA Framework] Internal Error: Unknown ""%2"" plugin preInit function, %2.", _plugin, _x] call BIS_fnc_error;
 			};
-		} forEach getArray (configFile >> "BRM_FMK_Plugins" >> _plugin >> "preInit");
+		} forEach getArray (configFile >> QGVARMAIN(Plugins) >> _plugin >> "preInit");
 	} forEach BRM_plugins;
 };

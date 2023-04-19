@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -38,7 +39,7 @@ _amount = if (_amount > -1) then {
 if (_amount == 0) exitWith {};
 
 if (!isServer) exitWith {
-	_this remoteExecCall ["BRM_FMK_RespawnSystem_fnc_callRespawnSide", 2];
+	_this remoteExecCall [QFUNC(callRespawnSide), 2];
 };
 
 private _respawnedIndices = [];
@@ -48,10 +49,10 @@ for "_i" from 0 to _amount - 1 do {
 	if (_deadSide == _side) then {
 		_respawnedIndices pushBack _i;
 
-		private _unit = [_deadName] call BRM_FMK_fnc_unitFromName;
+		private _unit = [_deadName] call FUNCMAIN(unitFromName);
 		if (!isNull _unit) then {
-			[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
-			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
+			[_unit, _lives] call FUNC(setLives);
+			[QGVAR(respawn), [], _unit] call CBA_fnc_targetEvent;
 		};
 	};
 };
@@ -72,5 +73,5 @@ if (_respawned > 0) then {
 		default { ["%1 units have respawned.", "Alert"] }
 	}) params ["_alertText", "_alertNotification"];
 
-	[_alertNotification, [format [_alertText, _respawned, [_side, "name"] call BRM_FMK_fnc_getSideInfo]]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
+	[_alertNotification, [format [_alertText, _respawned, [_side, "name"] call FUNCMAIN(getSideInfo)]]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
 };

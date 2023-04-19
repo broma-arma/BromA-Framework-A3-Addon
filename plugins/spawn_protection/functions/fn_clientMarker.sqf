@@ -1,10 +1,11 @@
+#include "script_component.hpp"
 if (!hasInterface) exitWith {};
 
 params [["_pos", []], ["_a", 50], ["_b", 50], ["_angle", 0], ["_isRectangle", true], ["_c", 0]];
 
 if (count _pos == 0) exitWith {
 	["Alert", ["Spawn protection is disabled!"]] call BIS_fnc_showNotification;
-	deleteMarkerLocal "BRM_FMK_SpawnProtection_Marker";
+	deleteMarkerLocal QGVAR(Marker);
 };
 
 private _sideIndex = [side_a_side, side_b_side, side_c_side] find (player getVariable ["unit_side", side player]);
@@ -16,7 +17,7 @@ if (_sideIndex == -1) exitWith {
 };
 
 // Create a local marker
-private _spawnMarker = createMarkerLocal ["BRM_FMK_SpawnProtection_Marker", _pos];
+private _spawnMarker = createMarkerLocal [QGVAR(Marker), _pos];
 _spawnMarker setMarkerSizeLocal [_a, _b];
 _spawnMarker setMarkerDirLocal _angle;
 _spawnMarker setMarkerShapeLocal (if (_isRectangle) then { "RECTANGLE" } else { "ELLIPSE" });

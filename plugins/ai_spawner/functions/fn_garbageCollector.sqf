@@ -1,9 +1,10 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_unit"];
 
 if (_unit isKindOf "Man") then {
-	BRM_FMK_AIS_garbageCollector params ["_minTime", "_playerRadius", "_maxTime"];
+	GVAR(garbageCollector) params ["_minTime", "_playerRadius", "_maxTime"];
 
 	private _weaponHolderTypes = [
 		"WeaponHolderSimulated",
@@ -15,8 +16,8 @@ if (_unit isKindOf "Man") then {
 
 	private _weaponHolders = nearestObjects [_unit, _weaponHolderTypes, 20];
 
-	if !(_unit getVariable ["BRM_FMK_AIS_isCached", false]) then {
-		[_unit, BRM_FMK_AIS_garbageCollector] call BRM_FMK_AIS_fnc_garbageCollectorCheck;
+	if !(_unit getVariable [QGVAR(isCached), false]) then {
+		[_unit, BRM_FMK_AIS_garbageCollector] call FUNC(garbageCollectorCheck);
 	};
 
 	hideBody _unit;
@@ -29,14 +30,14 @@ if (_unit isKindOf "Man") then {
 	[_unit] spawn {
 		params ["_vehicle"];
 
-		BRM_FMK_AIS_garbageCollectorVehicle params ["_minTime", "_playerRadius", "_maxTime"];
+		GVAR(garbageCollectorVehicle) params ["_minTime", "_playerRadius", "_maxTime"];
 
 		private _crew = units group driver _vehicle;
 		while {alive _vehicle} do {
 			if ({ alive _x } count crew _vehicle == 0) exitWith {};
 		};
 
-		[_vehicle, BRM_FMK_AIS_garbageCollector] call BRM_FMK_AIS_fnc_garbageCollectorCheck;
+		[_vehicle, GVAR(garbageCollector)] call FUNC(garbageCollectorCheck);
 
 		deleteVehicle _vehicle;
 

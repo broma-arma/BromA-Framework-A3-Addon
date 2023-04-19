@@ -1,12 +1,13 @@
+#include "script_component.hpp"
 if (!isServer) exitWith {
-	_this remoteExec ["BRM_FMK_TimeLimit_fnc_addTime", 2];
+	_this remoteExec [QFUNC(addTime), 2];
 };
 
 params ["_time"];
 
 if (_time == 0) exitWith {};
 
-BRM_FMK_TimeLimit_countdown = BRM_FMK_TimeLimit_countdown + _time;
+GVAR(countdown) = GVAR(countdown) + _time;
 
 private _action = if (_time > 0) then { "added to" } else { "removed from" };
 

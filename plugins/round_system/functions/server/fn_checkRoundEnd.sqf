@@ -1,10 +1,11 @@
+#include "script_component.hpp"
 if (!isServer) exitWith {};
 
 mission_countdown = BRM_round_system_time_limit;
 
-["LOCAL", "CHAT", "Initializing round condition check...", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+["LOCAL", "CHAT", "Initializing round condition check...", ROUND_SYSTEM_DEBUG] call FUNCMAIN(doLog);
 
-[] call BRM_FMK_Round_System_fnc_getSettings select 7 params ["_victoryConditionA", "_victoryConditionB", "_victoryConditionC"];
+[] call FUNC(getSettings) select 7 params ["_victoryConditionA", "_victoryConditionB", "_victoryConditionC"];
 
 waitUntil {
 	if (mission_countdown > 0) then {
@@ -12,12 +13,12 @@ waitUntil {
 	};
 
     if (mission_countdown > 0) then {
-		if (mission_countdown in ([] call BRM_FMK_Round_System_fnc_getSettings select 3)) then {
-			["CLIENTS", "HINT", format ["%1 minutes remaining in the round!", floor (mission_countdown / 60)]] call BRM_FMK_fnc_doLog;
+		if (mission_countdown in ([] call FUNC(getSettings) select 3)) then {
+			["CLIENTS", "HINT", format ["%1 minutes remaining in the round!", floor (mission_countdown / 60)]] call FUNCMAIN(doLog);
 		};
 
 		if (mission_countdown <= 10) then {
-			["CLIENTS", "HINT", format ["%1 seconds remaining in the round!", mission_countdown]] call BRM_FMK_fnc_doLog;
+			["CLIENTS", "HINT", format ["%1 seconds remaining in the round!", mission_countdown]] call FUNCMAIN(doLog);
 		};
     };
 
@@ -39,6 +40,6 @@ switch (true) do {
           (call _victoryConditionC)): { round_end_reason = "OBJECTIVE" };
 };
 
-["LOCAL", "CHAT", "Ending round condition check...", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+["LOCAL", "CHAT", "Ending round condition check...", ROUND_SYSTEM_DEBUG] call FUNCMAIN(doLog);
 
-[] call BRM_FMK_Round_System_fnc_roundEnd;
+[] call FUNC(roundEnd);

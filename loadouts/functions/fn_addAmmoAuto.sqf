@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -32,8 +33,8 @@ RETURNS:
 
 params ["_object", "_weapon", "_amount", "_type", ["_muzzle", 0]];
 
-private _magazine = [_weapon, _type, _muzzle] call BRM_FMK_fnc_getAmmoClass;
+private _magazine = [_weapon, _type, _muzzle] call FUNCMAIN(getAmmoClass);
 
 if (_magazine == "") exitWith { -1 };
 
-[_object, _magazine, _amount, "vbu"] call BRM_FMK_fnc_addItem
+[_object, _magazine, _amount, "vbu"] call FUNCMAIN(addItem)

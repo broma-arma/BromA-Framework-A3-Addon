@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -54,7 +55,7 @@ switch (true) do {
 			if (_kindIndex == 2) then { // BP
 				if (backpack _unit != _radio) then {
 					removeBackpack _unit;
-					[_unit, _radio] call BRM_FMK_fnc_addEmptyBackpack;
+					[_unit, _radio] call FUNCMAIN(addEmptyBackpack);
 				};
 			} else {
 				private _otherRadio = _radios select ([1, 0] select _kindIndex);
@@ -73,7 +74,7 @@ switch (true) do {
 			if (_kindIndex == 2) then { // BP
 				if (backpackItems _unit findIf { _x find _radio == 0 } == -1) then {
 					if !(_unit canAddItemToBackpack _radio) then {
-						[_unit, _backpack] call BRM_FMK_fnc_addEmptyBackpack;
+						[_unit, _backpack] call FUNCMAIN(addEmptyBackpack);
 					};
 					_unit addItemToBackpack _radio;
 				};

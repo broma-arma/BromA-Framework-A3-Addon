@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 params ["_faction"];
 
 #include "\broma_framework\loadouts\includes\private-variables.sqf"

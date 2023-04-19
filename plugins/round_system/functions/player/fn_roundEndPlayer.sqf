@@ -1,4 +1,5 @@
+#include "script_component.hpp"
 if (!hasInterface) exitWith {};
 
-["BRM_FMK_RespawnSystem_respawn", []] call CBA_fnc_localEvent;
+[QEGVAR(RespawnSystem,respawn), []] call CBA_fnc_localEvent;
 player allowDamage false;

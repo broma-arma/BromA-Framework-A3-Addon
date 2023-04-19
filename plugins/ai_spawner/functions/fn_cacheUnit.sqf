@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_unit", "_cache"];
@@ -13,4 +14,4 @@ if (!_cache && isNull objectParent _unit) then {
 	_unit setPosATL _pos; // TODO ATL would result in unit being placed inside rocks?
 };
 
-_unit setVariable ["BRM_FMK_AIS_isCached", _cache];
+_unit setVariable [QGVAR(isCached), _cache];

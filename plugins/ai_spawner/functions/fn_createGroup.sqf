@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_spawnPosition", "_groupType", "_side"];
@@ -5,10 +6,10 @@ params ["_spawnPosition", "_groupType", "_side"];
 private _group = createGroup [_side, true];
 
 if (_groupType isEqualType "") then {
-	_group setVariable ["BRM_FMK_AIS_groupType", _groupType];
-	_groupType = BRM_FMK_AIS_groupTypes get _groupType;
+	_group setVariable [QGVAR(groupType), _groupType];
+	_groupType = GVAR(groupTypes) get _groupType;
 } else {
-	_group setVariable ["BRM_FMK_AIS_groupType", keys BRM_FMK_AIS_groupTypes select (values BRM_FMK_AIS_groupTypes find _groupType)];
+	_group setVariable [QGVAR(groupType), keys GVAR(groupTypes) select (values GVAR(groupTypes) find _groupType)];
 };
 
 {
@@ -25,9 +26,9 @@ if (_groupType isEqualType "") then {
 		};
 
 		private _vehicle = createVehicle [_classname, _spawnPosition, [], 0, _spawnType];
-		[_vehicle] spawn BRM_FMK_AIS_fnc_garbageCollector;
-		[_vehicle, _group] call BRM_FMK_AIS_fnc_createVehicleCrew; // TODO Vehicle crew should be in a seperate group?
-		//[_group, _groupType, _side, _spawnPosition] spawn BRM_FMK_AIS_fnc_checkBadSpawn;
+		[_vehicle] spawn FUNC(garbageCollector);
+		[_vehicle, _group] call FUNC(createVehicleCrew); // TODO Vehicle crew should be in a seperate group?
+		//[_group, _groupType, _side, _spawnPosition] spawn FUNC(checkBadSpawn);
 	};
 } forEach _groupType;
 

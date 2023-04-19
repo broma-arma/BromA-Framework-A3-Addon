@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 /*
@@ -11,7 +12,7 @@ if ("dac_plugin" in BRM_plugins) then {
 while {true} do {
 	private _lines = ["<t size='1.25' font='PuristaBold' color='#ffcc00'>AI Spawner</t>", "<t align='left'>"];
 
-	if (count BRM_FMK_AIS_spawners == 0) then {
+	if (count GVAR(spawners) == 0) then {
 		_lines pushBack "No active spawners.";
 	} else {
 		{
@@ -36,7 +37,7 @@ while {true} do {
 				[_spawnLimit, "INF"] select (_spawnLimit == -1)
 			];
 			_lines pushBack format ["<t size='0.8' font='PuristaBold'>Side: %1</t>", _side];
-		} forEach BRM_FMK_AIS_spawners;
+		} forEach GVAR(spawners);
 	};
 
 	private _infoText = "<t size='1' font='PuristaBold'>" + (_lines joinString "<br/>") + "</t></t>";

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 params ["_vehicle", "_group"];
@@ -29,4 +30,4 @@ private _type = if (_vehicle isKindOf "LandVehicle") then {
 			case "gunner":    { _unit moveInGunner _vehicle; };
 		};
 	};
-} forEach ([typeOf _vehicle, ["cargo", "turret"], _vehicle] call BRM_FMK_AIS_fnc_getVehicleSeats);
+} forEach ([typeOf _vehicle, ["cargo", "turret"], _vehicle] call FUNC(getVehicleSeats));

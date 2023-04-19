@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -57,7 +58,7 @@ if (_status == 2) then {
 	};
 
 	_automaticArea params ["_aaX", "_aaY", "_aaAngle", "_aaRectangle"];
-	["local", _pos, (if (_aaRectangle) then { "RECTANGLE" } else { "ELLIPSE" }), "Solid", _markerColor, [_aaX, _aaY], _aaAngle, 0.5] call BRM_FMK_fnc_newMarkerArea;
+	["local", _pos, (if (_aaRectangle) then { "RECTANGLE" } else { "ELLIPSE" }), "Solid", _markerColor, [_aaX, _aaY], _aaAngle, 0.5] call FUNCMAIN(newMarkerArea);
 
 	private _trg = createTrigger ["EmptyDetector", _pos];
 	_trg setTriggerArea _automaticArea;
@@ -68,7 +69,7 @@ if (_status == 2) then {
 private _trigger = createTrigger ["EmptyDetector", _pos];
 _trigger setTriggerArea _area;
 _trigger setTriggerActivation ["NONE", "NOT PRESENT", false];
-_trigger setTriggerStatements ["true", format (["['%1', [%2, %3, %4], %5, %6, %7, %8, [%9, %9, %10, 0]] call BRM_FMK_DAC_fnc_DACZone"] + _this), ""];
+_trigger setTriggerStatements ["true", format (["['%1', [%2, %3, %4], %5, %6, %7, %8, [%9, %9, %10, 0]] call " + QFUNC(DACZone)] + _this), ""];
 missionNamespace setVariable [_name, _trigger];
 
 mission_dac_zones pushBack [_name, _id];

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if (!isServer) exitWith {};
 
 mission_spawn_protection_time = ["p_spawn_protection_time", -1] call BIS_fnc_getParamValue;
@@ -11,7 +12,7 @@ if (mission_spawn_protection_time > 0) then {
 if (mission_spawn_protection_time == 0) exitWith {};
 
 0 spawn {
-	[] call BRM_FMK_SpawnProtection_fnc_getSettings params ["_area"];
+	[] call FUNC(getSettings) params ["_area"];
 
 	private _fnc_createTrigger = {
 		params ["_side"];
@@ -35,43 +36,14 @@ if (mission_spawn_protection_time == 0) exitWith {};
 		private _triggerArea = [_area, _area, 0, true];
 
 		// Create marker on clients.
-		([_pos] + _triggerArea) remoteExec ["BRM_FMK_SpawnProtection_fnc_clientMarker", _side, "BRM_FMK_SpawnProtection_" + _sideStr];
+		([_pos] + _triggerArea) remoteExec [QFUNC(clientMarker), _side, QUOTE(CONCAT(ADDON,_)) + _sideStr];
 
 		// Create and configure trigger
 		private _trigger = createTrigger ["EmptyDetector", _pos, false];
-		_trigger setVariable ["BRM_FMK_SpawnProtection_protected", []];
+		_trigger setVariable [QGVAR(protected), []];
 		_trigger setTriggerArea _triggerArea;
 		_trigger setTriggerActivation ["ANY", "PRESENT", true];
-		_trigger setTriggerStatements [
-			// Condition
-			"private _result = false;
-			if (!triggerActivated thisTrigger) then {
-				private _inTrigger = thisList select { side _x == " + _sideStr + " || (side _x == CIVILIAN && {_x isKindOf ""AllVehicles"" && {!(_x isKindOf ""Man"")}}) };
-				private _protected = thisTrigger getVariable ""BRM_FMK_SpawnProtection_protected"";
-				_result = (count (_inTrigger - _protected) + count (_protected - _inTrigger)) > 0;
-			};
-
-			_result",
-
-			// Activation
-			"private _inTrigger = thisList select { side _x == " + _sideStr + " || (side _x == CIVILIAN && {_x isKindOf ""AllVehicles"" && {!(_x isKindOf ""Man"")}}) };
-			private _protected = (thisTrigger getVariable ""BRM_FMK_SpawnProtection_protected"") - [objNull];
-
-			private _added = (_inTrigger - _protected);
-			if (count _added > 0) then {
-				[_added, false] remoteExec [""BRM_FMK_SpawnProtection_fnc_allowDamage"", 0];
-			};
-			_protected append _added;
-
-			private _removed = (_protected - _inTrigger);
-			if (count _removed > 0) then {
-				[_removed, true] remoteExec [""BRM_FMK_SpawnProtection_fnc_allowDamage"", 0];
-			};
-			thisTrigger setVariable [""BRM_FMK_SpawnProtection_protected"", _protected - _removed];",
-
-			// Deactivation
-			""
-		];
+		_trigger setTriggerStatements [_sideStr + QUOTE( call FUNC(triggerCondition)), _sideStr + QUOTE( call FUNC(triggerActivation)), ""];
 
 		[_trigger, _sideStr]
 	};
@@ -93,12 +65,12 @@ if (mission_spawn_protection_time == 0) exitWith {};
 		{
 			_x params ["_trigger", "_sideStr"];
 
-			remoteExec ["", "BRM_FMK_SpawnProtection_" + _sideStr];
-			[(_trigger getVariable "BRM_FMK_SpawnProtection_protected") - [objNull], true] remoteExec ["BRM_FMK_SpawnProtection_fnc_allowDamage", 0];
+			remoteExec ["", QUOTE(CONCAT(ADDON,_)) + _sideStr];
+			[(_trigger getVariable QGVAR(protected)) - [objNull], true] remoteExec [QFUNC(allowDamage), 0];
 			deleteVehicle _trigger;
 		} forEach _triggers;
 
 		// Delete the marker.
-		[] remoteExec ["BRM_FMK_SpawnProtection_fnc_clientMarker", 0];
+		[] remoteExec [QFUNC(clientMarker), 0];
 	};
 };

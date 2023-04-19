@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -44,7 +45,9 @@ RETURNS:
 
 	["mission_AI_controller", false],
 
-	["BRM_FRAMEWORK_ADDON", "BRM_FRAMEWORK"],
+	// TODO What was the purpose of this? Not finding anything that uses it.
+	//["BRM_FRAMEWORK_ADDON", "BRM_FRAMEWORK"],
+	["BRM_FRAMEWORK_ADDON", MAIN_ADDON],
 
 	["mission_AGM_enabled",   isClass (configFile >> "CfgPatches" >> "AGM_CORE")], // Backward compatibility
 	["mission_ACE3_enabled",  isClass (configFile >> "CfgPatches" >> "ACE_COMMON")],

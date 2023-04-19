@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 params ["_unit", "_attacker", "_damage", ["_instigator", objNull]];
 
 if (isNull _instigator) then {
@@ -7,7 +8,7 @@ if (isNull _instigator) then {
 private _unitSide = _unit getVariable ["unit_side", side _unit];
 private _instigatorSide = _instigator getVariable ["unit_side", side _instigator];
 
-[] call BRM_FMK_FriendlyFire_fnc_getSettings params ["_delay", "_ai", "_civilian"];
+[] call FUNC(getSettings) params ["_delay", "_ai", "_civilian"];
 
 if (
 	isNull _instigator
@@ -21,12 +22,12 @@ if (
 private _names = [name _unit, name _instigator];
 
 if (!isNull (_attacker getVariable ["bis_fnc_moduleremotecontrol_owner", objNull])) exitWith {
-	["SERVER", "LOG", format (["FRIENDLY FIRE: %2 has wounded %1 with a remote controlled unit."] + _names)] call BRM_FMK_fnc_doLog;
+	["SERVER", "LOG", format (["FRIENDLY FIRE: %2 has wounded %1 with a remote controlled unit."] + _names)] call FUNCMAIN(doLog);
 };
 
-if !(BRM_FMK_FriendlyFire_alerts set [_names, true]) then {
+if !(GVAR(alerts) set [_names, true]) then {
 	[{
-		["ALL", "CHAT", format (["FRIENDLY FIRE: %2 has wounded %1!"] + _this)] call BRM_FMK_fnc_doLog;
-		BRM_FMK_FriendlyFire_alerts deleteAt _this;
+		["ALL", "CHAT", format (["FRIENDLY FIRE: %2 has wounded %1!"] + _this)] call FUNCMAIN(doLog);
+		GVAR(alerts) deleteAt _this;
 	}, _names, _delay] call CBA_fnc_waitAndExecute;
 };

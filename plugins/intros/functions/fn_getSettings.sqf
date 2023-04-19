@@ -1,4 +1,5 @@
+#include "script_component.hpp"
 [
 	"intros",
 	["TEXT", [""], "intro_cutscene"] // intro
-] call BRM_FMK_fnc_getPluginSettings
+] call FUNCMAIN(getPluginSettings)

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -33,20 +34,21 @@ params ["_plugin"];
 private _var = nil;
 private _settings = nil;
 if (_plugin isEqualType "") then {
-	_var = format ["BRM_FMK_PluginSettings_%1", _plugin];
+	_var = format [QGVARMAIN(PluginSettings_%1), _plugin];
 	_settings = missionNamespace getVariable _var;
 	if (!isNil "_settings") exitWith { _settings };
 	_settings = [];
 
 	private _settingFile = format ["settings\plugins\%1.sqf", _plugin];
 	if (fileExists _settingFile) then {
+		// TODO Check if can catch compilation errors and inform user
 		_settings = call compile preprocessFileLineNumbers _settingFile;
 	};
 } else {
 	_settings = _plugin;
 };
 
-private _BRM075 = [BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0;
+private _BRM075 = [BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) <= 0;
 
 private _settingsCount = count _settings;
 for "_i" from 1 to count _this - 1 do {
@@ -58,7 +60,7 @@ for "_i" from 1 to count _this - 1 do {
 		_value = _settings select _j;
 	};
 	if (_oldVar isEqualType []) then {
-		_value = [_value] + _oldVar call BRM_FMK_fnc_getPluginSettings;
+		_value = [_value] + _oldVar call FUNCMAIN(getPluginSettings);
 	} else {
 		if (_BRM075 && { isNil "_value" && _oldVar != "" }) then {
 			_value = missionNamespace getVariable _oldVar;

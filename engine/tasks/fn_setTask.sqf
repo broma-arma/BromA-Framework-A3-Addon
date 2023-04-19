@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -44,5 +45,5 @@ if ([_task] call BIS_fnc_taskState != _state) then {
 				call (_x select _index);
 			};
 		};
-	} forEach BRM_FMK_tasks;
+	} forEach GVARMAIN(tasks);
 };

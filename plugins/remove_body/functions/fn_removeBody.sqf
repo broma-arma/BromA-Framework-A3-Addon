@@ -1,13 +1,14 @@
+#include "script_component.hpp"
 params [["_unit", objNull]];
 
 if (isNull _unit) exitWith {};
 
-BrmFmk_RemoveBody_queue pushBack [diag_tickTime + ([] call BRM_FMK_remove_body_fnc_getSettings select 0), _unit];
+BrmFmk_RemoveBody_queue pushBack [diag_tickTime + ([] call FUNC(getSettings) select 0), _unit];
 BrmFmk_RemoveBody_queue sort true;
 
 if (isNil "BrmFmk_RemoveBody_handler" || {scriptDone BrmFmk_RemoveBody_handler}) then {
 	BrmFmk_RemoveBody_handler = 0 spawn {
-		private _distance = [] call BRM_FMK_remove_body_fnc_getSettings select 1;
+		private _distance = [] call FUNC(getSettings) select 1;
 		while {count BrmFmk_RemoveBody_queue > 0} do {
 			for [{private _i = 0}, {_i < count BrmFmk_RemoveBody_queue}, {_i = _i + 1}] do {
 				(BrmFmk_RemoveBody_queue select _i) params ["_delay", "_unit"];

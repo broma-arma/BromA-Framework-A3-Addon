@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if !(hasInterface) exitWith { intro_cutscene_over = true; };
 
 intro_cutscene_over = false;
@@ -14,14 +15,14 @@ intro_cutscene_over = false;
 	};
 
 	if ("respawn_system" in BRM_plugins) then {
-		if ([player] call BRM_FMK_RespawnSystem_fnc_getLives == 0) then {
+		if ([player] call EFUNC(RespawnSystem,getLives) == 0) then {
 			intro_cutscene_over = true;
 		};
 	};
 
 	if (intro_cutscene_over) exitWith {};
 
-	switch ([] call BRM_FMK_Intros_fnc_getSettings select 0) do {
+	switch ([] call FUNC(getSettings) select 0) do {
 		case "ESTABLISHING": {
 			[player, format ["%1, %2", toUpper worldName, player call BIS_fnc_locationDescription], 1.5, 1, 280, 0] spawn BIS_fnc_establishingShot;
 		};

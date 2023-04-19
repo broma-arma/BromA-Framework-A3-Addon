@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -57,9 +58,9 @@ params [
 ];
 
 if (_name == "") then {
-	private _counter = missionNamespace getVariable ["BRM_FMK_newMarker_index", 0];
-	_name = format ["BRM_FMK_newMarker%1", _counter];
-	missionNamespace setVariable ["BRM_FMK_newMarker_index", _counter + 1];
+	private _counter = missionNamespace getVariable [QGVAR(newMarker_index), 0];
+	_name = format [QGVAR(newMarker%1), _counter];
+	missionNamespace setVariable [QGVAR(newMarker_index), _counter + 1];
 };
 
 createMarkerLocal [_name, _pos];

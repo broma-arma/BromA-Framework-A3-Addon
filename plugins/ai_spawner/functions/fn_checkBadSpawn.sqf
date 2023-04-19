@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 // TODO What is the purpose of this?
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
@@ -17,15 +18,15 @@ if (
 	(!alive (vehicle _leader) || count crew (vehicle _leader) == 0 || getPos (vehicle _leader) distance _initialPosition < 5)
 ) then {
 
-	private _hasVehicle = [_groupType] call BRM_FMK_AIS_fnc_typeHasVehicle;
+	private _hasVehicle = [_groupType] call FUNC(typeHasVehicle);
 
 	private _spawnPosition = if (!(_hasVehicle)) then {
-		[_zone, 0, 5] call BRM_FMK_AIS_fnc_findPosition;
+		[_zone, 0, 5] call FUNC(findPosition);
 	} else {
-		[_zone, 0, 10] call BRM_FMK_AIS_fnc_findPosition;
+		[_zone, 0, 10] call FUNC(findPosition);
 	};
 
-	private _newGroup = [_spawnPosition, _groupType, _side] call BRM_FMK_AIS_fnc_createGroup;
+	private _newGroup = [_spawnPosition, _groupType, _side] call FUNC(createGroup);
 	private _newLeader = leader _newGroup;
 
 	(units _newGroup) joinSilent _group;
@@ -37,5 +38,5 @@ if (
 
 	{ deleteVehicle _x } forEach _oldUnits;
 
-	[_group, _groupType, _side] spawn BRM_FMK_AIS_fnc_checkBadSpawn;
+	[_group, _groupType, _side] spawn FUNC(checkBadSpawn);
 };

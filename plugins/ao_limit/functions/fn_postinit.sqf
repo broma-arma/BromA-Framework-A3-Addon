@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if !(hasInterface && !player_is_spectator && markerShape "ao" != "") exitWith {};
 
 [{
@@ -11,4 +12,4 @@ if !(hasInterface && !player_is_spectator && markerShape "ao" != "") exitWith {}
 			[] call _callback;
         };
     };
-}, 0.1, [[] call BRM_FMK_AOLimit_fnc_getSettings select 0]] call CBA_fnc_addPerFrameHandler;
+}, 0.1, [[] call FUNC(getSettings) select 0]] call CBA_fnc_addPerFrameHandler;

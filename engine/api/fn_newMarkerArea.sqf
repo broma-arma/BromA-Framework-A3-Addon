@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -33,4 +34,4 @@ RETURNS:
 
 params ["_global", "_position", "_shape", "_brush", "_color", "_size", "_dir", "_alpha"];
 
-[toLower _global == "global", nil, _position, _shape, _brush, nil, _color, _size, nil, _dir, _alpha] call BRM_FMK_fnc_newMarker;
+[toLower _global == "global", nil, _position, _shape, _brush, nil, _color, _size, nil, _dir, _alpha] call FUNCMAIN(newMarker);

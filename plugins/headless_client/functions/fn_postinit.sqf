@@ -1,9 +1,10 @@
+#include "script_component.hpp"
 // TODO AI scripts executed on server, AI spawned on or transferred to HC?
 if (isServer) then {
 	private _headlessClient = entities "HeadlessClient_F" select 0;
 	if (isNil "_headlessClient" || { !isPlayer _headlessClient }) then {
 		mission_AI_controller = true;
-		["CLIENTS", "CHAT", format ["AI Controller: %1", if (hasInterface) then { name player } else { "SERVER" }]] call BRM_FMK_fnc_doLog;
+		["CLIENTS", "CHAT", format ["AI Controller: %1", if (hasInterface) then { name player } else { "SERVER" }]] call FUNCMAIN(doLog);
 	/*} else {
 		if (isClass (configFile >> "CfgPatches" >> "Werthles_WHK") && { count entities "Werthles_moduleWHM" == 0 }) then {
 			private _module = createGroup sideLogic createUnit ["Werthles_moduleWHM", [0, 0, 0], [], 0.5, "NONE"];
@@ -28,6 +29,6 @@ if (isServer) then {
 } else {
 	if (!hasInterface && !didJIP) then {
 		mission_AI_controller = true;
-		["CLIENTS", "CHAT", format ["AI Controller: %1", if (hasInterface) then { name player } else { "SERVER" }]] call BRM_FMK_fnc_doLog;
+		["CLIENTS", "CHAT", format ["AI Controller: %1", if (hasInterface) then { name player } else { "SERVER" }]] call FUNCMAIN(doLog);
 	};
 };

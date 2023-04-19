@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -34,11 +35,11 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 	private _endings = [];
 
 	// Server reads all mission-related ending cases.
-	if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
+	if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) <= 0) then {
 		[_ending] call compile preprocessFileLineNumbers "mission\settings\endings.sqf";
 		_endings = mission_ending_details;
 	} else {
-		private _cfgEndings = [["BRM_FMK_Endings", _ending], configNull] call BIS_fnc_loadClass;
+		private _cfgEndings = [[QGVARMAIN(Endings), _ending], configNull] call BIS_fnc_loadClass;
 		_endings = [
 			getArray (_cfgEndings >> "winners") apply { missionNamespace getVariable format ["side_%1_side", _x] },
 			getArray (_cfgEndings >> "losers") apply { missionNamespace getVariable format ["side_%1_side", _x] },
@@ -84,7 +85,7 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		};
 	};
 
-	[_ending, _winningSides, _losingSides, _showStats, _title, _reason, _margin] remoteExec ["BRM_FMK_fnc_callEnding", 0];
+	[_ending, _winningSides, _losingSides, _showStats, _title, _reason, _margin] remoteExec [QFUNCMAIN(callEnding), 0];
 } else {
 	params ["_ending", "_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_margin"];
 
@@ -101,7 +102,7 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 			if (visibleMap) then { openMap false; };
 
 			private _fnc_formatSide = {
-				format ["<t color='%2'>%1</t>", [_x, "name"] call BRM_FMK_fnc_getSideInfo, [[_x, "color"] call BRM_FMK_fnc_getSideInfo] call BRM_FMK_fnc_colorToHex]
+				format ["<t color='%2'>%1</t>", [_x, "name"] call FUNCMAIN(getSideInfo), [[_x, "color"] call FUNCMAIN(getSideInfo)] call FUNCMAIN(colorToHex)]
 			};
 
 			private _lines = [
@@ -109,8 +110,8 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 					_title
 				],
 				format [_reason,
-					[_winningSides apply _fnc_formatSide] call BRM_FMK_fnc_verboseArray,
-					[_losingSides apply _fnc_formatSide] call BRM_FMK_fnc_verboseArray,
+					[_winningSides apply _fnc_formatSide] call FUNCMAIN(verboseArray),
+					[_losingSides apply _fnc_formatSide] call FUNCMAIN(verboseArray),
 					_margin
 				],
 				"",
@@ -118,13 +119,13 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 				format ["<t align='left'>%1 kills</t>%2<t align='right'><t color='%3'>%4</t>: %5</t>",
 					player getVariable ["unit_score", 0],
 					[time, "H:MM:SS"] call CBA_fnc_formatElapsedTime,
-					[side_a_color] call BRM_FMK_fnc_colorToHex,
+					[side_a_color] call FUNCMAIN(colorToHex),
 					side_a_name,
 					mission_dead_side_a
 				],
 				format ["<t align='left'>%1 deaths</t><t align='right'><t color='%2'>%3</t>: %4</t>",
 					player getVariable ["unit_deaths", 0],
-					[side_b_color] call BRM_FMK_fnc_colorToHex,
+					[side_b_color] call FUNCMAIN(colorToHex),
 					side_b_name,
 					mission_dead_side_b
 				]
@@ -132,7 +133,7 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 
 			if (mission_enable_side_c) then {
 				_lines pushBack (format ["<t align='right'><t color='%1'>%2</t>: %3</t>",
-					[side_c_color] call BRM_FMK_fnc_colorToHex,
+					[side_c_color] call FUNCMAIN(colorToHex),
 					side_c_name,
 					mission_dead_side_c
 				]);
@@ -167,8 +168,8 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		_ending = ["defeat", "victory"] select _isWinner;
 	};
 
-	if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare > 0) then {
-		private _cfgDebriefing = [["BRM_FMK_Endings", _ending, "Debriefing"], configNull] call BIS_fnc_loadClass;
+	if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) > 0) then {
+		private _cfgDebriefing = [[QGVARMAIN(Endings), _ending, "Debriefing"], configNull] call BIS_fnc_loadClass;
 		_ending setDebriefingText (["title", "description", "subtitle", "picture", "background"] apply { getText (_cfgDebriefing >> _x) });
 	};
 	[_ending, _isWinner, true] spawn BIS_fnc_endMission;

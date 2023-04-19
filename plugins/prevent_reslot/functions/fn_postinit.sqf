@@ -1,10 +1,11 @@
+#include "script_component.hpp"
 if (isServer) then {
 	mission_player_slots = [];
 	publicVariable "mission_player_slots";
 };
 
 if (hasInterface) then {
-	["LOCAL", "F_LOG", "LOADED SLOT PREVENTION PLUGIN"] call BRM_FMK_fnc_doLog;
+	["LOCAL", "F_LOG", "LOADED SLOT PREVENTION PLUGIN"] call FUNCMAIN(doLog);
 
 	if (player_is_spectator) exitWith {};
 
@@ -26,7 +27,7 @@ if (hasInterface) then {
 
 		if (_index == -1) exitWith {
 			player setVariable ["unit_valid_slot", true, true];
-			sleep ([] call BRM_FMK_PreventReslot_fnc_getSettings select 0);
+			sleep ([] call FUNC(getSettings) select 0);
 
 			["Alert", ["Your slot has been locked for the remainder of the mission."]] call BIS_fnc_showNotification;
 
@@ -52,9 +53,9 @@ if (hasInterface) then {
 				"You are choosing a different slot from your original one. Please reslot as %1."]
 			}) params ["_fLog", "_titleText", "_chat"];
 
-			["LOCAL", "F_LOG", _fLog] call BRM_FMK_fnc_doLog;
+			["LOCAL", "F_LOG", _fLog] call FUNCMAIN(doLog);
 			titleText [format [_titleText, _name], "BLACK FADED"];
-			["LOCAL", "CHAT", format [_chat, _name]] call BRM_FMK_fnc_doLog;
+			["LOCAL", "CHAT", format [_chat, _name]] call FUNCMAIN(doLog);
 
 			sleep 10;
 			findDisplay 46 closeDisplay 0;

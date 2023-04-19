@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
     Ends spectator mode.
 */
@@ -9,7 +10,7 @@ switch (true) do {
 		[false] call ace_spectator_fnc_setSpectator;
 	};
 	case ("vanilla_spectator" in BRM_plugins): {
-		[false] call BRM_FMK_VanillaSpectator_fnc_setSpectator;
+		[false] call EFUNC(VanillaSpectator,setSpectator);
 	};
 };
 
@@ -23,7 +24,7 @@ switch (true) do {
 	[_unit, true] remoteExec ["enableSimulationGlobal", 2];
 	[_unit, false] remoteExec ["hideObjectGlobal", 2];
 
-	if (!isNil "BRM_FMK_Engine_spectatorOxygenWorkaroundPFH") then {
-		[BRM_FMK_Engine_spectatorOxygenWorkaroundPFH] call CBA_fnc_removePerFrameHandler;
+	if (!isNil QGVAR(spectatorOxygenWorkaroundPFH)) then {
+		[GVAR(spectatorOxygenWorkaroundPFH)] call CBA_fnc_removePerFrameHandler;
 	};
 }, _this, 2] call CBA_fnc_waitAndExecute;

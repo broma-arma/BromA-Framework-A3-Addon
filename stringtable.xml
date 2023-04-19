@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="BRM_FMK">
+    <Package name="Main">
+        <Key ID="STR_BRM_FMK_Author">
+            <English>BromA</English>
+        </Key>
+        <Key ID="STR_BRM_FMK_URL">
+            <English>https://www.github.com/broma-arma/BromA-Framework-A3-Addon</English>
+        </Key>
+        <Key ID="STR_BRM_FMK_Main_DisplayName">
+            <English>BromA Framework</English>
+        </Key>
+        <Key ID="STR_BRM_FMK_Main_Component">
+            <English>BromA Framework</English>
+        </Key>
+    </Package>
+</Project>

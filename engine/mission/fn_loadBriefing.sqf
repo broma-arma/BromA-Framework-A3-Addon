@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 
 // ============================================================================
 //                                                                             |
@@ -11,7 +12,7 @@
 	private _side = side player;
 	private _sideIndex = [WEST, EAST, RESISTANCE, CIVILIAN] find _side;
 
-	["LOCAL", "F_LOG", format ["PLAYER: ASSIGNING %1 BRIEFING", _side]] call BRM_FMK_fnc_doLog;
+	["LOCAL", "F_LOG", format ["PLAYER: ASSIGNING %1 BRIEFING", _side]] call FUNCMAIN(doLog);
 
 	if (fileExists "settings\briefings.sqf") then {
 		private _breifing = call compile preprocessFileLineNumbers "settings\briefings.sqf" select _sideIndex;

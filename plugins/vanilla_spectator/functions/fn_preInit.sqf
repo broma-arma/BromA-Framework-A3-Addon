@@ -1,5 +1,6 @@
-["BRM_FMK_DisplayLoad_EGSpectator", {
-	if ([] call BRM_FMK_VanillaSpectator_fnc_getSettings select 1) then { // Allow AI
+#include "script_component.hpp"
+[QGVARMAIN(DisplayLoad_EGSpectator), {
+	if ([] call FUNC(getSettings) select 1) then { // Allow AI
 		params ["_display"];
 
 		_display displayAddEventHandler ["KeyDown", {

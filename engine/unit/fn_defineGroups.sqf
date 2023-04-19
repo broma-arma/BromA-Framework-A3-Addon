@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -25,7 +26,7 @@ RETURNS:
 
 if (!isServer) exitWith {};
 
-waitUntil { !isNil "mission_settings_loaded" && {mission_settings_loaded} };
+//waitUntil { !isNil "mission_settings_loaded" && {mission_settings_loaded} };
 
 mission_groups_init = false; publicVariable "mission_groups_init";
 
@@ -40,7 +41,7 @@ private _unitsToCheck = if (isMultiplayer) then { playableUnits } else { allUnit
 
 			missionNamespace setVariable [(_unitName select [0, 3]) joinString "_", group _x, true];
 
-			[_x, _groupName, _role] call BRM_FMK_fnc_setAlias;
+			[_x, _groupName, _role] call FUNCMAIN(setAlias);
 		};
 	};
 } forEach _unitsToCheck;

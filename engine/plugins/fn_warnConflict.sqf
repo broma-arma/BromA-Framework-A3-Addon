@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -27,14 +28,14 @@ RETURNS:
 	waitUntil { !isNil "plugins_loaded" && {plugins_loaded} };
 
 	{
-		private _conflicts = getArray (configFile >> "BRM_FMK_Plugins" >> _x >> "conflict_plugins") select { _x in BRM_plugins };
+		private _conflicts = getArray (configFile >> QGVARMAIN(Plugins) >> _x >> "conflict_plugins") select { _x in BRM_plugins };
 
 		if (count _conflicts > 0) then {
 			sleep 0.1;
 			private _title = "ERROR - Framework Plugin Conflict";
 			private _message = format ["The plugin %1 has a conflict with the following plugins:", _x];
 			_title hintC ([_message] + _conflicts);
-			["LOCAL", "LOG", format ["%1: %2 %3", _title, _message, [_conflicts] call BRM_FMK_fnc_verboseArray]] call BRM_FMK_fnc_doLog;
+			["LOCAL", "LOG", format ["%1: %2 %3", _title, _message, [_conflicts] call FUNCMAIN(verboseArray)]] call FUNCMAIN(doLog);
 		};
 	} forEach BRM_plugins;
 };

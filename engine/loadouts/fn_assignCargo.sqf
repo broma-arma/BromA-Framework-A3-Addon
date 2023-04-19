@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 if (!isServer) exitWith {};
 
 [{ !isNil "mission_settings_loaded" && { pluginsLoaded && !isNull (_this select 0) }}, {

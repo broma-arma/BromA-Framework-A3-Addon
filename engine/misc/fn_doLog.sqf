@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -65,5 +66,5 @@ if (_target == 1) then {
 		};
 	};
 } else {
-	[if (_scope == "CLIENTS") then { "CLIENT_ONLY" } else { "LOCAL" }, _type, _msg] remoteExec ["BRM_FMK_fnc_doLog", _target];
+	[if (_scope == "CLIENTS") then { "CLIENT_ONLY" } else { "LOCAL" }, _type, _msg] remoteExec [QFUNCMAIN(doLog), _target];
 };

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -43,6 +44,6 @@ if !(_selected isEqualType []) then {
 		_attachment = selectRandom _attachment;
 	};
 	if (_attachment != "") then {
-		[_unit, _type, _attachment] call BRM_FMK_fnc_attachToWeapon;
+		[_unit, _type, _attachment] call FUNCMAIN(attachToWeapon);
 	};
 } forEach _selected;

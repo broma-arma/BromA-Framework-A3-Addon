@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if !(isServer && mission_running) exitWith {};
 
 params ["_unit", "_killer", "_instigator"];
@@ -23,18 +24,18 @@ if (side _unit == civilian) then {
 			if (_instigatorSide == side_c_side) exitWith { 2 };
 			-1
 		};
-		if (_instigatorSide in ([] call BRM_FMK_CivilianCasualtyCap_fnc_getSettings select 0) && _sideIndex > -1) then {
-			private _deadCivilians = (BRM_FMK_CivilianCasualtyCap_civsKilled select _sideIndex) + 1;
-			BRM_FMK_CivilianCasualtyCap_civsKilled set [_sideIndex, _deadCivilians];
+		if (_instigatorSide in ([] call FUNC(getSettings) select 0) && _sideIndex > -1) then {
+			private _deadCivilians = (GVAR(civsKilled) select _sideIndex) + 1;
+			GVAR(civsKilled) set [_sideIndex, _deadCivilians];
 
 			[format ["CIVILIAN CASUALTIES: %1 out of %2", _deadCivilians, mission_dead_civilian_limit]] remoteExec ["hint", _instigatorSide];
-			["SERVER", "F_LOG", format ["[CivCasCap] %1 WAS KILLED BY %2", name _unit, name _instigator]] call BRM_FMK_fnc_doLog;
+			["SERVER", "F_LOG", format ["[CivCasCap] %1 WAS KILLED BY %2", name _unit, name _instigator]] call FUNCMAIN(doLog);
 
 			if (_deadCivilians >= mission_dead_civilian_limit) then {
 				if (mission_game_mode == "coop" && _sideIndex == 0) then {
-					["defeat"] spawn BRM_FMK_fnc_callEnding;
+					["defeat"] spawn FUNCMAIN(callEnding);
 				} else {
-					(["side_a_defeat", "side_b_defeat", "side_c_defeat"] select _sideIndex) spawn BRM_FMK_fnc_callEnding;
+					(["side_a_defeat", "side_b_defeat", "side_c_defeat"] select _sideIndex) spawn FUNCMAIN(callEnding);
 				};
 			};
 		};

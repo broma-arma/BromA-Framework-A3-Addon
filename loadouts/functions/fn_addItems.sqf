@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -31,9 +32,9 @@ params ["_object"];
 {
 	if (_forEachIndex > 0) then {
 		if (_x isEqualType []) then {
-			([_object] + _x) call BRM_FMK_fnc_addItem;
+			([_object] + _x) call FUNCMAIN(addItem);
 		} else {
-			[_object, _x] call BRM_FMK_fnc_addItem;
+			[_object, _x] call FUNCMAIN(addItem);
 		};
 	};
 } forEach _this;

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 mission_setup_time = [15, 60, 180, 300, 600] select (["p_setup_time", 0] call BIS_fnc_getParamValue);
 
 if (mission_game_mode == "coop") exitWith {};
@@ -5,7 +6,7 @@ if (mission_game_mode == "coop") exitWith {};
 0 spawn {
 	waitUntil { !isNil "mission_setup_time" && !isNil "BRM_plugins" };
 
-	[] call BRM_FMK_SetupZone_fnc_getSettings params ["_area"];
+	[] call FUNC(getSettings) params ["_area"];
 
 	private _commanderLockTVT = false;
 	if ("commander_lock" in BRM_plugins) then {
@@ -15,8 +16,8 @@ if (mission_game_mode == "coop") exitWith {};
 	};
 
 	if (isServer) then {
-		BRM_FMK_Setup_Zone_active = true;
-		publicVariable "BRM_FMK_Setup_Zone_active";
+		GVAR(active) = true;
+		publicVariable QGVAR(active);
 
 		_commanderLockTVT spawn {
 			if (_this) then {
@@ -25,15 +26,15 @@ if (mission_game_mode == "coop") exitWith {};
 				sleep mission_setup_time;
 			};
 
-			BRM_FMK_Setup_Zone_active = false;
-			publicVariable "BRM_FMK_Setup_Zone_active";
+			GVAR(active) = false;
+			publicVariable QGVAR(active);
 		};
 	};
 
 	if (hasInterface) then {
-		waitUntil { !isNil "BRM_FMK_Setup_Zone_active" };
+		waitUntil { !isNil QGVAR(active) };
 
-		if (!BRM_FMK_Setup_Zone_active) exitWith {};
+		if (!GVAR(active)) exitWith {};
 
 		if (isMultiplayer) then {
 			if ("intros" in BRM_plugins) then {
@@ -56,20 +57,20 @@ if (mission_game_mode == "coop") exitWith {};
 			]] call BIS_fnc_showNotification;
 		};
 
-		private _markerPos = getMarkerPos ([player] call BRM_FMK_fnc_getSpawnPoint);
+		private _markerPos = getMarkerPos ([player] call FUNCMAIN(getSpawnPoint));
 		private _marker = createMarkerLocal ["setupZone", _markerPos];
 		_marker setMarkerDirLocal 0;
 		_marker setMarkerShapeLocal "ELLIPSE";
 		_marker setMarkerSizeLocal [_area, _area];
 		_marker setMarkerBrushLocal "Border";
-		_marker setMarkerColorLocal ("Color" + ([side player, "color"] call BRM_FMK_fnc_getSideInfo));
+		_marker setMarkerColorLocal ("Color" + ([side player, "color"] call FUNCMAIN(getSideInfo)));
 
 		private _message = "You cannot leave the setup area until the time is over.";
 		if (_commanderLockTVT) then {
 			_message = "Wait until all sides are ready to start.";
 		};
 
-		while {BRM_FMK_Setup_Zone_active} do {
+		while {GVAR(active)} do {
 			private _unit = objectParent player;
 
 			if (isNull _unit) then {

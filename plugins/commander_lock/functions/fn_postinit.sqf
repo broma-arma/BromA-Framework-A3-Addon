@@ -1,4 +1,5 @@
-[] call BRM_FMK_CommanderLock_fnc_getSettings params ["_tvt"];
+#include "script_component.hpp"
+[] call FUNC(getSettings) params ["_tvt"];
 
 // TODO Automate commanders list
 private _commanders = missionNamespace getVariable ["co_lock_units", ["blu_0_0_1", "blu_1_0_1", "op_0_0_1", "op_1_0_1", "ind_0_0_1", "ind_1_0_1"]];
@@ -38,10 +39,10 @@ if (hasInterface) then {
             _coLockTextStarted = _coLockTextStarted select _coLockTextSelect;
 
             private _coLockAlertColorValues = switch (side player) do {
-                case WEST: { ["AlertBLU", ["blue"] call BRM_FMK_fnc_colorToHex] };
-                case EAST: { ["AlertOP", ["red"] call BRM_FMK_fnc_colorToHex] };
-                case RESISTANCE: { ["AlertIND", ["green"] call BRM_FMK_fnc_colorToHex] };
-                default { ["AlertBLU", ["blue"] call BRM_FMK_fnc_colorToHex] }
+                case WEST: { ["AlertBLU", ["blue"] call FUNCMAIN(colorToHex)] };
+                case EAST: { ["AlertOP", ["red"] call FUNCMAIN(colorToHex)] };
+                case RESISTANCE: { ["AlertIND", ["green"] call FUNCMAIN(colorToHex)] };
+                default { ["AlertBLU", ["blue"] call FUNCMAIN(colorToHex)] }
             };
 
             _coLockAlertColorValues params ["_alertNotificationColor", "_alertTextColor"];
@@ -59,7 +60,7 @@ if (hasInterface) then {
                     private _returnValues = [_alertNotificationColor, 0];
 
                     if !(co_lock_allSidesReady) then {
-                        private _sideName = [(side player), "name"] call BRM_FMK_fnc_getSideInfo;
+                        private _sideName = [(side player), "name"] call FUNCMAIN(getSideInfo);
                         private _readyText = format["%1 is ready to begin the mission.", _sideName];
                         _returnValues set [0, "Alert"];
                         _returnValues pushBack _readyText;

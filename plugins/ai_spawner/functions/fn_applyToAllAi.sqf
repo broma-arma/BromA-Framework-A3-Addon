@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 diag_log text format ["%1: %2", _fnc_scriptName, _this];
 
 if (!mission_ai_controller) exitWith {};
@@ -16,7 +17,7 @@ _playerGroups = _playerGroups arrayIntersect _playerGroups;
 					// TODO Should not cache groups or units that have a variable name assigned.
 					case 0: { // caching
 						_group deleteGroupWhenEmpty true;
-						[_group] spawn BRM_FMK_AIS_fnc_cacheGroup;
+						[_group] spawn FUNC(cacheGroup);
 					};
 
 					// TODO Remove or fix
@@ -24,18 +25,18 @@ _playerGroups = _playerGroups arrayIntersect _playerGroups;
 					/*
 					case 1: { // death sounds
 						{
-							_x addEventHandler ["Killed", {_this call BRM_FMK_AIS_fnc_eventKilled}];
+							_x addEventHandler ["Killed", {_this call FUNC(eventKilled)}];
 						} forEach units _group;
 					};
 					case 2: { // infnite ammo
 						// 
 						{
-							_x addEventHandler ["Reloaded", {_this call BRM_FMK_AIS_fnc_eventReloaded;}];
+							_x addEventHandler ["Reloaded", {_this call FUNC(eventReloaded);}];
 						} forEach units _group;
 					};
 					case 3: { // garbage collector
 						{
-							_x addEventHandler ["Killed", {_this spawn BRM_FMK_AIS_fnc_garbageCollector}];
+							_x addEventHandler ["Killed", {_this spawn FUNC(garbageCollector)}];
 						} forEach units _group;
 					};
 					*/
@@ -43,13 +44,13 @@ _playerGroups = _playerGroups arrayIntersect _playerGroups;
 					// TODO Remove? I'd expect it to only mark AIS created groups.
 					/*
 					case 4: { // debug marker
-						if (BRM_FMK_AIS_debug) then {
-							[_group] spawn BRM_FMK_AIS_fnc_createGroupMarker;
+						if (GVAR(debug)) then {
+							[_group] spawn FUNC(createGroupMarker);
 						};
 					};
 					*/
 				};
 			};
-		} forEach BRM_FMK_AIS_aiSettingsAllMap;
+		} forEach GVAR(aiSettingsAllMap);
 	}
 } forEach allGroups;

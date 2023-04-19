@@ -1,6 +1,8 @@
+#include "script_component.hpp"
+
 // Mission Framework > 0.7.5
 
-mission_settings_loaded = false;
+//mission_settings_loaded = false;
 
 if (!fileExists "settings\settings.sqf") exitWith {
 	["[BromA Framework] Critical Error: File ""settings\settings.sqf"" not found."] call BIS_fnc_error;
@@ -14,7 +16,7 @@ call compile preprocessFileLineNumbers "settings\settings.sqf" params [
 mission_game_mode = _mode;
 mission_require_extraction = [];
 
-BRM_FMK_missionSQM = loadConfig "mission.sqm";
+GVARMAIN(missionSQM) = loadConfig "mission.sqm";
 
 private _extractionPoints = [];
 private _groupVars = [[], [], [], []];
@@ -47,7 +49,7 @@ if (isServer) then {
 	private _sideStrs = ["West", "East", "Independent", "Civilian"];
 	private _sideSquadNameIndexes = [[0, 0, -1], [0, 0, -1], [0, 0, -1], [0, 0, -1]];
 
-	private _cfgEntities = BRM_FMK_missionSQM >> "Mission" >> "Entities";
+	private _cfgEntities = GVARMAIN(missionSQM) >> "Mission" >> "Entities";
 	private _items = getNumber (_cfgEntities >> "items");
 	for "_i" from 0 to _items - 1 do {
 		private _cfgItem = _cfgEntities >> format ["Item%1", _i];
@@ -143,7 +145,7 @@ if (isServer) then {
 			_extractGroups = _groupVars select _sideIndex;
 		};
 
-		missionNamespace setVariable [format ["brm_fmk_extraction_%1", _sideChar], [_extractGroups, _extractTargets]];
+		missionNamespace setVariable [format [QGVARMAIN(extraction_%1), _sideChar], [_extractGroups, _extractTargets]];
 	};
 } forEach [["a", _factionA], ["b", _factionB], ["c", _factionC]];
 
@@ -155,9 +157,10 @@ mission_plugins = _plugins;
 mission_enable_side_c = side_c_faction != "";
 
 if (mission_extraction_tracks isEqualTo "*") then {
-	mission_extraction_tracks = [] call BRM_FMK_fnc_getMusic;
+	mission_extraction_tracks = [] call FUNCMAIN(getMusic);
 };
 mission_extraction_enable_music = mission_extraction_tracks isEqualType [] && {count mission_extraction_tracks > 0};
 
-[] call BRM_FMK_fnc_assignSideProperties;
-mission_settings_loaded = true;
+[] call FUNCMAIN(assignSideProperties);
+
+//mission_settings_loaded = true;

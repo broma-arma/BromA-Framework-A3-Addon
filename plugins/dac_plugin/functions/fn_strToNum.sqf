@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -40,12 +41,12 @@ switch (_type) do {
 			case CASE_INDFOR: { 2 };
 			case CASE_CIVILIAN: { 3 };
 			case "friendly";
-			case "side_a": { [_type, side_a_side] call BRM_FMK_DAC_fnc_strToNum };
+			case "side_a": { [_type, side_a_side] call FUNC(strToNum) };
 			case "enemy";
-			case "side_b": { [_type, side_b_side] call BRM_FMK_DAC_fnc_strToNum };
+			case "side_b": { [_type, side_b_side] call FUNC(strToNum) };
 			case "neutral";
-			case "side_c": { [_type, side_c_side] call BRM_FMK_DAC_fnc_strToNum };
-			default { ["[WARN ] [DAC Plugin] Unknown side '%1', defaulting to 'enemy'", _str] call BIS_fnc_error; [_type, side_b_side] call BRM_FMK_DAC_fnc_strToNum };
+			case "side_c": { [_type, side_c_side] call FUNC(strToNum) };
+			default { ["[WARN ] [DAC Plugin] Unknown side '%1', defaulting to 'enemy'", _str] call BIS_fnc_error; [_type, side_b_side] call FUNC(strToNum) };
 		};
 	};
 
@@ -59,7 +60,7 @@ switch (_type) do {
 		};
 	};
 	case "FACTION": {
-		if ([BRM_version, [0, 7, 5]] call BRM_FMK_fnc_versionCompare <= 0) then {
+		if ([BRM_version, [0, 7, 5]] call FUNCMAIN(versionCompare) <= 0) then {
 			private _num = ([
 				"default", "vanilla", "racs", "sla", "mujahideen", "ana", "ahkma-pmc", "chedaki",
 				"marines", "ionpmc", "tkmilitia", "finns", "csat", "nato", "aaf", "fia", "vdv"
@@ -77,7 +78,7 @@ switch (_type) do {
 				};
 
 				if (_num isEqualType sideUnknown) then {
-					_num = [_type, [_num, "FACTION"] call BRM_FMK_fnc_getSideInfo] call BRM_FMK_DAC_fnc_strToNum;
+					_num = [_type, [_num, "FACTION"] call FUNCMAIN(getSideInfo)] call FUNC(strToNum);
 				};
 			};
 
@@ -92,20 +93,20 @@ switch (_type) do {
 				case CASE_INDFOR: { resistance };
 			};
 			if (!isNil "_side") then {
-				_str = [_side, "FACTION"] call BRM_FMK_fnc_getSideInfo;
+				_str = [_side, "FACTION"] call FUNCMAIN(getSideInfo);
 			};
 
 			if (_str != "auto") then {
-				private _factionFile = getText ([["BRM_FMK_Loadouts", "Factions", _str], configNull] call BIS_fnc_loadEntry);
+				private _factionFile = getText ([[GVARMAIN(Loadouts), "Factions", _str], configNull] call BIS_fnc_loadEntry);
 				if (_factionFile == "" || { !fileExists _factionFile }) then {
 					["[WARN ] [DAC Plugin] Unknown faction '%1', defaulting to 'auto'", _str] call BIS_fnc_error;
 					_str = "auto";
 				};
 			};
 			_str = toUpper _str;
-			private _num = BRM_FMK_DAC_strToNum_factions find _str;
+			private _num = GVAR(strToNum_factions) find _str;
 			if (_num == -1) then {
-				_num = BRM_FMK_DAC_strToNum_factions pushBack _str;
+				_num = GVAR(strToNum_factions) pushBack _str;
 			};
 			_num + 1
 		};

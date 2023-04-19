@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
     Initializes spectator units.
 */
@@ -8,9 +9,9 @@ _unit allowDamage false;
 [_unit, true] remoteExec ["hideObjectGlobal", 2];
 [_unit, false] remoteExec ["enableSimulationGlobal", 2];
 
-[_unit] call BRM_FMK_fnc_joinDeadGroup;
+[_unit] call FUNCMAIN(joinDeadGroup);
 
-BRM_FMK_Engine_spectatorOxygenWorkaroundPFH = [{
+GVAR(spectatorOxygenWorkaroundPFH) = [{
 	player setOxygenRemaining 1;
 }, 10] call CBA_fnc_addPerFrameHandler;
 
@@ -19,7 +20,7 @@ switch (true) do {
 		[true] call ace_spectator_fnc_setSpectator;
 	};
 	case ("vanilla_spectator" in BRM_plugins): {
-		[true] call BRM_FMK_VanillaSpectator_fnc_setSpectator;
+		[true] call EFUNC(VanillaSpectator,setSpectator);
 	};
 	default { _unit setDamage 1; };
 };

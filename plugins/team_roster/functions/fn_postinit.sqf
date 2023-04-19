@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if !(hasInterface) exitWith {};
 if (player_is_spectator) exitWith {};
 

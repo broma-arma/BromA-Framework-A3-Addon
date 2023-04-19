@@ -1,7 +1,8 @@
+#include "script_component.hpp"
 if !(hasInterface) exitWith {};
 
 [{ time > 1 }, {
-	BRM_FMK_PlankBuilding_constructionMenuOpen = false;
+	GVAR(constructionMenuOpen) = false;
 
 	private _vehicleArray = switch (side player) do {
 		case side_a_side: { plank_objects_side_a };
@@ -27,14 +28,14 @@ if !(hasInterface) exitWith {};
 		format (["alive %1 && { _this distanceSqr %1 <= %2 * %2 }"] + _x);
 	} joinString " || ") + ")";
 
-	BRM_FMK_PlankBuilding_deployCondition = _deployCondition + " && BRM_FMK_PlankBuilding_constructionMenuOpen";
+	GVAR(deployCondition) = _deployCondition + QUOTE( && GVAR(constructionMenuOpen));
 
 	[player, _objects] call plank_api_fnc_forceAddFortifications;
 	PLANK_FMK_buildSpeed = PLANK_FMK_buildSpeed * _buildSpeedMultiplier;
 
 	player addAction [
 		"<t color=""#DEA010"">Toggle Construction Menu</t>",
-		{ BRM_FMK_PlankBuilding_constructionMenuOpen = !BRM_FMK_PlankBuilding_constructionMenuOpen; },
+		{ GVAR(constructionMenuOpen) = !GVAR(constructionMenuOpen); },
 		[],
 		100,
 		false,

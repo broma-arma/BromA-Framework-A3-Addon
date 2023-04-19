@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if (!hasInterface) exitWith {};
 
 private ["_spawn"];
@@ -22,7 +23,7 @@ if (getMarkerType "respawn_guer" == "") then {
 
 _spawn = selectRandom _spawn;
 _pos = getMarkerPos _spawn;
-_deviation = [] call BRM_FMK_Round_System_fnc_getSettings select 0;
+_deviation = [] call FUNC(getSettings) select 0;
 
 _randomN1 = [(_deviation)*-1,_deviation] call BIS_fnc_randomNum;
 _randomN2 = [(_deviation)*-1,_deviation] call BIS_fnc_randomNum;

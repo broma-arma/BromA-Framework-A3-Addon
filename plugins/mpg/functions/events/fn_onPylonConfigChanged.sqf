@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 #include "../../defines.hpp"
 
 params ["_event"];
@@ -18,7 +19,7 @@ switch (_event) do {
 		private _ctrlRightContent = _display displayCtrl IDC_MPG_RIGHTCONTENT;
 		private _rightContentSel = lbCurSel _ctrlRightContent;
 		if (_rightContentSel != -1) then {
-			[_display, _ctrlRightContent, lbCurSel _ctrlRightContent] call BRM_FMK_MPGarage_fnc_onRightListSelected;
+			[_display, _ctrlRightContent, lbCurSel _ctrlRightContent] call FUNC(onRightListSelected);
 		};
 	};
 	case "MirrorChanged": {
@@ -40,7 +41,7 @@ switch (_event) do {
 					private _index = -1;
 					{ if (_x select 0/*pylonIndex*/ == _mirrorPylonIndex) exitWith { _index = _forEachIndex; }; } forEach _vehiclePylons;
 					if (_index != -1) then {
-						[_display, 2, true, _index] call BRM_FMK_MPGarage_fnc_loadRightContent;
+						[_display, 2, true, _index] call FUNC(loadRightContent);
 					};
 				};
 				private _ctrlPylon = _display displayCtrl (IDC_MPG_LOADOUT_PYLONS_CREATE + _forEachIndex * 2 + 1);
@@ -59,7 +60,7 @@ switch (_event) do {
 						_pylonAttachment = _pylonMagazine;
 						_x set [2/*pylonAttachment*/, _pylonAttachment];
 
-						[_vehicle, _pylonIndex, _pylonAttachment, !(_display getVariable ["MPG_compatiblePylons", true]), _pylonTurret] call BRM_FMK_MPGarage_fnc_setPylonLoadOut;
+						[_vehicle, _pylonIndex, _pylonAttachment, !(_display getVariable ["MPG_compatiblePylons", true]), _pylonTurret] call FUNC(setPylonLoadOut);
 					};
 				} forEach (_vehiclePylons select { _x select 5/*_mirrorPylonIndex*/ == _pylonIndex });
 			} forEach _vehiclePylons;

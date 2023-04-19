@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 if (!isDedicated) then {
 	if (isNil "sandi_barrier_index") then { // not initialised
             sandi_barrier_index = 0;

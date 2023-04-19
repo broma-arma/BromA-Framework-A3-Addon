@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 ================================================================================
 
@@ -25,5 +26,5 @@ RETURNS:
 
 params ["_unit", "_corpse"];
 
-["BRM_FMK_playerRespawn", _this] call CBA_fnc_localEvent;
+[QGVARMAIN(playerRespawn), _this] call CBA_fnc_localEvent;
 _this call BRM_fnc_onPlayerRespawn;

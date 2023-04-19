@@ -1,4 +1,4 @@
-class BRM_FMK_Endings {
+class GVARMAIN(Endings) {
 	class Default {
 		winners[] = {"a", "b", "c"};
 		losers[] = {"a", "b", "c"};

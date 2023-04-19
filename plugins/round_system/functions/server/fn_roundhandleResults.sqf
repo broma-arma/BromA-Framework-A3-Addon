@@ -1,17 +1,18 @@
+#include "script_component.hpp"
 if (!isServer) exitWith {};
 
 private ["_victoryText","_victory"];
 
 _result = [];
 
-[] call BRM_FMK_Round_System_fnc_getSettings select 9 params ["_winMessageA", "_winMessageB", "_winMessageC"];
+[] call FUNC(getSettings) select 9 params ["_winMessageA", "_winMessageB", "_winMessageC"];
 
 _AVictory = {
     _result set [1, "AlertBLU"];
     match_points_a = match_points_a + 1;
     publicVariable "match_points_a";
 
-    ["LOCAL", "CHAT", "BLUFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+    ["LOCAL", "CHAT", "BLUFOR victory.", ROUND_SYSTEM_DEBUG] call FUNCMAIN(doLog);
 
     _victory = [_winMessageA, side_a_name];
 };
@@ -21,7 +22,7 @@ _BVictory = {
     match_points_b = match_points_b + 1;
     publicVariable "match_points_b";
 
-    ["LOCAL", "CHAT", "OPFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+    ["LOCAL", "CHAT", "OPFOR victory.", ROUND_SYSTEM_DEBUG] call FUNCMAIN(doLog);
 
     _victory = [_winMessageB, side_b_name];
 };
@@ -31,19 +32,19 @@ _CVictory = {
     match_points_c = match_points_c + 1;
     publicVariable "match_points_c";
 
-    ["LOCAL", "CHAT", "INDFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+    ["LOCAL", "CHAT", "INDFOR victory.", ROUND_SYSTEM_DEBUG] call FUNCMAIN(doLog);
 
     _victory = [_winMessageC, side_c_name];
 };
 
 _DrawVictory = {
     _result set [1, "Alert"];
-    _victory = [[] call BRM_FMK_Round_System_fnc_getSettings select 8, ""];
+    _victory = [[] call FUNC(getSettings) select 8, ""];
 
-    ["LOCAL", "CHAT", "Draw.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+    ["LOCAL", "CHAT", "Draw.", ROUND_SYSTEM_DEBUG] call FUNCMAIN(doLog);
 };
 
-[] call BRM_FMK_Round_System_fnc_getSettings select 7 params ["_victoryConditionA", "_victoryConditionB", "_victoryConditionC"];
+[] call FUNC(getSettings) select 7 params ["_victoryConditionA", "_victoryConditionB", "_victoryConditionC"];
 
 switch (round_end_reason) do {
     case "OBJECTIVE": {
@@ -61,7 +62,7 @@ switch (round_end_reason) do {
         };
     };
     case "TIME": {
-		private _winner = [] call BRM_FMK_Round_System_fnc_getSettings select 4;
+		private _winner = [] call FUNC(getSettings) select 4;
         switch (typeName _winner) do {
             case ("STRING"): {
                 switch (_winner) do {
@@ -77,7 +78,7 @@ switch (round_end_reason) do {
                         _percentB = floor ((100/_Bunits) * mission_dead_side_B);
                         _percentC = floor ((100/_Cunits) * mission_dead_side_C);
 
-                        ["LOCAL", "CHAT", format ["A: %1(%4) | B: %2(%5) | C: %3(%6)", _Aunits, _Bunits, _Cunits, _percentA, _percentB, _percentC], ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+                        ["LOCAL", "CHAT", format ["A: %1(%4) | B: %2(%5) | C: %3(%6)", _Aunits, _Bunits, _Cunits, _percentA, _percentB, _percentC], ROUND_SYSTEM_DEBUG] call FUNCMAIN(doLog);
 
                         _lowest = selectMin [_percentA,_percentB,_percentC];
 

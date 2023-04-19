@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 if (!isServer) exitWith {};
 
 #include "\broma_framework\loadouts\includes\vehicles-index.sqf"
@@ -30,9 +32,9 @@ if (!isServer) exitWith {};
 		}) params [["_index", -1], ["_cargo", []]];
 
 		if (_index > -1) then {
-			([_side] call BRM_FMK_fnc_getFactionInfo) params ["_faction", "_factionSide"];
+			([_side] call FUNCMAIN(getFactionInfo)) params ["_faction", "_factionSide"];
 
-			private _vehicles = ([_faction, "VEHICLES"] call BRM_FMK_fnc_getLoadoutProperty) select _index;
+			private _vehicles = ([_faction, "VEHICLES"] call FUNCMAIN(getLoadoutProperty)) select _index;
 			if (count _vehicles > 0) then {
 				private _vehicleClass = "";
 				if ({ _x > 47 && _x < 58 } count (toArray _vehId) != count _vehId) then { // [0-9]+
@@ -53,14 +55,14 @@ if (!isServer) exitWith {};
 						missionNamespace setVariable [_vehVar select [3], _vehicle, true];
 					};
 
-					[_vehicle, _faction, _cargo] call BRM_FMK_fnc_assignCargo;
+					[_vehicle, _faction, _cargo] call FUNCMAIN(assignCargo);
 
-					["LOCAL", "F_LOG", format ["MARKER VEHICLE === Created '%1' for '%2' @ %3", _vehicleClass, _x, _pos]] call BRM_FMK_fnc_doLog;
+					["LOCAL", "F_LOG", format ["MARKER VEHICLE === Created '%1' for '%2' @ %3", _vehicleClass, _x, _pos]] call FUNCMAIN(doLog);
 				} else {
-					["LOCAL", "F_LOG", format ["MARKER VEHICLE === ERROR: '%1' is not a valid vehicle", _vehicleClass]] call BRM_FMK_fnc_doLog;
+					["LOCAL", "F_LOG", format ["MARKER VEHICLE === ERROR: '%1' is not a valid vehicle", _vehicleClass]] call FUNCMAIN(doLog);
 				};
 			} else {
-				["LOCAL", "F_LOG", format ["MARKER VEHICLE === WARNING: No vehicles available for '%1_%2'", _faction, _vehType]] call BRM_FMK_fnc_doLog;
+				["LOCAL", "F_LOG", format ["MARKER VEHICLE === WARNING: No vehicles available for '%1_%2'", _faction, _vehType]] call FUNCMAIN(doLog);
 			};
 		};
 	};
