@@ -16,6 +16,11 @@ _sup762 = "muzzle_snds_B";
 _supLMG = "muzzle_snds_H_MG";
 _sup93 = "muzzle_snds_93mmg_tan";
 _sup338 = "muzzle_snds_338_sand";
+_sup65Khk = "muzzle_snds_h_khk_f";
+_sup65Snd = "muzzle_snds_h_snd_f";
+_sup65ti = "muzzle_snds_65_ti_blk_f";
+_sup65tiGhex = "muzzle_65_snds_ti_ghex_f";
+_sup65tiHex = "muzzle_65_snds_ti_blk_f";
 
 // Scopes
 
@@ -29,6 +34,10 @@ _Nightstalker = "optic_Nightstalker";
 _SOS = "optic_SOS";
 _TWS = "optic_tws";
 _TWSmg = "optic_tws_mg";
+_KHS = "optic_khs_blk";
+_KHSHex = "optic_khs_hex";
+_KHSOld = "optic_khs_old";
+_KHSTan = "optic_khs_tan";
 
 // Flashlights/Lasers
 
@@ -122,7 +131,16 @@ if (mission_ACE3_enabled) then {
 _NVGEN3OP = "NVGoggles_OPFOR";
 _NVGEN3IND = "NVGoggles_INDEP";
 _NVGEN3BLU = "NVGoggles";
+_NVGEN3TNA = "NVGoggles_tna_F";
 
+ENVGBlk = "NVGogglesB_blk_F";
+ENVGGrn = "NVGogglesB_grn_F";
+EVNGGry = "NVGogglesB_gry_F";
+
+_CNVGGhex = "O_NVGoggles_ghex_F";
+_CNVGHex = "O_NVGoggles_hex_F";
+_CNVGUrb = "O_NVGoggles_urb_F";
+_CNVGGrn = "O_NVGoggles_grn_F";
 // =============================================================================
 
 // OTHERS
