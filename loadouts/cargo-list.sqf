@@ -90,7 +90,7 @@ switch (toLower _x) do {
 		if (!isNil "_arLIST") then {
 			{
 				if (_x select GUN != _commonAR select GUN) then {
-					_supplies pushBack [_x select RAMMO, _countRifleCARGO];
+					_supplies pushBack [_x select RAMMO, _countARCARGO];
 				};
 			} forEach _arLIST;
 		};
