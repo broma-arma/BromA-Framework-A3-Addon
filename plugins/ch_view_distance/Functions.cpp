@@ -20,5 +20,6 @@ class BRM_FMK_CHVD {
 		class keyDown {};
 		class keyDownTerrain {};
 		class postinit {};
+		class selfInit {postInit = 1;};
 	};
 };
