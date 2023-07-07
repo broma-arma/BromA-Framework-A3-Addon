@@ -99,8 +99,8 @@ switch (true) do {
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
         [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         if (!_isSpecATDisposable) then {
-                [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
-                [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+            [_unit, [[_specAT select RAMMO, _countAT]]] call BRM_FMK_fnc_addtoBackpack;
+            [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
         };
     };
 
@@ -356,7 +356,7 @@ switch (true) do {
 [_unit, ["ItemMap", "ItemCompass", "ItemWatch"]] call BRM_FMK_fnc_linkItem;
 
 if !(_nightOnlyNVGs && sunOrMoon == 1 && !isPlayer _unit) then {
-	[_unit, [_NVG]] call BRM_FMK_fnc_linkItem;
+    [_unit, [_NVG]] call BRM_FMK_fnc_linkItem;
 };
 
 [_unit, "SR"] call BRM_FMK_fnc_addRadio;

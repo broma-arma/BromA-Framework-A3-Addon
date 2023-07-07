@@ -105,8 +105,8 @@ switch (true) do {
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
         [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         if (!_isSpecATDisposable) then {
-                [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
-                [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+            [_unit, [[_specAT select RAMMO, _countAT]]] call BRM_FMK_fnc_addtoBackpack;
+            [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
         };
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "R3F_PIRAT"] call BRM_FMK_fnc_attachToWeapon;

@@ -86,7 +86,7 @@ switch (toLower _x) do {
 				};
 			} forEach _rifleLIST;
 		};
-		
+
 		if (!isNil "_arLIST") then {
 			{
 				if (_x select GUN != _commonAR select GUN) then {
@@ -94,14 +94,14 @@ switch (toLower _x) do {
 				};
 			} forEach _arLIST;
 		};
-		
+
 		if (!isNil "_smgLIST") then {
 			{
 				if (_x select GUN != _commonSMG select GUN) then {
 					_supplies pushBack [_x select RAMMO, _countRifleCARGO];
 				};
 			} forEach _smgLIST;
-		};		
+		};
 
 		if (_x == "ammo_big") then {
 			_supplies apply { [_x select 0, (_x select 1) * 3] };
@@ -118,9 +118,9 @@ switch (toLower _x) do {
 			[_commonAT select GUN,    _countATCARGO]
 		];
 
-        if (_specAT select GUN == _SMAW select GUN) then {
+		if (_specAT select GUN == _SMAW select GUN) then {
 			_supplies pushBack ["rhs_mag_smaw_SR", 25];
-        };
+		};
 
 		[_object] + _supplies call BRM_FMK_fnc_addItems;
 	};
@@ -164,7 +164,7 @@ switch (toLower _x) do {
 			["R3F_FUM40",  40]
 		] call BRM_FMK_fnc_addItems;
 	};
-	
+
 	case "rpg7_ammo": {
 		[_object,
 			[_RPGV, _countAT],
@@ -178,7 +178,7 @@ switch (toLower _x) do {
 			[_RGPTBG, _countAT],
 			[_RPGTYPE69, _countAT]
 		] call BRM_FMK_fnc_addItems;
-	};	
+	};
 
 	case "rifle": {
 		[_object, [_commonRIFLE select RAMMO, _countRifleCARGO]] call BRM_FMK_fnc_addItems;
