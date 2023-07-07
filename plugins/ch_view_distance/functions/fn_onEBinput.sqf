@@ -24,7 +24,7 @@ if (count _this < 7) then {
 
 
 _textValue = [ctrlText _text1, "0123456789"] call BIS_fnc_filterString;
-_textValue = if (_textValue == "") then {1} else {call compile _textValue min 12000 max 0};
+_textValue = if (_textValue == "") then {1} else {call compile _textValue min 40000 max 0};
 
 _viewDistValue = _textValue min CHVD_maxView;
 _objViewDistValue = if (_modeVar isEqualTo 1) then {_textValue  * (call compile _percentVar) min CHVD_maxObj} else {_textValue min CHVD_maxObj};  // Check if percentage sync mode is used, if so use a percentage coefficient
