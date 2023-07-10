@@ -5,7 +5,7 @@
 
 _factionID = "ROKA";
 _factionName = "ROK Army";
-_factionStructure = "HIGH-TIER-CCO";
+_factionStructure = "HIGH-TIER";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
@@ -42,7 +42,7 @@ _commonRIFLE = ["BRM_K2","rhs_mag_30Rnd_556x45_M855_Stanag"];
 _reconRIFLE = ["BRM_K2C1","rhs_mag_30Rnd_556x45_M855_Stanag"];
 _commonRIFLEGL = ["BRM_K2GL","rhs_mag_30Rnd_556x45_M855_Stanag","1Rnd_HE_Grenade_shell"];
 _commonPISTOL = _P228;
-_commonAR = _FNMINIMI;
+_commonAR = _FNMINIMIRIS;
 _commonMG = ["R3F_Minimi_762_PARA","R3F_MINIMI_100Rnd_762x51"];
 _commonMARKSMAN = _DMRRIS;
 _commonSNIPER = _AWM;
@@ -57,7 +57,7 @@ _specATSCOPE = "rhs_optic_maaws";
 _commonCCO = "BRM_K2CQS";
 _commonEOT = "rhsusf_acc_eotech_552";
 _commonRAIL = "rhsusf_acc_anpeq15side_bk";
-_commonBIPOD = "rhsusf_acc_tdstubby_blk";
+_commonBIPOD = "";
 _commonMAGNIFIED = "rhsusf_acc_nxs_3515x50f1_h58";
 _commonSUPPRESSOR = "rhsusf_acc_rotex5_grey";
 _commonPISTOLSUPPRESSOR = "";
