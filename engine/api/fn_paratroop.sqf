@@ -61,8 +61,6 @@ if (_action != -1) exitWith {
 			};
 		};
 		case 2: {
-			//_vehicle allowDamage false;
-			//_vehicle setPos getMarkerPos "respawn_west"; // TODO Check if this would cause JIP players to spawn at the respawn point.
 			{ deleteVehicle _x; } foreach crew _vehicle;
 			deleteGroup group _vehicle;
 			deleteVehicle _vehicle;
@@ -86,7 +84,7 @@ if (_action != -1) exitWith {
 				_vehicle lockCargo [_cargoIndex, true];
 			};
 		};
-		
+
 		_unit disableAI "FSM";
 		_unit disableAI "AUTOCOMBAT";
 		_unit disableAI "AUTOTARGET";
