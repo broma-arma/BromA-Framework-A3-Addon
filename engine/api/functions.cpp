@@ -26,6 +26,7 @@ class api {
 	class artillery{};
 	class cas{};
 	class halo{};
+	class paratroop{};
 };
 
 class api_zeus {
