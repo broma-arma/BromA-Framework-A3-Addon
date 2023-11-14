@@ -14,7 +14,7 @@ PARAMETERS:
     0 - Target. If an array, will randomly select one for each shot. (OBJECT / MARKER / POSITION2D / POSITION3D / ARRAY)
     1 - CfgAmmo classname. If an array, will randomly select one for each shot. (STRING / ARRAY)
     2 - (OPTIONAL) Radius around target to target. Array format is [minRadius, maxRadius]. Default 0 (NUMBER / ARRAY)
-    3 - (OPTIONAL) Delay, in seconds, between shots. Array format is [minSeconds, randomSeconds] or [minSeconds, midSeconds, maxSeconds]. Default 1 (NUMBER)
+    3 - (OPTIONAL) Delay, in seconds, between shots. Array format is [minSeconds, randomSeconds] or [minSeconds, midSeconds, maxSeconds]. Default 1 (NUMBER / ARRAY)
     4 - (OPTIONAL) Number of shots. Default 1 (NUMBER)
     5 - (OPTIONAL) CfgSounds classname to play for each shot. Empty string ("") for no sound (STRING / ARRAY / CODE)
         CODE - params ["_ammo", "_cfgAmmo", "_ammoSimulation"]; // Ammo classname, ammo config, and ammo simulation.
