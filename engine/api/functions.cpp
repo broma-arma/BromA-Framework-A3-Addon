@@ -23,6 +23,7 @@ class api {
 	class reachTarget{};
 	class checkCasualties{};
 	class playCfgSound{};
+	class artillery{};
 };
 
 class api_zeus {
