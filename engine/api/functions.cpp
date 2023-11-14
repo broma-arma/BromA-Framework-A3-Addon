@@ -22,6 +22,7 @@ class api {
 	class teamsExist{};
 	class reachTarget{};
 	class checkCasualties{};
+	class playCfgSound{};
 };
 
 class api_zeus {
