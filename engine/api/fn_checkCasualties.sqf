@@ -45,7 +45,7 @@ params ["_side", "_percentage", "_callback", ["_interval", 5]];
 				_dead = _dead + 1;
 			};
 		};
-	} forEach (allPlayers - entities "HeadlessClient_F");
+	} forEach (call BIS_fnc_listPlayers - entities "HeadlessClient_F");
 
 	private _total = _alive + _dead;
 	if (_total == 0 || { _dead / _total >= _percentage }) then {
