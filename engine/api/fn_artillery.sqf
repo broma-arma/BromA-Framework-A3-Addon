@@ -41,7 +41,6 @@ params [
 		params ["_ammo", "_cfgAmmo", "_ammoSimulation"];
 		if (_ammoSimulation in ["shotIlluminating", "shotNVGMarker", "shotSmoke", "shotSmokeX"]) exitWith { "" };
 		[format ["shell%1", floor random 4 + 1], format ["mortar%1", floor random 2 + 1]] select (getNumber (_cfgAmmo >> "hit") < 200)
-		//shell1 0.160, shell2 0.640, shell3 0.440, shell4 0.930, mortar1 0.110, mortar2 0.000
 	}, [{}, [], ""]]
 ];
 
