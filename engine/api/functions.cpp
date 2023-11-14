@@ -25,6 +25,7 @@ class api {
 	class playCfgSound{};
 	class artillery{};
 	class cas{};
+	class halo{};
 };
 
 class api_zeus {
