@@ -24,6 +24,7 @@ class api {
 	class checkCasualties{};
 	class playCfgSound{};
 	class artillery{};
+	class cas{};
 };
 
 class api_zeus {
