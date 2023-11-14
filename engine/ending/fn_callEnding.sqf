@@ -119,21 +119,9 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 				]);
 			};
 
-			// ShackTac User Interface
-			private _hasSTUI = !isNull (uiNamespace getVariable ["STUI_Canvas", controlNull]);
-			if (_hasSTUI) then {
-				(uiNamespace getVariable "STUI_Canvas") ctrlSetFade 1;
-				(uiNamespace getVariable "STUI_Canvas") ctrlCommit 0;
-			};
-
 			titleText [_lines joinString "<br />", "BLACK", -1, true, true];
 			sleep END_SCREEN_TIME;
 			titleFadeOut 1;
-
-			if (_hasSTUI) then {
-				(uiNamespace getVariable "STUI_Canvas") ctrlSetFade 0;
-				(uiNamespace getVariable "STUI_Canvas") ctrlCommit 0;
-			};
 		};
 	};
 
