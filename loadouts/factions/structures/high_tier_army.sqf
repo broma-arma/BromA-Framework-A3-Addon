@@ -327,9 +327,8 @@ switch (true) do {
         [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonMARKSMAN, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
-        [_unit, "primary", _marksmanSCOPE] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, "primary", _commonRCO] call BRM_FMK_fnc_attachToWeapon;
+        [_unit, "primary", _marksmanSCOPE] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
         [_unit, _commonMARKSMAN select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
