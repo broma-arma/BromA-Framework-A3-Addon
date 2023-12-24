@@ -97,7 +97,7 @@ _countPAKCARGO = 10;
 _headsLIST = [
     "H_Bandanna_camo",
 	"H_Booniehat_oli",
-	"TRYK_H_Bandana_H",
+	"UK3CB_H_Bandanna_Green_Check",
 	"BRM_PatrolCap_green",
 	"empty"
 ];
@@ -132,7 +132,7 @@ _reconHEAD = _commonHEAD;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk2";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = _commonUNIFORM;
@@ -154,8 +154,8 @@ _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 _pilotVEST = _commonVEST;
 
-_commonBACKPACK = "TRYK_B_Alicepack";
-_bigBACKPACK = "TRYK_B_Alicepack";
+_commonBACKPACK = "UK3CB_B_Alice_K";
+_bigBACKPACK = "UK3CB_B_Alice_K";
 _specATBACKPACK = "rhs_rpg_2";
 
 if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };

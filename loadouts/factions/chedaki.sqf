@@ -135,8 +135,8 @@ _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 _pilotVEST = "rhs_belt_AK";
 
-_commonBACKPACK = "TRYK_B_Alicepack";
-_bigBACKPACK = "TRYK_B_Alicepack";
+_commonBACKPACK = "UK3CB_CHC_C_B_HIKER";
+_bigBACKPACK = "UK3CB_CHC_C_B_HIKER";
 _medicalBACKPACK = _bigBACKPACK;
 _specATBACKPACK = "rhs_rpg_2";
 _reconBACKPACK = _bigBACKPACK;

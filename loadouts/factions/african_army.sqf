@@ -105,11 +105,11 @@ _reconHEAD = "BRM_BoonieCOMS_RHOD";
 
 _commonUNIFORM = selectRandom ["BRM_BattleUNI_RHOD","BRM_BattleUNIRS_RHOD"];
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
-_crewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
+_crewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
@@ -127,8 +127,8 @@ _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 _pilotVEST = "UK3CB_V_Pilot_Vest";
 
-_commonBACKPACK = "TRYK_B_Alicepack";
-_bigBACKPACK = "TRYK_B_Alicepack";
+_commonBACKPACK = "UK3CB_B_Alice_K";
+_bigBACKPACK = "UK3CB_B_Alice_K";
 
 // MISC EQUIPMENT =============================================================
 

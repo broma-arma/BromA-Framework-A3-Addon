@@ -116,10 +116,10 @@ _commonUNIFORM = selectRandom [
 	"BRM_BattleUNIRS_"+_camo
 ];
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_pilotUNIFORM = "UK3CB_CW_US_B_LATE_U_H_Pilot_Uniform_01_NATO";
 _sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_helicrewUNIFORM = "UK3CB_CW_US_B_LATE_U_H_Pilot_Uniform_01_NATO";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;

@@ -93,13 +93,13 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "TAC_EI_RRVS_SPR_CY",
-    "TAC_EI_RRVS_SPR2_CY"
+    "UK3CB_MD12_VEST_Rifleman_KHK",
+    "UK3CB_MD12_VEST_KHK"
 ];
 
 _goggleLIST = [
-    "TRYK_Shemagh",
-    "TRYK_Shemagh_ESS"
+    "UK3CB_G_Neck_Shemag_Tan",
+    "rhsusf_shemagh_gogg_tan"
 ];
 
 _randomHEAD = selectRandom _headsLIST;
@@ -143,8 +143,8 @@ _marksmanVEST = _randomVEST;
 _reconVEST = _randomVEST;
 _pilotVEST = "rhs_belt_AK";
 
-_commonBACKPACK = "B_FieldPack_khk";
-_bigBACKPACK = "TRYK_B_Coyotebackpack";
+_commonBACKPACK = "BRM_SqBackpack_Brown";
+_bigBACKPACK = "BRM_SqBpH_Brown";
 
 if (_assignLoadoutMode) then { _unit addGoggles _randomGOGGLE; };
 

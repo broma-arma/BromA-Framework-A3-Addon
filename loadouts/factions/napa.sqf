@@ -151,8 +151,8 @@ _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 _pilotVEST = "rhs_belt_AK";
 
-_commonBACKPACK = "TRYK_B_Alicepack";
-_bigBACKPACK = "TRYK_B_Alicepack";
+_commonBACKPACK = "UK3CB_B_Alice_K";
+_bigBACKPACK = "UK3CB_B_Alice_K";
 
 // MISC EQUIPMENT ==============================================================
 

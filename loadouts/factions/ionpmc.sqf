@@ -86,27 +86,23 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "TRYK_ESS_CAP",
-    "TRYK_R_CAP_BLK",
-    "TRYK_H_PASGT_BLK",
-    "BRM_PELTOR_Tglasses",
-    "TRYK_H_headsetcap_blk_Glasses",
+    "UK3CB_H_Radio_Cap_ION_BLK_ALT",
+    "UK3CB_H_Cap_Back_ION_BLK",
+    "UK3CB_H_Radio_Cap_Back_ION_BLK_ALT",
     "BRM_BeanieCOMS_Black",
     "empty"
 ];
 
 _uniformsLIST = [
-    "TRYK_U_denim_hood_mc",
-    "TRYK_U_denim_hood_blk",
-    "TRYK_U_denim_hood_3c",
-    "TRYK_U_B_Denim_T_BK",
-    "TRYK_U_B_Denim_T_WH",
-    "TRYK_shirts_DENIM_WHB_Sleeve",
-    "TRYK_shirts_DENIM_od_Sleeve",
-    "TRYK_U_B_PCUGs_OD_R",
-    "TRYK_U_B_PCUGs_gry_R",
-    "TRYK_shirts_DENIM_BWH",
-    "TRYK_shirts_DENIM_R_Sleeve"
+    "UK3CB_ION_B_U_SF_Uniform_SHIRT_07_URB",
+    "UK3CB_ION_B_U_SF_Uniform_SHIRT_03_URB ",
+    "UK3CB_ION_B_U_SF_Uniform_SHIRT_06_WDL",
+    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_01_URB",
+    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_06_URB",
+    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_04_WDL",
+    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_08_WDL",
+    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_05_WDL",
+    "UK3CB_ION_B_U_Uniform_05_URB"
 ];
 
 _randomHEAD = selectRandom _headsLIST;
@@ -114,7 +110,7 @@ _randomUNIFORM = selectRandom _uniformsLIST;
 _randomGOGGLE = selectRandom ["UK3CB_G_Balaclava2_BLK","rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
 
 _commonHEAD = _randomHEAD;
-_leaderHEAD = selectRandom ["TRYK_H_headsetcap_blk","TRYK_H_headsetcap_blk"];
+_leaderHEAD = selectRandom ["UK3CB_H_Radio_Cap_Back_ION_BLK_ALT","UK3CB_H_Radio_Cap_ION_BLK_ALT"];
 _officerHEAD = _leaderHEAD;
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "H_HelmetCrew_I";
@@ -123,7 +119,7 @@ _helicrewHEAD = "BRM_SPH4V_WHITE";
 _helipilotHEAD = "BRM_SPH4V_WHITE";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = "TRYK_H_PASGT_BLK";
+_reconHEAD = "rhsusf_opscore_bk_pelt";
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;

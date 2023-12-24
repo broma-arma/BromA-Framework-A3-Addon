@@ -129,10 +129,10 @@ _reconHEAD = "BRM_BoonieCOMS_"+_camo;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;

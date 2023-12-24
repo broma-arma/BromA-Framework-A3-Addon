@@ -126,8 +126,8 @@ _commonUNIFORM = selectRandom [
 		"PSZ_U_PL_"+_camo+"_wz2010_Crye_Folded"
 ];
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = if (_camo == "wdl") then {"TRYK_OVERALL_SAGE_BLKboots_nk_blk"} else {"U_B_FullGhillie_ard"};
-_sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
+_sniperUNIFORM = if (_camo == "wdl") then {"U_B_T_FullGhillie_tna_F"} else {"U_B_FullGhillie_ard"};
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = _commonUNIFORM;
 _crewUNIFORM = _commonUNIFORM;

@@ -34,22 +34,22 @@ if(!isNil "BRM_FMK_LoadoutCamo_PLA")then{_camo=BRM_FMK_LoadoutCamo_PLA};
 
 // WEAPONS =====================================================================
 
-_commonRIFLE            = ["vme_pla_qbz95_1","VME_QBZ95_1_30Rnd_DBP10"];
-_commonRIFLEGL          = ["vme_pla_qbz95_1GL","VME_QBZ95_1_30Rnd_DBP10","VME_1Rnd_HE_GL"];
-_commonPISTOL           = ["vme_pla_qsz92","VME_QSZ92_20Rnd_DAP92"];
-_commonAR               = ["vme_pla_qjb95_1","VME_QJB95_1_75Rnd_DBP87"];
-_commonMG               = ["VME_PLA_QJY88","VME_QJY88_200Rnd_DVP88_Heavy"];
-_commonMARKSMAN         = _commonRIFLE;
-_commonSNIPER           = ["vme_pla_LR4","vme_lr4_scope"];
-_commonAT               = ["vme_pla_PF89","vme_pla_PF89_Rocket"];
-_specAT                 = ["vme_pla_PF98","vme_pla_PF98_AT_Rocket"];
-_weaponsAA              = ["vme_pla_FN6","vme_pla_FN6_Rocket"];
+_commonRIFLE            = ["arifle_CTAR_blk_F","30Rnd_580x42_Mag_F"];
+_commonRIFLEGL          = ["arifle_CTAR_GL_blk_F","30Rnd_580x42_Mag_F","1Rnd_HE_Grenade_shell"];
+_commonPISTOL           = ["hgun_Rook40_F","16Rnd_9x21_Mag"];
+_commonAR               = ["arifle_CTAR_blk_F","100Rnd_580x42_Mag_F"];
+_commonMG               = _commonAR;
+_commonMARKSMAN         = ["srifle_DMR_07_blk_F","20Rnd_650x39_Cased_Mag_F"];;
+_commonSNIPER           = ["srifle_DMR_07_blk_F","20Rnd_650x39_Cased_Mag_F"];
+_commonAT               = _RPG26;
+_specAT                 = ["launch_RPG32_green_F","RPG32_F"];
+_weaponsAA              = ["rhs_weap_igla","rhs_mag_9k38_rocket"];
 _weaponsAT              = _specAT;
-_commonSMG              = ["vme_pla_qcw05","VME_QCW05_50Rnd_DAP92"];
-_commonRCO              = "vme_95_1_pst";
-_commonCCO              = "vme_eotech553";
-_commonMAGNIFIED        = "vme_lr4_scope";
-_commonSUPPRESSOR       = "vme_qbz95_1_silencer";
+_commonSMG              = _commonRIFLE;
+_commonRCO              = "ACE_optic_MRCO_2D";
+_commonCCO              = "optic_Holosight_blk_F";
+_commonMAGNIFIED        = "optic_SOS";
+_commonSUPPRESSOR       = "muzzle_snds_58_blk_F";
 _commonPISTOLSUPPRESSOR = "";
 _NVG                    = "rhs_1PN138";
 
@@ -153,14 +153,14 @@ _reconBACKPACK = _bigBACKPACK;
 
 // EXTRA EQUIPMENT =============================================================
 
-_HMG = "VME_PLA_QJZ89A_bag";
-_HMGTripod = "VME_PLA_Static_tripod";
+_HMG = "O_HMG_01_A_high_weapon_F";
+_HMGTripod = "O_HMG_01_support_F";
 
-_StaticAT = "VME_PLA_HJ11_bag";
-_ATTripod = "VME_PLA_Static_tripod";
+_StaticAT = "O_AT_01_weapon_F";
+_ATTripod = "O_HMG_01_support_F";
 
-_mortar = "RHS_Podnos_Gun_Bag";
-_mortarTripod = "RHS_Podnos_Bipod_Bag";
+_mortar = "O_Mortar_01_weapon_F";
+_mortarTripod = "O_Mortar_01_support_F";
 
 _UAVBag = "auto";
 _UAVTerminal = "auto";
@@ -169,20 +169,20 @@ _UAVTerminal = "auto";
 
 _factionVehicles = [
 /*  Anti Air Vehicles */ ["O_PGZ09_AA"]
-/*  Attack Helos      */,["VME_WZ10"]
-/*  Attack Planes     */,["VME_PLA_J16", "VME_PLA_J16", "VME_PLA_JH7", "VME_PLA_J10B"]
+/*  Attack Helos      */,[]
+/*  Attack Planes     */,[]
 /*  Heavy Vehicles    */,["O_ZTQ15", "O_ZTZ96B", "O_ZTZ99", "O_ZTZ99A"]
-/*  Light Vehicles    */,["VME_PLA_BJ2022", "VME_PLA_EQ2050_MG"]
+/*  Light Vehicles    */,[]
 /*  Medium Vehicles   */,["O_ZBD04A","O_ZBL09","O_ZTL11"]
 /*  Mobile Artillery  */,["O_PLZ05", "O_PLL09", "RHS_BM21_VV_01"]
 /*  Transport Helos   */,["VME_PLA_Mi17"]
 /*  Transport Planes  */,[]
-/*  Transport Trucks  */,["VME_PLA_SX2190"]
-/*  Static Defence    */,["VME_PLA_HJ11", "VME_QJY88_Static_AA"]
+/*  Transport Trucks  */,[]
+/*  Static Defence    */,[]
 /*  Boats             */,[]
 /*  UAV               */,[]
 /*  UGV               */,[]
-/*  Support           */,["VME_PLA_SX2190Repair", "VME_PLA_SX2190Refuel"]
+/*  Support           */,[]
 /*  Submarines        */,["O_SDV_01_F", "O_SDV_01_F"]
 /*  MRAP Vehicles     */,[]
 ];

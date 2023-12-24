@@ -111,8 +111,8 @@ _headsLIST = [
 ];
 
 _goggleLIST = [
-    "TRYK_Shemagh_mesh",
-    "TRYK_Shemagh_shade",
+    "UK3CB_G_Tactical_Clear_Shemagh_Green_Headset",
+    "UK3CB_G_Tactical_Black_Shemagh_Green",
     "empty"
 ];
 
@@ -150,8 +150,8 @@ switch (_camo) do {
         ];
 
         _goggleLIST = [
-            "TRYK_Shemagh",
-            "TRYK_Shemagh_shade",
+            "UK3CB_G_Tactical_Clear_Shemagh_Green_Headset",
+            "UK3CB_G_Tactical_Black_Shemagh_Green",
             "empty"
         ];
 
@@ -188,8 +188,8 @@ switch (_camo) do {
         ];
 
         _goggleLIST = [
-            "TRYK_Shemagh_G",
-            "TRYK_Shemagh_shade_G",
+            "UK3CB_G_Tactical_Clear_Shemagh_Green_Headset",
+            "UK3CB_G_Tactical_Black_Shemagh_Green",
             "empty"
         ];
 
@@ -229,9 +229,9 @@ _demoHEAD = _commonHEAD;
 
 _commonUNIFORM = _randomUNIFORM;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;

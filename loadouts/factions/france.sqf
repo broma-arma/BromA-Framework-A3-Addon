@@ -120,8 +120,8 @@ _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
-_crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
+_crewUNIFORM     = "UK3CB_CHC_C_U_Overall_01";
 _mgUNIFORM       = _commonUNIFORM;
 _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
@@ -144,23 +144,16 @@ if (_camo == "WINTER") then {
         "rhsusf_ach_bare_wood_headset"
     ];
 
-    _uniformsLIST = [
-        "TRYK_U_Bts_Wood_PCUs",
-        "TRYK_U_Bts_GRYGRY_PCUs",
-        "TRYK_U_B_GRY_PCUs",
-        "TRYK_U_B_Wood_PCUs"
-    ];
-
     _vestsLIST = [
-        "TRYK_V_ArmorVest_coyo",
-        "V_PlateCarrier1_rgr_noflag_F"
+        "UK3CB_V_MBAV_RIFLEMAN_WIN",
+        "UK3CB_V_MBAV_MG_WIN"
     ];
 
     _randomHEAD = selectRandom _headsLIST;
     _randomUNIFORM = selectRandom _uniformsLIST;
     _randomVEST = selectRandom _vestsLIST;
 
-    _commonUNIFORM = "TRYK_U_B_PCUHsW6";
+    _commonUNIFORM = "UK3CB_ION_B_U_CombatSmock_01_WIN";
     _commonHEAD = _randomHEAD;
     _leaderHEAD = _commonHEAD;
     _officerHEAD = _commonHEAD;
@@ -174,8 +167,8 @@ if (_camo == "WINTER") then {
     _reconHEAD = _commonHEAD;
 };
 
-_commonBACKPACK = "B_Kitbag_cbr";
-_bigBACKPACK = "TRYK_B_Coyotebackpack";
+_commonBACKPACK = "UK3CB_ION_B_B_ASS_WIN_01";
+_bigBACKPACK = "UK3CB_ION_B_B_RIF_WIN_01";
 
 // EXTRA EQUIPMENT =============================================================
 

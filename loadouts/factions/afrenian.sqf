@@ -118,8 +118,8 @@ _officerUNIFORM  = _commonUNIFORM;
 _pilotUNIFORM    = "U_B_PilotCoveralls";
 _sniperUNIFORM   = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_nok_flesh";
-_crewUNIFORM     = "TRYK_OVERALL_SAGE_BLKboots_nk_blk2";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
+_crewUNIFORM     = "UK3CB_CHC_C_U_Overall_01";
 _mgUNIFORM       = _commonUNIFORM;
 _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
@@ -137,8 +137,8 @@ _marksmanVEST  = "rhsgref_6b23_ttsko_digi_sniper";
 _reconVEST     = "rhsusf_spc_patchless_radio";
 _pilotVEST = "UK3CB_V_Pilot_Vest";
 
-_commonBACKPACK = "TRYK_B_Coyotebackpack";
-_bigBACKPACK = "TRYK_B_Carryall_JSDF";
+_commonBACKPACK = "BRM_PatrolBP_JIEITAIW";
+_bigBACKPACK = "BRM_PatrolBP_JIEITAIW";
 
 // EXTRA EQUIPMENT =============================================================
 

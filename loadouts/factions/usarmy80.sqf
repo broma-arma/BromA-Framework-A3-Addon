@@ -109,10 +109,10 @@ _reconHEAD = "BRM_Beanie_Green";
 
 _commonUNIFORM = "UK3CB_CW_US_B_LATE_U_CombatUniform_03_WDL";
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk2";
+_pilotUNIFORM = "UK3CB_CW_US_B_LATE_U_H_Pilot_Uniform_01_NATO";
 _sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk2";
+_helicrewUNIFORM = "UK3CB_CW_US_B_LATE_U_H_Pilot_Uniform_01_NATO";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
@@ -150,10 +150,10 @@ if (_camo == "des") then {
 
     _commonUNIFORM = selectRandom ["BRM_BattleUNI_DCU","BRM_BattleUNIRS_DCU"];
     _officerUNIFORM = _commonUNIFORM;
-    _pilotUNIFORM = "TRYK_OVERALL_nok_flesh";
+    _pilotUNIFORM = "UK3CB_CW_US_B_LATE_U_H_Pilot_Uniform_01_NATO";
     _sniperUNIFORM = "U_B_FullGhillie_ard";
     _marksmanUNIFORM = _commonUNIFORM;
-    _helicrewUNIFORM = "TRYK_OVERALL_nok_flesh";
+    _helicrewUNIFORM = "UK3CB_CW_US_B_LATE_U_H_Pilot_Uniform_01_NATO";
     _crewUNIFORM = _commonUNIFORM;
     _mgUNIFORM = _commonUNIFORM;
     _medicUNIFORM = _commonUNIFORM;

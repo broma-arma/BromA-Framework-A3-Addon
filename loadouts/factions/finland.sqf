@@ -120,10 +120,10 @@ _reconHEAD = selectRandom ["rhsusf_opscore_fg_pelt","rhsusf_opscore_fg_pelt_cam"
 
 _commonUNIFORM = "BRM_BattleUNI_FM05"+_camo;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;

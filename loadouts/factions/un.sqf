@@ -106,10 +106,10 @@ _reconHEAD = _commonHEAD;
 
 _commonUNIFORM = "rhsgref_uniform_ERDL";
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _sniperUNIFORM = _commonUNIFORM;
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;

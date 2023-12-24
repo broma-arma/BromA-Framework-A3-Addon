@@ -109,10 +109,10 @@ _reconHEAD = "BRM_BoonieCOMS_ESTDCU";
 
 _commonUNIFORM = selectRandom ["BRM_BattleUNI_ESTDCU","BRM_BattleUNIRS_ESTDCU"];
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _sniperUNIFORM = "U_B_T_FullGhillie_tna_F";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _crewUNIFORM = _commonUNIFORM;
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;

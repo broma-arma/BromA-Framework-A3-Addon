@@ -139,10 +139,10 @@ _reconHEAD = selectRandom [
 
 _commonUNIFORM = selectRandom ["BRM_BattleUNI_"+_lp,"BRM_BattleUNIRS_"+_lp];;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _sniperUNIFORM = "U_I_FullGhillie_lsh";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _crewUNIFORM = "U_Simc_OG107_mk3_tuck_nomex_blench";
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;
@@ -176,10 +176,10 @@ _reconHEAD = selectRandom ["rhsusf_opscore_paint_pelt","rhsusf_opscore_paint_pel
 
 _commonUNIFORM = selectRandom ["BRM_BattleUNI_MARPATD","BRM_BattleUNIRS_MARPATD"];;
 _officerUNIFORM = _commonUNIFORM;
-_pilotUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _sniperUNIFORM = "U_I_FullGhillie_ard";
 _marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = "TRYK_OVERALL_SAGE_BLKboots_nk_blk";
+_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
 _crewUNIFORM = "U_Simc_OG107_mk3_tuck_nomex_blench";
 _mgUNIFORM = _commonUNIFORM;
 _medicUNIFORM = _commonUNIFORM;

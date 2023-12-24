@@ -88,36 +88,42 @@ _countPAKCARGO      = 40;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "TRYK_ESS_CAP_OD",
-    "TRYK_H_headsetcap_blk_Glasses",
-    "TRYK_H_headsetcap_od",
-    "TRYK_H_headset2",
-    "TRYK_H_headsetcap_od_Glasses",
-    "TRYK_H_headsetcap_blk",
-    "TRYK_H_headsetcap_od",
-    "TRYK_R_CAP_OD_US",
-    "TRYK_H_PASGT_OD"
+    "H_Bandanna_khk",
+    "H_Bandanna_mcamo",
+    "H_Bandanna_sgg",
+    "H_Bandanna_sand",
+    "H_Cap_blk",
+    "H_Cap_blu",
+    "H_Cap_oli_hs",
+    "H_Shemag_olive",
+    "H_Shemag_olive_hs",
+    "H_ShemagOpen_tan",
+    "H_ShemagOpen_khk"
 ];
 
 _uniformsLIST = [
-    "TRYK_U_pad_hood_odBK",
-    "TRYK_shirts_DENIM_od_Sleeve",
-    "TRYK_hoodie_Wood",
-    "TRYK_shirts_DENIM_BK",
-    "TRYK_shirts_DENIM_WHB_Sleeve",
-    "TRYK_shirts_PAD_BLW",
-    "TRYK_U_pad_hood_tan",
-    "TRYK_U_hood_nc",
-    "TRYK_U_denim_hood_3c",
-    "TRYK_U_denim_hood_mc"
+    "U_BG_Guerrilla_6_1",
+    "U_BG_Guerilla1_1",
+    "U_BG_Guerilla2_2",
+    "U_BG_Guerilla2_1",
+    "U_BG_Guerilla2_3",
+    "U_BG_Guerilla3_1",
+    "U_BG_leader",
+    "U_C_HunterBody_grn",
+    "U_I_G_Story_Protagonist_F"
 ];
 
 _vestsLIST = [
-    "TRYK_V_ArmorVest_Ranger2",
-    "TRYK_V_ArmorVest_Delta",
-    "TRYK_V_ArmorVest_Delta2",
-    "TRYK_V_ArmorVest_Ranger"
+    "V_TacVest_blk",
+    "V_TacVest_brn",
+    "V_TacVest_camo",
+    "V_TacVest_khk",
+    "V_TacVest_oli"
 ];
+
+_randomHEAD = selectRandom _headsLIST;
+_randomUNIFORM = selectRandom _uniformsLIST;
+_randomVEST = selectRandom _vestsLIST;
 
 _gogglesLIST = [];
 
@@ -161,8 +167,8 @@ _marksmanVEST  = "TAC_EI_RRV25_RG";
 _reconVEST     = _randomVEST;
 _pilotVEST = "rhs_belt_AK";
 
-_commonBACKPACK = "TRYK_B_Coyotebackpack_OD";
-_bigBACKPACK = "TRYK_B_Carryall_wood";
+_commonBACKPACK = "B_Kitbag_cbr";
+_bigBACKPACK = "B_Kitbag_cbr";
 
 // MISC EQUIPMENT ==============================================================
 
