@@ -115,7 +115,7 @@ if (!_assignLoadoutMode && !isNil "_object" && !read_local_cargo) then { // assi
 	} select { _x != "" };
 
 	// Cannot be done in cargo-list.sqf, due to the function restricts the amount added, based on available inventory space.
-	if (("ammo" in _type || "ammo_big" in _type) && isClass (configFile >> "CfgPatches" >> "UK3CB_BAF_Vehicles_Weapons") && { isArray (configfile >> "CfgVehicles" >> typeOf _object >> "UK3CB_Servicing_GUI" >> "UK3CB_Servicing_GUI_ArrayArmament") }) then {
-		[_object, [0, 0], false] call UK3CB_BAF_vehicles_Weapons_fnc_rearm;
+	if (("ammo" in _type || "ammo_big" in _type) && isClass (configFile >> "CfgPatches" >> "UK3CB_BAF_Vehicles_Weapons") && { configSourceMod configOf _object == "@3CB BAF Vehicles" }) then {
+		_object call UK3CB_BAF_vehicles_Weapons_fnc_rearm;
 	};
 };
