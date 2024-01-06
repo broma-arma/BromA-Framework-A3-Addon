@@ -23,7 +23,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // WEAPONS =====================================================================
 
 _commonRIFLE            = _AUGAA1;
-_commonRIFLEGL          = _M320;
+_commonRIFLEGL          = _commonRIFLE;
+_commonGL               = _M320;
 _commonPISTOL           = ["hlc_pistol_P226R_Combat","hlc_15Rnd_9x19_B_P226"];
 _commonAR               = ["hlc_rifle_aughbar_B", "hlc_40Rnd_556x45_B_AUG"];
 _commonMG               = _M60E4;
