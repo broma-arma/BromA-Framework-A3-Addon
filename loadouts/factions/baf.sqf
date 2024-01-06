@@ -55,7 +55,7 @@ _commonRAIL = "rhsusf_acc_anpeq15side_bk";
 _NVG = "UK3CB_BAF_HMNVS";
 
 _rifleSCOPE = _commonCCO;
-_mgSCOPE = "fhq_optic_hws";
+_mgSCOPE = _FHQHWS;
 
 // AMMO COUNT ==================================================================
 

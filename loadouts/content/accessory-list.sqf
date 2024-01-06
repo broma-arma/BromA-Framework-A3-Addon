@@ -67,38 +67,67 @@ _GOSHAWK = "hlc_optic_goshawk";
 // =============================================================================
 
 // FHQ
+if (isClass (configfile >> "CfgPatches" >> "FHQ_Accessories")) then {
+	// Scopes
+	_FHQACOG = "FHQ_optic_ACOG";
+	_FHQACOGTAN = "FHQ_optic_ACOG_tan";
+	_FHQAIMPOINT = "FHQ_optic_AIM";
+	_FHQAIMPOINTTAN = "FHQ_optic_AIM_tan";
+	_FHQTWS = "FHQ_optic_TWS3050";
+	_FHQHWS = "FHQ_optic_HWS";
+	_FHQHWSTAN = "FHQ_optic_HWS_tan";
+	_FHQEOTECH = "FHQ_optic_HWS_G33";
+	_FHQEOTECHTAN = "FHQ_optic_HWS_G33_tan";
+	_FHQMICROCCO = "FHQ_optic_MicroCCO";
+	_FHQMICROCCOTAN = "FHQ_optic_MicroCCO_tan";
+	_FHQMICROCCOLOW = "FHQ_optic_MicroCCO_low";
+	_FHQMICROCCOLOWTAN = "FHQ_optic_MicroCCO_low_tan";
+	_FHQLEOPOLD = "FHQ_optic_LeupoldERT";
+	_FHQLEOPOLDTAN = "FHQ_optic_LeupoldERT_tan";
+	_FHQVCOG = "FHQ_optic_VCOG";
+	_FHQVCOGTAN = "FHQ_optic_VCOG_tan";
+	_FHQAC117 = "FHQ_optic_AC11704";
+	_FHQAC117TAN = "FHQ_optic_AC11704_tan";
+	_FHQAC121 = "FHQ_optic_AC12136";
+	_FHQAC121TAN = "FHQ_optic_AC12136_tan";
+	_FHQMARS = "FHQ_optic_MARS";
+	_FHQMARSTAN = "FHQ_optic_MARS_tan";
 
-// Scopes
+	// Flashlights/Lasers
+	_FHQANPE = "FHQ_acc_ANPEQ15";
+	_FHQANPEBLK = "FHQ_acc_ANPEQ15_black";
+	_FHQLLM = "FHQ_acc_LLM01L";
+} else {
+	// Scopes
+	_FHQACOG = "rhsusf_acc_ACOG_RMR";
+	_FHQACOGTAN = "rhsusf_acc_ACOG_RMR";
+	_FHQAIMPOINT = "rhsusf_acc_compm4";
+	_FHQAIMPOINTTAN = "rhsusf_acc_compm4";
+	_FHQTWS = "rhsusf_acc_anpas13gv1";
+	_FHQHWS = "rhsusf_acc_eotech_xps3";
+	_FHQHWSTAN = "rhsusf_acc_eotech_xps3";
+	_FHQEOTECH = "rhsusf_acc_g33_xps3";
+	_FHQEOTECHTAN = "rhsusf_acc_g33_xps3_tan";
+	_FHQMICROCCO = "rhsusf_acc_T1_high";
+	_FHQMICROCCOTAN = "rhsusf_acc_T1_high";
+	_FHQMICROCCOLOW = "rhsusf_acc_T1_low";
+	_FHQMICROCCOLOWTAN = "rhsusf_acc_T1_low";
+	_FHQLEOPOLD = "rhsusf_acc_LEUPOLDMK4_2";
+	_FHQLEOPOLDTAN = "rhsusf_acc_LEUPOLDMK4_2_d";
+	_FHQVCOG = "optic_MRCO";
+	_FHQVCOGTAN = "optic_MRCO";
+	_FHQAC117 = "rhsusf_acc_mrds";
+	_FHQAC117TAN = "rhsusf_acc_mrds_c";
+	_FHQAC121 = _FHQHWS;
+	_FHQAC121TAN = _FHQHWSTAN;
+	_FHQMARS = "rhsusf_acc_RX01_NoFilter";
+	_FHQMARSTAN = "rhsusf_acc_RX01_NoFilter_tan";
 
-_FHQACOG = "FHQ_optic_ACOG";
-_FHQACOGTAN = "FHQ_optic_ACOG_tan";
-_FHQAIMPOINT = "FHQ_optic_AIM";
-_FHQAIMPOINTTAN = "FHQ_optic_AIM_tan";
-_FHQTWS = "FHQ_optic_TWS3050";
-_FHQHWS = "FHQ_optic_HWS";
-_FHQHWSTAN = "FHQ_optic_HWS_tan";
-_FHQEOTECH = "FHQ_optic_HWS_G33";
-_FHQEOTECHTAN = "FHQ_optic_HWS_G33_tan";
-_FHQMICROCCO = "FHQ_optic_MicroCCO";
-_FHQMICROCCOTAN = "FHQ_optic_MicroCCO_tan";
-_FHQMICROCCOLOW = "FHQ_optic_MicroCCO_low";
-_FHQMICROCCOLOWTAN = "FHQ_optic_MicroCCO_low_tan";
-_FHQLEOPOLD = "FHQ_optic_LeupoldERT";
-_FHQLEOPOLDTAN = "FHQ_optic_LeupoldERT_tan";
-_FHQVCOG = "FHQ_optic_VCOG";
-_FHQVCOGTAN = "FHQ_optic_VCOG_tan";
-_FHQAC117 = "FHQ_optic_AC11704";
-_FHQAC117TAN = "FHQ_optic_AC11704_tan";
-_FHQAC121 = "FHQ_optic_AC12136";
-_FHQAC121TAN = "FHQ_optic_AC12136_tan";
-_FHQMARS = "FHQ_optic_MARS";
-_FHQMARSTAN = "FHQ_optic_MARS_tan";
-
-// Flashlights/Lasers
-
-_FHQANPE = "FHQ_acc_ANPEQ15";
-_FHQANPEBLK = "FHQ_acc_ANPEQ15_black";
-_FHQLLM = "FHQ_acc_LLM01L";
+	// Flashlights/Lasers
+	_FHQANPE = "rhsusf_acc_anpeq15side";
+	_FHQANPEBLK = "rhsusf_acc_anpeq15side_bk";
+	_FHQLLM = "rhsusf_acc_anpeq15_bk";
+}
 
 // =============================================================================
 
