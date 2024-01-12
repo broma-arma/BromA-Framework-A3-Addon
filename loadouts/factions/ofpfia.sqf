@@ -155,16 +155,16 @@ _medicUNIFORM    = _commonUNIFORM;
 _demoUNIFORM     = _commonUNIFORM;
 _reconUNIFORM    = _randomUNIFORM;
 
-_commonVEST    = "TAC_EI_RRV2_RG";
-_officerVEST   = "TAC_V_tacv1EP_BK";
-_ftlVEST       = "TAC_V_tacv1EP_BK";
-_slVEST        = "TAC_V_tacv1EP_BK";
-_mgVEST        = "TAC_EI_RRV23_RG";
-_grenadierVEST = "TAC_EI_RRV28_RG";
-_medicVEST     = "TAC_EI_RRV27L_RG";
-_demoVEST      = "TAC_PBDFG2CPL_BK";
-_marksmanVEST  = "TAC_EI_RRV25_RG";
-_reconVEST     = _randomVEST;
+_commonVEST    = _randomVEST;
+_officerVEST   = _commonVEST;
+_ftlVEST       = _commonVEST;
+_slVEST        = _commonVEST;
+_mgVEST        = _commonVEST;
+_grenadierVEST = _commonVEST;
+_medicVEST     = _commonVEST;
+_demoVEST      = _commonVEST;
+_marksmanVEST  = _commonVEST;
+_reconVEST     = _commonVEST;
 _pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "B_Kitbag_cbr";
