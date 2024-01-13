@@ -127,7 +127,7 @@ if (isClass (configfile >> "CfgPatches" >> "FHQ_Accessories")) then {
 	_FHQANPE = "rhsusf_acc_anpeq15side";
 	_FHQANPEBLK = "rhsusf_acc_anpeq15side_bk";
 	_FHQLLM = "rhsusf_acc_anpeq15_bk";
-}
+};
 
 // =============================================================================
 
