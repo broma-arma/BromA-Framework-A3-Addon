@@ -32,28 +32,31 @@ if(!isNil "BRM_FMK_LoadoutCamo_JSDF")then{_camo=BRM_FMK_LoadoutCamo_JSDF};
 
 // WEAPONS =====================================================================
 
-_commonRIFLE = ["hlc_rifle_SG551LB_TAC", "hlc_30Rnd_556x45_EPR_sg550"];
-_commonRIFLEGL = ["hlc_rifle_SG551LB_TAC", "hlc_30Rnd_556x45_EPR_sg550","1Rnd_HE_Grenade_shell"];
+_commonRIFLE = ["BRM_Type89", _30rnd556STANAG];
+_commonRIFLEGL = _RHSM16A4GL;
+_reconRIFLE = _HLC416D10;
 _commonPISTOL = _P226;
 _commonAR = _M249E1;
 _commonMG = _M240G;
-_commonMARKSMAN = _STG58;
+_commonMARKSMAN = _DMRRIS;
 _commonSNIPER = ["rhs_weap_m24sws_blk", "rhsusf_5Rnd_762x51_m118_special_Mag"];
 _commonAT = _AT4;
 _specAT = ["rhs_weap_maaws","rhs_mag_maaws_HEAT"];
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 _commonSMG = ["hgun_PDW2000_F","30Rnd_9x21_Mag"];
-_commonRCO = "rhsusf_acc_SpecterDR";
-_commonCCO = _FHQAIMPOINT;
+_commonRCO = "";
+_commonCCO = "";
 _commonMAGNIFIED = "rhsusf_acc_LEUPOLDMK4_2";
 _commonSUPPRESSOR = "muzzle_snds_M";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = _PVS14;
 
+_reconSCOPE = "rhsusf_acc_acog_rmr";
+
 // AMMO COUNT ==================================================================
 
-_countRIFLE = 7;
+_countRIFLE = 9;
 _countRIFLELOW = 4;
 _countPISTOL = 2;
 _countMG = 3;

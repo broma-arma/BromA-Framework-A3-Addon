@@ -26,11 +26,12 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 
 _commonRIFLE = _AK74N;
 _commonRIFLEGL = _AK74NGL;
+_reconRIFLE = _AK74MZENIT;
 _commonPISTOL = _Makarov;
 _commonAR = selectRandom [_RPK,_PKM];
 _commonMG = _commonAR;
 _commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
-_commonSNIPER = _commonMARKSMAN;
+_commonSNIPER = _AWMB;
 _commonAT = _RPG26;
 _specAT = _RPG7PGO;
 _weaponsAA = _IGLA;
@@ -89,15 +90,15 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _commonHEAD = selectRandom [
-    "BRM_ACH_MASK_MCU",
-    "BRM_ACH_MCU",
+    "BRM_ACH_MASK_MM14",
+    "BRM_ACH_MM14",
     "PSZ_H_wz2005_OLIVE",
     "PSZ_H_wz2005_OLIVE_ESS",
     "rhssaf_helmet_m97_olive_nocamo",
     "rhssaf_helmet_m97_olive_nocamo_black_ess"
 ];
 _leaderHEAD = _commonHEAD;
-_officerHEAD = "BRM_PatrolCap_MCU";
+_officerHEAD = "BRM_PatrolCap_MM14";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = "rhs_tsh4_ess";
 _pilotHEAD = "rhs_zsh7a";
@@ -128,11 +129,11 @@ _grenadierVEST = _commonVEST;
 _medicVEST = "BMR_MLBVARMOR_BROWN_MED";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
-_reconVEST = _commonVEST;
+_reconVEST = "BRM_LBT_MM14_RFLAK";
 _pilotVEST = "rhs_belt_AK";
 
 _commonBACKPACK = "BRM_SqBackpack_Brown";
-_bigBACKPACK = "BRM_SqBackpack_Brown";
+_bigBACKPACK = "BRM_PatrolBP_MM14";
 _specATBACKPACK = "rhs_rpg_2";
 
 // MISC EQUIPMENT ==============================================================
