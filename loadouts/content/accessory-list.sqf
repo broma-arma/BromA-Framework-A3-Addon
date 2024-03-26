@@ -67,6 +67,23 @@ _GOSHAWK = "hlc_optic_goshawk";
 // =============================================================================
 
 // FHQ
+private [
+	"_FHQACOG", "_FHQACOGTAN",
+	"_FHQAIMPOINT", "_FHQAIMPOINTTAN",
+	"_FHQTWS",
+	"_FHQHWS", "_FHQHWSTAN",
+	"_FHQEOTECH", "_FHQEOTECHTAN",
+	"_FHQMICROCCO", "_FHQMICROCCOTAN",
+	"_FHQMICROCCOLOW", "_FHQMICROCCOLOWTAN",
+	"_FHQLEOPOLD", "_FHQLEOPOLDTAN",
+	"_FHQVCOG", "_FHQVCOGTAN",
+	"_FHQAC117", "_FHQAC117TAN",
+	"_FHQAC121", "_FHQAC121TAN",
+	"_FHQMARS", "_FHQMARSTAN",
+
+	"_FHQANPE", "_FHQANPEBLK",
+	"_FHQLLM"
+];
 if (isClass (configfile >> "CfgPatches" >> "FHQ_Accessories")) then {
 	// Scopes
 	_FHQACOG = "FHQ_optic_ACOG";
