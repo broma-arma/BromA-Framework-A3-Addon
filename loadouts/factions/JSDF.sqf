@@ -33,7 +33,7 @@ if(!isNil "BRM_FMK_LoadoutCamo_JSDF")then{_camo=BRM_FMK_LoadoutCamo_JSDF};
 // WEAPONS =====================================================================
 
 _commonRIFLE = ["BRM_Type89", _30rnd556STANAG];
-_commonRIFLEGL = ["BRM_Type89", _30rnd556STANAG, "BRM_T06_HE"];
+_commonRIFLEGL = ["BRM_Type89", _30rnd556STANAG, "BRM_Type06_HE"];
 _reconRIFLE = _HLC416D10;
 _commonPISTOL = _P226;
 _commonAR = _M249E1;
