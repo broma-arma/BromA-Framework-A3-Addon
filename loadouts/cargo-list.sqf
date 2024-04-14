@@ -179,7 +179,8 @@ switch (toLower _x) do {
 			[_RPGTYPE69, _countAT]
 		] call BRM_FMK_fnc_addItems;
 	};
-        case "Type06_ammo": {
+
+	case "Type06_ammo": {
 		[_object,
 			["BRM_Type06_HE", _count40mmCARGO],
 			["BRM_Type06_HEAT", _count40mmCARGO],
@@ -192,6 +193,7 @@ switch (toLower _x) do {
 			["BRM_Type06_FLR_R", _count40mmCARGO]
 		] call BRM_FMK_fnc_addItems;
 	};
+
 	case "rifle": {
 		[_object, [_commonRIFLE select RAMMO, _countRifleCARGO]] call BRM_FMK_fnc_addItems;
 	};
