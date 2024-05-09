@@ -27,7 +27,7 @@ private _defaultHandler = { _unit getVariable [_name, _defaultValue] };
 } forEach call BRM_FMK_SyncStatus_fnc_playerVars;
 
 private _status = [
-	str _unit,
+	[_unit] call BIS_fnc_objectVar,
 	getDir _unit,
 	getPosATL _unit,
 	getDammage _unit,

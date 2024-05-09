@@ -21,9 +21,9 @@ if !(hasInterface) exitWith {
 	diag_log text "[BrmFmk.SyncStatus.loadStatus] Error: Attempted to load status for non-client.";
 };
 
-_status params ["_playerUnit", "_playerDir", "_playerPos", "_playerDamage", "_vehicle", "_vehicleSeat", "_playerGear", "_playerVars"];
+_status params ["_playerVar", "_playerDir", "_playerPos", "_playerDamage", "_vehicle", "_vehicleSeat", "_playerGear", "_playerVars"];
 
-if (_playerUnit == str player) then {
+if (_playerVar == [player] call BIS_fnc_objectVar) then {
 	player setUnitLoadout _playerGear;
 };
 
