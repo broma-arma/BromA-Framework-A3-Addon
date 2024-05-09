@@ -18,9 +18,13 @@ private _fnc_unitSeat = {
 };
 
 private _playerVars = [];
+private _defaultHandler = { _unit getVariable [_name, _defaultValue] };
 {
-	_playerVars pushBack (_x apply { _unit getVariable (_x select [0, 2]) });
-} forEach (call BRM_FMK_SyncStatus_fnc_playerVars);
+	_playerVars pushBack (_x apply {
+		_x params ["_name", "_defaultValue", "_loadHandler", ["_handler", _defaultHandler]];
+		call _handler
+	});
+} forEach call BRM_FMK_SyncStatus_fnc_playerVars;
 
 private _status = [
 	_uid,
