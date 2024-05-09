@@ -23,6 +23,9 @@ if !(hasInterface) exitWith {
 
 _status params ["_playerVar", "_playerDir", "_playerPos", "_playerDamage", "_vehicle", "_vehicleSeat", "_playerGear", "_playerVars"];
 
+private _damageAllowed = isDamageAllowed player;
+player allowDamage false;
+
 if (_playerVar == [player] call BIS_fnc_objectVar) then {
 	player setUnitLoadout _playerGear;
 };
@@ -63,4 +66,11 @@ if (!isNull _vehicle && {alive _vehicle}) then {
 	};
 } else {
 	player setPosATL _playerPos;
+};
+
+if (_damageAllowed) then {
+	0 spawn {
+		sleep 1;
+		player allowDamage true;
+	};
 };
