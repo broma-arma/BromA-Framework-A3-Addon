@@ -4,10 +4,9 @@ if (count _status == 0) exitWith {
 	if (isServer) then {
 		if (isRemoteExecuted) then {
 			// Send status information to the client.
-			private _index = -1;
-			{ if (_uid == (_x select 0)) exitWith { _index = _forEachIndex }; } forEach BrmFmk_SyncStatus_status;
-			if (_index != -1) then {
-				[_uid, BrmFmk_SyncStatus_status select _index] remoteExec ["BRM_FMK_SyncStatus_fnc_loadStatus", remoteExecutedOwner];
+			private _status = BrmFmk_SyncStatus_status deleteAt _uid;
+			if (!isNil "_status") then {
+				[_uid, _status] remoteExec ["BRM_FMK_SyncStatus_fnc_loadStatus", remoteExecutedOwner];
 			};
 		} else {
 			diag_log text "[BrmFmk.SyncStatus.loadStatus] Error: Function must be remoteExec'd.";
@@ -22,7 +21,7 @@ if !(hasInterface) exitWith {
 	diag_log text "[BrmFmk.SyncStatus.loadStatus] Error: Attempted to load status for non-client.";
 };
 
-_status params ["_uid", "_playerUnit", "_playerDir", "_playerPos", "_playerDamage", "_vehicle", "_vehicleSeat", "_playerGear", "_playerVars"];
+_status params ["_playerUnit", "_playerDir", "_playerPos", "_playerDamage", "_vehicle", "_vehicleSeat", "_playerGear", "_playerVars"];
 
 if (_playerUnit == str player) then {
 	player setUnitLoadout _playerGear;

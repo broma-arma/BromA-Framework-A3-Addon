@@ -1,7 +1,7 @@
 if !(isMultiplayer) exitWith {};
 
 if (isServer) then {
-	BrmFmk_SyncStatus_status = [];
+	BrmFmk_SyncStatus_status = createHashMap;
 	addMissionEventHandler ["HandleDisconnect", BRM_FMK_SyncStatus_fnc_saveStatus];
 };
 

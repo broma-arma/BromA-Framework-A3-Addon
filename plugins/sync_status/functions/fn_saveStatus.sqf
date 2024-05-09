@@ -27,7 +27,6 @@ private _defaultHandler = { _unit getVariable [_name, _defaultValue] };
 } forEach call BRM_FMK_SyncStatus_fnc_playerVars;
 
 private _status = [
-	_uid,
 	str _unit,
 	getDir _unit,
 	getPosATL _unit,
@@ -38,7 +37,4 @@ private _status = [
 	_playerVars
 ];
 
-private _index = count BrmFmk_SyncStatus_status;
-{ if (_status select 0 == _x select 0) exitWith { _index = _forEachIndex; } } forEach BrmFmk_SyncStatus_status;
-
-BrmFmk_SyncStatus_status set [_index, _status];
+BrmFmk_SyncStatus_status set [_uid, _status];
