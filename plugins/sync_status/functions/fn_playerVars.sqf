@@ -66,7 +66,7 @@ if (mission_ACE3_enabled) then {
 if (isClass (configFile >> "CfgPatches" >> "ace_stash_nvg")) then {
 	_playerVars pushBack [
 		// Variable name       Default  Custom load code (Optional
-		["ACE_stashed_NVG",    ""]
+		["ACE_stash_nvg_NVG",    ""]
 	]
 };
 
