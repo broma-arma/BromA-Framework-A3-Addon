@@ -4,16 +4,18 @@ _voiceALTIAN = ["Male01GRE","Male02GRE","Male03GRE","Male04GRE","Male05GRE", "Ma
 _voiceAMERICAN = ["Male01ENG","Male02ENG","Male03ENG","Male04ENG","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG","Male10ENG","Male11ENG", "Male12ENG"];
 _voiceBRITISH = ["Male01ENGB","Male02ENGB","Male03ENGB","Male04ENGB", "Male05ENGB"];
 _voiceFARSI = ["Male01PER","Male02PER","Male03PER"];
-_voiceRUSSIAN = ["rhs_Male01RUS","rhs_Male02RUS","rhs_Male03RUS","rhs_Male04RUS","rhs_Male05RUS"];
+_voiceRUSSIAN = ["rhs_Male01RUS","rhs_Male02RUS","rhs_Male03RUS","rhs_Male04RUS","rhs_Male05RUS", "Male01RUS", "Male02RUS", "Male03RUS"];
 _voiceFRENCH = ["Male01FRE", "Male02FRE", "Male03FRE"];
 _voiceFRENCHENGLISH = ["Male01ENGFRE", "Male02ENGFRE"];
 _voiceCHINESE = ["Male01CHI", "Male02CHI", "Male03CHI"];
 _voiceCZECH = ["RHS_Male01CZ", "RHS_Male02CZ", "RHS_Male03CZ", "RHS_Male04CZ", "RHS_Male05CZ"];
+_voicePOLISH = ["MALE01POL", "MALE02POL", "MALE03POL"]
 
 _allVoices = [
     _voiceALTIAN, _voiceAMERICAN, _voiceBRITISH,
     _voiceFARSI, _voiceRUSSIAN, _voiceFRENCH,
     _voiceFRENCHENGLISH, _voiceCHINESE, _voiceCZECH
+    _voice_POLISH
 ];
 
 // FACES ========================================================================
@@ -24,8 +26,10 @@ _faceBLACK = ["AfricanHead_02","AfricanHead_01","AfricanHead_03"];
 _faceASIAN = ["AsianHead_A3_02","AsianHead_A3_01","AsianHead_A3_02","AsianHead_A3_03", "AsianHead_A3_04", "AsianHead_A3_05", "AsianHead_A3_07", "AsianHead_A3_06"];
 _facePERSIAN = ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"];
 _faceTANOAN = ["TanoanHead_A3_01", "TanoanHead_A3_02", "TanoanHead_A3_03", "TanoanHead_A3_04", "TanoanHead_A3_05", "TanoanHead_A3_06", "TanoanHead_A3_07", "TanoanHead_A3_08"];
+_faceLIVONIAN = ["LivonianHead_1", "LivonianHead_2", "LivonianHead_3", "LivonianHead_4", "LivonianHead_5", "LivonianHead_6", "LivonianHead_7", "LivonianHead_8", "LivonianHead_9", "LivonianHead_10"]; 
+_faceRUSSIAN = ["RussianHead_1", "RussianHead_2", "RussianHead_3", "RussianHead_4", "RussianHead_5"]
 
-_allFaces = [_faceGREEK, _faceWHITE, _faceBLACK, _faceASIAN, _facePERSIAN, _faceTANOAN];
+_allFaces = [_faceGREEK, _faceWHITE, _faceBLACK, _faceASIAN, _facePERSIAN, _faceTANOAN _faceLIVONIAN _faceRUSSIAN];
 
 // NAMES =======================================================================
 
