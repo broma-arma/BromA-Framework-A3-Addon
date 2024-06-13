@@ -11,15 +11,15 @@ if !(hasInterface) exitWith {};
 		if (cameraView == "EXTERNAL") then {
 			switch (BrmFmk_blockTP_allow) do {
 				case 0: { // 3rd Person Disabled
-					player switchCamera "INTERNAL";
+					focusOn switchCamera "INTERNAL";
 				};
 				case 1: { // 3rd Person Enabled
 					removeMissionEventHandler ["EachFrame", _thisEventHandler];
 				};
 				case 2: { // 3rd Person Drivers/Commanders Only
-					private _vehicle = objectParent player;
-					if (isNull _vehicle || {player != driver _vehicle && player != commander _vehicle}) then {
-						player switchCamera "INTERNAL";
+					private _vehicle = objectParent focusOn;
+					if (isNull _vehicle || { !(focusOn in [driver _vehicle, commander _vehicle]) }) then {
+						focusOn switchCamera "INTERNAL";
 					};
 				};
 			};
