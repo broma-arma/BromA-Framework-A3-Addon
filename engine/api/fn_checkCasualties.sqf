@@ -38,7 +38,7 @@ params ["_side", "_percentage", "_callback", ["_interval", 5]];
 	private _alive = 0;
 	private _dead = 0;
 	{
-		if (side _x == _side) then {
+		if (_x getVariable ["unit_side", side _x] == _side) then {
 			if (alive _x && !(_x getVariable ["isDead", false])) then {
 				_alive = _alive + 1;
 			} else {
