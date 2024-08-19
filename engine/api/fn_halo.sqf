@@ -59,9 +59,9 @@ if (_autoAltitude > 0) then {
 	[_player, _autoAltitude] spawn {
 		params ["_player", "_autoAltitude"];
 
-		waitUntil { sleep 0.1; getPosATL _player select 2 <= _autoAltitude || !(getUnitFreefallInfo _unit select 0) };
+		waitUntil { sleep 0.1; getPosATL _player select 2 <= _autoAltitude || !(getUnitFreefallInfo _player select 0) };
 
-		if (getUnitFreefallInfo _unit select 0) then {
+		if (getUnitFreefallInfo _player select 0) then {
 			_player action ["OpenParachute", _player];
 		};
 	};
