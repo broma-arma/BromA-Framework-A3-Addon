@@ -48,15 +48,17 @@ intro_cutscene_over = false;
 			]] spawn BIS_fnc_typeText2;
 		};
 
-		case "CINEMA": 0 spawn {
-			{
-				private _script = call _x;
-				waitUntil { scriptDone _script };
-			} forEach [
-				{[0, 2, false, true] call BIS_fnc_cinemaBorder},
-				{[toUpper worldName, player call BIS_fnc_locationDescription] spawn BIS_fnc_infoText},
-				{[1, 2, false, true] call BIS_fnc_cinemaBorder}
-			]
+		case "CINEMA": {
+			0 spawn {
+				{
+					private _script = call _x;
+					waitUntil { scriptDone _script };
+				} forEach [
+					{[0, 2, false, true] call BIS_fnc_cinemaBorder},
+					{[toUpper worldName, player call BIS_fnc_locationDescription] spawn BIS_fnc_infoText},
+					{[1, 2, false, true] call BIS_fnc_cinemaBorder}
+				]
+			}
 		};
 	};
 

@@ -81,7 +81,7 @@ call _callbackAssigned;
 
 switch (_priority) do {
 	case 0: { _title = format ["(OPTIONAL) %1", _title]; };
-	case 2: { _title = format ["(!) %1", _title]; }
+	case 2: { _title = format ["(!) %1", _title]; };
 };
 
 [_owner, _id, [_desc, _title, ""], _position, false, 0, true, _type, true] call BIS_fnc_taskCreate;

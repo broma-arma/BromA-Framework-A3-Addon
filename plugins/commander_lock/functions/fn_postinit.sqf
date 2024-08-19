@@ -33,7 +33,7 @@ if (hasInterface) then {
                 case WEST: { ["AlertBLU", ["blue"] call BRM_FMK_fnc_colorToHex] };
                 case EAST: { ["AlertOP", ["red"] call BRM_FMK_fnc_colorToHex] };
                 case RESISTANCE: { ["AlertIND", ["green"] call BRM_FMK_fnc_colorToHex] };
-                default { ["AlertBLU", ["blue"] call BRM_FMK_fnc_colorToHex] }
+                default { ["AlertBLU", ["blue"] call BRM_FMK_fnc_colorToHex] };
             };
 
             _coLockAlertColorValues params ["_alertNotificationColor", "_alertTextColor"];

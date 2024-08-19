@@ -79,7 +79,7 @@ if (_action != -1) exitWith {
 			case "gunner";
 			case "turret": {
 				_vehicle lockTurret [_turretPath, true];
-			};;
+			};
 			case "cargo": {
 				_vehicle lockCargo [_cargoIndex, true];
 			};

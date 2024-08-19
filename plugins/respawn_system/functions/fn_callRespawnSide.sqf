@@ -69,7 +69,7 @@ if (_respawned > 0) then {
 		case EAST: { ["%1 %2 units have respawned.", "AlertOP"] };
 		case RESISTANCE: { ["%1 %2 units have respawned.", "AlertIND"] };
 		case CIVILIAN: { ["%1 %2 units have respawned.", "Alert"] };
-		default { ["%1 units have respawned.", "Alert"] }
+		default { ["%1 units have respawned.", "Alert"] };
 	}) params ["_alertText", "_alertNotification"];
 
 	[_alertNotification, [format [_alertText, _respawned, [_side, "name"] call BRM_FMK_fnc_getSideInfo]]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
