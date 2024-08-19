@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_fnc_initAI
+    BRM_FMK_fnc_initAI
 
 AUTHOR(s):
     Nife
@@ -15,8 +15,8 @@ PARAMETERS:
     1 - Faction the unit belongs to. (STRING)
 
 USAGE:
-    [aiUnit, "SLA"] call BRM_fnc_initAI;
-    [this, "RACS"] call BRM_fnc_initAI;
+    [aiUnit, "SLA"] call BRM_FMK_fnc_initAI;
+    [this, "RACS"] call BRM_FMK_fnc_initAI;
 
 RETURNS:
     Nothing.

@@ -44,7 +44,7 @@ if !(_vehicle getVariable ["BRM_FMK_DAC_Vehicle_Loadout", false]) then {
 		if (alive _vehicle) then {
 			{
 				if (side _x == _side) then {
-					[_x, _faction] call BRM_fnc_initAI;
+					[_x, _faction] call BRM_FMK_fnc_initAI;
 				};
 			} forEach crew _vehicle;
 		} else {
