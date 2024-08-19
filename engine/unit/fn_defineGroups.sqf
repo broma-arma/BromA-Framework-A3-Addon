@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_fnc_defineGroups
+    BRM_FMK_fnc_defineGroups
 
 AUTHOR(s):
     Nife
@@ -15,7 +15,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] call BRM_fnc_defineGroups
+    [] call BRM_FMK_fnc_defineGroups
 
 RETURNS:
     Nothing.

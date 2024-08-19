@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_fnc_generateRadioStructure
+    BRM_FMK_fnc_generateRadioStructure
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     0 - Side (SIDE)
 
 USAGE:
-    [west] call BRM_fnc_generateRadioStructure
+    [west] call BRM_FMK_fnc_generateRadioStructure
 
 RETURNS:
     The structured ORBAT with radio frequencies. (STRING)

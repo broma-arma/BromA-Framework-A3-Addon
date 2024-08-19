@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_fnc_warnConflict
+    BRM_FMK_fnc_warnConflict
 
 AUTHOR(s):
     Nife
@@ -15,7 +15,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] call BRM_fnc_warnConflict;
+    [] call BRM_FMK_fnc_warnConflict;
 
 RETURNS:
     Nothing.
