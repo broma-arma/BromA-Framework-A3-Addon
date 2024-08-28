@@ -44,13 +44,13 @@ switch (true) do {
     case (_isTeamLeader): {
         [_unit, _leaderHEAD, _commonUNIFORM, _ftlVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_grenade,_countGRENADES],[_flashlight,1]]] call BRM_FMK_fnc_addtoVest;
-        [_unit, _commonRIFLEGL, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         if (!isNil "_commonGL") then {
-            [_unit,[[_commonGL select GUN,1]]] call BRM_FMK_fnc_addtoBackpack;
             [_unit,[[_commonGL select RAMMO, _count40mm]]] call BRM_FMK_fnc_addtoBackpack;
+            [_unit,[[_commonGL select GUN,1]]] call BRM_FMK_fnc_addtoBackpack;
         } else {
             [_unit,[[_commonRIFLEGL select GL, _count40mm]]] call BRM_FMK_fnc_addtoBackpack;
         };
+        [_unit, _commonRIFLEGL, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
         [_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonEOT] call BRM_FMK_fnc_attachToWeapon;
@@ -212,8 +212,8 @@ switch (true) do {
         [_unit, _commonHEAD, _commonUNIFORM, _grenadierVEST, _commonBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         if (!isNil "_commonGL") then {
-            [_unit,[[_commonGL select GUN,1]]] call BRM_FMK_fnc_addtoBackpack;
             [_unit,[[_commonGL select RAMMO, _count40mm]]] call BRM_FMK_fnc_addtoBackpack;
+            [_unit,[[_commonGL select GUN,1]]] call BRM_FMK_fnc_addtoBackpack;
         } else {
             [_unit,[[_commonRIFLEGL select GL, _count40mm]]] call BRM_FMK_fnc_addtoBackpack;
         };
