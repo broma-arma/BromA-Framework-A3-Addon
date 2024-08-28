@@ -294,7 +294,6 @@ _G36CKAC = ["hlc_rifle_G36CTac",_30rnd556G36];
 
 _G36E   = ["hlc_rifle_G36E1",_30rnd556G36];
 _G36EGL = ["hlc_rifle_G36E1AG36",_30rnd556G36,_40mm];
-_G36E   = ["hlc_rifle_G36E1",_30rnd556G36];
 _G36KE1 = ["hlc_rifle_G36KE1",_30rnd556G36];
 
 _G36KA1      = ["hlc_rifle_G36KA1",_30rnd556G36];
