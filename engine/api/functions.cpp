@@ -27,6 +27,7 @@ class api {
 	class cas{};
 	class halo{};
 	class paratroop{};
+	class isDisposableLauncher{};
 };
 
 class api_zeus {

@@ -40,26 +40,14 @@ if (isNil "_countWeaponsATCARGO") then { _countWeaponsATCARGO = _countWeaponsAT 
 if (isNil "_countWeaponsAA") then { _countWeaponsAA = 2; };
 if (isNil "_countWeaponsAACARGO") then { _countWeaponsAACARGO = _countWeaponsAA * 5; };
 
+if (isNil "_countCommonATCARGO") then { _countCommonATCARGO = _countATCARGO; };
 if (isNil "_countSpecATCARGO") then { _countSpecATCARGO = _countATCARGO; };
 
-if (isNil "_isSpecATDisposable" && _specAT isEqualTo "") then {
-	_isSpecATDisposable = true;
-};
+if (isNil "_isCommonATDisposable" && _commonAT isEqualTo "") then { _isCommonATDisposable = true; };
+if (isNil "_isCommonATDisposable") then { _isCommonATDisposable = _commonAT select /*GUN*/0 call BRM_FMK_fnc_isDisposableLauncher; };
 
-if (isNil "_isSpecATDisposable") then {
-	private _launcher = _specAT select /*GUN*/0;
-	private _cfgLauncher = configFile >> "CfgWeapons" >> _launcher;
-	_isSpecATDisposable = !isNil { cba_disposable_NormalLaunchers getVariable _launcher } // CBA
-					|| { getText (_cfgLauncher >> "ace_UsedTube") != "" } // ACE
-					|| { getNumber (_cfgLauncher >> "rhs_disposable") != 0 } // RHS
-					|| { getText (_cfgLauncher >> "uk3cb_used_launcher") != "" }; // 3CB
-};
-
-if (_isSpecATDisposable) then {
-	if (isNil "read_local_cargo" || { read_local_cargo }) then {
-		_countSpecATCARGO = 0;
-	};
-};
+if (isNil "_isSpecATDisposable" && _specAT isEqualTo "") then { _isSpecATDisposable = true; };
+if (isNil "_isSpecATDisposable") then { _isSpecATDisposable = _specAT select /*GUN*/0 call BRM_FMK_fnc_isDisposableLauncher; };
 
 if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") then { 4 } else { _countCAT }; };
 if (isNil "_countTourniquetCARGO") then { _countTourniquetCARGO = _countTourniquet * 10; };

@@ -71,6 +71,10 @@ switch (toLower _x) do {
 			[_gsmoke,                      25]
 		];
 
+		if (!_isCommonATDisposable) then {
+			_supplies pushBack [_commonAT select RAMMO, _countCommonATCARGO];
+		};
+
 		if (!_isSpecATDisposable) then {
 			_supplies pushBack [_specAT select RAMMO, _countSpecATCARGO];
 		};
@@ -115,7 +119,7 @@ switch (toLower _x) do {
 			[_specAT select ([RAMMO, GUN] select _isSpecATDisposable), _countSpecATCARGO],
 			[_weaponsAT select RAMMO, _countWeaponsATCARGO],
 			[_weaponsAA select RAMMO, _countWeaponsAACARGO],
-			[_commonAT select GUN,    _countATCARGO]
+			[_commonAT select ([RAMMO, GUN] select _isCommonATDisposable), _countCommonATCARGO]
 		];
 
 		if (_specAT select GUN == _SMAW select GUN) then {
@@ -227,7 +231,7 @@ switch (toLower _x) do {
 	};
 
 	case "lat": {
-		[_object, [_commonAT select GUN, _countATCARGO]] call BRM_FMK_fnc_addItems;
+		[_object, [_commonAT select ([RAMMO, GUN] select _isCommonATDisposable), _countCommonATCARGO]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "mat": {

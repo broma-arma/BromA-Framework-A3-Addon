@@ -45,7 +45,7 @@ private [
 	"_commonMG", "_countMG", "_countMgCARGO", "_countTracerMG",
 	"_commonMarksman",
 	"_commonSniper", "_countSniper", "_countSniperCARGO",
-	"_commonAT", "_countAT", "_countATCARGO",
+	"_commonAT", "_countAT", "_countATCARGO", "_isCommonATDisposable",
 	"_specAT", "_countSpecATCARGO", "_isSpecATDisposable",
 	"_commonSMG",
 	"_commonGL",

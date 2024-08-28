@@ -84,6 +84,9 @@ switch (true) do {
         [_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", "R3F_PIRAT"] call BRM_FMK_fnc_attachToWeapon;
+        if (!_isCommonATDisposable) then {
+            [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+        };
         [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
         [_unit, [["R3F_APAV40", 4],["R3F_AC58", 4],["R3F_FUM40", 2] ]] call BRM_FMK_fnc_addtoBackpack;
     };
