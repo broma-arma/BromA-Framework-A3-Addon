@@ -70,7 +70,7 @@ _SPMGBlack = ["MMG_02_black_F","130Rnd_338_Mag"];
 _P07 = ["hgun_P07_F","16Rnd_9x21_Mag"];
 _4Five = ["hgun_Pistol_heavy_01_F","11Rnd_45ACP_Mag"];
 
-_PCML = ["launch_NLAW_F","NLAW_F"];
+_PCML = ["launch_NLAW_F", ["NLAW_F", ""] select isClass (configFile >> "CfgPatches" >> "ace_disposable")];
 
 // =============================================================================
 //                                FIA WEAPONS

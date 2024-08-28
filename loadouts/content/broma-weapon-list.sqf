@@ -1032,8 +1032,8 @@ _RSHG2 = ["rhs_weap_rshg2","rhs_rshg2_mag"];
 //                                AT-4
 
 _AT4 = ["rhs_weap_M136","rhs_m136_mag"];
-_AT4HEDP = ["rhs_weap_M136_hedp","rhs_m136_mag"];
-_AT4HP = ["rhs_weap_M136_hp","rhs_m136_mag"];
+_AT4HEDP = ["rhs_weap_M136_hedp","rhs_m136_hedp_mag"];
+_AT4HP = ["rhs_weap_M136_hp","rhs_m136_hp_mag"];
 
 //                                SMAW
 
