@@ -42,10 +42,6 @@ if (isNil "_countWeaponsAACARGO") then { _countWeaponsAACARGO = _countWeaponsAA 
 
 if (isNil "_countSpecATCARGO") then { _countSpecATCARGO = _countATCARGO; };
 
-if (isNil "_isSpecATDisposable" && !isNil "_isATDisposable") then {
-	_isSpecATDisposable = _isATDisposable;
-};
-
 if (isNil "_isSpecATDisposable" && _specAT isEqualTo "") then {
 	_isSpecATDisposable = true;
 };
