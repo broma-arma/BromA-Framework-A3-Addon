@@ -112,8 +112,6 @@ switch (true) do {
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
-        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         if (!_isSpecATDisposable) then {
             [_unit, [[_specAT select RAMMO, _countAT]]] call BRM_FMK_fnc_addtoBackpack;
             [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
@@ -121,6 +119,8 @@ switch (true) do {
         if (_specAT select GUN == _SMAW select GUN) then {
             [_unit,[["rhs_mag_smaw_SR", 5]]] call BRM_FMK_fnc_addtoBackpack;
         };
+        [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
+        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
     };
 
     case (_isWeaponsAT): {
@@ -311,15 +311,15 @@ switch (true) do {
         [_unit, "primary", _commonRCO] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
-        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
-    if (!_isSpecATDisposable) then {
-            [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
-            [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
-    };
+        if (!_isSpecATDisposable) then {
+                [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+                [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+        };
         if (_specAT select GUN == _SMAW select GUN) then {
             [_unit,[["rhs_mag_smaw_SR", 5]]] call BRM_FMK_fnc_addtoBackpack;
         };
+        [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
+        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
     };
 
      case (_isReconMarksman ): {

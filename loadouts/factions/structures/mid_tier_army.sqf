@@ -96,12 +96,12 @@ switch (true) do {
         [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _specATBACKPACK] call BRM_FMK_fnc_useUniform;
         [_unit,[[_wsmoke,2],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-        [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
-        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
         if (!_isSpecATDisposable) then {
             [_unit, [[_specAT select RAMMO, _countAT]]] call BRM_FMK_fnc_addtoBackpack;
             [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
         };
+        [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
+        [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
     };
 
     case (_isWeaponsAT): {
@@ -251,12 +251,12 @@ switch (true) do {
         [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
+        if (!_isSpecATDisposable) then {
+            [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+            [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+        };
         [_unit, _specAT] call BRM_FMK_fnc_addWeapon;
         [_unit, "secondary", _specATSCOPE] call BRM_FMK_fnc_attachToWeapon;
-        if (!_isSpecATDisposable) then {
-                [_unit, [[_specAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
-                [_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
-        };
         [_unit, "primary", _reconSCOPE] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
     };
