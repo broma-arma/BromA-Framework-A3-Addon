@@ -1077,11 +1077,10 @@ if (!isClass (configFile >> "CfgPatches" >> "tf47_launchers")) then {
 
 //                           	M16A2s
 
+_M16A3GL = _RHSM16A4GL;
 if (isClass (configFile >> "CfgPatches" >> "gst_m16a2_F")) then {
 	_M16A2 = ["gst_m16a2",_30rnd556];
 	_M16A2GL = ["gst_m16a2_gl",_30rnd556,_40mm];
 	_M16A3 = ["gst_m16a3",_30rnd556];
 	_M16A3GL = ["gst_m16a3_gl",_30rnd556,_40mm];
-} else {
-	_M16A3GL = _RHSM16A4GL;
 };
