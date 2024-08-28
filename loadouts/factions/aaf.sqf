@@ -148,7 +148,7 @@ _bigBACKPACK = "B_Carryall_oli";
 
 // EXTRA EQUIPMENT =============================================================
 
-_HMG = "I_HMG_01_A_high_weapon_F";
+_HMG = "I_HMG_01_high_weapon_F";
 _HMGTripod = "I_HMG_01_support_F";
 
 _StaticAT = "I_AT_01_weapon_F";
