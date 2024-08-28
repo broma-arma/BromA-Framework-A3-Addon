@@ -114,7 +114,7 @@ _SLR107RIS = ["hlc_rifle_slr107u_MTK",_30rnd762AK];
 _HLCAK12   = ["hlc_rifle_ak12",_30rnd545];
 _HLCAK12GL = ["hlc_rifle_ak12GL",_30rnd545,_GPHE];
 _AK12U     = ["hlc_rifle_aku12",_30rnd545];
-_RPK12     = ["hlc_rifle_RPK12_60rnd",_60rnd545RPK];
+_RPK12     = ["hlc_rifle_RPK12",_60rnd545RPK];
 
 _AK47      = ["hlc_rifle_ak47",_30rnd762AK];
 _HLCAKM    = ["hlc_rifle_akm",_30rnd762AK];
