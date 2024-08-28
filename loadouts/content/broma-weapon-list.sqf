@@ -133,7 +133,7 @@ _AKS74URIS = ["hlc_rifle_aks74u_MTK",_30rnd545];
 
 
 _RPK   = ["hlc_rifle_rpk_75rnd",_75rnd762RPK];
-_RPK74 = ["hlc_rifle_rpk74n_45rnd",_45rnd545];
+_RPK74 = ["hlc_rifle_rpk74n",_45rnd545];
 
 _RK62 = ["hlc_rifle_RK62",_30rnd762AK];
 
