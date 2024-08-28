@@ -162,8 +162,3 @@ if (mission_ACE3_enabled) then {
 };
 
 _earBuds = _earPlugs; // Backward compatibility
-
-// ETC =========================================================================
-
-_optics = ["Binocular","Rangefinder","Laserdesignator"];
-_battery = ["Laserbatteries"];
