@@ -60,7 +60,7 @@ if (_autoAltitude > 0) then {
 
 		waitUntil { sleep 0.1; getPosATL _unit select 2 <= _autoAltitude || !(getUnitFreefallInfo _unit select 0) };
 
-		if (getUnitFreefallInfo _unit select 0) then {
+		if (isNull objectParent _unit && getUnitFreefallInfo _unit select 0) then {
 			_unit action ["OpenParachute", _unit];
 		};
 	};
