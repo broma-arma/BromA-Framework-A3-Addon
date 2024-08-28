@@ -57,9 +57,9 @@ _25rnd9mmAUG = "hlc_25Rnd_9x19mm_M882_AUG";
 
 _24rnd75STGW = "hlc_24Rnd_75x55_B_stgw";
 
-_29rnd300BLK  = "29rnd_300BLK_STANAG";
-_29rnd300BLKS = "29rnd_300BLK_STANAG_T";
-_29rnd300BLKT = "29rnd_300BLK_STANAG_T";
+_29rnd300BLK  = "hlc_29rnd_300BLK_STANAG";
+_29rnd300BLKS = "hlc_29rnd_300BLK_STANAG_S";
+_29rnd300BLKT = "hlc_29rnd_300BLK_STANAG_T";
 
 _30rnd545        = "hlc_30Rnd_545x39_B_AK";
 _30rnd545EP      = "hlc_30Rnd_545x39_EP_AK";
