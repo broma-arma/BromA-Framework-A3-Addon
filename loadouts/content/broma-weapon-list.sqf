@@ -586,75 +586,76 @@ _C96M712WORNSTOCK = ["hlc_pistol_M712_worn_stock",_20rnd763MAUSER];
 // =============================================================================
 // AMMO
 
-_10rnd762AR10 = "RH_20Rnd_762x51_AR10";
+_10rnd762AR10 = "UK3CB_AR10_20rnd_762x51";
 
-_20rnd762M110 = "RH_20Rnd_762x51_M80A1";
+_20rnd762M110 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
 
-_30rnd556M855 = "RH_30Rnd_556x45_M855A1";
-_30rnd68SPC = "RH_30Rnd_68x43_FMJ";
-_30rndMK262 = "RH_30Rnd_556x45_Mk262";
+_30rnd556M855 = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
+_30rnd68SPC = "hlc_30rnd_68x43_FMJ";
+_30rndMK262 = "rhs_mag_30Rnd_556x45_Mk262_Stanag";
 
-_32rnd9mm = "RH_32Rnd_9mm_M822";
+_32rnd9mm = "30Rnd_9x21_Mag_SMG_02";
 
-_60rnd556M855 = "RH_60Rnd_556x45_M855A1";
+_60rnd556M855 = _30rnd556M855;
 
 // =============================================================================
 // WEAPONS
 
-_AR10 = ["RH_ar10",_30rnd556];
+_AR10 = ["UK3CB_AR10", _10rnd762AR10];
 
-_HK416C = ["RH_Hk416c",_30rnd556M855];
-_HK416D10 = ["RH_Hk416s",_30rnd556M855];
-_HK416D14 = ["RH_Hk416",_30rnd556M855];
+_HK416C = ["hlc_rifle_416C", _30rnd556M855];
+_HK416D10 = ["rhs_weap_hk416d10", _30rnd556M855];
+_HK416D14 = ["rhs_weap_hk416d145", _30rnd556M855];
 
-_M110 = ["RH_m110",_20rnd762M110];
+_M110 = ["rhs_weap_sr25", _20rnd762M110];
 
-_M16A1 = ["RH_m16a1",_30rnd556];
-_M16A1GL = ["RH_m16a1gl",_30rnd556,_40mm];
-_M16A2 = ["RH_m16a2",_30rnd556];
-_M16A2GL = ["RH_m16a2gl",_30rnd556,_40mm];
-_M16A3 = ["RH_m16a3",_30rnd556];
-_M16A4 = ["RH_m16a4",_30rnd556];
-_M16A4GL = ["RH_m16a4gl",_30rnd556,_40mm];
-_M16A4M = ["RH_m16a4_m",_30rnd556];
+_M16A1 = ["rhs_weap_m16a4_carryhandle", _30rnd556M855];
+_M16A1GL = ["rhs_weap_m16a4_carryhandle_M203", _30rnd556M855, _40mm];
 
-_M27IAR = ["RH_M27IAR",_60rnd556M855];
-_M27IARdes = ["RH_M27IAR_des",_60rnd556M855];
-_M27IARtg = ["RH_M27IAR_tg",_60rnd556M855];
-_M27IARwdl = ["RH_M27IAR_wdl",_60rnd556M855];
+_M16A2 = _M16A1;
+_M16A2GL = _M16A1GL;
+_M16A3 = _M16A1;
+_M16A4 = _M16A1;
+_M16A4GL = _M16A1GL;
+_M16A4M = _M16A1;
 
-_M4 = ["RH_m4",_30rnd556];
-_M4GL = ["RH_m4_m203",_30rnd556,_40mm];
+_M27IAR = ["rhs_weap_m27iar_grip1", _30rnd556M855];
+_M27IARdes = _M27IAR;
+_M27IARtg = _M27IAR;
+_M27IARwdl = _M27IAR;
 
-_M4A1 = ["RH_m4a1_ris_m203",_30rnd556,_40mm];
-_M4A1des = ["RH_m4a1_ris_des",_30rnd556];
-_M4A1tg = ["RH_m4a1_ris_tg",_30rnd556];
-_M4A1wdl = ["RH_m4a1_ris_wdl",_30rnd556];
+_M4 = ["rhs_weap_m4_carryhandle", _30rnd556M855];
+_M4GL = ["rhs_weap_m4_m320", _30rnd556M855, _40mm];
 
-_M4A1GL = ["RH_m4a1_ris_m203",_30rnd556,_40mm];
-_M4A1GLdes = ["RH_m4a1_ris_m203_des",_30rnd556,_40mm];
-_M4A1GLtg = ["RH_m4a1_ris_m203_tg",_30rnd556,_40mm];
-_M4A1GLwdl = ["RH_m4a1_ris_m203_wdl",_30rnd556,_40mm];
+_M4A1 = _M4;
+_M4A1des = _M4;
+_M4A1tg = _M4;
+_M4A1wdl = _M4;
 
-_M4A6 = ["RH_M4A6",_30rnd68SPC];
-_M4A6des = ["RH_M4A6_des",_30rnd68SPC];
-_M4A6tg = ["RH_M4A6_tg",_30rnd68SPC];
-_M4A6wdl = ["RH_M4A6_wdl",_30rnd68SPC];
+_M4A1GL = _M4GL;
+_M4A1GLdes = _M4GL;
+_M4A1GLtg = _M4GL;
+_M4A1GLwdl = _M4GL;
 
-_MK11 = ["RH_Mk11",_30rnd556];
-_MK12 = ["RH_mk12mod1",_30rnd556];
-_MK12des = ["RH_Mk12mod1_des",_30rnd556];
-_MK12tg = ["RH_Mk12mod1_tg",_30rnd556];
-_MK12wdl = ["RH_Mk12mod1_wdl",_30rnd556];
+_M4A6 = _M4;
+_M4A6des = _M4;
+_M4A6tg = _M4;
+_M4A6wdl = _M4;
 
-_SAMR = ["RH_samr",_30rnd556];
+_MK11 = ["rhs_weap_sr25", _20rnd762M110];
+_MK12 = ["rhs_weap_sr25_ec", _20rnd762M110];
+_MK12des = ["rhs_weap_sr25_ec_d", _20rnd762M110];
+_MK12tg = _MK12des;
+_MK12wdl = ["rhs_weap_sr25_ec_wd", _20rnd762M110];
 
-_SBR9 = ["RH_sbr9", _32rnd9mm];
-_SBR9des = ["RH_sbr9_des", _32rnd9mm];
-_SBR9tg = ["RH_sbr9_tg", _32rnd9mm];
-_SBR9wdl = ["RH_sbr9_wdl", _32rnd9mm];
+_SAMR = _SAMROD;
 
-_VitorSBR = ["RH_M4sbr_b",_30rnd556M855];
+_SBR9 = _MP5K;
+_SBR9des = _SBR9;
+_SBR9tg = _SBR9;
+_SBR9wdl = _SBR9;
+
+_VitorSBR = ["hlc_rifle_CQBR", _30rnd556M855];
 
 // =============================================================================
 // =============================================================================
@@ -945,42 +946,6 @@ _M84 = _PKP; // M84 has a solid rear sight
 
 _SCORPION = ["rhs_weap_savz61","rhsgref_20rnd_765x17_vz61"];
 _SCORPIONFOLDED = ["rhs_weap_savz61_folded","rhsgref_20rnd_765x17_vz61"];
-
-// ALIAS FOR OLD RH WEAPONS ====================================================
-
-_M16A1 = _RHSM16A4;
-_M16A1GL = _RHSM16A4GL;
-_M16A2 = _RHSM16A4;
-_M16A2GL = _RHSM16A4GL;
-_M16A3 = _RHSM16A4;
-_M16A4 = _RHSM16A4;
-_M16A4GL = _RHSM16A4GL;
-_M16A4M = _RHSM16A4;
-
-_M27IAR = _RHSM27;
-_M27IARdes = _RHSM27;
-_M27IARtg = _RHSM27;
-_M27IARwdl = _RHSM27;
-
-_M4 = _RHSM4;
-_M4GL = _RHSM4GL;
-
-_M4A1 = _RHSM4;
-_M4A1des = _RHSM4;
-_M4A1tg = _RHSM4;
-_M4A1wdl = _RHSM4;
-
-_M4A1GL = _RHSM4;
-_M4A1GLdes = _RHSM4;
-_M4A1GLtg = _RHSM4;
-_M4A1GLwdl = _RHSM4;
-
-_M4A6 = _M4;
-_M4A6des = _M4;
-_M4A6tg = _M4;
-_M4A6wdl = _M4;
-
-// =============================================================================
 
 // =============================================================================
 // =============================================================================
