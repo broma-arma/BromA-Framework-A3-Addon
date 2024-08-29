@@ -27,8 +27,9 @@ RETURNS:
 
 params ["_unit", "_items"];
 
+private _headgearSubItems = getArray (configfile >> "CfgWeapons" >> headgear _unit >> "subItems") apply { _x call BIS_fnc_itemType }; // Skip item if helmet has integrated item.
 {
-	if !(_x isEqualTo "") then {
+	if (_x isNotEqualTo "" && { !(_x call BIS_fnc_itemType in _headgearSubItems) }) then {
 		_unit linkItem _x;
 	};
 } forEach _items;
