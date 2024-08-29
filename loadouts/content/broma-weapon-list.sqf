@@ -148,7 +148,7 @@ _BMCJACK      = ["hlc_rifle_bcmjack",_30rnd556AR15];
 _BCMBLACKJACK = ["hlc_rifle_bcmblackjack",_29rnd300BLK];
 
 _BUSHMASTER  = ["hlc_rifle_Bushmaster300",_29rnd300BLK];
-_HONEYBADGER = ["hlc_rifle_honeybadger",_29rnd300BLK];
+_HONEYBADGER = ["hlc_rifle_honeybase",_29rnd300BLK];
 
 _COLTRO733     = ["hlc_wp_mod733",_30rnd556AR15];
 _COLTCARBINE   = ["hlc_rifle_Colt727",_30rnd556AR15];
