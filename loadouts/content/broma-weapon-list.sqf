@@ -754,7 +754,7 @@ _ERYX = ["R3F_ERYX","R3F_ERYX_Mag"];
 
 _M9 = ["rhsusf_weap_m9", "rhsusf_mag_15Rnd_9x19_JHP"];
 _Makarov = ["rhs_weap_makarov_pm", "rhs_mag_9x18_8_57N181S"];
-_PMM = ["rhs_weap_makarov_pm","rhs_mag_9x18_12_57N181S"];
+_PMM = ["rhs_weap_makarov_pm","rhs_mag_9x18_8_57N181S"];
 _MP443 = ["rhs_weap_pya", "rhs_mag_9x19_17"];
 _PP2000 = ["rhs_weap_pp2000_folded", "rhs_mag_9x19mm_7n21_20"];
 _M1911 = ["rhsusf_weap_m1911a1", "rhsusf_mag_7x45acp_MHP"];
