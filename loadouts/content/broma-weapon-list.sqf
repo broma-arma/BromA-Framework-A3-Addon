@@ -246,7 +246,6 @@ _FNLAR          = ["hlc_rifle_LAR",_20rnd762FAL];
 
 _FNFAL        = ["hlc_rifle_FAL5000",_20rnd762FAL];
 _FNFALRIS     = ["hlc_rifle_FAL5000Rail",_20rnd762FAL];
-_FNFALRHOD    = ["hlc_rifle_FAL5000_RH",_20rnd762FAL];
 _FNFALPARA    = ["hlc_rifle_FAL5061",_20rnd762FAL];
 _FNFALPARARIS = ["hlc_rifle_FAL5061Rail",_20rnd762FAL];
 
