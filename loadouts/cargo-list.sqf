@@ -91,6 +91,17 @@ switch (toLower _x) do {
 			} forEach _rifleLIST;
 		};
 
+		if (!isNil "_rifleGLList") then {
+			{
+				if (_x select GUN != _commonRIFLEGL select GUN) then {
+					_supplies append [
+						[_x select GL, _count40mmCARGO],
+						[_x select RAMMO, _countRifleCARGO]
+					];
+				};
+			} forEach _rifleGLList;
+		};
+
 		if (!isNil "_arLIST") then {
 			{
 				if (_x select GUN != _commonAR select GUN) then {
