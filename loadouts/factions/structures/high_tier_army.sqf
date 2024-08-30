@@ -58,6 +58,10 @@ switch (true) do {
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
         [_unit, _binoc] call BRM_FMK_fnc_addOptics;
         [_unit, "LR"] call BRM_FMK_fnc_addRadio;
+        if (!_isCommonATDisposable) then {
+            [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+        };
+        [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
     };
 
     case (_isReconLeader): {
@@ -94,6 +98,10 @@ switch (true) do {
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
         [_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
+        if (!_isCommonATDisposable) then {
+            [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+        };
+        [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
     };
 
     case (_isDemo): {
@@ -229,6 +237,10 @@ switch (true) do {
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
+        if (!_isCommonATDisposable) then {
+            [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+        };
+        [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
         _defaultInsignia = "MedB";
     };
 
@@ -300,6 +312,10 @@ switch (true) do {
         [_unit, "primary", _reconSCOPE] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
+        if (!_isCommonATDisposable) then {
+            [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+        };
+        [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
     };
 
     case (_isReconAT): {
@@ -332,6 +348,10 @@ switch (true) do {
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
         [_unit, _commonMARKSMAN select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
+        if (!_isCommonATDisposable) then {
+            [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+        };
+        [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
     };
 
     case (_isReconMedic): {
@@ -344,6 +364,10 @@ switch (true) do {
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
+        if (!_isCommonATDisposable) then {
+            [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+        };
+        [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
         _defaultInsignia = "MedB";
     };
 
@@ -389,6 +413,11 @@ switch (true) do {
             if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
             [_unit, _binoc] call BRM_FMK_fnc_addOptics;
             [_unit,[[_toolKit,1]]] call BRM_FMK_fnc_addtoBackpack;
+        } else {
+            if (!_isCommonATDisposable) then {
+                [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
+            };
+            [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
         };
     };
 
