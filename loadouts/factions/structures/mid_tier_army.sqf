@@ -193,10 +193,6 @@ switch (true) do {
         [_unit,[[_wsmoke,2], [_gsmoke,3],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _suppliesMEDIC] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-        if (!_isCommonATDisposable) then {
-            [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
-        };
-        [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
         _defaultInsignia = "MedB";
     };
 
