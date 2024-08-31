@@ -51,6 +51,7 @@ while { mission_running } do {
 						if (_priority > 1) then { // PRIORITY_PRIMARY or PRIORITY_ABORTIVE
 							[_id, "FAILED", true] call BIS_fnc_taskSetState;
 							call _callbackFailed;
+							["BRM_FMK_taskStateChanged", [_sideChar, _id, "FAILED"]] call CBA_fnc_localEvent;
 
 							if (mission_game_mode != "coop") then {
 								[missionNamespace getVariable format ["endings_tvt_side_%1_defeat", _sideChar]] call BRM_FMK_fnc_callEnding;
@@ -62,20 +63,14 @@ while { mission_running } do {
 						} else { // PRIORITY_SECONDARY or PRIORITY_OPTIONAL
 							[_id, "CANCELED", true] call BIS_fnc_taskSetState;
 							call _callbackFailed;
+							["BRM_FMK_taskStateChanged", [_sideChar, _id, "CANCELED"]] call CBA_fnc_localEvent;
 						};
 					} else {
 						if (_taskState != "SUCCEEDED") then {
 							if (call _predicateWin) then {
 								[_id, "SUCCEEDED", true] call BIS_fnc_taskSetState;
 								call _callbackCompleted;
-
-								if ("respawn_system" in usedPlugins) then {
-									[missionNamespace getVariable format ["side_%1_side", _sideChar], mission_respawn_objective] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
-								};
-
-								if ("time_limit" in usedPlugins) then {
-									[mission_time_added] call BRM_FMK_TimeLimit_fnc_addTime;
-								};
+								["BRM_FMK_taskStateChanged", [_sideChar, _id, "SUCCEEDED"]] call CBA_fnc_localEvent;
 							} else {
 								if (_priority == PRIORITY_PRIMARY || _priority == PRIORITY_SECONDARY) then {
 									_remainingPrimarySecondary = _remainingPrimarySecondary + 1

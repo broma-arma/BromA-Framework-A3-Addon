@@ -10,6 +10,13 @@ time_alerted_minutes = time_alerted_minutes apply { _x * 60 };
 
 BrmFmk_TimeLimit_countdown = mission_time_limit;
 
+["BRM_FMK_taskStateChanged", {
+	params ["_sideChar", "_id", "_state"];
+	if (_state == "SUCCEEDED") then {
+		[mission_time_added] call BRM_FMK_TimeLimit_fnc_addTime;
+	}
+}] call CBA_fnc_addEventHandler;
+
 0 spawn {
 	while {BrmFmk_TimeLimit_countdown > 0} do {
 		if (BrmFmk_TimeLimit_countdown <= 10 || {BrmFmk_TimeLimit_countdown in time_alerted_minutes}) then {

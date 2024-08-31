@@ -1,3 +1,12 @@
+if (isServer) then {
+	["BRM_FMK_taskStateChanged", {
+		params ["_sideChar", "_id", "_state"];
+		if (_state == "SUCCEEDED") then {
+			[missionNamespace getVariable format ["side_%1_side", _sideChar], mission_respawn_objective] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
+		}
+	}] call CBA_fnc_addEventHandler;
+};
+
 if (hasInterface) then {
 	["BRM_FMK_RespawnSystem_respawn", {
 		if (player getVariable ["isDead", false]) then {
