@@ -79,12 +79,21 @@ _callbacks apply { if (_x isEqualType "") then { compile _x } else { _x }; } par
 waitUntil { call _predicateAssign };
 call _callbackAssigned;
 
-switch (_priority) do {
-	case 0: { _title = format ["(OPTIONAL) %1", _title]; };
-	case 2: { _title = format ["(!) %1", _title]; };
-};
-
-[_owner, _id, [_desc, _title, ""], _position, false, 0, true, _type, true] call BIS_fnc_taskCreate;
+private _priorityName = ["Secondary", "Optional", "Primary", "Abortive"] select _priority;
+[_owner, _id, [
+	format [
+		"<font face=""RobotoCondensedLight"">%1: %2.</font><br /><br />",
+		_priorityName,
+		[
+			"Completion or failure required to complete mission",
+			"Outcome doesn't affect mission outcome",
+			"Completion required to complete mission and failure causes mission failure",
+			"Failure causes mission failure"
+		] select _priority
+	] + _desc,
+	format ["(%1) ", _priorityName select [0, 1]] + _title,
+	""
+], _position, false, 0, true, _type, true] call BIS_fnc_taskCreate;
 
 if (_id isEqualType []) then {
 	_id = _id select 0;

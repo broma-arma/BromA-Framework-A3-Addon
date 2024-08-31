@@ -23,10 +23,10 @@ RETURNS:
 ================================================================================
 */
 
-//                              Win? Lose?
-#define PRIORITY_SECONDARY 0 // No   Yes
-#define PRIORITY_OPTIONAL 1  // No   No
-#define PRIORITY_PRIMARY 2   // Yes  Yes
+#define PRIORITY_PRIMARY   2 // Completion required to complete mission and failure causes mission failure.
+#define PRIORITY_SECONDARY 0 // Completion or failure required to complete mission.
+#define PRIORITY_ABORTIVE  3 // Failure causes mission failure.
+#define PRIORITY_OPTIONAL  1 // Outcome doesn't affect mission outcome.
 
 if (!isServer) exitWith {};
 
@@ -41,16 +41,17 @@ while { mission_running } do {
 		if (count _x > 0) then {
 			private _sideChar = ["a", "b", "c"] select _forEachIndex;
 
-			private _remainingPrimary = 0;
+			private _remainingPrimarySecondary = 0;
 			{
 				_x params ["_id", "_priority", "_predicateWin", "_predicateLose", "_callbackCompleted", "_callbackFailed"];
 
 				private _taskState = [_id] call BIS_fnc_taskState;
-				if (_taskState != "FAILED" && _taskState != "CANCELED" && {call _predicateLose}) then {
-					if (_priority != PRIORITY_OPTIONAL) then {
-						[_id, "FAILED", true] call BIS_fnc_taskSetState;
-						call _callbackFailed;
-						if (_priority == PRIORITY_PRIMARY) then {
+				if (_taskState != "FAILED" && _taskState != "CANCELED") then {
+					if (call _predicateLose) then {
+						if (_priority > 1) then { // PRIORITY_PRIMARY or PRIORITY_ABORTIVE
+							[_id, "FAILED", true] call BIS_fnc_taskSetState;
+							call _callbackFailed;
+
 							if (mission_game_mode != "coop") then {
 								[missionNamespace getVariable format ["endings_tvt_side_%1_defeat", _sideChar]] call BRM_FMK_fnc_callEnding;
 							} else {
@@ -58,27 +59,27 @@ while { mission_running } do {
 									[endings_defeat] call BRM_FMK_fnc_callEnding;
 								};
 							};
+						} else { // PRIORITY_SECONDARY or PRIORITY_OPTIONAL
+							[_id, "CANCELED", true] call BIS_fnc_taskSetState;
+							call _callbackFailed;
 						};
 					} else {
-						[_id, "CANCELED", true] call BIS_fnc_taskSetState;
-						call _callbackFailed;
-					};
-				} else {
-					if (_taskState != "SUCCEEDED" && _taskState != "FAILED" && _taskState != "CANCELED") then {
-						if (call _predicateWin) then {
-							[_id, "SUCCEEDED", true] call BIS_fnc_taskSetState;
-							call _callbackCompleted;
+						if (_taskState != "SUCCEEDED") then {
+							if (call _predicateWin) then {
+								[_id, "SUCCEEDED", true] call BIS_fnc_taskSetState;
+								call _callbackCompleted;
 
-							if ("respawn_system" in usedPlugins) then {
-								[missionNamespace getVariable format ["side_%1_side", _sideChar], mission_respawn_objective] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
-							};
+								if ("respawn_system" in usedPlugins) then {
+									[missionNamespace getVariable format ["side_%1_side", _sideChar], mission_respawn_objective] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
+								};
 
-							if ("time_limit" in usedPlugins) then {
-								[mission_time_added] call BRM_FMK_TimeLimit_fnc_addTime;
-							};
-						} else {
-							if (_priority == PRIORITY_PRIMARY) then {
-								_remainingPrimary = _remainingPrimary + 1
+								if ("time_limit" in usedPlugins) then {
+									[mission_time_added] call BRM_FMK_TimeLimit_fnc_addTime;
+								};
+							} else {
+								if (_priority == PRIORITY_PRIMARY || _priority == PRIORITY_SECONDARY) then {
+									_remainingPrimarySecondary = _remainingPrimarySecondary + 1
+								};
 							};
 						};
 					};
@@ -88,7 +89,7 @@ while { mission_running } do {
 			if !(mission_running) exitWith {};
 
 			private _endDelayed = _endDelayeds select _forEachIndex;
-			if (_remainingPrimary == 0) then {
+			if (_remainingPrimarySecondary == 0) then {
 				if (_endDelayed) then {
 					if ((missionNamespace getVariable format ["side_%1_side", _sideChar]) in mission_require_extraction) then {
 						missionNamespace getVariable format ["brm_fmk_extraction_%1", _sideChar] params ["_extractionObjects", "_extractionTargets"];
