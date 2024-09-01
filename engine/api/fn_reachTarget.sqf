@@ -15,10 +15,10 @@ PARAMETERS:
     1 - Targets. (ARRAY of OBJECT|POSITION|MARKER)
     2 - Callback, execution is in unscheduled enviroment. (CODE)
     3 - (OPTIONAL) The maximum distance from the target. Default is 50. (NUMBER)
-    3 - (OPTIONAL) Seconds between checking if target has been reached. Default is 1. (NUMBER)
+    4 - (OPTIONAL) Seconds between checking if target has been reached. Default is 1. (NUMBER)
 
 USAGE:
-    [[myGroupA, myUnitZ"], [myTargetObject, "myMarker", [200, 100, 50], [0, 0]], { systemChat "Group A and Unit Z made it to one of the targets!"; }, 100, 5] call BRM_FMK_fnc_reachTarget;
+    [[myGroupA, myUnitZ], [myTargetObject, "myMarker", [200, 100, 50], [0, 0]], { systemChat "Group A and Unit Z made it to one of the targets!"; }, 100, 5] call BRM_FMK_fnc_reachTarget;
 
 RETURNS:
     Nothing.
