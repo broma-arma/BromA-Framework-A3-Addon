@@ -37,7 +37,13 @@ private _startCondition = {(call TFAR_fnc_haveSWRadio)
     private _currentLRradio = (call TFAR_fnc_activeLRRadio);
 
     private _unitSquad = format["%1_%2", _side, _squad];
-    private _validTeams = [_unitSquad, _teamNumber] call BRM_FMK_fnc_teamsExist;
+
+    private _validTeams = [];
+	private _i = 1;
+	while { _i == _teamNumber || { !isNull (missionNamespace getVariable [format ["%1_%2_1", _unitSquad, _i], objNull]) } } do {
+		_validTeams pushBack _i;
+		_i = _i + 1;
+	};
 
     private _teamNumberSquadFrequency = format["%1", (_squadNumber + 30)];
 
