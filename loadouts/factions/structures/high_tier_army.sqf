@@ -190,7 +190,7 @@ switch (true) do {
 
     case (_isAutoriflemanAsst): {
         [_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit,[[_grenade,2],[_spareBarrel,1],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
+        [_unit,[[_wsmoke,2],[_spareBarrel,1],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
