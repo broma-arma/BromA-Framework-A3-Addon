@@ -182,16 +182,16 @@ switch (toLower _x) do {
 
 	case "rpg7_ammo": {
 		[_object,
-			[_RPGV, _countAT],
-			[_RPGVL, _countAT],
-			[_RPGVOGV, _countAT],
-			[_RPGVM, _countAT],
-			[_RPGVMHEAT, _countAT],
-			[_RPGVR, _countAT],
-			[_RPGVS, _countAT],
-			[_RPGVS, _countAT],
-			[_RGPTBG, _countAT],
-			[_RPGTYPE69, _countAT]
+			[_RPGV, _countSpecATCARGO],
+			[_RPGVL, _countSpecATCARGO],
+			[_RPGVOGV, _countSpecATCARGO],
+			[_RPGVM, _countSpecATCARGO],
+			[_RPGVMHEAT, _countSpecATCARGO],
+			[_RPGVR, _countSpecATCARGO],
+			[_RPGVS, _countSpecATCARGO],
+			[_RPGVS, _countSpecATCARGO],
+			[_RGPTBG, _countSpecATCARGO],
+			[_RPGTYPE69, _countSpecATCARGO]
 		] call BRM_FMK_fnc_addItems;
 	};
 
