@@ -137,3 +137,6 @@ private _defaultCallsignINDFOR = [
 	"Anna", "Beatrice", "Clara", "Denise",
 	"Rose", "Sarah", "Whitney", "Shirley", "Penny", "Mary", "Lucy", "Tanya", "Helen", "Petunia"
 ];
+
+private _medicInsignia = ["UK3CB_BAF_Insignia_RedCross", "ACE_insignia_logo", "IDAP", ""];
+_medicInsignia = _medicInsignia select (_medicInsignia findIf { isClass (configFile >> "CfgUnitInsignia" >> _x) });

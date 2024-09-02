@@ -237,7 +237,7 @@ switch (true) do {
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
-        _defaultInsignia = "MedB";
+        _defaultInsignia = _medicInsignia;
     };
 
     case (_isHMG): {
@@ -359,7 +359,7 @@ switch (true) do {
             [_unit, [[_commonAT select RAMMO, _countAT] ]] call BRM_FMK_fnc_addtoBackpack;
         };
         [_unit, _commonAT] call BRM_FMK_fnc_addWeapon;
-        _defaultInsignia = "MedB";
+        _defaultInsignia = _medicInsignia;
     };
 
     case (_isReconDemo): {

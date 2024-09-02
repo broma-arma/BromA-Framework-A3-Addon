@@ -184,7 +184,7 @@ switch (true) do {
         [_unit,[[_wsmoke,2], [_gsmoke,3],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _suppliesMEDIC] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-        _defaultInsignia = "MedB";
+        _defaultInsignia = _medicInsignia;
     };
 
     case (_isHMG): {
@@ -277,7 +277,7 @@ switch (true) do {
         [_unit, _reconRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _reconSCOPE] call BRM_FMK_fnc_attachToWeapon;
         [_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
-        _defaultInsignia = "MedB";
+        _defaultInsignia = _medicInsignia;
     };
 
     case (_isReconDemo): {
