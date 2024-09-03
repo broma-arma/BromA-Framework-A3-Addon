@@ -331,7 +331,7 @@ switch (true) do {
         [_unit, _commonSMG, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         if (_isLeader) then {
             if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
-            [_unit, "binoc"] call BRM_FMK_fnc_addOptics;
+            [_unit, _binoc] call BRM_FMK_fnc_addOptics;
             [_unit,[[_toolKit,1]]] call BRM_FMK_fnc_addtoBackpack;
         } else {
             if (!_isCommonATDisposable) then {

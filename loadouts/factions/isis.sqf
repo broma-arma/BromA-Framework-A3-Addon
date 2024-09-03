@@ -180,7 +180,6 @@ if (_assignLoadoutMode && _randomHEAD == "empty") then {
 
 _grenade = "rhs_mag_rgd5";
 _wsmoke = "rhs_mag_rdg2_white";
-_binoc = "binoc";
 _rangefinder = "rhsusf_bino_lrf_Vector21";
 
 // EXTRA EQUIPMENT =============================================================

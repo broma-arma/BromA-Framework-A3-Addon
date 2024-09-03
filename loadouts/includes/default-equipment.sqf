@@ -64,9 +64,9 @@ if (isNil "_reconBACKPACK") then { _reconBACKPACK = _commonBACKPACK; };
 if (isNil "_commonRAIL") then { _commonRAIL = ""; };
 if (isNil "_commonBIPOD") then { _commonBIPOD = ""; };
 
-if (isNil "_binoc") then { _binoc = "binoc"; };
-if (isNil "_rangefinder") then { _rangefinder = "rangefinder"; };
-if (isNil "_laserdesignator") then { _laserdesignator = "laserdesignator"; };
+if (isNil "_binoc") then { _binoc = "Binocular"; };
+if (isNil "_rangefinder") then { _rangefinder = "Rangefinder"; };
+if (isNil "_laserdesignator") then { _laserdesignator = "Laserdesignator"; };
 
 if (isNil "_nightOnlyNVGs") then { _nightOnlyNVGs = false; };
 if (isNil "_aiBackpackRadios") then { _aiBackpackRadios = false; };

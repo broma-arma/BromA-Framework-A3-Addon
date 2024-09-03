@@ -174,3 +174,6 @@ _NVGEN3BLU = "NVGoggles";
 // OTHERS
 
 _parachute = "B_Parachute";
+_binoc = "Binocular";
+_rangefinder = "Rangefinder";
+_laserdesignator = "Laserdesignator";
