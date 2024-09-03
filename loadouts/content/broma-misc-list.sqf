@@ -166,6 +166,7 @@ private _rangeCard = "";
 private _spottingScope = "";
 private _ATragMX = "";
 if (mission_ACE3_enabled) then {
+	_mineDetector = "ACE_VMM3";
 	_spareBarrel = "ACE_SpareBarrel";
 	_IRStrobe = "ACE_IR_Strobe_Item";
 	_cableTie = "ACE_CableTie";
