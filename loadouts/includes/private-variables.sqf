@@ -58,8 +58,6 @@ private [
 
 	"_rifleSCOPE","_mgSCOPE","_reconSCOPE",
 
-	"_binoc","_binocular","_rangefinder","_laserdesignator",
-
 	"_countGRENADES", "_countGrenadesCARGO",
 
 	"_countHE",
@@ -75,31 +73,16 @@ private [
 
 	"_UAVBag", "_UAVTerminal",
 
-	"_wsmoke", "_gsmoke", "_rsmoke",
-	"_wFLARE", "_rFLARE", "_gFLARE", "_yFLARE",
+	"_countBANDAGE", "_countBandageCARGO",
+	"_countTourniquet", "_countTourniquetCARGO",
+	"_countSplint", "_countSplintCARGO",
 
-	"_bandage", "_countBANDAGE", "_countBandageCARGO",
-	"_fieldDressing", "_packingBandage", "_elasticBandage", "_quickClot",
-	"_tourniquet", "_countTourniquet", "_countTourniquetCARGO",
-	"_splint", "_countSplint", "_countSplintCARGO",
+	"_countMORPHINE", "_countMorphineCARGO",
+	"_countEPI", "_countEpiCARGO",
 
-	"_morphine", "_countMORPHINE", "_countMorphineCARGO",
-	"_atropine", "_adenosine",
-	"_epi", "_countEPI", "_countEpiCARGO",
-
-	"_bloodbag", "_countBLOODBAG", "_countBloodbagCARGO",
-	"_blood1000", "_blood500", "_blood250", "_plasma1000", "_plasma500", "_plasma250", "_saline1000", "_saline500", "_saline250",
-	"_bodyBag",
-
-	"_personalAidKit", "_countPAK", "_countPAKCARGO",
-
-	"_cableTie", "_earPlugs", "_flashlight", "_mapTools", "_spareBarrel", "_IRStrobe", "_uavBattery", "_microDAGR",
-	"_clacker", "_M26clacker", "_deadManSwitch", "_cellphone", "_defusalKit",
-	"_spottingScope", "_rangeCard", "_kestrel", "_ATragMX",
-	"_surgKit",
-
-	"_NVG",
-	"_NVGEN1", "_NVGEN2", "_NVGEN4", "_NVWIDE",
+	"_countBLOODBAG", "_countBloodbagCARGO",
+	
+	"_countPAK", "_countPAKCARGO",
 
 	"_nightOnlyNVGs",
 
@@ -108,7 +91,7 @@ private [
 	"_suppliesNORMAL", "_suppliesMEDIC",
 
 	// Deprecated
-	"_countCAT", "_defib", "_isATDisposable", "_atrophine", "_earBuds",
+	"_countCAT", "_isATDisposable",
 
 	// Unused
 	"_commonRifleATTACHMENTS", "_commonHandgunATTACHMENTS", "_commonMGATTACHMENTS", "_commonMarksmanATTACHMENTS", "_commonSniperATTACHMENTS", "_commonSpecATATTACHMENTS", "_commonRifleGLATTACHMENTS", "_commonSMGATTACHMENTS",
