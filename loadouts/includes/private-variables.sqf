@@ -6,31 +6,9 @@ private [
 	"_loadoutCondition",
 	"_assignLoadoutMode",
 
-	"_isOfficer", "_isSquadLeader", "_isTeamLeader",
-	"_isRifleman", "_isRiflemanAT",
-	"_isMarksman",
-	"_isAutorifleman", "_isAutoriflemanAsst",
-	"_isLifeSaver",
-	"_isGrenadier",
-	"_isHelicopterPilot", "_isHelicopterCrew",
-	"_isEngineer",
-	"_isCrewman",
-	"_isPilot",
-	"_isRTO",
-	"_isReconLeader", "_isRecon", "_isReconDemo", "_isReconMedic", "_isReconAT", "_isReconMarksman",
-	"_isDemo",
-	"_isHMG", "_isHMGTripod",
-	"_isStaticAT",
-	"_isUAVOperator",
-	"_isATTripod",
-	"_isMortar", "_isMortarAssistant",
-	"_isWeaponsAT", "_isWeaponsATAssistant",
-	"_isWeaponsAA", "_isWeaponsAAAssistant",
-	"_isSniper", "_isSpotter",
-	"_isMMG", "_isMMGAsst",
+	"_ret", // mission\loadouts\fn_getLoadoutProperty.sqf
 
-	"_ret",
-
+	// Factions
 	"_factionID", "_factionName", "_factionStructure", "_factionCallsigns",
 	"_defaultName", "_defaultSide", "_defaultVoice", "_defaultFace", "_defaultInsignia", "_defaultColor",
 
