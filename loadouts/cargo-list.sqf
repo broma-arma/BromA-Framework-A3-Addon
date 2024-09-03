@@ -337,43 +337,59 @@ switch (toLower _x) do {
 	};
 
 	case "tourniquet": {
-		[_object, [_tourniquet, _countTourniquetCARGO]] call BRM_FMK_fnc_addItems;
+		if (mission_ACE3_enabled) then {
+			[_object, [_tourniquet, _countTourniquetCARGO]] call BRM_FMK_fnc_addItems;
+		};
 	};
 
 	case "splint": {
-		if (ace_medical_fractures > 0) then {
+		if (mission_ACE3_enabled && { ace_medical_fractures > 0 }) then {
 			[_object, [_splint, _countSplintCARGO]] call BRM_FMK_fnc_addItems;
 		};
 	};
 
 	case "morphine": {
-		[_object, [_morphine, _countMorphineCARGO]] call BRM_FMK_fnc_addItems;
+		if (mission_ACE3_enabled) then {
+			[_object, [_morphine, _countMorphineCARGO]] call BRM_FMK_fnc_addItems;
+		};
 	};
 
 	case "epinephrine";
 	case "epi": {
-		[_object, [_epi, _countEpiCARGO]] call BRM_FMK_fnc_addItems;
+		if (mission_ACE3_enabled) then {
+			[_object, [_epi, _countEpiCARGO]] call BRM_FMK_fnc_addItems;
+		};
 	};
 
 	case "blood": {
-		[_object, [_blood250, _countBloodbagCARGO], [_blood500, _countBloodbagCARGO], [_blood1000, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+		if (mission_ACE3_enabled) then {
+			[_object, [_blood250, _countBloodbagCARGO], [_blood500, _countBloodbagCARGO], [_blood1000, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+		};
 	};
 
 	case "blood250": {
-		[_object, [_blood250, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+		if (mission_ACE3_enabled) then {
+			[_object, [_blood250, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+		};
 	};
 
 	case "blood500": {
-		[_object, [_blood500, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+		if (mission_ACE3_enabled) then {
+			[_object, [_blood500, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+		};
 	};
 
 	case "blood1000": {
-		[_object, [_blood1000, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+		if (mission_ACE3_enabled) then {
+			[_object, [_blood1000, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+		};
 	};
 
 	case "personalaidkit";
 	case "pak": {
-		[_object, [_personalAidKit, _countPAKCARGO]] call BRM_FMK_fnc_addItems;
+		if (mission_ACE3_enabled) then {
+			[_object, [_personalAidKit, _countPAKCARGO]] call BRM_FMK_fnc_addItems;
+		};
 	};
 
 	default {
