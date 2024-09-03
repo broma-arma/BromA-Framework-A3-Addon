@@ -46,6 +46,7 @@ RETURNS:
 	["mission_HC_enabled",    false],
 
 	["BRM_FRAMEWORK_ADDON", "BRM_FRAMEWORK"],
+	["BRM_FMK_frameworkMission", true],
 
 	["mission_AGM_enabled",   isClass (configFile >> "CfgPatches" >> "AGM_CORE")], // Backward compatibility
 	["mission_ACE3_enabled",  isClass (configFile >> "CfgPatches" >> "ACE_COMMON")],
