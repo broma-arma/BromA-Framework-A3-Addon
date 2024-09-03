@@ -79,9 +79,21 @@ private _ySMOKEopfor = "rhs_mag_nspn_yellow";
 private _rSMOKEopfor = "rhs_mag_nspn_red";
 private _gSMOKEopfor = "rhs_mag_nspn_green";
 
-private _rCHEMLIGHT = "chemlight_red";
-private _gCHEMLIGHT = "chemlight_green";
-private _bCHEMLIGHT = "chemlight_blue";
+private _rCHEMLIGHT = "Chemlight_red";
+private _gCHEMLIGHT = "Chemlight_green";
+private _bCHEMLIGHT = "Chemlight_blue";
+private _yChemlight = "Chemlight_yellow";
+private _wChemlight = "ACE_Chemlight_White";
+private _oChemlight = "ACE_Chemlight_Orange";
+
+private _brCHEMLIGHT = _rCHEMLIGHT;
+private _bgCHEMLIGHT = _gCHEMLIGHT;
+private _bbCHEMLIGHT = _bCHEMLIGHT;
+private _byChemlight = _yChemlight;
+private _bwChemlight = _wChemlight;
+private _boChemlight = _oChemlight;
+private _eboChemlight = _oChemlight;
+private _irChemlight = "";
 
 private _irGRENADEblufor = "B_IR_Grenade";
 private _irGRENADEopfor = "O_IR_Grenade";
@@ -92,7 +104,8 @@ private _GRENADEopfor = "rhs_mag_rgd5";
 private _miniGRENADE = "MiniGrenade";
 private _m67GRENADE = "rhs_mag_m67";
 
-private _FLASHBANGblufor = "ACE_M84";
+private _flashbang = "rhs_mag_mk84";
+private _FLASHBANGblufor = _flashbang;
 private _rhsFLASHBANGblufor = "rhs_mag_mk84";
 private _FLASHBANGopfor = "rhs_mag_fakel";
 private _FLASHBANGopforS = "rhs_mag_fakels";
@@ -107,7 +120,20 @@ private _wFLARE = "";
 private _rFLARE = "";
 private _gFLARE = "";
 private _yFLARE = "";
+
 if (mission_ACE3_enabled) then {
+	_brCHEMLIGHT = "ACE_Chemlight_HiRed";
+	_bgCHEMLIGHT = "ACE_Chemlight_HiGreen";
+	_bbCHEMLIGHT = "ACE_Chemlight_HiBlue";
+	_byChemlight = "ACE_Chemlight_HiYellow";
+	_bwChemlight = "ACE_Chemlight_HiWhite";
+	_boChemlight = "ACE_Chemlight_HiOrange";
+	_eboChemlight = "ACE_Chemlight_UltraHiOrange";
+	_irChemlight = "ACE_Chemlight_IR";
+
+	_flashbang = "ACE_M84";
+	_INCENDIARY = "ACE_M14";
+
 	_wFLARE = "ACE_HandFlare_White";
 	_rFLARE = "ACE_HandFlare_Red";
 	_gFLARE = "ACE_HandFlare_Green";
@@ -165,6 +191,17 @@ private _kestrel = "";
 private _rangeCard = "";
 private _spottingScope = "";
 private _ATragMX = "";
+private _entrenchingTool = "";
+private _wirecutter = "";
+private _banana = "";
+private _huntIRMonitor = "";
+private _huntIRM203 = "";
+private _sandbag = "";
+private _tacticalLadder = "";
+private _spraypaintBlack = "";
+private _spraypaintBlue = "";
+private _spraypaintGreen = "";
+private _spraypaintRed = "";
 if (mission_ACE3_enabled) then {
 	_mineDetector = "ACE_VMM3";
 	_spareBarrel = "ACE_SpareBarrel";
@@ -184,5 +221,17 @@ if (mission_ACE3_enabled) then {
 	_rangeCard = "ACE_RangeCard";
 	_spottingScope = "ACE_SpottingScope";
 	_ATragMX = "ACE_ATragMX";
+	_entrenchingTool = "ACE_EntrenchingTool";
+	_wirecutter = "ACE_wirecutter";
+	_banana = "ACE_Banana";
+	_huntIRMonitor = "ACE_HuntIR_monitor";
+	_huntIRM203 = "ACE_HuntIR_M203";
+	_sandbag = "ACE_Sandbag_empty";
+	_tacticalLadder = "ACE_TacticalLadder_Pack";
+	_spraypaintBlack = "ACE_SpraypaintBlack";
+	_spraypaintBlue = "ACE_SpraypaintBlue";
+	_spraypaintGreen = "ACE_SpraypaintGreen";
+	_spraypaintRed = "ACE_SpraypaintRed";
 };
+
 private _earBuds = _earPlugs; // Backward compatibility
