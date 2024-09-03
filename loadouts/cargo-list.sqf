@@ -319,15 +319,19 @@ switch (toLower _x) do {
 
 	case "bandage": {
 		private _supplies = [];
-		if (ace_medical_treatment_advancedBandages == 0) then { // Disabled
-			_supplies pushBack [_bandage, _countBandageCARGO];
-		} else { // Enabled
-			_supplies append [
-				[_fieldDressing,  _countBandageCARGO],
-				[_packingBandage, _countBandageCARGO],
-				[_elasticBandage, _countBandageCARGO],
-				[_quickClot,      _countBandageCARGO]
-			];
+		if (mission_ACE3_enabled) then {
+			if (ace_medical_treatment_advancedBandages == 0) then { // Disabled
+				_supplies pushBack [_bandage, _countBandageCARGO];
+			} else { // Enabled
+				_supplies append [
+					[_fieldDressing,  _countBandageCARGO],
+					[_packingBandage, _countBandageCARGO],
+					[_elasticBandage, _countBandageCARGO],
+					[_quickClot,      _countBandageCARGO]
+				];
+			};
+		} else {
+			_supplies pushBack ["FirstAidKit", _countBandageCARGO];
 		};
 		[_object] + _supplies call BRM_FMK_fnc_addItems;
 	};
