@@ -14,6 +14,7 @@ private _splint = "";
 private _morphine = "";
 private _epi = "";
 private _adenosine = "";
+private _painkillers = "";
 private _atropine = "";
 private _atrophine = "";
 private _bloodbag = "";
@@ -27,8 +28,11 @@ private _saline1000 = "";
 private _saline500 = "";
 private _saline250 = "";
 private _surgKit = "Medikit";
+private _suture = "";
 private _personalAidKit = "";
 private _bodyBag = "";
+private _bodyBagBlue = "";
+private _bodyBagWhite = "";
 private _defib = ""; // Backward compatibility
 
 if (mission_ACE3_enabled) then {
@@ -46,6 +50,7 @@ if (mission_ACE3_enabled) then {
 	_adenosine = "ACE_adenosine";
 	_atropine = _adenosine; // "ACE_atropine" was removed
 	_atrophine = _atropine; // Backward compatibility
+	_painkillers = "ACE_painkillers";
 
 	_bloodbag = "ACE_bloodIV";
 	_blood1000 = _bloodbag;
@@ -61,16 +66,22 @@ if (mission_ACE3_enabled) then {
 	_saline250 = "ACE_salineIV_250";
 
 	_surgKit = "ACE_surgicalKit";
+	_suture = "ACE_suture";
 	_personalAidKit = "ACE_personalAidKit";
 	_bodyBag = "ACE_bodyBag";
+	_bodyBagBlue = "ACE_bodyBag_blue";
+	_bodyBagWhite = "ACE_bodyBag_white";
 };
 
 // GRENADES ====================================================================
 
 private _wSMOKE = "SmokeShell";
-private _gSMOKE = "SmokeShellGreen";
 private _rSMOKE = "SmokeShellRed";
+private _gSMOKE = "SmokeShellGreen";
 private _ySMOKE = "SmokeShellYellow";
+private _pSMOKE = "SmokeShellPurple";
+private _bSMOKE = "SmokeShellBlue";
+private _oSMOKE = "SmokeShellOrange";
 
 private _wSMOKEopfor = "rhs_mag_rdg2_white";
 private _bSMOKEopfor = "rhs_mag_rdg2_black";
@@ -83,16 +94,16 @@ private _rCHEMLIGHT = "Chemlight_red";
 private _gCHEMLIGHT = "Chemlight_green";
 private _bCHEMLIGHT = "Chemlight_blue";
 private _yChemlight = "Chemlight_yellow";
-private _wChemlight = "ACE_Chemlight_White";
-private _oChemlight = "ACE_Chemlight_Orange";
+private _wChemlight = "";
+private _oChemlight = "";
 
-private _brCHEMLIGHT = _rCHEMLIGHT;
-private _bgCHEMLIGHT = _gCHEMLIGHT;
-private _bbCHEMLIGHT = _bCHEMLIGHT;
-private _byChemlight = _yChemlight;
-private _bwChemlight = _wChemlight;
-private _boChemlight = _oChemlight;
-private _eboChemlight = _oChemlight;
+private _rChemlightHi = _rChemlight;
+private _gChemlightHi = _gChemlight;
+private _bChemlightHi = _bChemlight;
+private _yChemlightHi = _yChemlight;
+private _wChemlightHi = _wChemlight;
+private _oChemlightHi = _oChemlight;
+private _oChemlightHiU = _oChemlight;
 private _irChemlight = "";
 
 private _irGRENADEblufor = "B_IR_Grenade";
@@ -122,13 +133,15 @@ private _gFLARE = "";
 private _yFLARE = "";
 
 if (mission_ACE3_enabled) then {
-	_brCHEMLIGHT = "ACE_Chemlight_HiRed";
-	_bgCHEMLIGHT = "ACE_Chemlight_HiGreen";
-	_bbCHEMLIGHT = "ACE_Chemlight_HiBlue";
-	_byChemlight = "ACE_Chemlight_HiYellow";
-	_bwChemlight = "ACE_Chemlight_HiWhite";
-	_boChemlight = "ACE_Chemlight_HiOrange";
-	_eboChemlight = "ACE_Chemlight_UltraHiOrange";
+	_wChemlight = "ACE_Chemlight_White";
+	_oChemlight = "ACE_Chemlight_Orange";
+	_rChemlightHi = "ACE_Chemlight_HiRed";
+	_gChemlightHi = "ACE_Chemlight_HiGreen";
+	_bChemlightHi = "ACE_Chemlight_HiBlue";
+	_yChemlightHi = "ACE_Chemlight_HiYellow";
+	_wChemlightHi = "ACE_Chemlight_HiWhite";
+	_oChemlightHi = "ACE_Chemlight_HiOrange";
+	_oChemlightHiU = "ACE_Chemlight_UltraHiOrange";
 	_irChemlight = "ACE_Chemlight_IR";
 
 	_flashbang = "ACE_M84";
@@ -189,6 +202,8 @@ private _mapTools = "";
 private _uavBattery = "";
 private _kestrel = "";
 private _rangeCard = "";
+private _mortarTable = "";
+private _artilleryTable = "";
 private _spottingScope = "";
 private _ATragMX = "";
 private _entrenchingTool = "";
@@ -202,6 +217,26 @@ private _spraypaintBlack = "";
 private _spraypaintBlue = "";
 private _spraypaintGreen = "";
 private _spraypaintRed = "";
+private _spraypaintWhite = "";
+private _spraypaintYellow = "";
+private _chemlightShield = "";
+private _fortifyTool = "";
+private _plottingBoard = "";
+private _markerFlagBlack = "";
+private _markerFlagBlue = "";
+private _markerFlagGreen = "";
+private _markerFlagOrange = "";
+private _markerFlagPurple = "";
+private _markerFlagRed = "";
+private _markerFlagWhite = "";
+private _markerFlagYellow = "";
+private _rope3 = "";
+private _rope6 = "";
+private _rope12 = "";
+private _rope15 = "";
+private _rope18 = "";
+private _rope27 = "";
+private _rope36 = "";
 if (mission_ACE3_enabled) then {
 	_mineDetector = "ACE_VMM3";
 	_spareBarrel = "ACE_SpareBarrel";
@@ -219,6 +254,8 @@ if (mission_ACE3_enabled) then {
 	_uavBattery = "ACE_UAVBattery";
 	_kestrel = "ACE_Kestrel4500";
 	_rangeCard = "ACE_RangeCard";
+	_mortarTable = "ACE_RangeTable_82mm";
+	_artilleryTable = "ACE_artilleryTable";
 	_spottingScope = "ACE_SpottingScope";
 	_ATragMX = "ACE_ATragMX";
 	_entrenchingTool = "ACE_EntrenchingTool";
@@ -232,6 +269,47 @@ if (mission_ACE3_enabled) then {
 	_spraypaintBlue = "ACE_SpraypaintBlue";
 	_spraypaintGreen = "ACE_SpraypaintGreen";
 	_spraypaintRed = "ACE_SpraypaintRed";
+	_spraypaintWhite = "ACE_SpraypaintWhite";
+	_spraypaintYellow = "ACE_SpraypaintYellow";
+	_chemlightShield = "ACE_Chemlight_Shield";
+	_fortifyTool = "ACE_Fortify";
+	_plottingBoard = "ACE_PlottingBoard";
+	_markerFlagBlack = "ace_marker_flags_black";
+	_markerFlagBlue = "ace_marker_flags_blue";
+	_markerFlagGreen = "ace_marker_flags_green";
+	_markerFlagOrange = "ace_marker_flags_orange";
+	_markerFlagPurple = "ace_marker_flags_purple";
+	_markerFlagRed = "ace_marker_flags_red";
+	_markerFlagWhite = "ace_marker_flags_white";
+	_markerFlagYellow = "ace_marker_flags_yellow";
+	_rope3 = "ACE_rope3";
+	_rope6 = "ACE_rope6";
+	_rope12 = "ACE_rope12";
+	_rope15 = "ACE_rope15";
+	_rope18 = "ACE_rope18";
+	_rope27 = "ACE_rope27";
+	_rope36 = "ACE_rope36";
 };
 
 private _earBuds = _earPlugs; // Backward compatibility
+
+// Immersion Cigs
+private _matches = "";
+private _lighter = "";
+private _cigpack = "";
+private _cigar = "";
+private _cigarette = "";
+if (isClass (configFile >> "CfgPatches" >> "murshun_cigs")) then {
+	_matches = "murshun_cigs_matches";
+	_lighter = "murshun_cigs_lighter";
+	_cigpack = "murshun_cigs_cigpack";
+	_cigar = "immersion_cigs_cigar0";
+	_cigarette = "murshun_cigs_cig0";
+};
+
+private lollipopPack = "";
+private lollipop = "";
+if (isClass (configFile >> "CfgPatches" >> "immersion_pops")) then {
+	lollipopPack = "immersion_pops_poppack";
+	lollipop = "immersion_pops_pop0";
+};
