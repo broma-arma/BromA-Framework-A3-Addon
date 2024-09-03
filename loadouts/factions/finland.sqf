@@ -156,7 +156,7 @@ if (_assignLoadoutMode) then {
 
 // MISC EQUIPMENT ==============================================================
 
-_binoc = "rhsusf_bino_m24_ARD";
+_binocular = "rhsusf_bino_m24_ARD";
 _rangefinder = "rhsusf_bino_lerca_1200_black";
 _laserdesignator = "UK3CB_BAF_Soflam_Laserdesignator";
 

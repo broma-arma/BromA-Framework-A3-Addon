@@ -153,7 +153,7 @@ if (_assignLoadoutMode) then {
 
 _grenade = "rhs_mag_rgd5";
 _wsmoke = "rhs_mag_rdg2_white";
-_binoc = "rhssaf_zrak_rd7j";
+_binocular = "rhssaf_zrak_rd7j";
 _rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================

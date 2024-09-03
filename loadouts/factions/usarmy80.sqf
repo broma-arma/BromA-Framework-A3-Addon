@@ -179,7 +179,7 @@ if (_camo == "des") then {
 
 // MISC EQUIPMENT =============================================================
 
-_binoc = "rhsusf_bino_m24";
+_binocular = "rhsusf_bino_m24";
 _rangefinder = "rhsusf_bino_lrf_Vector21";
 _laserdesignator = "UK3CB_BAF_Soflam_Laserdesignator";
 

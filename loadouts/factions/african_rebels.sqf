@@ -170,7 +170,7 @@ _bigBACKPACK = "UK3CB_B_Alice_K";
 // MISC EQUIPMENT ==============================================================
 
 _grenade = "rhs_grenade_mkii_mag";
-_binoc = "rhssaf_zrak_rd7j";
+_binocular = "rhssaf_zrak_rd7j";
 
 // EXTRA EQUIPMENT =============================================================
 

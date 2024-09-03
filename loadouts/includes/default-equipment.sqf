@@ -64,7 +64,7 @@ if (isNil "_reconBACKPACK") then { _reconBACKPACK = _commonBACKPACK; };
 if (isNil "_commonRAIL") then { _commonRAIL = ""; };
 if (isNil "_commonBIPOD") then { _commonBIPOD = ""; };
 
-if (isNil "_binoc") then { _binoc = "Binocular"; };
+if (isNil "_binocular") then { _binocular = [_binoc, "Binocular"] select isNil "_binoc"; };
 if (isNil "_rangefinder") then { _rangefinder = "Rangefinder"; };
 if (isNil "_laserdesignator") then { _laserdesignator = "Laserdesignator"; };
 

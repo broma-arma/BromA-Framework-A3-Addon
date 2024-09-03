@@ -163,7 +163,7 @@ if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _ran
 // MISC EQUIPMENT ==============================================================
 
 _grenade = "rhs_grenade_mkii_mag";
-_binoc = "rhssaf_zrak_rd7j";
+_binocular = "rhssaf_zrak_rd7j";
 
 // EXTRA EQUIPMENT =============================================================
 

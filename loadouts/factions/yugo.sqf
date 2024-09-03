@@ -130,7 +130,7 @@ _bigBACKPACK = "rhssaf_alice_smb";
 
 _grenade = "rhs_grenade_mkii_mag";
 _wsmoke = "rhs_mag_rdg2_white";
-_binoc = "rhssaf_zrak_rd7j";
+_binocular = "rhssaf_zrak_rd7j";
 _rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================

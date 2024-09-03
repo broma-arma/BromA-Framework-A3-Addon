@@ -174,6 +174,7 @@ _NVGEN3BLU = "NVGoggles";
 // OTHERS
 
 _parachute = "B_Parachute";
-_binoc = "Binocular";
+_binocular = "Binocular";
+_binoc = _binocular; // Backward compatibility
 _rangefinder = "Rangefinder";
 _laserdesignator = "Laserdesignator";

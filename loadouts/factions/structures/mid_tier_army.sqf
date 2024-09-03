@@ -32,7 +32,7 @@ switch (true) do {
         [_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
         [_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
+        [_unit, _binocular] call BRM_FMK_fnc_addOptics;
         [_unit, "LR"] call BRM_FMK_fnc_addRadio;
         if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
     };
@@ -50,7 +50,7 @@ switch (true) do {
         [_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
         [_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
-        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
+        [_unit, _binocular] call BRM_FMK_fnc_addOptics;
         [_unit, "LR"] call BRM_FMK_fnc_addRadio;
     };
 
@@ -243,7 +243,7 @@ switch (true) do {
 
     case (_isRecon): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _reconBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
+        [_unit, _binocular] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _reconRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit, "primary", _reconSCOPE] call BRM_FMK_fnc_attachToWeapon;
@@ -256,7 +256,7 @@ switch (true) do {
 
     case (_isReconAT): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _specATBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
+        [_unit, _binocular] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_rchemlight,2],[_bchemlight,2],[_wflare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         if (!_isSpecATDisposable) then {
@@ -271,7 +271,7 @@ switch (true) do {
 
      case (_isReconMarksman): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _reconBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
+        [_unit, _binocular] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _commonMARKSMAN, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
         [_unit, _commonMARKSMAN select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
@@ -280,7 +280,7 @@ switch (true) do {
 
     case (_isReconMedic): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _reconBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
+        [_unit, _binocular] call BRM_FMK_fnc_addOptics;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit, _suppliesMEDIC] call BRM_FMK_fnc_addtoBackpack;
         [_unit, _reconRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
@@ -295,7 +295,7 @@ switch (true) do {
 
     case (_isReconDemo): {
         [_unit, _reconHEAD, _reconUNIFORM, _reconVEST, _reconBACKPACK] call BRM_FMK_fnc_useUniform;
-        [_unit, _binoc] call BRM_FMK_fnc_addOptics;
+        [_unit, _binocular] call BRM_FMK_fnc_addOptics;
         [_unit, [[_clacker,1],[_mineDetector,1],[_defusalKit,1]]] call BRM_FMK_fnc_addtoUniform;
         [_unit,[[_wsmoke,2],[_rsmoke,2],[_gsmoke,2],[_grenade,_countGRENADES],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
         [_unit,[[_C4,3],[_satchelCharge,1],[_deadManSwitch,1]]] call BRM_FMK_fnc_addtoBackpack;
@@ -331,7 +331,7 @@ switch (true) do {
         [_unit, _commonSMG, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
         if (_isLeader) then {
             if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
-            [_unit, _binoc] call BRM_FMK_fnc_addOptics;
+            [_unit, _binocular] call BRM_FMK_fnc_addOptics;
             [_unit,[[_toolKit,1]]] call BRM_FMK_fnc_addtoBackpack;
         } else {
             if (!_isCommonATDisposable) then {

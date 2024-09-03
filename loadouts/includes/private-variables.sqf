@@ -58,7 +58,7 @@ private [
 
 	"_rifleSCOPE","_mgSCOPE","_reconSCOPE",
 
-	"_binoc","_rangefinder","_laserdesignator",
+	"_binoc","_binocular","_rangefinder","_laserdesignator",
 
 	"_countGRENADES", "_countGrenadesCARGO",
 
