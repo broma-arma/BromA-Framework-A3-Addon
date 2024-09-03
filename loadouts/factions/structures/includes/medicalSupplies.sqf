@@ -26,7 +26,10 @@ if (mission_ACE3_enabled) then {
 		];
 
 		if (ace_medical_treatment_advancedBandages == 2) then { // Can Reopen
-			_suppliesMedic pushBack [_surgKit, 1];
+			_suppliesMedic pushBack [_surgKit, [1, 5] select (ace_medical_treatment_consumeSurgicalKit == 1)];
+			if (ace_medical_treatment_consumeSurgicalKit == 2) then {
+				_suppliesMedic pushBack [_suture, 100];
+			};
 		};
 
 		_suppliesMedic append [

@@ -29,7 +29,10 @@ switch (toLower _x) do {
 				];
 
 				if (ace_medical_treatment_advancedBandages == 2) then { // Can Reopen
-					_supplies pushBack [_surgKit, 5];
+					_supplies pushBack [_surgKit, [5, 50] select (ace_medical_treatment_consumeSurgicalKit == 1)];
+					if (ace_medical_treatment_consumeSurgicalKit == 2) then {
+						_supplies pushBack [_suture, 100];
+					};
 				};
 			};
 
