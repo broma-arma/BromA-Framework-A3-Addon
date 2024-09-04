@@ -9,53 +9,62 @@ private _fieldDressing = "";
 private _packingBandage = "";
 private _elasticBandage = "";
 private _quickClot = "";
-private _tourniquet = "";
-private _splint = "";
-private _morphine = "";
-private _epi = "";
-private _adenosine = "";
-private _painkillers = "";
+private _tourniquet = "";CONTENT_CARGO(tourniquet,{_countTourniquetCARGO})
+private _splint = "";CONTENT_CARGO(splint,{_countSplintCARGO})
+private _morphine = "";CONTENT_CARGO(morphine,{_countMorphineCARGO})
+private _epi = "";CONTENT_CARGO(epi,{_countEpiCARGO})CONTENT_CARGO_N(epinephrine,epi,{_countEpiCARGO})
+private _adenosine = "";CONTENT_CARGO(adenosine,{_countEpiCARGO})
+private _painkillers = "";CONTENT_CARGO(painkillers,{_countMorphineCARGO})
 private _atropine = "";
 private _atrophine = "";
 private _bloodbag = "";
-private _blood1000 = "";
-private _blood500 = "";
-private _blood250 = "";
+private _blood1000 = "";CONTENT_CARGO(blood1000,{_countBloodbagCARGO})
+private _blood500 = "";CONTENT_CARGO(blood500,{_countBloodbagCARGO})
+private _blood250 = "";CONTENT_CARGO(blood250,{_countBloodbagCARGO})
 private _plasma1000 = "";
 private _plasma500 = "";
 private _plasma250 = "";
 private _saline1000 = "";
 private _saline500 = "";
 private _saline250 = "";
-private _surgKit = "Medikit";
-private _suture = "";
-private _personalAidKit = "";
-private _bodyBag = "";
-private _bodyBagBlue = "";
-private _bodyBagWhite = "";
+private _surgKit = "Medikit";CONTENT_CARGO(surgKit,5)
+private _suture = "";CONTENT_CARGO(suture,50)
+private _personalAidKit = "";CONTENT_CARGO(personalAidKit,{_countPAKCARGO})CONTENT_CARGO_N(pak,personalAidKit,{_countPAKCARGO})
+private _bodyBag = "";CONTENT_CARGO(bodyBag,30)
+private _bodyBagBlue = "";CONTENT_CARGO_N(bodybag_blue,bodyBagBlue,30)
+private _bodyBagWhite = "";CONTENT_CARGO_N(bodybag_white,bodyBagWhite,30)
 private _defib = ""; // Backward compatibility
 
 if (mission_ACE3_enabled) then {
-	_fieldDressing = "ACE_fieldDressing";
-	_bandage = _fieldDressing;
-	_packingBandage = "ACE_packingBandage";
-	_elasticBandage = "ACE_elasticBandage";
-	_quickClot = "ACE_quikclot";
+	if (ace_medical_treatment_advancedBandages > 0) then { // Enabled
+		_bandage = "";
+		_fieldDressing = "ACE_fieldDressing";
+		_packingBandage = "ACE_packingBandage";
+		_elasticBandage = "ACE_elasticBandage";
+		_quickClot = "ACE_quikclot";
+	} else {
+		_bandage = "ACE_fieldDressing";
+	};
 
 	_tourniquet = "ACE_tourniquet";
-	_splint = "ACE_splint";
+	if (missionNamespace getVariable ["ace_medical_fractures", 0] > 0) then {
+		_splint = "ACE_splint";
+	};
 
 	_morphine = "ACE_morphine";
 	_epi = "ACE_epinephrine";
-	_adenosine = "ACE_adenosine";
-	_atropine = _adenosine; // "ACE_atropine" was removed
-	_atrophine = _atropine; // Backward compatibility
+
+	if (ace_medical_treatment_advancedMedication) then {
+		_adenosine = "ACE_adenosine";
+		_atropine = _adenosine; // "ACE_atropine" was removed
+		_atrophine = _atropine; // Backward compatibility
+	};
 	_painkillers = "ACE_painkillers";
 
-	_bloodbag = "ACE_bloodIV";
-	_blood1000 = _bloodbag;
+	_blood1000 = "ACE_bloodIV";
 	_blood500 = "ACE_bloodIV_500";
 	_blood250 = "ACE_bloodIV_250";
+	_bloodbag = _blood1000;
 
 	_plasma1000 = "ACE_plasmaIV";
 	_plasma500 = "ACE_plasmaIV_500";
@@ -65,8 +74,13 @@ if (mission_ACE3_enabled) then {
 	_saline500 = "ACE_salineIV_500";
 	_saline250 = "ACE_salineIV_250";
 
-	_surgKit = "ACE_surgicalKit";
-	_suture = "ACE_suture";
+	if (ace_medical_treatment_advancedBandages == 2) then { // Can Reopen
+		_surgKit = "ACE_surgicalKit";
+		if (ace_medical_treatment_consumeSurgicalKit == 2) then {
+			_suture = "ACE_suture";
+		};
+	};
+
 	_personalAidKit = "ACE_personalAidKit";
 	_bodyBag = "ACE_bodyBag";
 	_bodyBagBlue = "ACE_bodyBag_blue";
@@ -75,13 +89,13 @@ if (mission_ACE3_enabled) then {
 
 // GRENADES ====================================================================
 
-private _wSMOKE = "SmokeShell";
-private _rSMOKE = "SmokeShellRed";
-private _gSMOKE = "SmokeShellGreen";
-private _ySMOKE = "SmokeShellYellow";
-private _pSMOKE = "SmokeShellPurple";
-private _bSMOKE = "SmokeShellBlue";
-private _oSMOKE = "SmokeShellOrange";
+private _wSMOKE = "SmokeShell";CONTENT_CARGO_N(smoke_white,wsmoke,{_countGRENADESCARGO})
+private _rSMOKE = "SmokeShellRed";CONTENT_CARGO_N(smoke_red,rsmoke,{_countGRENADESCARGO})
+private _gSMOKE = "SmokeShellGreen";CONTENT_CARGO_N(smoke_green,gsmoke,{_countGRENADESCARGO})
+private _ySMOKE = "SmokeShellYellow";CONTENT_CARGO_N(smoke_yellow,ySMOKE,{_countGRENADESCARGO})
+private _pSMOKE = "SmokeShellPurple";CONTENT_CARGO_N(smoke_purple,pSMOKE,{_countGRENADESCARGO})
+private _bSMOKE = "SmokeShellBlue";CONTENT_CARGO_N(smoke_blue,bSMOKE,{_countGRENADESCARGO})
+private _oSMOKE = "SmokeShellOrange";CONTENT_CARGO_N(smoke_orange,oSMOKE,{_countGRENADESCARGO})
 
 private _wSMOKEopfor = "rhs_mag_rdg2_white";
 private _bSMOKEopfor = "rhs_mag_rdg2_black";
@@ -90,32 +104,32 @@ private _ySMOKEopfor = "rhs_mag_nspn_yellow";
 private _rSMOKEopfor = "rhs_mag_nspn_red";
 private _gSMOKEopfor = "rhs_mag_nspn_green";
 
-private _rCHEMLIGHT = "Chemlight_red";
-private _gCHEMLIGHT = "Chemlight_green";
-private _bCHEMLIGHT = "Chemlight_blue";
-private _yChemlight = "Chemlight_yellow";
-private _wChemlight = "";
-private _oChemlight = "";
+private _rCHEMLIGHT = "Chemlight_red";CONTENT_CARGO_N(chemlight_red,rchemlight,{_countGRENADESCARGO})
+private _gCHEMLIGHT = "Chemlight_green";CONTENT_CARGO_N(chemlight_green,gchemlight,{_countGRENADESCARGO})
+private _bCHEMLIGHT = "Chemlight_blue";CONTENT_CARGO_N(chemlight_blue,bchemlight,{_countGRENADESCARGO})
+private _yChemlight = "Chemlight_yellow";CONTENT_CARGO_N(chemlight_yellow,ychemlight,{_countGRENADESCARGO})
+private _wChemlight = "";CONTENT_CARGO_N(chemlight_white,wchemlight,{_countGRENADESCARGO})
+private _oChemlight = "";CONTENT_CARGO_N(chemlight_orange,ochemlight,{_countGRENADESCARGO})
 
-private _rChemlightHi = _rChemlight;
-private _gChemlightHi = _gChemlight;
-private _bChemlightHi = _bChemlight;
-private _yChemlightHi = _yChemlight;
-private _wChemlightHi = _wChemlight;
-private _oChemlightHi = _oChemlight;
-private _oChemlightHiU = _oChemlight;
+private _rChemlightHi = _rChemlight;CONTENT_CARGO_N(chemlight_red_hi,rChemlightHi,{_countGRENADESCARGO})
+private _gChemlightHi = _gChemlight;CONTENT_CARGO_N(chemlight_green_hi,gChemlightHi,{_countGRENADESCARGO})
+private _bChemlightHi = _bChemlight;CONTENT_CARGO_N(chemlight_blue_hi,bChemlightHi,{_countGRENADESCARGO})
+private _yChemlightHi = _yChemlight;CONTENT_CARGO_N(chemlight_yellow_hi,yChemlightHi,{_countGRENADESCARGO})
+private _wChemlightHi = _wChemlight;CONTENT_CARGO_N(chemlight_white_hi,wChemlightHi,{_countGRENADESCARGO})
+private _oChemlightHi = _oChemlight;CONTENT_CARGO_N(chemlight_orange_hi,oChemlightHi,{_countGRENADESCARGO})
+private _oChemlightHiU = _oChemlight;CONTENT_CARGO_N(chemlight_orange_uhi,oChemlightHiU,{_countGRENADESCARGO})
 private _irChemlight = "";
 
 private _irGRENADEblufor = "B_IR_Grenade";
 private _irGRENADEopfor = "O_IR_Grenade";
 private _irGRENADEindfor = "I_IR_Grenade";
 
-private _GRENADE = "HandGrenade";
+private _GRENADE = "HandGrenade";CONTENT_CARGO(grenade,{_countGRENADESCARGO})
 private _GRENADEopfor = "rhs_mag_rgd5";
 private _miniGRENADE = "MiniGrenade";
 private _m67GRENADE = "rhs_mag_m67";
 
-private _flashbang = "rhs_mag_mk84";
+private _flashbang = "rhs_mag_mk84";CONTENT_CARGO(flashbang,{_countGRENADESCARGO})
 private _FLASHBANGblufor = _flashbang;
 private _rhsFLASHBANGblufor = "rhs_mag_mk84";
 private _FLASHBANGopfor = "rhs_mag_fakel";
@@ -125,12 +139,12 @@ private _flashbangPlamyam = "rhs_mag_plamyam";
 
 private _CS = "rhs_mag_m7a3_cs";
 
-private _INCENDIARY = "rhs_mag_an_m14_th3";
+private _INCENDIARY = "rhs_mag_an_m14_th3";CONTENT_CARGO(INCENDIARY,{_countGRENADESCARGO})
 
-private _wFLARE = "";
-private _rFLARE = "";
-private _gFLARE = "";
-private _yFLARE = "";
+private _wFLARE = "";CONTENT_CARGO(wFLARE,{_countGRENADESCARGO})
+private _rFLARE = "";CONTENT_CARGO(rFLARE,{_countGRENADESCARGO})
+private _gFLARE = "";CONTENT_CARGO(gFLARE,{_countGRENADESCARGO})
+private _yFLARE = "";CONTENT_CARGO(yFLARE,{_countGRENADESCARGO})
 
 if (mission_ACE3_enabled) then {
 	_wChemlight = "ACE_Chemlight_White";
@@ -184,59 +198,59 @@ private _satchelCharge = "SatchelCharge_Remote_Mag";
 
 // UTILITY =====================================================================
 
-private _mineDetector = "MineDetector";
-private _toolKit = "ToolKit";
+private _mineDetector = "MineDetector";CONTENT_CARGO(mineDetector,5)
+private _toolKit = "ToolKit";CONTENT_CARGO(toolKit,5)
 
-private _spareBarrel = "";
-private _IRStrobe = "B_IR_Grenade";
+private _spareBarrel = "";CONTENT_CARGO(spareBarrel,5)
+private _IRStrobe = "B_IR_Grenade";CONTENT_CARGO(IRStrobe,{_countGRENADESCARGO})
 private _cableTie = "";
-private _flashlight = "";
-private _clacker = "";
-private _M26clacker = "";
-private _defusalKit = "";
-private _deadManSwitch = "";
-private _cellphone = "";
-private _earPlugs = "";
-private _microDAGR = "";
-private _mapTools = "";
-private _uavBattery = "";
-private _kestrel = "";
-private _rangeCard = "";
-private _mortarTable = "";
-private _artilleryTable = "";
-private _spottingScope = "";
-private _ATragMX = "";
-private _entrenchingTool = "";
-private _wirecutter = "";
-private _banana = "";
-private _huntIRMonitor = "";
-private _huntIRM203 = "";
-private _sandbag = "";
-private _tacticalLadder = "";
-private _spraypaintBlack = "";
-private _spraypaintBlue = "";
-private _spraypaintGreen = "";
-private _spraypaintRed = "";
-private _spraypaintWhite = "";
-private _spraypaintYellow = "";
-private _chemlightShield = "";
-private _fortifyTool = "";
-private _plottingBoard = "";
-private _markerFlagBlack = "";
-private _markerFlagBlue = "";
-private _markerFlagGreen = "";
-private _markerFlagOrange = "";
-private _markerFlagPurple = "";
-private _markerFlagRed = "";
-private _markerFlagWhite = "";
-private _markerFlagYellow = "";
-private _rope3 = "";
-private _rope6 = "";
-private _rope12 = "";
-private _rope15 = "";
-private _rope18 = "";
-private _rope27 = "";
-private _rope36 = "";
+private _flashlight = "";CONTENT_CARGO(flashlight,5)
+private _clacker = "";CONTENT_CARGO(clacker,5)
+private _M26clacker = "";CONTENT_CARGO(M26clacker,5)
+private _defusalKit = "";CONTENT_CARGO(defusalKit,5)
+private _deadManSwitch = "";CONTENT_CARGO(deadManSwitch,5)
+private _cellphone = "";CONTENT_CARGO(cellphone,5)
+private _earPlugs = "";CONTENT_CARGO(earPlugs,25)
+private _microDAGR = "";CONTENT_CARGO(microDAGR,5)
+private _mapTools = "";CONTENT_CARGO(mapTools,5)
+private _uavBattery = "";CONTENT_CARGO(uavBattery,5)
+private _kestrel = "";CONTENT_CARGO(kestrel,5)
+private _rangeCard = "";CONTENT_CARGO(rangeCard,5)
+private _mortarTable = "";CONTENT_CARGO(mortarTable,5)
+private _artilleryTable = "";CONTENT_CARGO(artilleryTable,5)
+private _spottingScope = "";CONTENT_CARGO(spottingScope,5)
+private _ATragMX = "";CONTENT_CARGO(ATragMX,5)
+private _entrenchingTool = "";CONTENT_CARGO(entrenchingTool,30)
+private _wirecutter = "";CONTENT_CARGO(wirecutter,30)
+private _banana = "";CONTENT_CARGO(banana,100)
+private _huntIRMonitor = "";CONTENT_CARGO(huntIRMonitor,5)
+private _huntIRM203 = "";CONTENT_CARGO(huntIRM203,50)
+private _sandbag = "";CONTENT_CARGO(sandbag,50)
+private _tacticalLadder = "";CONTENT_CARGO(tacticalLadder,5)
+private _spraypaintBlack = "";CONTENT_CARGO_N(spraypaint_black,spraypaintBlack,10)
+private _spraypaintBlue = "";CONTENT_CARGO_N(spraypaint_blue,spraypaintBlue,10)
+private _spraypaintGreen = "";CONTENT_CARGO_N(spraypaint_green,spraypaintGreen,10)
+private _spraypaintRed = "";CONTENT_CARGO_N(spraypaint_red,spraypaintRed,10)
+private _spraypaintWhite = "";CONTENT_CARGO_N(spraypaint_white,spraypaintWhite,10)
+private _spraypaintYellow = "";CONTENT_CARGO_N(spraypaint_yellow,spraypaintYellow,10)
+private _chemlightShield = "";CONTENT_CARGO(chemlightShield,30)
+private _fortifyTool = "";CONTENT_CARGO(fortifyTool,30)
+private _plottingBoard = "";CONTENT_CARGO(plottingBoard,10)
+private _markerFlagBlack = "";CONTENT_CARGO_N(markerflag_black,markerFlagBlack,50)
+private _markerFlagBlue = "";CONTENT_CARGO_N(markerflag_blue,markerFlagBlue,50)
+private _markerFlagGreen = "";CONTENT_CARGO_N(markerflag_green,markerFlagGreen,50)
+private _markerFlagOrange = "";CONTENT_CARGO_N(markerflag_orange,markerFlagOrange,50)
+private _markerFlagPurple = "";CONTENT_CARGO_N(markerflag_purple,markerFlagPurple,50)
+private _markerFlagRed = "";CONTENT_CARGO_N(markerflag_red,markerFlagRed,50)
+private _markerFlagWhite = "";CONTENT_CARGO_N(markerflag_white,markerFlagWhite,50)
+private _markerFlagYellow = "";CONTENT_CARGO_N(markerflag_yellow,markerFlagYellow,50)
+private _rope3 = "";CONTENT_CARGO(rope3,10)
+private _rope6 = "";CONTENT_CARGO(rope6,10)
+private _rope12 = "";CONTENT_CARGO(rope12,10)
+private _rope15 = "";CONTENT_CARGO(rope15,10)
+private _rope18 = "";CONTENT_CARGO(rope18,10)
+private _rope27 = "";CONTENT_CARGO(rope27,10)
+private _rope36 = "";CONTENT_CARGO(rope36,10)
 if (mission_ACE3_enabled) then {
 	_mineDetector = "ACE_VMM3";
 	_spareBarrel = "ACE_SpareBarrel";
@@ -248,7 +262,9 @@ if (mission_ACE3_enabled) then {
 	_defusalKit = "ACE_DefusalKit";
 	_deadManSwitch = "ACE_DeadManSwitch";
 	_cellphone = "ACE_Cellphone";
-	_earPlugs = "ACE_EarPlugs";
+	if (ace_hearing_enableCombatDeafness) then {
+		_earPlugs = "ACE_EarPlugs";
+	};
 	_microDAGR = "ACE_microDAGR";
 	_mapTools = "ACE_MapTools";
 	_uavBattery = "ACE_UAVBattery";
@@ -294,11 +310,11 @@ if (mission_ACE3_enabled) then {
 private _earBuds = _earPlugs; // Backward compatibility
 
 // Immersion Cigs
-private _matches = "";
-private _lighter = "";
-private _cigpack = "";
-private _cigar = "";
-private _cigarette = "";
+private _matches = "";CONTENT_CARGO(matches,30)
+private _lighter = "";CONTENT_CARGO(lighter,30)
+private _cigpack = "";CONTENT_CARGO(cigpack,50)
+private _cigar = "";CONTENT_CARGO_N(cigars,cigar,50)
+private _cigarette = "";CONTENT_CARGO_N(cigarettes,cigarette,20)
 if (isClass (configFile >> "CfgPatches" >> "murshun_cigs")) then {
 	_matches = "murshun_cigs_matches";
 	_lighter = "murshun_cigs_lighter";
@@ -307,8 +323,8 @@ if (isClass (configFile >> "CfgPatches" >> "murshun_cigs")) then {
 	_cigarette = "murshun_cigs_cig0";
 };
 
-private _lollipopPack = "";
-private _lollipop = "";
+private _lollipopPack = "";CONTENT_CARGO(lollipopPack,50)
+private _lollipop = "";CONTENT_CARGO_N(lollipops,lollipop,20)
 if (isClass (configFile >> "CfgPatches" >> "immersion_pops")) then {
 	_lollipopPack = "immersion_pops_poppack";
 	_lollipop = "immersion_pops_pop0";

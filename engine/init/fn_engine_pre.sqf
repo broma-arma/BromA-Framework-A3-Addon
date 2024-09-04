@@ -28,3 +28,5 @@ RETURNS:
 
 startTime = diag_tickTime;
 pluginsLoaded = false;
+
+call BRM_FMK_fnc_loadContentCargo;

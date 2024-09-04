@@ -5,6 +5,13 @@
 //
 // =============================================================================
 
+#ifndef CONTENT_CARGO
+#define CONTENT_CARGO(VAR,COUNT)
+#endif
+#ifndef CONTENT_CARGO_N
+#define CONTENT_CARGO_N(NAME,VAR,COUNT)
+#endif
+
 #include "vanilla-weapon-list.sqf"
 #include "accessory-list.sqf"
 #include "broma-weapon-list.sqf"
