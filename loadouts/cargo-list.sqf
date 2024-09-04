@@ -134,6 +134,17 @@ switch (toLower _x) do {
 		[_claymore, 25]] call BRM_FMK_fnc_addItems;
 	};
 
+	case "at_mines": { [_object,
+		[_atMine, 25],
+		[_SLAM, 25]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "ap_mines": { [_object,
+		[_apMine, 25],
+		[_apTripwire, 25],
+		[_claymore, 25]] call BRM_FMK_fnc_addItems;
+	};
+
 	case "handcuffs": {
 		[_object, _cableTie, 25] call BRM_FMK_fnc_addItem;
 	};
