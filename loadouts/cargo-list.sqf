@@ -125,13 +125,13 @@ switch (toLower _x) do {
 	};
 
 	case "explosives": { [_object,
-		["DemoCharge_Remote_Mag", 10],
-		["SatchelCharge_Remote_Mag", 10]] call BRM_FMK_fnc_addItems;
+		[_C4, 10],
+		[_satchelCharge, 10]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "mines": { [_object,
-		["APERSTripMine_Wire_Mag", 25],
-		["ClaymoreDirectionalMine_Remote_Mag", 25]] call BRM_FMK_fnc_addItems;
+		[_apTripwire, 25],
+		[_claymore, 25]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "handcuffs": {
