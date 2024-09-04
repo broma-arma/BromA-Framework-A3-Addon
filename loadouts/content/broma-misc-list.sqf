@@ -307,9 +307,9 @@ if (isClass (configFile >> "CfgPatches" >> "murshun_cigs")) then {
 	_cigarette = "murshun_cigs_cig0";
 };
 
-private lollipopPack = "";
-private lollipop = "";
+private _lollipopPack = "";
+private _lollipop = "";
 if (isClass (configFile >> "CfgPatches" >> "immersion_pops")) then {
-	lollipopPack = "immersion_pops_poppack";
-	lollipop = "immersion_pops_pop0";
+	_lollipopPack = "immersion_pops_poppack";
+	_lollipop = "immersion_pops_pop0";
 };
