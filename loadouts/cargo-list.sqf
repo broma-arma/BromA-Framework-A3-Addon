@@ -130,6 +130,9 @@ switch (toLower _x) do {
 	};
 
 	case "mines": { [_object,
+		[_atMine, 25],
+		[_SLAM, 25],
+		[_apMine, 25],
 		[_apTripwire, 25],
 		[_claymore, 25]] call BRM_FMK_fnc_addItems;
 	};
