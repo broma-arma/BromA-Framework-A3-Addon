@@ -211,23 +211,23 @@ CONTENT_CARGO(huntIRMonitor,"",5);
 CONTENT_CARGO(huntIRM203,"",50);
 CONTENT_CARGO(sandbag,"",50);
 CONTENT_CARGO(tacticalLadder,"",5);
-CONTENT_CARGO_N(spraypaintBlack,"",10,spraypaint_black);
-CONTENT_CARGO_N(spraypaintBlue,"",10,spraypaint_blue);
-CONTENT_CARGO_N(spraypaintGreen,"",10,spraypaint_green);
-CONTENT_CARGO_N(spraypaintRed,"",10,spraypaint_red);
-CONTENT_CARGO_N(spraypaintWhite,"",10,spraypaint_white);
-CONTENT_CARGO_N(spraypaintYellow,"",10,spraypaint_yellow);
+CONTENT_CARGO_N(spraypaintBlack,"",spraypaint_black,10);
+CONTENT_CARGO_N(spraypaintBlue,"",spraypaint_blue,10);
+CONTENT_CARGO_N(spraypaintGreen,"",spraypaint_green,10);
+CONTENT_CARGO_N(spraypaintRed,"",spraypaint_red,10);
+CONTENT_CARGO_N(spraypaintWhite,"",spraypaint_white,10);
+CONTENT_CARGO_N(spraypaintYellow,"",spraypaint_yellow,10);
 CONTENT_CARGO(chemlightShield,"",30);
 CONTENT_CARGO(fortifyTool,"",30);
 CONTENT_CARGO(plottingBoard,"",10);
-CONTENT_CARGO_N(markerFlagBlack,"",50,markerflag_black);
-CONTENT_CARGO_N(markerFlagBlue,"",50,markerflag_blue);
-CONTENT_CARGO_N(markerFlagGreen,"",50,markerflag_green);
-CONTENT_CARGO_N(markerFlagOrange,"",50,markerflag_orange);
-CONTENT_CARGO_N(markerFlagPurple,"",50,markerflag_purple);
-CONTENT_CARGO_N(markerFlagRed,"",50,markerflag_red);
-CONTENT_CARGO_N(markerFlagWhite,"",50,markerflag_white);
-CONTENT_CARGO_N(markerFlagYellow,"",50,markerflag_yellow);
+CONTENT_CARGO_N(markerFlagBlack,"",markerflag_black,50);
+CONTENT_CARGO_N(markerFlagBlue,"",markerflag_blue,50);
+CONTENT_CARGO_N(markerFlagGreen,"",markerflag_green,50);
+CONTENT_CARGO_N(markerFlagOrange,"",markerflag_orange,50);
+CONTENT_CARGO_N(markerFlagPurple,"",markerflag_purple,50);
+CONTENT_CARGO_N(markerFlagRed,"",markerflag_red,50);
+CONTENT_CARGO_N(markerFlagWhite,"",markerflag_white,50);
+CONTENT_CARGO_N(markerFlagYellow,"",markerflag_yellow,50);
 CONTENT_CARGO(towRope,"",10);
 CONTENT_CARGO(towRope3,"",10);
 CONTENT_CARGO(towRope6,"",10);
@@ -298,8 +298,8 @@ private _earBuds = _earPlugs; // Backward compatibility
 CONTENT_CARGO(matches,"",30);
 CONTENT_CARGO(lighter,"",30);
 CONTENT_CARGO(cigpack,"",50);
-CONTENT_CARGO_N(cigar,"",50,cigars);
-CONTENT_CARGO_N(cigarette,"",20,cigarettes);
+CONTENT_CARGO_N(cigar,"",cigars,50);
+CONTENT_CARGO_N(cigarette,"",cigarettes,20);
 if (isClass (configFile >> "CfgPatches" >> "murshun_cigs")) then {
 	_matches = "murshun_cigs_matches";
 	_lighter = "murshun_cigs_lighter";
@@ -309,7 +309,7 @@ if (isClass (configFile >> "CfgPatches" >> "murshun_cigs")) then {
 };
 
 CONTENT_CARGO(lollipopPack,"",50);
-CONTENT_CARGO_N(lollipop,"",20,lollipops);
+CONTENT_CARGO_N(lollipop,"",lollipops,20);
 if (isClass (configFile >> "CfgPatches" >> "immersion_pops")) then {
 	_lollipopPack = "immersion_pops_poppack";
 	_lollipop = "immersion_pops_pop0";
