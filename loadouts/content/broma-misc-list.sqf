@@ -12,7 +12,8 @@ private _quickClot = "";
 CONTENT_CARGO(tourniquet,"",{_countTourniquetCARGO});
 CONTENT_CARGO(splint,"",{_countSplintCARGO});
 CONTENT_CARGO(morphine,"",{_countMorphineCARGO});
-CONTENT_CARGO(epi,"",{_countEpiCARGO});CONTENT_CARGO_A(epinephrine,epi,{_countEpiCARGO})
+CONTENT_CARGO(epinephrine,"",{_countEpiCARGO});
+private _epi = _epinephrine; // DEPRECATED Use _epinephrine
 CONTENT_CARGO(adenosine,"",{_countEpiCARGO});
 CONTENT_CARGO(painkillers,"",{_countMorphineCARGO});
 private _atropine = "";
@@ -52,7 +53,7 @@ if (mission_ACE3_enabled) then {
 	};
 
 	_morphine = "ACE_morphine";
-	_epi = "ACE_epinephrine";
+	_epinephrine = "ACE_epinephrine"; _epi = _epinephrine;
 
 	if (ace_medical_treatment_advancedMedication) then {
 		_adenosine = "ACE_adenosine";

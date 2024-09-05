@@ -10,7 +10,7 @@ switch (toLower _x) do {
 
 		[_painkillers, _countMorphineCARGO],
 		[_morphine, _countMorphineCARGO],
-		[_epi, _countEpiCARGO],
+		[_epinephrine, _countEpiCARGO],
 		[_adenosine, _countMorphineCARGO],
 
 		[_tourniquet, _countTourniquetCARGO],

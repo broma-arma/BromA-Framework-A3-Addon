@@ -37,5 +37,5 @@ _basics params ["_bandageCount", "_morphineCount", "_epiCount"];
 [_unit, [
 	[_bandage, _bandageCount],
 	[_morphine, _morphineCount],
-	[_epi, _epiCount]
+	[_epinephrine, _epiCount]
 ]] call BRM_FMK_fnc_addToUniform;
