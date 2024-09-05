@@ -179,7 +179,7 @@ if (_assignLoadoutMode && _randomHEAD == "empty") then {
 // MISC EQUIPMENT ==============================================================
 
 _grenade = "rhs_mag_rgd5";
-_wsmoke = "rhs_mag_rdg2_white";
+_wSmoke = "rhs_mag_rdg2_white";
 _rangefinder = "rhsusf_bino_lrf_Vector21";
 
 // EXTRA EQUIPMENT =============================================================

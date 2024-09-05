@@ -6,10 +6,13 @@
 // =============================================================================
 
 #ifndef CONTENT_CARGO
-#define CONTENT_CARGO(VAR,COUNT)
+#define CONTENT_CARGO(VAR,VALUE,COUNT) private _##VAR = VALUE
+#endif
+#ifndef CONTENT_CARGO_A
+#define CONTENT_CARGO_A(NAME,VAR,COUNT)
 #endif
 #ifndef CONTENT_CARGO_N
-#define CONTENT_CARGO_N(NAME,VAR,COUNT)
+#define CONTENT_CARGO_N(VAR,VALUE,NAME,COUNT) private _##VAR = VALUE
 #endif
 
 #include "vanilla-weapon-list.sqf"

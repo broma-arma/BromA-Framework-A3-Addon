@@ -138,7 +138,7 @@ _reconBACKPACK = "UK3CB_B_Alice_Bedroll_K";
 // MISC EQUIPMENT ==============================================================
 
 _grenade = "rhs_mag_rgd5";
-_wsmoke = "rhs_mag_rdg2_white";
+_wSmoke = "rhs_mag_rdg2_white";
 _binocular = "rhssaf_zrak_rd7j";
 _rangefinder = "rhs_pdu4";
 

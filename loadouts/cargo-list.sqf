@@ -39,20 +39,20 @@ switch (toLower _x) do {
 			[_commonRIFLEGL select RAMMO, _countRifleCARGO],
 			[_commonPISTOL select RAMMO, _countPistolCARGO],
 			[_grenade, _countGRENADESCARGO],
-			[_rchemlight, _countGRENADESCARGO],
-			[_gchemlight, _countGRENADESCARGO],
-			[_bchemlight, _countGRENADESCARGO],
-			[_ychemlight, _countGRENADESCARGO],
-			[_wchemlight, _countGRENADESCARGO],
-			[_ochemlight, _countGRENADESCARGO],
-			[_irchemlight, _countGRENADESCARGO],
-			[_wsmoke, _countGRENADESCARGO],
-			[_rsmoke, _countGRENADESCARGO],
-			[_gsmoke, _countGRENADESCARGO],
-			[_ySMOKE, _countGRENADESCARGO],
-			[_pSMOKE, _countGRENADESCARGO],
-			[_bSMOKE, _countGRENADESCARGO],
-			[_oSMOKE, _countGRENADESCARGO]
+			[_rChemlight, _countGRENADESCARGO],
+			[_gChemlight, _countGRENADESCARGO],
+			[_bChemlight, _countGRENADESCARGO],
+			[_yChemlight, _countGRENADESCARGO],
+			[_wChemlight, _countGRENADESCARGO],
+			[_oChemlight, _countGRENADESCARGO],
+			[_irChemlight, _countGRENADESCARGO],
+			[_wSmoke, _countGRENADESCARGO],
+			[_rSmoke, _countGRENADESCARGO],
+			[_gSmoke, _countGRENADESCARGO],
+			[_ySmoke, _countGRENADESCARGO],
+			[_pSmoke, _countGRENADESCARGO],
+			[_bSmoke, _countGRENADESCARGO],
+			[_oSmoke, _countGRENADESCARGO]
 		];
 
 		if (!_isCommonATDisposable) then {
@@ -125,27 +125,27 @@ switch (toLower _x) do {
 	};
 
 	case "explosives": { [_object,
-		[_C4, 10],
-		[_satchelCharge, 10]] call BRM_FMK_fnc_addItems;
+		[_demoCharge, 10],
+		[_demoSatchel, 10]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "mines": { [_object,
 		[_atMine, 25],
-		[_SLAM, 25],
+		[_dpMine, 25],
 		[_apMine, 25],
-		[_apTripwire, 25],
-		[_claymore, 25]] call BRM_FMK_fnc_addItems;
+		[_apMineWire, 25],
+		[_apMineDirectional, 25]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "at_mines": { [_object,
 		[_atMine, 25],
-		[_SLAM, 25]] call BRM_FMK_fnc_addItems;
+		[_dpMine, 25]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "ap_mines": { [_object,
 		[_apMine, 25],
-		[_apTripwire, 25],
-		[_claymore, 25]] call BRM_FMK_fnc_addItems;
+		[_apMineWire, 25],
+		[_apMineDirectional, 25]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "handcuffs": {
@@ -212,13 +212,13 @@ switch (toLower _x) do {
 	case "gl": { [_object, _commonGL select RAMMO, _count40mmCARGO] call BRM_FMK_fnc_addItem; };
 
 	case "chemlight": { [_object,
-		[_rchemlight, _countGRENADESCARGO],
-		[_gchemlight, _countGRENADESCARGO],
-		[_bchemlight, _countGRENADESCARGO],
-		[_ychemlight, _countGRENADESCARGO],
-		[_wchemlight, _countGRENADESCARGO],
-		[_ochemlight, _countGRENADESCARGO],
-		[_irchemlight, _countGRENADESCARGO]] call BRM_FMK_fnc_addItems;
+		[_rChemlight, _countGRENADESCARGO],
+		[_gChemlight, _countGRENADESCARGO],
+		[_bChemlight, _countGRENADESCARGO],
+		[_yChemlight, _countGRENADESCARGO],
+		[_wChemlight, _countGRENADESCARGO],
+		[_oChemlight, _countGRENADESCARGO],
+		[_irChemlight, _countGRENADESCARGO]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "chemlight_hi": { [_object,
@@ -232,13 +232,13 @@ switch (toLower _x) do {
 	};
 
 	case "smoke": { [_object,
-		[_wsmoke, _countGRENADESCARGO],
-		[_rsmoke, _countGRENADESCARGO],
-		[_gsmoke, _countGRENADESCARGO],
-		[_ySMOKE, _countGRENADESCARGO],
-		[_pSMOKE, _countGRENADESCARGO],
-		[_bSMOKE, _countGRENADESCARGO],
-		[_oSMOKE, _countGRENADESCARGO]] call BRM_FMK_fnc_addItems;
+		[_wSmoke, _countGRENADESCARGO],
+		[_rSmoke, _countGRENADESCARGO],
+		[_gSmoke, _countGRENADESCARGO],
+		[_ySmoke, _countGRENADESCARGO],
+		[_pSmoke, _countGRENADESCARGO],
+		[_bSmoke, _countGRENADESCARGO],
+		[_oSmoke, _countGRENADESCARGO]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "bandage": { [_object,
@@ -256,9 +256,9 @@ switch (toLower _x) do {
 	};
 
 	case "rangetables": { [_object,
-		[_rangeCard, 5],
-		[_mortarTable, 5],
-		[_artilleryTable, 5]] call BRM_FMK_fnc_addItems;
+		[_rifleRangetable, 5],
+		[_mortarRangetable, 5],
+		[_artilleryRangetable, 5]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "contraband": { [_object,

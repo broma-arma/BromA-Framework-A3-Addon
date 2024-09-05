@@ -138,9 +138,9 @@ _reconBACKPACK = _commonBACKPACK;
 // MISC EQUIPMENT ==============================================================
 
 _grenade = "rhssaf_mag_br_m84";
-_wsmoke = "rhssaf_mag_brd_m83_white";
-_rsmoke = "rhssaf_mag_brd_m83_red";
-_gsmoke = "rhssaf_mag_brd_m83_green";
+_wSmoke = "rhssaf_mag_brd_m83_white";
+_rSmoke = "rhssaf_mag_brd_m83_red";
+_gSmoke = "rhssaf_mag_brd_m83_green";
 _rangefinder = "rhsusf_bino_lrf_Vector21";
 
 // EXTRA EQUIPMENT =============================================================

@@ -170,7 +170,7 @@ if (_assignLoadoutMode) then {
 // MISC EQUIPMENT ==============================================================
 
 _grenade = "rhs_mag_rgo";
-_wsmoke = "rhs_mag_rdg2_white";
+_wSmoke = "rhs_mag_rdg2_white";
 _rangefinder = "rhs_pdu4";
 
 // EXTRA EQUIPMENT =============================================================
