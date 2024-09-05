@@ -28,7 +28,8 @@ private _plasma250 = "";
 private _saline1000 = "";
 private _saline500 = "";
 private _saline250 = "";
-CONTENT_CARGO(surgKit,"Medikit",5);
+CONTENT_CARGO(surgicalKit,"Medikit",5);
+private _surgKit = _surgicalKit; // DEPRECATED Use _surgicalKit
 CONTENT_CARGO(suture,"",50);
 CONTENT_CARGO(personalAidKit,"",{_countPAKCARGO});CONTENT_CARGO_A(pak,personalAidKit,{_countPAKCARGO})
 CONTENT_CARGO(bodyBag,"",30);
@@ -76,7 +77,7 @@ if (mission_ACE3_enabled) then {
 	_saline250 = "ACE_salineIV_250";
 
 	if (ace_medical_treatment_advancedBandages == 2) then { // Can Reopen
-		_surgKit = "ACE_surgicalKit";
+		_surgicalKit = "ACE_surgicalKit"; _surgKit = _surgicalKit;
 		if (ace_medical_treatment_consumeSurgicalKit == 2) then {
 			_suture = "ACE_suture";
 		};
