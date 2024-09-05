@@ -16,8 +16,7 @@ CONTENT_CARGO(epinephrine,"",{_countEpiCARGO});
 private _epi = _epinephrine; // DEPRECATED Use _epinephrine
 CONTENT_CARGO(adenosine,"",{_countEpiCARGO});
 CONTENT_CARGO(painkillers,"",{_countMorphineCARGO});
-private _atropine = "";
-private _atrophine = "";
+private _atrophine = ""; // DEPRECATED Remove usage
 private _bloodbag = "";
 CONTENT_CARGO(blood1000,"",{_countBloodbagCARGO});
 CONTENT_CARGO(blood500,"",{_countBloodbagCARGO});
@@ -45,7 +44,7 @@ if (mission_ACE3_enabled) then {
 		_elasticBandage = "ACE_elasticBandage";
 		_quickClot = "ACE_quikclot";
 	} else {
-		_bandage = "ACE_fieldDressing";
+		_bandage = "ACE_fieldDressing"; // Type doesn't matter
 	};
 
 	_tourniquet = "ACE_tourniquet";
@@ -58,8 +57,7 @@ if (mission_ACE3_enabled) then {
 
 	if (ace_medical_treatment_advancedMedication) then {
 		_adenosine = "ACE_adenosine";
-		_atropine = _adenosine; // "ACE_atropine" was removed
-		_atrophine = _atropine; // Backward compatibility
+		_atrophine = _adenosine; // Backward compatibility
 	};
 	_painkillers = "ACE_painkillers";
 
