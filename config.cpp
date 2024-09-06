@@ -62,6 +62,12 @@ class CfgBRMPlugins {
 	#include "plugins\plugins.cpp"
 #undef BRM_PLUGIN_DIALOGS
 
+class BRM_FMK {
+#include "\broma_framework\loadouts\configs\Voices.hpp"
+#include "\broma_framework\loadouts\configs\Faces.hpp"
+#include "\broma_framework\loadouts\configs\Names.hpp"
+};
+
 class Extended_DisplayLoad_EventHandlers {
 	class RscDisplayEGSpectator {
 		BRM_FRAMEWORK = "['BRM_FMK_DisplayLoad_EGSpectator', _this] call CBA_fnc_localEvent;";
