@@ -1,9 +1,4 @@
-// =============================================================================
-//                          MISCELLANEOUS ITEMS
-// =============================================================================
-
-// NIGHT-VISION
-
+// Nightvision Goggles
 private _PVS14 = "rhsusf_ANPVS_14";
 private _PVS15 = "rhsusf_ANPVS_15";
 
@@ -23,18 +18,13 @@ private _NVGEN3OP = _NVG + "_OPFOR";
 private _NVGEN3IND = _NVG + "_INDEP";
 private _NVGEN3BLU = _NVG;
 
-// =============================================================================
-
-// BINOCULARS ==================================================================
-
+// Binoculars
 private _binocular = "Binocular";
 private _binoc = _binocular; // Backward compatibility
 private _rangefinder = "Rangefinder";
 private _laserdesignator = "Laserdesignator";
 
-
-// MEDICAL =====================================================================
-
+// Medical
 private _bandage = "FirstAidKit";
 private _fieldDressing = "";
 private _packingBandage = "";
@@ -118,8 +108,7 @@ if (mission_ACE3_enabled) then {
 	_bodyBagWhite = "ACE_bodyBag_white";
 };
 
-// GRENADES ====================================================================
-
+// Smoke Grenades
 CONTENT_CARGO_N(wSmoke,"SmokeShell",smoke_white,{_countGRENADESCARGO});
 CONTENT_CARGO_N(rSmoke,"SmokeShellRed",smoke_red,{_countGRENADESCARGO});
 CONTENT_CARGO_N(gSmoke,"SmokeShellGreen",smoke_green,{_countGRENADESCARGO});
@@ -128,6 +117,7 @@ CONTENT_CARGO_N(pSmoke,"SmokeShellPurple",smoke_purple,{_countGRENADESCARGO});
 CONTENT_CARGO_N(bSmoke,"SmokeShellBlue",smoke_blue,{_countGRENADESCARGO});
 CONTENT_CARGO_N(oSmoke,"SmokeShellOrange",smoke_orange,{_countGRENADESCARGO});
 
+// Chemlights
 CONTENT_CARGO_N(rChemlight,"Chemlight_red",chemlight_red,{_countGRENADESCARGO});
 CONTENT_CARGO_N(gChemlight,"Chemlight_green",chemlight_green,{_countGRENADESCARGO});
 CONTENT_CARGO_N(bChemlight,"Chemlight_blue",chemlight_blue,{_countGRENADESCARGO});
@@ -144,6 +134,7 @@ CONTENT_CARGO_N(oChemlightHi,_oChemlight,chemlight_orange_hi,{_countGRENADESCARG
 CONTENT_CARGO_N(oChemlightHiU,_oChemlight,chemlight_orange_uhi,{_countGRENADESCARGO});
 CONTENT_CARGO(irChemlight,"",{_countGRENADESCARGO});
 
+// Grenades
 CONTENT_CARGO(grenade,"HandGrenade",{_countGRENADESCARGO});
 private _grenadeOpfor = _grenade; // DEPRECATED Use _grenade (rund_co21_Norwegian_Fog_v2.tem_vinjesvingenc)
 private _m67Grenade = _grenade; // DEPRECATED Use _grenade (Engee_co24_Snowmen_v02.Chernarus_Winter)
@@ -154,6 +145,7 @@ CONTENT_CARGO(flashbang,"rhs_mag_mk84",{_countGRENADESCARGO});
 private _cs = "rhs_mag_m7a3_cs";
 CONTENT_CARGO(incendiary,"rhs_mag_an_m14_th3",{_countGRENADESCARGO});
 
+// Hand Held Flares
 CONTENT_CARGO(wFlare,"",{_countGRENADESCARGO});
 CONTENT_CARGO(rFlare,"",{_countGRENADESCARGO});
 CONTENT_CARGO(gFlare,"",{_countGRENADESCARGO});
@@ -181,17 +173,13 @@ if (mission_ACE3_enabled) then {
 	_yFlare = "ACE_HandFlare_Yellow";
 };
 
-// EXPLOSIVES ==================================================================
-
 // IEDs
-
 private _ied = "IEDUrbanSmall_Remote_Mag";
 private _iedLarge = "IEDUrbanBig_Remote_Mag";
 private _iedDirt = "IEDLandSmall_Remote_Mag";
 private _iedDirtLarge = "IEDLandBig_Remote_Mag";
 
 // Mines
-
 private _atMine = "ATMine_Range_Mag";
 private _dpMine = "SLAMDirectionalMine_Wire_Mag";
 private _apMine = "APERSMine_Range_Mag";
@@ -201,14 +189,12 @@ private _apMineWire = "APERSTripMine_Wire_Mag";
 private _apMineDirectional = "ClaymoreDirectionalMine_Remote_Mag";
 
 // Explosives
-
 private _demoCharge = "DemoCharge_Remote_Mag";
 private _C4 = _demoCharge; // DEPRECATED Use _demoCharge
 private _demoSatchel = "SatchelCharge_Remote_Mag";
 private _satchelCharge = _demoSatchel; // DEPRECATED Use _demoSatchel
 
-// UTILITY =====================================================================
-
+// Utility
 CONTENT_CARGO_N(parachute,"B_Parachute",parachutes,20);
 CONTENT_CARGO(mineDetector,"MineDetector",5);
 CONTENT_CARGO(toolKit,"ToolKit",5);

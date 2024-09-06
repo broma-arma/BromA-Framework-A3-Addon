@@ -10,11 +10,7 @@ private _voiceFrenchEnglish = "FrenchEnglish";
 private _voicePolish = "Polish";
 private _voiceRussian = "Russian";
 
-private _allVoices = [
-	_voiceAltian, _voiceAmerican, _voiceBritish,
-	_voiceChinese, _voiceFarsi, _voiceFrench,
-	_voiceFrenchEnglish, _voicePolish, _voiceRussian
-];
+private _allVoices = [_voiceAltian, _voiceAmerican, _voiceBritish, _voiceChinese, _voiceFarsi, _voiceFrench, _voiceFrenchEnglish, _voicePolish, _voiceRussian];
 
 // Faces
 private _faceAsian = "Asian";
