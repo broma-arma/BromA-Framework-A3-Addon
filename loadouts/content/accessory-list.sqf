@@ -37,9 +37,8 @@ private _laser = "acc_pointer_IR";
 
 // Bipods
 
-private _bipodBLU = "bipod_01_F_snd";
-private _bipodOP = "bipod_02_F_hex";
-private _bipodIND = "bipod_03_F_oli";
+private _bipod = "bipod_01_F_snd";
+private _bipodBLU = _bipod; // DEPRECATED Use _bipod
 
 // =============================================================================
 
