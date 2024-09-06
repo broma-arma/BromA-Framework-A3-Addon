@@ -2,6 +2,37 @@
 //                          MISCELLANEOUS ITEMS
 // =============================================================================
 
+// NIGHT-VISION
+
+private _PVS14 = "rhsusf_ANPVS_14";
+private _PVS15 = "rhsusf_ANPVS_15";
+
+private _NVG = "NVGoggles";
+private _NVGEN1 = _NVG;
+private _NVGEN2 = _NVG;
+private _NVGEN4 = _NVG;
+private _NVWIDE = _NVG;
+if (mission_ACE3_enabled) then {
+	_NVGEN1 = "ACE_NVG_Gen1";
+	_NVGEN2 = "ACE_NVG_Gen2";
+	_NVGEN4 = "ACE_NVG_Gen4";
+	_NVWIDE = "ACE_NVG_Wide";
+};
+
+private _NVGEN3OP = _NVG + "_OPFOR";
+private _NVGEN3IND = _NVG + "_INDEP";
+private _NVGEN3BLU = _NVG;
+
+// =============================================================================
+
+// BINOCULARS ==================================================================
+
+private _binocular = "Binocular";
+private _binoc = _binocular; // Backward compatibility
+private _rangefinder = "Rangefinder";
+private _laserdesignator = "Laserdesignator";
+
+
 // MEDICAL =====================================================================
 
 private _bandage = "FirstAidKit";
@@ -178,6 +209,7 @@ private _satchelCharge = _demoSatchel; // DEPRECATED Use _demoSatchel
 
 // UTILITY =====================================================================
 
+private _parachute = "B_Parachute";
 CONTENT_CARGO(mineDetector,"MineDetector",5);
 CONTENT_CARGO(toolKit,"ToolKit",5);
 

@@ -128,36 +128,3 @@ if (isClass (configfile >> "CfgPatches" >> "FHQ_Accessories")) then {
 	_FHQANPEBLK = "FHQ_acc_ANPEQ15_black";
 	_FHQLLM = "FHQ_acc_LLM01L";
 };
-
-// =============================================================================
-
-// NIGHT-VISION
-
-private _PVS14 = "rhsusf_ANPVS_14";
-private _PVS15 = "rhsusf_ANPVS_15";
-
-private _NVG = "NVGoggles";
-private _NVGEN1 = _NVG;
-private _NVGEN2 = _NVG;
-private _NVGEN4 = _NVG;
-private _NVWIDE = _NVG;
-if (mission_ACE3_enabled) then {
-	_NVGEN1 = "ACE_NVG_Gen1";
-	_NVGEN2 = "ACE_NVG_Gen2";
-	_NVGEN4 = "ACE_NVG_Gen4";
-	_NVWIDE = "ACE_NVG_Wide";
-};
-
-private _NVGEN3OP = _NVG + "_OPFOR";
-private _NVGEN3IND = _NVG + "_INDEP";
-private _NVGEN3BLU = _NVG;
-
-// =============================================================================
-
-// OTHERS
-
-private _parachute = "B_Parachute";
-private _binocular = "Binocular";
-private _binoc = _binocular; // Backward compatibility
-private _rangefinder = "Rangefinder";
-private _laserdesignator = "Laserdesignator";
