@@ -209,12 +209,12 @@ private _satchelCharge = _demoSatchel; // DEPRECATED Use _demoSatchel
 
 // UTILITY =====================================================================
 
-private _parachute = "B_Parachute";
+CONTENT_CARGO_N(parachute,"B_Parachute",parachutes,20);
 CONTENT_CARGO(mineDetector,"MineDetector",5);
 CONTENT_CARGO(toolKit,"ToolKit",5);
 
 CONTENT_CARGO(spareBarrel,"",5);
-private _cableTie = "";
+CONTENT_CARGO_N(cableTie,"",handcuffs,25);
 CONTENT_CARGO(flashlight,,"",5);
 CONTENT_CARGO(clacker,,"",5);
 CONTENT_CARGO(clackerLR,,"",5);

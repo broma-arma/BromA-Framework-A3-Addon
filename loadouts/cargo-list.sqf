@@ -148,18 +148,10 @@ switch (toLower _x) do {
 		[_apMineDirectional, 25]] call BRM_FMK_fnc_addItems;
 	};
 
-	case "handcuffs": {
-		[_object, _cableTie, 25] call BRM_FMK_fnc_addItem;
-	};
-
 	case "radio": {
 		[_object, "SR", _factionSide, 20] call BRM_FMK_fnc_addRadioToCargo;
 		[_object, "LR", _factionSide, 10] call BRM_FMK_fnc_addRadioToCargo;
 		[_object, "BP", _factionSide, 5] call BRM_FMK_fnc_addRadioToCargo;
-	};
-
-	case "parachutes": {
-		[_object, _parachute, 20] call BRM_FMK_fnc_addItem;
 	};
 
 	case "rifle_grenades": { [_object,
