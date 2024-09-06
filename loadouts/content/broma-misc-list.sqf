@@ -215,10 +215,10 @@ CONTENT_CARGO(toolKit,"ToolKit",5);
 
 CONTENT_CARGO(spareBarrel,"",5);
 CONTENT_CARGO_N(cableTie,"",handcuffs,25);
-CONTENT_CARGO(flashlight,,"",5);
-CONTENT_CARGO(clacker,,"",5);
-CONTENT_CARGO(clackerLR,,"",5);
-CONTENT_CARGO(clackerDM,,"",5);
+CONTENT_CARGO(flashlight,"",5);
+CONTENT_CARGO(clacker,"",5);
+CONTENT_CARGO(clackerLR,"",5);
+CONTENT_CARGO(clackerDM,"",5);
 private _deadManSwitch = _clackerDM; // DEPRECATED Use _clackerDM
 CONTENT_CARGO(defusalKit,"",5);
 CONTENT_CARGO(cellphone,"",5);
