@@ -32,9 +32,9 @@ _unit setSpeaker _voice;
 _unit setPitch ([0.85, 1.15] call BIS_fnc_randomNum);
 
 if (_name != "") then {
-	if (mission_ACE3_enabled) then {
+	_unit setName _name;
+
+	if (mission_ACE3_enabled && local _unit) then {
 		[_unit] call ace_common_fnc_setName;
 	};
-
-	_unit setName _name;
 };
