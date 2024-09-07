@@ -1,8 +1,22 @@
-// Nightvision Goggles
+// Nightvision Goggles - copyToClipboard ("configName _x call BIS_fnc_itemType params ['_itemCategory', '_itemType']; getNumber (_x >> 'scope') == 2 && _itemCategory == 'Item' && _itemType == 'NVGoggles' && { !isClass (_x >> 'LinkedItems') || getText (_x >> 'baseWeapon') == configName _x }" configClasses (configfile >> "CfgWeapons") apply { private _dlcInfo = getAssetDLCInfo [configName _x, configfile >> "CfgWeapons"]; format ["""%1""; // %2 - %3%4 %5", configName _x, getText (_x >> "displayName"), ["", format ["%2 (%1), ", _dlcInfo#4, _dlcInfo#5]] select _dlcInfo#0, configSourceModList _x, configName _x call BIS_fnc_itemType] } joinString toString [13])
 private _PVS14 = "rhsusf_ANPVS_14";
 private _PVS15 = "rhsusf_ANPVS_15";
 
-private _NVG = "NVGoggles";
+private _NVG = "NVGoggles"; // NV Goggles (Brown)
+private _NVGBlk = "NVGoggles_OPFOR"; // NV Goggles (Black)
+private _NVGGrn = "NVGoggles_INDEP"; // NV Goggles (Green)
+private _NVGTrc = "NVGoggles_tna_F"; // NV Goggles (Tropic)
+//  Expansion
+private _CNVGHex = "O_NVGoggles_hex_F"; // Compact NVG (Hex)
+private _CNVGUHex = "O_NVGoggles_urb_F"; // Compact NVG (Urban)
+private _CNVGGHex = "O_NVGoggles_ghex_F"; // Compact NVG (Green Hex)
+//  Enoch
+private _CNVGGrn = "O_NVGoggles_grn_F"; // Compact NVG (Green)
+//  Apex
+private _ENVGBlk = "NVGogglesB_blk_F"; // ENVG-II (Black)
+private _ENVGGrn = "NVGogglesB_grn_F"; // ENVG-II (Green)
+private _ENVG = "NVGogglesB_gry_F"; // ENVG-II (Grey)
+
 private _NVGEN1 = _NVG;
 private _NVGEN2 = _NVG;
 private _NVGEN4 = _NVG;
@@ -14,17 +28,23 @@ if (mission_ACE3_enabled) then {
 	_NVWIDE = "ACE_NVG_Wide";
 };
 
-private _NVGEN3OP = _NVG + "_OPFOR";
-private _NVGEN3IND = _NVG + "_INDEP";
+private _NVGEN3OP = _NVGBlk;
+private _NVGEN3IND = _NVGGrn;
 private _NVGEN3BLU = _NVG;
 
-// Binoculars
-private _binocular = "Binocular";
+// Binoculars - copyToClipboard ("configName _x call BIS_fnc_itemType params ['_itemCategory', '_itemType']; getNumber (_x >> 'scope') == 2 && _itemCategory == 'Item' && _itemType in ['Binocular', 'LaserDesignator'] && { !isClass (_x >> 'LinkedItems') || getText (_x >> 'baseWeapon') == configName _x }" configClasses (configfile >> "CfgWeapons") apply { private _dlcInfo = getAssetDLCInfo [configName _x, configfile >> "CfgWeapons"]; format ["""%1""; // %2 - %3%4 %5", configName _x, getText (_x >> "displayName"), ["", format ["%2 (%1), ", _dlcInfo#4, _dlcInfo#5]] select _dlcInfo#0, configSourceModList _x, configName _x call BIS_fnc_itemType] } joinString toString [13])
+private _binocular = "Binocular"; // Binoculars
 private _binoc = _binocular; // Backward compatibility
-private _rangefinder = "Rangefinder";
-private _laserdesignator = "Laserdesignator";
+private _rangefinder = "Rangefinder"; // Rangefinder
+//  Mark
+private _laserdesignator = "Laserdesignator"; // Laser Designator (Sand)
+private _laserdesignatorHex = "Laserdesignator_02"; // Laser Designator (Hex)
+private _laserdesignatorOli = "Laserdesignator_03"; // Laser Designator (Olive)
+//  Expansion
+private _laserdesignatorKhk = "Laserdesignator_01_khk_F"; // Laser Designator (Khaki)
+private _laserdesignatorGHex = "Laserdesignator_02_ghex_F"; // Laser Designator (Green Hex)
 
-// Medical
+// Medical - (UNTESTED) copyToClipboard ("configName _x call BIS_fnc_itemType params ['_itemCategory', '_itemType']; getNumber (_x >> 'scope') == 2 && _itemCategory == 'Item' && _itemType in ['FirstAidKit', 'Medikit', 'Unknown', 'UnknownEquipment', 'UnknownWeapon'] && { !isClass (_x >> 'LinkedItems') || getText (_x >> 'baseWeapon') == configName _x }" configClasses (configfile >> "CfgWeapons") apply { private _dlcInfo = getAssetDLCInfo [configName _x, configfile >> "CfgWeapons"]; format ["""%1""; // %2 - %3%4 %5", configName _x, getText (_x >> "displayName"), ["", format ["%2 (%1), ", _dlcInfo#4, _dlcInfo#5]] select _dlcInfo#0, configSourceModList _x, configName _x call BIS_fnc_itemType] } joinString toString [13])
 private _bandage = "FirstAidKit";
 private _fieldDressing = "";
 private _packingBandage = "";
@@ -109,19 +129,19 @@ if (mission_ACE3_enabled) then {
 };
 
 // Smoke Grenades
-CONTENT_CARGO_N(wSmoke,"SmokeShell",smoke_white,{_countGRENADESCARGO});
-CONTENT_CARGO_N(rSmoke,"SmokeShellRed",smoke_red,{_countGRENADESCARGO});
-CONTENT_CARGO_N(gSmoke,"SmokeShellGreen",smoke_green,{_countGRENADESCARGO});
-CONTENT_CARGO_N(ySmoke,"SmokeShellYellow",smoke_yellow,{_countGRENADESCARGO});
-CONTENT_CARGO_N(pSmoke,"SmokeShellPurple",smoke_purple,{_countGRENADESCARGO});
-CONTENT_CARGO_N(bSmoke,"SmokeShellBlue",smoke_blue,{_countGRENADESCARGO});
-CONTENT_CARGO_N(oSmoke,"SmokeShellOrange",smoke_orange,{_countGRENADESCARGO});
+CONTENT_CARGO_N(wSmoke,"SmokeShell",smoke_white,{_countGRENADESCARGO}); // Smoke Grenade (White)
+CONTENT_CARGO_N(rSmoke,"SmokeShellRed",smoke_red,{_countGRENADESCARGO}); // Smoke Grenade (Red)
+CONTENT_CARGO_N(gSmoke,"SmokeShellGreen",smoke_green,{_countGRENADESCARGO}); // Smoke Grenade (Green)
+CONTENT_CARGO_N(ySmoke,"SmokeShellYellow",smoke_yellow,{_countGRENADESCARGO}); // Smoke Grenade (Yellow)
+CONTENT_CARGO_N(pSmoke,"SmokeShellPurple",smoke_purple,{_countGRENADESCARGO}); // Smoke Grenade (Purple)
+CONTENT_CARGO_N(bSmoke,"SmokeShellBlue",smoke_blue,{_countGRENADESCARGO}); // Smoke Grenade (Blue)
+CONTENT_CARGO_N(oSmoke,"SmokeShellOrange",smoke_orange,{_countGRENADESCARGO}); // Smoke Grenade (Orange)
 
 // Chemlights
-CONTENT_CARGO_N(rChemlight,"Chemlight_red",chemlight_red,{_countGRENADESCARGO});
-CONTENT_CARGO_N(gChemlight,"Chemlight_green",chemlight_green,{_countGRENADESCARGO});
-CONTENT_CARGO_N(bChemlight,"Chemlight_blue",chemlight_blue,{_countGRENADESCARGO});
-CONTENT_CARGO_N(yChemlight,"Chemlight_yellow",chemlight_yellow,{_countGRENADESCARGO});
+CONTENT_CARGO_N(gChemlight,"Chemlight_green",chemlight_green,{_countGRENADESCARGO}); // Chemlight (Green)
+CONTENT_CARGO_N(rChemlight,"Chemlight_red",chemlight_red,{_countGRENADESCARGO}); // Chemlight (Red)
+CONTENT_CARGO_N(yChemlight,"Chemlight_yellow",chemlight_yellow,{_countGRENADESCARGO}); // Chemlight (Yellow)
+CONTENT_CARGO_N(bChemlight,"Chemlight_blue",chemlight_blue,{_countGRENADESCARGO}); // Chemlight (Blue)
 CONTENT_CARGO_N(wChemlight,"",chemlight_white,{_countGRENADESCARGO});
 CONTENT_CARGO_N(oChemlight,"",chemlight_orange,{_countGRENADESCARGO});
 
@@ -135,12 +155,14 @@ CONTENT_CARGO_N(oChemlightHiU,_oChemlight,chemlight_orange_uhi,{_countGRENADESCA
 CONTENT_CARGO(irChemlight,"",{_countGRENADESCARGO});
 
 // Grenades
-CONTENT_CARGO(grenade,"HandGrenade",{_countGRENADESCARGO});
+CONTENT_CARGO(grenade,"HandGrenade",{_countGRENADESCARGO}); // RGO Grenade
 private _grenadeOpfor = _grenade; // DEPRECATED Use _grenade (rund_co21_Norwegian_Fog_v2.tem_vinjesvingenc)
 private _m67Grenade = _grenade; // DEPRECATED Use _grenade (Engee_co24_Snowmen_v02.Chernarus_Winter)
-CONTENT_CARGO(grenadeOffensive,"MiniGrenade",{_countGRENADESCARGO});
+CONTENT_CARGO(grenadeOffensive,"MiniGrenade",{_countGRENADESCARGO}); // RGN Grenade
 
-CONTENT_CARGO(irGrenade,"B_IR_Grenade",{_countGRENADESCARGO});
+CONTENT_CARGO(irGrenade,"B_IR_Grenade",{_countGRENADESCARGO}); // IR Grenade [NATO]
+//"O_IR_Grenade"; // IR Grenade [CSAT]
+//"I_IR_Grenade"; // IR Grenade [AAF]
 CONTENT_CARGO(flashbang,"rhs_mag_mk84",{_countGRENADESCARGO});
 private _cs = "rhs_mag_m7a3_cs";
 CONTENT_CARGO(incendiary,"rhs_mag_an_m14_th3",{_countGRENADESCARGO});
@@ -174,24 +196,24 @@ if (mission_ACE3_enabled) then {
 };
 
 // IEDs
-private _ied = "IEDUrbanSmall_Remote_Mag";
-private _iedLarge = "IEDUrbanBig_Remote_Mag";
-private _iedDirt = "IEDLandSmall_Remote_Mag";
-private _iedDirtLarge = "IEDLandBig_Remote_Mag";
+private _ied = "IEDUrbanSmall_Remote_Mag"; // Small IED (Urban)
+private _iedLarge = "IEDUrbanBig_Remote_Mag"; // Large IED (Urban)
+private _iedDirt = "IEDLandSmall_Remote_Mag"; // Small IED (Dug-in)
+private _iedDirtLarge = "IEDLandBig_Remote_Mag"; // Large IED (Dug-in)
 
 // Mines
-private _atMine = "ATMine_Range_Mag";
-private _dpMine = "SLAMDirectionalMine_Wire_Mag";
-private _apMine = "APERSMine_Range_Mag";
-private _apMineBounding = "APERSBoundingMine_Range_Mag";
+private _atMine = "ATMine_Range_Mag"; // AT Mine
+private _dpMine = "SLAMDirectionalMine_Wire_Mag"; // M6 SLAM Mine
+private _apMine = "APERSMine_Range_Mag"; // APERS Mine
+private _apMineBounding = "APERSBoundingMine_Range_Mag"; // APERS Bounding Mine
 private _apBoundingMine = _apMineBounding; // DEPRECATED Use _apMineBounding
-private _apMineWire = "APERSTripMine_Wire_Mag";
-private _apMineDirectional = "ClaymoreDirectionalMine_Remote_Mag";
+private _apMineWire = "APERSTripMine_Wire_Mag"; // APERS Tripwire Mine
+private _apMineDirectional = "ClaymoreDirectionalMine_Remote_Mag"; // Claymore Charge
 
 // Explosives
-private _demoCharge = "DemoCharge_Remote_Mag";
+private _demoCharge = "DemoCharge_Remote_Mag"; // Explosive Charge
 private _C4 = _demoCharge; // DEPRECATED Use _demoCharge
-private _demoSatchel = "SatchelCharge_Remote_Mag";
+private _demoSatchel = "SatchelCharge_Remote_Mag"; // Explosive Satchel
 private _satchelCharge = _demoSatchel; // DEPRECATED Use _demoSatchel
 
 // Utility
