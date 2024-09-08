@@ -75,6 +75,10 @@ switch (toUpper(_faction)) do {
         #include "factions\jsdf.sqf"
     };
 
+    case "LDF": {
+        #include "factions\ldf.sqf"
+    };
+
     case "LINGOR_ARMY": {
         #include "factions\lingor_army.sqf"
     };
