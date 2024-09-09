@@ -218,7 +218,7 @@ switch (_event) do {
 		private _ctrlLeftContent = _display displayCtrl IDC_MPG_LEFTCONTENT;
 		private _leftContentIndex = -1;
 		for "_i" from 0 to (lbSize _ctrlLeftContent - 1) do {
-			if (((_ctrlLeftContent lbValue _i) % count _cfgVehicles) == _vehiclesIndex) exitWith { 
+			if (((_ctrlLeftContent lbValue _i) % count _cfgVehicles) == _vehiclesIndex) exitWith {
 				_leftContentIndex = _i;
 			};
 		};

@@ -60,11 +60,11 @@ class Voices {
 };
 
 /*
-private _voice = "Male01RUS"; 
-private _cfgWordsNormal = configFile >> getText (configfile >> "CfgVoice" >> _voice >> "protocol") >> "Words" >> "Normal"; 
-//private _cfgWord = _cfgWordsNormal select floor random count _cfgWordsNormal; 
-private _cfgWord = _cfgWordsNormal >> "SuppressiveFire"; 
-private _file = format ["%1%2",  getArray (configFile >> "CfgVoice" >> _voice >> "directories")#0,  getArray _cfgWord#0]; 
-playSound3D [_file, player, false, getPosASL player, 5, 1, 10, 0, true]; 
+private _voice = "Male01RUS";
+private _cfgWordsNormal = configFile >> getText (configfile >> "CfgVoice" >> _voice >> "protocol") >> "Words" >> "Normal";
+//private _cfgWord = _cfgWordsNormal select floor random count _cfgWordsNormal;
+private _cfgWord = _cfgWordsNormal >> "SuppressiveFire";
+private _file = format ["%1%2",  getArray (configFile >> "CfgVoice" >> _voice >> "directories")#0,  getArray _cfgWord#0];
+playSound3D [_file, player, false, getPosASL player, 5, 1, 10, 0, true];
 [configName _cfgWord, _file]
 */

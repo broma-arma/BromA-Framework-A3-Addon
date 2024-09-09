@@ -61,7 +61,7 @@ private _direction = switch (typeName _position) do {
 		if (count _position > 3) exitWith {
 			_position deleteAt 3
 		};
-		
+
 		0
 	};
 	case "STRING": { markerDir _position };
