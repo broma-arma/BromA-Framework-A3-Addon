@@ -45,7 +45,7 @@ if (_code isEqualType "") then {
 sleep 1;
 
 {
-    {
+	{
 		if (call _filter) then {
 			call _code;
 		};

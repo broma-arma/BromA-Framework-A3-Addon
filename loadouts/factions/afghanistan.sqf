@@ -25,8 +25,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_AFGHANISTAN
-	"ana"
-	"anp"
+    "ana"
+    "anp"
 */
 
 _camo = "ana";
@@ -38,7 +38,7 @@ _rifleLIST = [
 	_RHSAKM,
 	_RHSAKMS,
 	_AK74N,
-    ["hlc_wp_m16a2","hlc_30rnd_556x45_EPR"]
+	["hlc_wp_m16a2","hlc_30rnd_556x45_EPR"]
 ];
 
 _commonRIFLE = selectRandom _rifleLIST;
@@ -113,16 +113,16 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhs_ssh68_2",
-    "rhs_beanie_green",
-    "rhssaf_helmet_m97_olive_nocamo",
-    "UK3CB_ANA_B_H_Patrolcap_spec4ce",
-    "UK3CB_ANA_B_H_6b27m_SPEC4CE"
+	"rhs_ssh68_2",
+	"rhs_beanie_green",
+	"rhssaf_helmet_m97_olive_nocamo",
+	"UK3CB_ANA_B_H_Patrolcap_spec4ce",
+	"UK3CB_ANA_B_H_6b27m_SPEC4CE"
 ];
 
 _uniformsLIST = [
-    "UK3CB_ANA_B_U_CombatUniform_01_SPEC4CE",
-    "UK3CB_ANA_B_U_CombatUniform_Shortsleeve_01_SPEC4CE"
+	"UK3CB_ANA_B_U_CombatUniform_01_SPEC4CE",
+	"UK3CB_ANA_B_U_CombatUniform_Shortsleeve_01_SPEC4CE"
 ];
 
 _randomUNIFORM = selectRandom _uniformsLIST;
@@ -171,59 +171,59 @@ _reconBACKPACK = "UK3CB_ANA_B_B_RIF";
 
 if (_camo == 'anp') then {
 
-    _headsLIST = [
-        "UK3CB_ANP_B_H_Patrolcap_Off_BLU",
-        "empty"
-    ];
+	_headsLIST = [
+		"UK3CB_ANP_B_H_Patrolcap_Off_BLU",
+		"empty"
+	];
 
-    _uniformsLIST = [
-        "UK3CB_ANP_B_U_CombatUniform_01_BLU",
-        "UK3CB_ANP_B_U_CombatUniform_Shortsleeve_01_BLU"
-    ];
+	_uniformsLIST = [
+		"UK3CB_ANP_B_U_CombatUniform_01_BLU",
+		"UK3CB_ANP_B_U_CombatUniform_Shortsleeve_01_BLU"
+	];
 
-    _randomUNIFORM = selectRandom _uniformsLIST;
-    _randomHEAD = selectRandom _headsLIST;
+	_randomUNIFORM = selectRandom _uniformsLIST;
+	_randomHEAD = selectRandom _headsLIST;
 
-    _commonHEAD = _randomHEAD;
-    _leaderHEAD = "UK3CB_ANP_B_H_Patrolcap_Off_BLU";
-    _officerHEAD = "UK3CB_ANP_B_H_Beret";
-    _medicHEAD = _commonHEAD;
-    _crewmanHEAD = "rhs_tsh4_ess";
-    _pilotHEAD = "BRM_SPH4V_BROWN";
-    _helicrewHEAD = "BRM_SPH4V_BROWN";
-    _helipilotHEAD = "BRM_SPH4V_BROWN";
-    _sniperHEAD = _commonHEAD;
-    _demoHEAD = _commonHEAD;
-    _reconHEAD = _commonHEAD;
+	_commonHEAD = _randomHEAD;
+	_leaderHEAD = "UK3CB_ANP_B_H_Patrolcap_Off_BLU";
+	_officerHEAD = "UK3CB_ANP_B_H_Beret";
+	_medicHEAD = _commonHEAD;
+	_crewmanHEAD = "rhs_tsh4_ess";
+	_pilotHEAD = "BRM_SPH4V_BROWN";
+	_helicrewHEAD = "BRM_SPH4V_BROWN";
+	_helipilotHEAD = "BRM_SPH4V_BROWN";
+	_sniperHEAD = _commonHEAD;
+	_demoHEAD = _commonHEAD;
+	_reconHEAD = _commonHEAD;
 
-    _commonUNIFORM = _randomUNIFORM;
-    _officerUNIFORM = _randomUNIFORM;
-    _pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
-    _sniperUNIFORM = _randomUNIFORM;
-    _marksmanUNIFORM = _commonUNIFORM;
-    _helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
-    _crewUNIFORM = _commonUNIFORM;
-    _mgUNIFORM = _commonUNIFORM;
-    _medicUNIFORM = _randomUNIFORM;
-    _demoUNIFORM = _commonUNIFORM;
-    _reconUNIFORM = _commonUNIFORM;
+	_commonUNIFORM = _randomUNIFORM;
+	_officerUNIFORM = _randomUNIFORM;
+	_pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
+	_sniperUNIFORM = _randomUNIFORM;
+	_marksmanUNIFORM = _commonUNIFORM;
+	_helicrewUNIFORM = "UK3CB_CHC_C_U_Overall_01";
+	_crewUNIFORM = _commonUNIFORM;
+	_mgUNIFORM = _commonUNIFORM;
+	_medicUNIFORM = _randomUNIFORM;
+	_demoUNIFORM = _commonUNIFORM;
+	_reconUNIFORM = _commonUNIFORM;
 
-    _commonVEST = selectRandom ["UK3CB_V_Chestrig_Tan","UK3CB_V_Chestrig_WDL_02"];
-    _officerVEST = _commonVEST;
-    _ftlVEST = _commonVEST;
-    _slVEST = _commonVEST;
-    _mgVEST = _commonVEST;
-    _grenadierVEST = _commonVEST;
-    _medicVEST = _commonVEST;
-    _demoVEST = _commonVEST;
-    _marksmanVEST = _commonVEST;
-    _reconVEST = _commonVEST;
-    _pilotVEST = "UK3CB_V_Pilot_Vest";
+	_commonVEST = selectRandom ["UK3CB_V_Chestrig_Tan","UK3CB_V_Chestrig_WDL_02"];
+	_officerVEST = _commonVEST;
+	_ftlVEST = _commonVEST;
+	_slVEST = _commonVEST;
+	_mgVEST = _commonVEST;
+	_grenadierVEST = _commonVEST;
+	_medicVEST = _commonVEST;
+	_demoVEST = _commonVEST;
+	_marksmanVEST = _commonVEST;
+	_reconVEST = _commonVEST;
+	_pilotVEST = "UK3CB_V_Pilot_Vest";
 
-    _commonBACKPACK = "UK3CB_B_Alice_K";
-    _bigBACKPACK = _commonBACKPACK;
-    _specATBACKPACK = "rhs_rpg_2";
-    _reconBACKPACK = _commonBACKPACK;
+	_commonBACKPACK = "UK3CB_B_Alice_K";
+	_bigBACKPACK = _commonBACKPACK;
+	_specATBACKPACK = "rhs_rpg_2";
+	_reconBACKPACK = _commonBACKPACK;
 
 };
 

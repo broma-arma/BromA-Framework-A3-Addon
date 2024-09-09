@@ -22,7 +22,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_ROKA
-	  "GRANITE"
+    "GRANITE"
     "ROKMC"
     "DESERT"
 */
@@ -33,7 +33,7 @@ _rhp = "fg"; // Recon Head Pattern
 
 if (_camo == "ROKMC") then {
 	_lp = "ROKMC";
-    _rhp = "fg";
+	_rhp = "fg";
 };
 
 // WEAPONS =====================================================================
@@ -111,11 +111,11 @@ _countPAKCARGO = 10;
 
 _headsLIST = [
 	"BRM_LWH_"+_lp,
-  "BRM_LWH_COMS_"+_lp,
-  "BRM_LWH_COMS_GHILLIE_"+_lp,
-  "BRM_LWH_MASK_"+_lp,
-  "BRM_LWH_MASK_COMS_"+_lp,
-  "BRM_LWH_GHILLIE_"+_lp
+	"BRM_LWH_COMS_"+_lp,
+	"BRM_LWH_COMS_GHILLIE_"+_lp,
+	"BRM_LWH_MASK_"+_lp,
+	"BRM_LWH_MASK_COMS_"+_lp,
+	"BRM_LWH_GHILLIE_"+_lp
 ];
 
 _randomHEAD = selectRandom _headsLIST;
@@ -132,9 +132,9 @@ _helipilotHEAD = "rhsusf_hgu56p_visor_green";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = selectRandom [
-    "rhsusf_opscore_"+_rhp+"_pelt",
-    "rhsusf_opscore_"+_rhp+"_pelt_cam",
-    "rhsusf_opscore_"+_rhp+"_pelt_nsw"
+	"rhsusf_opscore_"+_rhp+"_pelt",
+	"rhsusf_opscore_"+_rhp+"_pelt_cam",
+	"rhsusf_opscore_"+_rhp+"_pelt_nsw"
 ];
 
 _commonUNIFORM = selectRandom ["BRM_BattleUNI_"+_lp,"BRM_BattleUNIRS_"+_lp];;
@@ -206,9 +206,9 @@ _reconBACKPACK = "B_Carryall_mcamo";
 
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // MISC EQUIPMENT =============================================================
@@ -231,25 +231,25 @@ _UAVBag = "auto";
 _UAVTerminal = "auto";
 
 // VEHICLES ====================================================================
-     _factionVehicles = [
-    /*  Anti Air Vehicles */ ["RHS_M6_wd"]
-    /*  Attack Helos      */,["RHS_AH1Z_CS", "RHS_AH1Z_GS", "RHS_AH64D_wd_AA", "RHS_AH64D_wd_CS", "RHS_AH64D_wd_GS", "RHS_AH64D_wd"]
-    /*  Attack Planes     */,["JS_JC_FA18E", "CUP_B_F35B_USMC"]
-    /*  Heavy Vehicles    */,["UK3CB_CW_US_B_LATE_M1A1","UK3CB_LDF_B_Leopard_Cage_Camo"]
-    /*  Light Vehicles    */,["rhs_tigr_msv","rhs_tigr_m_msv"]
-    /*  Medium Vehicles   */,["UK3CB_LDF_B_Marshall_Camo","UK3CB_LDF_B_Marshall"]
-    /*  Mobile Artillery  */,["rhsusf_m109_usarmy"]
-    /*  Transport Helos   */,["RHS_MELB_MH6M", "RHS_MELB_H6M","UK3CB_CW_US_B_LATE_UH60M"]
-    /*  Transport Planes  */,["RHS_C130J"]
-    /*  Transport Trucks  */,["UK3CB_CW_US_B_LATE_M939_Guntruck", "UK3CB_CW_US_B_LATE_M939"]
-    /*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_TOW_TriPod_D"]
-    /*  Boats             */,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
-    /*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
-    /*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
-    /*  Support           */,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd", "B_Truck_01_fuel_F"]
-    /*  Submarines        */,["B_SDV_01_F"]
-    /*  MRAP Vehicles     */,["UK3CB_CW_US_B_LATE_M113_M2", "UK3CB_CW_US_B_LATE_M113_MK19"]
-    ];
+_factionVehicles = [
+/*  Anti Air Vehicles */ ["RHS_M6_wd"]
+/*  Attack Helos      */,["RHS_AH1Z_CS", "RHS_AH1Z_GS", "RHS_AH64D_wd_AA", "RHS_AH64D_wd_CS", "RHS_AH64D_wd_GS", "RHS_AH64D_wd"]
+/*  Attack Planes     */,["JS_JC_FA18E", "CUP_B_F35B_USMC"]
+/*  Heavy Vehicles    */,["UK3CB_CW_US_B_LATE_M1A1","UK3CB_LDF_B_Leopard_Cage_Camo"]
+/*  Light Vehicles    */,["rhs_tigr_msv","rhs_tigr_m_msv"]
+/*  Medium Vehicles   */,["UK3CB_LDF_B_Marshall_Camo","UK3CB_LDF_B_Marshall"]
+/*  Mobile Artillery  */,["rhsusf_m109_usarmy"]
+/*  Transport Helos   */,["RHS_MELB_MH6M", "RHS_MELB_H6M","UK3CB_CW_US_B_LATE_UH60M"]
+/*  Transport Planes  */,["RHS_C130J"]
+/*  Transport Trucks  */,["UK3CB_CW_US_B_LATE_M939_Guntruck", "UK3CB_CW_US_B_LATE_M939"]
+/*  Static Defence    */,["RHS_Stinger_AA_pod_D", "RHS_M2StaticMG_D", "RHS_TOW_TriPod_D"]
+/*  Boats             */,["B_Boat_Transport_01_F", "B_Boat_Armed_01_minigun_F"]
+/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
+/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
+/*  Support           */,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd", "B_Truck_01_fuel_F"]
+/*  Submarines        */,["B_SDV_01_F"]
+/*  MRAP Vehicles     */,["UK3CB_CW_US_B_LATE_M113_M2", "UK3CB_CW_US_B_LATE_M113_MK19"]
+];
 
 // OBJECTS =====================================================================
 

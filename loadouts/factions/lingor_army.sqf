@@ -85,13 +85,13 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhsgref_helmet_M1_bare",
+	"rhsgref_helmet_M1_bare",
 	"rhsgref_helmet_M1_bare_alt01",
 	"rhsgref_helmet_M1_painted"
 ];
 
 _uniformsLIST = [
-    "rhsgref_uniform_og107",
+	"rhsgref_uniform_og107",
 	"rhsgref_uniform_og107_erdl"
 ];
 

@@ -22,8 +22,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_CAF
-	"CADPATD"
-	"CADPATW"
+    "CADPATD"
+    "CADPATW"
 */
 
 _camo = "CADPATW";
@@ -98,17 +98,17 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "BRM_LWH_"+_camo,
-    "BRM_LWH_COMS_"+_camo,
-    "BRM_LWH_MASK_"+_camo,
-    "BRM_LWH_MASK_COMS_"+_camo,
-    "BRM_LWH_GHILLIE_"+_camo,
-    "BRM_LWH_COMS_GHILLIE_"+_camo
+	"BRM_LWH_"+_camo,
+	"BRM_LWH_COMS_"+_camo,
+	"BRM_LWH_MASK_"+_camo,
+	"BRM_LWH_MASK_COMS_"+_camo,
+	"BRM_LWH_GHILLIE_"+_camo,
+	"BRM_LWH_COMS_GHILLIE_"+_camo
 ];
 
 _uniformsLIST = [
-    "BRM_BattleUNI_"+_camo,
-    "BRM_BattleUNIRS_"+_camo
+	"BRM_BattleUNI_"+_camo,
+	"BRM_BattleUNIRS_"+_camo
 ];
 
 _randomHEAD = selectRandom _headsLIST;
@@ -156,9 +156,9 @@ _bigBACKPACK = "BRM_PatrolBP_"+_camo;
 _reconBACKPACK = "BRM_PatrolBPH_"+_camo;
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // MISC EQUIPMENT ==============================================================

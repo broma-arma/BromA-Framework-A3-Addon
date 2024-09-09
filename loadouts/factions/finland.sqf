@@ -22,8 +22,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_FINLAND
-	"frost"
-	"sum"
+    "frost"
+    "sum"
 */
 
 _camo = "sum";
@@ -97,8 +97,8 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "BRM_ACH_FM05"+_camo,
-    "BRM_ACH_MASK_FM05"+_camo
+	"BRM_ACH_FM05"+_camo,
+	"BRM_ACH_MASK_FM05"+_camo
 ];
 
 if (_camo == "sum") then {_headsLIST pushBack "BRM_ACH_GHILLIE_COMS_FM05"+_camo};
@@ -149,9 +149,9 @@ _specATBACKPACK = _commonBACKPACK;
 _reconBACKPACK = "BRM_PatrolBPH_Green";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // MISC EQUIPMENT ==============================================================

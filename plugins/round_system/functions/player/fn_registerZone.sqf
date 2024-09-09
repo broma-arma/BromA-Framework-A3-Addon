@@ -1,7 +1,7 @@
 if (!isDedicated) then {
 	if (isNil "sandi_barrier_index") then { // not initialised
-            sandi_barrier_index = 0;
-            sandi_barrier_barriers = [];
+		sandi_barrier_index = 0;
+		sandi_barrier_barriers = [];
 	};
 	_id = sandi_barrier_index;
 	sandi_barrier_index = sandi_barrier_index +1;
@@ -20,8 +20,8 @@ if (!isDedicated) then {
 		_theta     = _args select 3;
 
 		if (count _args > 4) then {
-                    _shape   = _args select 4;
-                    _text    = _args select 5;
+			_shape   = _args select 4;
+			_text    = _args select 5;
 		};
 
 		_cos = cos(_theta);
@@ -38,9 +38,9 @@ if (!isDedicated) then {
 
 			_disabled = false;
 			if (!isNil "sandi_barrier_disabled") then {
-                            if (sandi_barrier_disabled) then {
-                                _disabled = true;
-                            };
+				if (sandi_barrier_disabled) then {
+					_disabled = true;
+				};
 			};
 
 			_state = sandi_barrier_barriers select _id;
@@ -53,8 +53,8 @@ if (!isDedicated) then {
 				if (driver (vehicle player) == player) then { // player is driving
 					_playerVeh = vehicle player;
 				} else {
-                                    _disabled = true;
-                                    _sleep = 1;
+					_disabled = true;
+					_sleep = 1;
 				};
 			};
 
@@ -85,12 +85,12 @@ if (!isDedicated) then {
 					}};
 
 				if (_move) then {
-                                    hintSilent _text;
-                                    _newX = (_rCos * _newX2) - (_rSin * _newY2);
-                                    _newY = (_rSin * _newX2) + (_rCos * _newY2);
-                                    _playerVeh setPos [(_pos select 0) + _newX, (_pos select 1) + _newY, (getPos _playerVeh) select 2];
-                                    _playerVeh setVelocity [0,0,0];
-                                    _sleep = 0.05;
+					hintSilent _text;
+					_newX = (_rCos * _newX2) - (_rSin * _newY2);
+					_newY = (_rSin * _newX2) + (_rCos * _newY2);
+					_playerVeh setPos [(_pos select 0) + _newX, (_pos select 1) + _newY, (getPos _playerVeh) select 2];
+					_playerVeh setVelocity [0,0,0];
+					_sleep = 0.05;
 				} else {
 					if (_x2 > (_xDistance -100)) then {
 						_sleep = 0.2;
@@ -113,5 +113,5 @@ if (!isDedicated) then {
 			sleep _sleep;
 		};
 	};
-    _id // return
+	_id // return
 };

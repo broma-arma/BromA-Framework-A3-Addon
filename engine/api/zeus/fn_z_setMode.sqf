@@ -38,19 +38,19 @@ if (count _this > 2) then { _side = _this select 2 };
 _units = (curatorSelected select 0);
 
 if ( (count _units) > 0) then {
-    {
-        if (count _this > 2) then {
-            if (side _x == _side) then {
-                [[_x,_combat,_behav], {
-                    (group (_this select 0)) setCombatMode (_this select 1);
-                    (group (_this select 0)) setBehaviour (_this select 2);
-                }] remoteExec ["call", 0];
-            };
-        } else {
-            [[_x,_combat,_behav], {
-                (group (_this select 0)) setCombatMode (_this select 1);
-                (group (_this select 0)) setBehaviour (_this select 2);
-            }] remoteExec ["call", 0];
-        };
-    } forEach _units;
+	{
+		if (count _this > 2) then {
+			if (side _x == _side) then {
+				[[_x,_combat,_behav], {
+					(group (_this select 0)) setCombatMode (_this select 1);
+					(group (_this select 0)) setBehaviour (_this select 2);
+				}] remoteExec ["call", 0];
+			};
+		} else {
+			[[_x,_combat,_behav], {
+				(group (_this select 0)) setCombatMode (_this select 1);
+				(group (_this select 0)) setBehaviour (_this select 2);
+			}] remoteExec ["call", 0];
+		};
+	} forEach _units;
 };

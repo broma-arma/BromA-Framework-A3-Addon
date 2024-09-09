@@ -66,33 +66,33 @@ if (player getVariable ["unit_initialized", false]) exitWith {};
 player setVariable ["unit_side", side player, true];
 
 switch (side player) do {
-    case side_a_side: { if !(player in mission_players_A) then { mission_players_A pushBack player; publicVariable "mission_players_A" }; };
-    case side_b_side: { if !(player in mission_players_B) then { mission_players_B pushBack player; publicVariable "mission_players_B" }; };
-    case side_c_side: { if !(player in mission_players_C) then { mission_players_C pushBack player; publicVariable "mission_players_C" }; };
+	case side_a_side: { if !(player in mission_players_A) then { mission_players_A pushBack player; publicVariable "mission_players_A" }; };
+	case side_b_side: { if !(player in mission_players_B) then { mission_players_B pushBack player; publicVariable "mission_players_B" }; };
+	case side_c_side: { if !(player in mission_players_C) then { mission_players_C pushBack player; publicVariable "mission_players_C" }; };
 };
 
 // Reads player faction and assigns the unit loadout. ==========================
 
 _faction = switch (_faction) do {
-    case "side_a": { side_a_faction };
-    case "side_b": { side_b_faction };
-    case "side_c": { side_c_faction };
-    default        { _faction };
+	case "side_a": { side_a_faction };
+	case "side_b": { side_b_faction };
+	case "side_c": { side_c_faction };
+	default        { _faction };
 };
 
 private _aliasAUTO = ["*", "AUTO", "ANY"];
 private _aliasNONE = ["-", "NONE", "VANILLA"];
 
 if (toUpper _faction in _aliasAUTO) then {
-    _faction = [side player, "faction"] call BRM_FMK_fnc_getSideInfo;
+	_faction = [side player, "faction"] call BRM_FMK_fnc_getSideInfo;
 };
 
 if (toUpper _role in _aliasAUTO) then {
-    _role = getText (configfile >> "CfgVehicles" >> typeOf player >> "displayName");
+	_role = getText (configfile >> "CfgVehicles" >> typeOf player >> "displayName");
 };
 
 if (!(_faction in _aliasNONE) && !units_player_useVanillaGear) then {
-    [player, _faction, _role] call BRM_fnc_assignLoadout;
+	[player, _faction, _role] call BRM_fnc_assignLoadout;
 };
 
 // Holster player's weapon. ====================================================
@@ -102,16 +102,16 @@ if (!(_faction in _aliasNONE) && !units_player_useVanillaGear) then {
 // Assigns alias to other units and groups. ====================================
 
 if (didJIP) then {
-    [player, _groupName, _role] call BRM_FMK_fnc_setAlias;
+	[player, _groupName, _role] call BRM_FMK_fnc_setAlias;
 };
 
 // Initializes score related variables. ========================================
 
 if (isNil {player getVariable "unit_score"}) then {
-    player setVariable ["unit_score", 0];
+	player setVariable ["unit_score", 0];
 };
 if (isNil {player getVariable "unit_deaths"}) then {
-    player setVariable ["unit_deaths", 0];
+	player setVariable ["unit_deaths", 0];
 };
 
 // Adds Event Handlers with pre-configured functions. ==========================
@@ -121,18 +121,18 @@ player addEventHandler ["Hit", { (_this select 0) setVariable ["last_damage", _t
 player addEventHandler ["Killed", BRM_fnc_onPlayerKilled];
 
 addMissionEventHandler ["EntityKilled", {
-    params ["_unit", "_killer", "_instigator", "_useEffects"];
-    _unit setMimic "dead";
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	_unit setMimic "dead";
 }];
 
 // Changes the player's assigned color within its group. =======================
 
 [toUpper _groupColor] spawn {
-    params ["_color"];
-    private _nColor = if (_color == "WHITE") then { "MAIN" } else { _color };
+	params ["_color"];
+	private _nColor = if (_color == "WHITE") then { "MAIN" } else { _color };
 
-    sleep 5;
-    player assignTeam _nColor;
+	sleep 5;
+	player assignTeam _nColor;
 };
 
 // Disables object recognition to save performance. ============================

@@ -69,8 +69,8 @@ class MPDisplayGarage {
 			idc = IDC_MPG_TABRIGHTBACKGROUND;
 			x = GUI_ANCHOR_RIGHT(PANEL_WIDTH);
 		};
-    };
-    class Controls {
+	};
+	class Controls {
 		class Menu: ctrlMenuStrip {
 			idc=IDC_MPG_MENU;
 			x = GUI_ANCHOR_LEFT(GUI_PIXEL_GRID_W * 0);
@@ -385,7 +385,7 @@ class MPDisplayGarage_Saves {
 			h = GUI_PIXEL_GRID_HAbs * 0.25;
 		};
 	};
-    class Controls {
+	class Controls {
 		class Title: ctrlStaticTitle {
 			idc = IDC_MPG_SAVES_TITLE;
 			x = 0.5 - (GUI_PIXEL_GRID_WAbs * 0.35) / 2;

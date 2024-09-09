@@ -137,9 +137,9 @@ _commonBACKPACK = "BRM_PatrolBP_NORSK";
 _bigBACKPACK = "BRM_PatrolBPH_NORSK";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // EXTRA EQUIPMENT =============================================================

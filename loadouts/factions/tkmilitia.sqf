@@ -111,7 +111,7 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "UK3CB_TKM_O_U_01",
+	"UK3CB_TKM_O_U_01",
 	"UK3CB_TKM_O_U_01_B",
 	"UK3CB_TKM_O_U_01_C",
 	"UK3CB_TKM_O_U_01_D",
@@ -124,8 +124,8 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "V_TacChestrig_grn_F",
-    "V_TacChestrig_oli_F"
+	"V_TacChestrig_grn_F",
+	"V_TacChestrig_oli_F"
 ];
 
 _randomHEAD = selectRandom _headsLIST;

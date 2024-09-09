@@ -22,8 +22,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_POLAND
-	"wdl" woodland
-	"des" desert
+    "wdl" woodland
+    "des" desert
 */
 
 _camo = "wdl";
@@ -152,9 +152,9 @@ _commonBACKPACK = if (_camo == "wdl") then {"BRM_PatrolBP_Green"} else {"BRM_Pat
 _bigBACKPACK = if (_camo == "wdl") then {"BRM_PatrolBP_Green"} else {"BRM_PatrolBPH_Brown"};
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // EXTRA EQUIPMENT =============================================================

@@ -22,8 +22,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_FRANCE
-	"CCE"
-	"DAGUET"
+    "CCE"
+    "DAGUET"
     "WINTER"
 */
 
@@ -97,7 +97,7 @@ _countPAKCARGO = 10;
 
 
 _headsLIST = [
-    "BRM_LWH_COMS_"+_camo,
+	"BRM_LWH_COMS_"+_camo,
 	"BRM_LWH_MASK_COMS_"+_camo
 ];
 
@@ -139,32 +139,32 @@ _marksmanVEST  = _commonVEST;
 _reconVEST     = "BRM_RRV_BROWN_REC1";
 
 if (_camo == "WINTER") then {
-    _headsLIST = [
-        "rhsusf_ach_bare_headset",
-        "rhsusf_ach_bare_wood_headset"
-    ];
+	_headsLIST = [
+		"rhsusf_ach_bare_headset",
+		"rhsusf_ach_bare_wood_headset"
+	];
 
-    _vestsLIST = [
-        "UK3CB_V_MBAV_RIFLEMAN_WIN",
-        "UK3CB_V_MBAV_MG_WIN"
-    ];
+	_vestsLIST = [
+		"UK3CB_V_MBAV_RIFLEMAN_WIN",
+		"UK3CB_V_MBAV_MG_WIN"
+	];
 
-    _randomHEAD = selectRandom _headsLIST;
-    _randomUNIFORM = selectRandom _uniformsLIST;
-    _randomVEST = selectRandom _vestsLIST;
+	_randomHEAD = selectRandom _headsLIST;
+	_randomUNIFORM = selectRandom _uniformsLIST;
+	_randomVEST = selectRandom _vestsLIST;
 
-    _commonUNIFORM = "UK3CB_ION_B_U_CombatSmock_01_WIN";
-    _commonHEAD = _randomHEAD;
-    _leaderHEAD = _commonHEAD;
-    _officerHEAD = _commonHEAD;
-    _medicHEAD = _commonHEAD;
-    _crewmanHEAD = "rhsusf_cvc_ess";
-    _pilotHEAD = "rhsusf_hgu56p";
-    _helicrewHEAD = "rhsusf_hgu56p_mask";
-    _helipilotHEAD = "rhsusf_hgu56p";
-    _sniperHEAD = _commonHEAD;
-    _demoHEAD = _commonHEAD;
-    _reconHEAD = _commonHEAD;
+	_commonUNIFORM = "UK3CB_ION_B_U_CombatSmock_01_WIN";
+	_commonHEAD = _randomHEAD;
+	_leaderHEAD = _commonHEAD;
+	_officerHEAD = _commonHEAD;
+	_medicHEAD = _commonHEAD;
+	_crewmanHEAD = "rhsusf_cvc_ess";
+	_pilotHEAD = "rhsusf_hgu56p";
+	_helicrewHEAD = "rhsusf_hgu56p_mask";
+	_helipilotHEAD = "rhsusf_hgu56p";
+	_sniperHEAD = _commonHEAD;
+	_demoHEAD = _commonHEAD;
+	_reconHEAD = _commonHEAD;
 };
 
 _commonBACKPACK = "UK3CB_ION_B_B_ASS_WIN_01";

@@ -9,7 +9,7 @@ if (isServer) then {
 // SERVER CODE
 // =============================================================================
 
-    [] call BRM_FMK_Round_System_fnc_setMatchVariables;
+	[] call BRM_FMK_Round_System_fnc_setMatchVariables;
 
 // =============================================================================
 };
@@ -26,36 +26,36 @@ if (hasInterface) then {
 
 0 spawn {
 
-    sleep 0.1;
+	sleep 0.1;
 // =============================================================================
 // CODE TO BE EXECUTED IN-GAME:
 // =============================================================================
 
-    player allowDamage false;
+	player allowDamage false;
 
-    sleep 3;
+	sleep 3;
 
-    ["Timer",[format ["The match begins in %1 seconds!", round_prep_time_seconds]]] call BIS_fnc_showNotification;
+	["Timer",[format ["The match begins in %1 seconds!", round_prep_time_seconds]]] call BIS_fnc_showNotification;
 
-    sleep round_prep_time_seconds;
+	sleep round_prep_time_seconds;
 
-    if (isServer) then {
-    // =========================================================================
-    // SERVER CODE
-    // =========================================================================
+	if (isServer) then {
+	// =========================================================================
+	// SERVER CODE
+	// =========================================================================
 
-        [] call BRM_FMK_Round_System_fnc_roundStart;
+		[] call BRM_FMK_Round_System_fnc_roundStart;
 
-    // =========================================================================
-    };
+	// =========================================================================
+	};
 
-    if (hasInterface) then {
-    // =========================================================================
-    // PLAYER CODE
-    // =========================================================================
+	if (hasInterface) then {
+	// =========================================================================
+	// PLAYER CODE
+	// =========================================================================
 
-        [] call BRM_FMK_Round_System_fnc_roundStartPlayer;
+		[] call BRM_FMK_Round_System_fnc_roundStartPlayer;
 
-    // =========================================================================
-    };
+	// =========================================================================
+	};
 };

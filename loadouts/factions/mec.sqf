@@ -84,22 +84,22 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhsgref_helmet_pasgt_3color_desert",
-    "rhsgref_helmet_pasgt_3color_desert_rhino"
+	"rhsgref_helmet_pasgt_3color_desert",
+	"rhsgref_helmet_pasgt_3color_desert_rhino"
 ];
 
 _uniformsLIST = [
-    "rhsgref_uniform_3color_desert"
+	"rhsgref_uniform_3color_desert"
 ];
 
 _vestsLIST = [
-    "UK3CB_MD12_VEST_Rifleman_KHK",
-    "UK3CB_MD12_VEST_KHK"
+	"UK3CB_MD12_VEST_Rifleman_KHK",
+	"UK3CB_MD12_VEST_KHK"
 ];
 
 _goggleLIST = [
-    "UK3CB_G_Neck_Shemag_Tan",
-    "rhsusf_shemagh_gogg_tan"
+	"UK3CB_G_Neck_Shemag_Tan",
+	"rhsusf_shemagh_gogg_tan"
 ];
 
 _randomHEAD = selectRandom _headsLIST;

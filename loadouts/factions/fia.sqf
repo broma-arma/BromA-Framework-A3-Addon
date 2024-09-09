@@ -91,37 +91,37 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "H_Bandanna_khk",
-    "H_Bandanna_mcamo",
-    "H_Bandanna_sgg",
-    "H_Bandanna_sand",
-    "H_Cap_blk",
-    "H_Cap_blu",
-    "H_Cap_oli_hs",
-    "H_Shemag_olive",
-    "H_Shemag_olive_hs",
-    "H_ShemagOpen_tan",
-    "H_ShemagOpen_khk"
+	"H_Bandanna_khk",
+	"H_Bandanna_mcamo",
+	"H_Bandanna_sgg",
+	"H_Bandanna_sand",
+	"H_Cap_blk",
+	"H_Cap_blu",
+	"H_Cap_oli_hs",
+	"H_Shemag_olive",
+	"H_Shemag_olive_hs",
+	"H_ShemagOpen_tan",
+	"H_ShemagOpen_khk"
 ];
 
 _uniformsLIST = [
-    "U_BG_Guerrilla_6_1",
-    "U_BG_Guerilla1_1",
-    "U_BG_Guerilla2_2",
-    "U_BG_Guerilla2_1",
-    "U_BG_Guerilla2_3",
-    "U_BG_Guerilla3_1",
-    "U_BG_leader",
-    "U_C_HunterBody_grn",
-    "U_I_G_Story_Protagonist_F"
+	"U_BG_Guerrilla_6_1",
+	"U_BG_Guerilla1_1",
+	"U_BG_Guerilla2_2",
+	"U_BG_Guerilla2_1",
+	"U_BG_Guerilla2_3",
+	"U_BG_Guerilla3_1",
+	"U_BG_leader",
+	"U_C_HunterBody_grn",
+	"U_I_G_Story_Protagonist_F"
 ];
 
 _vestsLIST = [
-    "V_TacVest_blk",
-    "V_TacVest_brn",
-    "V_TacVest_camo",
-    "V_TacVest_khk",
-    "V_TacVest_oli"
+	"V_TacVest_blk",
+	"V_TacVest_brn",
+	"V_TacVest_camo",
+	"V_TacVest_khk",
+	"V_TacVest_oli"
 ];
 
 _randomHEAD = selectRandom _headsLIST;

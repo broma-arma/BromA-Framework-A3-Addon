@@ -23,8 +23,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_RUSSIA
-	"emr"
-	"emrd" (desert)
+    "emr"
+    "emrd" (desert)
 */
 
 _camo = "emr";
@@ -102,20 +102,20 @@ _countPAKCARGO = 10;
 _headsLIST = [];
 
 if (_camo == "emr") then {
-    _headsLIST = [
-        "rhs_6b47_emr_1",
-        "rhs_6b47_emr",
-        "rhs_6b47_6B50"
-    ];
+	_headsLIST = [
+		"rhs_6b47_emr_1",
+		"rhs_6b47_emr",
+		"rhs_6b47_6B50"
+	];
 
-    _commonUNIFORM = "rhs_uniform_vkpo_gloves";
+	_commonUNIFORM = "rhs_uniform_vkpo_gloves";
 } else {
-    _headsLIST =[
-        "rhs_6b7_1m",
-        "rhs_6b7_1m_bala2"
-    ];
+	_headsLIST =[
+		"rhs_6b7_1m",
+		"rhs_6b7_1m_bala2"
+	];
 
-    _commonUNIFORM = "rhs_uniform_emr_des_patchless";
+	_commonUNIFORM = "rhs_uniform_emr_des_patchless";
 };
 
 _randomHEAD = selectRandom _headsLIST;
@@ -161,9 +161,9 @@ _bigBACKPACK = "rhs_rk_sht_30_emr";
 _specATBACKPACK = "rhs_rpg_empty";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 

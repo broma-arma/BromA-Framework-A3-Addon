@@ -86,23 +86,23 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "UK3CB_H_Radio_Cap_ION_BLK_ALT",
-    "UK3CB_H_Cap_Back_ION_BLK",
-    "UK3CB_H_Radio_Cap_Back_ION_BLK_ALT",
-    "BRM_BeanieCOMS_Black",
-    "empty"
+	"UK3CB_H_Radio_Cap_ION_BLK_ALT",
+	"UK3CB_H_Cap_Back_ION_BLK",
+	"UK3CB_H_Radio_Cap_Back_ION_BLK_ALT",
+	"BRM_BeanieCOMS_Black",
+	"empty"
 ];
 
 _uniformsLIST = [
-    "UK3CB_ION_B_U_SF_Uniform_SHIRT_07_URB",
-    "UK3CB_ION_B_U_SF_Uniform_SHIRT_03_URB ",
-    "UK3CB_ION_B_U_SF_Uniform_SHIRT_06_WDL",
-    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_01_URB",
-    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_06_URB",
-    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_04_WDL",
-    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_08_WDL",
-    "UK3CB_ION_B_U_SF_Uniform_Short_Shirt_05_WDL",
-    "UK3CB_ION_B_U_Uniform_05_URB"
+	"UK3CB_ION_B_U_SF_Uniform_SHIRT_07_URB",
+	"UK3CB_ION_B_U_SF_Uniform_SHIRT_03_URB ",
+	"UK3CB_ION_B_U_SF_Uniform_SHIRT_06_WDL",
+	"UK3CB_ION_B_U_SF_Uniform_Short_Shirt_01_URB",
+	"UK3CB_ION_B_U_SF_Uniform_Short_Shirt_06_URB",
+	"UK3CB_ION_B_U_SF_Uniform_Short_Shirt_04_WDL",
+	"UK3CB_ION_B_U_SF_Uniform_Short_Shirt_08_WDL",
+	"UK3CB_ION_B_U_SF_Uniform_Short_Shirt_05_WDL",
+	"UK3CB_ION_B_U_Uniform_05_URB"
 ];
 
 _randomHEAD = selectRandom _headsLIST;
@@ -149,9 +149,9 @@ _commonBACKPACK = "BRM_PatrolBP_Black";
 _bigBACKPACK = "BRM_PatrolBP_Black";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // MISC EQUIPMENT ==============================================================

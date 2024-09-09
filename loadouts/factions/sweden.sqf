@@ -22,8 +22,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_SWEDEN
-	"m90w" woodland
-	"m90d" desert
+    "m90w" woodland
+    "m90d" desert
 */
 
 _camo = "m90w";
@@ -142,9 +142,9 @@ _commonBACKPACK = "BRM_PatrolBP_"+_camo;
 _bigBACKPACK = "BRM_PatrolBPH_"+_camo;
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // EXTRA EQUIPMENT =============================================================

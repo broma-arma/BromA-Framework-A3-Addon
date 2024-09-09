@@ -102,13 +102,13 @@ _demoHEAD = _commonHEAD;
 _reconHEAD = "BRM_Beanie_Green";
 
 _commonUNIFORM = selectRandom [
-    "UK3CB_CHD_B_U_H_Pilot_Uniform_02",
-    "UK3CB_CHD_B_U_H_Pilot_Uniform_01",
-    "UK3CB_CHD_B_U_CombatUniform_01",
-    "UK3CB_CHD_B_U_CombatUniform_02",
-    "UK3CB_CHD_B_U_CombatUniform_03",
-    "UK3CB_CHD_B_U_CombatUniform_04",
-    "UK3CB_CHD_B_U_CombatUniform_07"
+	"UK3CB_CHD_B_U_H_Pilot_Uniform_02",
+	"UK3CB_CHD_B_U_H_Pilot_Uniform_01",
+	"UK3CB_CHD_B_U_CombatUniform_01",
+	"UK3CB_CHD_B_U_CombatUniform_02",
+	"UK3CB_CHD_B_U_CombatUniform_03",
+	"UK3CB_CHD_B_U_CombatUniform_04",
+	"UK3CB_CHD_B_U_CombatUniform_07"
 ];
 _SLUNIFORM = _commonUNIFORM;
 _FTLUNIFORM = _commonUNIFORM;
@@ -144,9 +144,9 @@ _reconBACKPACK = _bigBACKPACK;
 _commonGOGGLES = selectRandom ["G_Balaclava_blk","G_Balaclava_oli"];
 
 if (_assignLoadoutMode) then {
-    if (_commonHEAD == "empty" && !(_isTeamLeader  || _isOfficer || _isSquadLeader || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
-        _unit addGoggles _commonGOGGLES;
-    };
+	if (_commonHEAD == "empty" && !(_isTeamLeader  || _isOfficer || _isSquadLeader || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
+		_unit addGoggles _commonGOGGLES;
+	};
 };
 
 // MISC EQUIPMENT ==============================================================

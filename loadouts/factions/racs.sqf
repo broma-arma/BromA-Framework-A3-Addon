@@ -93,8 +93,8 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _commonHEAD = selectRandom [
-    "BRM_PASGT_NV_COMS_DBDU",
-    "BRM_PASGT_NVSWDG_DBDU"
+	"BRM_PASGT_NV_COMS_DBDU",
+	"BRM_PASGT_NVSWDG_DBDU"
 ];
 _leaderHEAD = _commonHEAD;
 _officerHEAD = "BRM_PatrolCap_DBDU";
@@ -108,8 +108,8 @@ _demoHEAD = _commonHEAD;
 _reconHEAD = "BRM_BoonieCOMS_DBDU";
 
 _commonUNIFORM = selectRandom [
-    "BRM_BattleUNI_DBDU",
-    "BRM_BattleUNIRS_DBDU"
+	"BRM_BattleUNI_DBDU",
+	"BRM_BattleUNIRS_DBDU"
 ];
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "UK3CB_CHC_C_U_Overall_03";

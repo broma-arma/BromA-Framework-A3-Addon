@@ -83,7 +83,7 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhssaf_helmet_m59_85_oakleaf"
+	"rhssaf_helmet_m59_85_oakleaf"
 ];
 
 _randomHEAD = selectRandom _headsLIST;

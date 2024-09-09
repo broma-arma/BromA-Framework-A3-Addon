@@ -24,7 +24,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
     Set in mission with: BRM_FMK_LoadoutCamo_SOVIETS
     "vsr" vsr
     "afg" afghan
-	"khk" khaki
+    "khk" khaki
 */
 
 _camo = "vsr";

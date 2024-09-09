@@ -90,12 +90,12 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _commonHEAD = selectRandom [
-    "BRM_ACH_MASK_MM14",
-    "BRM_ACH_MM14",
-    "PSZ_H_wz2005_OLIVE",
-    "PSZ_H_wz2005_OLIVE_ESS",
-    "rhssaf_helmet_m97_olive_nocamo",
-    "rhssaf_helmet_m97_olive_nocamo_black_ess"
+	"BRM_ACH_MASK_MM14",
+	"BRM_ACH_MM14",
+	"PSZ_H_wz2005_OLIVE",
+	"PSZ_H_wz2005_OLIVE_ESS",
+	"rhssaf_helmet_m97_olive_nocamo",
+	"rhssaf_helmet_m97_olive_nocamo_black_ess"
 ];
 _leaderHEAD = _commonHEAD;
 _officerHEAD = "BRM_PatrolCap_MM14";

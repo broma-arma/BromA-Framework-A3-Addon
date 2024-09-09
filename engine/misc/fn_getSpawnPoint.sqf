@@ -25,9 +25,9 @@ RETURNS:
 params ["_unit"];
 
 switch (_unit getVariable ["unit_side", side _unit]) do {
-    case WEST:       { "respawn_west" };
-    case EAST:       { "respawn_east" };
-    case RESISTANCE: { "respawn_resistance" };
-    case CIVILIAN:   { "respawn_civilian" };
-    default          { "respawn_west" };
+	case WEST:       { "respawn_west" };
+	case EAST:       { "respawn_east" };
+	case RESISTANCE: { "respawn_resistance" };
+	case CIVILIAN:   { "respawn_civilian" };
+	default          { "respawn_west" };
 };

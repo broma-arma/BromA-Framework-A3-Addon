@@ -88,15 +88,15 @@ _countPAKCARGO      = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhsusf_ach_bare",
-    "rhsusf_ach_bare_tan",
-    "rhsusf_ach_helmet_M81",
-    "H_Bandanna_sand"
+	"rhsusf_ach_bare",
+	"rhsusf_ach_bare_tan",
+	"rhsusf_ach_helmet_M81",
+	"H_Bandanna_sand"
 ];
 
 _vestsLIST = [
-     "rhsgref_6b23_ttsko_digi_rifleman",
-     "rhsgref_6b23_ttsko_digi"
+	"rhsgref_6b23_ttsko_digi_rifleman",
+	"rhsgref_6b23_ttsko_digi"
 ];
 
 _randomHEAD = selectRandom _headsLIST;

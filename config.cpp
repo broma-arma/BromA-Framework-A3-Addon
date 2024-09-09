@@ -53,9 +53,9 @@ class CfgFunctions {
 };
 
 class CfgBRMPlugins {
-    #define BRM_PLUGIN_META
-        #include "\broma_framework\plugins\plugins.cpp"
-    #undef BRM_PLUGIN_META
+	#define BRM_PLUGIN_META
+		#include "\broma_framework\plugins\plugins.cpp"
+	#undef BRM_PLUGIN_META
 };
 
 #define BRM_PLUGIN_DIALOGS

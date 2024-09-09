@@ -5,11 +5,11 @@ if (isNil "left_ao_do") then {
 };
 
 [{
-    if !(player getVariable ["isDead", false]) then {
+	if !(player getVariable ["isDead", false]) then {
 		private _targetObject = vehicle player;
-        if (_targetObject isKindOf "Land" && !(_targetObject inArea "ao")) then {
+		if (_targetObject isKindOf "Land" && !(_targetObject inArea "ao")) then {
 			private _pos = _targetObject getPos [1, _targetObject getDir markerPos "ao"];
 			[] call left_ao_do;
-        };
-    };
+		};
+	};
 }, 0.1] call CBA_fnc_addPerFrameHandler;

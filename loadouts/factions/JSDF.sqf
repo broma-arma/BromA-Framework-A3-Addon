@@ -23,7 +23,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_JSDF
-	"JIEITAIW"
+    "JIEITAIW"
     "JIEITAID"
 */
 
@@ -95,19 +95,18 @@ _countPAKCARGO = 40;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "BRM_LWH_COMS_"+_camo,
-    "BRM_LWH_"+_camo,
-    "BRM_LWH_MASK_"+_camo,
-    "BRM_LWH_MASK_COMS_"+_camo,
-    "BRM_LWH_GHILLIE_"+_camo,
-    "BRM_LWH_COMS_GHILLIE_"+_camo
+	"BRM_LWH_COMS_"+_camo,
+	"BRM_LWH_"+_camo,
+	"BRM_LWH_MASK_"+_camo,
+	"BRM_LWH_MASK_COMS_"+_camo,
+	"BRM_LWH_GHILLIE_"+_camo,
+	"BRM_LWH_COMS_GHILLIE_"+_camo
 ];
 
 _uniformsLIST = [
-    "BRM_BattleUNI_"+_camo,
-    "BRM_BattleUNIRS_"+_camo,
-    "BRM_BattleUNIT_"+_camo
-
+	"BRM_BattleUNI_"+_camo,
+	"BRM_BattleUNIRS_"+_camo,
+	"BRM_BattleUNIT_"+_camo
 ];
 
 _randomHEAD = selectRandom _headsLIST;

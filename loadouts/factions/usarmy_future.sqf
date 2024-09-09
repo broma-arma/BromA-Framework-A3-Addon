@@ -83,21 +83,21 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 _headsLIST = [
-    "rhsusf_opscore_mc_cover_pelt_cam",
-    "rhsusf_opscore_coy_cover_pelt",
-    "rhsusf_opscore_fg_pelt_nsw",
-    "rhsusf_opscore_paint_pelt_nsw_cam"
+	"rhsusf_opscore_mc_cover_pelt_cam",
+	"rhsusf_opscore_coy_cover_pelt",
+	"rhsusf_opscore_fg_pelt_nsw",
+	"rhsusf_opscore_paint_pelt_nsw_cam"
 ];
 
 _goggleLIST = [
-    "rhsusf_shemagh_grn",
-    "rhsusf_shemagh_gogg_grn",
-    "empty"
+	"rhsusf_shemagh_grn",
+	"rhsusf_shemagh_gogg_grn",
+	"empty"
 ];
 
 _vestsLIST = [
-     "rhsusf_spcs_ocp_rifleman_alt",
-     "rhsusf_spcs_ocp_rifleman"
+	"rhsusf_spcs_ocp_rifleman_alt",
+	"rhsusf_spcs_ocp_rifleman"
 ];
 
 _randomHEAD = selectRandom _headsLIST;

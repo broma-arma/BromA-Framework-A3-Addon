@@ -87,9 +87,9 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "BRM_LWH_ESTDCU",
-    "BRM_LWH_COMS_GHILLIE_ESTDCU",
-    "BRM_LWH_MASK_ESTDCU"
+	"BRM_LWH_ESTDCU",
+	"BRM_LWH_COMS_GHILLIE_ESTDCU",
+	"BRM_LWH_MASK_ESTDCU"
 ];
 
 _randomHEAD = selectRandom _headsLIST;
@@ -135,9 +135,9 @@ _commonBACKPACK = "BRM_PatrolBP_ESTDCU";
 _bigBACKPACK = "BRM_PatrolBPH_ESTDCU";
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // MISC EQUIPMENT ==============================================================

@@ -85,9 +85,9 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "rhssaf_helmet_m97_olive_nocamo_black_ess_bare",
-    "rhssaf_helmet_m97_olive_nocamo",
-    "rhssaf_helmet_m97_olive_nocamo_black_ess"
+	"rhssaf_helmet_m97_olive_nocamo_black_ess_bare",
+	"rhssaf_helmet_m97_olive_nocamo",
+	"rhssaf_helmet_m97_olive_nocamo_black_ess"
 ];
 
 _randomHEAD = selectRandom _headsLIST;
@@ -104,9 +104,9 @@ _helipilotHEAD = "rhsusf_hgu56p_visor_green";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = selectRandom [
-    "rhsusf_opscore_fg_pelt",
-    "rhsusf_opscore_fg_pelt_cam",
-    "rhsusf_opscore_fg_pelt_nsw"
+	"rhsusf_opscore_fg_pelt",
+	"rhsusf_opscore_fg_pelt_cam",
+	"rhsusf_opscore_fg_pelt_nsw"
 ];
 
 _commonUNIFORM = "rhsgref_uniform_dpm";
@@ -138,9 +138,9 @@ _bigBACKPACK = "BRM_PatrolBPH_Green";
 _reconBACKPACK = _bigBACKPACK;
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // EXTRA EQUIPMENT =============================================================

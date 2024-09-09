@@ -24,7 +24,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_CSAT
-	"BRN"
+    "BRN"
     "GRY"
 */
 _camo = "BRN";

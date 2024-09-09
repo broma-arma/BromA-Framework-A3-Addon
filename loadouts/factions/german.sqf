@@ -22,8 +22,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_GERMAN
-	"FLECK"
-	"TROPEN"
+    "FLECK"
+    "TROPEN"
 */
 
 _camo = "FLECK";
@@ -100,7 +100,7 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "BRM_LWH_COMS_"+_camo,
+	"BRM_LWH_COMS_"+_camo,
 	"BRM_LWH_MASK_COMS_"+_camo
 ];
 
@@ -118,9 +118,9 @@ _helipilotHEAD = "rhsusf_hgu56p_visor";
 _sniperHEAD    = "H_Booniehat_oli";
 _demoHEAD      = _commonHEAD;
 _reconHEAD     = selectRandom [
-    "rhsusf_opscore_ut",
-    "rhsusf_opscore_ut_pelt_cam",
-    "rhsusf_opscore_ut_pelt_nsw"
+	"rhsusf_opscore_ut",
+	"rhsusf_opscore_ut_pelt_cam",
+	"rhsusf_opscore_ut_pelt_nsw"
 ];
 
 _commonUNIFORM   = selectRandom ["BRM_BattleUNI_"+_camo,"BRM_BattleUNIRS_"+_camo];
@@ -151,9 +151,9 @@ _commonBACKPACK = "BRM_PatrolBP_"+_camo;
 _bigBACKPACK = "BRM_PatrolBPH_"+_camo;
 
 if (_assignLoadoutMode) then {
-    if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
-        _unit addGoggles _randomGOGGLE;
-    };
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+		_unit addGoggles _randomGOGGLE;
+	};
 };
 
 // EXTRA EQUIPMENT =============================================================

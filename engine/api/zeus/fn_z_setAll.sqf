@@ -41,37 +41,37 @@ if (count _this > 4) then { _side = _this select 4 };
 _units = (curatorSelected select 0);
 
 if ( (count _units) > 0) then {
-    {
-        if (count _this > 4) then {
-            if (side _x == _side) then {
-                [[_x,_loadout,_skill,_combat,_behav], {
-                    _unit = _this select 0;
-                    _loadout = _this select 1;
-                    _skill = _this select 2;
-                    _combat = _this select 3;
-                    _behav = _this select 4;
+	{
+		if (count _this > 4) then {
+			if (side _x == _side) then {
+				[[_x,_loadout,_skill,_combat,_behav], {
+					_unit = _this select 0;
+					_loadout = _this select 1;
+					_skill = _this select 2;
+					_combat = _this select 3;
+					_behav = _this select 4;
 
-                    [_loadout,_unit] call FNC_arsenalLoadout;
-                    _unit setSkill _skill;
-                    (group _unit) setCombatMode _combat;
-                    (group _unit) setBehaviour _behav;
+					[_loadout,_unit] call FNC_arsenalLoadout;
+					_unit setSkill _skill;
+					(group _unit) setCombatMode _combat;
+					(group _unit) setBehaviour _behav;
 
-                }] remoteExec ["call", 0];
-            };
-        } else {
-            [[_x,_loadout,_skill,_combat,_behav], {
-                _unit = _this select 0;
-                _loadout = _this select 1;
-                _skill = _this select 2;
-                _combat = _this select 3;
-                _behav = _this select 4;
+				}] remoteExec ["call", 0];
+			};
+		} else {
+			[[_x,_loadout,_skill,_combat,_behav], {
+				_unit = _this select 0;
+				_loadout = _this select 1;
+				_skill = _this select 2;
+				_combat = _this select 3;
+				_behav = _this select 4;
 
-                [_loadout,_unit] call FNC_arsenalLoadout;
-                _unit setSkill _skill;
-                (group _unit) setCombatMode _combat;
-                (group _unit) setBehaviour _behav;
+				[_loadout,_unit] call FNC_arsenalLoadout;
+				_unit setSkill _skill;
+				(group _unit) setCombatMode _combat;
+				(group _unit) setBehaviour _behav;
 
-            }] remoteExec ["call", 0];
-        };
-    } forEach _units;
+			}] remoteExec ["call", 0];
+		};
+	} forEach _units;
 };

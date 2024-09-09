@@ -94,27 +94,27 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "UK3CB_H_Shemag_red",
-    "UK3CB_H_Shemag_tan",
-    "UK3CB_H_Turban_Facewrap_01_Blk",
-    "UK3CB_H_Turban_Facewrap_03_Tan",
-    "UK3CB_H_Mil_Turban_Wrap",
-    "rhs_ssh68_2",
-    "rhs_ssh60",
+	"UK3CB_H_Shemag_red",
+	"UK3CB_H_Shemag_tan",
+	"UK3CB_H_Turban_Facewrap_01_Blk",
+	"UK3CB_H_Turban_Facewrap_03_Tan",
+	"UK3CB_H_Mil_Turban_Wrap",
+	"rhs_ssh68_2",
+	"rhs_ssh60",
 	"empty"
 ];
 
 _uniformsLIST = [
-    "UK3CB_ADE_O_U_02",
-    "UK3CB_ADE_O_U_02_D",
-    "UK3CB_ADE_O_U_02_H",
-    "UK3CB_ADE_O_U_02_E",
-    "UK3CB_ADE_O_U_02_B",
-    "UK3CB_ADE_O_U_02_K",
-    "UK3CB_ADM_B_U_Tshirt_01_TCC",
-    "UK3CB_ADM_B_U_Tshirt_01_WDL_02",
-    "UK3CB_ADM_B_U_Tshirt_01_DPM",
-    "UK3CB_ADE_O_U_02_J"
+	"UK3CB_ADE_O_U_02",
+	"UK3CB_ADE_O_U_02_D",
+	"UK3CB_ADE_O_U_02_H",
+	"UK3CB_ADE_O_U_02_E",
+	"UK3CB_ADE_O_U_02_B",
+	"UK3CB_ADE_O_U_02_K",
+	"UK3CB_ADM_B_U_Tshirt_01_TCC",
+	"UK3CB_ADM_B_U_Tshirt_01_WDL_02",
+	"UK3CB_ADM_B_U_Tshirt_01_DPM",
+	"UK3CB_ADE_O_U_02_J"
 ];
 
 _vestsLIST = [

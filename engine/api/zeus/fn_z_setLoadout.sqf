@@ -35,13 +35,13 @@ if (count _this > 1) then { _side = _this select 1; };
 _units = (curatorSelected select 0);
 
 if ( (count _units) > 0) then {
-    {
-        if (count _this > 1) then {
-            if (side _x == _side) then {
-                [_x,_loadout] remoteExecCall ["BRM_fnc_assignLoadout", 0];
-            };
-        } else {
-            [_x,_loadout] remoteExecCall ["BRM_fnc_assignLoadout", 0];
-        };
-    } forEach _units;
+	{
+		if (count _this > 1) then {
+			if (side _x == _side) then {
+				[_x,_loadout] remoteExecCall ["BRM_fnc_assignLoadout", 0];
+			};
+		} else {
+			[_x,_loadout] remoteExecCall ["BRM_fnc_assignLoadout", 0];
+		};
+	} forEach _units;
 };

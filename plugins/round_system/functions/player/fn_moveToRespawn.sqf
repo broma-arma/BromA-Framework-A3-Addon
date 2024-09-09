@@ -3,9 +3,9 @@ if (!hasInterface) exitWith {};
 private ["_spawn"];
 
 switch (side player) do {
-    case side_a_side: { _spawn = respawn_markers_A };
-    case side_b_side: { _spawn = respawn_markers_B };
-    case side_c_side: { _spawn = respawn_markers_C };
+	case side_a_side: { _spawn = respawn_markers_A };
+	case side_b_side: { _spawn = respawn_markers_B };
+	case side_c_side: { _spawn = respawn_markers_C };
 };
 
 _spawn = selectRandom _spawn;

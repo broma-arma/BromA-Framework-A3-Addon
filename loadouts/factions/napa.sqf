@@ -97,13 +97,13 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _uniformsLIST = [
-    "UK3CB_NAP_B_U_CombatUniform_01_FLK",
-    "UK3CB_NAP_B_U_CombatUniform_01_WDL",
-    "UK3CB_NAP_B_U_CombatUniform_FLK"
+	"UK3CB_NAP_B_U_CombatUniform_01_FLK",
+	"UK3CB_NAP_B_U_CombatUniform_01_WDL",
+	"UK3CB_NAP_B_U_CombatUniform_FLK"
 ];
 
 _vestsLIST = [
-    "UK3CB_V_Chestrig_OLI",
+	"UK3CB_V_Chestrig_OLI",
 	"UK3CB_V_Chestrig_ERDL"
 ];
 

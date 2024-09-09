@@ -27,13 +27,13 @@ sleep 1;
 _timetype = "";
 
 [_barrierHandle, _name] spawn {
-    _barrierHandle = _this select 0;
-    _markerName = _this select 1;
+	_barrierHandle = _this select 0;
+	_markerName = _this select 1;
 
-    waitUntil {(setupZoneEnd)};
+	waitUntil {(setupZoneEnd)};
 
-    sandi_barrier_barriers set [_barrierHandle, 0];
-    deleteMarkerLocal _markerName;
+	sandi_barrier_barriers set [_barrierHandle, 0];
+	deleteMarkerLocal _markerName;
 
-    ["Alert",["BEGIN!"]] call BIS_fnc_showNotification;
+	["Alert",["BEGIN!"]] call BIS_fnc_showNotification;
 };

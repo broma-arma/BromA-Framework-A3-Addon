@@ -22,10 +22,10 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_PLA
-	"UNI"
-	"NAVY"
-	"ARTY"
-	"PLAT"
+    "UNI"
+    "NAVY"
+    "ARTY"
+    "PLAT"
 */
 
 _camo = "UNI";
@@ -98,14 +98,14 @@ _countPAKCARGO      = 20;
 // UNIFORMS ====================================================================
 
 _uniformsLIST = [
-    "BRM_EBattleUNI_T07"+_camo,
-    "BRM_EBattleUNIRS_T07"+_camo
+	"BRM_EBattleUNI_T07"+_camo,
+	"BRM_EBattleUNIRS_T07"+_camo
 ];
 _headsLIST = [
-    "BRM_LWH_COMS_T07"+_camo,
-    "BRM_LWH_MASK_COMS_T07"+_camo,
-    "BRM_LWH_MASK_T07"+_camo,
-    "BRM_LWH_T07"+_camo
+	"BRM_LWH_COMS_T07"+_camo,
+	"BRM_LWH_MASK_COMS_T07"+_camo,
+	"BRM_LWH_MASK_T07"+_camo,
+	"BRM_LWH_T07"+_camo
 ];
 
 _randomUNIFORM = selectRandom _uniformsLIST;

@@ -95,7 +95,7 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "H_Bandanna_camo",
+	"H_Bandanna_camo",
 	"H_Booniehat_oli",
 	"UK3CB_H_Bandanna_Green_Check",
 	"BRM_PatrolCap_green",
@@ -103,7 +103,7 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "UK3CB_MDF_B_U_CombatUniform_02_LIZ_OD",
+	"UK3CB_MDF_B_U_CombatUniform_02_LIZ_OD",
 	"UK3CB_MDF_B_U_Crew_Uniform_01",
 	"UK3CB_ADM_B_U_Shirt_Pants_01_GRN_WDL_ALT",
 	"UK3CB_ADM_B_U_Shirt_Pants_01_GRN_WDL",

@@ -83,27 +83,27 @@ _countPAKCARGO = 10;
 // UNIFORMS ====================================================================
 
 _headsLIST = [
-    "H_Bandanna_khk",
-    "H_Bandanna_mcamo",
-    "H_Bandanna_sgg",
-    "H_Bandanna_sand"
+	"H_Bandanna_khk",
+	"H_Bandanna_mcamo",
+	"H_Bandanna_sgg",
+	"H_Bandanna_sand"
 ];
 
 _uniformsLIST = [
-    "U_C_Poloshirt_blue",
-    "U_C_Poloshirt_burgundy",
-    "U_C_Poloshirt_redwhite",
-    "U_C_Poloshirt_salmon",
-    "U_C_Poloshirt_stripped",
-    "U_C_Poloshirt_tricolour"
+	"U_C_Poloshirt_blue",
+	"U_C_Poloshirt_burgundy",
+	"U_C_Poloshirt_redwhite",
+	"U_C_Poloshirt_salmon",
+	"U_C_Poloshirt_stripped",
+	"U_C_Poloshirt_tricolour"
 ];
 
 _vestsLIST = [
-    "V_BandollierB_blk",
-    "V_BandollierB_cbr",
-    "V_BandollierB_rgr",
-    "V_BandollierB_khk",
-    "V_BandollierB_oli"
+	"V_BandollierB_blk",
+	"V_BandollierB_cbr",
+	"V_BandollierB_rgr",
+	"V_BandollierB_khk",
+	"V_BandollierB_oli"
 ];
 
 _gogglesLIST = [

@@ -17,16 +17,16 @@ if (!_isMan) exitWith {};
 switch (true) do {
 // =============================================================================
 
-    case (_type == "reporter"): {
-        [_unit, "empty", "UK3CB_CHC_C_U_FUNC_01", "V_Press_F", "empty"] call BRM_FMK_fnc_useUniform;
-        [_unit,[[_NVGEN1,1]]] call BRM_FMK_fnc_addtoUniform;
-    };
+	case (_type == "reporter"): {
+		[_unit, "empty", "UK3CB_CHC_C_U_FUNC_01", "V_Press_F", "empty"] call BRM_FMK_fnc_useUniform;
+		[_unit,[[_NVGEN1,1]]] call BRM_FMK_fnc_addtoUniform;
+	};
 
-    case (_type == "cameraman"): {
-        [_unit, "H_Cap_press", "U_C_Journalist", "V_Press_F", "empty"] call BRM_FMK_fnc_useUniform;
-        [_unit,[[_NVGEN1,1]]] call BRM_FMK_fnc_addtoUniform;
-        _unit addWeapon "R3F_JIM_LR";
-    };
+	case (_type == "cameraman"): {
+		[_unit, "H_Cap_press", "U_C_Journalist", "V_Press_F", "empty"] call BRM_FMK_fnc_useUniform;
+		[_unit,[[_NVGEN1,1]]] call BRM_FMK_fnc_addtoUniform;
+		_unit addWeapon "R3F_JIM_LR";
+	};
 };
 
 // ADDS ESSENTIALS =============================================================

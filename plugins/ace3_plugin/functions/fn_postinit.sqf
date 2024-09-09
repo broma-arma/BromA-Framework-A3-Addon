@@ -5,7 +5,7 @@ if (isNil "mission_ace3_everyone_medic") then { mission_ace3_everyone_medic = fa
 if (isNil "mission_ace3_legs") then { mission_ace3_legs = !(missionNamespace getVariable ["ace_medical_treatment_clearTraumaAfterBandage", false]); };
 
 if (hasInterface) then {
-    if (mission_ace3_everyone_medic) then {
+	if (mission_ace3_everyone_medic) then {
 		player setvariable ["ACE_medical_medicClass", 1, true]
 	};
 
@@ -18,7 +18,7 @@ if (hasInterface) then {
 		}] call CBA_fnc_addEventHandler;
 	};
 
-    if (mission_ace3_legs) then {
+	if (mission_ace3_legs) then {
 		["CAManBase", 1, ["ACE_SelfActions"], ["brm_fmk_leg_fix", "<t color='#ff0000'>Fix broken leg</t>", "", {
 			_target playAction "medicStart";
 
@@ -35,5 +35,5 @@ if (hasInterface) then {
 		}, { _target getHitPointDamage "HitLegs" >= 0.5 }] call ace_interact_menu_fnc_createAction] call ace_interact_menu_fnc_addActionToClass;
 	};
 
-    [] call BRM_FMK_ACE3_fnc_addACEHelp;
+	[] call BRM_FMK_ACE3_fnc_addACEHelp;
 };

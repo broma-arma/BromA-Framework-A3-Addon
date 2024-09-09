@@ -106,7 +106,7 @@ _headsLIST = [
 ];
 
 _uniformsLIST = [
-    "UK3CB_ADM_B_U_Tshirt_01_WDL_03",
+	"UK3CB_ADM_B_U_Tshirt_01_WDL_03",
 	"UK3CB_ADE_O_U_02_G",
 	"UK3CB_ADE_O_U_02_B",
 	"UK3CB_ADE_O_U_02_J",
@@ -120,8 +120,8 @@ _uniformsLIST = [
 ];
 
 _vestsLIST = [
-    "UK3CB_V_Chestrig_Tan",
-    "UK3CB_V_Chestrig_OLI",
+	"UK3CB_V_Chestrig_Tan",
+	"UK3CB_V_Chestrig_OLI",
 	"UK3CB_V_Chestrig_WDL_02",
 	"UK3CB_V_Chestrig_WDL_01"
 ];
