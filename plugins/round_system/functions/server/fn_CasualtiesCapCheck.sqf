@@ -14,7 +14,7 @@ while {(!round_over)} do {
 	{ if ((side _x == _sideCheck)) then { _unitsCheck pushBack _x } } forEach allUnits;
 
 	{
-		if (_x getVariable ["isDead", false]) then {
+		if !(_x call BRM_FMK_fnc_alive) then {
 			_deadUnits pushBack _x;
 		};
 	} forEach _unitsCheck;

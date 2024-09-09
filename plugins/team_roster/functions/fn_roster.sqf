@@ -109,7 +109,7 @@ switch (_mode) do {
 				_roster = _roster + format["%1<t font='RobotoCondensedBold' size='1.2'>%2</t><br />", ["", "<br />"] select (_forEachIndex > 0), _groupID];
 				{
 					private _unit = _x;
-					if !(_unit getVariable ["isDead", false]) then {
+					if (_unit call BRM_FMK_fnc_alive) then {
 						private _unitInit = _unit getVariable ["unitInit", ["MAIN", "*", "*", "*"]];
 
 						private _pad = if (isFormationLeader _unit) then { "  " } else { "    " };

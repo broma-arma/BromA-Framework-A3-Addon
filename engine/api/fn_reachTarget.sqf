@@ -42,7 +42,7 @@ params ["_objects", "_targets", "_code", ["_distance", 50], ["_interval", 1]];
 			{
 				private _subObject = _x;
 				if (!isNull _subObject && {
-					alive _subObject && !(_subObject getVariable ["isDead", false]) && {
+					_subObject call BRM_FMK_fnc_alive && {
 						_targets findIf { _subObject distanceSqr (if (_x isEqualType "") then { markerPos _x select [0, 2] } else { _x }) <= _distanceSqr } == -1
 					}
 				}) exitWith {

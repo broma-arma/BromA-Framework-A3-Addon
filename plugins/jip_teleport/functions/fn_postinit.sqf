@@ -16,10 +16,9 @@ if !(hasInterface && isMultiplayer && didJIP) exitWith {};
 		private _targets = (
 			([leader player] + (units player) + (allPlayers - entities "HeadlessClient_F")) select {
 				_x != player
-				&& alive _x
+				&& _x call BRM_FMK_fnc_alive
 				&& side _x == playerSide
 				&& player distanceSqr _x >= MIN_DISTANCE_SQD
-				&& !(_x getVariable ["isDead", false])
 				&& !(_x getVariable ["ACE_isUnconscious", false])
 			}
 		);
