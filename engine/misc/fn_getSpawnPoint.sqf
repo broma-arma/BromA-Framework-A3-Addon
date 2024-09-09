@@ -24,7 +24,7 @@ RETURNS:
 
 params ["_unit"];
 
-switch (_unit getVariable ["unit_side", side _unit]) do {
+switch (_unit call BIS_fnc_objectSide) do {
 	case WEST:       { "respawn_west" };
 	case EAST:       { "respawn_east" };
 	case RESISTANCE: { "respawn_resistance" };

@@ -101,7 +101,7 @@ if (_id isEqualType []) then {
 
 private _side = switch (typeName _owner) do {
 	case "GROUP":  { side _owner };
-	case "OBJECT": { _owner getVariable ["unit_side", side _owner] };
+	case "OBJECT": { _owner call BIS_fnc_objectSide };
 	case "SIDE":   { _owner };
 	default        { ["Invalid task owner, owner side defaulting to 'side_a_side' (%1)", side_a_side] call BIS_fnc_error; side_a_side };
 };

@@ -16,7 +16,7 @@ if (side _unit == civilian) then {
 	};
 
 	if (!isNull _instigator && {isPlayer _instigator}) then {
-		private _instigatorSide = _instigator getVariable ["unit_side", side _instigator];
+		private _instigatorSide = _instigator call BIS_fnc_objectSide;
 		private _sideIndex = call {
 			if (_instigatorSide == side_a_side) exitWith { 0 };
 			if (_instigatorSide == side_b_side) exitWith { 1 };

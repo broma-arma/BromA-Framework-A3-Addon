@@ -7,10 +7,10 @@ if (count _pos == 0) exitWith {
 	deleteMarkerLocal "BRM_FMK_SpawnProtection_Marker";
 };
 
-private _sideIndex = [side_a_side, side_b_side, side_c_side] find (player getVariable ["unit_side", side player]);
+private _sideIndex = [side_a_side, side_b_side, side_c_side] find (player call BIS_fnc_objectSide);
 
 if (_sideIndex == -1) exitWith {
-	private _errorMsg = format ["ERROR [Spawn Protection] Invalid side (%1:%2_%3:%4)", side player, player getVariable ["unit_side", side player], mission_game_mode, mission_enable_side_c];
+	private _errorMsg = format ["ERROR [Spawn Protection] Invalid side (%1:%2_%3:%4)", side player, player call BIS_fnc_objectSide, mission_game_mode, mission_enable_side_c];
 	systemChat _errorMsg;
 	diag_log text _errorMsg;
 };

@@ -63,7 +63,7 @@ if (player getVariable ["unit_initialized", false]) exitWith {};
 
 // Adds player to relevant lists and registers its original side. ==============
 
-player setVariable ["unit_side", side player, true];
+player setVariable ["unit_side", side player, true]; // Backward compatibility
 
 switch (side player) do {
 	case side_a_side: { if !(player in mission_players_A) then { mission_players_A pushBack player; publicVariable "mission_players_A" }; };

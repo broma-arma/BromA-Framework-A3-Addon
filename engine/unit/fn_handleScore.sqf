@@ -27,7 +27,7 @@ params ["_unit", "_killer"];
 
 if !(_unit isKindOf "CAManBase") exitWith {};
 
-private _unitSide = _unit getVariable ["unit_side", side _unit];
+private _unitSide = _unit call BIS_fnc_objectSide;
 
 switch (_unitSide) do {
 	case WEST:       { mission_dead_west        = mission_dead_west        + 1; publicVariable "mission_dead_west" };
@@ -54,7 +54,7 @@ if (isNull _killer) exitWith {};
 private _scoreChanged = false;
 {
 	if (_x isKindOf "CAManBase" && {_x != _unit} && {isPlayer _x}) then {
-		private _sideKiller = _x getVariable ["unit_side", side _x];
+		private _sideKiller = _x call BIS_fnc_objectSide;
 		private _killerScore = _x getVariable ["unit_score", 0];
 
 		_killerScore = _killerScore + ([1, -1] select ([_unitSide, _sideKiller] call BIS_fnc_areFriendly));

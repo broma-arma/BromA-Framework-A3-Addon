@@ -4,8 +4,8 @@ if (isNull _instigator) then {
 	_instigator = _attacker;
 };
 
-private _unitSide = _unit getVariable ["unit_side", side _unit];
-private _instigatorSide = _instigator getVariable ["unit_side", side _instigator];
+private _unitSide = _unit call BIS_fnc_objectSide;
+private _instigatorSide = _instigator call BIS_fnc_objectSide;
 
 if (
 	isNull _instigator

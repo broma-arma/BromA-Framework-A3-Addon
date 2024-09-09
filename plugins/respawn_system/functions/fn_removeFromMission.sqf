@@ -5,7 +5,7 @@ if (isServer) then {
 		_this remoteExecCall ["BRM_FMK_RespawnSystem_fnc_removeFromMission", _unit];
 	};
 
-	mission_dead_players pushBackUnique [getPlayerUID _unit, name _unit, _unit getVariable "unit_side"];
+	mission_dead_players pushBackUnique [getPlayerUID _unit, name _unit, _unit call BIS_fnc_objectSide];
 	publicVariable "mission_dead_players";
 };
 

@@ -2,7 +2,7 @@ if !(isServer) exitWith {};
 
 params ["_unit", "_id", "_uid", "_name"];
 
-private _isDead = [_uid, _name, _unit getVariable ["unit_side", side player]] in mission_dead_players;
+private _isDead = [_uid, _name, _unit call BIS_fnc_objectSide] in mission_dead_players;
 private _isValidSlot = !("prevent_reslot" in usedPlugins) || {_unit getVariable ["unit_valid_slot", false]};
 if (_isDead || !_isValidSlot) exitWith {};
 

@@ -35,7 +35,7 @@ RETURNS:
 
 	// Determines the unit's faction. ==========================================
 
-	_unit setVariable ["unit_side", side _unit, true];
+	_unit setVariable ["unit_side", side _unit, true]; // Backward compatibility
 
 	_faction = switch (_faction) do {
 		case "side_a": { side_a_faction };

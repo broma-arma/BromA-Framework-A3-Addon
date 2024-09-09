@@ -73,7 +73,7 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 	if (hasInterface) then {
 		player allowDamage false;
 
-		_isWinner = (player getVariable ["unit_side", side player]) in _winningSides;
+		_isWinner = (player call BIS_fnc_objectSide) in _winningSides;
 
 		if (_showStats) then {
 			sleep 3;
