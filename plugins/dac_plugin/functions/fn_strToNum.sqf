@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_DAC_fnc_getDACStat
+    BRM_FMK_DAC_fnc_strToNum
 
 AUTHOR(s):
     Nife
@@ -11,11 +11,11 @@ DESCRIPTION:
     Converts a string value into a DAC number
 
 PARAMETERS:
-    0 - The value type that is being converted: "SIDE", "SKILL", or "FACTION" (SIDE)
+    0 - The value type that is being converted: "SIDE", "SKILL", or "FACTION" (STRING)
     1 - The value to convert. (STRING)
 
 USAGE:
-    ["SKILL", "decent"] call BRM_FMK_DAC_fnc_getDACStat;
+    ["SKILL", "decent"] call BRM_FMK_DAC_fnc_strToNum;
 
 RETURNS:
     DAC number. (NUMBER)
@@ -40,12 +40,12 @@ switch (_stat) do {
 			case CASE_INDFOR: { 2 };
 			case CASE_CIVILIAN: { 3 };
 			case "friendly";
-			case "side_a": { [_stat, side_a_side] call BRM_FMK_DAC_fnc_getDACStat };
+			case "side_a": { [_stat, side_a_side] call BRM_FMK_DAC_fnc_strToNum };
 			case "enemy";
-			case "side_b": { [_stat, side_b_side] call BRM_FMK_DAC_fnc_getDACStat };
+			case "side_b": { [_stat, side_b_side] call BRM_FMK_DAC_fnc_strToNum };
 			case "neutral";
-			case "side_c": { [_stat, side_c_side] call BRM_FMK_DAC_fnc_getDACStat };
-			default { ["[WARN ] [DAC Plugin] Unknown side '%1', defaulting to 'enemy'", _value] call BIS_fnc_error; [_stat, side_b_side] call BRM_FMK_DAC_fnc_getDACStat };
+			case "side_c": { [_stat, side_c_side] call BRM_FMK_DAC_fnc_strToNum };
+			default { ["[WARN ] [DAC Plugin] Unknown side '%1', defaulting to 'enemy'", _value] call BIS_fnc_error; [_stat, side_b_side] call BRM_FMK_DAC_fnc_strToNum };
 		};
 	};
 
@@ -76,7 +76,7 @@ switch (_stat) do {
 			};
 
 			if (_index isEqualType sideUnknown) then {
-				_index = [_stat, [_index, "FACTION"] call BRM_FMK_fnc_getSideInfo] call BRM_FMK_DAC_fnc_getDACStat;
+				_index = [_stat, [_index, "FACTION"] call BRM_FMK_fnc_getSideInfo] call BRM_FMK_DAC_fnc_strToNum;
 			};
 		};
 
