@@ -28,7 +28,7 @@ switch (toUpper(_faction)) do {
 	};
 
 	case "CAF": {
-		#include "factions\Canada.sqf"
+		#include "factions\caf.sqf"
 	};
 
 	case "CDF": {
@@ -116,7 +116,7 @@ switch (toUpper(_faction)) do {
 	};
 
 	case "PLA": {
-		#include "factions\PLA.sqf"
+		#include "factions\pla.sqf"
 	};
 
 	case "POLAND": {
@@ -132,7 +132,7 @@ switch (toUpper(_faction)) do {
 	};
 
 	case "ROKA": {
-		#include "factions\Korea.sqf"
+		#include "factions\roka.sqf"
 	};
 
 	case "RUSSIA": {
@@ -152,7 +152,7 @@ switch (toUpper(_faction)) do {
 	};
 
 	case "SPRG": {
-		#include "factions\sprg-report.sqf"
+		#include "factions\sprg.sqf"
 	};
 
 	case "SWEDEN": {
@@ -184,15 +184,11 @@ switch (toUpper(_faction)) do {
 	};
 
 	case "USFS": {
-		#include "factions\usarmy_future.sqf"
+		#include "factions\usfs.sqf"
 	};
 
 	case "YUGO": {
 		#include "factions\yugo.sqf"
-	};
-
-	case "DEFAULT": {
-		#include "factions\template.sqf"
 	};
 
 	default {
