@@ -28,61 +28,44 @@ RETURNS:
 
 params ["_unit", "_kind", "_backpack"];
 
-if (_kind isEqualTo "") exitWith {};
+private _side = _unit call BIS_fnc_objectSide;
+private _radio = [_side, _kind] call BRM_FMK_fnc_getRadio;
+if (_radio == "") exitWith {};
 
-private _kindIndex = ["SR", "LR", "BP"] find _kind;
-if (_kindIndex == -1) exitWith {
-	["Invalid kind: %1 (%2)", _kind, _this] call BIS_fnc_error;
-};
-
-private _sideIndex = [WEST, EAST, RESISTANCE, CIVILIAN] find side _unit;
-if (_sideIndex == -1) exitWith {
-	["Invalid unit side: %1 (%2)", side _unit, _this] call BIS_fnc_error;
-};
-
-// CIVILIAN
-if (_sideIndex == 3) exitWith {};
-
-switch (true) do {
-	case (mission_TFAR_enabled): {
-		private _radios = ["Rifleman", "Personal", "Backpack"] apply {
-			missionNamespace getVariable [format ["TFAR_DefaultRadio_%1_%2", _x, ["West", "East", "Independent"] select _sideIndex], ""];
+if (mission_TFAR_enabled) exitWith {
+	if (_kind == "BP") then {
+		if (backpack _unit != _radio) then {
+			removeBackpack _unit;
+			[_unit, _radio] call BRM_FMK_fnc_addEmptyBackpack;
 		};
-
-		private _radio = _radios select _kindIndex;
-		if (_radio != "") then {
-			if (_kindIndex == 2) then { // BP
-				if (backpack _unit != _radio) then {
-					removeBackpack _unit;
-					[_unit, _radio] call BRM_FMK_fnc_addEmptyBackpack;
-				};
-			} else {
-				private _otherRadio = _radios select ([1, 0] select _kindIndex);
-				if (assignedItems _unit findIf { _x find _radio == 0 || _x find _otherRadio == 0 } == -1) then {
-					_unit linkItem _radio;
-				};
-			};
+	} else {
+		private _currentRadio = _unit getSlotItemName 611;
+		private _otherRadio = [_side, ["SR", "LR"] select parseNumber (_kind == "SR")] call BRM_FMK_fnc_getRadio;
+		if (_currentRadio find _radio != 0 || _currentRadio find _otherRadio != 0) then {
+			_unit linkItem _radio;
 		};
 	};
+};
 
-	case (mission_ACRE2_enabled): {
-		private _radios = ["ACRE_PRC343", "ACRE_PRC148", "ACRE_PRC117F"];
-
-		private _radio = _radios select _kindIndex;
-		if (_radio != "") then {
-			if (_kindIndex == 2) then { // BP
-				if (backpackItems _unit findIf { _x find _radio == 0 } == -1) then {
-					if !(_unit canAddItemToBackpack _radio) then {
-						[_unit, _backpack] call BRM_FMK_fnc_addEmptyBackpack;
-					};
-					_unit addItemToBackpack _radio;
+if (mission_ACRE2_enabled) exitWith {
+	if (_kind == "BP") then {
+		if (backpackItems _unit findIf { _x find _radio == 0 } == -1) then {
+			if !(_unit canAddItemToBackpack _radio) then {
+				if (isNil "_backpack") then {
+					{ if (!isNil "_x") exitWith { _backpack = _x; }; } forEach [_bigBackpack, _commonBackpack, "B_AssaultPack_blk"];
 				};
-			} else {
-				private _otherRadio = _radios select ([1, 0] select _kindIndex);
-				if (items _unit findIf { _x find _radio == 0 || _x find _otherRadio == 0 } == -1) then {
-					_unit addItem _radio;
-				};
+				[_unit, _backpack] call BRM_FMK_fnc_addEmptyBackpack;
 			};
+			_unit addItemToBackpack _radio;
+		};
+	} else {
+		private _otherRadio = [_side, ["SR", "LR"] select parseNumber (_kind == "SR")] call BRM_FMK_fnc_getRadio;
+		if (items _unit findIf { _x find _radio == 0 || _x find _otherRadio == 0 } == -1) then {
+			_unit addItem _radio;
 		};
 	};
+};
+
+if (_unit getSlotItemName 611 find _radio != 0) then {
+	_unit linkItem _radio;
 };
