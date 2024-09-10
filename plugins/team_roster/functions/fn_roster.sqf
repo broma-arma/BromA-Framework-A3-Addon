@@ -120,7 +120,7 @@ switch (_mode) do {
 
 						private _role = _unitInit select 2;
 						if (toUpper _role in _aliasAUTO) then {
-							_role = getText (configfile >> "CfgVehicles" >> typeOf _unit >> "displayName");
+							_role = getText (configOf _unit >> "displayName");
 						};
 
 						private _icons = "";

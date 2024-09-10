@@ -6,7 +6,7 @@ private _vehiclePylons = [
 	//[pylonIndex, priority, attachment, turret, selectionName], ...
 ];
 
-private _cfgPylons = configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Components" >> "TransportPylonsComponent" >> "Pylons";
+private _cfgPylons = configOf _vehicle >> "Components" >> "TransportPylonsComponent" >> "Pylons";
 if (isClass _cfgPylons) then {
 	// Pylon selection names
 	private _selectionNames = [];

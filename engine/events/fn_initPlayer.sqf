@@ -88,7 +88,7 @@ if (toUpper _faction in _aliasAUTO) then {
 };
 
 if (toUpper _role in _aliasAUTO) then {
-	_role = getText (configfile >> "CfgVehicles" >> typeOf player >> "displayName");
+	_role = getText (configOf player >> "displayName");
 };
 
 if (!(_faction in _aliasNONE) && !units_player_useVanillaGear) then {

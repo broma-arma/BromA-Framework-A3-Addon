@@ -75,7 +75,7 @@ switch (_event) do {
 		private _vehicle = _display getVariable "MPG_vehicle";
 
 		if (_save) then {
-			_ctrlName ctrlSetText getText (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
+			_ctrlName ctrlSetText getText (configOf _vehicle >> "displayName");
 		};
 	};
 	case "Unload": {
@@ -132,7 +132,7 @@ switch (_event) do {
 
 		private _display = uiNamespace getVariable "MPG_display";
 		private _vehicle = _display getVariable ["MPG_vehicle", objNull];
-		private _cfgVehicle = configFile >> "CfgVehicles" >> typeOf _vehicle;
+		private _cfgVehicle = configOf _vehicle;
 
 		private _animations = [];
 		// Animations

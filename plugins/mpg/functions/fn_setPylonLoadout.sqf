@@ -14,7 +14,7 @@ if (isNil "_magazine") exitWith { ["setPylonLoadOut._magazine is nil"] call BIS_
 
 if (_pylon isEqualType "") then {
 	// Pylon name to index
-	private _cfgPylons = configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Components" >> "TransportPylonsComponent" >> "Pylons";
+	private _cfgPylons = configOf _vehicle >> "Components" >> "TransportPylonsComponent" >> "Pylons";
 	for "_i" from 0 to count _cfgPylons - 1 do {
 		if (_pylon == configName (_cfgPylons select _i)) exitWith {
 			_pylon = _i + 1;

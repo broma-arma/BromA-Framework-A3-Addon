@@ -7,7 +7,7 @@ _this = _this select [3, count _this];
 _display setVariable ["MPG_rightTab", _index];
 
 private _vehicle = _display getVariable "MPG_vehicle";
-private _cfgVehicle = configFile >> "CfgVehicles" >> typeOf _vehicle;
+private _cfgVehicle = configOf _vehicle;
 
 private _ctrlRightSearch = _display displayCtrl IDC_MPG_RIGHTSEARCH;
 private _ctrlRightSearchButton = _display displayCtrl IDC_MPG_RIGHTSEARCHBUTTON;

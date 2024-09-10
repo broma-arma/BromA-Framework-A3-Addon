@@ -5,7 +5,7 @@ params ["_display", "_control", "_index"];
 private _tabIndex = _display getVariable ["MPG_rightTab", 0];
 
 private _vehicle = _display getVariable "MPG_vehicle";
-private _cfg = configFile >> "CfgVehicles" >> typeOf _vehicle;
+private _cfg = configOf _vehicle;
 private _selectedIndex = lbCurSel _control;
 
 if (_selectedIndex == -1) exitWith {};

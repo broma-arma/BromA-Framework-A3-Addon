@@ -61,7 +61,7 @@ if (_actualGroup) then {
 _unitNumber = if (_isLeader) then { "" } else { "'" + _unitNumber };
 
 if ((toUpper _role) in _aliasAUTO) then {
-	_role = getText (configFile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
+	_role = getText (configOf _unit >> "displayName");
 };
 
 switch (true) do {

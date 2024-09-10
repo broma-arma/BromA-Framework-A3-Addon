@@ -180,7 +180,7 @@ switch (_event) do {
 
 		private _display = ctrlParent _control;
 		private _vehicle = _display getVariable "MPG_vehicle";
-		private _cfgVehicle = configFile >> "CfgVehicles" >> typeOf _vehicle;
+		private _cfgVehicle = configOf _vehicle;
 
 		// Texture
 		private _texture = 0 call {

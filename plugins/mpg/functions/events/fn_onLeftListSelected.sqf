@@ -68,7 +68,7 @@ _vehicle setVariable ["MPG_pylons", _vehiclePylons];
 
 	_ctrlPylon ctrlSetText "\a3\ui_f\data\GUI\Rsc\RscDisplayArsenal\cargoMisc_ca.paa";
 
-	private _cfgPylon = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Components" >> "TransportPylonsComponent" >> "Pylons") select (_pylonIndex - 1);
+	private _cfgPylon = (configOf _vehicle >> "Components" >> "TransportPylonsComponent" >> "Pylons") select (_pylonIndex - 1);
 	_ctrlPylon ctrlSetTooltip configName _cfgPylon;
 
 	private _ctrlPos = [-1, -1, SIZE_EX * GUI_PIXEL_GRID_W, SIZE_EX * GUI_PIXEL_GRID_H];

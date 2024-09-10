@@ -1,4 +1,4 @@
-_type = getText (configFile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
+_type = getText (configOf _unit >> "displayName");
 
 if (isPlayer _unit && count _this > 2) then {
 	private _displayName = [[

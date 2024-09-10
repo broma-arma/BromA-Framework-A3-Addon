@@ -7,7 +7,7 @@ if (side _unit == civilian) then {
 		_instigator = _killer;
 
 		// Handle UAV road kill (Note: unitIsUAV doesn't work for UAV AI)
-		if (_instigator isKindOf "CAManBase" && {getText (configFile >> "CfgVehicles" >> typeOf _instigator >> "simulation") == "UAVPilot"}) then {
+		if (_instigator isKindOf "CAManBase" && {getText (configOf _instigator >> "simulation") == "UAVPilot"}) then {
 			_instigator = vehicle _instigator;
 		};
 		if (unitIsUAV _instigator) then {
