@@ -83,6 +83,6 @@ switch (_stat) do {
 		_index
 	};
 	default {
-		["[ERROR] [DAC Plugin] Unknown stat: %1", _stat] call BIS_fnc_error;
+		["[ERROR] [DAC Plugin] Unknown stat: %1", _stat] call BIS_fnc_error; 0
 	};
 };
