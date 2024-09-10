@@ -8,7 +8,6 @@ class loadouts_functions {
 	class addAmmoAuto {};
 	class getAmmoClass {};
 	class addEmptyBackpack {};
-	class setVehiclesArray{};
 	class addItem {};
 	class addItems {};
 	class addMedicBasics {};
@@ -25,9 +24,7 @@ class loadouts_functions {
 	class linkItem {};
 	class stripUnit {};
 	class useUniform {};
-	class setUnitIdentity {};
 	class getSideUAV {};
 	class addWeaponAttachments {};
-	class getFactionInfo {};
 	class addEarplugs {};
 };

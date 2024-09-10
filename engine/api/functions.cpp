@@ -22,6 +22,12 @@ class api_deprecated {
 	file = "\broma_framework\engine\api\deprecated";
 	class getUnitsArray{};
 	class getFactionVehicles{};
+	class setVehiclesArray{};
+};
+
+class api_faction {
+	file = "\broma_framework\engine\api\faction";
+	class getFactionInfo {};
 };
 
 class api_markers {

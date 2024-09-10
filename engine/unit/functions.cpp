@@ -9,4 +9,5 @@ class unit {
 	class createPlayerVehicles {};
 	class generateRadioStructure {};
 	class joinDeadGroup {};
+	class setUnitIdentity {};
 };
