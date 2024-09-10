@@ -28,6 +28,6 @@ class loadouts_functions {
 	class setUnitIdentity {};
 	class getSideUAV {};
 	class addWeaponAttachments {};
-	class getFaction {};
+	class getFactionInfo {};
 	class addEarplugs {};
 };

@@ -1,6 +1,6 @@
 // Executed after faction mod and before faction structure.
 
-if (isNil "_factionSide") then { _factionSide = [_faction, _defaultSide] call BRM_FMK_fnc_getFaction select 1; };
+if (isNil "_factionSide") then { _factionSide = [_faction, _defaultSide] call BRM_FMK_fnc_getFactionInfo select 1; };
 
 private _sideChar = switch (_factionSide) do {
 	case WEST: { "B" };

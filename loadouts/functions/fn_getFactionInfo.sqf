@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_getFaction
+    BRM_FMK_fnc_getFactionInfo
 
 AUTHOR(s):
     Nife
@@ -15,9 +15,9 @@ PARAMETERS:
     1 - (OPTIONAL) The default faction side. (SIDE)
 
 USAGE:
-	["side_a"] call BRM_FMK_fnc_getFaction;
-	["west"] call BRM_FMK_fnc_getFaction;
-	["NATO"] call BRM_FMK_fnc_getFaction;
+	["side_a"] call BRM_FMK_fnc_getFactionInfo;
+	["west"] call BRM_FMK_fnc_getFactionInfo;
+	["NATO"] call BRM_FMK_fnc_getFactionInfo;
 
 RETURNS:
     The faction name and side. (ARRAY)
