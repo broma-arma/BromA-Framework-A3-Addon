@@ -13,9 +13,7 @@ class loadouts_functions {
 	class addMedicBasics {};
 	class addOptics {};
 	class addRadio {};
-	class addRadioToCargo {};
 	class addToBackpack {};
-	class addToCargo {};
 	class addToUniform {};
 	class addToVest {};
 	class addWeapon {};
@@ -28,4 +26,10 @@ class loadouts_functions {
 	class addWeaponAttachments {};
 	class addEarplugs {};
 	class getRadio {};
+};
+
+class loadouts_deprecated {
+	file = "\broma_framework\loadouts\functions\deprecated";
+	class addRadioToCargo {};
+	class addToCargo {};
 };

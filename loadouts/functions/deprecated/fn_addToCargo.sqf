@@ -1,6 +1,9 @@
 /*
 ================================================================================
 
+DEPRECATED:
+    Replace usage with: [_object, _item1, _item2, ...] call BRM_FMK_fnc_addItems;
+
 NAME:
     BRM_FMK_fnc_addToCargo
 
@@ -12,7 +15,8 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Cargo object to add the items to. (OBJECT)
-    1 - Items (ARRAY)
+    1 - Items type: "weapon", "magazine", "item" or "backpack" (STRING)
+    2+ - Item (ARRAY)
         0 - Item config name. (STRING)
         1 - Amount. (NUMBER)
 
@@ -32,11 +36,4 @@ if (count _this == 1 && { _this select 0 isEqualType [] }) then {
 
 params ["_unit", "_type"];
 
-{
-	switch (_type) do {
-		case "weapon": { _unit addWeaponCargoGlobal _x; };
-		case "magazine": { _unit addMagazineCargoGlobal _x; };
-		case "item": { _unit addItemCargoGlobal _x; };
-		case "backpack": { _unit addBackpackCargoGlobal _x; };
-	};
-} forEach (_this select [2, count _this - 2]);
+[_unit] + (_this select [2]) call BRM_FMK_fnc_addItems;
