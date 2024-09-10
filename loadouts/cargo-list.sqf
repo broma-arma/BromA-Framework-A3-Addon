@@ -148,10 +148,10 @@ switch (toLower _x) do {
 		[_apMineDirectional, 25]] call BRM_FMK_fnc_addItems;
 	};
 
-	case "radio": {
-		[_object, "SR", _factionSide, 20] call BRM_FMK_fnc_addRadioToCargo;
-		[_object, "LR", _factionSide, 10] call BRM_FMK_fnc_addRadioToCargo;
-		[_object, "BP", _factionSide, 5] call BRM_FMK_fnc_addRadioToCargo;
+	case "radio": { [_object,
+		[[_factionSide, "SR"] call BRM_FMK_fnc_getRadio, 20],
+		[[_factionSide, "LR"] call BRM_FMK_fnc_getRadio, 10],
+		[[_factionSide, "BP"] call BRM_FMK_fnc_getRadio, 5]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "rifle_grenades": { [_object,
