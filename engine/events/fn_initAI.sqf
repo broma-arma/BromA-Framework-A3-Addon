@@ -37,6 +37,11 @@ RETURNS:
 
 	_unit setVariable ["unit_side", side _unit, true]; // Backward compatibility
 
+	private _unitInit = _unit getVariable "unitInit";
+	if (!isNil "_unitInit") then {
+		_faction = _unitInit select 1;
+	};
+
 	_faction = switch (_faction) do {
 		case "side_a": { side_a_faction };
 		case "side_b": { side_b_faction };
@@ -56,7 +61,17 @@ RETURNS:
 	// Assigns the Unit's loadout depending on mission settings. ===============
 
 	if (!(_faction in _aliasNONE) && !units_AI_useVanillaGear) then {
-		[_unit, _faction] call BRM_fnc_assignLoadout;
+		if (!isNil "_unitInit") then {
+			private _role = _unitInit select 2;
+			if (toUpper _role in _aliasAUTO) then {
+				_role = getText (configOf _unit >> "displayName");
+			};
+			[_unit, _faction, _role] call BRM_fnc_assignLoadout;
+		} else {
+			if (_faction != "civilian") then {
+				[_unit, _faction] call BRM_fnc_assignLoadout;
+			};
+		}
 	};
 
 	// Adds the relevant Event Handlers. =======================================

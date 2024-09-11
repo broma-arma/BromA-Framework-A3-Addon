@@ -1,6 +1,6 @@
 _type = getText (configOf _unit >> "displayName");
 
-if (isPlayer _unit && count _this > 2) then {
+if (count _this > 2) then {
 	private _displayName = [[
 		//alias           display name
 		["co",            "Officer"],
