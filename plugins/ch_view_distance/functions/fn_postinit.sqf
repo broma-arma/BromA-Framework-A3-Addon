@@ -47,7 +47,7 @@
 		player addAction [_actionText, BRM_FMK_CHVD_fnc_openDialog, [], -99, false, true, '', '_target isEqualTo _this'];
 		player addEventHandler ["Respawn", format ["player addAction ['%1', BRM_FMK_CHVD_fnc_openDialog, [], -99, false, true, '', '_target isEqualTo _this']", _actionText]];
 	};
-	(findDisplay 46) displayAddEventHandler ["Unload", {call BRM_FMK_CHVD_fnc_updateSettings}]; // Reset obj view distance so game doesn't lag when browsing menues and so on, if FOV method was used during the game
+	(findDisplay 46) displayAddEventHandler ["Unload", {[] call BRM_FMK_CHVD_fnc_updateSettings}]; // Reset obj view distance so game doesn't lag when browsing menues and so on, if FOV method was used during the game
 
 	[] call BRM_FMK_CHVD_fnc_updateVehType;
 	[] call BRM_FMK_CHVD_fnc_updateSettings;
