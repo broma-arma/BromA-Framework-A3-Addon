@@ -1,25 +1,26 @@
-_unit = (_this select 0) createUnit [(_this select 1), (_this select 2), [], 0, "FORM"];
-_unit setSkill (_this select 3);
+params ["_group", "_unitClass", "_startPos", "_skill", "_loadout", ["_unitIndex", "x"]];
 
-[_unit, (_this select 4)] spawn BRM_FMK_fnc_initAI;
+private _unit = _group createUnit [_unitClass, _startPos, [], 0, "FORM"];
+_unit setSkill _skill;
 
-if (!isMultiplayer) then {
-	[_unit, (_this select 5)] spawn {
-		_unit = _this select 0;
-		_color = _this select 1;
+[_unit, _loadout] call BRM_FMK_fnc_initAI;
 
-		_marker = ["local", getPos _unit, "hd_dot", "Color"+_color, "", [1,1], 0, 1] call BRM_FMK_fnc_newMarkerIcon;
+if (is3DENPreview) then {
+	private _color = ["colorOPFOR", "colorIndependent", "colorBLUFOR"] select ([OPFOR, INDEPENDENT, BLUFOR] find (_unit call BIS_fnc_objectSide));
+	private _marker = ["local", getPos _unit, "hd_dot", _color, "", [1, 1], 0, 1] call BRM_FMK_fnc_newMarkerIcon;
 
-		while {(alive _unit)} do {
-			sleep 0.1;
-			_marker setMarkerPos getPos _unit;
+	[{
+		params ["_args", "_handle"];
+		_args params ["_unit", "_marker"];
+
+		if (!alive _unit) exitWith {
+			deleteMarker _marker;
+			[_handle] call CBA_fnc_removePerFrameHandler;
 		};
-		deleteMarker _marker;
-	};
+		_marker setMarkerPos getPos _unit;
+	}, 0.1, [_unit, _marker]] call CBA_fnc_addPerFrameHandler;
 };
 
-if (count _this < 7 ) then { _this set [6, "x"] };
-
-["LOCAL", "CHAT", format["Created unit (%3): %1 at %2", (_this select 1), (_this select 2), (_this select 6)]] call BRM_FMK_fnc_doLog;
+["LOCAL", "CHAT", format ["Created unit %1 at %2 (%3)", _unitClass, _startPos, _unitIndex]] call BRM_FMK_fnc_doLog;
 
 _unit
