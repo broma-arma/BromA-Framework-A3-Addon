@@ -43,6 +43,7 @@ class CfgFunctions {
 		#include "\broma_framework\engine\plugins\functions.cpp"
 		#include "\broma_framework\engine\tasks\functions.cpp"
 		#include "\broma_framework\engine\unit\functions.cpp"
+		#include "\broma_framework\engine\loadout\functions.cpp"
 
 		#include "\broma_framework\loadouts\functions.cpp"
 	};
@@ -66,6 +67,8 @@ class BRM_FMK {
 #include "\broma_framework\loadouts\configs\Voices.hpp"
 #include "\broma_framework\loadouts\configs\Faces.hpp"
 #include "\broma_framework\loadouts\configs\Names.hpp"
+#include "\broma_framework\loadouts\configs\Factions.hpp"
+#include "\broma_framework\loadouts\configs\Structures.hpp"
 };
 
 class Extended_DisplayLoad_EventHandlers {
