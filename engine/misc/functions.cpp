@@ -4,4 +4,5 @@ class misc {
 	class stampTime{};
 	class syncTime{};
 	class getMusic {};
+	class doLog {};
 };
