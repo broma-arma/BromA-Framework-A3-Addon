@@ -13,7 +13,7 @@ DESCRIPTION:
 PARAMETERS:
     0 - Locality - "global" or "local" (STRING)
     1 - Position. (ARRAY)
-    2 - Type: The marker's icon. See https://community.bistudio.com/wiki/cfgMarkers (STRING)
+    2 - Type: The marker's icon. See https://community.bistudio.com/wiki/Arma_3:_CfgMarkers#Marker_Classes (STRING)
     3 - (OPTIONAL) Color: "ColorRed", "ColorBlue" etc. (STRING)
     4 - (OPTIONAL) Text. (STRING)
     5 - (OPTIONAL) Size: an array with the width and the height, 1 being the default. (ARRAY)

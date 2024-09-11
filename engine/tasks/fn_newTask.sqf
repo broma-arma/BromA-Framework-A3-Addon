@@ -17,7 +17,7 @@ PARAMETERS:
         0 - Task title. (STRING)
         1 - Description. (STRING)
         2 - The Type of the Task (STRING)
-            See https://community.bistudio.com/wiki/Arma_3:_Task_Framework#Task_icons for task types
+            See https://community.bistudio.com/wiki/Arma_3:_Task_Framework#Task_Icons for task types
         3 - Position of the Task (POSITION/OBJECT/STRING)
             No position will be shown if an empty array/string or null object.
     3 - Conditions. (ARRAY)
