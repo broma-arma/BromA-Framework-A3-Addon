@@ -21,7 +21,7 @@ _defaultInsignia = "";
 _defaultColor = "civilian";
 
 // =============================================================================
-if (!_isMan) exitWith {};
+if (!_assignLoadoutMode) exitWith {};
 switch (true) do {
 // =============================================================================
 
