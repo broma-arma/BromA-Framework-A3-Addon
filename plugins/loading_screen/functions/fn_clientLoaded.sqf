@@ -29,7 +29,9 @@ if (BrmFmk_LoadingScreen_count != -1) then {
 			BrmFmk_LoadingScreen_loaded = true;
 			publicVariable "BrmFmk_LoadingScreen_loaded";
 
-			loading_screen_finished = true;
+			if (!hasInterface) then {
+				loading_screen_finished = true;
+			};
 		};
 	};
 };
