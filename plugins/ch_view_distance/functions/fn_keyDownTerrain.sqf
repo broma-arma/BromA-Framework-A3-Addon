@@ -53,11 +53,11 @@ for "_i" from (37.125) to 3.125 step -1 do {
 };
 
 _terrainQualityArray = [
-	["Low", localize "STR_chvd_low"] select (isLocalized "STR_chvd_low"),
-	["Standart", localize "STR_chvd_standard"] select (isLocalized "STR_chvd_standard"),
-	["High", localize "STR_chvd_high"] select (isLocalized "STR_chvd_high"),
-	["Very High", localize "STR_chvd_veryHigh"] select (isLocalized "STR_chvd_veryHigh"),
-	["Ultra", localize "STR_chvd_ultra"] select (isLocalized "STR_chvd_ultra")
+	if (isLocalized "STR_chvd_low") then {localize "STR_chvd_low"} else {"Low"},
+	if (isLocalized "STR_chvd_standard") then {localize "STR_chvd_standard"} else {"Standard"},
+	if (isLocalized "STR_chvd_high") then {localize "STR_chvd_high"} else {"High"},
+	if (isLocalized "STR_chvd_veryHigh") then {localize "STR_chvd_veryHigh"} else {"Very High"},
+	if (isLocalized "STR_chvd_ultra") then {localize "STR_chvd_ultra"} else {"Ultra"}
 ];
 _terrainQuality = _terrainQualityArray select _terrainIndex;
 _textTerrainQuality = if (isLocalized "STR_chvd_terrainQuality") then {localize "STR_chvd_terrainQuality"} else {"Terrain Quality"};
