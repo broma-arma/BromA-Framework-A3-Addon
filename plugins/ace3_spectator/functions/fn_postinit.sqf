@@ -1,9 +1,12 @@
-if !(isClass(configFile>>"CfgPatches">>"ACE_MAIN")) exitWith {};
+if (!isClass (configFile >> "CfgPatches" >> "ace_spectator")) exitWith {};
 
-[allUnits] call ace_spectator_fnc_updateUnits;
+if (mission_game_mode != "coop" && !player_is_spectator) then {
+	private _side = player call BIS_fnc_objectSide;
+	private _friendly = [];
+	private _enemy = [];
+	{
+		[_friendly, _enemy] select (_side getFriend _x < 0.6) pushBack _x;
+	} forEach [BLUFOR, OPFOR, INDEPENDENT, CIVILIAN];
 
-if ((mission_game_mode == "tvt")||(mission_game_mode == "cotvt")) then {
-	if (!player_is_spectator) then {
-		[[side player]] call ace_spectator_fnc_updateSpectatableSides;
-	};
+	[_friendly, _enemy] call ace_spectator_fnc_updateSides;
 };
