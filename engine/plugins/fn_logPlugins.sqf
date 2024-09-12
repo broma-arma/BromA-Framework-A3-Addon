@@ -28,6 +28,17 @@ usedPlugins = "true" configClasses (missionConfigFile >> "CfgPlugins") apply { c
 
 usedPlugins deleteAt (usedPlugins find "agm_plugin"); // Remove agm_plugin.
 
+0 call {
+	if (isClass (configFile >> "CfgPatches" >> "ace_spectator")) then {
+		// Force ACE3 Spectator, instead of Vanilla Spectator
+		private _i = usedPlugins find "vanilla_spectator";
+		if (_i != -1 && !("ace3_spectator" in usedPlugins)) then {
+			usedPlugins set [_i, "ace3_spectator"];
+			[{ !isNil "mission_game_mode" && !isNil "player_is_spectator" }, { [] call BRM_FMK_ACE3_SPECTATOR_fnc_postinit; }] call CBA_fnc_waitUntilAndExecute;
+		};
+	};
+};
+
 usedPlugins sort true;
 
 ENGINE_plugins = "true" configClasses (configFile >> "CfgBRMPlugins") apply { configName _x };
