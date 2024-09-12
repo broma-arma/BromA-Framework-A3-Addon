@@ -25,6 +25,9 @@ RETURNS:
 plugins_loaded = false;
 
 usedPlugins = "true" configClasses (missionConfigFile >> "CfgPlugins") apply { configName _x };
+
+usedPlugins deleteAt (usedPlugins find "agm_plugin"); // Remove agm_plugin.
+
 usedPlugins sort true;
 
 ENGINE_plugins = "true" configClasses (configFile >> "CfgBRMPlugins") apply { configName _x };
