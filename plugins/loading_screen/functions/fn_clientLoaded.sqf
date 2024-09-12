@@ -1,7 +1,7 @@
 #define SERVER_FPS_METRIC 20
 #define SERVER_TIMEOUT 5
 
-if !(isServer) exitWith {
+if (!isServer) exitWith {
 	0 remoteExec ["BRM_FMK_LoadingScreen_fnc_clientLoaded", 2];
 };
 
@@ -21,7 +21,7 @@ if (BrmFmk_LoadingScreen_count != -1) then {
 			];
 
 			if ("dac_plugin" in usedPlugins) then {
-				_metrics pushBack { !isNil "DAC_Basic_Value" && {DAC_Basic_Value > 0} };
+				_metrics pushBack { missionNamespace getVariable ["DAC_Basic_Value", 0] > 0 };
 			};
 
 			[_metrics, SERVER_TIMEOUT] call BRM_FMK_LoadingScreen_fnc_load;
