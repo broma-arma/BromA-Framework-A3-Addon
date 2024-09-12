@@ -4,8 +4,6 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-	["LOCAL", "F_LOG", "LOADED SLOT PREVENTION PLUGIN"] call BRM_FMK_fnc_doLog;
-
 	if (isNil "mission_preventreslot_timer") then { mission_preventreslot_timer = 600 };
 
 	if (player_is_spectator) exitWith {};
