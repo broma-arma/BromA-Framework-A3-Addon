@@ -11,11 +11,10 @@ DESCRIPTION:
     Converts an array into an english reading format.
 
 PARAMETERS:
-    0 - Array (ARRAY)
+    0+ - Item (ANY)
 
 USAGE:
-    myReadArray = [["Nife","Royal","Knite"]] call BRM_FMK_fnc_verboseArray
-    >> "Nife, Royal and Knite"
+    ["Nife", "Royal", "Knite"] call BRM_FMK_fnc_verboseArray; // "Nife, Royal and Knite"
 
 RETURNS:
     Verbosed array (STRING)
@@ -23,11 +22,11 @@ RETURNS:
 ================================================================================
 */
 
-params [["_array", [], [[]]]];
+if (count _this == 1 && { _this select 0 isEqualType [] }) then { _this = _this select 0; }; // Backward compatibility
 
-private _length = count _array;
+private _length = count _this;
 if (_length > 1) then {
-	(_array select [0, _length - 1] joinString ", ") + " and " + (_array select _length - 1)
+	(_this select [0, _length - 1] joinString ", ") + " and " + (_this select -1)
 } else {
-	_array joinString ""
+	_this joinString ""
 }
