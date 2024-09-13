@@ -49,6 +49,11 @@ class api_sounds {
 	class playCfgSound{};
 };
 
+class api_strings {
+	file = "\broma_framework\engine\api\strings";
+	class formatElapsedTime {};
+};
+
 class api_triggers {
 	file = "\broma_framework\engine\api\triggers";
 	class callCodeArea{};
