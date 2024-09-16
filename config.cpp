@@ -13,7 +13,7 @@ class CfgPatches {
 		weapons[] = {};
 		requiredVersion = 1;
 		requiredAddons[] = {};
-		author = "Nife";
+		author = "BromA";
 		versionDesc = "Broma Framework MK 4 APEX";
 		version = VERSION;
 		versionStr = QUOTE(VERSION);
