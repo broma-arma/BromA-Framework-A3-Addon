@@ -1,3 +1,4 @@
+// Reload: "BRM_FMK_ACE3_fnc_addACEHelp" call BIS_fnc_recompile; player removeDiarySubject "BRM_FMK_ACE3"; [] call BRM_FMK_ACE3_fnc_addACEHelp;
 #define QUOTE(TEXT) #TEXT
 
 #define HIGHLIGHT(TEXT,COLOR) QUOTE(<font color='#COLOR'>TEXT</font>)
@@ -7,7 +8,7 @@
 #define CONFIG_ASTERISK " <font color='#FFCC00'>*</font>"
 #define CONFIG_NOTE CONFIG_ASTERISK + " Configurable, could change from mission to mission."
 
-player createDiarySubject ["ACE 3", "ACE 3 Medical", "\z\ace\addons\medical_gui\data\categories\triage_card.paa"];
+player createDiarySubject ["BRM_FMK_ACE3", "ACE 3 Medical", "\z\ace\addons\medical_gui\data\categories\triage_card.paa"];
 
 private _medicType = player getVariable ["ace_medical_medicClass", parseNumber (player getUnitTrait "medic")];
 private _isMedic = _medicType > 0;
@@ -94,7 +95,7 @@ private _lines = ["Note: Bleeding and pain is for the worst possible wound of th
 	_lines pushBack "";
 } forEach configProperties [configFile >> "ACE_Medical_Injuries" >> "wounds", "isClass _x"];
 
-player createDiaryRecord ["ACE 3", ["Wounds", _lines joinString "<br/>", "\z\ace\addons\medical_feedback\data\fracture.paa"], taskNull, "NONE", false];
+player createDiaryRecord ["BRM_FMK_ACE3", ["Wounds", _lines joinString "<br/>", "\z\ace\addons\medical_feedback\data\fracture.paa"], taskNull, "NONE", false];
 
 // =============================================================================
 
@@ -205,7 +206,7 @@ if (ace_medical_treatment_advancedMedication) then {
 	];
 };
 
-player createDiaryRecord ["ACE 3", ["Drugs", _lines joinString "<br/>", "\z\ace\addons\medical_treatment\ui\morphine_ca.paa"], taskNull, "NONE", false];
+player createDiaryRecord ["BRM_FMK_ACE3", ["Drugs", _lines joinString "<br/>", "\z\ace\addons\medical_treatment\ui\morphine_ca.paa"], taskNull, "NONE", false];
 
 // =============================================================================
 
@@ -275,7 +276,7 @@ if (ace_medical_treatment_consumeSurgicalKit == 2) then {
 
 _lines append ["", CONFIG_NOTE];
 
-player createDiaryRecord ["ACE 3", ["Equipment", _lines joinString "<br/>", "\z\ace\addons\medical_treatment\ui\personal_aid_kit_ca.paa"], taskNull, "NONE", false];
+player createDiaryRecord ["BRM_FMK_ACE3", ["Equipment", _lines joinString "<br/>", "\z\ace\addons\medical_treatment\ui\personal_aid_kit_ca.paa"], taskNull, "NONE", false];
 
 // =============================================================================
 
@@ -334,4 +335,4 @@ _lines append [
 	"3. Repeat after 15 seconds if still unconscious"
 ];
 
-player createDiaryRecord ["ACE 3", ["Medical", _lines joinString "<br/>", "\z\ace\addons\medical_treatment\ui\elasticBandage_ca.paa"], taskNull, "NONE", false];
+player createDiaryRecord ["BRM_FMK_ACE3", ["Medical", _lines joinString "<br/>", "\z\ace\addons\medical_treatment\ui\elasticBandage_ca.paa"], taskNull, "NONE", false];
