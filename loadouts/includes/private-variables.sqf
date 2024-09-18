@@ -1,3 +1,4 @@
+// File is included in mission framework
 private [
 	"_unit", "_faction", "_type",
 	"_isLeader", "_isMan",

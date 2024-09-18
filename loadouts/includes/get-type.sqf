@@ -1,3 +1,4 @@
+// File is included in mission framework
 _type = getText (configOf _unit >> "displayName");
 
 if (count _this > 2) then {

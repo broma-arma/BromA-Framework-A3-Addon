@@ -1,3 +1,4 @@
+// File is included in mission framework
 private _propertyKeys = ["SIDE", "COLOR", "NAME", "SKILL", "CALLSIGNS", "UNITS", "VEHICLES", "OBJECTS", "DACCAMPS"];
 private _properties = [_defaultSide, _defaultColor, _factionName, _factionSkill, _factionCallsigns, _factionUnits, _factionVehicles, _factionObjects, _factionDACCamps];
 

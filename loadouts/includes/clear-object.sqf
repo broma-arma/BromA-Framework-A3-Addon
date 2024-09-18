@@ -1,3 +1,4 @@
+// File is included in mission framework
 if (_isMan) then {
 	_unit setUnitLoadout [[], [], [], [], [], [], "", ["", nil] select isPlayer _unit, [], ["", "", "", "", "", ""]];
 } else {

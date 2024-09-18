@@ -1,3 +1,4 @@
+// File is included in mission framework
 switch (toLower _x) do {
 	case "medical": { [_object,
 		[_earPlugs, 25],

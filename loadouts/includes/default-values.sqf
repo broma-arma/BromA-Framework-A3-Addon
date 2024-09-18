@@ -1,3 +1,4 @@
+// File is included in mission framework
 // Executed after faction structure
 
 if (isNil "_defaultSide") then { _defaultSide = WEST; };

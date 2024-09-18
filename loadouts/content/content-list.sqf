@@ -1,10 +1,4 @@
-// =============================================================================
-//
-//   Here you can load or unload any extra content you want to be loaded in
-//                              your mission.
-//
-// =============================================================================
-
+// File is included in mission framework
 #ifndef CONTENT_CARGO
 #define CONTENT_CARGO(VAR,VALUE,COUNT) private _##VAR = VALUE
 #endif

@@ -1,3 +1,4 @@
+// File is included in mission framework
 private _isOfficer = _type == "Officer";
 private _isSquadLeader = _type == "Squad Leader";
 private _isTeamLeader = _type == "Team Leader";

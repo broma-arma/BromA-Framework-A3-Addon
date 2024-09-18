@@ -1,3 +1,4 @@
+// File is included in mission framework
 if (!isPlayer _unit) then {
 	private _voices = selectRandom _defaultVoice;
 	private _voice = if (_voices isEqualType "") then {

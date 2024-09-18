@@ -1,3 +1,4 @@
+// File is included in mission framework
 #define FACTION_OBJECTS_FLAG 0
 #define FACTION_OBJECTS_CRATES 1
 #define FACTION_OBJECTS_WALLS 2

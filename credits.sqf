@@ -1,13 +1,4 @@
-// ============================================================================
-//  These are the default credits to everyone who contributed in order to make |
-//                        this framework complete.                             |
-//                                                                             |
-//        I sincerely urge you not to remove this from your mission.           |
-//                                                                             |
-//              And most importantly, don't forget to add your name            |
-//                        and mission version below!                           |
-// ============================================================================
-
+// File is execVM'd by BRM_fnc_loadBriefing in mission framework
 player createDiaryRecord ["BRM_FMK_diary", ["Credits", [
 	"<img src='\broma_framework\assets\images\framework-logo.paa' width='512' height='128'/>",
 	"",

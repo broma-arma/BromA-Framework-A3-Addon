@@ -1,3 +1,4 @@
+// File is included in BRM_FMK_fnc_setVehiclesArray
 // Executed after faction mod and before faction structure.
 
 if (isNil "_factionSide") then { _factionSide = [_faction, _defaultSide] call BRM_FMK_fnc_getFactionInfo select 1; };
