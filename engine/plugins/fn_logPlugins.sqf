@@ -42,6 +42,21 @@ BRM_FMK_activePlugins deleteAt (BRM_FMK_activePlugins find "agm_plugin"); // Rem
 BRM_FMK_activePlugins sort true;
 usedPlugins = BRM_FMK_activePlugins; // Backward compatibility
 
+private _pluginConflicts = [];
+{
+	private _conflicts = getArray (configFile >> "BRM_FMK_Plugins" >> _x >> "conflict_plugins") select { _x in BRM_FMK_activePlugins };
+	if (count _conflicts > 0) then {
+		_pluginConflicts pushBack format ["  %1: %2", _x, [_conflicts] call BRM_FMK_fnc_verboseArray];
+	}
+} forEach BRM_FMK_activePlugins;
+if (count _pluginConflicts > 0) then {
+	"BromA Framework - Plugin Conflict" hintC ["The following plugins are conflicted:"] + _pluginConflicts;
+	["LOCAL", "LOG", "ERROR - BromA Framework - The following plugins are conflicted:"] call BRM_FMK_fnc_doLog;
+	{
+		["LOCAL", "LOG", _x] call BRM_FMK_fnc_doLog;
+	} forEach _pluginConflicts;
+};
+
 plugins_loaded = true;
 
 0 spawn {
