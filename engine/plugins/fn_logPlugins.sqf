@@ -42,9 +42,6 @@ BRM_FMK_activePlugins deleteAt (BRM_FMK_activePlugins find "agm_plugin"); // Rem
 BRM_FMK_activePlugins sort true;
 usedPlugins = BRM_FMK_activePlugins; // Backward compatibility
 
-ENGINE_plugins = "true" configClasses (configFile >> "CfgBRMPlugins") apply { configName _x };
-ENGINE_plugins sort true;
-
 plugins_loaded = true;
 
 0 spawn {
