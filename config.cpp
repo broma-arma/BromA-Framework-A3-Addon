@@ -70,6 +70,9 @@ class BRM_FMK {
 #include "\broma_framework\loadouts\configs\Structures.hpp"
 };
 
+#include "CfgNotifications.hpp"
+#include "CfgDebriefing.hpp"
+
 class Extended_DisplayLoad_EventHandlers {
 	class RscDisplayEGSpectator {
 		BRM_FRAMEWORK = "['BRM_FMK_DisplayLoad_EGSpectator', _this] call CBA_fnc_localEvent;";
