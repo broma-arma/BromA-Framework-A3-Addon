@@ -6,11 +6,6 @@ class BRM_FMK_Round_System {
 		class postInit {};
 	};
 
-	class general {
-		file = "\broma_framework\plugins\round_system\functions";
-		class beginMatch {};
-	};
-
 	class server {
 		file = "\broma_framework\plugins\round_system\functions\server";
 		class roundEnd {};
