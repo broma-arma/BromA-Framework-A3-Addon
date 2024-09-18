@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class headless_client
-	{
+	class headless_client {
 		name = "Headless Client";
 		version = 1;
 		authors[] = {"Naught","Nife"};

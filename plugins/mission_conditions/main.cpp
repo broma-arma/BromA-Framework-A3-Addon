@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class mission_conditions
-	{
+	class mission_conditions {
 		name = "Mission Conditions";
 		version = 1;
 		authors[] = {"Nife"};

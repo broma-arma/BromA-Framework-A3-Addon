@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class vanilla_spectator
-	{
+	class vanilla_spectator {
 		name = "Vanilla Spectator System";
 		version = 1;
 		authors[] = {"Bohemia Interactive", "Nife"};

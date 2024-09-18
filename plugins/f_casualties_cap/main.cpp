@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class f_casualties_cap
-	{
+	class f_casualties_cap {
 		name = "Casualty cap";
 		version = 1;
 		authors[] = {"Fer", "Head", "Xiathorn", "Headspace", "Wolfenswan"};

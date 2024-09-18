@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class ocap_plugin
-	{
+	class ocap_plugin {
 		name = "OCAP Plugin";
 		version = 0.5;
 		authors[] = {"MrGoodson", "Nife"};

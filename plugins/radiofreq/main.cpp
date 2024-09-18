@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class radiofreq
-	{
+	class radiofreq {
 		name = "Radio channel generator";
 		version = 1;
 		authors[] = {"Nife"};

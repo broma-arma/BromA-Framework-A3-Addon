@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class time_limit
-	{
+	class time_limit {
 		name = "Time limit";
 		version = 1;
 		authors[] = {"Nife"};

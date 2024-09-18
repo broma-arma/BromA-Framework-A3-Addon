@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class round_system
-	{
+	class round_system {
 		name = "Round System";
 		version = 1;
 		authors[] = {"Nife"};

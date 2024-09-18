@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class tfar_plugin
-	{
+	class tfar_plugin {
 		name = "TFAR Plugin";
 		version = 1;
 		authors[] = {"Nife"};

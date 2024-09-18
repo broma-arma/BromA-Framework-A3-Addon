@@ -1,6 +1,5 @@
 #ifdef BRM_PLUGIN_META
-	class acre2_plugin
-	{
+	class acre2_plugin {
 		name = "ACRE2 Plugin";
 		version = 1;
 		authors[] = {"Nife"};
