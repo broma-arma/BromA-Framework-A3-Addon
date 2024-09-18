@@ -2,7 +2,7 @@
 	class prevent_reslot {
 		name = "Prevent Reslotting";
 		version = 1;
-		authors[] = {"Nife"};
+		authors[] = {"Nife", "Coryf88"};
 		description = "As soon enough time has passed, the currently slotted player unit will be locked, blocking any attempts to change it.";
 	};
 #endif

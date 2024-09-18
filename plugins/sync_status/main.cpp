@@ -2,7 +2,7 @@
 	class sync_status {
 		name = "Synchronize Status";
 		version = 1;
-		authors[] = {"Nife"};
+		authors[] = {"Nife", "Coryf88"};
 		description = "Constantly sends your current position and over relevant data to the server, and synchronizes it every time you JIP back into the session.";
 	};
 #endif

@@ -2,7 +2,7 @@
 	class setup_zone {
 		name = "Setup zone";
 		version = 1;
-		authors[] = {"Nife"};
+		authors[] = {"Nife", "Coryf88"};
 		description = "Whenever a TvT mission is starting, players are forced to wait a set amount of time before being able to leave their start zones.";
 	};
 #endif

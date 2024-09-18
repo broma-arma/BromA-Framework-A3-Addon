@@ -2,7 +2,7 @@
 	class map_cover {
 		name = "Map Cover";
 		version = 1;
-		authors[] = {"Nife"};
+		authors[] = {"Nife", "Coryf88"};
 		description = "Highlights the AO in the map by enclosing it and darkening the unused part.";
 	};
 #endif

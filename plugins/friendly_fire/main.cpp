@@ -2,7 +2,7 @@
 	class friendly_fire {
 		name = "Friendly fire";
 		version = 1;
-		authors[] = {"Nife"};
+		authors[] = {"Nife", "Coryf88"};
 		description = "Alerts both the perpetrator and the victim whenever a friendly fire incident takes place.";
 	};
 #endif

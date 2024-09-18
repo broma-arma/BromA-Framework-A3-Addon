@@ -2,7 +2,7 @@
 	class ace3_spectator {
 		name = "ACE3 Spectator plugin";
 		version = 1;
-		authors[] = {"Nife"};
+		authors[] = {"Nife", "Coryf88"};
 		conflict_plugins[] = {"vanilla_spectator"};
 		description = "Manages some stuff about the spectator system.";
 	};

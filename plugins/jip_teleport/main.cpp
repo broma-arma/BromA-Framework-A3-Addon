@@ -2,7 +2,7 @@
 	class jip_teleport {
 		name = "JIP teleport";
 		version = 1;
-		authors[] = {"columdrum", "Nife"};
+		authors[] = {"Nife", "Coryf88"};
 		description = "Teleports JIPs to their nearest living team-member.";
 	};
 #endif
