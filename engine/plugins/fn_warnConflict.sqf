@@ -27,7 +27,7 @@ RETURNS:
 	waitUntil { !isNil "plugins_loaded" && {plugins_loaded} };
 
 	{
-		private _conflicts = getArray (configFile >> "CfgBRMPlugins" >> _x >> "conflict_plugins") select { _x in usedPlugins };
+		private _conflicts = getArray (configFile >> "CfgBRMPlugins" >> _x >> "conflict_plugins") select { _x in BRM_FMK_activePlugins };
 
 		if (count _conflicts > 0) then {
 			sleep 0.1;
@@ -36,5 +36,5 @@ RETURNS:
 			_title hintC ([_message] + _conflicts);
 			["LOCAL", "LOG", format ["%1: %2 %3", _title, _message, [_conflicts] call BRM_FMK_fnc_verboseArray]] call BRM_FMK_fnc_doLog;
 		};
-	} forEach usedPlugins;
+	} forEach BRM_FMK_activePlugins;
 };

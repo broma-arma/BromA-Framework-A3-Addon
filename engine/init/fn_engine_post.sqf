@@ -50,7 +50,7 @@ if (missionNamespace getVariable ["BRM_FMK_frameworkMission", false]) then {
 
 		0 spawn {
 			sleep 1; // Post briefing
-			if ("commander_lock" in usedPlugins && { side player in locked_sides }) then {
+			if ("commander_lock" in BRM_FMK_activePlugins && { side player in locked_sides }) then {
 				// Force enable text channels until commander starts mission.
 				private _channelSettings = [];
 				for "_i" from 0 to 5 do {

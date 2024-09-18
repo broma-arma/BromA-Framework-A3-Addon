@@ -5,10 +5,10 @@ if (isNil "setup_zone_area") then {
 };
 
 0 spawn {
-	waitUntil { !isNil "mission_setup_time" && !isNil "usedPlugins" };
+	waitUntil { !isNil "mission_setup_time" && !isNil "BRM_FMK_activePlugins" };
 
 	private _commanderLockTVT = false;
-	if ("commander_lock" in usedPlugins) then {
+	if ("commander_lock" in BRM_FMK_activePlugins) then {
 		waitUntil { !isNil "co_lock_tvt_mode" };
 
 		_commanderLockTVT = co_lock_tvt_mode;
@@ -36,10 +36,10 @@ if (isNil "setup_zone_area") then {
 		if (!BRM_FMK_Setup_Zone_active) exitWith {};
 
 		if (isMultiplayer) then {
-			if ("intros" in usedPlugins) then {
+			if ("intros" in BRM_FMK_activePlugins) then {
 				waitUntil { !isNil "intro_cutscene_over" && {intro_cutscene_over} };
 			};
-			if ("loading_screen" in usedPlugins) then {
+			if ("loading_screen" in BRM_FMK_activePlugins) then {
 				waitUntil { !isNil "loading_screen_finished" && {loading_screen_finished} };
 			};
 		};

@@ -9,11 +9,11 @@ intro_cutscene_over = false;
 
 	sleep 0.1; // After briefing
 
-	if ("loading_screen" in usedPlugins) then {
+	if ("loading_screen" in BRM_FMK_activePlugins) then {
 		waitUntil { sleep 0.1; missionNamespace getVariable ["loading_screen_finished", false] };
 	};
 
-	if ("respawn_system" in usedPlugins && { [player] call BRM_FMK_RespawnSystem_fnc_getLives == 0 }) exitWith {
+	if ("respawn_system" in BRM_FMK_activePlugins && { [player] call BRM_FMK_RespawnSystem_fnc_getLives == 0 }) exitWith {
 		intro_cutscene_over = true;
 	};
 
