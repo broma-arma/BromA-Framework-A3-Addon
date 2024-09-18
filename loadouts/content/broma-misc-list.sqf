@@ -19,6 +19,7 @@ private _ENVG = "NVGogglesB_gry_F"; // ENVG-II (Grey)
 
 private _NVGEN1 = _NVG;
 private _NVGEN2 = _NVG;
+private _NVGEN3 = _NVG;
 private _NVGEN4 = _NVG;
 private _NVWIDE = _NVG;
 if (mission_ACE3_enabled) then {
@@ -28,9 +29,9 @@ if (mission_ACE3_enabled) then {
 	_NVWIDE = "ACE_NVG_Wide";
 };
 
-private _NVGEN3OP = _NVGBlk;
-private _NVGEN3IND = _NVGGrn;
-private _NVGEN3BLU = _NVG;
+private _NVGEN3OP = _NVGBlk; // Backward compatibility
+private _NVGEN3IND = _NVGGrn; // Backward compatibility
+private _NVGEN3BLU = _NVG; // Backward compatibility
 
 // Binoculars - copyToClipboard ("configName _x call BIS_fnc_itemType params ['_itemCategory', '_itemType']; getNumber (_x >> 'scope') == 2 && _itemCategory == 'Item' && _itemType in ['Binocular', 'LaserDesignator'] && { !isClass (_x >> 'LinkedItems') || getText (_x >> 'baseWeapon') == configName _x }" configClasses (configfile >> "CfgWeapons") apply { private _dlcInfo = getAssetDLCInfo [configName _x, configfile >> "CfgWeapons"]; format ["""%1""; // %2 - %3%4 %5", configName _x, getText (_x >> "displayName"), ["", format ["%2 (%1), ", _dlcInfo#4, _dlcInfo#5]] select _dlcInfo#0, configSourceModList _x, configName _x call BIS_fnc_itemType] } joinString toString [13])
 private _binocular = "Binocular"; // Binoculars
