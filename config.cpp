@@ -53,17 +53,16 @@ class CfgFunctions {
 	#undef BRM_PLUGIN_FUNCTIONS
 };
 
-class CfgBRMPlugins {
-	#define BRM_PLUGIN_META
-		#include "\broma_framework\plugins\plugins.cpp"
-	#undef BRM_PLUGIN_META
-};
-
 #define BRM_PLUGIN_DIALOGS
 	#include "plugins\plugins.cpp"
 #undef BRM_PLUGIN_DIALOGS
 
 class BRM_FMK {
+	class Plugins {
+		#define BRM_PLUGIN_META
+			#include "\broma_framework\plugins\plugins.cpp"
+		#undef BRM_PLUGIN_META
+	};
 #include "\broma_framework\loadouts\configs\Voices.hpp"
 #include "\broma_framework\loadouts\configs\Faces.hpp"
 #include "\broma_framework\loadouts\configs\Names.hpp"

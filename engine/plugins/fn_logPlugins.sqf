@@ -66,7 +66,7 @@ plugins_loaded = true;
 	player createDiarySubject [_subject, "BromA Framework"];
 
 	private _plugins = BRM_FMK_activePlugins apply {
-		private _cfg = configFile >> "CfgBRMPlugins" >> _x;
+		private _cfg = configFile >> "BRM_FMK" >> "Plugins" >> _x;
 		format [
 			"  <execute expression='hint ""%1 v%2\nby %3\n\n%4""'>[?]</execute> <font color='#E6E682'>%1 v%2</font> by %3.",
 			getText ( _cfg >> "name"),
