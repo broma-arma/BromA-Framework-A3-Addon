@@ -1,0 +1,32 @@
+class BRM_FMK {
+	class Plugins {
+		class spawn_ai {
+			name = "AI Spawner";
+			version = 0.3;
+			authors[] = {"Nife"};
+			description = "This plugin has several handy functions in order to spawn AI units to perform several tasks.";
+		};
+	};
+};
+
+class CfgFunctions {
+	class BRM_FMK_SpawnAI {
+		class functions {
+			file = "\broma_framework\plugins\spawn_ai\functions";
+			class postInit {};
+			class infantry {};
+			class spawnUnit {};
+			class cacheUnits {};
+		};
+	};
+};
+
+class CfgPatches {
+	class BRM_FMK_Plugin_SpawnAI {
+		addonRootClass = "BRM_FRAMEWORK";
+		units[] = {};
+		weapons[] = {};
+		requiredVersion = 1;
+		requiredAddons[] = { "BRM_FRAMEWORK" };
+	};
+};
