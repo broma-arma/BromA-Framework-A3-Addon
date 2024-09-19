@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_setHitFace
+    BRM_FMK_Engine_fnc_setHitFace
 
 AUTHOR(s):
     Nife
@@ -15,7 +15,7 @@ PARAMETERS:
     0 - Unit. (OBJECT)
 
 USAGE:
-    [player] call BRM_FMK_fnc_setHitFace
+    [player] call BRM_FMK_Engine_fnc_setHitFace
 
 RETURNS:
     Nothing.
@@ -26,8 +26,8 @@ RETURNS:
 _this spawn {
 	params ["_unit"];
 
-	if (_unit getVariable ["BRM_FMK_fnc_setHitFace", false]) exitWith {};
-	_unit setVariable ["BRM_FMK_fnc_setHitFace", true];
+	if (_unit getVariable ["BRM_FMK_Engine_fnc_setHitFace", false]) exitWith {};
+	_unit setVariable ["BRM_FMK_Engine_fnc_setHitFace", true];
 
 	[_unit, "dead"] remoteExec ["setMimic", 0];
 
@@ -37,5 +37,5 @@ _this spawn {
 		[_unit, ""] remoteExec ["setMimic", 0];
 	};
 
-	_unit setVariable ["BRM_FMK_fnc_setHitFace", false];
+	_unit setVariable ["BRM_FMK_Engine_fnc_setHitFace", false];
 };

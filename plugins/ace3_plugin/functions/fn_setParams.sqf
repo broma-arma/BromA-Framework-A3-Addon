@@ -1,9 +1,10 @@
-// Medical Simulation Level, Bleedout time in seconds, Revive system lives, Everyone as a medic
-params [["_medicalLevel", 1], ["_reviveTime", 300], ["_reviveLives", -1], ["_everyoneMedic", 0]];
-
+// Backward compatibility
 mission_ace3_medical_level = if (mission_ACE3_enabled) then { [2, 1] select (ace_medical_treatment_advancedBandages == 0) } else { 0 };
 
+// Revive system lives
+private _reviveLives = ["p_ace3_revive_lives", 3] call BIS_fnc_getParamValue; // 0="Disabled", 1="1", 3="3", 5="5", 9999/-1="Infinite"
 if (_reviveLives == 9999) then { _reviveLives = -1; }; // Backward compatibility
-
 mission_ace3_revive_lives = _reviveLives;
-mission_ace3_everyone_medic = _everyoneMedic > 0;
+
+// Everyone as a medic
+mission_ace3_everyone_medic = ["p_ace3_everyone_medic", 1] call BIS_fnc_getParamValue > 0;

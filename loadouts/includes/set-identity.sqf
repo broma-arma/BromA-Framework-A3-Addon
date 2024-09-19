@@ -59,7 +59,7 @@ if (!isPlayer _unit) then {
 		""
 	};
 
-	[_unit, _voice, _face, _name] remoteExecCall ["BRM_FMK_fnc_setUnitIdentity", 0];
+	[_unit, _voice, _face, _name] remoteExecCall ["BRM_FMK_Engine_fnc_setUnitIdentity", 0];
 };
 
 if (_defaultInsignia != "" && { !isNull ([["CfgUnitInsignia", _defaultInsignia], configNull] call BIS_fnc_loadClass) }) then {

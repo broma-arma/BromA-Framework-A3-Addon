@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Coryf88"};
 			description = "Ends the mission after a certain parameter determined percentage of mission set groups have died.";
+			tag = "BRM_FMK_Plugin_CasualtyCap";
 		};
 	};
 };

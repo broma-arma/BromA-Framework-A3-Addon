@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife"};
 			description = "Accelerates time as determined by mission parameters.";
+			tag = "BRM_FMK_Plugin_TimeAcceleration";
 		};
 	};
 };

@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Coryf88"};
 			description = "Multiplayer garage";
+			tag = "BRM_FMK_Plugin_MPGarage";
 		};
 	};
 };

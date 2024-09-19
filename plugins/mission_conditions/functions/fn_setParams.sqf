@@ -1,11 +1,15 @@
 if (!isServer) exitWith {};
 
+private _paramTimeOfDay = ["p_time_of_day", 32] call BIS_fnc_getParamValue; // 0="===========", 1=" ", 2="00:00", 3="01:00", 4="02:00", 5="03:00", 6="04:00", 7="05:00", 8="06:00", 9="07:00", 10="08:00", 11="09:00", 12="10:00", 13="11:00", 14="12:00", 15="13:00", 16="14:00", 17="15:00", 18="16:00", 19="17:00", 20="18:00", 21="19:00", 22="20:00", 23="21:00", 24="22:00", 25="23:00", 26=" ", 27="===========", 28=" ", 29="Dawn", 30="Early morning", 31="Morning", 32="Noon", 33="Afternoon", 34="Evening", 35="Dusk", 36="Night", 37=" ", 38="===========", 39=" ", 40="Random", 41="Custom", 42=" ", 43="==========="
+private _paramWeatherValues = ["p_weather", 2] call BIS_fnc_getParamValue; // 0="===========", 1=" ", 2="Clear", 3="Overcast", 4="Raining", 5="Storm", 6=" ", 7="===========", 8=" ", 9="Random", 10="Mission Settings", 11=" ", 12="==========="
+private _paramFogValues = ["p_fog", 2] call BIS_fnc_getParamValue; // 0="===========", 1=" ", 2="Clear", 3="Mist", 4="Low/Thin", 5="Low/Thick", 6="Medium/Thin", 7="Medium/Thick", 8="High/Thin", 9="High/Thick", 10="Extreme", 11=" ", 12="===========", 13=" ", 14="Random", 15="Mission Settings", 16=" ", 17="==========="
+private _paramWindValues = ["p_wind", 2] call BIS_fnc_getParamValue; // 0="===========", 1=" ", 2="None", 3="Light", 4="Medium", 5="Strong", 6="Extreme", 7=" ", 8="===========", 9=" ", 10="Random", 11="Mission Settings", 12=" ", 13="==========="
+
 // ============================================================================
 //  Date                                                                       |
 // ============================================================================
 
 date params ["_year", "_month", "_day"];
-_this params ["_paramTimeOfDay", "_paramWeatherValues", "_paramFogValues", "_paramWindValues"];
 
 if ((_paramTimeOfDay > 1) && (_paramTimeOfDay < 26)) then {
 	setDate [_year, _month, _day, (_paramTimeOfDay) - 2, 00];

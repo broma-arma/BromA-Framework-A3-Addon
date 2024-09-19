@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1.5;
 			authors[] = {"Nife", "Coryf88"};
 			description = "Displays a short test screen to avoid players from shooting each other while loading the mission.";
+			tag = "BRM_FMK_Plugin_LoadingScreen";
 		};
 	};
 };

@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Coryf88"};
 			description = "Creates a handy list of all friendly units separated by group name and position.";
+			tag = "BRM_FMK_Plugin_TeamRoster";
 		};
 	};
 };

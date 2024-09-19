@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_setUnitIdentity
+    BRM_FMK_Engine_fnc_setUnitIdentity
 
 AUTHOR(s):
     Nife
@@ -17,7 +17,7 @@ PARAMETERS:
     3 - Name. (STRING)
 
 USAGE:
-    [player, "Male01ENG", "WhiteHead_01", "John Smith"] call BRM_FMK_fnc_setUnitIdentity;
+    [player, "Male01ENG", "WhiteHead_01", "John Smith"] call BRM_FMK_Engine_fnc_setUnitIdentity;
 
 RETURNS:
     Nothing

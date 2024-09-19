@@ -12,7 +12,7 @@ if (hasInterface) then {
 		if (player getVariable ["isDead", false]) then {
 			player setVariable ["isDead", false, true];
 
-			[player] call BRM_FMK_fnc_endSpectator;
+			[player] call BRM_FMK_Engine_fnc_endSpectator;
 
 			[{
 				[player] joinSilent (player getVariable ["respawnGroup", ""] call BIS_fnc_groupFromNetId);

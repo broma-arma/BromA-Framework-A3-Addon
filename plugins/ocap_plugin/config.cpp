@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 0.5;
 			authors[] = {"MrGoodson", "Nife"};
 			description = "Plugin to initialize all OCAP functions.";
+			tag = "BRM_FMK_Plugin_OCAP";
 		};
 	};
 };

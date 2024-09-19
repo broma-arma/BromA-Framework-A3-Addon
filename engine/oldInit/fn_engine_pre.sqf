@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_engine_pre
+    BRM_FMK_Engine_fnc_engine_pre
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] call BRM_FMK_fnc_engine_pre
+    [] call BRM_FMK_Engine_fnc_engine_pre
 
 RETURNS:
     Nothing.
@@ -29,4 +29,4 @@ RETURNS:
 startTime = diag_tickTime;
 pluginsLoaded = false;
 
-call BRM_FMK_fnc_loadContentCargo;
+call BRM_FMK_Engine_fnc_loadContentCargo;

@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_initPlayer
+    BRM_FMK_Engine_fnc_initPlayer
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     None. All parameters are taken from the unit's "unitInit" object variable.
 
 USAGE:
-    [] call BRM_FMK_fnc_initPlayer
+    [] call BRM_FMK_Engine_fnc_initPlayer
 
 RETURNS:
     Nothing.
@@ -43,17 +43,17 @@ player_is_jip = didJIP; // Backward compatibility
 player_is_spectator = player getVariable ["is_spectator", false] || player isKindOf "VirtualSpectator_F";
 
 if (!mission_allow_jip && didJIP && !player_is_spectator) exitWith {
-	[player] spawn BRM_FMK_fnc_removeJIP;
+	[player] spawn BRM_FMK_Engine_fnc_removeJIP;
 	player setVariable ["unit_initialized", true, true];
 };
 
 // Synchronize time with the server. ===========================================
 
-[] spawn BRM_FMK_fnc_syncTime;
+[] spawn BRM_FMK_Engine_fnc_syncTime;
 
 // Removes spectators from the game. ===========================================
 
-if (player_is_spectator) exitWith { [player] call BRM_FMK_fnc_initSpectator };
+if (player_is_spectator) exitWith { [player] call BRM_FMK_Engine_fnc_initSpectator };
 
 // Checks if player hasn't already been initialized. ===========================
 
@@ -104,7 +104,7 @@ if (!(_faction in _aliasNONE) && !units_player_useVanillaGear) then {
 // Assigns alias to other units and groups. ====================================
 
 if (didJIP) then {
-	[player, _groupName, _role] call BRM_FMK_fnc_setAlias;
+	[player, _groupName, _role] call BRM_FMK_Engine_fnc_setAlias;
 };
 
 // Initializes score related variables. ========================================

@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 0.3;
 			authors[] = {"Nife"};
 			description = "This plugin has several handy functions in order to spawn AI units to perform several tasks.";
+			tag = "BRM_FMK_Plugin_SpawnAI";
 		};
 	};
 };

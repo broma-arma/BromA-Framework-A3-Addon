@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_setAlias
+    BRM_FMK_Engine_fnc_setAlias
 
 AUTHOR(s):
     Nife
@@ -16,7 +16,7 @@ PARAMETERS:
     2 - Unit's role. (STRING)
 
 USAGE:
-    [blu_0_0_1] call BRM_FMK_fnc_setAlias
+    [blu_0_0_1] call BRM_FMK_Engine_fnc_setAlias
 
 RETURNS:
     Nothing.

@@ -6,6 +6,7 @@ class BRM_FMK {
 			authors[] = {"Bohemia Interactive", "Nife", "Coryf88"};
 			description = "This plugin enables compatibility with the vanilla spectator system.";
 			conflict_plugins[] = {"ace3_spectator"};
+			tag = "BRM_FMK_Plugin_VanillaSpectator";
 		};
 	};
 };

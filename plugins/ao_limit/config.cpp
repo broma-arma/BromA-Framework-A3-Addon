@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife"};
 			description = "Displays a message (or anything nastier) to players who leave the designated Area of Operations.";
+			tag = "BRM_FMK_Plugin_AOLimit";
 		};
 	};
 };

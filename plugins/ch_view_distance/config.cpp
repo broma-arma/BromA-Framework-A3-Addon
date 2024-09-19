@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = "1.13";
 			authors[] = {"Champ"};
 			description = "Allows for the player to change their view/object draw distance. Default key is Ctrl + \.";
+			tag = "BRM_FMK_Plugin_CHVD";
 		};
 	};
 };

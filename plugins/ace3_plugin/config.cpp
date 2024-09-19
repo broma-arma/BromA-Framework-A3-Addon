@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"nigel", "Coryf88"};
 			description = "Allows for the easy configuration of the ACE3 mod settings, including the Medical system and other modules.";
+			tag = "BRM_FMK_Plugin_ACE3";
 		};
 	};
 };

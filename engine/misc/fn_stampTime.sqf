@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_stampTime
+    BRM_FMK_Engine_fnc_stampTime
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] spawn BRM_FMK_fnc_stampTime
+    [] spawn BRM_FMK_Engine_fnc_stampTime
 
 RETURNS:
     Nothing.
@@ -30,4 +30,4 @@ private _stamp = [date,   fogParams, rain,   gusts,   lightnings,   overcast,   
 private _i = -1;
 ["LOCAL", "LOG", format ["=== SERVER TIME STAMP @ %1: %2", time, _stamp apply { _i = _i + 1; format ["%1: %2", _names select _i, _x] } joinString " | "]] call BRM_FMK_fnc_doLog;
 
-_stamp remoteExec ["BRM_FMK_fnc_syncTime", remoteExecutedOwner];
+_stamp remoteExec ["BRM_FMK_Engine_fnc_syncTime", remoteExecutedOwner];

@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife", "Coryf88"};
 			description = "Whenever a TvT mission is starting, players are forced to wait a set amount of time before being able to leave their start zones.";
+			tag = "BRM_FMK_Plugin_SetupZone";
 		};
 	};
 };

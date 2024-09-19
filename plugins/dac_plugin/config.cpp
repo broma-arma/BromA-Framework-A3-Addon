@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife", "Coryf88"};
 			description = "Adds easier and simpler ways to configure and create DAC zones, with focus on verbosity and lack of long strings of numbers - also compatible with Headless Client.";
+			tag = "BRM_FMK_Plugin_DAC";
 		};
 	};
 };

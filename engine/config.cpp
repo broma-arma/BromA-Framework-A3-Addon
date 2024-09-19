@@ -10,6 +10,15 @@ class CfgPatches {
 
 class CfgFunctions {
 	class BRM_FMK_Engine {
+		class init {
+			file = "\broma_framework\engine\init";
+			class preInit {preInit = 1;};
+			class postInit {postInit = 1;};
+			class loadSettings {};
+			class loadBriefing {};
+			class endLoading {};
+		};
+
 		class ending {
 			file = "\broma_framework\engine\ending";
 			class getEnding {};
@@ -22,12 +31,12 @@ class CfgFunctions {
 			class endSpectator {};
 		};
 
-		class init {
-			file = "\broma_framework\engine\init";
+		class oldInit {
+			file = "\broma_framework\engine\oldInit";
 			class initVariables {};
 			class engine_pre {};
 			class loadContentCargo {};
-			class engine_post {postInit = 1;};
+			class engine_post {};
 		};
 
 		class loadout {
@@ -80,8 +89,8 @@ class CfgFunctions {
 			class initAI {};
 		};
 
-		class init {
-			file = "\broma_framework\engine\init";
+		class oldInit {
+			file = "\broma_framework\engine\oldInit";
 			class assignSideProperties {};
 		};
 

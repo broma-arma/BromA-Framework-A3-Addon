@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_initVariables
+    BRM_FMK_Engine_fnc_initVariables
 
 AUTHOR(s):
     Nife
@@ -15,7 +15,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] call BRM_FMK_fnc_initVariables;
+    [] call BRM_FMK_Engine_fnc_initVariables;
 
 RETURNS:
     Nothing.

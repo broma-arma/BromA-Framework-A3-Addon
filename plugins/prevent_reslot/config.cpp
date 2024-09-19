@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife", "Coryf88"};
 			description = "As soon enough time has passed, the currently slotted player unit will be locked, blocking any attempts to change it.";
+			tag = "BRM_FMK_Plugin_PreventReslot";
 		};
 	};
 };

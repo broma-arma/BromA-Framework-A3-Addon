@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_syncTime
+    BRM_FMK_Engine_fnc_syncTime
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] spawn BRM_FMK_fnc_syncTime.
+    [] spawn BRM_FMK_Engine_fnc_syncTime.
 
 RETURNS:
     Nothing.
@@ -42,5 +42,5 @@ if (isRemoteExecuted) then {
 	setWind _wind;
 	0 setWaves _waves;
 } else {
-	0 remoteExec ["BRM_FMK_fnc_stampTime", 2];
+	0 remoteExec ["BRM_FMK_Engine_fnc_stampTime", 2];
 };

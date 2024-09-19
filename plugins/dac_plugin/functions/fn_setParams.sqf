@@ -1,4 +1,4 @@
-params ["_aiSkill"];
+private _aiSkill = ["p_ai_level", 3] call BIS_fnc_getParamValue; // 0="Very Easy", 1="Easy", 2="Normal", 3="Hard"
 
 DAC_AI_Level = _aiSkill + 1;
 

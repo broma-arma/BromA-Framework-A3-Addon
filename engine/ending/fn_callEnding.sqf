@@ -31,7 +31,7 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 
 	params ["_ending"];
 
-	_this call BRM_FMK_fnc_getEnding params ["_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber"];
+	_this call BRM_FMK_Engine_fnc_getEnding params ["_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber"];
 
 	private _margin = "N/A";
 	if (count _winningSides == 0 && count _losingSides == 0) then {

@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife", "Coryf88"};
 			description = "Ends the mission when the specified units reach a certain point.";
+			tag = "BRM_FMK_Plugin_EvadeEscape";
 		};
 	};
 };

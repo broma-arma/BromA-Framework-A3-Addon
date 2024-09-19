@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"plank", "Nife"};
 			description = "This plugin allows you to place buildings and other objects.";
+			tag = "BRM_FMK_Plugin_PlankBuilding";
 		};
 	};
 };

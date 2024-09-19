@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_joinDeadGroup
+    BRM_FMK_Engine_fnc_joinDeadGroup
 
 AUTHOR(s):
     Coryf88
@@ -14,7 +14,7 @@ PARAMETERS:
     0 - Player (OBJECT)
 
 USAGE:
-    [player] call BRM_FMK_fnc_joinDeadGroup
+    [player] call BRM_FMK_Engine_fnc_joinDeadGroup
 
 RETURNS:
     Nothing
@@ -26,7 +26,7 @@ params ["_unit"];
 
 if (isNil "_unit" || { isNull _unit }) exitWith {};
 
-if !(isServer) exitWith { _this remoteExec ["BRM_FMK_fnc_joinDeadGroup", 2]; };
+if !(isServer) exitWith { _this remoteExec ["BRM_FMK_Engine_fnc_joinDeadGroup", 2]; };
 
 if (isNil "BRM_FMK_deadGroups") then { BRM_FMK_deadGroups = createHashMap; };
 

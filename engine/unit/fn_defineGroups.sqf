@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_defineGroups
+    BRM_FMK_Engine_fnc_defineGroups
 
 AUTHOR(s):
     Nife
@@ -15,7 +15,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] call BRM_FMK_fnc_defineGroups
+    [] call BRM_FMK_Engine_fnc_defineGroups
 
 RETURNS:
     Nothing.
@@ -40,7 +40,7 @@ private _unitsToCheck = if (isMultiplayer) then { playableUnits } else { allUnit
 
 			missionNamespace setVariable [(_unitName select [0, 3]) joinString "_", group _x, true];
 
-			[_x, _groupName, _role] call BRM_FMK_fnc_setAlias;
+			[_x, _groupName, _role] call BRM_FMK_Engine_fnc_setAlias;
 		};
 	};
 } forEach _unitsToCheck;

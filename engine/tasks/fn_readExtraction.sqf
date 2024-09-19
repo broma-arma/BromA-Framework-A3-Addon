@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_readExtraction
+    BRM_FMK_Engine_fnc_readExtraction
 
 AUTHOR(s):
     Nife
@@ -49,7 +49,7 @@ private _extractionPoints = [[], [], [], []]; // Blu, Op, Ind, Civ
 		};
 
 		if (_index != -1) then {
-			[_sides select _index, getPos _x, getDir _x, _color, format ["Extraction #%1", _extName select [2, count _extName] joinString "_"]] remoteExec ["BRM_FMK_fnc_createExtractionMarker", 0, format ["BRM_FMK_fnc_createExtractionMarker_%1", _index]];
+			[_sides select _index, getPos _x, getDir _x, _color, format ["Extraction #%1", _extName select [2, count _extName] joinString "_"]] remoteExec ["BRM_FMK_Engine_fnc_createExtractionMarker", 0, format ["BRM_FMK_Engine_fnc_createExtractionMarker_%1", _index]];
 		};
 	};
 } forEach (allMissionObjects "");

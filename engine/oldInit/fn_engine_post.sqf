@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_engine_post
+    BRM_FMK_Engine_fnc_engine_post
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] call BRM_FMK_fnc_engine_post
+    [] call BRM_FMK_Engine_fnc_engine_post
 
 RETURNS:
     Nothing.

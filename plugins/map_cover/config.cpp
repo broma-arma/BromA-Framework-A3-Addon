@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife", "Coryf88"};
 			description = "Highlights the AO in the map by enclosing it and darkening the unused part.";
+			tag = "BRM_FMK_Plugin_MapCover";
 		};
 	};
 };

@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife", "Coryf88"};
 			description = "Alerts both the perpetrator and the victim whenever a friendly fire incident takes place.";
+			tag = "BRM_FMK_Plugin_FriendlyFire";
 		};
 	};
 };

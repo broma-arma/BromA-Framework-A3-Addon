@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_createExtractionMarker
+    BRM_FMK_Engine_fnc_createExtractionMarker
 
 AUTHOR(s):
     Coryf88
@@ -18,7 +18,7 @@ PARAMETERS:
     4 - Text. (STRING)
 
 USAGE:
-    [WEST, [1000, 1000], 0, "ColorBLUFOR", "Extraction #1"] call BRM_FMK_fnc_createExtractionMarker;
+    [WEST, [1000, 1000], 0, "ColorBLUFOR", "Extraction #1"] call BRM_FMK_Engine_fnc_createExtractionMarker;
 
 RETURNS:
     Nothing.
@@ -31,7 +31,7 @@ params ["_side", "_pos", "_dir", "_color", "_text"];
 if !(hasInterface) exitWith {};
 
 if (isNull player) exitWith {
-	[{ !isNull player }, { _this call BRM_FMK_fnc_createExtractionMarker; }, _this] call CBA_fnc_waitUntilAndExecute;
+	[{ !isNull player }, { _this call BRM_FMK_Engine_fnc_createExtractionMarker; }, _this] call CBA_fnc_waitUntilAndExecute;
 };
 
 if (side player == _side) then {

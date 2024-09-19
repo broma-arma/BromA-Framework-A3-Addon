@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife", "Coryf88"};
 			description = "Constantly sends your current position and over relevant data to the server, and synchronizes it every time you JIP back into the session.";
+			tag = "BRM_FMK_Plugin_SyncStatus";
 		};
 	};
 };

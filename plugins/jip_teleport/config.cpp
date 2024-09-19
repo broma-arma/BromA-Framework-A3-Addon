@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife", "Coryf88"};
 			description = "Teleports JIPs to their nearest living team-member.";
+			tag = "BRM_FMK_Plugin_JIPTeleport";
 		};
 	};
 };

@@ -6,6 +6,7 @@ class BRM_FMK {
 			authors[] = {"Nife", "Coryf88"};
 			description = "Manages some stuff about the spectator system.";
 			conflict_plugins[] = {"vanilla_spectator"};
+			tag = "BRM_FMK_Plugin_ACE3Spectator";
 		};
 	};
 };

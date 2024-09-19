@@ -56,7 +56,7 @@ if (isNil "setup_zone_area") then {
 			]] call BIS_fnc_showNotification;
 		};
 
-		private _markerPos = getMarkerPos ([player] call BRM_FMK_fnc_getSpawnPoint);
+		private _markerPos = getMarkerPos ([player] call BRM_FMK_Engine_fnc_getSpawnPoint);
 		private _marker = createMarkerLocal ["setupZone", _markerPos];
 		_marker setMarkerDirLocal 0;
 		_marker setMarkerShapeLocal "ELLIPSE";

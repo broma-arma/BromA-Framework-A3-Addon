@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_setGrpIDGlobal
+    BRM_FMK_Engine_fnc_setGrpIDGlobal
 
 AUTHOR(s):
     Nife
@@ -16,7 +16,7 @@ PARAMETERS:
     1 - ID (STRING)
 
 USAGE:
-    [group player, "Assassin"] call BRM_FMK_fnc_setGrpIDGlobal
+    [group player, "Assassin"] call BRM_FMK_Engine_fnc_setGrpIDGlobal
 
 RETURNS:
     Nothing.

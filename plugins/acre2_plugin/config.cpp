@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife"};
 			description = "Sets up environment variables and functions necessary to work with the Advanced Combat Radio Environment 2 radio system.";
+			tag = "BRM_FMK_Plugin_ACRE2";
 		};
 	};
 };

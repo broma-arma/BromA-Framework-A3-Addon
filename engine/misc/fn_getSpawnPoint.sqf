@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_getSpawnPoint
+    BRM_FMK_Engine_fnc_getSpawnPoint
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     0 - Unit (OBJECT)
 
 USAGE:
-    _myRespawn = [player] call BRM_FMK_fnc_getSpawnPoint
+    _myRespawn = [player] call BRM_FMK_Engine_fnc_getSpawnPoint
 
 RETURNS:
     Respawn point name. (STRING)

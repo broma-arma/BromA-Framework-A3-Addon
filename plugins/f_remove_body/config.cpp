@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Coryf88"};
 			description = "Ensures dead units will have their bodies removed after a certain amount of time, granted they are apart players by a certain distance.";
+			tag = "BRM_FMK_Plugin_RemoveBody";
 		};
 	};
 };

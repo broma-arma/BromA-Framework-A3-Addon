@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife"};
 			description = "Sets the mission conditions such as weather and time.";
+			tag = "BRM_FMK_Plugin_MissionConditions";
 		};
 	};
 };

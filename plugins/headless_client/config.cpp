@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife"};
 			description = "Suite of functions made to facilitate the usage of the Headless Client and its environment variables.";
+			tag = "BRM_FMK_Plugin_HC";
 		};
 	};
 };

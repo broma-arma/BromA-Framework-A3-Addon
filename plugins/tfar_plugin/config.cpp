@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife"};
 			description = "Sets up environment variables and functions necessary to work with the Task Force Radio Alpha radio system.";
+			tag = "BRM_FMK_Plugin_TFAR";
 		};
 	};
 };

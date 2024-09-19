@@ -5,6 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife", "Coryf88"};
 			description = "Punishes players for killing a parameter determined amount of civilians, compatible with both COOP and TvTs.";
+			tag = "BRM_FMK_Plugin_CivilianCasualtyCap";
 		};
 	};
 };
