@@ -31,11 +31,7 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 
 	params ["_ending"];
 
-	// Server reads all mission-related ending cases.
-	_this call compile preprocessFile "mission\settings\endings.sqf";
-
-	// Server processes all mission relevant stats.
-	mission_ending_details params ["_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber"];
+	_this call BRM_FMK_fnc_getEnding params ["_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber"];
 
 	private _margin = "N/A";
 	if (count _winningSides == 0 && count _losingSides == 0) then {
