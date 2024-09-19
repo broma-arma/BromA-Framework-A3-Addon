@@ -131,10 +131,10 @@ addMissionEventHandler ["EntityKilled", {
 
 [toUpper _groupColor] spawn {
 	params ["_color"];
-	private _nColor = if (_color == "WHITE") then { "MAIN" } else { _color };
+	if (_color == "WHITE") then { _color = "MAIN"; };
 
 	sleep 5;
-	player assignTeam _nColor;
+	player assignTeam _color;
 };
 
 // Disables object recognition to save performance. ============================
