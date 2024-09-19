@@ -12,6 +12,7 @@ class BRM_FMK {
 class CfgFunctions {
 	class BRM_FMK_Plugin_EvadeEscape {
 		class functions {
+			file = "\broma_framework\plugins\f_evade_escape\functions";
 			class reachObject {};
 		};
 	};
