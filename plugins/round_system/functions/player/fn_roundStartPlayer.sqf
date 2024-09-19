@@ -6,7 +6,11 @@ hint "";
 
 player setDamage 0;
 
-if (mission_ACE3_enabled) then { [player] spawn BRM_FMK_ACE3_fnc_ACE_RevivePlayer };
+if (mission_ACE3_enabled) then {
+	player setVariable ["ace_medical_triageLevel", 0, true];
+	[player] call ace_medical_treatment_fnc_fullHealLocal;
+	player switchMove "";
+};
 
 _respawn = [] call BRM_FMK_Round_System_fnc_moveToRespawn;
 
