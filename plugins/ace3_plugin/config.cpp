@@ -15,7 +15,6 @@ class CfgFunctions {
 			file = "\broma_framework\plugins\ace3_plugin\functions";
 			class setParams {};
 			class postInit {};
-			class ACE_RevivePlayer {};
 			class addACEHelp {};
 		};
 	};
