@@ -1,4 +1,4 @@
-mission_AI_controller = if (mission_enable_hc) then { !isServer && !hasInterface } else { isServer };
+mission_AI_controller = if (mission_enable_hc) then { !didJIP && !isServer && !hasInterface } else { isServer };
 
 if (mission_AI_controller && !isServer && !hasInterface) then {
 	mission_HC_enabled = true;
