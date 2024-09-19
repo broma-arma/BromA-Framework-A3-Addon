@@ -8,5 +8,12 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_LoadingScreen {
+	class functions {
+		file = "\broma_framework\plugins\loading_screen\functions";
+		class postInit {};
+		class clientLoaded {};
+		class load {};
+	};
+};
 #endif

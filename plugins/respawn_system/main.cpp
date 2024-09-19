@@ -8,5 +8,19 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_RespawnSystem {
+	class functions {
+		file = "\broma_framework\plugins\respawn_system\functions";
+		class preInit {};
+		class setParams {};
+		class postInit {};
+		class removeFromMission {};
+		class onRespawn {};
+		class getLives {};
+		class setLives {};
+		class callRespawn {};
+		class callRespawnSide {};
+		class killPlayer {};
+	};
+};
 #endif

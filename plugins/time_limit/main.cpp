@@ -8,5 +8,13 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_TimeLimit {
+	class functions {
+		file = "\broma_framework\plugins\time_limit\functions";
+		class setParams {};
+		class postInit {};
+		class addTime {};
+		class removeTime {};
+	};
+};
 #endif

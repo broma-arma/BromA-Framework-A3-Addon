@@ -8,5 +8,13 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_SpawnProtection {
+	class functions {
+		file = "\broma_framework\plugins\spawn_protection\functions";
+		class setParams {};
+		class postInit {};
+		class allowDamage {};
+		class clientMarker {};
+	};
+};
 #endif

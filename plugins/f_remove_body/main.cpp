@@ -8,5 +8,11 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_f_remove_body {
+	class functions {
+		file = "\broma_framework\plugins\f_remove_body\functions";
+		class postInit {};
+		class removeBody {};
+	};
+};
 #endif

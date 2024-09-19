@@ -8,5 +8,9 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_f_evade_escape {
+	class functions {
+		class reachObject {};
+	};
+};
 #endif

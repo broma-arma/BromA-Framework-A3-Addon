@@ -8,5 +8,11 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_BlockThirdPerson {
+	class functions {
+		file = "\broma_framework\plugins\block_tp\functions";
+		class setParams {};
+		class postInit {};
+	};
+};
 #endif

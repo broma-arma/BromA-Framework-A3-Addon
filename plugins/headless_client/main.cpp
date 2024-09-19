@@ -8,5 +8,11 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_HC {
+	class functions {
+		file = "\broma_framework\plugins\headless_client\functions";
+		class setParams {};
+		class postInit {};
+	};
+};
 #endif

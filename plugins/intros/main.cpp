@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_Intros {
+	class functions {
+		file = "\broma_framework\plugins\intros\functions";
+		class postInit {};
+	};
+};
 #endif

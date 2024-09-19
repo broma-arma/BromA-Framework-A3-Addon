@@ -8,5 +8,11 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_SetupZone {
+	class functions {
+		file = "\broma_framework\plugins\setup_zone\functions";
+		class setParams {};
+		class postInit {};
+	};
+};
 #endif

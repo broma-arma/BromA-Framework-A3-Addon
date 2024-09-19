@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_MissionMakerTools {
+	class functions {
+		file = "\broma_framework\plugins\mission_maker_tools\functions";
+		class postInit {};
+	};
+};
 #endif

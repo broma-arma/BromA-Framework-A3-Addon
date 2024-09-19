@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_RadioFreq {
+	class functions {
+		file = "\broma_framework\plugins\radiofreq\functions";
+		class postInit {};
+	};
+};
 #endif

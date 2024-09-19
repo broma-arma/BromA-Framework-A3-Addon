@@ -8,5 +8,11 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_MissionConditions {
+	class functions {
+		file = "\broma_framework\plugins\mission_conditions\functions";
+		class setParams {};
+		class postInit {};
+	};
+};
 #endif

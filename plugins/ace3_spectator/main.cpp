@@ -9,5 +9,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_ACE3_SPECTATOR {
+	class functions {
+		file = "\broma_framework\plugins\ace3_spectator\functions";
+		class postInit {};
+	};
+};
 #endif

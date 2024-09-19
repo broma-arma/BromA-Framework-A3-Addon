@@ -9,5 +9,12 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_VanillaSpectator {
+	class functions {
+		file = "\broma_framework\plugins\vanilla_spectator\functions";
+		class preInit {};
+		class getSettings {};
+		class centerOnTarget {};
+	};
+};
 #endif

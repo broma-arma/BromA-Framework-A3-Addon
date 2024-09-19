@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_MapCover {
+	class functions {
+		file = "\broma_framework\plugins\map_cover\functions";
+		class postInit {};
+	};
+};
 #endif

@@ -8,5 +8,13 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_SyncStatus {
+	class functions {
+		file = "\broma_framework\plugins\sync_status\functions";
+		class postInit {};
+		class saveStatus {};
+		class loadStatus {};
+		class playerVars {};
+	};
+};
 #endif

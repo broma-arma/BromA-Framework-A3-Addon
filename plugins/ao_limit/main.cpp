@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_AOLimit {
+	class functions {
+		file = "\broma_framework\plugins\ao_limit\functions";
+		class postInit {};
+	};
+};
 #endif

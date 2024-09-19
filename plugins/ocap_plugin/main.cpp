@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_OCAP {
+	class functions {
+		file = "\broma_framework\plugins\ocap_plugin\functions";
+		class init {};
+	};
+};
 #endif

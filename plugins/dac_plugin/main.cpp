@@ -8,5 +8,20 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_DAC {
+	class functions {
+		file = "\broma_framework\plugins\dac_plugin\functions";
+		class preInit {};
+		class setParams {};
+		class postInit {};
+		class new {};
+		class createDACCamp {};
+		class createDACZone {};
+		class strToNum {};
+		class generateCampInfo {};
+		class DACZone {};
+		class createZone {};
+		class initVehicleCrew {};
+	};
+};
 #endif

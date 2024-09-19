@@ -8,5 +8,13 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_ACE3 {
+	class functions {
+		file = "\broma_framework\plugins\ace3_plugin\functions";
+		class setParams {};
+		class postinit {};
+		class ACE_RevivePlayer {};
+		class addACEHelp {};
+	};
+};
 #endif

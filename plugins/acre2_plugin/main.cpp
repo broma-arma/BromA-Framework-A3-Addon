@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_ACRE2 {
+	class functions {
+		file = "\broma_framework\plugins\acre2_plugin\functions";
+		class postInit {};
+	};
+};
 #endif

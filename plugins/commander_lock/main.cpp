@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_CommanderLock {
+	class functions {
+		file = "\broma_framework\plugins\commander_lock\functions";
+		class postInit {};
+	};
+};
 #endif

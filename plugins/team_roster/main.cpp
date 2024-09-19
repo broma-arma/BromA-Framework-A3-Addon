@@ -8,7 +8,13 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_TeamRoster {
+	class functions {
+		file = "\broma_framework\plugins\team_roster\functions";
+		class postInit {};
+		class roster {};
+	};
+};
 #endif
 
 #ifdef BRM_PLUGIN_DIALOGS

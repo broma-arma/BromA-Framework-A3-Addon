@@ -8,5 +8,11 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_TFAR {
+	class functions {
+		file = "\broma_framework\plugins\tfar_plugin\functions";
+		class postInit {};
+		class autoSetupRadios {};
+	};
+};
 #endif

@@ -8,5 +8,13 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_SpawnAI {
+	class functions {
+		file = "\broma_framework\plugins\spawn_ai\functions";
+		class postInit {};
+		class infantry {};
+		class spawnUnit {};
+		class cacheUnits {};
+	};
+};
 #endif

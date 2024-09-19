@@ -8,5 +8,11 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_TimeAcceleration {
+	class functions {
+		file = "\broma_framework\plugins\time_accel\functions";
+		class setParams {};
+		class postInit {};
+	};
+};
 #endif

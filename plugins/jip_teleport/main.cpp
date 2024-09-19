@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_JIPTeleport {
+	class functions {
+		file = "\broma_framework\plugins\jip_teleport\functions";
+		class postInit {};
+	};
+};
 #endif

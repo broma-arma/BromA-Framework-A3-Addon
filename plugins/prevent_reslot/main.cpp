@@ -8,5 +8,10 @@
 #endif
 
 #ifdef BRM_PLUGIN_FUNCTIONS
-	#include "Functions.cpp"
+class BRM_FMK_PreventReslot {
+	class functions {
+		file = "\broma_framework\plugins\prevent_reslot\functions";
+		class postInit {};
+	};
+};
 #endif
