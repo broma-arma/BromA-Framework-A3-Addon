@@ -34,7 +34,7 @@ BRM_FMK_activePlugins deleteAt (BRM_FMK_activePlugins find "agm_plugin"); // Rem
 		private _i = BRM_FMK_activePlugins find "vanilla_spectator";
 		if (_i != -1 && !("ace3_spectator" in BRM_FMK_activePlugins)) then {
 			BRM_FMK_activePlugins set [_i, "ace3_spectator"];
-			[{ !isNil "mission_game_mode" && !isNil "player_is_spectator" }, { [] call BRM_FMK_ACE3_SPECTATOR_fnc_postInit; }] call CBA_fnc_waitUntilAndExecute;
+			[{ !isNil "mission_game_mode" && !isNil "player_is_spectator" }, { [] call BRM_FMK_Plugin_ACE3Spectator_fnc_postInit; }] call CBA_fnc_waitUntilAndExecute;
 		};
 	};
 };

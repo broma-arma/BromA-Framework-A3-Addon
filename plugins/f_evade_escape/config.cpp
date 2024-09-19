@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_f_evade_escape {
+	class BRM_FMK_Plugin_EvadeEscape {
 		class functions {
 			class reachObject {};
 		};
@@ -18,7 +18,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_EvadeEscape {
+	class BRM_FMK_f_evade_escape {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

@@ -45,7 +45,7 @@ switch (_updateType) do {  // 1 - VIEW, 2 - OBJ, 3 - BOTH, 0 - BOTH AND TERRAIN
 			call compile format ["profileNamespace setVariable ['%1',%1]", _varType2];
 		};
 
-		[_updateType] call BRM_FMK_CHVD_fnc_updateSettings;
+		[_updateType] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
 	};
 	case 2: {
 		sliderSetPosition [_slider1, _objViewDistValue];
@@ -53,7 +53,7 @@ switch (_updateType) do {  // 1 - VIEW, 2 - OBJ, 3 - BOTH, 0 - BOTH AND TERRAIN
 		call compile format ["%1 = %2", _varType1, _objViewDistValue];
 		call compile format ["profileNamespace setVariable ['%1',%1]", _varType1];
 
-		[_updateType] call BRM_FMK_CHVD_fnc_updateSettings;
+		[_updateType] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
 	};
 	case 3: {
 		sliderSetPosition [_slider1, _viewDistValue];
@@ -76,6 +76,6 @@ switch (_updateType) do {  // 1 - VIEW, 2 - OBJ, 3 - BOTH, 0 - BOTH AND TERRAIN
 		call compile format ["%1 = %2", _varType2, _objViewDistValue];
 		call compile format ["profileNamespace setVariable ['%1',%1]", _varType2];
 
-		[_updateType] call BRM_FMK_CHVD_fnc_updateSettings;
+		[_updateType] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
 	};
 };

@@ -16,14 +16,14 @@ if !(hasInterface && isMultiplayer) exitWith { loading_screen_finished = true; }
 
 	[[
 		{ diag_fpsMin >= CLIENT_FPS_METRIC }
-	], CLIENT_TIMEOUT] call BRM_FMK_LoadingScreen_fnc_load;
+	], CLIENT_TIMEOUT] call BRM_FMK_Plugin_LoadingScreen_fnc_load;
 
 	if !(missionNamespace getVariable ["BrmFmk_LoadingScreen_loaded", false]) then {
-		call BRM_FMK_LoadingScreen_fnc_clientLoaded;
+		call BRM_FMK_Plugin_LoadingScreen_fnc_clientLoaded;
 
 		[[
 			{ missionNamespace getVariable ["BrmFmk_LoadingScreen_loaded", false] }
-		], CLIENT_SERVER_TIMEOUT] call BRM_FMK_LoadingScreen_fnc_load;
+		], CLIENT_SERVER_TIMEOUT] call BRM_FMK_Plugin_LoadingScreen_fnc_load;
 	};
 
 	titleFadeOut 0.1;

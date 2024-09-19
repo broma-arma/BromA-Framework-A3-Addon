@@ -24,8 +24,8 @@ if (side _unit == civilian) then {
 			-1
 		};
 		if (_instigatorSide in responsible_sides && _sideIndex > -1) then {
-			private _deadCivilians = (BRM_FMK_CivilianCasualtyCap_civsKilled select _sideIndex) + 1;
-			BRM_FMK_CivilianCasualtyCap_civsKilled set [_sideIndex, _deadCivilians];
+			private _deadCivilians = (BRM_FMK_Plugin_CivilianCasualtyCap_civsKilled select _sideIndex) + 1;
+			BRM_FMK_Plugin_CivilianCasualtyCap_civsKilled set [_sideIndex, _deadCivilians];
 
 			[format ["CIVILIAN CASUALTIES: %1 out of %2", _deadCivilians, mission_dead_civilian_limit]] remoteExec ["hint", _instigatorSide];
 			["SERVER", "F_LOG", format ["[CivCasCap] %1 WAS KILLED BY %2", name _unit, name _instigator]] call BRM_FMK_fnc_doLog;

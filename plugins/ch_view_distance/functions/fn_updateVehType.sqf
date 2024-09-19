@@ -1,4 +1,4 @@
-CHVD_inUAV = if ((call BRM_FMK_CHVD_fnc_UAVstatus) isEqualTo 0) then {false} else {true};
+CHVD_inUAV = if ((call BRM_FMK_Plugin_CHVD_fnc_UAVstatus) isEqualTo 0) then {false} else {true};
 
 if (CHVD_inUAV) then {
 	switch (true) do {

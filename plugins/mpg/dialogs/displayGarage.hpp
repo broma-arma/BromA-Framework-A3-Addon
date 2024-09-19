@@ -25,8 +25,8 @@ class ctrlButtonPictureKeepAspect;
 
 class MPDisplayGarage {
 	idd = -1;
-	onLoad = "(['Load'] + _this) call BRM_FMK_MPGarage_fnc_onGarageEvent;";
-	onUnload = "(['Unload'] + _this) call BRM_FMK_MPGarage_fnc_onGarageEvent;";
+	onLoad = "(['Load'] + _this) call BRM_FMK_Plugin_MPGarage_fnc_onGarageEvent;";
+	onUnload = "(['Unload'] + _this) call BRM_FMK_Plugin_MPGarage_fnc_onGarageEvent;";
 
 	class ControlsBackground {
 		class MouseArea: ctrlStatic {
@@ -130,7 +130,7 @@ class MPDisplayGarage {
 
 			class Controls {
 				class tabCar: ctrlButton {
-					onButtonClick = "[ctrlParent (_this select 0), _this select 0] call BRM_FMK_MPGarage_fnc_onLeftTabSelect;";
+					onButtonClick = "[ctrlParent (_this select 0), _this select 0] call BRM_FMK_Plugin_MPGarage_fnc_onLeftTabSelect;";
 
 					colorBackground[] = {COLOR_OVERLAY_RGB, 0.25};
 
@@ -171,7 +171,7 @@ class MPDisplayGarage {
 		};
 		class leftSearch: ctrlEdit {
 			onMouseButtonClick = "if (_this select 1 == 1) then { _this select 0 ctrlSetText ''; ctrlSetFocus (_this select 0); };";
-			onKeyDown = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; if (_key == 28 || _key == 156) then { [ctrlParent _control, _control] call BRM_FMK_MPGarage_fnc_onSearch; true }; false";
+			onKeyDown = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; if (_key == 28 || _key == 156) then { [ctrlParent _control, _control] call BRM_FMK_Plugin_MPGarage_fnc_onSearch; true }; false";
 
 			idc = IDC_MPG_LEFTSEARCH;
 			x = GUI_ANCHOR_LEFT(GUI_PIXEL_GRID_W * 0);
@@ -186,7 +186,7 @@ class MPDisplayGarage {
 			sizeEx = SIZE_EX * GUI_PIXEL_GRID_H;
 		};
 		class leftSearchButton: ctrlButtonPicture {
-			onButtonClick = "[ctrlParent (_this select 0), _this select 0] call BRM_FMK_MPGarage_fnc_onSearch;";
+			onButtonClick = "[ctrlParent (_this select 0), _this select 0] call BRM_FMK_Plugin_MPGarage_fnc_onSearch;";
 
 			idc = IDC_MPG_LEFTSEARCHBUTTON;
 			x = GUI_ANCHOR_LEFT(PANEL_WIDTH - GUI_PIXEL_GRID_W * SIZE_EX);
@@ -205,7 +205,7 @@ class MPDisplayGarage {
 			w = PANEL_WIDTH;
 			h = SIZE_EX * GUI_PIXEL_GRID_H;
 
-			onLBSelChanged = "[ctrlParent (_this select 0)] + _this call BRM_FMK_MPGarage_fnc_onLeftSortChanged;";
+			onLBSelChanged = "[ctrlParent (_this select 0)] + _this call BRM_FMK_Plugin_MPGarage_fnc_onLeftSortChanged;";
 
 			sizeEx = SIZE_EX * GUI_PIXEL_GRID_H;
 
@@ -220,7 +220,7 @@ class MPDisplayGarage {
 			};
 		};
 		class leftContent: ctrlListbox {
-			onLBSelChanged = "[ctrlParent (_this select 0)] + _this call BRM_FMK_MPGarage_fnc_onLeftListSelected;";
+			onLBSelChanged = "[ctrlParent (_this select 0)] + _this call BRM_FMK_Plugin_MPGarage_fnc_onLeftListSelected;";
 
 			idc = IDC_MPG_LEFTCONTENT;
 			x = GUI_ANCHOR_LEFT(GUI_PIXEL_GRID_W * 0);
@@ -237,7 +237,7 @@ class MPDisplayGarage {
 
 			class Controls {
 				class tabAnimationSources: ctrlButton {
-					onButtonClick = "[ctrlParent (_this select 0), _this select 0] call BRM_FMK_MPGarage_fnc_onRightTabSelect;";
+					onButtonClick = "[ctrlParent (_this select 0), _this select 0] call BRM_FMK_Plugin_MPGarage_fnc_onRightTabSelect;";
 
 					colorBackground[] = {COLOR_OVERLAY_RGB, 0.25};
 
@@ -265,7 +265,7 @@ class MPDisplayGarage {
 
 			class Controls {
 				class ownerCombo: ctrlCombo {
-					onLBSelChanged = "['OwnerChanged', ctrlParent (_this select 0)] + _this call BRM_FMK_MPGarage_fnc_onPylonConfigChanged;";
+					onLBSelChanged = "['OwnerChanged', ctrlParent (_this select 0)] + _this call BRM_FMK_Plugin_MPGarage_fnc_onPylonConfigChanged;";
 
 					idc = IDC_MPG_PYLONCONFIG_OWNER;
 
@@ -293,8 +293,8 @@ class MPDisplayGarage {
 					sizeEx = SIZE_EX * GUI_PIXEL_GRID_H;
 				};
 				class priorityEdit : ctrlEdit {
-					onKeyDown = "['PriorityChanged', ctrlParent (_this select 0)] + _this call BRM_FMK_MPGarage_fnc_onPylonConfigChanged;";
-					onKeyUp = "['PriorityChanged', ctrlParent (_this select 0)] + _this call BRM_FMK_MPGarage_fnc_onPylonConfigChanged;";
+					onKeyDown = "['PriorityChanged', ctrlParent (_this select 0)] + _this call BRM_FMK_Plugin_MPGarage_fnc_onPylonConfigChanged;";
+					onKeyUp = "['PriorityChanged', ctrlParent (_this select 0)] + _this call BRM_FMK_Plugin_MPGarage_fnc_onPylonConfigChanged;";
 
 					idc = IDC_MPG_PYLONCONFIG_PRIORITY;
 
@@ -312,7 +312,7 @@ class MPDisplayGarage {
 					sizeEx = SIZE_EX * GUI_PIXEL_GRID_H;
 				};
 				class mirrorCheckbox: ctrlCheckBox {
-					onCheckedChanged = "['MirrorChanged', ctrlParent (_this select 0)] + _this call BRM_FMK_MPGarage_fnc_onPylonConfigChanged;";
+					onCheckedChanged = "['MirrorChanged', ctrlParent (_this select 0)] + _this call BRM_FMK_Plugin_MPGarage_fnc_onPylonConfigChanged;";
 
 					idc = IDC_MPG_PYLONCONFIG_MIRROR;
 
@@ -346,7 +346,7 @@ class MPDisplayGarage {
 			x = GUI_ANCHOR_RIGHT(GUI_PIXEL_GRID_W * SIZE_EX);
 		};
 		class rightContent: leftContent {
-			onLBSelChanged = "[ctrlParent (_this select 0)] + _this call BRM_FMK_MPGarage_fnc_onRightListSelected;";
+			onLBSelChanged = "[ctrlParent (_this select 0)] + _this call BRM_FMK_Plugin_MPGarage_fnc_onRightListSelected;";
 
 			idc = IDC_MPG_RIGHTCONTENT;
 			x = GUI_ANCHOR_RIGHT(PANEL_WIDTH);
@@ -355,7 +355,7 @@ class MPDisplayGarage {
 		};
 
 		class okButton: ctrlButton {
-			onButtonClick = "(['OKClicked'] + _this) call BRM_FMK_MPGarage_fnc_onGarageEvent;";
+			onButtonClick = "(['OKClicked'] + _this) call BRM_FMK_Plugin_MPGarage_fnc_onGarageEvent;";
 
 			idc = IDC_MPG_OKBUTTON;
 			x = GUI_ANCHOR_RIGHT(PANEL_WIDTH);
@@ -373,8 +373,8 @@ class MPDisplayGarage {
 class MPDisplayGarage_Saves {
 	idd = -1;
 
-	onLoad = "['Load'] + _this call BRM_FMK_MPGarage_fnc_onSavesEvent;";
-	onUnload = "['Unload'] + _this call BRM_FMK_MPGarage_fnc_onSavesEvent;";
+	onLoad = "['Load'] + _this call BRM_FMK_Plugin_MPGarage_fnc_onSavesEvent;";
+	onUnload = "['Unload'] + _this call BRM_FMK_Plugin_MPGarage_fnc_onSavesEvent;";
 
 	class ControlsBackground {
 		class Background: ctrlStaticBackground {
@@ -405,7 +405,7 @@ class MPDisplayGarage_Saves {
 
 			class Controls {
 				class List: ctrlListbox {
-					onLBSelChanged = "['SaveSelected', ctrlParent (_this select 0)] + _this call BRM_FMK_MPGarage_fnc_onSavesEvent;";
+					onLBSelChanged = "['SaveSelected', ctrlParent (_this select 0)] + _this call BRM_FMK_Plugin_MPGarage_fnc_onSavesEvent;";
 
 					idc = IDC_MPG_SAVES_LIST;
 					x = 0.125 * SIZE_EX * GUI_PIXEL_GRID_W;
@@ -427,7 +427,7 @@ class MPDisplayGarage_Saves {
 					sizeEx = SIZE_EX * GUI_PIXEL_GRID_H;
 				};
 				class ButtonDelete : ctrlButton {
-					onButtonClick = "['DeleteClicked', ctrlParent (_this select 0)] + _this call BRM_FMK_MPGarage_fnc_onSavesEvent;";
+					onButtonClick = "['DeleteClicked', ctrlParent (_this select 0)] + _this call BRM_FMK_Plugin_MPGarage_fnc_onSavesEvent;";
 
 					x = 0.125 * SIZE_EX * GUI_PIXEL_GRID_H;
 					y = (GUI_PIXEL_GRID_HAbs * 0.225 - 2.5 * SIZE_EX * GUI_PIXEL_GRID_H) + 1.375 * SIZE_EX * GUI_PIXEL_GRID_H;

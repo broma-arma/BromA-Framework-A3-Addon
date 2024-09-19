@@ -11,7 +11,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_VanillaSpectator {
+	class BRM_FMK_Plugin_VanillaSpectator {
 		class functions {
 			file = "\broma_framework\plugins\vanilla_spectator\functions";
 			class preInit {};
@@ -22,7 +22,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_VanillaSpectator {
+	class BRM_FMK_VanillaSpectator {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

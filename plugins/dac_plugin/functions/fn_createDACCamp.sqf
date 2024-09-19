@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_DAC_fnc_createDACCamp
+    BRM_FMK_Plugin_DAC_fnc_createDACCamp
 
 AUTHOR(s):
     Nife
@@ -24,7 +24,7 @@ PARAMETERS:
     10 - Position (ARRAY)
 
 USAGE:
-    ["DACZone9163", 4, 3, 1, 25, 1, "NamedZone1,NamedZone2,NamedZone3", 1, 1, [250, 250, 0, false], [600, 950]] call BRM_FMK_DAC_fnc_createDACCamp;
+    ["DACZone9163", 4, 3, 1, 25, 1, "NamedZone1,NamedZone2,NamedZone3", 1, 1, [250, 250, 0, false], [600, 950]] call BRM_FMK_Plugin_DAC_fnc_createDACCamp;
 
 RETURNS:
     Nothing.
@@ -37,7 +37,7 @@ params ["_name", "_id", "_count", "_faction", "_respawns", "_units", "_reinforce
 private _trigger = createTrigger ["EmptyDetector", _pos];
 _trigger setTriggerArea _area;
 _trigger setTriggerActivation ["NONE", "NOT PRESENT", false];
-_trigger setTriggerStatements ["true", format (["['%1', [%2, 0, %4], [], [], [], [%3, 3, 50, %6, 100, %5, [%7]], [%8, %8, %9, %8]] call BRM_FMK_DAC_fnc_DACZone"] + _this), ""];
+_trigger setTriggerStatements ["true", format (["['%1', [%2, 0, %4], [], [], [], [%3, 3, 50, %6, 100, %5, [%7]], [%8, %8, %9, %8]] call BRM_FMK_Plugin_DAC_fnc_DACZone"] + _this), ""];
 missionNamespace setVariable [_name, _trigger];
 
 mission_dac_camps pushBack [_name, _id];

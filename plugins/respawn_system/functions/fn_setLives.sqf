@@ -7,7 +7,7 @@ if (_target isEqualType "") then {
 if (isNull _target) exitWith {};
 
 if (!isServer) exitWith {
-	[_target, _lives] remoteExecCall ["BRM_FMK_RespawnSystem_fnc_setLives", 2];
+	[_target, _lives] remoteExecCall ["BRM_FMK_Plugin_RespawnSystem_fnc_setLives", 2];
 };
 
 private _playerID = getPlayerUID _target;

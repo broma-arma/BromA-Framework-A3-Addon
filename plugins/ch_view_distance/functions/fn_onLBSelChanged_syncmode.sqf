@@ -40,4 +40,4 @@ _modeVar = "CHVD_" + _varString + "SyncMode";
 call compile format ["%1 = %2", _modeVar, _mode];
 call compile format ["profileNamespace setVariable ['%1',%1]", _modeVar];
 
-[2] call BRM_FMK_CHVD_fnc_updateSettings;
+[2] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;

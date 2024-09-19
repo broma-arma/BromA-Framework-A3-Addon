@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_TFAR {
+	class BRM_FMK_Plugin_TFAR {
 		class functions {
 			file = "\broma_framework\plugins\tfar_plugin\functions";
 			class postInit {};
@@ -20,7 +20,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_TFAR {
+	class BRM_FMK_TFAR {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

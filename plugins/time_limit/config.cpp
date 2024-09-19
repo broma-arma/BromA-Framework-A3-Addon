@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_TimeLimit {
+	class BRM_FMK_Plugin_TimeLimit {
 		class functions {
 			file = "\broma_framework\plugins\time_limit\functions";
 			class setParams {};
@@ -22,7 +22,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_TimeLimit {
+	class BRM_FMK_TimeLimit {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

@@ -13,7 +13,7 @@ intro_cutscene_over = false;
 		waitUntil { sleep 0.1; missionNamespace getVariable ["loading_screen_finished", false] };
 	};
 
-	if ("respawn_system" in BRM_FMK_activePlugins && { [player] call BRM_FMK_RespawnSystem_fnc_getLives == 0 }) exitWith {
+	if ("respawn_system" in BRM_FMK_activePlugins && { [player] call BRM_FMK_Plugin_RespawnSystem_fnc_getLives == 0 }) exitWith {
 		intro_cutscene_over = true;
 	};
 

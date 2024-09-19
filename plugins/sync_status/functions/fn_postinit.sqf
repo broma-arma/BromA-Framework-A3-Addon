@@ -2,7 +2,7 @@ if !(isMultiplayer) exitWith {};
 
 if (isServer) then {
 	BrmFmk_SyncStatus_status = createHashMap;
-	addMissionEventHandler ["HandleDisconnect", { _this call BRM_FMK_SyncStatus_fnc_saveStatus }];
+	addMissionEventHandler ["HandleDisconnect", { _this call BRM_FMK_Plugin_SyncStatus_fnc_saveStatus }];
 };
 
 if (hasInterface && didJIP) then {
@@ -10,7 +10,7 @@ if (hasInterface && didJIP) then {
 		waitUntil { player getVariable ["unit_initialized", false] };
 
 		if (!player_is_spectator) then {
-			[getPlayerUID player] call BRM_FMK_SyncStatus_fnc_loadStatus;
+			[getPlayerUID player] call BRM_FMK_Plugin_SyncStatus_fnc_loadStatus;
 		};
 	};
 };

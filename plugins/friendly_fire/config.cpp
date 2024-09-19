@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_FriendlyFire {
+	class BRM_FMK_Plugin_FriendlyFire {
 		class functions {
 			file = "\broma_framework\plugins\friendly_fire\functions";
 			class postInit {};
@@ -20,7 +20,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_FriendlyFire {
+	class BRM_FMK_FriendlyFire {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

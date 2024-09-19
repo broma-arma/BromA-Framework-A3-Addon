@@ -39,7 +39,7 @@ CHVD_loadingDialog = true;
 	//call compile format ["systemChat '%1 %2'",_ctrl, _x select 1];
 
 	_handle = _ctrl ctrlSetEventHandler ["LBSelChanged",
-		format ["[_this select 1, '%1',%2,%3,%4] call BRM_FMK_CHVD_fnc_onLBSelChanged_syncmode", _x select 1, _x select 2, _x select 3, _x select 4]
+		format ["[_this select 1, '%1',%2,%3,%4] call BRM_FMK_Plugin_CHVD_fnc_onLBSelChanged_syncmode", _x select 1, _x select 2, _x select 3, _x select 4]
 	];
 } forEach [[1404,"foot",1410,1901,1007], [1406,"car",1409,1903,1014], [1408,"air",1411,1905,1018]];
 
@@ -60,7 +60,7 @@ CHVD_loadingDialog = true;
 	};
 	_ctrlDisplay = (findDisplay 2900) displayCtrl _ctrl;
 	_handle = _ctrlDisplay ctrlSetEventHandler ["keyDown",
-		format ["[_this select 0, '%1',%2,%3] call BRM_FMK_CHVD_fnc_onEBinput_syncmode", _x select 1, _x select 2, _x select 3]
+		format ["[_this select 0, '%1',%2,%3] call BRM_FMK_Plugin_CHVD_fnc_onEBinput_syncmode", _x select 1, _x select 2, _x select 3]
 	];
 } forEach [[1410,"foot",1901,1007], [1409,"car",1903,1014], [1411,"air",1905,1018]];
 
@@ -79,7 +79,7 @@ CHVD_loadingDialog = true;
 	_textUltra = if (isLocalized "STR_chvd_ultra") then {localize "STR_chvd_ultra"} else {"Ultra"};
 	_ctrl lbAdd _textUltra;
 
-	_sel = [_x select 1] call BRM_FMK_CHVD_fnc_selTerrainQuality;
+	_sel = [_x select 1] call BRM_FMK_Plugin_CHVD_fnc_selTerrainQuality;
 	if (CHVD_allowNoGrass) then {
 		_ctrl lbSetCurSel _sel;
 	} else {
@@ -90,7 +90,7 @@ CHVD_loadingDialog = true;
 {
 	_ctrl = ((findDisplay 2900) displayCtrl (_x select 0));
 	_handle = _ctrl ctrlSetEventHandler ["LBSelChanged",
-		format ["[_this select 1, '%1', %2] call BRM_FMK_CHVD_fnc_onLBSelChanged", _x select 1, _x select 2]
+		format ["[_this select 1, '%1', %2] call BRM_FMK_Plugin_CHVD_fnc_onLBSelChanged", _x select 1, _x select 2]
 	];
 } forEach [[1500,"CHVD_footTerrain",1400],[1501,"CHVD_carTerrain",1401],[1502,"CHVD_airTerrain",1402]];
 

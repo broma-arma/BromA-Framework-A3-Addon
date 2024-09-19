@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_SetupZone {
+	class BRM_FMK_Plugin_SetupZone {
 		class functions {
 			file = "\broma_framework\plugins\setup_zone\functions";
 			class setParams {};
@@ -20,7 +20,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_SetupZone {
+	class BRM_FMK_SetupZone {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

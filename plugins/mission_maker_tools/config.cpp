@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_MissionMakerTools {
+	class BRM_FMK_Plugin_MissionMakerTools {
 		class functions {
 			file = "\broma_framework\plugins\mission_maker_tools\functions";
 			class postInit {};
@@ -19,7 +19,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_MissionMakerTools {
+	class BRM_FMK_MissionMakerTools {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

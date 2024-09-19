@@ -38,4 +38,4 @@ switch (true) do {
 
 ["LOCAL", "CHAT", "Ending round condition check...", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 
-[] call BRM_FMK_Round_System_fnc_roundEnd;
+[] call BRM_FMK_Plugin_RoundSystem_fnc_roundEnd;

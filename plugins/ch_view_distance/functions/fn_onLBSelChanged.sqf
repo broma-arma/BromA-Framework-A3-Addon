@@ -21,4 +21,4 @@ if (!CHVD_allowNoGrass) then {
 ctrlSetText [_text, str _terrainGrid];
 call compile format ["%1 = %2",_varType, _terrainGrid];
 call compile format ["profileNamespace setVariable ['%1',%1]", _varType];
-[] call BRM_FMK_CHVD_fnc_updateTerrain;
+[] call BRM_FMK_Plugin_CHVD_fnc_updateTerrain;

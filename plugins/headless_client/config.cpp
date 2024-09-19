@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_HC {
+	class BRM_FMK_Plugin_HC {
 		class functions {
 			file = "\broma_framework\plugins\headless_client\functions";
 			class setParams {};
@@ -20,7 +20,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_HC {
+	class BRM_FMK_HC {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

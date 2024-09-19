@@ -35,5 +35,5 @@ if (hasInterface) then {
 		}, { _target getHitPointDamage "HitLegs" >= 0.5 }] call ace_interact_menu_fnc_createAction] call ace_interact_menu_fnc_addActionToClass;
 	};
 
-	[] call BRM_FMK_ACE3_fnc_addACEHelp;
+	[] call BRM_FMK_Plugin_ACE3_fnc_addACEHelp;
 };

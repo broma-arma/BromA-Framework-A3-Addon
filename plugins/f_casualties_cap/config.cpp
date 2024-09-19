@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_f_cas_cap {
+	class BRM_FMK_Plugin_CasualtyCap {
 		class functions {
 			file = "\broma_framework\plugins\f_casualties_cap\functions";
 			class setParams {};
@@ -21,7 +21,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_CasualtyCap {
+	class BRM_FMK_f_cas_cap {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

@@ -10,26 +10,31 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_DAC {
+	class BRM_FMK_Plugin_DAC {
 		class functions {
 			file = "\broma_framework\plugins\dac_plugin\functions";
 			class preInit {};
 			class setParams {};
 			class postInit {};
-			class new {};
 			class createDACCamp {};
 			class createDACZone {};
 			class strToNum {};
-			class generateCampInfo {};
 			class DACZone {};
 			class createZone {};
+		};
+	};
+	class BRM_FMK_DAC {
+		class functions {
+			file = "\broma_framework\plugins\dac_plugin\functions";
+			class new {};
+			class generateCampInfo {};
 			class initVehicleCrew {};
 		};
 	};
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_DAC {
+	class BRM_FMK_DAC {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

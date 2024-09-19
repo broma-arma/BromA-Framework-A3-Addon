@@ -300,7 +300,7 @@ class CHVD_dialog
 	idd = 2900;
 	movingEnable = false;
 	moving = 1;
-	onLoad = "[_this] call BRM_FMK_CHVD_fnc_localize";
+	onLoad = "[_this] call BRM_FMK_Plugin_CHVD_fnc_localize";
 	onUnload = "";
 
 	class controlsBackground
@@ -486,7 +486,7 @@ class CHVD_dialog
 		{
 			idc = 1900;
 			type = 43;
-			onSliderPosChanged = "['CHVD_foot', _this select 0, _this select 1, 1006, 'CHVD_footObj', 1901, 1007, 'CHVD_footSyncMode', 'CHVD_footSyncPercentage'] call BRM_FMK_CHVD_fnc_onSliderChange";
+			onSliderPosChanged = "['CHVD_foot', _this select 0, _this select 1, 1006, 'CHVD_footObj', 1901, 1007, 'CHVD_footSyncMode', 'CHVD_footSyncPercentage'] call BRM_FMK_Plugin_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
 			y = 2.7 * GUI_GRID_H + GUI_GRID_Y;
@@ -497,7 +497,7 @@ class CHVD_dialog
 		{
 			idc = 1901;
 			type = 43;
-			onSliderPosChanged = "['CHVD_footObj', _this select 0, _this select 1, 1007] call BRM_FMK_CHVD_fnc_onSliderChange";
+			onSliderPosChanged = "['CHVD_footObj', _this select 0, _this select 1, 1007] call BRM_FMK_Plugin_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
 			y = 4.2 * GUI_GRID_H + GUI_GRID_Y;
@@ -508,7 +508,7 @@ class CHVD_dialog
 		{
 			idc = 1902;
 			type = 43;
-			onSliderPosChanged = "['CHVD_car', _this select 0, _this select 1, 1013, 'CHVD_carObj', 1903, 1014, 'CHVD_carSyncMode', 'CHVD_carSyncPercentage'] call BRM_FMK_CHVD_fnc_onSliderChange";
+			onSliderPosChanged = "['CHVD_car', _this select 0, _this select 1, 1013, 'CHVD_carObj', 1903, 1014, 'CHVD_carSyncMode', 'CHVD_carSyncPercentage'] call BRM_FMK_Plugin_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
 			y = 10 * GUI_GRID_H + GUI_GRID_Y;
@@ -519,7 +519,7 @@ class CHVD_dialog
 		{
 			idc = 1903;
 			type = 43;
-			onSliderPosChanged = "['CHVD_carObj', _this select 0, _this select 1, 1014] call BRM_FMK_CHVD_fnc_onSliderChange";
+			onSliderPosChanged = "['CHVD_carObj', _this select 0, _this select 1, 1014] call BRM_FMK_Plugin_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
 			y = 11.5 * GUI_GRID_H + GUI_GRID_Y;
@@ -530,7 +530,7 @@ class CHVD_dialog
 		{
 			idc = 1904;
 			type = 43;
-			onSliderPosChanged = "['CHVD_air', _this select 0, _this select 1, 1017, 'CHVD_airObj', 1905, 1018, 'CHVD_airSyncMode', 'CHVD_airSyncPercentage'] call BRM_FMK_CHVD_fnc_onSliderChange";
+			onSliderPosChanged = "['CHVD_air', _this select 0, _this select 1, 1017, 'CHVD_airObj', 1905, 1018, 'CHVD_airSyncMode', 'CHVD_airSyncPercentage'] call BRM_FMK_Plugin_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
 			y = 17.4 * GUI_GRID_H + GUI_GRID_Y;
@@ -541,7 +541,7 @@ class CHVD_dialog
 		{
 			idc = 1905;
 			type = 43;
-			onSliderPosChanged = "['CHVD_airObj', _this select 0, _this select 1, 1018] call BRM_FMK_CHVD_fnc_onSliderChange";
+			onSliderPosChanged = "['CHVD_airObj', _this select 0, _this select 1, 1018] call BRM_FMK_Plugin_CHVD_fnc_onSliderChange";
 
 			x = 14 * GUI_GRID_W + GUI_GRID_X;
 			y = 18.9 * GUI_GRID_H + GUI_GRID_Y;
@@ -551,7 +551,7 @@ class CHVD_dialog
 		class CHVD_rscFootViewDistance: CHVD_rscEdit
 		{
 			idc = 1006;
-			onKeyDown = "['CHVD_foot', 1900, _this select 0, 'CHVD_footObj', 1901, 1007, 'CHVD_footSyncMode', 'CHVD_footSyncPercentage'] call BRM_FMK_CHVD_fnc_onEBinput";
+			onKeyDown = "['CHVD_foot', 1900, _this select 0, 'CHVD_footObj', 1901, 1007, 'CHVD_footSyncMode', 'CHVD_footSyncPercentage'] call BRM_FMK_Plugin_CHVD_fnc_onEBinput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
@@ -562,7 +562,7 @@ class CHVD_dialog
 		class CHVD_rscFootObjDistance: CHVD_rscEdit
 		{
 			idc = 1007;
-			onKeyDown = "['CHVD_footObj', 1901, _this select 0] call BRM_FMK_CHVD_fnc_onEBinput";
+			onKeyDown = "['CHVD_footObj', 1901, _this select 0] call BRM_FMK_Plugin_CHVD_fnc_onEBinput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
@@ -573,7 +573,7 @@ class CHVD_dialog
 		class CHVD_rscCarViewDistance: CHVD_rscEdit
 		{
 			idc = 1013;
-			onKeyDown = "['CHVD_car', 1902, _this select 0, 'CHVD_carObj', 1903, 1014, 'CHVD_carSyncMode', 'CHVD_carSyncPercentage'] call BRM_FMK_CHVD_fnc_onEBinput";
+			onKeyDown = "['CHVD_car', 1902, _this select 0, 'CHVD_carObj', 1903, 1014, 'CHVD_carSyncMode', 'CHVD_carSyncPercentage'] call BRM_FMK_Plugin_CHVD_fnc_onEBinput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
@@ -584,7 +584,7 @@ class CHVD_dialog
 		class CHVD_rscCarObjDistance: CHVD_rscEdit
 		{
 			idc = 1014;
-			onKeyDown = "['CHVD_carObj', 1903, _this select 0] call BRM_FMK_CHVD_fnc_onEBinput";
+			onKeyDown = "['CHVD_carObj', 1903, _this select 0] call BRM_FMK_Plugin_CHVD_fnc_onEBinput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
@@ -595,7 +595,7 @@ class CHVD_dialog
 		class CHVD_rscAirViewDistance: CHVD_rscEdit
 		{
 			idc = 1017;
-			onKeyDown = "['CHVD_air', 1904, _this select 0, 'CHVD_airObj', 1905, 1018, 'CHVD_airSyncMode', 'CHVD_airSyncPercentage'] call BRM_FMK_CHVD_fnc_onEBinput";
+			onKeyDown = "['CHVD_air', 1904, _this select 0, 'CHVD_airObj', 1905, 1018, 'CHVD_airSyncMode', 'CHVD_airSyncPercentage'] call BRM_FMK_Plugin_CHVD_fnc_onEBinput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
@@ -606,7 +606,7 @@ class CHVD_dialog
 		class CHVD_rscAirObjDistance: CHVD_rscEdit
 		{
 			idc = 1018;
-			onKeyDown = "['CHVD_airObj', 1905, _this select 0] call BRM_FMK_CHVD_fnc_onEBinput";
+			onKeyDown = "['CHVD_airObj', 1905, _this select 0] call BRM_FMK_Plugin_CHVD_fnc_onEBinput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
@@ -656,7 +656,7 @@ class CHVD_dialog
 		class CHVD_footTerrainEdit: CHVD_rscEdit
 		{
 			idc = 1400;
-			onKeyDown = "['CHVD_footTerrain', 1400, 1500] call BRM_FMK_CHVD_fnc_onEBterrainInput";
+			onKeyDown = "['CHVD_footTerrain', 1400, 1500] call BRM_FMK_Plugin_CHVD_fnc_onEBterrainInput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
@@ -667,7 +667,7 @@ class CHVD_dialog
 		class CHVD_carTerrainEdit: CHVD_rscEdit
 		{
 			idc = 1401;
-			onKeyDown = "['CHVD_carTerrain', 1401, 1501] call BRM_FMK_CHVD_fnc_onEBterrainInput";
+			onKeyDown = "['CHVD_carTerrain', 1401, 1501] call BRM_FMK_Plugin_CHVD_fnc_onEBterrainInput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;
@@ -678,7 +678,7 @@ class CHVD_dialog
 		class CHVD_airTerrainEdit: CHVD_rscEdit
 		{
 			idc = 1402;
-			onKeyDown = "['CHVD_airTerrain', 1402, 1502] call BRM_FMK_CHVD_fnc_onEBterrainInput";
+			onKeyDown = "['CHVD_airTerrain', 1402, 1502] call BRM_FMK_Plugin_CHVD_fnc_onEBterrainInput";
 			maxChars = 5;
 
 			x = 27 * GUI_GRID_W + GUI_GRID_X;

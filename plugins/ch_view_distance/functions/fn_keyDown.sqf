@@ -5,7 +5,7 @@ private ["_vehTypeString"];
 _updateType = [_this, 0, 0, [0]] call BIS_fnc_param; // 0 - decrease VD, 1 - increase VD
 _updateValue = if (_updateType isEqualTo 0) then {-500} else {500};
 
-if (!isNull (findDisplay 2900)) then {call BRM_FMK_CHVD_fnc_openDialog};
+if (!isNull (findDisplay 2900)) then {call BRM_FMK_Plugin_CHVD_fnc_openDialog};
 
 switch (CHVD_vehType) do {
 	case 1: {
@@ -41,7 +41,7 @@ switch (_updateMode) do {
 			call compile format ["%1 = %2", _objViewDistVar, _objViewDistValue];
 			call compile format ["profileNamespace setVariable ['%1',%1]", _objViewDistVar];
 
-			[3] call BRM_FMK_CHVD_fnc_updateSettings;
+			[3] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
 		};
 	};
 	case 2: {
@@ -49,7 +49,7 @@ switch (_updateMode) do {
 		call compile format ["%1 = %2", _objViewDistVar, _objViewDistValue];
 		call compile format ["profileNamespace setVariable ['%1',%1]", _objViewDistVar];
 
-		[4] call BRM_FMK_CHVD_fnc_updateSettings;
+		[4] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
 	};
 	default {
 		_viewDistValue = _viewDist + _updateValue min CHVD_maxView max (500 + _vdDiff);
@@ -60,7 +60,7 @@ switch (_updateMode) do {
 		call compile format ["%1 = %2", _objViewDistVar, _objViewDistValue];
 		call compile format ["profileNamespace setVariable ['%1',%1]", _objViewDistVar];
 
-		[3] call BRM_FMK_CHVD_fnc_updateSettings;
+		[3] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
 	};
 };
 

@@ -24,7 +24,7 @@ private _defaultHandler = { _unit getVariable [_name, _defaultValue] };
 		_x params ["_name", "_defaultValue", "_loadHandler", ["_handler", _defaultHandler]];
 		call _handler
 	});
-} forEach call BRM_FMK_SyncStatus_fnc_playerVars;
+} forEach call BRM_FMK_Plugin_SyncStatus_fnc_playerVars;
 
 private _status = [
 	[_unit] call BIS_fnc_objectVar,

@@ -57,13 +57,13 @@ switch (_tabIndex) do {
 						_pylonAttachment = _pylonMagazine;
 						_x set [2/*pylonAttachment*/, _pylonAttachment];
 
-						[_vehicle, _pylonIndex, _pylonAttachment, _forcePylons, _pylonTurret] call BRM_FMK_MPGarage_fnc_setPylonLoadOut;
+						[_vehicle, _pylonIndex, _pylonAttachment, _forcePylons, _pylonTurret] call BRM_FMK_Plugin_MPGarage_fnc_setPylonLoadOut;
 					};
 				} forEach (_vehiclePylons select { _x select 5/*_mirrorPylonIndex*/ == _pylonIndex });
 			};
 
 			_vehicle removeWeapon getText (configFile >> "CfgMagazines" >> (getPylonMagazines _vehicle select (_pylonIndex - 1)) >> "pylonWeapon");
-			[_vehicle, _pylonIndex, _pylonAttachment, _forcePylons, _pylonTurret] call BRM_FMK_MPGarage_fnc_setPylonLoadOut;
+			[_vehicle, _pylonIndex, _pylonAttachment, _forcePylons, _pylonTurret] call BRM_FMK_Plugin_MPGarage_fnc_setPylonLoadOut;
 
 			private _pylonsPriority = [];
 			{

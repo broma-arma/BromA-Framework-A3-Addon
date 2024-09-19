@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_CommanderLock {
+	class BRM_FMK_Plugin_CommanderLock {
 		class functions {
 			file = "\broma_framework\plugins\commander_lock\functions";
 			class postInit {};
@@ -19,7 +19,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_CommanderLock {
+	class BRM_FMK_CommanderLock {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

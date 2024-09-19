@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_TeamRoster {
+	class BRM_FMK_Plugin_TeamRoster {
 		class functions {
 			file = "\broma_framework\plugins\team_roster\functions";
 			class postInit {};
@@ -22,7 +22,7 @@ class CfgFunctions {
 #include "dialogs\dialog.hpp"
 
 class CfgPatches {
-	class BRM_FMK_Plugin_TeamRoster {
+	class BRM_FMK_TeamRoster {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

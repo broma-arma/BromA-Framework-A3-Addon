@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_MapCover {
+	class BRM_FMK_Plugin_MapCover {
 		class functions {
 			file = "\broma_framework\plugins\map_cover\functions";
 			class postInit {};
@@ -19,7 +19,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_MapCover {
+	class BRM_FMK_MapCover {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

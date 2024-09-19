@@ -24,4 +24,4 @@ ctrlSetText [_sliderTextboxCtrl, str round _objVD];
 call compile format ["%1 = %2", _objVDVar, _objVD];
 call compile format ["profileNamespace setVariable ['%1',%1]", _objVDVar];
 
-[2] call BRM_FMK_CHVD_fnc_updateSettings;
+[2] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;

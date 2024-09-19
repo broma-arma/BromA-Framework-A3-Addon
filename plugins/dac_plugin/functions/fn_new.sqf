@@ -57,9 +57,9 @@ switch (_command) do {
 		];
 		_arguments deleteRange [0, 7];
 
-		_side = ["SIDE", _side] call BRM_FMK_DAC_fnc_strToNum;
-		_skill = ["SKILL", _skill] call BRM_FMK_DAC_fnc_strToNum;
-		_faction = ["FACTION", _faction] call BRM_FMK_DAC_fnc_strToNum;
+		_side = ["SIDE", _side] call BRM_FMK_Plugin_DAC_fnc_strToNum;
+		_skill = ["SKILL", _skill] call BRM_FMK_Plugin_DAC_fnc_strToNum;
+		_faction = ["FACTION", _faction] call BRM_FMK_Plugin_DAC_fnc_strToNum;
 
 		switch (_kind) do {
 			case "zone": {
@@ -128,7 +128,7 @@ switch (_command) do {
 					call _fnc_setUnits;
 				};
 
-				[_name, _id, _status, _faction, _units select 0, _units select 1, _units select 2, _units select 3, _side, _skill, _area, _pos] call BRM_FMK_DAC_fnc_createDACZone;
+				[_name, _id, _status, _faction, _units select 0, _units select 1, _units select 2, _units select 3, _side, _skill, _area, _pos] call BRM_FMK_Plugin_DAC_fnc_createDACZone;
 			};
 
 			case "camp";
@@ -176,7 +176,7 @@ switch (_command) do {
 
 				_reinforce = _reinforce joinString ",";
 
-				[_name, _id, _status, _faction, _respawns, _units, _reinforce, _side, _skill, _area, _pos] call BRM_FMK_DAC_fnc_createDACCamp;
+				[_name, _id, _status, _faction, _respawns, _units, _reinforce, _side, _skill, _area, _pos] call BRM_FMK_Plugin_DAC_fnc_createDACCamp;
 			};
 		};
 	};

@@ -3,7 +3,7 @@ if (!mission_running) exitWith {};
 params ["_unit"];
 
 if (!local _unit) exitWith {
-	_this remoteExec ["BRM_FMK_CivilianCasualtyCap_fnc_civInit", _unit];
+	_this remoteExec ["BRM_FMK_Plugin_CivilianCasualtyCap_fnc_civInit", _unit];
 };
 
 _unit addEventHandler ["Hit", {
@@ -28,5 +28,5 @@ _unit addEventHandler ["Killed", {
 		_instigator = _killerInstigator;
 	};
 
-	[_unit, _causedBy, _instigator] remoteExec ["BRM_FMK_CivilianCasualtyCap_fnc_civKilled", 2];
+	[_unit, _causedBy, _instigator] remoteExec ["BRM_FMK_Plugin_CivilianCasualtyCap_fnc_civKilled", 2];
 }];

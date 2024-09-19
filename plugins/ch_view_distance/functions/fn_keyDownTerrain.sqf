@@ -6,7 +6,7 @@ _updateType = [_this, 0, 0, [0]] call BIS_fnc_param;
 if (_updateType isEqualTo 0) exitWith {};
 _terrainGridArray = [50, 48.99, 25, 12.5, 3.125];
 
-if (!isNull (findDisplay 2900)) then {call BRM_FMK_CHVD_fnc_openDialog};
+if (!isNull (findDisplay 2900)) then {call BRM_FMK_Plugin_CHVD_fnc_openDialog};
 
 switch (CHVD_vehType) do {
 	case 1: {
@@ -41,7 +41,7 @@ if (!CHVD_allowNoGrass) then {
 call compile format ["%1 = %2", _terrainGridVar, _terrainGrid];
 call compile format ["profileNamespace setVariable ['%1',%1]", _terrainGridVar];
 
-call BRM_FMK_CHVD_fnc_updateTerrain;
+call BRM_FMK_Plugin_CHVD_fnc_updateTerrain;
 
 _terrainString = "";
 for "_i" from (37.125) to 3.125 step -1 do {

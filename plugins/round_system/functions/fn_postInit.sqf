@@ -9,7 +9,7 @@ if (isServer) then {
 // SERVER CODE
 // =============================================================================
 
-	[] call BRM_FMK_Round_System_fnc_setMatchVariables;
+	[] call BRM_FMK_Plugin_RoundSystem_fnc_setMatchVariables;
 
 // =============================================================================
 };
@@ -44,7 +44,7 @@ if (hasInterface) then {
 	// SERVER CODE
 	// =========================================================================
 
-		[] call BRM_FMK_Round_System_fnc_roundStart;
+		[] call BRM_FMK_Plugin_RoundSystem_fnc_roundStart;
 
 	// =========================================================================
 	};
@@ -54,7 +54,7 @@ if (hasInterface) then {
 	// PLAYER CODE
 	// =========================================================================
 
-		[] call BRM_FMK_Round_System_fnc_roundStartPlayer;
+		[] call BRM_FMK_Plugin_RoundSystem_fnc_roundStartPlayer;
 
 	// =========================================================================
 	};

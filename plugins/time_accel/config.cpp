@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_TimeAcceleration {
+	class BRM_FMK_Plugin_TimeAcceleration {
 		class functions {
 			file = "\broma_framework\plugins\time_accel\functions";
 			class setParams {};
@@ -20,7 +20,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_TimeAcceleration {
+	class BRM_FMK_TimeAcceleration {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

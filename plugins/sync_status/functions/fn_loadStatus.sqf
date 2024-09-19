@@ -6,14 +6,14 @@ if (count _status == 0) exitWith {
 			// Send status information to the client.
 			private _status = BrmFmk_SyncStatus_status deleteAt _uid;
 			if (!isNil "_status") then {
-				[_uid, _status] remoteExec ["BRM_FMK_SyncStatus_fnc_loadStatus", remoteExecutedOwner];
+				[_uid, _status] remoteExec ["BRM_FMK_Plugin_SyncStatus_fnc_loadStatus", remoteExecutedOwner];
 			};
 		} else {
 			diag_log text "[BrmFmk.SyncStatus.loadStatus] Error: Function must be remoteExec'd.";
 		};
 	} else {
 		// Request status data from the server.
-		[_uid] remoteExec ["BRM_FMK_SyncStatus_fnc_loadStatus", 2];
+		[_uid] remoteExec ["BRM_FMK_Plugin_SyncStatus_fnc_loadStatus", 2];
 	};
 };
 
@@ -41,7 +41,7 @@ private _defaultHandler = { player setVariable [_name, _value, true] };
 		private _value = _varValues select _forEachIndex;
 		call _handler;
 	} forEach _x;
-} forEach call BRM_FMK_SyncStatus_fnc_playerVars;
+} forEach call BRM_FMK_Plugin_SyncStatus_fnc_playerVars;
 
 if (!isNull _vehicle && {alive _vehicle}) then {
 	private _seats = [toLower _vehicleSeat];

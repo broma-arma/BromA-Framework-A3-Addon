@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_JIPTeleport {
+	class BRM_FMK_Plugin_JIPTeleport {
 		class functions {
 			file = "\broma_framework\plugins\jip_teleport\functions";
 			class postInit {};
@@ -19,7 +19,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_JIPTeleport {
+	class BRM_FMK_JIPTeleport {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

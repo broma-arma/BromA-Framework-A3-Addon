@@ -21,7 +21,7 @@ _name setMarkerColorLocal "color" + ([side player, "color"] call BRM_FMK_fnc_get
 
 _message = "Wait until the round setup is over!";
 
-_barrierHandle = [_pos, _radius, _radius, _dir, "rectangle", _message] call BRM_FMK_Round_System_fnc_registerZone;
+_barrierHandle = [_pos, _radius, _radius, _dir, "rectangle", _message] call BRM_FMK_Plugin_RoundSystem_fnc_registerZone;
 
 sleep 1;
 _timetype = "";

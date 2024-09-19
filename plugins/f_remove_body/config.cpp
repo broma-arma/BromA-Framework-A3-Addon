@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_f_remove_body {
+	class BRM_FMK_Plugin_RemoveBody {
 		class functions {
 			file = "\broma_framework\plugins\f_remove_body\functions";
 			class postInit {};
@@ -20,7 +20,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_RemoveBody {
+	class BRM_FMK_f_remove_body {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

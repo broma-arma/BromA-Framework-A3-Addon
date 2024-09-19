@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_RespawnSystem {
+	class BRM_FMK_Plugin_RespawnSystem {
 		class functions {
 			file = "\broma_framework\plugins\respawn_system\functions";
 			class preInit {};
@@ -20,15 +20,20 @@ class CfgFunctions {
 			class onRespawn {};
 			class getLives {};
 			class setLives {};
+			class killPlayer {};
+		};
+	};
+	class BRM_FMK_RespawnSystem {
+		class functions {
+			file = "\broma_framework\plugins\respawn_system\functions";
 			class callRespawn {};
 			class callRespawnSide {};
-			class killPlayer {};
 		};
 	};
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_RespawnSystem {
+	class BRM_FMK_RespawnSystem {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

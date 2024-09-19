@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_AOLimit {
+	class BRM_FMK_Plugin_AOLimit {
 		class functions {
 			file = "\broma_framework\plugins\ao_limit\functions";
 			class postInit {};
@@ -19,7 +19,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_AOLimit {
+	class BRM_FMK_AOLimit {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

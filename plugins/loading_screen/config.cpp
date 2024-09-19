@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_LoadingScreen {
+	class BRM_FMK_Plugin_LoadingScreen {
 		class functions {
 			file = "\broma_framework\plugins\loading_screen\functions";
 			class postInit {};
@@ -21,7 +21,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_LoadingScreen {
+	class BRM_FMK_LoadingScreen {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

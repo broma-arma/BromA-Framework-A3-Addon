@@ -10,19 +10,24 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_SpawnAI {
+	class BRM_FMK_Plugin_SpawnAI {
 		class functions {
 			file = "\broma_framework\plugins\spawn_ai\functions";
 			class postInit {};
-			class infantry {};
 			class spawnUnit {};
 			class cacheUnits {};
+		};
+	};
+	class BRM_FMK_SpawnAI {
+		class functions {
+			file = "\broma_framework\plugins\spawn_ai\functions";
+			class infantry {};
 		};
 	};
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_SpawnAI {
+	class BRM_FMK_SpawnAI {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

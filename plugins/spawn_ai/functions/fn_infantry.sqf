@@ -116,7 +116,7 @@ for "_i" from 1 to _amount do {
 
 		private _unitName = format ["%1_%2_F", _uPrefix, _uUnits select _unitIndex];
 
-		private _unit = [_group, _unitName, _startPos, _skill, _loadout, _unitIndex] call BRM_FMK_SpawnAI_fnc_spawnUnit;
+		private _unit = [_group, _unitName, _startPos, _skill, _loadout, _unitIndex] call BRM_FMK_Plugin_SpawnAI_fnc_spawnUnit;
 
 		if (_j == 0) then { _leader = _unit };
 
@@ -164,7 +164,7 @@ for "_i" from 1 to _amount do {
 			default { _unitsInfantry };
 		};
 
-		private _driver = [_crewGroup, format ["%1_%2_F", _uPrefix, _crew select 0], _startPos, _skill, _loadout] call BRM_FMK_SpawnAI_fnc_spawnUnit;
+		private _driver = [_crewGroup, format ["%1_%2_F", _uPrefix, _crew select 0], _startPos, _skill, _loadout] call BRM_FMK_Plugin_SpawnAI_fnc_spawnUnit;
 
 		_driver setVariable ["can_leave_LZ", true];
 
@@ -175,7 +175,7 @@ for "_i" from 1 to _amount do {
 		private _spawnCrew = true;
 
 		while { _vehicle emptyPositions "commander" > 0 && _vehicle emptyPositions "gunner" > 0 } do {
-			private _unit = [_crewGroup, format ["%1_%2_F", _uPrefix, (_crew select ((count _crew)-1))], _startPos, _skill, _loadout] call BRM_FMK_SpawnAI_fnc_spawnUnit;
+			private _unit = [_crewGroup, format ["%1_%2_F", _uPrefix, (_crew select ((count _crew)-1))], _startPos, _skill, _loadout] call BRM_FMK_Plugin_SpawnAI_fnc_spawnUnit;
 			if (_vehicle emptyPositions "commander" > 0) then {
 				_unit moveInCommander _vehicle;
 			} else {
@@ -304,5 +304,5 @@ for "_i" from 1 to _amount do {
 		_group setCombatMode _combat;
 	};
 
-	if (AI_spawn_enable_caching) then { [_group, _loadout, _skill] spawn BRM_FMK_SpawnAI_fnc_cacheUnits };
+	if (AI_spawn_enable_caching) then { [_group, _loadout, _skill] spawn BRM_FMK_Plugin_SpawnAI_fnc_cacheUnits };
 };

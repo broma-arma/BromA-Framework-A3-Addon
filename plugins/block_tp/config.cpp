@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_BlockThirdPerson {
+	class BRM_FMK_Plugin_BlockThirdPerson {
 		class functions {
 			file = "\broma_framework\plugins\block_tp\functions";
 			class setParams {};
@@ -20,7 +20,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_BlockThirdPerson {
+	class BRM_FMK_BlockThirdPerson {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

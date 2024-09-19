@@ -12,9 +12,9 @@ if (mission_ACE3_enabled) then {
 	player switchMove "";
 };
 
-_respawn = [] call BRM_FMK_Round_System_fnc_moveToRespawn;
+_respawn = [] call BRM_FMK_Plugin_RoundSystem_fnc_moveToRespawn;
 
-[_respawn, round_setup_size, round_seconds_between, [side player, "side"] call BRM_FMK_fnc_getSideInfo] spawn BRM_FMK_Round_System_fnc_setupZone;
+[_respawn, round_setup_size, round_seconds_between, [side player, "side"] call BRM_FMK_fnc_getSideInfo] spawn BRM_FMK_Plugin_RoundSystem_fnc_setupZone;
 
 player allowDamage true;
 

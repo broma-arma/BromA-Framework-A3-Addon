@@ -41,65 +41,65 @@
 	waitUntil {!isNull findDisplay 46};
 
 	if (isClass (configfile >> "CfgPatches" >> "cba_keybinding")) then {
-		call BRM_FMK_CHVD_fnc_keyBindings;
+		call BRM_FMK_Plugin_CHVD_fnc_keyBindings;
 	} else {
 		_actionText = if (isLocalized "STR_chvd_title") then {localize "STR_chvd_title"} else {"View Distance Settings"};
-		player addAction [_actionText, BRM_FMK_CHVD_fnc_openDialog, [], -99, false, true, '', '_target isEqualTo _this'];
-		player addEventHandler ["Respawn", format ["player addAction ['%1', BRM_FMK_CHVD_fnc_openDialog, [], -99, false, true, '', '_target isEqualTo _this']", _actionText]];
+		player addAction [_actionText, BRM_FMK_Plugin_CHVD_fnc_openDialog, [], -99, false, true, '', '_target isEqualTo _this'];
+		player addEventHandler ["Respawn", format ["player addAction ['%1', BRM_FMK_Plugin_CHVD_fnc_openDialog, [], -99, false, true, '', '_target isEqualTo _this']", _actionText]];
 	};
-	(findDisplay 46) displayAddEventHandler ["Unload", {[] call BRM_FMK_CHVD_fnc_updateSettings}]; // Reset obj view distance so game doesn't lag when browsing menues and so on, if FOV method was used during the game
+	(findDisplay 46) displayAddEventHandler ["Unload", {[] call BRM_FMK_Plugin_CHVD_fnc_updateSettings}]; // Reset obj view distance so game doesn't lag when browsing menues and so on, if FOV method was used during the game
 
-	[] call BRM_FMK_CHVD_fnc_updateVehType;
-	[] call BRM_FMK_CHVD_fnc_updateSettings;
+	[] call BRM_FMK_Plugin_CHVD_fnc_updateVehType;
+	[] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
 
 	//Detect when to change setting type
 	[] spawn {
 		for "_i" from 0 to 1 step 0 do {
 			_currentVehicle = vehicle player;
 			waitUntil {_currentVehicle != vehicle player};
-			[] call BRM_FMK_CHVD_fnc_updateVehType;
+			[] call BRM_FMK_Plugin_CHVD_fnc_updateVehType;
 			if (
 				(CHVD_vehType isEqualTo 0 && CHVD_footSyncMode isEqualTo 2) ||
 				(CHVD_vehType isEqualTo 1 && CHVD_carSyncMode isEqualTo 2) ||
 				(CHVD_vehType isEqualTo 2 && CHVD_airSyncMode isEqualTo 2)
 			) then {
-				[1] call BRM_FMK_CHVD_fnc_updateSettings;
-				[] call BRM_FMK_CHVD_fnc_updateTerrain;
-				[4] call BRM_FMK_CHVD_fnc_updateSettings
+				[1] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
+				[] call BRM_FMK_Plugin_CHVD_fnc_updateTerrain;
+				[4] call BRM_FMK_Plugin_CHVD_fnc_updateSettings
 			} else {
-				[] call BRM_FMK_CHVD_fnc_updateSettings;
+				[] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
 			};
 		};
 	};
 
 	[] spawn {
 		for "_i" from 0 to 1 step 0 do {
-			_UAVstatus = call BRM_FMK_CHVD_fnc_UAVstatus;
-			waitUntil {_UAVstatus != call BRM_FMK_CHVD_fnc_UAVstatus};
-			[] call BRM_FMK_CHVD_fnc_updateVehType;
+			_UAVstatus = call BRM_FMK_Plugin_CHVD_fnc_UAVstatus;
+			waitUntil {_UAVstatus != call BRM_FMK_Plugin_CHVD_fnc_UAVstatus};
+			[] call BRM_FMK_Plugin_CHVD_fnc_updateVehType;
 			if (
 				(CHVD_vehType isEqualTo 0 && CHVD_footSyncMode isEqualTo 2) ||
 				(CHVD_vehType isEqualTo 1 && CHVD_carSyncMode isEqualTo 2) ||
 				(CHVD_vehType isEqualTo 2 && CHVD_airSyncMode isEqualTo 2)
 			) then {
-				[1] call BRM_FMK_CHVD_fnc_updateSettings;
-				[] call BRM_FMK_CHVD_fnc_updateTerrain;
-				[4] call BRM_FMK_CHVD_fnc_updateSettings
+				[1] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
+				[] call BRM_FMK_Plugin_CHVD_fnc_updateTerrain;
+				[4] call BRM_FMK_Plugin_CHVD_fnc_updateSettings
 			} else {
-				[] call BRM_FMK_CHVD_fnc_updateSettings;
+				[] call BRM_FMK_Plugin_CHVD_fnc_updateSettings;
 			};
 		};
 	};
 
 	[] spawn {
 		for "_i" from 0 to 1 step 0 do {
-			_currentZoom = call BRM_FMK_CHVD_fnc_trueZoom;
-			waitUntil {_currentZoom != call BRM_FMK_CHVD_fnc_trueZoom};
+			_currentZoom = call BRM_FMK_Plugin_CHVD_fnc_trueZoom;
+			waitUntil {_currentZoom != call BRM_FMK_Plugin_CHVD_fnc_trueZoom};
 			if (
 				(CHVD_vehType isEqualTo 0 && CHVD_footSyncMode isEqualTo 2) ||
 				(CHVD_vehType isEqualTo 1 && CHVD_carSyncMode isEqualTo 2) ||
 				(CHVD_vehType isEqualTo 2 && CHVD_airSyncMode isEqualTo 2)
-			) then {[4] call BRM_FMK_CHVD_fnc_updateSettings};
+			) then {[4] call BRM_FMK_Plugin_CHVD_fnc_updateSettings};
 		};
 	};
 };

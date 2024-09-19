@@ -22,9 +22,9 @@ if (!isNull (_attacker getVariable ["bis_fnc_moduleremotecontrol_owner", objNull
 	["SERVER", "LOG", format (["FRIENDLY FIRE: %2 has wounded %1 with a remote controlled unit."] + _names)] call BRM_FMK_fnc_doLog;
 };
 
-if !(BRM_FMK_FriendlyFire_alerts set [_names, true]) then {
+if !(BRM_FMK_Plugin_FriendlyFire_alerts set [_names, true]) then {
 	[{
 		["ALL", "CHAT", format (["FRIENDLY FIRE: %2 has wounded %1!"] + _this)] call BRM_FMK_fnc_doLog;
-		BRM_FMK_FriendlyFire_alerts deleteAt _this;
+		BRM_FMK_Plugin_FriendlyFire_alerts deleteAt _this;
 	}, _names, friendly_fire_timer_minutes * 60] call CBA_fnc_waitAndExecute;
 };

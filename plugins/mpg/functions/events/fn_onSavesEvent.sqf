@@ -85,14 +85,14 @@ switch (_event) do {
 
 		if (_exitCode == 1/*OK*/) then {
 			if (_save) then {
-				["SaveVehicle", ctrlText (_dialog displayCtrl IDC_MPG_SAVES_NAME)] call BRM_FMK_MPGarage_fnc_onSavesEvent;
+				["SaveVehicle", ctrlText (_dialog displayCtrl IDC_MPG_SAVES_NAME)] call BRM_FMK_Plugin_MPGarage_fnc_onSavesEvent;
 			} else {
 				private _ctrlList = _dialog displayCtrl IDC_MPG_SAVES_LIST;
 				private _index = lbCurSel _ctrlList;
 				if (_index != -1) then {
 					private _saveIndex = _ctrlList lbValue _index;
 					if (_saveIndex >= 0) then {
-						["LoadVehicle", _saveIndex] call BRM_FMK_MPGarage_fnc_onSavesEvent;
+						["LoadVehicle", _saveIndex] call BRM_FMK_Plugin_MPGarage_fnc_onSavesEvent;
 					};
 				};
 			};
@@ -210,7 +210,7 @@ switch (_event) do {
 			default { -1 };
 		};
 
-		[_display, _display displayCtrl (IDCS_LEFT select _vehicleTypeIndex), false] call BRM_FMK_MPGarage_fnc_onLeftTabSelect;
+		[_display, _display displayCtrl (IDCS_LEFT select _vehicleTypeIndex), false] call BRM_FMK_Plugin_MPGarage_fnc_onLeftTabSelect;
 
 		private _cfgVehicles = _display getVariable "MPG_vehicles" select (_vehicleTypeIndex);
 		private _vehiclesIndex = _cfgVehicles findIf { configName (_x select 0) == _vehicleType };
@@ -243,12 +243,12 @@ switch (_event) do {
 			_pylonsPriority set [_pylonIndex - 1, _pylonPriority];
 
 			_vehicle removeWeapon getText (configFile >> "CfgMagazines" >> (getPylonMagazines _vehicle select (_pylonIndex - 1)) >> "pylonWeapon");
-			[_vehicle, _pylonIndex, _pylonAttachment, !(_display getVariable ["MPG_compatiblePylons", true]), _pylonTurret] call BRM_FMK_MPGarage_fnc_setPylonLoadOut;
+			[_vehicle, _pylonIndex, _pylonAttachment, !(_display getVariable ["MPG_compatiblePylons", true]), _pylonTurret] call BRM_FMK_Plugin_MPGarage_fnc_setPylonLoadOut;
 		} forEach _vehiclePylons;
 
 		_vehicle setPylonsPriority _pylonsPriority;
 
 		// Reload right tab content
-		[_display, _display getVariable ["MPG_rightTab", 0], false] call BRM_FMK_MPGarage_fnc_loadRightContent;
+		[_display, _display getVariable ["MPG_rightTab", 0], false] call BRM_FMK_Plugin_MPGarage_fnc_loadRightContent;
 	};
 };

@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_DAC_fnc_createDACZone
+    BRM_FMK_Plugin_DAC_fnc_createDACZone
 
 AUTHOR(s):
     Nife
@@ -32,7 +32,7 @@ PARAMETERS:
     11 - Position (ARRAY)
 
 USAGE:
-	["DACZone1234", 1, 0, 1, [1, 1, 10, 40], [2, 1, 10, 40], [], [], 1, 1, [250, 250, 0, false], [300, 950]] call BRM_FMK_DAC_fnc_createDACZone;
+	["DACZone1234", 1, 0, 1, [1, 1, 10, 40], [2, 1, 10, 40], [], [], 1, 1, [250, 250, 0, false], [300, 950]] call BRM_FMK_Plugin_DAC_fnc_createDACZone;
 
 RETURNS:
     Nothing.
@@ -68,7 +68,7 @@ if (_status == 2) then {
 private _trigger = createTrigger ["EmptyDetector", _pos];
 _trigger setTriggerArea _area;
 _trigger setTriggerActivation ["NONE", "NOT PRESENT", false];
-_trigger setTriggerStatements ["true", format (["['%1', [%2, %3, %4], %5, %6, %7, %8, [%9, %9, %10, 0]] call BRM_FMK_DAC_fnc_DACZone"] + _this), ""];
+_trigger setTriggerStatements ["true", format (["['%1', [%2, %3, %4], %5, %6, %7, %8, [%9, %9, %10, 0]] call BRM_FMK_Plugin_DAC_fnc_DACZone"] + _this), ""];
 missionNamespace setVariable [_name, _trigger];
 
 mission_dac_zones pushBack [_name, _id];

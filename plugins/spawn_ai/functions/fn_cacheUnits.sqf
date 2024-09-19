@@ -13,7 +13,7 @@ while { count units _group > 0 } do {
 			{
 				_x params ["_unitClass", "_vehicle", "_vehicleClass"];
 
-				private _unit = [_group, _unitClass, [0,0,0], _skill, _loadout] call BRM_FMK_SpawnAI_fnc_spawnUnit;
+				private _unit = [_group, _unitClass, [0,0,0], _skill, _loadout] call BRM_FMK_Plugin_SpawnAI_fnc_spawnUnit;
 
 				if (isNull _vehicle || { !alive _vehicle || { getPos _vehicle distance getPos _leader > 50 } }) then {
 					private _pos = getPos _leader vectorAdd [random 5 + 5, random 5 + 5, 0];

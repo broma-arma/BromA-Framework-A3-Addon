@@ -11,7 +11,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_Round_System {
+	class BRM_FMK_Plugin_RoundSystem {
 		class functions {
 			file = "\broma_framework\plugins\round_system\functions";
 			class preInit {};
@@ -41,7 +41,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_RoundSystem {
+	class BRM_FMK_Round_System {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

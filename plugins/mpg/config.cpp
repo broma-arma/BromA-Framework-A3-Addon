@@ -10,10 +10,9 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_MPGarage {
+	class BRM_FMK_Plugin_MPGarage {
 		class functions {
 			file = "\broma_framework\plugins\mpg\functions";
-			class open {};
 			class loadLeftContent {};
 			class loadRightContent {};
 			class getPylons {};
@@ -33,12 +32,18 @@ class CfgFunctions {
 			class onSavesEvent {};
 		};
 	};
+	class BRM_FMK_MPGarage {
+		class functions {
+			file = "\broma_framework\plugins\mpg\functions";
+			class open {};
+		};
+	};
 };
 
 #include "dialogs\displayGarage.hpp"
 
 class CfgPatches {
-	class BRM_FMK_Plugin_MPGarage {
+	class BRM_FMK_MPGarage {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

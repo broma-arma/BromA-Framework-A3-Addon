@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_PreventReslot {
+	class BRM_FMK_Plugin_PreventReslot {
 		class functions {
 			file = "\broma_framework\plugins\prevent_reslot\functions";
 			class postInit {};
@@ -19,7 +19,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_PreventReslot {
+	class BRM_FMK_PreventReslot {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

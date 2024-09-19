@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_SpawnProtection {
+	class BRM_FMK_Plugin_SpawnProtection {
 		class functions {
 			file = "\broma_framework\plugins\spawn_protection\functions";
 			class setParams {};
@@ -22,7 +22,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_SpawnProtection {
+	class BRM_FMK_SpawnProtection {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

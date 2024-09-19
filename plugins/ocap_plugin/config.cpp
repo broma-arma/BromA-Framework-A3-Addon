@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_OCAP {
+	class BRM_FMK_Plugin_OCAP {
 		class functions {
 			file = "\broma_framework\plugins\ocap_plugin\functions";
 			class init {};
@@ -19,7 +19,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_OCAP {
+	class BRM_FMK_OCAP {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

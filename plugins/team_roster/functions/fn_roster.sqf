@@ -30,7 +30,7 @@ switch (_mode) do {
 				RscDiary_menu0Selected = _ctrl lbData _lbIndex;
 				if (RscDiary_menu0Selected != "Diary") then {
 					if (ctrlFade (uiNamespace getVariable "BRM_FMK_TeamRoster_control") < 1) then {
-						["Hide"] call BRM_FMK_TeamRoster_fnc_roster;
+						["Hide"] call BRM_FMK_Plugin_TeamRoster_fnc_roster;
 					};
 				};
 			}];
@@ -43,11 +43,11 @@ switch (_mode) do {
 				RscDiary_menu1Selected = _ctrl lnbText [_lbIndex, 0];
 				if (RscDiary_menu1Selected == "Team Roster") then {
 					if ((ctrlFade (uiNamespace getVariable "BRM_FMK_TeamRoster_control")) > 0) then {
-						["Show"] call BRM_FMK_TeamRoster_fnc_roster;
+						["Show"] call BRM_FMK_Plugin_TeamRoster_fnc_roster;
 					};
 				} else {
 					if ((ctrlFade (uiNamespace getVariable "BRM_FMK_TeamRoster_control")) < 1) then {
-						["Hide"] call BRM_FMK_TeamRoster_fnc_roster;
+						["Hide"] call BRM_FMK_Plugin_TeamRoster_fnc_roster;
 					};
 				};
 			}];
@@ -56,7 +56,7 @@ switch (_mode) do {
 				params ["_opened", "_forced"];
 
 				if (RscDiary_menu0Selected == "Diary" && RscDiary_menu1Selected == "Team Roster") then {
-					[["Hide", "Show"] select _opened] call BRM_FMK_TeamRoster_fnc_roster;
+					[["Hide", "Show"] select _opened] call BRM_FMK_Plugin_TeamRoster_fnc_roster;
 				};
 			}];
 		};
@@ -68,7 +68,7 @@ switch (_mode) do {
 		// Show and Update BRM_DiaryTeamRoster
 		_control ctrlSetFade 0;
 		_control ctrlCommit 0;
-		["Update"] call BRM_FMK_TeamRoster_fnc_roster;
+		["Update"] call BRM_FMK_Plugin_TeamRoster_fnc_roster;
 
 		// Hide CA_Diary
 		private _diaryHtml = ctrlParent _control displayctrl 1003;
@@ -82,7 +82,7 @@ switch (_mode) do {
 
 				while {visibleMap && !isNull (uiNamespace getVariable ["BRM_FMK_TeamRoster_control", controlNull])} do {
 					uiSleep 1;
-					["Update"] call BRM_FMK_TeamRoster_fnc_roster;
+					["Update"] call BRM_FMK_Plugin_TeamRoster_fnc_roster;
 				};
 			};
 		};

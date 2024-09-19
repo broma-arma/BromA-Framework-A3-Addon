@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_RadioFreq {
+	class BRM_FMK_Plugin_RadioFreq {
 		class functions {
 			file = "\broma_framework\plugins\radiofreq\functions";
 			class postInit {};
@@ -19,7 +19,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_RadioFreq {
+	class BRM_FMK_RadioFreq {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

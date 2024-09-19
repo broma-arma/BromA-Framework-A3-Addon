@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_ACRE2 {
+	class BRM_FMK_Plugin_ACRE2 {
 		class functions {
 			file = "\broma_framework\plugins\acre2_plugin\functions";
 			class postInit {};
@@ -19,7 +19,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_ACRE2 {
+	class BRM_FMK_ACRE2 {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

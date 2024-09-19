@@ -40,7 +40,7 @@ if (_target isEqualType "") exitWith {
 
 		private _unit = [_target] call BRM_FMK_fnc_unitFromName;
 		if (!isNull _unit) then {
-			[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
+			[_unit, _lives] call BRM_FMK_Plugin_RespawnSystem_fnc_setLives;
 			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
 		};
 	};
@@ -57,7 +57,7 @@ if (_target isEqualType 0) exitWith {
 
 		private _unit = [_deadName] call BRM_FMK_fnc_unitFromName;
 		if (!isNull _unit) then {
-			[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
+			[_unit, _lives] call BRM_FMK_Plugin_RespawnSystem_fnc_setLives;
 			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
 		};
 	};

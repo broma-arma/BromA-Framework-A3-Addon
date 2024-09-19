@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_PlankBuilding {
+	class BRM_FMK_Plugin_PlankBuilding {
 		class functions {
 			file = "broma_framework\plugins\plank_building\functions";
 			class postInit {};
@@ -29,7 +29,7 @@ class CfgFunctions {
 #include "dialogs\settings_dialog.hpp"
 
 class CfgPatches {
-	class BRM_FMK_Plugin_PlankBuilding {
+	class BRM_FMK_PlankBuilding {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

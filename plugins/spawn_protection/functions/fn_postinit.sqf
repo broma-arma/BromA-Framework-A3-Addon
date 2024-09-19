@@ -31,7 +31,7 @@ if (!isServer) exitWith {};
 		private _area = [spawn_protection_area, spawn_protection_area, 0, true];
 
 		// Create marker on clients.
-		([_pos] + _area) remoteExec ["BRM_FMK_SpawnProtection_fnc_clientMarker", _side, "BRM_FMK_SpawnProtection_" + _sideStr];
+		([_pos] + _area) remoteExec ["BRM_FMK_Plugin_SpawnProtection_fnc_clientMarker", _side, "BRM_FMK_SpawnProtection_" + _sideStr];
 
 		// Create and configure trigger
 		private _trigger = createTrigger ["EmptyDetector", _pos, false];
@@ -55,13 +55,13 @@ if (!isServer) exitWith {};
 
 			private _added = (_inTrigger - _protected);
 			if (count _added > 0) then {
-				[_added, false] remoteExec [""BRM_FMK_SpawnProtection_fnc_allowDamage"", 0];
+				[_added, false] remoteExec [""BRM_FMK_Plugin_SpawnProtection_fnc_allowDamage"", 0];
 			};
 			_protected append _added;
 
 			private _removed = (_protected - _inTrigger);
 			if (count _removed > 0) then {
-				[_removed, true] remoteExec [""BRM_FMK_SpawnProtection_fnc_allowDamage"", 0];
+				[_removed, true] remoteExec [""BRM_FMK_Plugin_SpawnProtection_fnc_allowDamage"", 0];
 			};
 			thisTrigger setVariable [""BRM_FMK_SpawnProtection_protected"", _protected - _removed];",
 
@@ -90,11 +90,11 @@ if (!isServer) exitWith {};
 			_x params ["_trigger", "_sideStr"];
 
 			remoteExec ["", "BRM_FMK_SpawnProtection_" + _sideStr];
-			[(_trigger getVariable "BRM_FMK_SpawnProtection_protected") - [objNull], true] remoteExec ["BRM_FMK_SpawnProtection_fnc_allowDamage", 0];
+			[(_trigger getVariable "BRM_FMK_SpawnProtection_protected") - [objNull], true] remoteExec ["BRM_FMK_Plugin_SpawnProtection_fnc_allowDamage", 0];
 			deleteVehicle _trigger;
 		} forEach _triggers;
 
 		// Delete the marker.
-		[] remoteExec ["BRM_FMK_SpawnProtection_fnc_clientMarker", 0];
+		[] remoteExec ["BRM_FMK_Plugin_SpawnProtection_fnc_clientMarker", 0];
 	};
 };

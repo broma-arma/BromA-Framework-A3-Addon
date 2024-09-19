@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_SyncStatus {
+	class BRM_FMK_Plugin_SyncStatus {
 		class functions {
 			file = "\broma_framework\plugins\sync_status\functions";
 			class postInit {};
@@ -22,7 +22,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_SyncStatus {
+	class BRM_FMK_SyncStatus {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

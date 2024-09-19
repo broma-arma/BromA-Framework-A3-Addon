@@ -15,6 +15,6 @@ private _lives = switch (side _unit) do {
 if (_lives < 0) then {
 	_lives = mission_player_lives;
 };
-[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
+[_unit, _lives] call BRM_FMK_Plugin_RespawnSystem_fnc_setLives;
 
 _lives

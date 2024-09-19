@@ -31,4 +31,4 @@ _ctrlTabRightBackground ctrlSetPosition _position;
 _ctrlTabRightBackground ctrlCommit 0;
 
 // Fill the list.
-[_display, _index, _autoFocus] call BRM_FMK_MPGarage_fnc_loadRightContent;
+[_display, _index, _autoFocus] call BRM_FMK_Plugin_MPGarage_fnc_loadRightContent;

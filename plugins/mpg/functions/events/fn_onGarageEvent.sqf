@@ -98,15 +98,15 @@ switch (_event) do {
 		_ctrlMouseArea setVariable ["mouseState", [false, false]];
 		_ctrlMouseArea setVariable ["mousePosition", [0, 0]];
 		{
-			_ctrlMouseArea ctrlAddEventHandler [_x, format ["(['MouseArea.%1'] + _this) call BRM_FMK_MPGarage_fnc_onGarageEvent;", _x]];
+			_ctrlMouseArea ctrlAddEventHandler [_x, format ["(['MouseArea.%1'] + _this) call BRM_FMK_Plugin_MPGarage_fnc_onGarageEvent;", _x]];
 		} forEach ["MouseButtonDown", "MouseButtonUp", "MouseMoving", "MouseZChanged"];
 
-		["UpdateCamera"] call BRM_FMK_MPGarage_fnc_onGarageEvent;
+		["UpdateCamera"] call BRM_FMK_Plugin_MPGarage_fnc_onGarageEvent;
 
 		{
 			private _ctrl = _display displayCtrl _x;
 			if (ctrlEnabled _ctrl) exitWith {
-				[_display, _ctrl, true] call BRM_FMK_MPGarage_fnc_onLeftTabSelect;
+				[_display, _ctrl, true] call BRM_FMK_Plugin_MPGarage_fnc_onLeftTabSelect;
 			};
 		} forEach [IDC_MPG_TABCAR, IDC_MPG_TABTANK, IDC_MPG_TABHELICOPTER, IDC_MPG_TABPLANE, IDC_MPG_TABNAVAL, IDC_MPG_TABSTATIC];
 
@@ -117,7 +117,7 @@ switch (_event) do {
 			if (_size == 0) then {
 				private _menuData = _control menuData _path;
 				if (_menuData != "") then {
-					_control menuSetAction [_path, format ["_this + ['%1'] call BRM_FMK_MPGarage_fnc_onMenuBar;", _menuData]];
+					_control menuSetAction [_path, format ["_this + ['%1'] call BRM_FMK_Plugin_MPGarage_fnc_onMenuBar;", _menuData]];
 				};
 			} else {
 				for "_i" from 0 to _size - 1 do {
@@ -277,7 +277,7 @@ switch (_event) do {
 			private _cameraData = _display getVariable "MPG_cameraData";
 			_cameraData set [0, ((_cameraData select 0) - _dX * 180) % 360];
 			_cameraData set [1, ((_cameraData select 1) - _dY * 90) max -89 min 89];
-			["UpdateCamera"] call BRM_FMK_MPGarage_fnc_onGarageEvent;
+			["UpdateCamera"] call BRM_FMK_Plugin_MPGarage_fnc_onGarageEvent;
 		};
 	};
 	case "MouseArea.MouseZChanged": {
@@ -288,7 +288,7 @@ switch (_event) do {
 		(_cameraData select 3) params ["_minDistance", "_maxDistance"];
 		_cameraData set [2, ((_cameraData select 2) - _dZ) max _minDistance min _maxDistance];
 
-		["UpdateCamera"] call BRM_FMK_MPGarage_fnc_onGarageEvent;
+		["UpdateCamera"] call BRM_FMK_Plugin_MPGarage_fnc_onGarageEvent;
 	};
 
 	case "UpdateCamera": {

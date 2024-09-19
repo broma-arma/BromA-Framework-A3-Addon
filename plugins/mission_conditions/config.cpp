@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_MissionConditions {
+	class BRM_FMK_Plugin_MissionConditions {
 		class functions {
 			file = "\broma_framework\plugins\mission_conditions\functions";
 			class setParams {};
@@ -20,7 +20,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_MissionConditions {
+	class BRM_FMK_MissionConditions {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

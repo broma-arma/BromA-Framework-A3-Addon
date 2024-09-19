@@ -10,7 +10,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_CHVD {
+	class BRM_FMK_Plugin_CHVD {
 		class functions	{
 			file = "\broma_framework\plugins\ch_view_distance\functions";
 			class postInit {};
@@ -40,7 +40,7 @@ class CfgFunctions {
 #include "dialogs\dialog.hpp"
 
 class CfgPatches {
-	class BRM_FMK_Plugin_CHVD {
+	class BRM_FMK_CHVD {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

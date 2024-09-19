@@ -18,9 +18,9 @@ switch (_updateType) do {
 	};
 	case 4: {
 		switch (CHVD_vehType) do {
-			case 0: {setObjectViewDistance ([CHVD_footObj] call BRM_FMK_CHVD_fnc_fovViewDistance)};
-			case 1: {setObjectViewDistance ([CHVD_carObj] call BRM_FMK_CHVD_fnc_fovViewDistance)};
-			case 2: {setObjectViewDistance ([CHVD_airObj] call BRM_FMK_CHVD_fnc_fovViewDistance)};
+			case 0: {setObjectViewDistance ([CHVD_footObj] call BRM_FMK_Plugin_CHVD_fnc_fovViewDistance)};
+			case 1: {setObjectViewDistance ([CHVD_carObj] call BRM_FMK_Plugin_CHVD_fnc_fovViewDistance)};
+			case 2: {setObjectViewDistance ([CHVD_airObj] call BRM_FMK_Plugin_CHVD_fnc_fovViewDistance)};
 		};
 	};
 	default {
@@ -33,5 +33,5 @@ switch (_updateType) do {
 };
 
 if (_updateType isEqualTo 0) then {
-	[] call BRM_FMK_CHVD_fnc_updateTerrain;
+	[] call BRM_FMK_Plugin_CHVD_fnc_updateTerrain;
 };

@@ -11,7 +11,7 @@ class BRM_FMK {
 };
 
 class CfgFunctions {
-	class BRM_FMK_ACE3_SPECTATOR {
+	class BRM_FMK_Plugin_ACE3Spectator {
 		class functions {
 			file = "\broma_framework\plugins\ace3_spectator\functions";
 			class postInit {};
@@ -20,7 +20,7 @@ class CfgFunctions {
 };
 
 class CfgPatches {
-	class BRM_FMK_Plugin_ACE3Spectator {
+	class BRM_FMK_ACE3_SPECTATOR {
 		addonRootClass = "BRM_FRAMEWORK";
 		units[] = {};
 		weapons[] = {};

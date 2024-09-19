@@ -50,7 +50,7 @@ for "_i" from 0 to _amount - 1 do {
 
 		private _unit = [_deadName] call BRM_FMK_fnc_unitFromName;
 		if (!isNull _unit) then {
-			[_unit, _lives] call BRM_FMK_RespawnSystem_fnc_setLives;
+			[_unit, _lives] call BRM_FMK_Plugin_RespawnSystem_fnc_setLives;
 			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
 		};
 	};
