@@ -37,7 +37,7 @@ if ((_paramTimeOfDay > 1) && (_paramTimeOfDay < 26)) then {
 		case 36: { setDate [_year, _month, _day, 0, 0] };
 
 		// Random
-		case 40: { setDate [_year, _month, _day, floor(random(23)), floor(random(59))] };
+		case 40: { setDate [_year, _month, _day, floor (random (23)), floor (random (59))] };
 
 		// Custom
 		case 41: { setDate missionCustomDate };
@@ -72,7 +72,7 @@ switch (_paramWeatherValues) do {
 	case 5: { _weatherValues = [1, 1, 1, 0] };
 
 	// Random
-	case 9: { _weatherValues = [random(1), random(1), random(1), random(1)] };
+	case 9: { _weatherValues = [random (1), random (1), random (1), random (1)] };
 
 	// Mission Custom
 	case 10: { _weatherValues = missionCustomWeather };
@@ -110,7 +110,7 @@ switch (_paramFogValues) do {
 	case 10: { _fogValues = [1, 0, 1] };
 
 	// Random
-	case 14: { _fogValues = [random(1), random(0.1), random(350)] };
+	case 14: { _fogValues = [random (1), random (0.1), random (350)] };
 
 	// Mission Custom
 	case 15: { _fogValues = missionCustomFog };
@@ -136,7 +136,7 @@ switch (_paramWindValues) do {
 	case 6: { _windValues = [1, 1, 1] };
 
 	// Random
-	case 10: { _windValues = [random(1), random(1), random(1)] };
+	case 10: { _windValues = [random (1), random (1), random (1)] };
 
 	// Mission Custom
 	case 11: { _windValues = missionCustomWind };

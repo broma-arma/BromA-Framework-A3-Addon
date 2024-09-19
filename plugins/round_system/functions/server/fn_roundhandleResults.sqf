@@ -67,7 +67,9 @@ switch (round_end_reason) do {
 						_Bunits = {(side _x == side_b_side)} count (allUnits);
 						_Cunits = {(side _x == side_c_side)} count (allUnits);
 
-						if(_Aunits==0)then{_Aunits=1};if(_Bunits==0)then{_Bunits=1};if(_Cunits==0)then{_Cunits=1};
+						if (_Aunits==0) then {_Aunits=1};
+						if (_Bunits==0) then {_Bunits=1};
+						if (_Cunits==0) then {_Cunits=1};
 
 						_percentA = floor ((100/_Aunits) * mission_dead_side_A);
 						_percentB = floor ((100/_Bunits) * mission_dead_side_B);

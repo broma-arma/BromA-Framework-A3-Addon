@@ -27,7 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "wdl";
-if(!isNil "BRM_FMK_LoadoutCamo_USARMY80")then{_camo=BRM_FMK_LoadoutCamo_USARMY80};
+if (!isNil "BRM_FMK_LoadoutCamo_USARMY80") then {_camo=BRM_FMK_LoadoutCamo_USARMY80};
 
 // WEAPONS =====================================================================
 

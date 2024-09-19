@@ -19,7 +19,7 @@ if (hasInterface) then {
 	[{(!isNil "co_lock_allSidesReady") && (!isNil "locked_sides")}, {
 		if (!(side player in locked_sides)) exitWith {};
 
-		private _coLockTextSelect = if (co_lock_tvt_mode) then {1} else {0};
+		private _coLockTextSelect = parseNumber co_lock_tvt_mode;
 
 		if (player in co_lock_units) then {
 			private _coLockTextStart = ["Start the mission.", "Ready your side."];

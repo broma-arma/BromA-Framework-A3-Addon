@@ -20,9 +20,9 @@ if (isNil "round_display_score") then { round_display_score = true };
 
 if (isNil "round_setup_size") then { round_setup_size = 10 };
 
-if (isNil "respawn_markers_A") then { respawn_markers_A = [format["respawn_%1", toLower(str(side_a_side))]] };
-if (isNil "respawn_markers_B") then { respawn_markers_B = [format["respawn_%1", toLower(str(side_b_side))]] };
-if (isNil "respawn_markers_C") then { respawn_markers_C = [format["respawn_%1", toLower(str(side_c_side))]] };
+if (isNil "respawn_markers_A") then { respawn_markers_A = [format["respawn_%1", toLower (str (side_a_side))]] };
+if (isNil "respawn_markers_B") then { respawn_markers_B = [format["respawn_%1", toLower (str (side_b_side))]] };
+if (isNil "respawn_markers_C") then { respawn_markers_C = [format["respawn_%1", toLower (str (side_c_side))]] };
 
 // Change non-existing "respawn_guer" marker to "respawn_resistance".
 if (getMarkerType "respawn_guer" == "") then {

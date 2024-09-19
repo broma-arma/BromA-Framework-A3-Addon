@@ -30,7 +30,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
     "ddpm"
 */
 _camo = 'mpt';
-if(!isNil "BRM_FMK_LoadoutCamo_BAF")then{_camo=BRM_FMK_LoadoutCamo_BAF;};
+if (!isNil "BRM_FMK_LoadoutCamo_BAF") then {_camo=BRM_FMK_LoadoutCamo_BAF;};
 
 // WEAPONS =====================================================================
 

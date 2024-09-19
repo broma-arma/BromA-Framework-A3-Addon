@@ -27,7 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "FLECK";
-if(!isNil "BRM_FMK_LoadoutCamo_GERMAN")then{_camo=BRM_FMK_LoadoutCamo_GERMAN};
+if (!isNil "BRM_FMK_LoadoutCamo_GERMAN") then {_camo=BRM_FMK_LoadoutCamo_GERMAN};
 
 // WEAPONS =====================================================================
 

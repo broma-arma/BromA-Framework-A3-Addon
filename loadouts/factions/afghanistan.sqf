@@ -30,7 +30,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "ana";
-if(!isNil "BRM_FMK_LoadoutCamo_AFGHANISTAN")then{_camo=BRM_FMK_LoadoutCamo_AFGHANISTAN};
+if (!isNil "BRM_FMK_LoadoutCamo_AFGHANISTAN") then {_camo=BRM_FMK_LoadoutCamo_AFGHANISTAN};
 
 // WEAPONS =====================================================================
 

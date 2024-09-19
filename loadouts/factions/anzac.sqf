@@ -27,7 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "DPCU";
-if(!isNil "BRM_FMK_LoadoutCamo_ANZAC")then{_camo=BRM_FMK_LoadoutCamo_ANZAC};
+if (!isNil "BRM_FMK_LoadoutCamo_ANZAC") then {_camo=BRM_FMK_LoadoutCamo_ANZAC};
 
 // WEAPONS =====================================================================
 

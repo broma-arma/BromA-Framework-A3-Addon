@@ -29,8 +29,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "ucp";
-if(!isNil "BRM_FMK_UNIFORMS_USArmyCammo" && {BRM_FMK_UNIFORMS_USArmyCammo})then{_camo=BRM_FMK_UNIFORMS_USArmyCammo}; // Backward compatibility
-if(!isNil "BRM_FMK_LoadoutCamo_USARMY")then{_camo=BRM_FMK_LoadoutCamo_USARMY};
+if (!isNil "BRM_FMK_UNIFORMS_USArmyCammo" && {BRM_FMK_UNIFORMS_USArmyCammo}) then {_camo=BRM_FMK_UNIFORMS_USArmyCammo}; // Backward compatibility
+if (!isNil "BRM_FMK_LoadoutCamo_USARMY") then {_camo=BRM_FMK_LoadoutCamo_USARMY};
 
 // WEAPONS =====================================================================
 

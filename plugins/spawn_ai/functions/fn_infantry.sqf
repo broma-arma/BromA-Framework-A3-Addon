@@ -43,7 +43,7 @@ NOTES:
 ================================================================================
 */
 
-// waitUntil{(time > 1)};
+// waitUntil {(time > 1)};
 
 if (!mission_ai_controller) exitWith {};
 

@@ -29,8 +29,8 @@ RETURNS:
 
 private["_combat","_behav","_side"];
 
-_combat = toUpper(_this select 0);
-_behav = toUpper(_this select 1);
+_combat = toUpper (_this select 0);
+_behav = toUpper (_this select 1);
 
 _side = nil;
 if (count _this > 2) then { _side = _this select 2 };

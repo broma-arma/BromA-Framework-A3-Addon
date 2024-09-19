@@ -21,7 +21,7 @@ if (mission_AI_controller) then {
 	["LOCAL","CHAT", format ["AI Controller is currently enabled as %1.", mission_AI_controller_name]] call BRM_FMK_fnc_doLog;
 
 	/*if (isServer && mission_HC_enabled) then {
-		if (isClass(configFile >> "CfgPatches" >> "Werthles_WHK")) then {
+		if (isClass (configFile >> "CfgPatches" >> "Werthles_WHK")) then {
 			if ((count (nearestObjects [player, ["Werthles_moduleWHM"], 10000])) <= 0) then {
 				private _group = createGroup sideLogic;
 

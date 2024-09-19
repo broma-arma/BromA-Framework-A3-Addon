@@ -21,12 +21,10 @@ BrmFmk_TimeLimit_countdown = mission_time_limit;
 	while {BrmFmk_TimeLimit_countdown > 0} do {
 		if (BrmFmk_TimeLimit_countdown <= 10 || {BrmFmk_TimeLimit_countdown in time_alerted_minutes}) then {
 			private _time = BrmFmk_TimeLimit_countdown;
-			private _timeUnit = if (_time >= 60) then {
+			private _timeUnit = "second";
+			if (_time >= 60) then {
 				_time = floor (_time / 60);
-
-				"minute"
-			} else {
-				"second"
+				_timeUnit = "minute";
 			};
 			if (_time != 1) then {
 				_timeUnit = _timeUnit + "s";

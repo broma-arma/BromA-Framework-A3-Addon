@@ -28,7 +28,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "emr";
-if(!isNil "BRM_FMK_LoadoutCamo_RUSSIA")then{_camo=BRM_FMK_LoadoutCamo_RUSSIA};
+if (!isNil "BRM_FMK_LoadoutCamo_RUSSIA") then {_camo=BRM_FMK_LoadoutCamo_RUSSIA};
 
 // UNIFORMS ====================================================================
 

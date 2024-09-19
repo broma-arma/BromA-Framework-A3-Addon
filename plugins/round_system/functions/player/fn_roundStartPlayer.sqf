@@ -2,7 +2,7 @@ if (!hasInterface) exitWith {};
 
 hint "";
 
-[player, toLower(str(player call BIS_fnc_objectSide))] call BRM_fnc_assignLoadout;
+[player, toLower (str (player call BIS_fnc_objectSide))] call BRM_fnc_assignLoadout;
 
 player setDamage 0;
 

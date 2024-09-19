@@ -28,7 +28,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "JIEITAIW";
-if(!isNil "BRM_FMK_LoadoutCamo_JSDF")then{_camo=BRM_FMK_LoadoutCamo_JSDF};
+if (!isNil "BRM_FMK_LoadoutCamo_JSDF") then {_camo=BRM_FMK_LoadoutCamo_JSDF};
 
 // WEAPONS =====================================================================
 

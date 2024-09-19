@@ -24,10 +24,10 @@ if (!isDedicated) then {
 			_text    = _args select 5;
 		};
 
-		_cos = cos(_theta);
-		_sin = sin(_theta);
-		_rCos = cos(_theta * -1);
-		_rSin = sin(_theta * -1);
+		_cos = cos (_theta);
+		_sin = sin (_theta);
+		_rCos = cos (_theta * -1);
+		_rSin = sin (_theta * -1);
 
 		waitUntil {!isNull player};
 

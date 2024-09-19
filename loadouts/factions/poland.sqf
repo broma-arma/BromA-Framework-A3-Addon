@@ -27,7 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "wdl";
-if(!isNil "BRM_FMK_LoadoutCamo_POLAND")then{_camo=BRM_FMK_LoadoutCamo_POLAND};
+if (!isNil "BRM_FMK_LoadoutCamo_POLAND") then {_camo=BRM_FMK_LoadoutCamo_POLAND};
 
 // WEAPONS =====================================================================
 
@@ -127,7 +127,7 @@ _commonUNIFORM = selectRandom [
 ];
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "UK3CB_CHC_C_U_Overall_01";
-_sniperUNIFORM = if (_camo == "wdl") then {"U_B_T_FullGhillie_tna_F"} else {"U_B_FullGhillie_ard"};
+_sniperUNIFORM = ["U_B_FullGhillie_ard", "U_B_T_FullGhillie_tna_F"] select (_camo == "wdl");
 _marksmanUNIFORM = _commonUNIFORM;
 _helicrewUNIFORM = _commonUNIFORM;
 _crewUNIFORM = _commonUNIFORM;
@@ -148,8 +148,8 @@ _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
 _pilotVEST = "UK3CB_V_Pilot_Vest";
 
-_commonBACKPACK = if (_camo == "wdl") then {"BRM_PatrolBP_Green"} else {"BRM_PatrolBP_Brown"};
-_bigBACKPACK = if (_camo == "wdl") then {"BRM_PatrolBP_Green"} else {"BRM_PatrolBPH_Brown"};
+_commonBACKPACK = ["BRM_PatrolBP_Brown", "BRM_PatrolBP_Green"] select (_camo == "wdl");
+_bigBACKPACK = ["BRM_PatrolBPH_Brown", "BRM_PatrolBP_Green"] select (_camo == "wdl");
 
 if (_assignLoadoutMode) then {
 	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {

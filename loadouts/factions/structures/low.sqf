@@ -20,7 +20,7 @@ switch (true) do {
 		[_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 		[_unit, "LR"] call BRM_FMK_fnc_addRadio;
-		if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
+		if (_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
 	};
 
 	case (_isSquadLeader): {
@@ -32,7 +32,7 @@ switch (true) do {
 		[_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 		[_unit, "LR"] call BRM_FMK_fnc_addRadio;
-		if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
+		if (_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
 	};
 
 	case (_isTeamLeader): {
@@ -63,7 +63,7 @@ switch (true) do {
 		[_unit, "primary", _reconSCOPE] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "handgun", _commonPISTOLSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "LR"] call BRM_FMK_fnc_addRadio;
-		if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
+		if (_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
 	};
 
 	case (_isRTO): {
@@ -71,7 +71,7 @@ switch (true) do {
 		[_unit,[[_wSmoke,2], [_grenade,_countGRENADES],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
-		if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
+		if (_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
 	};
 
 	case (_isRifleman): {
@@ -295,7 +295,7 @@ switch (true) do {
 		[_unit, _pilotHEAD, _pilotUNIFORM, _pilotVEST, "empty"] call BRM_FMK_fnc_useUniform;
 		[_unit,[[_wSmoke,2],[_rSmoke,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
-		if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
+		if (_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
 	};
 
 	case (_isHelicopterCrew): {
@@ -308,7 +308,7 @@ switch (true) do {
 		[_unit, _helipilotHEAD, _helicrewUNIFORM, _pilotVEST, "empty"] call BRM_FMK_fnc_useUniform;
 		[_unit,[[_wSmoke,2],[_rSmoke,2]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonSMG, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-		if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
+		if (_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
 		[_unit,[[_toolKit,1]]] call BRM_FMK_fnc_addtoBackpack;
 	};
 
@@ -317,7 +317,7 @@ switch (true) do {
 		[_unit,[[_wSmoke,2]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonSMG, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
 		if (_isLeader) then {
-			if(_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
+			if (_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
 			[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 			[_unit,[[_toolKit,1]]] call BRM_FMK_fnc_addtoBackpack;
 		} else {

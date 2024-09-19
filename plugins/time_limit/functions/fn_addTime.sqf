@@ -8,16 +8,14 @@ if (_time == 0) exitWith {};
 
 BrmFmk_TimeLimit_countdown = BrmFmk_TimeLimit_countdown + _time;
 
-private _action = if (_time > 0) then { "added to" } else { "removed from" };
+private _action = ["removed from", "added to"] select (_time > 0);
 
 _time = abs _time;
 
-private _timeUnit = if (_time >= 60) then {
+private _timeUnit = "second";
+if (_time >= 60) then {
 	_time = floor (_time / 60);
-
-	"minute"
-} else {
-	"second"
+	_timeUnit = "minute";
 };
 
 if (_time != 1) then {

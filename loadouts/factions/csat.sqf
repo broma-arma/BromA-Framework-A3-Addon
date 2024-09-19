@@ -28,8 +28,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
     "GRY"
 */
 _camo = "BRN";
-if(!isNil "BRM_FMK_UNIFORMS_CSATUrban" && {BRM_FMK_UNIFORMS_CSATUrban})then{_camo="GRY"}; // Backward compatibility
-if(!isNil "BRM_FMK_LoadoutCamo_CSAT")then{_camo=BRM_FMK_LoadoutCamo_CSAT};
+if (!isNil "BRM_FMK_UNIFORMS_CSATUrban" && {BRM_FMK_UNIFORMS_CSATUrban}) then {_camo="GRY"}; // Backward compatibility
+if (!isNil "BRM_FMK_LoadoutCamo_CSAT") then {_camo=BRM_FMK_LoadoutCamo_CSAT};
 _lp = "o"; // Loadout Pattern
 if (_camo == "GRY") then { _lp = "ou"; };
 

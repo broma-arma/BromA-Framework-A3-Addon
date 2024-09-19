@@ -47,7 +47,8 @@ if (_object isKindOf "Man") then {
 	};
 	_order = _order splitString "";
 
-	private _added = if (_splitAdded) then { [0, 0, 0] } else { 0 };
+	private _added = 0;
+	if (_splitAdded) then { _added = [0, 0, 0]; };
 	private _fnc_added = {
 		params ["_index"];
 

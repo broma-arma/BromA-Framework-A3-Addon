@@ -27,7 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "sum";
-if(!isNil "BRM_FMK_LoadoutCamo_FINLAND")then{_camo=BRM_FMK_LoadoutCamo_FINLAND};
+if (!isNil "BRM_FMK_LoadoutCamo_FINLAND") then {_camo=BRM_FMK_LoadoutCamo_FINLAND};
 
 // WEAPONS =====================================================================
 

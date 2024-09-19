@@ -29,8 +29,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "UNI";
-if(!isNil "BRM_FMK_UNIFORMS_PLACammo" && {BRM_FMK_UNIFORMS_PLACammo})then{_camo=BRM_FMK_UNIFORMS_PLACammo}; // Backward compatibility
-if(!isNil "BRM_FMK_LoadoutCamo_PLA")then{_camo=BRM_FMK_LoadoutCamo_PLA};
+if (!isNil "BRM_FMK_UNIFORMS_PLACammo" && {BRM_FMK_UNIFORMS_PLACammo}) then {_camo=BRM_FMK_UNIFORMS_PLACammo}; // Backward compatibility
+if (!isNil "BRM_FMK_LoadoutCamo_PLA") then {_camo=BRM_FMK_LoadoutCamo_PLA};
 
 // WEAPONS =====================================================================
 

@@ -44,17 +44,17 @@ _validSides = [west, east, resistance, civilian];
 			_newFreq = [30,512] call BIS_fnc_randomInt;
 			mission_used_freqs pushBack _newFreq;
 
-			while{!(_newFreq in mission_used_freqs)} do {
+			while {!(_newFreq in mission_used_freqs)} do {
 				_newFreq = [30,512] call BIS_fnc_randomInt;
 			};
 
 			_pushName = [_groupName, _newFreq, _side];
 
 			switch (true) do {
-				case(_side == WEST): { mission_valid_groups_name_BLU pushBack _pushName };
-				case(_side == EAST): { mission_valid_groups_name_OP pushBack _pushName };
-				case(_side == RESISTANCE): { mission_valid_groups_name_IND pushBack _pushName };
-				case(_side == CIVILIAN): { mission_valid_groups_name_CIV pushBack _pushName};
+				case (_side == WEST): { mission_valid_groups_name_BLU pushBack _pushName };
+				case (_side == EAST): { mission_valid_groups_name_OP pushBack _pushName };
+				case (_side == RESISTANCE): { mission_valid_groups_name_IND pushBack _pushName };
+				case (_side == CIVILIAN): { mission_valid_groups_name_CIV pushBack _pushName};
 			};
 		};
 
@@ -66,10 +66,10 @@ _validSides = [west, east, resistance, civilian];
 			publicVariable "mission_valid_groups";
 
 			switch (true) do {
-				case(_side == WEST): { mission_valid_groups_BLU pushBack (_push + [(count mission_valid_groups_BLU) + 1]) };
-				case(_side == EAST): { mission_valid_groups_OP pushBack (_push + [(count mission_valid_groups_OP) + 1]) };
-				case(_side == RESISTANCE): { mission_valid_groups_IND pushBack (_push + [(count mission_valid_groups_IND) + 1]) };
-				case(_side == CIVILIAN): { mission_valid_groups_CIV pushBack (_push + [(count mission_valid_groups_CIV) + 1]) };
+				case (_side == WEST): { mission_valid_groups_BLU pushBack (_push + [(count mission_valid_groups_BLU) + 1]) };
+				case (_side == EAST): { mission_valid_groups_OP pushBack (_push + [(count mission_valid_groups_OP) + 1]) };
+				case (_side == RESISTANCE): { mission_valid_groups_IND pushBack (_push + [(count mission_valid_groups_IND) + 1]) };
+				case (_side == CIVILIAN): { mission_valid_groups_CIV pushBack (_push + [(count mission_valid_groups_CIV) + 1]) };
 			};
 		};
 	};

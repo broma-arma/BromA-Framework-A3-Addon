@@ -29,8 +29,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "plain";
-if(!isNil"BRM_FMK_UNIFORMS_AAFMKCamo" && {BRM_FMK_UNIFORMS_AAFMKCamo})then{_camo="camo"}; // Backward compatibility
-if(!isNil"BRM_FMK_LoadoutCamo_AAF")then{_camo=BRM_FMK_LoadoutCamo_AAF};
+if (!isNil"BRM_FMK_UNIFORMS_AAFMKCamo" && {BRM_FMK_UNIFORMS_AAFMKCamo}) then {_camo="camo"}; // Backward compatibility
+if (!isNil"BRM_FMK_LoadoutCamo_AAF") then {_camo=BRM_FMK_LoadoutCamo_AAF};
 
 // WEAPONS =====================================================================
 

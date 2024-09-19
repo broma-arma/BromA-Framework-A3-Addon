@@ -112,7 +112,7 @@ switch (_mode) do {
 					if (_unit call BRM_FMK_fnc_alive) then {
 						private _unitInit = _unit getVariable ["unitInit", ["MAIN", "*", "*", "*"]];
 
-						private _pad = if (isFormationLeader _unit) then { "  " } else { "    " };
+						private _pad = ["    ", "  "] select isFormationLeader _unit;
 
 						private _rank = "<img image='" + getText (configFile >> "CfgRanks" >> (str rankId _unit) >> "texture") + "' /> ";
 

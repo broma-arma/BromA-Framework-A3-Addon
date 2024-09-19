@@ -27,7 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
     "DESERT"
 */
 _camo = "GRANITE";
-if(!isNil"BRM_FMK_LoadoutCamo_ROKA")then{_camo=BRM_FMK_LoadoutCamo_ROKA};
+if (!isNil"BRM_FMK_LoadoutCamo_ROKA") then {_camo=BRM_FMK_LoadoutCamo_ROKA};
 _lp = "GraniteB"; // Loadout Pattern
 _rhp = "fg"; // Recon Head Pattern
 

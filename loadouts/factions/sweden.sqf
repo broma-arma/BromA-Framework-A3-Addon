@@ -27,7 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "m90w";
-if(!isNil "BRM_FMK_LoadoutCamo_SWEDEN")then{_camo=BRM_FMK_LoadoutCamo_SWEDEN};
+if (!isNil "BRM_FMK_LoadoutCamo_SWEDEN") then {_camo=BRM_FMK_LoadoutCamo_SWEDEN};
 
 // WEAPONS =====================================================================
 
@@ -109,7 +109,7 @@ _helicrewHEAD = "rhsusf_hgu56p_visor_green";
 _helipilotHEAD = "rhsusf_hgu56p_visor_green";
 _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
-_reconHEAD = if(_camo == "m90w") then {"rhsusf_opscore_rg_cover_pelt"} else {"rhsusf_opscore_ut_pelt_nsw_cam"};
+_reconHEAD = ["rhsusf_opscore_ut_pelt_nsw_cam", "rhsusf_opscore_rg_cover_pelt"] select (_camo == "m90w");
 
 _commonUNIFORM = selectRandom [
 	"BRM_BattleUNI_"+_camo,
@@ -126,13 +126,13 @@ _medicUNIFORM = _commonUNIFORM;
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = if(_camo == "m90w") then {"BRM_RRV_GREEN_RFL"} else {"BRM_RRV_BROWN_RFL"};
-_officerVEST = if(_camo == "m90w") then {"BRM_RRV_GREEN_RECLEAD"} else {"BRM_RRV_BROWN_RECLEAD"};
+_commonVEST = ["BRM_RRV_BROWN_RFL", "BRM_RRV_GREEN_RFL"] select (_camo == "m90w");
+_officerVEST = ["BRM_RRV_BROWN_RECLEAD", "BRM_RRV_GREEN_RECLEAD"] select (_camo == "m90w");
 _ftlVEST = _officerVEST;
 _slVEST = _ftlVEST;
-_mgVEST = if(_camo == "m90w") then {"BRM_RRV_GREEN_MG"} else {"BRM_RRV_BROWN_MG"};
+_mgVEST = ["BRM_RRV_BROWN_MG", "BRM_RRV_GREEN_MG"] select (_camo == "m90w");
 _grenadierVEST = _commonVEST;
-_medicVEST = if(_camo == "m90w") then {"BRM_RRV_GREEN_RECMED"} else {"BRM_RRV_BROWN_RECMED"};
+_medicVEST = ["BRM_RRV_BROWN_RECMED", "BRM_RRV_GREEN_RECMED"] select (_camo == "m90w");
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;

@@ -27,7 +27,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
     "OCP"
 */
 _camo = "UCP";
-if(!isNil"BRM_FMK_LoadoutCamo_MARINES")then{_camo=BRM_FMK_LoadoutCamo_MARINES};
+if (!isNil"BRM_FMK_LoadoutCamo_MARINES") then {_camo=BRM_FMK_LoadoutCamo_MARINES};
 _lp = "d"; // Loadout Pattern
 _rhp = "ut"; // Recon Head Pattern
 if (_camo == "OCP") then {

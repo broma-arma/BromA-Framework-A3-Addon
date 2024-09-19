@@ -29,8 +29,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "sand";
-if (!isNil"BRM_FMK_UNIFORMS_NATOBlackMX" && {BRM_FMK_UNIFORMS_NATOBlackMX})then{_camo = "black"}; // Backward compatibility
-if (!isNil "BRM_FMK_LoadoutCamo_NATO")then{_camo = BRM_FMK_LoadoutCamo_NATO};
+if (!isNil"BRM_FMK_UNIFORMS_NATOBlackMX" && {BRM_FMK_UNIFORMS_NATOBlackMX}) then {_camo = "black"}; // Backward compatibility
+if (!isNil "BRM_FMK_LoadoutCamo_NATO") then {_camo = BRM_FMK_LoadoutCamo_NATO};
 
 // WEAPONS =====================================================================
 

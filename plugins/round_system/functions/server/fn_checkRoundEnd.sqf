@@ -8,7 +8,7 @@ mission_countdown = BRM_round_system_time_limit;
 
 waitUntil {
 	mission_countdown = (mission_countdown - 1);
-	mission_countdown_minutes = floor(mission_countdown / 60);
+	mission_countdown_minutes = floor (mission_countdown / 60);
 
 	if (mission_countdown in time_alerted_minutes) then {
 		["CLIENTS", "HINT", format ["%1 minutes remaining in the round!", mission_countdown_minutes]] call BRM_FMK_fnc_doLog;

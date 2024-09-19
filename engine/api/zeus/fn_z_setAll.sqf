@@ -32,8 +32,8 @@ private["_combat","_behav","_skill","_loadout","_side"];
 
 _loadout = _this select 0;
 _skill = _this select 1;
-_combat = toUpper(_this select 2);
-_behav = toUpper(_this select 3);
+_combat = toUpper (_this select 2);
+_behav = toUpper (_this select 3);
 
 _side = nil;
 if (count _this > 4) then { _side = _this select 4 };

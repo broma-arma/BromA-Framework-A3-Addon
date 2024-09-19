@@ -28,8 +28,8 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "CCE";
-if(!isNil "BRM_FMK_UNIFORMS_FRACammo" && {BRM_FMK_UNIFORMS_FRACammo})then{_camo=BRM_FMK_UNIFORMS_FRACammo}; // Backward compatibility
-if(!isNil "BRM_FMK_LoadoutCamo_FRANCE")then{_camo=BRM_FMK_LoadoutCamo_FRANCE};
+if (!isNil "BRM_FMK_UNIFORMS_FRACammo" && {BRM_FMK_UNIFORMS_FRACammo}) then {_camo=BRM_FMK_UNIFORMS_FRACammo}; // Backward compatibility
+if (!isNil "BRM_FMK_LoadoutCamo_FRANCE") then {_camo=BRM_FMK_LoadoutCamo_FRANCE};
 
 // WEAPONS =====================================================================
 

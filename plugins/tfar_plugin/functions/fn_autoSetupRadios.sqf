@@ -1,4 +1,4 @@
-if !(isClass(configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
+if !(isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
 if (!hasInterface) exitWith {};
 
 private _playerInfo = str player splitString "_";
@@ -53,11 +53,11 @@ private _startCondition = {(call TFAR_fnc_haveSWRadio)
 		[_currentRadio, _teamIndex, _privateFrequency] call TFAR_fnc_SetChannelFrequency;
 	} forEach _validTeams;
 
-	private _finalSWChannel = if (_teamNumber == 0) then { 6 } else { _teamNumber - 1 };
+	private _finalSWChannel = [_teamNumber - 1, 6] select (_teamNumber == 0);
 	if (count _validTeams == 0) then { _finalSWChannel = 0 };
 
 	if ((_teamNumber == 0)||(count _validTeams == 0)) then {
-		private _decimalFreq = if ((_squad == "0") && (_team == "0")) then { 0 } else { 9 };
+		private _decimalFreq = [9, 0] select ((_squad == "0") && (_team == "0"));
 		[_currentRadio, (_finalSWChannel + 1), format["%1.%2", _teamNumberSquadFrequency, _decimalFreq]] call TFAR_fnc_SetChannelFrequency;
 	};
 

@@ -28,7 +28,7 @@ _factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.
 */
 
 _camo = "vsr";
-if(!isNil "BRM_FMK_LoadoutCamo_SOVIETS")then{_camo=BRM_FMK_LoadoutCamo_SOVIETS};
+if (!isNil "BRM_FMK_LoadoutCamo_SOVIETS") then {_camo=BRM_FMK_LoadoutCamo_SOVIETS};
 
 // WEAPONS =====================================================================
 
