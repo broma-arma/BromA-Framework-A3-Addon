@@ -16,7 +16,6 @@ class CfgFunctions {
 		class functions {
 			file = "\broma_framework\plugins\round_system\functions";
 			class preInit {};
-			class setParams {};
 			class postInit {};
 		};
 		class server {

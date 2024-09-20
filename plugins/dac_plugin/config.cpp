@@ -15,7 +15,6 @@ class CfgFunctions {
 		class functions {
 			file = "\broma_framework\plugins\dac_plugin\functions";
 			class preInit {};
-			class setParams {};
 			class postInit {};
 			class createDACCamp {};
 			class createDACZone {};

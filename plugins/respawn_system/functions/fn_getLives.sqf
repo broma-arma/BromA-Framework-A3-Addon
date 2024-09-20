@@ -13,7 +13,7 @@ private _lives = switch (side _unit) do {
 	default { -1 };
 };
 if (_lives < 0) then {
-	_lives = mission_player_lives;
+	_lives = BRM_FMK_Plugin_RespawnSystem_playerLives;
 };
 [_unit, _lives] call BRM_FMK_Plugin_RespawnSystem_fnc_setLives;
 

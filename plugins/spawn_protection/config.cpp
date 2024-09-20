@@ -14,7 +14,6 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_SpawnProtection {
 		class functions {
 			file = "\broma_framework\plugins\spawn_protection\functions";
-			class setParams {};
 			class postInit {};
 			class allowDamage {};
 			class clientMarker {};

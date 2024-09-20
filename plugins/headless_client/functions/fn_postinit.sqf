@@ -1,4 +1,6 @@
-mission_AI_controller = if (mission_enable_hc) then { !didJIP && !isServer && !hasInterface } else { isServer };
+private _enableHC = ["p_enable_hc", 0] call BIS_fnc_getParamValue == 1; // 0="Disabled", 1="Enabled"
+
+mission_AI_controller = if (_enableHC) then { !didJIP && !isServer && !hasInterface } else { isServer };
 
 if (mission_AI_controller && !isServer && !hasInterface) then {
 	mission_HC_enabled = true;

@@ -15,7 +15,6 @@ class CfgFunctions {
 		class functions {
 			file = "\broma_framework\plugins\respawn_system\functions";
 			class preInit {};
-			class setParams {};
 			class postInit {};
 			class removeFromMission {};
 			class onRespawn {};

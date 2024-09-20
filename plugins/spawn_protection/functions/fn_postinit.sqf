@@ -1,5 +1,12 @@
 if (!isServer) exitWith {};
 
+
+if (isNil "mission_spawn_protection_time") then {
+	// Duration of spawn protection, in minutes: 0 (Disable), 1, 15, 30, -1 (Infinite), 99999 (Infinite - Backward compatibility)
+	private _duration = ["p_spawn_protection_time", -1] call BIS_fnc_getParamValue;
+	mission_spawn_protection_time = if (_duration >= 0 && _duration <= /*24 hours*/1440) then { _duration * 60 } else { -1 };
+};
+
 0 spawn {
 	waitUntil { !isNil "mission_spawn_protection_time" };
 

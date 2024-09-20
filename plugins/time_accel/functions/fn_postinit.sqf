@@ -1,2 +1,5 @@
 if (!isServer) exitWith {};
-[{!(isNil "mission_time_accel")}, {setTimeMultiplier mission_time_accel;}, []] call CBA_fnc_waitUntilAndExecute;
+
+private _timeAccel = ["p_time_accel", 1] call BIS_fnc_getParamValue; // 0="0x", 1="1x", 2="2x", 5="5x", 10="10x", 100="100x"
+
+setTimeMultiplier _timeAccel;

@@ -14,7 +14,6 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_HC {
 		class functions {
 			file = "\broma_framework\plugins\headless_client\functions";
-			class setParams {};
 			class postInit {};
 		};
 	};

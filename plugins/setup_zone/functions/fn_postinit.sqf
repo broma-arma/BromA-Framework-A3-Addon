@@ -5,7 +5,8 @@ if (isNil "setup_zone_area") then {
 };
 
 0 spawn {
-	waitUntil { !isNil "mission_setup_time" && !isNil "BRM_FMK_activePlugins" };
+	// 0="15 seconds", 1="1 minute", 2="3 minutes", 3="5 minutes", 4="10 minutes"
+	private _setupTime = [15, 60, 180, 300, 600] select (["p_setup_time", 0] call BIS_fnc_getParamValue);
 
 	private _commanderLockTVT = false;
 	if ("commander_lock" in BRM_FMK_activePlugins) then {
@@ -18,11 +19,13 @@ if (isNil "setup_zone_area") then {
 		BRM_FMK_Setup_Zone_active = true;
 		publicVariable "BRM_FMK_Setup_Zone_active";
 
-		_commanderLockTVT spawn {
-			if (_this) then {
+		[_setupTime, _commanderLockTVT] spawn {
+			params ["_setupTime", "_commanderLockTVT"];
+
+			if (_commanderLockTVT) then {
 				waitUntil { !isNil "co_lock_allSidesReady" && {co_lock_allSidesReady} };
 			} else {
-				sleep mission_setup_time;
+				sleep _setupTime;
 			};
 
 			BRM_FMK_Setup_Zone_active = false;
@@ -48,10 +51,10 @@ if (isNil "setup_zone_area") then {
 			["Alert", ["The mission will begin when all teams are ready."]] call BIS_fnc_showNotification;
 		} else {
 			["MissionBegins", [
-				if (mission_setup_time < 60) then {
-					format ["%1 seconds", mission_setup_time]
+				if (_setupTime < 60) then {
+					format ["%1 seconds", _setupTime]
 				} else {
-					format ["%1 minutes", floor (mission_setup_time / 60)]
+					format ["%1 minutes", floor (_setupTime / 60)]
 				}
 			]] call BIS_fnc_showNotification;
 		};

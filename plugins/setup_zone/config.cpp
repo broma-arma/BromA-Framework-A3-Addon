@@ -14,7 +14,6 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_SetupZone {
 		class functions {
 			file = "\broma_framework\plugins\setup_zone\functions";
-			class setParams {};
 			class postInit {};
 		};
 	};

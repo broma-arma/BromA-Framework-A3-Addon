@@ -14,7 +14,6 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_TimeAcceleration {
 		class functions {
 			file = "\broma_framework\plugins\time_accel\functions";
-			class setParams {};
 			class postInit {};
 		};
 	};

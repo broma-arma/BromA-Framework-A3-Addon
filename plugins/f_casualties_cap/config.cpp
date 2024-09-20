@@ -14,7 +14,6 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_CasualtyCap {
 		class functions {
 			file = "\broma_framework\plugins\f_casualties_cap\functions";
-			class setParams {};
 			class postInit {};
 			class CasualtiesCapCheck {};
 		};

@@ -14,7 +14,6 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_BlockThirdPerson {
 		class functions {
 			file = "\broma_framework\plugins\block_tp\functions";
-			class setParams {};
 			class postInit {};
 		};
 	};

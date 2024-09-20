@@ -14,7 +14,6 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_MissionConditions {
 		class functions {
 			file = "\broma_framework\plugins\mission_conditions\functions";
-			class setParams {};
 			class postInit {};
 		};
 	};
