@@ -14,8 +14,6 @@ class CfgFunctions {
 			file = "\broma_framework\engine\init";
 			class preInit {preInit = 1;};
 			class postInit {postInit = 1;};
-			class loadSettings {};
-			class loadBriefing {};
 			class endLoading {};
 		};
 
@@ -49,6 +47,12 @@ class CfgFunctions {
 			class getSpawnPoint {};
 			class stampTime {};
 			class syncTime {};
+		};
+
+		class mission {
+			file = "\broma_framework\engine\mission";
+			class loadSettings {};
+			class loadBriefing {};
 		};
 
 		class plugins {
