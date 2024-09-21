@@ -24,4 +24,4 @@ RETURNS:
 
 params ["_plugin"];
 
-_plugin in BRM_FMK_activePlugins
+_plugin in BRM_FMK_Engine_activePlugins

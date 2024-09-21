@@ -24,23 +24,21 @@ RETURNS:
 
 plugins_loaded = false;
 
-BRM_FMK_activePlugins = "true" configClasses (missionConfigFile >> "CfgPlugins") apply { configName _x };
-
-BRM_FMK_activePlugins deleteAt (BRM_FMK_activePlugins find "agm_plugin"); // Remove agm_plugin.
+BRM_FMK_Engine_activePlugins = "true" configClasses (missionConfigFile >> "CfgPlugins") apply { configName _x } select { isClass (configFile >> "BRM_FMK" >> "Plugins" >> _x) };
 
 0 call {
 	if (isClass (configFile >> "CfgPatches" >> "ace_spectator")) then {
 		// Force ACE3 Spectator, instead of Vanilla Spectator
-		private _i = BRM_FMK_activePlugins find "vanilla_spectator";
+		private _i = BRM_FMK_Engine_activePlugins find "vanilla_spectator";
 		if (_i != -1 && !("ace3_spectator" call BRM_FMK_fnc_isPluginActive)) then {
-			BRM_FMK_activePlugins set [_i, "ace3_spectator"];
+			BRM_FMK_Engine_activePlugins set [_i, "ace3_spectator"];
 			[{ !isNil "mission_game_mode" && !isNil "player_is_spectator" }, { [] call BRM_FMK_Plugin_ACE3Spectator_fnc_postInit; }] call CBA_fnc_waitUntilAndExecute;
 		};
 	};
 };
 
-BRM_FMK_activePlugins sort true;
-usedPlugins = BRM_FMK_activePlugins; // Backward compatibility
+BRM_FMK_Engine_activePlugins sort true;
+usedPlugins = +BRM_FMK_Engine_activePlugins; // Backward compatibility
 
 private _pluginConflicts = [];
 {
@@ -48,7 +46,7 @@ private _pluginConflicts = [];
 	if (count _conflicts > 0) then {
 		_pluginConflicts pushBack format ["  %1: %2", _x, [_conflicts] call BRM_FMK_fnc_verboseArray];
 	}
-} forEach BRM_FMK_activePlugins;
+} forEach BRM_FMK_Engine_activePlugins;
 if (count _pluginConflicts > 0) then {
 	"BromA Framework - Plugin Conflict" hintC ["The following plugins are conflicted:"] + _pluginConflicts;
 	["LOCAL", "LOG", "ERROR - BromA Framework - The following plugins are conflicted:"] call BRM_FMK_fnc_doLog;
@@ -65,7 +63,7 @@ plugins_loaded = true;
 	private _subject = "BRM_FMK_diary";
 	player createDiarySubject [_subject, "BromA Framework"];
 
-	private _plugins = BRM_FMK_activePlugins apply {
+	private _plugins = BRM_FMK_Engine_activePlugins apply {
 		private _cfg = configFile >> "BRM_FMK" >> "Plugins" >> _x;
 		format [
 			"  <execute expression='hint ""%1 v%2\nby %3\n\n%4""'>[?]</execute> <font color='#E6E682'>%1 v%2</font> by %3.",
