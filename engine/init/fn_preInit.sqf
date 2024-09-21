@@ -14,7 +14,11 @@ private _emptyFinalCode = compileFinal "";
 
 _this call BRM_FMK_Engine_fnc_loadSettings;
 _this call BRM_FMK_Engine_fnc_initVariables;
-_this call BRM_FMK_Engine_fnc_engine_pre;
+
+["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call BRM_FMK_fnc_doLog;
+startTime = diag_tickTime;
+pluginsLoaded = false;
+call BRM_FMK_Engine_fnc_loadContentCargo;
 
 // Plugins preInit
 {
