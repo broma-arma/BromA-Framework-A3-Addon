@@ -44,7 +44,7 @@ if ((_paramTimeOfDay > 1) && (_paramTimeOfDay < 26)) then {
 		case 40: { setDate [_year, _month, _day, floor (random (23)), floor (random (59))] };
 
 		// Custom
-		case 41: { setDate missionCustomDate };
+		case 41: { setDate (missionNamespace getVariable ["missionCustomDate", date]) };
 
 		default { setDate [_year, _month, _day, 12, 34] };
 	};
@@ -79,7 +79,7 @@ switch (_paramWeatherValues) do {
 	case 9: { _weatherValues = [random (1), random (1), random (1), random (1)] };
 
 	// Mission Custom
-	case 10: { _weatherValues = missionCustomWeather };
+	case 10: { _weatherValues = missionNamespace getVariable ["missionCustomWeather", [overcast, rain, lightnings, rainbow]] };
 };
 
 switch (_paramFogValues) do {
@@ -117,7 +117,7 @@ switch (_paramFogValues) do {
 	case 14: { _fogValues = [random (1), random (0.1), random (350)] };
 
 	// Mission Custom
-	case 15: { _fogValues = missionCustomFog };
+	case 15: { _fogValues = missionNamespace getVariable ["missionCustomFog", fogParams] };
 };
 
 switch (_paramWindValues) do {
@@ -143,7 +143,7 @@ switch (_paramWindValues) do {
 	case 10: { _windValues = [random (1), random (1), random (1)] };
 
 	// Mission Custom
-	case 11: { _windValues = missionCustomWind };
+	case 11: { _windValues = missionNamespace getVariable ["missionCustomWind", [windStr, gusts, waves]] };
 };
 
 0 setOvercast (_weatherValues select 0);
