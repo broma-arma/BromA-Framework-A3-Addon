@@ -31,7 +31,17 @@ private _emptyFinalCode = compileFinal "";
 {
 	missionNamespace setVariable [_x, _emptyFinalCode];
 } forEach [
+	// PreInit
 	"BRM_fnc_loadSettings",
+	"BRM_fnc_initVariables",
+	"BRM_fnc_engine_pre",
+	// PostInit
+	"BRM_fnc_logPlugins",
+	"BRM_fnc_warnConflict",
+	"BRM_fnc_defineGroups",
+	"BRM_fnc_createPlayerVehicles",
+	"BRM_fnc_readExtraction",
+	"BRM_fnc_initPlayer",
 	"BRM_fnc_loadBriefing",
 	"BRM_endLoading_fnc_endLoading"
 ];
