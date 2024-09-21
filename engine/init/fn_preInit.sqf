@@ -1,3 +1,27 @@
+/*
+================================================================================
+
+NAME:
+    BRM_FMK_Engine_fnc_preInit
+
+AUTHOR(s):
+    Coryf88
+
+DESCRIPTION:
+    Addon framework pre-init.
+
+PARAMETERS:
+    None.
+
+USAGE:
+    [] call BRM_FMK_Engine_fnc_preInit
+
+RETURNS:
+    Nothing.
+
+================================================================================
+*/
+
 if (!isClass (missionConfigFile >> "CfgFunctions" >> "BRM" >> "init" >> "engine_pre")) exitWith {};
 
 BRM_FMK_missionVersion = call compile preprocessFile "framework\local_version.txt"; // "075", "0745", "074", "073", "07"

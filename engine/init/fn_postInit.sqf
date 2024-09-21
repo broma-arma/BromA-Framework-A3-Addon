@@ -1,3 +1,27 @@
+/*
+================================================================================
+
+NAME:
+    BRM_FMK_Engine_fnc_postInit
+
+AUTHOR(s):
+    Coryf88
+
+DESCRIPTION:
+    Addon framework post-init.
+
+PARAMETERS:
+    None.
+
+USAGE:
+    [] call BRM_FMK_Engine_fnc_postInit
+
+RETURNS:
+    Nothing.
+
+================================================================================
+*/
+
 if (isNil "BRM_FMK_missionVersion") exitWith {};
 
 _this call BRM_FMK_Engine_fnc_engine_post;
