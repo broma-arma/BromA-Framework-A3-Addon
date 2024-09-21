@@ -25,23 +25,24 @@ RETURNS:
 ================================================================================
 */
 
-// Calls surrogate initServer.sqf to the server only. ==========================
+private _missionScripts = [];
 
-if (isServer) then { mission_init_server = [] execVM "mission\custom-scripts\initServer.sqf" };
+if (isServer) then {
+	_missionScripts pushBack ([] execVM "mission\custom-scripts\initServer.sqf");
+	_missionScripts pushBack ([] execVM "mission\objectives\tasks.sqf");
+};
 
-// Calls surrogate initPlayer.sqf to players only. =============================
+if (mission_AI_controller) then {
+	_missionScripts pushBack ([] execVM "mission\objectives\mission_AI.sqf");
+};
 
-if (hasInterface) then { mission_init_player = [] execVM "mission\custom-scripts\initPlayer.sqf" };
+if (hasInterface) then {
+	_missionScripts pushBack ([] execVM "mission\custom-scripts\initPlayer.sqf");
+};
 
-// Calls surrogate init.sqf to both. ===========================================
-
-mission_init = [] execVM "mission\custom-scripts\init.sqf";
-
-// Stops civilian randomized gear. =============================================
+_missionScripts pushBack ([] execVM "mission\custom-scripts\init.sqf");
 
 { if (side _x == civilian) then { _x setVariable ["BIS_enableRandomization", false] } } forEach allUnits;
-
-// Calculates the loading time and logs it. ====================================
 
 BRM_FMK_Engine_initTime = diag_tickTime - BRM_FMK_Engine_initTime;
 ["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
