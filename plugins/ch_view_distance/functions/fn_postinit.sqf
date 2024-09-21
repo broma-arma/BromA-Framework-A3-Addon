@@ -1,4 +1,3 @@
-[{(pluginsLoaded)}, {
 [] spawn {
 	if (!hasInterface) exitWith {};
 	//Wait for mission init, in case there are variables defined some place else
@@ -103,4 +102,3 @@
 		};
 	};
 };
-}, _this] call CBA_fnc_waitUntilAndExecute;
