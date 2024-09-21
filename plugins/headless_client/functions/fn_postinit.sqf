@@ -1,8 +1,6 @@
 private _enableHC = ["p_enable_hc", 2] call BIS_fnc_getParamValue; // 0="Disabled", 1="Enabled", 2="Auto"
 
-if (_enableHC == 2) then {
-	_enableHC = parseNumber (entities "HeadlessClient_F" findIf { isPlayer _x } != -1);
-};
+_enableHC = if (_enableHC == 2) then { entities "HeadlessClient_F" findIf { isPlayer _x } != -1; } else { _enableHC > 0 };
 
 mission_AI_controller = if (_enableHC) then { !didJIP && !isServer && !hasInterface } else { isServer };
 
