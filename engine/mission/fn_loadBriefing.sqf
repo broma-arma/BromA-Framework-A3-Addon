@@ -22,6 +22,8 @@ RETURNS:
 ================================================================================
 */
 
+if (!hasInterface) exitWith {};
+
 0 spawn {
 	private ["_radioChannel", "_radioFreq"];
 
