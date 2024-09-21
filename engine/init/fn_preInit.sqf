@@ -24,6 +24,8 @@ RETURNS:
 
 if (!isClass (missionConfigFile >> "CfgFunctions" >> "BRM" >> "init" >> "engine_pre")) exitWith {};
 
+BRM_FMK_Engine_initTime = diag_tickTime;
+
 BRM_FMK_missionVersion = call compile preprocessFile "framework\local_version.txt"; // "075", "0745", "074", "073", "07"
 
 // Disable mission's deprecated pre/postInit functions
@@ -50,7 +52,6 @@ _this call BRM_FMK_Engine_fnc_loadSettings;
 _this call BRM_FMK_Engine_fnc_initVariables;
 
 ["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call BRM_FMK_fnc_doLog;
-BRM_FMK_Engine_initTime = diag_tickTime;
 [] call BRM_FMK_Engine_fnc_loadContentCargo;
 
 // Plugins preInit
