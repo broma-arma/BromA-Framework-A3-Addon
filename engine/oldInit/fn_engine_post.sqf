@@ -35,9 +35,19 @@ if (isClass (configFile >> "CfgPatches" >> "zen_modules") && !isNil "zen_modules
 	zen_modules_saved setVariable ["zen_modules_editableObjects", _selections];
 };
 
-if (hasInterface && isMultiplayer) then {
-	// Set default briefing channel to Side
-	[{ (!isNull findDisplay 52 || !isNull findDisplay 53) && channelEnabled 1 select 0 }, { // RscDisplayServerGetReady, RscDisplayClientGetReady, Side channel re-enabled.
-		setCurrentChannel 1;
-	}] call CBA_fnc_waitUntilAndExecute;
+if (hasInterface) then {
+	player createDiarySubject ["BRM_FMK_diary", "BromA Framework"];
+
+	player createDiaryRecord ["BRM_FMK_diary", ["Credits", [
+		"<img src='\broma_framework\assets\images\framework-logo.paa' width='512' height='128'/>",
+		"",
+		"Made possible using the BromA Framework, assembled by the BromA Mission Making Team @ https://broma.onozuka.info - all credits given to their respective creators."
+	] joinString "<br />"], taskNull, "NONE", false];
+
+	if (isMultiplayer) then {
+		// Set default briefing channel to Side
+		[{ (!isNull findDisplay 52 || !isNull findDisplay 53) && channelEnabled 1 select 0 }, { // RscDisplayServerGetReady, RscDisplayClientGetReady, Side channel re-enabled.
+			setCurrentChannel 1;
+		}] call CBA_fnc_waitUntilAndExecute;
+	};
 };

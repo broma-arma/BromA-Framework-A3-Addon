@@ -25,12 +25,6 @@ RETURNS:
 0 spawn {
 	private ["_radioChannel", "_radioFreq"];
 
-	player createDiaryRecord ["BRM_FMK_diary", ["Credits", [
-		"<img src='\broma_framework\assets\images\framework-logo.paa' width='512' height='128'/>",
-		"",
-		"Made possible using the BromA Framework, assembled by the BromA Mission Making Team @ https://broma.onozuka.info - all credits given to their respective creators."
-	] joinString "<br />"], taskNull, "NONE", false];
-
 	private _sideIndex = [WEST, EAST, RESISTANCE, CIVILIAN] find side player;
 	private _autoRadio = "radiofreq" call BRM_FMK_fnc_isPluginActive;
 	if (_autoRadio) then {
