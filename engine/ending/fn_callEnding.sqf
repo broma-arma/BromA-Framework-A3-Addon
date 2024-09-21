@@ -61,6 +61,17 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		};
 	};
 
+	private _fnc_formatSide = { format ["<t color='%2'>%1</t>", [_x, "name"] call BRM_FMK_fnc_getSideInfo, [[_x, "color"] call BRM_FMK_fnc_getSideInfo] call BRM_FMK_fnc_colorToHex] };
+	_reason = format [_reason,
+		[_winningSides apply _fnc_formatSide] call BRM_FMK_fnc_verboseArray,
+		[_losingSides apply _fnc_formatSide] call BRM_FMK_fnc_verboseArray,
+		_margin
+	];
+
+	if (isClass (configFile >> "CfgPatches" >> "OCAP")) then {
+		[_winningSides param [0, sideUnknown], _reason, mission_game_mode] call OCAP_fnc_exportData;
+	};
+
 	[_ending, _winningSides, _losingSides, _showStats, _title, _reason, _endNumber, _margin] remoteExec ["BRM_FMK_fnc_callEnding", 0];
 } else {
 	params ["_ending", "_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber", "_margin"];
@@ -77,19 +88,9 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 			if (dialog) then { closeDialog 0 };
 			if (visibleMap) then { openMap false; };
 
-			private _fnc_formatSide = {
-				format ["<t color='%2'>%1</t>", [_x, "name"] call BRM_FMK_fnc_getSideInfo, [[_x, "color"] call BRM_FMK_fnc_getSideInfo] call BRM_FMK_fnc_colorToHex]
-			};
-
 			private _lines = [
-				format ["<t size='1.5' font='RobotoCondensedBold'>%1</t>",
-					_title
-				],
-				format [_reason,
-					[_winningSides apply _fnc_formatSide] call BRM_FMK_fnc_verboseArray,
-					[_losingSides apply _fnc_formatSide] call BRM_FMK_fnc_verboseArray,
-					_margin
-				],
+				"<t size='1.5' font='RobotoCondensedBold'>" + _title + "</t>",
+				_reason,
 				"",
 				"<t align='left' font='RobotoCondensedBold'>Score</t><t font='RobotoCondensedBold'>Time Played</t><t align='right' font='RobotoCondensedBold'>Casualties</t>",
 				format ["<t align='left'>%1 kills</t>%2<t align='right'><t color='%3'>%4</t>: %5</t>",

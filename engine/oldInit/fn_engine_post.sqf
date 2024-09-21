@@ -22,8 +22,6 @@ RETURNS:
 ================================================================================
 */
 
-[] call BRM_FMK_Plugin_OCAP_fnc_init;
-
 // Hacky shit to try to stop low FPS. ==========================================
 
 enableSentences false;
