@@ -43,7 +43,7 @@ RETURNS:
 	};
 
 	["LOCAL", "F_LOG", format ["PLAYER: ASSIGNING %1 BRIEFING", ["WEST", "EAST", "INDEPENDENT", "CIVILIAN"] select _sideIndex]] call BRM_FMK_fnc_doLog;
-	call compile preprocessFileLineNumbers format ["mission\\briefings\\briefing-%1.sqf", ["west", "east", "ind", "civ"] select _sideIndex];
+	call compile preprocessFileLineNumbers format ["mission\briefings\briefing-%1.sqf", ["west", "east", "ind", "civ"] select _sideIndex];
 
 	// Append mission authors and version to Briefing > Mission diary record.
 	{
@@ -54,5 +54,4 @@ RETURNS:
 			player setDiaryRecordText [["Diary", _record], [_title, _text + _version, _icon]];
 		};
 	} forEach (player allDiaryRecords "Diary");
-
 };
