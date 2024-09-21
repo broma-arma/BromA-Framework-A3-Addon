@@ -19,7 +19,9 @@ if (hasInterface) then {
 		["ace_medical_FullHeal", { _this setVariable ["brm_ace_secondChances", _thisArgs, true]; }, _reviveLives] call CBA_fnc_addEventHandlerArgs;
 	};
 
-	if (isNil "mission_ace3_legs") then { mission_ace3_legs = !(missionNamespace getVariable ["ace_medical_treatment_clearTraumaAfterBandage", false]); };
+	if (isNil "mission_ace3_legs") then {
+		mission_ace3_legs = missionNamespace getVariable ["ace_medical_treatment_clearTrauma", 0] == 0; // 0: Never, 1: After Stitch, 2: After Bandage
+	};
 
 	if (mission_ace3_legs) then {
 		["CAManBase", 1, ["ACE_SelfActions"], ["brm_fmk_leg_fix", "<t color='#ff0000'>Fix broken leg</t>", "", {
