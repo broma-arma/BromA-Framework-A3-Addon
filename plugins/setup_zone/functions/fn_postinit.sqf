@@ -9,7 +9,7 @@ if (isNil "setup_zone_area") then {
 	private _setupTime = [15, 60, 180, 300, 600] select (["p_setup_time", 0] call BIS_fnc_getParamValue);
 
 	private _commanderLockTVT = false;
-	if ("commander_lock" in BRM_FMK_activePlugins) then {
+	if ("commander_lock" call BRM_FMK_fnc_isPluginActive) then {
 		waitUntil { !isNil "co_lock_tvt_mode" };
 
 		_commanderLockTVT = co_lock_tvt_mode;
@@ -39,10 +39,10 @@ if (isNil "setup_zone_area") then {
 		if (!BRM_FMK_Setup_Zone_active) exitWith {};
 
 		if (isMultiplayer) then {
-			if ("intros" in BRM_FMK_activePlugins) then {
+			if ("intros" call BRM_FMK_fnc_isPluginActive) then {
 				waitUntil { !isNil "intro_cutscene_over" && {intro_cutscene_over} };
 			};
-			if ("loading_screen" in BRM_FMK_activePlugins) then {
+			if ("loading_screen" call BRM_FMK_fnc_isPluginActive) then {
 				waitUntil { !isNil "loading_screen_finished" && {loading_screen_finished} };
 			};
 		};

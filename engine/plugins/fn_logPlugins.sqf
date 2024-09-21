@@ -32,7 +32,7 @@ BRM_FMK_activePlugins deleteAt (BRM_FMK_activePlugins find "agm_plugin"); // Rem
 	if (isClass (configFile >> "CfgPatches" >> "ace_spectator")) then {
 		// Force ACE3 Spectator, instead of Vanilla Spectator
 		private _i = BRM_FMK_activePlugins find "vanilla_spectator";
-		if (_i != -1 && !("ace3_spectator" in BRM_FMK_activePlugins)) then {
+		if (_i != -1 && !("ace3_spectator" call BRM_FMK_fnc_isPluginActive)) then {
 			BRM_FMK_activePlugins set [_i, "ace3_spectator"];
 			[{ !isNil "mission_game_mode" && !isNil "player_is_spectator" }, { [] call BRM_FMK_Plugin_ACE3Spectator_fnc_postInit; }] call CBA_fnc_waitUntilAndExecute;
 		};
@@ -44,7 +44,7 @@ usedPlugins = BRM_FMK_activePlugins; // Backward compatibility
 
 private _pluginConflicts = [];
 {
-	private _conflicts = getArray (configFile >> "BRM_FMK_Plugins" >> _x >> "conflict_plugins") select { _x in BRM_FMK_activePlugins };
+	private _conflicts = getArray (configFile >> "BRM_FMK_Plugins" >> _x >> "conflict_plugins") select { _x call BRM_FMK_fnc_isPluginActive };
 	if (count _conflicts > 0) then {
 		_pluginConflicts pushBack format ["  %1: %2", _x, [_conflicts] call BRM_FMK_fnc_verboseArray];
 	}

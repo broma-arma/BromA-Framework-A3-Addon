@@ -4,7 +4,7 @@
 if !(hasInterface && isMultiplayer && didJIP) exitWith {};
 
 0 spawn {
-	if ("prevent_reslot" in BRM_FMK_activePlugins) then {
+	if ("prevent_reslot" call BRM_FMK_fnc_isPluginActive) then {
 		waitUntil { player getVariable ["unit_valid_slot", false] };
 	};
 

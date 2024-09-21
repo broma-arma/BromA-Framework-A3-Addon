@@ -20,7 +20,7 @@ if (BrmFmk_LoadingScreen_count != -1) then {
 				{ diag_fpsMin >= SERVER_FPS_METRIC }
 			];
 
-			if ("dac_plugin" in BRM_FMK_activePlugins) then {
+			if ("dac_plugin" call BRM_FMK_fnc_isPluginActive) then {
 				_metrics pushBack { missionNamespace getVariable ["DAC_Basic_Value", 0] > 0 };
 			};
 

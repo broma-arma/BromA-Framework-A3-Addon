@@ -27,7 +27,7 @@ params ["_unit"];
 titleText ["This mission does not allow joining in progress.", "BLACK FADED", 0];
 sleep 5;
 
-if ("respawn_system" in BRM_FMK_activePlugins) then {
+if ("respawn_system" call BRM_FMK_fnc_isPluginActive) then {
 	waitUntil { !isNil "BRM_FMK_Plugin_RespawnSystem_fnc_killPlayer" };
 	[_unit] call BRM_FMK_Plugin_RespawnSystem_fnc_killPlayer;
 } else {

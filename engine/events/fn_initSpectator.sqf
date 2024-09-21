@@ -15,10 +15,10 @@ BRM_FMK_Engine_spectatorOxygenWorkaroundPFH = [{
 }, 10] call CBA_fnc_addPerFrameHandler;
 
 switch (true) do {
-	case ("ace3_spectator" in BRM_FMK_activePlugins): {
+	case ("ace3_spectator" call BRM_FMK_fnc_isPluginActive): {
 		[true] call ace_spectator_fnc_setSpectator;
 	};
-	case ("vanilla_spectator" in BRM_FMK_activePlugins): {
+	case ("vanilla_spectator" call BRM_FMK_fnc_isPluginActive): {
 		if (["Initialize", [] call BRM_FMK_Plugin_VanillaSpectator_fnc_getSettings] call BIS_fnc_EGSpectator) then {
 			[] call BRM_FMK_Plugin_VanillaSpectator_fnc_centerOnTarget;
 		};

@@ -32,7 +32,7 @@ RETURNS:
 	] joinString "<br />"], taskNull, "NONE", false];
 
 	private _sideIndex = [WEST, EAST, RESISTANCE, CIVILIAN] find side player;
-	private _autoRadio = "radiofreq" in usedPlugins;
+	private _autoRadio = "radiofreq" call BRM_FMK_fnc_isPluginActive;
 	if (_autoRadio) then {
 		private _autoRadioSide = ["BLU", "OP", "IND", "CIV"] select _sideIndex;
 		private _radioChannelVar = format ["mission_radiochannels_%1", _autoRadioSide];
