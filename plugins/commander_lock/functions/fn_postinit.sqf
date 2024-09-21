@@ -19,6 +19,24 @@ if (hasInterface) then {
 	[{(!isNil "co_lock_allSidesReady") && (!isNil "locked_sides")}, {
 		if (!(side player in locked_sides)) exitWith {};
 
+		0 spawn { // Force enable text channels until commander starts mission.
+			sleep 1; // Post briefing
+			private _channelSettings = [];
+			for "_i" from 0 to 5 do {
+				private _channelEnabled = channelEnabled _i;
+				_channelSettings pushBack +_channelEnabled;
+				_channelEnabled set [0, true];
+				_i enableChannel _channelEnabled;
+			};
+
+			[{ !(side player in locked_sides) }, {
+				{ _forEachIndex enableChannel _x; } forEach _this;
+
+				// Group > Vehicle > Direct > Side > Global > Command > Group (All disabled)
+				setCurrentChannel ([3, 4, 5, 1, 0, 2, 3] select ([3, 4, 5, 1, 0, 2] findIf { channelEnabled _x select 0 }));
+			}, _channelSettings] call CBA_fnc_waitUntilAndExecute;
+		};
+
 		private _coLockTextSelect = parseNumber co_lock_tvt_mode;
 
 		if (player in co_lock_units) then {
