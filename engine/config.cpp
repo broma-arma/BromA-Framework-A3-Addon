@@ -159,6 +159,11 @@ class CfgFunctions {
 			class newMarkerIcon {};
 		};
 
+		class api_plugins {
+			file = "\broma_framework\engine\api\plugins";
+			class isPluginActive {};
+		};
+
 		class api_sides {
 			file = "\broma_framework\engine\api\sides";
 			class getSideInfo {};
