@@ -1,5 +1,3 @@
-if !(hasInterface) exitWith {};
-
 [{ time > 1 }, {
 	BRM_FMK_PlankBuilding_constructionMenuOpen = false;
 
