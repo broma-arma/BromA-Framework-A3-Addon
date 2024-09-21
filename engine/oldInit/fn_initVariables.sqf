@@ -47,6 +47,8 @@ RETURNS:
 
 	["BRM_FRAMEWORK_ADDON", "BRM_FRAMEWORK"],
 	["BRM_FMK_frameworkMission", true],
+	["BRM_FMK_initialized", false],
+	["pluginsLoaded", false], // Backwards compatibility, use BRM_FMK_initialized event or var instead (Used by assignLoadout, assignCargo, and dac_config_creator in missions)
 
 	["mission_AGM_enabled",   isClass (configFile >> "CfgPatches" >> "AGM_CORE")], // Backward compatibility
 	["mission_ACE3_enabled",  isClass (configFile >> "CfgPatches" >> "ACE_COMMON")],

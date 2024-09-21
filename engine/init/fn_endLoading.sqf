@@ -25,10 +25,6 @@ RETURNS:
 ================================================================================
 */
 
-// Indicates plugins have been loaded and called. ==============================
-
-pluginsLoaded = true;
-
 // Calls surrogate initServer.sqf to the server only. ==========================
 
 if (isServer) then { mission_init_server = [] execVM "mission\custom-scripts\initServer.sqf" };
@@ -52,3 +48,11 @@ framework_init_time = (diag_tickTime - startTime);
 ["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
 ["LOCAL", "F_LOG", format ["BROMA FRAMEWORK INITIALIZED SUCCESSFULLY IN %1 SECONDS.", framework_init_time]] call BRM_FMK_fnc_doLog;
 ["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
+
+["BRM_FMK_Engine_initialized"] call CBA_fnc_localEvent;
+
+[{ _missionScripts findif { !scriptDone _x } == -1 }, {
+	["BRM_FMK_initialized"] call CBA_fnc_localEvent;
+	BRM_FMK_initialized = true;
+	pluginsLoaded = true; // Backwards compatibility (Used by assignLoadout, assignCargo, and dac_config_creator in missions)
+}] call CBA_fnc_waitUntilAndExecute;

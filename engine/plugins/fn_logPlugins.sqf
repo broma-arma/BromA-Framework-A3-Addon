@@ -22,8 +22,6 @@ RETURNS:
 ================================================================================
 */
 
-plugins_loaded = false;
-
 BRM_FMK_Engine_activePlugins = "true" configClasses (missionConfigFile >> "CfgPlugins") apply { configName _x } select { isClass (configFile >> "BRM_FMK" >> "Plugins" >> _x) };
 
 if (isClass (configFile >> "CfgPatches" >> "ace_spectator")) then {
@@ -54,9 +52,7 @@ if (count _pluginConflicts > 0) then {
 };
 
 if (hasInterface) then {
-	0 spawn {
-		waitUntil { !isNil "framework_init_time" };
-
+	["BRM_FMK_Engine_initialized", {
 		private _plugins = BRM_FMK_Engine_activePlugins apply {
 			private _cfg = configFile >> "BRM_FMK" >> "Plugins" >> _x;
 			format [
@@ -80,6 +76,5 @@ if (hasInterface) then {
 				"<font face='RobotoCondensedBold'>Plugins:</font>"
 			] + _plugins) joinString "<br />"
 		], taskNull, "NONE", false];
-	};
+	}] call CBA_fnc_addEventHandler;
 };
-
