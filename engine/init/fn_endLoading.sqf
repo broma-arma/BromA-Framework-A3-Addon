@@ -43,10 +43,9 @@ mission_init = [] execVM "mission\custom-scripts\init.sqf";
 
 // Calculates the loading time and logs it. ====================================
 
-framework_init_time = (diag_tickTime - startTime);
-
+BRM_FMK_Engine_initTime = diag_tickTime - BRM_FMK_Engine_initTime;
 ["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
-["LOCAL", "F_LOG", format ["BROMA FRAMEWORK INITIALIZED SUCCESSFULLY IN %1 SECONDS.", framework_init_time]] call BRM_FMK_fnc_doLog;
+["LOCAL", "F_LOG", format ["BROMA FRAMEWORK INITIALIZED SUCCESSFULLY IN %1 SECONDS.", BRM_FMK_Engine_initTime]] call BRM_FMK_fnc_doLog;
 ["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
 
 ["BRM_FMK_Engine_initialized"] call CBA_fnc_localEvent;

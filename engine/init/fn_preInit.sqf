@@ -16,8 +16,8 @@ _this call BRM_FMK_Engine_fnc_loadSettings;
 _this call BRM_FMK_Engine_fnc_initVariables;
 
 ["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call BRM_FMK_fnc_doLog;
-startTime = diag_tickTime;
-call BRM_FMK_Engine_fnc_loadContentCargo;
+BRM_FMK_Engine_initTime = diag_tickTime;
+[] call BRM_FMK_Engine_fnc_loadContentCargo;
 
 // Plugins preInit
 {

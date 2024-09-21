@@ -71,7 +71,7 @@ if (hasInterface) then {
 					getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "version"),
 					call compile preprocessFile "framework\local_version.txt"
 				],
-				format ["Initialized in %1 seconds.", framework_init_time],
+				format ["Initialized in %1 seconds.", BRM_FMK_Engine_initTime],
 				"",
 				"<font face='RobotoCondensedBold'>Plugins:</font>"
 			] + _plugins) joinString "<br />"
