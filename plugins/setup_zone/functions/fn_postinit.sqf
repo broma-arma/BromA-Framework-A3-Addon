@@ -23,7 +23,7 @@ if (isNil "setup_zone_area") then {
 			params ["_setupTime", "_commanderLockTVT"];
 
 			if (_commanderLockTVT) then {
-				waitUntil { !isNil "co_lock_allSidesReady" && {co_lock_allSidesReady} };
+				waitUntil { missionNamespace getVariable ["co_lock_allSidesReady", false] };
 			} else {
 				sleep _setupTime;
 			};

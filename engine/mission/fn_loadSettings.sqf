@@ -2,19 +2,19 @@
 ================================================================================
 
 NAME:
-    BRM_fnc_loadSettings
+    BRM_FMK_Engine_fnc_loadSettings
 
 AUTHOR(s):
     Nife
 
 DESCRIPTION:
-    Initializes several mission related scripts.
+    Loads mission settings.
 
 PARAMETERS:
     None.
 
 USAGE:
-    [] call BRM_fnc_loadSettings;
+    [] call BRM_FMK_Engine_fnc_loadSettings;
 
 RETURNS:
     Nothing.
