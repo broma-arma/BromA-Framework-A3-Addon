@@ -35,8 +35,8 @@ if (!isServer) exitWith {
 };
 
 if (_target isEqualType "") exitWith {
-	if (!isNil { mission_dead_players deleteAt (mission_dead_players findIf { _x select 1 == _target }) }) then {
-		publicVariable "mission_dead_players";
+	if (!isNil { BRM_FMK_Plugin_RespawnSystem_deadPlayers deleteAt (BRM_FMK_Plugin_RespawnSystem_deadPlayers findIf { _x select 1 == _target }) }) then {
+		publicVariable "BRM_FMK_Plugin_RespawnSystem_deadPlayers";
 
 		private _unit = [_target] call BRM_FMK_fnc_unitFromName;
 		if (!isNull _unit) then {
@@ -47,13 +47,13 @@ if (_target isEqualType "") exitWith {
 };
 
 if (_target isEqualType 0) exitWith {
-	private _respawned = count mission_dead_players;
+	private _respawned = count BRM_FMK_Plugin_RespawnSystem_deadPlayers;
 	if (_target >= 0) then {
 		_respawned = _respawned min _target;
 	};
 
 	for "_i" from 0 to _respawned - 1 do {
-		mission_dead_players select _i params ["_deadUID", "_deadName", "_deadSide"];
+		BRM_FMK_Plugin_RespawnSystem_deadPlayers select _i params ["_deadUID", "_deadName", "_deadSide"];
 
 		private _unit = [_deadName] call BRM_FMK_fnc_unitFromName;
 		if (!isNull _unit) then {
@@ -61,10 +61,10 @@ if (_target isEqualType 0) exitWith {
 			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
 		};
 	};
-	mission_dead_players deleteRange [0, _respawned];
+	BRM_FMK_Plugin_RespawnSystem_deadPlayers deleteRange [0, _respawned];
 
 	if (_respawned > 0) then {
-		publicVariable "mission_dead_players";
+		publicVariable "BRM_FMK_Plugin_RespawnSystem_deadPlayers";
 		["Alert", [format ["%1 units have respawned.", _respawned]]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
 	};
 };

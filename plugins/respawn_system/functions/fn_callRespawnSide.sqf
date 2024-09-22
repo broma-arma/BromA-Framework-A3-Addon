@@ -30,9 +30,9 @@ RETURNS:
 params ["_side", ["_amount", BRM_FMK_Plugin_RespawnSystem_respawnObjective], ["_lives", BRM_FMK_Plugin_RespawnSystem_playerLives]];
 
 _amount = if (_amount > -1) then {
-	_amount min count mission_dead_players
+	_amount min count BRM_FMK_Plugin_RespawnSystem_deadPlayers
 } else {
-	count mission_dead_players
+	count BRM_FMK_Plugin_RespawnSystem_deadPlayers
 };
 
 if (_amount == 0) exitWith {};
@@ -43,7 +43,7 @@ if (!isServer) exitWith {
 
 private _respawnedIndices = [];
 for "_i" from 0 to _amount - 1 do {
-	mission_dead_players select _i params ["_deadUID", "_deadName", "_deadSide"];
+	BRM_FMK_Plugin_RespawnSystem_deadPlayers select _i params ["_deadUID", "_deadName", "_deadSide"];
 
 	if (_deadSide == _side) then {
 		_respawnedIndices pushBack _i;
@@ -58,11 +58,11 @@ for "_i" from 0 to _amount - 1 do {
 
 private _respawned = count _respawnedIndices;
 for "_i" from _respawned - 1 to 0 step -1 do {
-	mission_dead_players deleteAt (_respawnedIndices select _i);
+	BRM_FMK_Plugin_RespawnSystem_deadPlayers deleteAt (_respawnedIndices select _i);
 };
 
 if (_respawned > 0) then {
-	publicVariable "mission_dead_players";
+	publicVariable "BRM_FMK_Plugin_RespawnSystem_deadPlayers";
 
 	(switch (_side) do {
 		case WEST: { ["%1 %2 units have respawned.", "AlertBLU"] };

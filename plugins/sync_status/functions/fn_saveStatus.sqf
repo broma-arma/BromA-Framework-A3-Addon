@@ -2,9 +2,9 @@ if !(isServer) exitWith {};
 
 params ["_unit", "_id", "_uid", "_name"];
 
-private _isDead = [_uid, _name, _unit call BIS_fnc_objectSide] in mission_dead_players;
+private _isAlive = _unit call BRM_FMK_fnc_alive;
 private _isValidSlot = !("prevent_reslot" call BRM_FMK_fnc_isPluginActive) || {_unit getVariable ["unit_valid_slot", false]};
-if (_isDead || !_isValidSlot) exitWith {};
+if (!_isAlive || !_isValidSlot) exitWith {};
 
 private _fnc_unitSeat = {
 	params ["_unit"];

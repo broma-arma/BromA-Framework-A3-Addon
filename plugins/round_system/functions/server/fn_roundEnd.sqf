@@ -21,7 +21,7 @@ if (count match_ending_winner > 0) then {
 
 	[] call BRM_FMK_Plugin_RoundSystem_fnc_resetRoundVariables;
 
-	mission_dead_players = [];
+	[-1] call BRM_FMK_RespawnSystem_fnc_callRespawn;
 	[round_winner_text, {
 		[] call BRM_FMK_Plugin_RoundSystem_fnc_roundEndPlayer;
 		(_this) call BRM_FMK_Plugin_RoundSystem_fnc_displayWinner;
