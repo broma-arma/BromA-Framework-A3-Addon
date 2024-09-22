@@ -62,8 +62,6 @@ for "_i" from _respawned - 1 to 0 step -1 do {
 };
 
 if (_respawned > 0) then {
-	publicVariable "BRM_FMK_Plugin_RespawnSystem_deadPlayers";
-
 	(switch (_side) do {
 		case WEST: { ["%1 %2 units have respawned.", "AlertBLU"] };
 		case EAST: { ["%1 %2 units have respawned.", "AlertOP"] };
