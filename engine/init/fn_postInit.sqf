@@ -34,6 +34,25 @@ if (hasInterface) then {
 	] joinString "<br />"], taskNull, "NONE", false];
 
 	if (isMultiplayer) then {
+		// Enable channels during briefing.
+		0 spawn {
+			private _disableChannels = getMissionConfigValue "disableChannels";
+			if (!isNil "_disableChannels") then {
+				_disableChannels = _disableChannels apply {
+					if (_x isEqualType []) then {
+						_x params ["_id", "_text", "_voice"];
+						[_id, [_text == "true", _voice == "true"]]
+					} else {
+						[_x, false]
+					}
+				};
+
+				{ _x select 0 enableChannel true; } forEach _disableChannels;
+				sleep 0.001;
+				{ _x select 0 enableChannel (_x select 1); } forEach _disableChannels;
+			};
+		};
+
 		// Set default briefing channel to Side
 		[{ (!isNull findDisplay 52 || !isNull findDisplay 53) && channelEnabled 1 select 0 }, { // RscDisplayServerGetReady, RscDisplayClientGetReady, Side channel re-enabled.
 			setCurrentChannel 1;
@@ -55,6 +74,9 @@ if (isServer) then {
 		};
 	}] CBA_fnc_addEventHandler;
 };
+
+// Disables object recognition to save performance.
+if (mission_game_mode == "tvt") then { disableRemoteSensors true };
 
 _this call BRM_FMK_Engine_fnc_initPlayer;
 _this call BRM_FMK_Engine_fnc_loadBriefing;
