@@ -72,7 +72,7 @@ if (isServer) then {
 		if (_i != -1) then {
 			BRM_FMK_Engine_players select _i pushBackUnique _this;
 		};
-	}] CBA_fnc_addEventHandler;
+	}] call CBA_fnc_addEventHandler;
 };
 
 // Disables object recognition to save performance.
