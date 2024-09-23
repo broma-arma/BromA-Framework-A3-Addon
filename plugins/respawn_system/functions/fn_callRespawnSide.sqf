@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_RespawnSystem_fnc_callRespawnSide
+    BRM_FMK_Plugin_RespawnSystem_fnc_callRespawnSide
 
 AUTHOR(s):
     Nife
@@ -17,9 +17,9 @@ PARAMETERS:
     2 - (OPTIONAL) Number of lives to give to players revived
 
 USAGE:
-    [west, 5] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
+    [west, 5] call BRM_FMK_Plugin_RespawnSystem_fnc_callRespawnSide;
 
-    [side_a_side, 10, 1] call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
+    [side_a_side, 10, 1] call BRM_FMK_Plugin_RespawnSystem_fnc_callRespawnSide;
 
 RETURNS:
     Nothing.
@@ -38,7 +38,7 @@ _amount = if (_amount > -1) then {
 if (_amount == 0) exitWith {};
 
 if (!isServer) exitWith {
-	_this remoteExecCall ["BRM_FMK_RespawnSystem_fnc_callRespawnSide", 2];
+	_this remoteExecCall ["BRM_FMK_Plugin_RespawnSystem_fnc_callRespawnSide", 2];
 };
 
 private _respawnedIndices = [];
@@ -51,7 +51,7 @@ for "_i" from 0 to _amount - 1 do {
 		private _unit = [_deadName] call BRM_FMK_fnc_unitFromName;
 		if (!isNull _unit) then {
 			[_unit, _lives] call BRM_FMK_Plugin_RespawnSystem_fnc_setLives;
-			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
+			["BRM_FMK_Plugin_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
 		};
 	};
 };

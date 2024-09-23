@@ -20,12 +20,14 @@ class CfgFunctions {
 			class onRespawn {};
 			class getLives {};
 			class setLives {};
+			class callRespawn {};
+			class callRespawnSide {};
 			class killPlayer {};
 		};
 	};
 	class BRM_FMK_RespawnSystem {
 		class functions {
-			file = "\broma_framework\plugins\respawn_system\functions";
+			file = "\broma_framework\plugins\respawn_system\functions\deprecated";
 			class callRespawn {};
 			class callRespawnSide {};
 		};

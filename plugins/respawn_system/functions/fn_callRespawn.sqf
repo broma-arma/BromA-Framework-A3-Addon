@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_RespawnSystem_fnc_callRespawn
+    BRM_FMK_Plugin_RespawnSystem_fnc_callRespawn
 
 AUTHOR(s):
     Nife
@@ -13,14 +13,15 @@ DESCRIPTION:
 
 PARAMETERS:
     0 - Who to revive - maybe either a STRING with a player's in-game name,
-    or the amount of players who will be revived.
+    the amount of players who will be revived,
+    or a player OBJECT. (STRING/NUMBER/OBJECT)
     1 - (OPTIONAL) How many lives they will get. If left blank
     default parameter number will be used. (NUMBER)
 
 USAGE:
-    ["Nife", 2] call BRM_FMK_RespawnSystem_fnc_callRespawn;
+    ["Nife", 2] call BRM_FMK_Plugin_RespawnSystem_fnc_callRespawn;
 
-    [4] call BRM_FMK_RespawnSystem_fnc_callRespawn;
+    [4] call BRM_FMK_Plugin_RespawnSystem_fnc_callRespawn;
 
 RETURNS:
     Nothing.
@@ -31,7 +32,17 @@ RETURNS:
 params ["_target", ["_lives", BRM_FMK_Plugin_RespawnSystem_playerLives]];
 
 if (!isServer) exitWith {
-	_this remoteExecCall ["BRM_FMK_RespawnSystem_fnc_callRespawn", 2];
+	_this remoteExecCall ["BRM_FMK_Plugin_RespawnSystem_fnc_callRespawn", 2];
+};
+
+if (_target isEqualType objNull) exitWith {
+	if (!isNull _target) then {
+		private _dead = [getPlayerUID _target, name _target, _target call BIS_fnc_objectSide];
+		if (!isNil { BRM_FMK_Plugin_RespawnSystem_deadPlayers deleteAt (BRM_FMK_Plugin_RespawnSystem_deadPlayers findIf { _x isEqualTo _dead }) }) then {
+			[_target, _lives] call BRM_FMK_Plugin_RespawnSystem_fnc_setLives;
+			["BRM_FMK_Plugin_RespawnSystem_respawn", [], _target] call CBA_fnc_targetEvent;
+		};
+	};
 };
 
 if (_target isEqualType "") exitWith {
@@ -39,7 +50,7 @@ if (_target isEqualType "") exitWith {
 		private _unit = [_target] call BRM_FMK_fnc_unitFromName;
 		if (!isNull _unit) then {
 			[_unit, _lives] call BRM_FMK_Plugin_RespawnSystem_fnc_setLives;
-			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
+			["BRM_FMK_Plugin_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
 		};
 	};
 };
@@ -56,7 +67,7 @@ if (_target isEqualType 0) exitWith {
 		private _unit = [_deadName] call BRM_FMK_fnc_unitFromName;
 		if (!isNull _unit) then {
 			[_unit, _lives] call BRM_FMK_Plugin_RespawnSystem_fnc_setLives;
-			["BRM_FMK_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
+			["BRM_FMK_Plugin_RespawnSystem_respawn", [], _unit] call CBA_fnc_targetEvent;
 		};
 	};
 	BRM_FMK_Plugin_RespawnSystem_deadPlayers deleteRange [0, _respawned];

@@ -39,10 +39,10 @@ if ("respawn_system" call BRM_FMK_fnc_isPluginActive) exitWith {
 	params ["_target"];
 
 	if (_target isEqualType sideUnknown) exitWith {
-		_this call BRM_FMK_RespawnSystem_fnc_callRespawnSide;
+		_this call BRM_FMK_Plugin_RespawnSystem_fnc_callRespawnSide;
 	};
 
-	_this call BRM_FMK_RespawnSystem_fnc_callRespawn;
+	_this call BRM_FMK_Plugin_RespawnSystem_fnc_callRespawn;
 };
 
 params ["_target"];
