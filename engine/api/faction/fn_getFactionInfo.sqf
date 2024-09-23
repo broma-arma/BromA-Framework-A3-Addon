@@ -27,20 +27,26 @@ RETURNS:
 
 params ["_faction", ["_defaultSide", WEST]];
 
-private _aliasBLUFOR = ["blufor", "west"];
-private _aliasOPFOR = ["opfor", "redfor", "east"];
-private _aliasRESISTANCE = ["independent", "resistance", "indfor", "guerilla", "guer"];
-//private _aliasCIVILIAN = ["civilian", "civilians", "civies", "civ"];
-
-switch (true) do {
-	case (_faction == "side_a"): { [side_a_faction, side_a_side] };
-	case (_faction == "side_b"): { [side_b_faction, side_b_side] };
-	case (_faction == "side_c"): { [side_c_faction, side_c_side] };
-	case (_faction in _aliasBLUFOR): { [[WEST, "FACTION"] call BRM_FMK_fnc_getSideInfo, WEST] };
-	case (_faction in _aliasOPFOR): { [[EAST, "FACTION"] call BRM_FMK_fnc_getSideInfo, EAST] };
-	case (_faction in _aliasRESISTANCE): { [[RESISTANCE, "FACTION"] call BRM_FMK_fnc_getSideInfo, RESISTANCE] };
-	case (_faction == side_a_faction): { [_faction, side_a_side] };
-	case (_faction == side_b_faction): { [_faction, side_b_side] };
-	case (_faction == side_c_faction): { [_faction, side_c_side] };
+switch (toLower _faction) do {
+	case "side_a";
+	case (toLower side_a_faction): { [side_a_faction, side_a_side] };
+	case "side_b";
+	case (toLower side_b_faction): { [side_b_faction, side_b_side] };
+	case "side_c";
+	case (toLower side_c_faction): { [side_c_faction, side_c_side] };
+	case "west";
+	case "blufor": { [[BLUFOR, "FACTION"] call BRM_FMK_fnc_getSideInfo, BLUFOR] };
+	case "east";
+	case "redfor";
+	case "opfor": { [[OPFOR, "FACTION"] call BRM_FMK_fnc_getSideInfo, OPFOR] };
+	case "resistance";
+	case "guer";
+	case "guerilla";
+	case "indfor";
+	case "independent": { [[INDEPENDENT, "FACTION"] call BRM_FMK_fnc_getSideInfo, INDEPENDENT] };
+	case "civ";
+	case "civies";
+	case "civilians";
+	case "civilian": { [[CIVILIAN, "FACTION"] call BRM_FMK_fnc_getSideInfo, CIVILIAN] };
 	default { [_faction, _defaultSide] };
 };
