@@ -14,7 +14,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] spawn BRM_FMK_Engine_fnc_stampTime
+    [] call BRM_FMK_Engine_fnc_stampTime
 
 RETURNS:
     Nothing.
