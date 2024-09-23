@@ -16,6 +16,15 @@ if (isServer) then {
 
 	[] call BRM_FMK_Plugin_RoundSystem_fnc_setMatchVariables;
 
+	addMissionEventHandler ["EntityKilled", {
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+
+		private _i = [side_a_side, side_b_side, side_c_side] find (_unit call BIS_fnc_objectSide);
+		if (_i != -1) then {
+			BRM_FMK_Plugin_RoundSystem_roundDeaths set [_i, BRM_FMK_Plugin_RoundSystem_roundDeaths#_i + 1];
+		};
+	}];
+
 // =============================================================================
 };
 

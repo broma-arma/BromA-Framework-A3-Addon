@@ -71,9 +71,9 @@ switch (round_end_reason) do {
 						if (_Bunits==0) then {_Bunits=1};
 						if (_Cunits==0) then {_Cunits=1};
 
-						_percentA = floor ((100/_Aunits) * mission_dead_side_A);
-						_percentB = floor ((100/_Bunits) * mission_dead_side_B);
-						_percentC = floor ((100/_Cunits) * mission_dead_side_C);
+						_percentA = floor ((100/_Aunits) * BRM_FMK_Plugin_RoundSystem_roundDeaths#0);
+						_percentB = floor ((100/_Bunits) * BRM_FMK_Plugin_RoundSystem_roundDeaths#1);
+						_percentC = floor ((100/_Cunits) * BRM_FMK_Plugin_RoundSystem_roundDeaths#2);
 
 						["LOCAL", "CHAT", format ["A: %1(%4) | B: %2(%5) | C: %3(%6)", _Aunits, _Bunits, _Cunits, _percentA, _percentB, _percentC], ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
 

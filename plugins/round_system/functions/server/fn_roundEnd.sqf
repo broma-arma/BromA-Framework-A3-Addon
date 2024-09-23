@@ -9,10 +9,6 @@ sleep 5;
 
 if (count match_ending_winner > 0) then {
 
-	mission_dead_side_A = cache_deaths_a;
-	mission_dead_side_B = cache_deaths_b;
-	mission_dead_side_C = cache_deaths_c;
-
 	[match_ending_winner select 0] call BRM_FMK_fnc_callEnding;
 
 } else {

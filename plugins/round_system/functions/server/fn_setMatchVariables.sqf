@@ -2,9 +2,7 @@ match_points_a = 0;
 match_points_b = 0;
 match_points_c = 0;
 
-cache_deaths_a = 0;
-cache_deaths_b = 0;
-cache_deaths_c = 0;
+BRM_FMK_Plugin_RoundSystem_roundDeaths = [0, 0, 0]; // Side A, Side B, Side C
 
 match_ending_winner = [];
 match_current_round = 1;

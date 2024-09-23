@@ -55,4 +55,17 @@ _this call BRM_FMK_Engine_fnc_loadBriefing;
 	};
 } forEach ("true" configClasses (missionConfigFile >> "CfgPlugins"));
 
+if (isServer) then {
+	BRM_FMK_Engine_deaths = [0, 0, 0]; // Side A, Side B, Side C
+
+	addMissionEventHandler ["EntityKilled", {
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+
+		private _i = [side_a_side, side_b_side, side_c_side] find (_unit call BIS_fnc_objectSide);
+		if (_i != -1) then {
+			BRM_FMK_Engine_deaths set [_i, BRM_FMK_Engine_deaths#_i + 1];
+		};
+	}];
+};
+
 _this call BRM_FMK_Engine_fnc_endLoading;

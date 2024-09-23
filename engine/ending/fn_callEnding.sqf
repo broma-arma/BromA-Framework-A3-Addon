@@ -38,13 +38,12 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		private _deathPercent = ["A", "B"];
 		if (mission_enable_side_c) then { _deathPercent pushBack "C"; };
 
-		_deathPercent = _deathPercent apply {
-			private _deaths = (missionNamespace getVariable format ["mission_dead_side_%1", _x]);
-			private _count = count (BRM_FMK_Engine_players select (["A", "B", "C"] find _x)) max 1;
+		{
+			private _deaths = BRM_FMK_Engine_deaths select _forEachIndex;
+			private _count = count (BRM_FMK_Engine_players select _forEachIndex) max 1;
 
-			[floor (_deaths / _count * 100), missionNamespace getVariable format ["side_%1_side", _x]]
-
-		};
+			_deathPercent set [_forEachIndex, [floor (_deaths / _count * 100), missionNamespace getVariable format ["side_%1_side", _x]]];
+		} forEach _deathPercent;
 		_deathPercent sort true;
 
 		(_deathPercent select 0) params ["_winnerPercent", "_winner"];
@@ -71,9 +70,9 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		[_winningSides param [0, sideUnknown], _reason, mission_game_mode] call OCAP_fnc_exportData;
 	};
 
-	[_ending, _winningSides, _losingSides, _showStats, _title, _reason, _endNumber, _margin] remoteExec ["BRM_FMK_fnc_callEnding", 0];
+	[_ending, _winningSides, _losingSides, _showStats, _title, _reason, _endNumber, _margin, BRM_FMK_Engine_deaths] remoteExec ["BRM_FMK_fnc_callEnding", 0];
 } else {
-	params ["_ending", "_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber", "_margin"];
+	params ["_ending", "_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber", "_margin", "_deaths"];
 
 	private _isWinner = true;
 	if (hasInterface) then {
@@ -97,13 +96,13 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 					[time, "H:MM:SS"] call CBA_fnc_formatElapsedTime,
 					[side_a_color] call BRM_FMK_fnc_colorToHex,
 					side_a_name,
-					mission_dead_side_a
+					_deaths select 0
 				],
 				format ["<t align='left'>%1 deaths</t><t align='right'><t color='%2'>%3</t>: %4</t>",
 					player getVariable ["unit_deaths", 0],
 					[side_b_color] call BRM_FMK_fnc_colorToHex,
 					side_b_name,
-					mission_dead_side_b
+					_deaths select 1
 				]
 			];
 
@@ -111,7 +110,7 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 				_lines pushBack (format ["<t align='right'><t color='%1'>%2</t>: %3</t>",
 					[side_c_color] call BRM_FMK_fnc_colorToHex,
 					side_c_name,
-					mission_dead_side_c
+					_deaths select 2
 				]);
 			};
 
