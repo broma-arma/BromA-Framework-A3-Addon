@@ -33,7 +33,6 @@ class CfgFunctions {
 			file = "\broma_framework\engine\oldInit";
 			class initVariables {};
 			class loadContentCargo {};
-			class engine_post {};
 		};
 
 		class loadout {
