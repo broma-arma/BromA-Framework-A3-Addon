@@ -67,11 +67,7 @@ if (player getVariable ["unit_initialized", false]) exitWith {};
 
 player setVariable ["unit_side", side player, true]; // Backward compatibility
 
-switch (side player) do {
-	case side_a_side: { if !(player in mission_players_A) then { mission_players_A pushBack player; publicVariable "mission_players_A" }; };
-	case side_b_side: { if !(player in mission_players_B) then { mission_players_B pushBack player; publicVariable "mission_players_B" }; };
-	case side_c_side: { if !(player in mission_players_C) then { mission_players_C pushBack player; publicVariable "mission_players_C" }; };
-};
+["BRM_FMK_Engine_initPlayerServer", player] CBA_fnc_serverEvent;
 
 // Reads player faction and assigns the unit loadout. ==========================
 

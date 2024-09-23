@@ -29,6 +29,17 @@ _this call BRM_FMK_Engine_fnc_logPlugins;
 _this call BRM_FMK_Engine_fnc_defineGroups;
 _this call BRM_FMK_Engine_fnc_createPlayerVehicles;
 _this call BRM_FMK_Engine_fnc_readExtraction;
+
+if (isServer) then {
+	BRM_FMK_Engine_players = [[], [], []]; // Side A, Side B, Side C
+	["BRM_FMK_Engine_initPlayerServer", {
+		private _i = [side_a_side, side_b_side, side_c_side] find (_this call BIS_fnc_objectSide);
+		if (_i != -1) then {
+			BRM_FMK_Engine_players select _i pushBackUnique _this;
+		};
+	}] CBA_fnc_addEventHandler;
+};
+
 _this call BRM_FMK_Engine_fnc_initPlayer;
 _this call BRM_FMK_Engine_fnc_loadBriefing;
 

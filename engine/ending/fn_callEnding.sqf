@@ -39,11 +39,10 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		if (mission_enable_side_c) then { _deathPercent pushBack "C"; };
 
 		_deathPercent = _deathPercent apply {
-			private _deaths = (missionNameSpace getVariable format ["mission_dead_side_%1", _x]);
-			private _count = count (missionNameSpace getVariable format ["mission_players_%1", _x]);
-			if (_count == 0) then { _count = 1; };
+			private _deaths = (missionNamespace getVariable format ["mission_dead_side_%1", _x]);
+			private _count = count (BRM_FMK_Engine_players select (["A", "B", "C"] find _x)) max 1;
 
-			[floor (_deaths / _count * 100), missionNameSpace getVariable format ["side_%1_side", _x]]
+			[floor (_deaths / _count * 100), missionNamespace getVariable format ["side_%1_side", _x]]
 
 		};
 		_deathPercent sort true;

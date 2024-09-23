@@ -27,10 +27,6 @@ RETURNS:
 	_x params ["_var", "_default"];
 	if (isNil _var) then { missionNamespace setVariable [_var, _default]; };
 } forEach [
-	["mission_players_A", []],
-	["mission_players_B", []],
-	["mission_players_C", []],
-
 	["mission_dead_side_A", 0],
 	["mission_dead_side_B", 0],
 	["mission_dead_side_C", 0],
