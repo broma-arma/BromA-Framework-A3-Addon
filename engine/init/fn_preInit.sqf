@@ -54,14 +54,4 @@ _this call BRM_FMK_Engine_fnc_initVariables;
 ["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call BRM_FMK_fnc_doLog;
 [] call BRM_FMK_Engine_fnc_loadContentCargo;
 
-// Plugins preInit
-{
-	private _configName = configName _x;
-	private _cfgPlugin = configFile >> "BRM_FMK" >> "Plugins" >> _configName;
-	if (isClass _cfgPlugin) then {
-		private _fnc = missionNamespace getVariable format ["%1_fnc_preInit", [_cfgPlugin, "tag", format ["BRM_FMK_Plugin_%1", _configName]] call BIS_fnc_returnConfigEntry];
-		if (!isNil "_fnc") then {
-			_this call _fnc;
-		};
-	};
-} forEach ("true" configClasses (missionConfigFile >> "CfgPlugins"));
+_this call BRM_FMK_Engine_fnc_loadPlugins;
