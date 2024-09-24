@@ -56,4 +56,5 @@ BRM_FMK_Engine_initTime = diag_tickTime - BRM_FMK_Engine_initTime;
 	["BRM_FMK_initialized"] call CBA_fnc_localEvent;
 	BRM_FMK_initialized = true;
 	pluginsLoaded = true; // Backward compatibility (Used by assignLoadout, assignCargo, and dac_config_creator in missions)
+	["LOCAL", "F_LOG", format ["MISSION SCRIPTS INITIALIZED @ %1", time]] call BRM_FMK_fnc_doLog;
 }, _missionScripts] call CBA_fnc_waitUntilAndExecute;
