@@ -33,8 +33,10 @@ if (isNil "_kind") then {
 
 if (_kind isEqualTo "") exitWith {};
 
-if (_kind == "ACE_EarPlugs" && { _object isKindOf "Man" && { _object == player } }) then {
-	[_object] call ace_hearing_fnc_putInEarplugs;
+if (_kind == "ACE_EarPlugs" && { _object isKindOf "Man" }) then {
+	if (mission_ACE3_enabled && _object == player) then {
+		[_object] call ace_hearing_fnc_putInEarplugs;
+	};
 } else {
 	[_object, _kind, _amount] call BRM_FMK_fnc_addItem;
 };
