@@ -170,7 +170,7 @@ switch (toLower _x) do {
 		[_RPGVR, _countSpecATCARGO],
 		[_RPGVS, _countSpecATCARGO],
 		[_RPGVS, _countSpecATCARGO],
-		[_RGPTBG, _countSpecATCARGO],
+		[_RPGTBG, _countSpecATCARGO],
 		[_RPGTYPE69, _countSpecATCARGO]] call BRM_FMK_fnc_addItems;
 	};
 
