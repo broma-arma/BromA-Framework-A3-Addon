@@ -22,11 +22,15 @@ RETURNS:
 ================================================================================
 */
 
-if (!isClass (missionConfigFile >> "CfgFunctions" >> "BRM" >> "init" >> "engine_pre")) exitWith {};
+BRM_FMK_Engine_compatVersion = -1;
+if (isClass (missionConfigFile >> "CfgFunctions" >> "BRM" >> "init" >> "engine_pre") && fileExists "framework\local_version.txt") then {
+	BRM_FMK_Engine_missionVersion = call compile preprocessFile "framework\local_version.txt"; // "075", "0745", "074", "073", "07"
+	BRM_FMK_Engine_compatVersion = 0;
+};
+
+if (isNil "BRM_FMK_Engine_missionVersion") exitWith {};
 
 BRM_FMK_Engine_initTime = diag_tickTime;
-
-BRM_FMK_missionVersion = call compile preprocessFile "framework\local_version.txt"; // "075", "0745", "074", "073", "07"
 
 _this call BRM_FMK_Engine_fnc_loadSettings;
 _this call BRM_FMK_Engine_fnc_initVariables;

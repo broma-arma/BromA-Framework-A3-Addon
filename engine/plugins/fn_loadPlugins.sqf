@@ -101,7 +101,7 @@ if (hasInterface) then {
 				format ["<font size='16' face='RobotoCondensedBold'>%1 - v%2 (local v%3)</font>",
 					getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "versionDesc"),
 					getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "version"),
-					BRM_FMK_missionVersion
+					BRM_FMK_Engine_missionVersion
 				],
 				format ["Initialized in %1 seconds.", BRM_FMK_Engine_initTime],
 				"",

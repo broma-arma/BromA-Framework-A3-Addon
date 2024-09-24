@@ -22,7 +22,7 @@ RETURNS:
 ================================================================================
 */
 
-if (isNil "BRM_FMK_missionVersion") exitWith {};
+if (isNil "BRM_FMK_Engine_missionVersion") exitWith {};
 
 if (hasInterface) then {
 	player createDiarySubject ["BRM_FMK_diary", "BromA Framework"];

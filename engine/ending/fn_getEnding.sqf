@@ -1,4 +1,4 @@
-if (fileExists "mission\settings\endings.sqf") exitWith {
+if (BRM_FMK_Engine_compatVersion == 0) exitWith {
 	_this call compile preprocessFile "mission\settings\endings.sqf";
 	mission_ending_details
 };
