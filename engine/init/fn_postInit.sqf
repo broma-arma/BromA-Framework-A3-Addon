@@ -60,7 +60,6 @@ if (hasInterface) then {
 	};
 };
 
-_this call BRM_FMK_Engine_fnc_loadPlugins;
 _this call BRM_FMK_Engine_fnc_defineGroups;
 _this call BRM_FMK_Engine_fnc_createPlayerVehicles;
 _this call BRM_FMK_Engine_fnc_readExtraction;
@@ -80,6 +79,7 @@ if (mission_game_mode == "tvt") then { disableRemoteSensors true };
 
 _this call BRM_FMK_Engine_fnc_initPlayer;
 _this call BRM_FMK_Engine_fnc_loadBriefing;
+_this call BRM_FMK_Engine_fnc_loadPlugins;
 
 if (isServer) then {
 	BRM_FMK_Engine_deaths = [0, 0, 0]; // Side A, Side B, Side C
