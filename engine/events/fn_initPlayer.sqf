@@ -82,7 +82,6 @@ player setVariable ["unit_deaths", player getVariable ["unit_deaths", 0]];
 
 player addEventHandler ["Respawn", { _this call BRM_fnc_onPlayerRespawn }];
 player addEventHandler ["Hit", { (_this select 0) setVariable ["last_damage", _this select 1] }];
-player addEventHandler ["Killed", { _this call BRM_fnc_onPlayerKilled }];
 
 addMissionEventHandler ["EntityKilled", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];

@@ -149,6 +149,13 @@ class CfgFunctions {
 			class getFactionInfo {};
 		};
 
+		class api_loadout {
+			file = "\broma_framework\engine\api\loadout";
+			class assignCargo {};
+			class assignLoadout {};
+			class getLoadoutProperty {};
+		};
+
 		class api_markers {
 			file = "\broma_framework\engine\api\markers";
 			class newMarker {};
@@ -210,4 +217,38 @@ class CfgFunctions {
 			class z_setLoadout {};
 		};
 	};
+
+	class BRM {
+		class preInit { // Disable mission's preInit functions
+			class loadSettings { file = "\broma_framework\engine\mission\empty.sqf"; };
+			class initVariables { file = "\broma_framework\engine\mission\empty.sqf"; };
+			class engine_pre { file = "\broma_framework\engine\mission\empty.sqf"; };
+		};
+		class postInit { // Disable mission's postInit functions
+			class logPlugins { file = "\broma_framework\engine\mission\empty.sqf"; };
+			class warnConflict { file = "\broma_framework\engine\mission\empty.sqf"; };
+			class defineGroups { file = "\broma_framework\engine\mission\empty.sqf"; };
+			class createPlayerVehicles { file = "\broma_framework\engine\mission\empty.sqf"; };
+			class readExtraction { file = "\broma_framework\engine\mission\empty.sqf"; };
+			class initPlayer { file = "\broma_framework\engine\mission\empty.sqf"; };
+			class loadBriefing { file = "\broma_framework\engine\mission\empty.sqf"; };
+		};
+		class overrides { // Force mission functions to use addon version
+			file = "\broma_framework\engine\mission\overrides";
+			class callEnding {};
+			class onPlayerKilled { file = "\broma_framework\engine\mission\empty.sqf"; };
+			//class onPlayerRespawn { file = "\broma_framework\engine\mission\empty.sqf"; }; // Modified by 5 missions, 2 uses seem to be important (royal_co20_bloodycorazol_v10.sara, royal_tvt20_comedyclub.VR)
+			class initAI {};
+			class onAIKilled { file = "\broma_framework\engine\mission\empty.sqf"; };
+			//class assignLoadout {}; // Modified by 2 missions (coryf88_co47_halloball_v004.Tanoa and edge_co33_kutuzovinterdiction_v5.Woodland_ACR, both to add pointer attachment to weapon)
+			class assignCargo {};
+			class getLoadoutProperty {};
+		};
+	};
+
+    class BRM_endLoading {
+        class postInit { // Disable mission's postInit functions
+            class endLoading { file = "\broma_framework\engine\mission\empty.sqf"; };
+        };
+    };
 };
