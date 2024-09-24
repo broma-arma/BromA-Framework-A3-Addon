@@ -29,6 +29,7 @@ private _missionScripts = [];
 
 if (isServer) then {
 	_missionScripts pushBack ([] execVM "mission\custom-scripts\initServer.sqf");
+	mission_settings = scriptNull; // tasks.sqf waits for `scriptDone mission_settings`
 	_missionScripts pushBack ([] execVM "mission\objectives\tasks.sqf");
 };
 
