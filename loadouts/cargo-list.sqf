@@ -118,6 +118,10 @@ switch (toLower _x) do {
 			[_commonAT select ([RAMMO, GUN] select _isCommonATDisposable), _countCommonATCARGO]
 		];
 
+		if (!("rpg7_ammo" in _type) && _specAT select 0 select [0, 13] isEqualTo "rhs_weap_rpg7") then {
+			_type pushBackUnique "rpg7_ammo";
+		};
+
 		if (_specAT select GUN == _SMAW select GUN) then {
 			_supplies pushBack ["rhs_mag_smaw_SR", 25];
 		};
