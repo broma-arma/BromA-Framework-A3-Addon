@@ -10,6 +10,6 @@ addMissionEventHandler ["EntityKilled", {
 	params ["_killed", "_killer", "_instigator", "_useEffects"];
 
 	if (local _killed && _killed isKindOf "CAManBase" && {!(_killed getVariable ["f_removeBodyEH", false] || _killed in f_var_doNotRemoveBodies)}) then {
-		_killed call BRM_FMK_f_remove_body_fnc_removeBody;
+		_killed call BRM_FMK_Plugin_RemoveBody_fnc_removeBody;
 	};
 }];
