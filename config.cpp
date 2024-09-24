@@ -38,6 +38,7 @@ class CfgFunctions {
 };
 
 class BRM_FMK {
+#include "\broma_framework\engine\configs\Endings.hpp"
 #include "\broma_framework\loadouts\configs\Voices.hpp"
 #include "\broma_framework\loadouts\configs\Faces.hpp"
 #include "\broma_framework\loadouts\configs\Names.hpp"

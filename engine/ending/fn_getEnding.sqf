@@ -11,7 +11,7 @@ private _winningSides = ["a"];
 private _losingSides = ["b", "c"];
 private _showStats = true;
 
-private _cfgEnding = missionConfigFile >> "BRM_FMK" >> "Endings" >> _ending;
+private _cfgEnding = [["BRM_FMK", "Endings", _ending], configNull] call BIS_fnc_loadClass;
 if (isClass _cfgEnding) then {
 	_title = getText (_cfgEnding >> "title");
 	_reason = getText (_cfgEnding >> "reason");
