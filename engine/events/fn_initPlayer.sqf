@@ -53,7 +53,7 @@ player setVariable ["unit_side", side player, true]; // Backward compatibility
 
 (player getVariable ["unitInit", ["MAIN", "*", "*", "*"]]) params ["_groupColor", "_faction", "_role", "_groupName"];
 
-[toUpper _groupColor, "MAIN"] select (_this == "WHITE") spawn {
+[toUpper _groupColor, "MAIN"] select (_groupColor == "WHITE") spawn {
 	sleep 5;
 	player assignTeam _this;
 };
