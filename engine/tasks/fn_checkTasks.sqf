@@ -54,10 +54,10 @@ while { mission_running } do {
 							["BRM_FMK_taskStateChanged", [_sideChar, _id, "FAILED"]] call CBA_fnc_localEvent;
 
 							if (mission_game_mode != "coop") then {
-								[missionNamespace getVariable format ["endings_tvt_side_%1_defeat", _sideChar]] call BRM_FMK_fnc_callEnding;
+								[missionNamespace getVariable format ["endings_tvt_side_%1_defeat", _sideChar]] call BRM_FMK_fnc_endMission;
 							} else {
 								if (_sideChar == "a") then {
-									[endings_defeat] call BRM_FMK_fnc_callEnding;
+									[endings_defeat] call BRM_FMK_fnc_endMission;
 								};
 							};
 						} else { // PRIORITY_SECONDARY or PRIORITY_OPTIONAL
@@ -110,10 +110,10 @@ while { mission_running } do {
 						};
 					} else {
 						if (mission_game_mode != "coop") then {
-							[missionNamespace getVariable format ["endings_tvt_side_%1_victory", _sideChar]] call BRM_FMK_fnc_callEnding;
+							[missionNamespace getVariable format ["endings_tvt_side_%1_victory", _sideChar]] call BRM_FMK_fnc_endMission;
 						} else {
 							if (_sideChar == "a") then {
-								[endings_victory] call BRM_FMK_fnc_callEnding;
+								[endings_victory] call BRM_FMK_fnc_endMission;
 							};
 						};
 					};

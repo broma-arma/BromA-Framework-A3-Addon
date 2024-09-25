@@ -19,6 +19,7 @@ class CfgFunctions {
 
 		class ending {
 			file = "\broma_framework\engine\ending";
+			class endMission {};
 			class getEnding {};
 		};
 
@@ -79,11 +80,6 @@ class CfgFunctions {
 
 	class BRM_FMK_Engine_API {
 		tag = "BRM_FMK";
-
-		class ending {
-			file = "\broma_framework\engine\ending";
-			class callEnding {};
-		};
 
 		class events {
 			file = "\broma_framework\engine\events";
@@ -161,6 +157,16 @@ class CfgFunctions {
 			class newMarker {};
 			class newMarkerArea {};
 			class newMarkerIcon {};
+		};
+
+		class api_missions {
+			file = "\broma_framework\engine\api\missions";
+			class endMission {};
+		};
+
+		class api_missions_deprecated {
+			file = "\broma_framework\engine\api\missions\deprecated";
+			class callEnding {};
 		};
 
 		class api_plugins {

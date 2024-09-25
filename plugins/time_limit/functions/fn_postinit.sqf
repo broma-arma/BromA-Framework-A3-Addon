@@ -46,8 +46,8 @@ BrmFmk_TimeLimit_countdown = _timeLimit;
 	["Timer", ["Time's up!"]] remoteExec ["BIS_fnc_showNotification", [0, -2] select isDedicated];
 
 	if (mission_game_mode == "coop") then {
-		["defeat"] call BRM_FMK_fnc_callEnding;
+		["defeat"] call BRM_FMK_fnc_endMission;
 	} else {
-		["tvt_end"] call BRM_FMK_fnc_callEnding;
+		["tvt_end"] call BRM_FMK_fnc_endMission;
 	};
 };

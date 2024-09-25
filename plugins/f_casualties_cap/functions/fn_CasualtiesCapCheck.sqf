@@ -9,5 +9,5 @@ params ["_grps", "_pc", "_end"];
 
 private _sides = _grps apply { side _x };
 {
-	[_x, _pc / 100, { [_end] call BRM_FMK_fnc_callEnding; }] call BRM_FMK_fnc_checkCasualties;
+	[_x, _pc / 100, { [_end] call BRM_FMK_fnc_endMission; }] call BRM_FMK_fnc_checkCasualties;
 } forEach (_sides arrayIntersect _sides);

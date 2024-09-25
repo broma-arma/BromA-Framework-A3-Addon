@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_FMK_fnc_callEnding
+    BRM_FMK_Engine_fnc_endMission
 
 AUTHOR(s):
     Nife
@@ -14,7 +14,7 @@ PARAMETERS:
     0 - Ending event that should be called (STRING)
 
 USAGE:
-    ["victory"] call BRM_FMK_fnc_callEnding
+    ["victory"] call BRM_FMK_Engine_fnc_endMission
 
 RETURNS:
     Nothing.
@@ -70,7 +70,7 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		[_winningSides param [0, sideUnknown], _reason, mission_game_mode] call OCAP_fnc_exportData;
 	};
 
-	[_ending, _winningSides, _losingSides, _showStats, _title, _reason, _endNumber, _margin, BRM_FMK_Engine_deaths] remoteExec ["BRM_FMK_fnc_callEnding", 0];
+	[_ending, _winningSides, _losingSides, _showStats, _title, _reason, _endNumber, _margin, BRM_FMK_Engine_deaths] remoteExec ["BRM_FMK_Engine_fnc_endMission", 0];
 } else {
 	params ["_ending", "_winningSides", "_losingSides", "_showStats", "_title", "_reason", "_endNumber", "_margin", "_deaths"];
 
