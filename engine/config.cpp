@@ -237,10 +237,10 @@ class CfgFunctions {
 			file = "\broma_framework\engine\mission\overrides";
 			class callEnding {};
 			class onPlayerKilled { file = "\broma_framework\engine\mission\empty.sqf"; };
-			//class onPlayerRespawn { file = "\broma_framework\engine\mission\empty.sqf"; }; // Modified by 5 missions, 2 uses seem to be important (royal_co20_bloodycorazol_v10.sara, royal_tvt20_comedyclub.VR)
+			class onPlayerRespawn { file = "\broma_framework\engine\mission\empty.sqf"; };
 			class initAI {};
 			class onAIKilled { file = "\broma_framework\engine\mission\empty.sqf"; };
-			//class assignLoadout {}; // Modified by 2 missions (coryf88_co47_halloball_v004.Tanoa and edge_co33_kutuzovinterdiction_v5.Woodland_ACR, both to add pointer attachment to weapon)
+			class assignLoadout {};
 			class assignCargo {};
 			class getLoadoutProperty {};
 		};
