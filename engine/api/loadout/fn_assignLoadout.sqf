@@ -2,8 +2,8 @@ params ["_unit", "_faction", ["_type", ""]];
 
 if !(_unit isKindOf "Man" && local _unit) exitWith {};
 
-if (!BRM_FMK_initialized) exitWith {
-	[{ BRM_FMK_initialized }, { _this call BRM_FMK_fnc_assignLoadout; }, _this] call CBA_fnc_waitUntilAndExecute;
+if (!BRM_FMK_Engine_initialized) exitWith {
+	[{ BRM_FMK_Engine_initialized }, { _this call BRM_FMK_fnc_assignLoadout; }, _this] call CBA_fnc_waitUntilAndExecute;
 };
 
 private _isMan = true;
@@ -23,6 +23,11 @@ _assignLoadoutMode = true;
 #include "\broma_framework\loadouts\content\content-list.sqf"
 #include "read-data.sqf"
 #include "\broma_framework\loadouts\includes\set-identity.sqf"
+
+if (isPlayer _unit) then { // Weapon on back
+	player switchMove "AmovPercMstpSnonWnonDnon";
+	player action ["SwitchWeapon", player, player, -1];
+};
 
 /*
 if (!isNil "BRM_FMK_fnc_assignLoadout") then { _this call BRM_FMK_fnc_assignLoadout };

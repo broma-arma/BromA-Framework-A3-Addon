@@ -205,7 +205,6 @@ class CfgFunctions {
 
 		class api_weapons {
 			file = "\broma_framework\engine\api\weapons";
-			class weaponAway {};
 			class isDisposableLauncher {};
 		};
 

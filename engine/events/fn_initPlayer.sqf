@@ -88,6 +88,4 @@ addMissionEventHandler ["EntityKilled", {
 	_unit setMimic "dead";
 }];
 
-[player] call BRM_FMK_fnc_weaponAway;
-
 ["LOCAL", "F_LOG", "PLAYER INITIALIZED"] call BRM_FMK_fnc_doLog;

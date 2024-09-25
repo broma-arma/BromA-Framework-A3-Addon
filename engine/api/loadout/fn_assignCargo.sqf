@@ -10,11 +10,11 @@ params ["_object", "_faction", "_type"];
 
 if (_object isKindOf "Man" || _object getVariable ["unit_initialized", false]) exitWith {};
 
-if (!BRM_FMK_initialized) exitWith {
+if (!BRM_FMK_Engine_initialized) exitWith {
 	if !(_object getVariable ["BRM_FMK_fnc_assignCargo_delayed", false]) then {
 		_object setVariable ["BRM_FMK_fnc_assignCargo_delayed", true];
-		[{ BRM_FMK_initialized }, {
-			_this select 0 setVariable ["BRM_FMK_fnc_assignCargo_delayed", false];
+		[{ BRM_FMK_Engine_initialized }, {
+			_this select 0 setVariable ["BRM_FMK_fnc_assignCargo_delayed", nil];
 			_this call BRM_FMK_fnc_assignCargo;
 		}, _this] call CBA_fnc_waitUntilAndExecute;
 	};
