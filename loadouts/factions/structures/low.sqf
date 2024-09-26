@@ -1,3 +1,4 @@
+#include "includes\macros.sqf"
 // INFO ========================================================================
 //
 //    The structure of a poorly equipped army.
