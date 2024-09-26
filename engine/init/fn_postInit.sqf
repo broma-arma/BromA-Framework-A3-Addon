@@ -107,18 +107,4 @@ if (isClass (configFile >> "CfgPatches" >> "zen_modules") && !isNil "zen_modules
 	zen_modules_saved setVariable ["zen_modules_editableObjects", _selections];
 };
 
-addMissionEventHandler ["EntityKilled", {
-	params ["_unit", "_killer", "_instigator", "_useEffects"];
-
-	if (isNull _instigator) then {
-		_instigator = _killer;
-
-		// Handle UAV road kill (Note: unitIsUAV doesn't work for UAV AI)
-		if (_instigator isKindOf "CAManBase" && { getText (configOf _instigator >> "simulation") == "UAVPilot"}) then { _instigator = vehicle _instigator; };
-		if (unitIsUAV _instigator) then { _instigator = UAVControl _instigator select 0; };
-	};
-
-	[_unit, _instigator] call BRM_FMK_fnc_handleScore;
-}];
-
 _this call BRM_FMK_Engine_fnc_endLoading;

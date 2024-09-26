@@ -4,7 +4,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 1;
-		requiredAddons[] = { "BRM_FRAMEWORK" };
+		requiredAddons[] = {"BRM_FRAMEWORK"};
 	};
 };
 
@@ -75,6 +75,9 @@ class CfgFunctions {
 			class generateRadioStructure {};
 			class joinDeadGroup {};
 			class setUnitIdentity {};
+			class handleKilled {};
+			class handleHit {};
+			class addScore {};
 		};
 	};
 
@@ -102,11 +105,6 @@ class CfgFunctions {
 			class newTask {};
 			class setTask {};
 			class checkTasks {};
-		};
-
-		class unit {
-			file = "\broma_framework\engine\unit";
-			class handleScore {};
 		};
 	};
 
@@ -256,4 +254,20 @@ class CfgFunctions {
             class endLoading { file = "\broma_framework\engine\mission\empty.sqf"; };
         };
     };
+};
+
+class Extended_Hit_EventHandlers {
+	class CAManBase {
+		class BRM_FMK_Engine {
+			hit = "_this call BRM_FMK_Engine_fnc_handleHit;";
+		};
+	};
+};
+
+class Extended_Killed_EventHandlers {
+	class CAManBase {
+		class BRM_FMK_Engine {
+			killed = "_this call BRM_FMK_Engine_fnc_handleKilled";
+		};
+	};
 };

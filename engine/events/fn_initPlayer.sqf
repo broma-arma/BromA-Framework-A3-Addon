@@ -77,11 +77,9 @@ if (didJIP) then {
 	[player, _groupName, _role] call BRM_FMK_Engine_fnc_setAlias;
 };
 
-player setVariable ["unit_score", player getVariable ["unit_score", 0]];
 player setVariable ["unit_deaths", player getVariable ["unit_deaths", 0]];
 
 player addEventHandler ["Respawn", { _this call BRM_fnc_onPlayerRespawn }];
-player addEventHandler ["Hit", { (_this select 0) setVariable ["last_damage", _this select 1] }];
 
 addMissionEventHandler ["EntityKilled", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
