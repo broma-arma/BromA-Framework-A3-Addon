@@ -159,6 +159,6 @@ private _sideId = switch (_side) do {
 	default           { 0 };
 };
 
-if (isNil "BRM_FMK_tasks") then { BRM_FMK_tasks = [[], [], []]; };
-(BRM_FMK_tasks select _sideId) pushBack [_id, _priority, _predicateWin, _predicateLose, _callbackCompleted, _callbackFailed];
+if (isNil "BRM_FMK_Engine_tasks") then { BRM_FMK_Engine_tasks = [[], [], []]; };
+(BRM_FMK_Engine_tasks select _sideId) pushBack [_id, _priority, _predicateWin, _predicateLose, _callbackCompleted, _callbackFailed];
 ["BRM_FMK_taskStateChanged", [["a", "b", "c"] select _sideId, _id, "CREATED"]] call CBA_fnc_localEvent;
