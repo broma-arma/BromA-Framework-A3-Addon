@@ -1,4 +1,3 @@
-// Called in mission\settings\mission-settings.sqf
 #include "\broma_framework\loadouts\includes\faction-info-index.sqf"
 
 private _properties = ["_side", "_color", "_name", "_skill", "_callsigns", "_units", "_vehicles", "_objects", "_dacCamps"];

@@ -14,6 +14,7 @@ class CfgFunctions {
 			file = "\broma_framework\engine\init";
 			class preInit {preInit = 1;};
 			class postInit {postInit = 1;};
+			class assignSideProperties {};
 			class initVariables {};
 			class loadContentCargo {};
 			class endLoading {};
@@ -83,11 +84,6 @@ class CfgFunctions {
 		class events {
 			file = "\broma_framework\engine\events";
 			class initAI {};
-		};
-
-		class oldInit {
-			file = "\broma_framework\engine\oldInit";
-			class assignSideProperties {};
 		};
 
 		class misc {
@@ -214,6 +210,14 @@ class CfgFunctions {
 			class z_setMode {};
 			class z_setSkill {};
 			class z_setLoadout {};
+		};
+	};
+
+	class BRM_FMK_Compat {
+		tag = "BRM_FMK";
+
+		class compat0 {
+			class assignSideProperties { file = "\broma_framework\engine\mission\empty.sqf"; };
 		};
 	};
 
