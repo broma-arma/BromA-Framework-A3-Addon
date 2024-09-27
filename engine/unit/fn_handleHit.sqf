@@ -35,3 +35,5 @@ if (isNull _instigator) then {
 };
 
 _unit setVariable ["last_damage", _instigator];
+
+[_unit] call BRM_FMK_Engine_fnc_setHitFace;

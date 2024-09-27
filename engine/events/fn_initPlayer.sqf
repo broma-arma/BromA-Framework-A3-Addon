@@ -81,9 +81,4 @@ player setVariable ["unit_deaths", player getVariable ["unit_deaths", 0]];
 
 player addEventHandler ["Respawn", { _this call BRM_fnc_onPlayerRespawn }];
 
-addMissionEventHandler ["EntityKilled", {
-	params ["_unit", "_killer", "_instigator", "_useEffects"];
-	_unit setMimic "dead";
-}];
-
 ["LOCAL", "F_LOG", "PLAYER INITIALIZED"] call BRM_FMK_fnc_doLog;
