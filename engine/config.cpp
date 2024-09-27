@@ -14,6 +14,8 @@ class CfgFunctions {
 			file = "\broma_framework\engine\init";
 			class preInit {preInit = 1;};
 			class postInit {postInit = 1;};
+			class initVariables {};
+			class loadContentCargo {};
 			class endLoading {};
 		};
 
@@ -28,12 +30,6 @@ class CfgFunctions {
 			class initPlayer {};
 			class initSpectator {};
 			class endSpectator {};
-		};
-
-		class oldInit {
-			file = "\broma_framework\engine\oldInit";
-			class initVariables {};
-			class loadContentCargo {};
 		};
 
 		class loadout {
