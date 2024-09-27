@@ -2,7 +2,7 @@
 ================================================================================
 
 NAME:
-    BRM_fnc_endLoading
+    BRM_FMK_fnc_endLoading
 
 AUTHOR(s):
     Nife
@@ -17,7 +17,7 @@ PARAMETERS:
     None.
 
 USAGE:
-    [] call BRM_fnc_endLoading
+    [] call BRM_FMK_fnc_endLoading
 
 RETURNS:
     Nothing.

@@ -52,10 +52,10 @@ if (toUpper _faction in ALIAS_AUTO) then { _faction = [side _unit, "FACTION"] ca
 if !(toUpper _faction in ALIAS_NONE || units_AI_useVanillaGear) then {
 	if (!isNil "_role") then {
 		if (toUpper _role in ALIAS_AUTO) then { _role = getText (configOf _unit >> "displayName"); };
-		[_unit, _faction, _role] call BRM_fnc_assignLoadout;
+		[_unit, _faction, _role] call BRM_FMK_fnc_assignLoadout;
 	} else {
 		if (_faction != "civilian") then {
-			[_unit, _faction] call BRM_fnc_assignLoadout;
+			[_unit, _faction] call BRM_FMK_fnc_assignLoadout;
 		};
 	}
 };

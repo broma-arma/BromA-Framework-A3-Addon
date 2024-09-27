@@ -70,7 +70,7 @@ _faction = switch (_faction) do {
 };
 if (_faction in ALIAS_AUTO) then { _faction = [side player, "faction"] call BRM_FMK_fnc_getSideInfo; };
 if !(_faction in ALIAS_NONE || units_player_useVanillaGear) then {
-	[player, _faction, _role] call BRM_fnc_assignLoadout;
+	[player, _faction, _role] call BRM_FMK_fnc_assignLoadout;
 };
 
 if (didJIP) then {
