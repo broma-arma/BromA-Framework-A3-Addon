@@ -60,6 +60,7 @@ class CfgFunctions {
 			file = "\broma_framework\engine\tasks";
 			class readExtraction {};
 			class createExtractionMarker {};
+			class checkTasks {};
 		};
 
 		class unit {
@@ -90,13 +91,6 @@ class CfgFunctions {
 			file = "\broma_framework\engine\misc";
 			class getMusic {};
 			class doLog {};
-		};
-
-		class tasks {
-			file = "\broma_framework\engine\tasks";
-			class newTask {};
-			class setTask {};
-			class checkTasks {};
 		};
 	};
 
@@ -179,6 +173,13 @@ class CfgFunctions {
 		class api_strings {
 			file = "\broma_framework\engine\api\strings";
 			class formatElapsedTime {};
+		};
+
+		class api_tasks {
+			file = "\broma_framework\engine\api\tasks";
+			class newTask {};
+			class setTask {};
+			class checkTasks {};
 		};
 
 		class api_triggers {
