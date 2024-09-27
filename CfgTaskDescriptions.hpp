@@ -1,7 +1,7 @@
 class CfgTaskDescriptions {
-	class BRM_FMK_Extract {
+	class Regroup {
 		title = "Regroup";
 		description = "Make your way to a regroup point.";
-		icon = "exit";
+		icon = "move";
 	};
 };

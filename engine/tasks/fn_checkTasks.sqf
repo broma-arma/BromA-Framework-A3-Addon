@@ -91,7 +91,7 @@ while { mission_running } do {
 
 						if (count _extractionTargets > 0) then {
 							[missionNamespace getVariable format ["side_%1_side", _sideChar], format ["%1Extract", _sideChar], PRIORITY_PRIMARY,
-								"BRM_FMK_Extract", objNull,
+								"Regroup", objNull,
 								[format ["!(side_%1_side in mission_require_extraction)", _sideChar]],
 								[{}, {}, { if (mission_extraction_enable_music) then { [selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal; }; }]
 							] spawn BRM_FMK_fnc_createTask;

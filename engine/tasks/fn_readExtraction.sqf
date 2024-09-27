@@ -35,6 +35,7 @@ private _extractionPoints = [[], [], [], []]; // Blu, Op, Ind, Civ
 	(_extractionPoints select _index) append (missionNamespace getVariable format ["mission_extraction_points_%1", _x]);
 } forEach ["a", "b", "c"];
 
+private _title = getText ([["CfgTaskDescriptions", "Regroup", "title"]] call BIS_fnc_loadEntry);
 {
 	private _extName = str _x splitString "_";
 	if (count _extName > 2 && {_extName select 1 == "extraction"}) then {
@@ -49,10 +50,10 @@ private _extractionPoints = [[], [], [], []]; // Blu, Op, Ind, Civ
 		};
 
 		if (_index != -1) then {
-			[_sides select _index, getPos _x, getDir _x, _color, format ["Extraction #%1", _extName select [2, count _extName] joinString "_"]] remoteExec ["BRM_FMK_Engine_fnc_createExtractionMarker", 0, format ["BRM_FMK_Engine_fnc_createExtractionMarker_%1", _index]];
+			[_sides select _index, getPos _x, getDir _x, _color, format ["%1 #%2", _title, _extName select [2, count _extName] joinString "_"]] remoteExec ["BRM_FMK_Engine_fnc_createExtractionMarker", 0, format ["BRM_FMK_Engine_fnc_createExtractionMarker_%1", _index]];
 		};
 	};
-} forEach (allMissionObjects "");
+} forEach (entities "LocationEvacPoint_F");
 
 {
 	private _side = missionNamespace getVariable format ["side_%1_side", _x];
