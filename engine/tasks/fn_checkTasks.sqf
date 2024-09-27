@@ -23,10 +23,10 @@ RETURNS:
 ================================================================================
 */
 
-#define PRIORITY_PRIMARY   2 // Completion required to complete mission and failure causes mission failure.
-#define PRIORITY_SECONDARY 0 // Completion or failure required to complete mission.
-#define PRIORITY_ABORTIVE  3 // Failure causes mission failure.
-#define PRIORITY_OPTIONAL  1 // Outcome doesn't affect mission outcome.
+#define PRIORITY_PRIMARY   0 // Completion required to complete mission and failure causes mission failure.
+#define PRIORITY_SECONDARY 1 // Completion or failure required to complete mission.
+#define PRIORITY_ABORTIVE  2 // Failure causes mission failure.
+#define PRIORITY_OPTIONAL  3 // Outcome doesn't affect mission outcome.
 
 if (!isServer) exitWith {};
 
@@ -48,7 +48,7 @@ while { mission_running } do {
 				private _taskState = [_id] call BIS_fnc_taskState;
 				if (_taskState != "FAILED" && _taskState != "CANCELED") then {
 					if (call _predicateLose) then {
-						if (_priority > 1) then { // PRIORITY_PRIMARY or PRIORITY_ABORTIVE
+						if (_priority == PRIORITY_PRIMARY || _priority == PRIORITY_ABORTIVE) then {
 							[_id, "FAILED", true] call BIS_fnc_taskSetState;
 							call _callbackFailed;
 							["BRM_FMK_taskStateChanged", [_sideChar, _id, "FAILED"]] call CBA_fnc_localEvent;
@@ -90,12 +90,11 @@ while { mission_running } do {
 						missionNamespace getVariable format ["brm_fmk_extraction_%1", _sideChar] params ["_extractionObjects", "_extractionTargets"];
 
 						if (count _extractionTargets > 0) then {
-							[
-								missionNamespace getVariable format ["side_%1_side", _sideChar], format ["%1Extract", _sideChar],
-								["Extract", "Make your way to an extraction zone.", "exit", []],
-								["true", format ["!(side_%1_side in mission_require_extraction)", _sideChar]], PRIORITY_PRIMARY,
-								["if (mission_extraction_enable_music) then {[selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal}", "", ""]
-							] spawn BRM_FMK_fnc_newTask;
+							[missionNamespace getVariable format ["side_%1_side", _sideChar], format ["%1Extract", _sideChar], PRIORITY_PRIMARY,
+								"BRM_FMK_Extract", objNull,
+								[format ["!(side_%1_side in mission_require_extraction)", _sideChar]],
+								[{}, {}, { if (mission_extraction_enable_music) then { [selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal; }; }]
+							] spawn BRM_FMK_fnc_createTask;
 
 							[
 								_extractionObjects apply { if (_x isEqualType "") then { call compile _x } else { _x } },

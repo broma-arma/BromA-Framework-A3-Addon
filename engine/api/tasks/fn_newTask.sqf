@@ -1,6 +1,9 @@
 /*
 ================================================================================
 
+DEPRECATED:
+    Use BRM_FMK_fnc_createTask.
+
 NAME:
     BRM_FMK_fnc_newTask
 
@@ -25,9 +28,10 @@ PARAMETERS:
         1 - Condition for completion. (STRING, but must evaluate to BOOLEAN)
         2 - Condition for failure. (STRING, but must evaluate to BOOLEAN)
     4 - Task priority. (NUMBER)
-        0: Task will be declared "OPTIONAL" and is irrelevant to the mission.
-        1: Similar to "OPTIONAL", but they behave as the middle ground, without failing the mission and not being essential to win.
-        2: Essential tasks, which cannot be failed and must be completed.
+        2 - Primary, completion required to complete mission and failure causes mission failure.
+        0 - Secondary, completion or failure required to complete mission.
+        3 - Abortive, failure causes mission failure.
+        1 - Optional, outcome doesn't affect mission outcome.
     5 - Task event callback. (ARRAY)
         0 - Code executed when the task is assigned to the players. (STRING, but must evaluate to CODE)
         1 - Code executed whenever the mission is completed. (STRING, but must evaluate to CODE)
@@ -52,67 +56,16 @@ RETURNS:
 ================================================================================
 */
 
-if (!isServer) exitWith {};
-
 params ["_owner", "_id", "_details", "_predicates", "_priority", "_callbacks"];
 
 _details params ["_title", "_desc", "_type", ["_position", objNull, [[], objNull, ""]]];
 
-if (_position isEqualTo [] || _position isEqualTo "") then {
-	_position = objNull;
-};
+_predicates params ["_predicateAssign", "_predicateWin", "_predicateLose"];
+_callbacks params ["_callbackAssigned", "_callbackCompleted", "_callbackFailed"];
 
-if (_position isEqualType "") then {
-	_position = markerPos _position;
-};
-
-if (_position isEqualType objNull) then {
-	if (!isNull _position) then {
-		// always show marker on the object, even if player doesn't 'knowsAbout' it
-		_position = [_position, true];
-	};
-};
-
-_predicates apply { if (_x isEqualType "") then { compile _x } else { _x }; } params ["_predicateAssign", "_predicateWin", ["_predicateLose", {false}]];
-_callbacks apply { if (_x isEqualType "") then { compile _x } else { _x }; } params ["_callbackAssigned", "_callbackCompleted", "_callbackFailed"];
-
-waitUntil { call _predicateAssign };
-call _callbackAssigned;
-
-private _priorityName = ["Secondary", "Optional", "Primary", "Abortive"] select _priority;
-[_owner, _id, [
-	format [
-		"<font face=""RobotoCondensedLight"">%1: %2.</font><br /><br />",
-		_priorityName,
-		[
-			"Completion or failure required to complete mission",
-			"Outcome doesn't affect mission outcome",
-			"Completion required to complete mission and failure causes mission failure",
-			"Failure causes mission failure"
-		] select _priority
-	] + _desc,
-	format ["(%1) ", _priorityName select [0, 1]] + _title,
-	""
-], _position, false, 0, true, _type, true] call BIS_fnc_taskCreate;
-
-if (_id isEqualType []) then {
-	_id = _id select 0;
-};
-
-private _side = switch (typeName _owner) do {
-	case "GROUP":  { side _owner };
-	case "OBJECT": { _owner call BIS_fnc_objectSide };
-	case "SIDE":   { _owner };
-	default        { ["Invalid task owner, owner side defaulting to 'side_a_side' (%1)", side_a_side] call BIS_fnc_error; side_a_side };
-};
-
-private _sideId = switch (_side) do {
-	case side_a_side: { 0 };
-	case side_b_side: { 1 };
-	case side_c_side: { 2 };
-	default           { 0 };
-};
-
-if (isNil "BRM_FMK_tasks") then { BRM_FMK_tasks = [[], [], []]; };
-(BRM_FMK_tasks select _sideId) pushBack [_id, _priority, _predicateWin, _predicateLose, _callbackCompleted, _callbackFailed];
-["BRM_FMK_taskStateChanged", [["a", "b", "c"] select _sideId, _id, "CREATED"]] call CBA_fnc_localEvent;
+[
+	_owner, _id, [1, 3, 0, 2] select _priority,
+	[_title, _desc, _type], _position,
+	[_predicateWin, _predicateLose, _predicateAssign],
+	[_callbackCompleted, _callbackFailed, _callbackAssigned]
+] call BRM_FMK_fnc_createTask

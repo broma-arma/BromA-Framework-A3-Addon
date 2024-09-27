@@ -178,6 +178,7 @@ class CfgFunctions {
 		class api_tasks {
 			file = "\broma_framework\engine\api\tasks";
 			class newTask {};
+			class createTask {};
 			class setTask {};
 			class checkTasks {};
 		};
