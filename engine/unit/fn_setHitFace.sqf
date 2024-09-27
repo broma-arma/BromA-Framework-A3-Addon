@@ -25,7 +25,7 @@ RETURNS:
 
 params ["_unit"];
 
-if (!alive _this || { _unit getVariable ["BRM_FMK_Engine_fnc_setHitFace", false] }) exitWith {};
+if (!alive _unit || { _unit getVariable ["BRM_FMK_Engine_fnc_setHitFace", false] }) exitWith {};
 
 _unit spawn {
 	_this setVariable ["BRM_FMK_Engine_fnc_setHitFace", true];
