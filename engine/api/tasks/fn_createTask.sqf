@@ -87,21 +87,12 @@ if (_position isEqualTo [] || _position isEqualTo "") then {
 	_position = objNull;
 };
 
-if (_position isEqualType objNull) then {
-	if (!isNull _position) then {
-		// always show marker on the object, even if player doesn't 'knowsAbout' it
-		_position = [_position, true];
-	};
-};
-
 private _positionUpdate = nil;
-if (_position isEqualType []) then {
-	_x params [["_object", objNull, [objNull]], ["_delay", false, [0, false, []], [2, 3]]];
-	if (isNull _object) then {
-		_position = _object;
-	} else {
+if (_position isEqualType [] && { _position select 0 isEqualType objNull }) then {
+	_position params ["_object", ["_delay", false, [0, false, []], [2, 3]]];
+	if (!isNull _object) then {
 		if (_delay isEqualType true) then {
-			_position = [_position, !_delay];
+			_position = [_object, !_delay];
 		} else {
 			_positionUpdate = [_id, _position, compile (if (_delay isEqualType []) then {
 				if (count _delay > 2) then {
@@ -115,6 +106,11 @@ if (_position isEqualType []) then {
 			_position = getPosASL _position;
 		};
 	};
+};
+
+if (_position isEqualType objNull && { !isNull _position }) then {
+	// always show marker on the object, even if player doesn't 'knowsAbout' it
+	_position = [_position, true];
 };
 
 _predicates apply { if (_x isEqualType "") then { compile _x } else { _x }; } params ["_predicateWin", ["_predicateLose", {false}], ["_predicateAssign", {true}]];
