@@ -240,7 +240,7 @@ class CfgFunctions {
 			file = "\broma_framework\engine\mission\overrides";
 			class callEnding {};
 			class onPlayerKilled { file = "\broma_framework\engine\mission\empty.sqf"; };
-			class onPlayerRespawn { file = "\broma_framework\engine\mission\empty.sqf"; };
+			//class onPlayerRespawn { file = "\broma_framework\engine\mission\empty.sqf"; };
 			class initAI {};
 			class onAIKilled { file = "\broma_framework\engine\mission\empty.sqf"; };
 			class assignLoadout {};

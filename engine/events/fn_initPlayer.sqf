@@ -77,6 +77,8 @@ if (didJIP) then {
 	[player, _groupName, _role] call BRM_FMK_Engine_fnc_setAlias;
 };
 
-player addEventHandler ["Respawn", { _this call BRM_fnc_onPlayerRespawn }];
+if (BRM_FMK_Engine_compatVersion == 0) exitWith {
+	player addEventHandler ["Respawn", { _this call BRM_fnc_onPlayerRespawn }];
+};
 
 ["LOCAL", "F_LOG", "PLAYER INITIALIZED"] call BRM_FMK_fnc_doLog;
