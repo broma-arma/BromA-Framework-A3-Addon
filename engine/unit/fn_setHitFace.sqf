@@ -23,19 +23,20 @@ RETURNS:
 ================================================================================
 */
 
-_this spawn {
-	params ["_unit"];
+params ["_unit"];
 
-	if (_unit getVariable ["BRM_FMK_Engine_fnc_setHitFace", false]) exitWith {};
-	_unit setVariable ["BRM_FMK_Engine_fnc_setHitFace", true];
+if (!alive _this || { _unit getVariable ["BRM_FMK_Engine_fnc_setHitFace", false] }) exitWith {};
 
-	[_unit, "dead"] remoteExec ["setMimic", 0];
+_unit spawn {
+	_this setVariable ["BRM_FMK_Engine_fnc_setHitFace", true];
+
+	[_this, "dead"] remoteExec ["setMimic", 0];
 
 	sleep 1;
 
-	if (alive _unit) then {
-		[_unit, ""] remoteExec ["setMimic", 0];
+	if (alive _this) then {
+		[_this, ""] remoteExec ["setMimic", 0];
 	};
 
-	_unit setVariable ["BRM_FMK_Engine_fnc_setHitFace", false];
+	_this setVariable ["BRM_FMK_Engine_fnc_setHitFace", false];
 };
