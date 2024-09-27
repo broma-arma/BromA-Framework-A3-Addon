@@ -26,6 +26,10 @@ RETURNS:
 
 params ["_unit", "_killer", "_instigator"];
 
+if (isPlayer _unit) then {
+	_unit setVariable ["unit_deaths", (_unit getVariable ["unit_deaths", 0]) + 1];
+};
+
 if (isNull _instigator) then {
 	_instigator = _killer;
 

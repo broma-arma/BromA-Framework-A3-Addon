@@ -77,8 +77,6 @@ if (didJIP) then {
 	[player, _groupName, _role] call BRM_FMK_Engine_fnc_setAlias;
 };
 
-player setVariable ["unit_deaths", player getVariable ["unit_deaths", 0]];
-
 player addEventHandler ["Respawn", { _this call BRM_fnc_onPlayerRespawn }];
 
 ["LOCAL", "F_LOG", "PLAYER INITIALIZED"] call BRM_FMK_fnc_doLog;
