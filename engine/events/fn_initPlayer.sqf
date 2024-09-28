@@ -36,7 +36,7 @@ player_is_jip = didJIP; // Backward compatibility
 player_is_spectator = player isKindOf "VirtualSpectator_F";
 
 if (!mission_allow_jip && didJIP && !player_is_spectator) exitWith {
-	[player] spawn BRM_FMK_Engine_fnc_removeJIP;
+	[player] call BRM_FMK_Engine_fnc_removeJIP;
 	player setVariable ["unit_initialized", true, true];
 };
 

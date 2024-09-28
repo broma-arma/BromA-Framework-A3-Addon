@@ -14,7 +14,7 @@ PARAMETERS:
     0 - Player (OBJECT)
 
 USAGE:
-    [player] spawn BRM_FMK_Engine_fnc_removeJIP
+    [player] call BRM_FMK_Engine_fnc_removeJIP
 
 RETURNS:
     Nothing.
@@ -25,11 +25,12 @@ RETURNS:
 params ["_unit"];
 
 titleText ["This mission does not allow joining in progress.", "BLACK FADED", 0];
-sleep 5;
+0 spawn {
+	sleep 5;
 
-if ("respawn_system" call BRM_FMK_fnc_isPluginActive) then {
-	waitUntil { !isNil "BRM_FMK_Plugin_RespawnSystem_fnc_killPlayer" };
-	[_unit] call BRM_FMK_Plugin_RespawnSystem_fnc_killPlayer;
-} else {
-	_unit setdamage 1;
+	if ("respawn_system" call BRM_FMK_fnc_isPluginActive) then {
+		[_unit] call BRM_FMK_Plugin_RespawnSystem_fnc_killPlayer;
+	} else {
+		_unit setdamage 1;
+	};
 };
