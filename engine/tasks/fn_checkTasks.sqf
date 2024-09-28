@@ -28,9 +28,9 @@ RETURNS:
 #define PRIORITY_ABORTIVE  2 // Failure causes mission failure.
 #define PRIORITY_OPTIONAL  3 // Outcome doesn't affect mission outcome.
 
-if (!mission_running) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
-
 params ["_args", "_handle"];
+
+if (!mission_running) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
 
 // a, b, c
 private _sideTasks = [0, 0, 0];
