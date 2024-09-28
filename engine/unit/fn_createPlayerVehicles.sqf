@@ -54,13 +54,11 @@ if (!isServer) exitWith {};
 					};
 
 					[_vehicle, _faction, _cargo] call BRM_FMK_fnc_assignCargo;
-
-					["LOCAL", "F_LOG", format ["MARKER VEHICLE === Created '%1' for '%2' @ %3", _vehicleClass, _x, _pos]] call BRM_FMK_fnc_doLog;
 				} else {
-					["LOCAL", "F_LOG", format ["MARKER VEHICLE === ERROR: '%1' is not a valid vehicle", _vehicleClass]] call BRM_FMK_fnc_doLog;
+					["ERROR - Marker Vehicle: '%1' is not a valid vehicle", _vehicleClass] call BIS_fnc_error;
 				};
 			} else {
-				["LOCAL", "F_LOG", format ["MARKER VEHICLE === WARNING: No vehicles available for '%1_%2'", _faction, _vehType]] call BRM_FMK_fnc_doLog;
+				["WARNING - Marker Vehicle: No vehicles available for '%1_%2'", _faction, _vehType] call BIS_fnc_error;
 			};
 		};
 	};
