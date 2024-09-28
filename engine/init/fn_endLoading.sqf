@@ -33,6 +33,10 @@ if (isServer) then {
 	_missionScripts pushBack ([] execVM "mission\custom-scripts\initServer.sqf");
 	mission_settings = scriptNull; // tasks.sqf waits for `scriptDone mission_settings`
 	_missionScripts pushBack ([] execVM "mission\objectives\tasks.sqf");
+
+	[{ missionNamespace getVariable ["BRM_FMK_Engine_compat0_checkTasks", false] }, {
+		BRM_FMK_Engine_checkTasksPFH = [{ _this call BRM_FMK_Engine_fnc_checkTasks; }, 1] call CBA_fnc_addPerFrameHandler;
+	}] call CBA_fnc_waitUntilAndExecute;
 };
 
 if (mission_AI_controller) then {

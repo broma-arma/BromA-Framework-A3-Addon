@@ -1,9 +1,6 @@
 /*
 ================================================================================
 
-DEPRECATED:
-    Remove usage.
-
 NAME:
     BRM_FMK_fnc_checkTasks
 
@@ -26,4 +23,4 @@ RETURNS:
 ================================================================================
 */
 
-[] call BRM_FMK_Engine_fnc_checkTasks
+BRM_FMK_Engine_compat0_checkTasks = true;

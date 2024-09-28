@@ -180,7 +180,6 @@ class CfgFunctions {
 			class newTask {};
 			class createTask {};
 			class setTask {};
-			class checkTasks {};
 		};
 
 		class api_triggers {
@@ -220,6 +219,7 @@ class CfgFunctions {
 
 		class compat0 {
 			class assignSideProperties { file = "\broma_framework\engine\mission\empty.sqf"; };
+			class checkTasks { file = "\broma_framework\engine\mission\compat0\fn_checkTasks.sqf"; };
 		};
 	};
 

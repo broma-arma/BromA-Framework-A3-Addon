@@ -28,104 +28,136 @@ RETURNS:
 #define PRIORITY_ABORTIVE  2 // Failure causes mission failure.
 #define PRIORITY_OPTIONAL  3 // Outcome doesn't affect mission outcome.
 
-if (!isServer) exitWith {};
+if (!mission_running) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
 
-if (isNil "BRM_FMK_Engine_tasks") then { BRM_FMK_Engine_tasks = [[], [], []]; };
+params ["_args", "_handle"];
 
-private _endDelayeds = [false, false, false];
+// a, b, c
+private _sideTasks = [0, 0, 0];
+private _sideMainTasks = [0, 0, 0];
 
-while { mission_running } do {
-	{
-		if !(mission_running) exitWith {};
+private _init = getClientStateNumber > 0 && getClientStateNumber < 10;
 
-		if (count _x > 0) then {
-			private _sideChar = ["a", "b", "c"] select _forEachIndex;
+{
+	if (!mission_running) exitWith {};
 
-			private _remainingPrimarySecondary = 0;
-			{
-				_x params ["_id", "_priority", "_predicateWin", "_predicateLose", "_callbackCompleted", "_callbackFailed"];
+	private _id = _x;
 
-				private _taskState = [_id] call BIS_fnc_taskState;
-				if (_taskState != "FAILED" && _taskState != "CANCELED") then {
-					if (call _predicateLose) then {
-						if (_priority == PRIORITY_PRIMARY || _priority == PRIORITY_ABORTIVE) then {
-							[_id, "FAILED", true] call BIS_fnc_taskSetState;
-							call _callbackFailed;
-							["BRM_FMK_taskStateChanged", [_sideChar, _id, "FAILED"]] call CBA_fnc_localEvent;
+	private _taskState = [_id] call BIS_fnc_taskState;
 
-							if (mission_game_mode != "coop") then {
-								[missionNamespace getVariable format ["endings_tvt_side_%1_defeat", _sideChar]] call BRM_FMK_fnc_endMission;
-							} else {
-								if (_sideChar == "a") then {
-									[endings_defeat] call BRM_FMK_fnc_endMission;
-								};
-							};
-						} else { // PRIORITY_SECONDARY or PRIORITY_OPTIONAL
-							[_id, "CANCELED", true] call BIS_fnc_taskSetState;
-							call _callbackFailed;
-							["BRM_FMK_taskStateChanged", [_sideChar, _id, "CANCELED"]] call CBA_fnc_localEvent;
-						};
-					} else {
-						if (_taskState != "SUCCEEDED") then {
-							if (call _predicateWin) then {
-								[_id, "SUCCEEDED", true] call BIS_fnc_taskSetState;
-								call _callbackCompleted;
-								["BRM_FMK_taskStateChanged", [_sideChar, _id, "SUCCEEDED"]] call CBA_fnc_localEvent;
-							} else {
-								if (_priority == PRIORITY_PRIMARY || _priority == PRIORITY_SECONDARY) then {
-									_remainingPrimarySecondary = _remainingPrimarySecondary + 1
-								};
-							};
-						};
-					};
-				};
-			} forEach _x;
+	_sideTasks set [_y#0, _sideTasks#(_y#0) + 1];
 
-			if !(mission_running) exitWith {};
+	if (_taskState == "FAILED" || _taskState == "CANCELED") then { continue; };
 
-			private _endDelayed = _endDelayeds select _forEachIndex;
-			if (_remainingPrimarySecondary == 0) then {
-				if (_endDelayed) then {
-					if ((missionNamespace getVariable format ["side_%1_side", _sideChar]) in mission_require_extraction) then {
-						missionNamespace getVariable format ["brm_fmk_extraction_%1", _sideChar] params ["_extractionObjects", "_extractionTargets"];
+	_y params [
+		"_sideId", "_owner", "_parentId", "_priority", "_texts", // ["_description", "_title"]
+		"_type", "_position", "_positionUpdate", "_nextPositionUpdate",
+		"_predicateWin", "_predicateLose", "_predicateAssign",
+		"_callbackCompleted", "_callbackFailed", "_callbackAssigned"
+	];
 
-						if (count _extractionTargets > 0) then {
-							[missionNamespace getVariable format ["side_%1_side", _sideChar], format ["%1Extract", _sideChar], PRIORITY_PRIMARY,
-								"Regroup", objNull,
-								[format ["!(side_%1_side in mission_require_extraction)", _sideChar]],
-								[{}, {}, { if (mission_extraction_enable_music) then { [selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal; }; }]
-							] spawn BRM_FMK_fnc_createTask;
+	private _sideChar = ["a", "b", "c"] select _sideId;
 
-							[
-								_extractionObjects apply { if (_x isEqualType "") then { call compile _x } else { _x } },
-								_extractionTargets,
-								compile format ["mission_require_extraction = mission_require_extraction - [side_%1_side];", _sideChar],
-								100,
-								10
-							] call BRM_FMK_fnc_reachTarget;
-						} else {
-							["CLIENTS", "CHAT", format ["WARNING: Skipping extraction task. Mission requires extraction, but has no extraction points for %1.", missionNamespace getVariable format ["side_%1_side", _sideChar]]] call BRM_FMK_fnc_doLog;
-							mission_require_extraction = mission_require_extraction - [missionNamespace getVariable format ["side_%1_side", _sideChar]];
-						};
-					} else {
-						if (mission_game_mode != "coop") then {
-							[missionNamespace getVariable format ["endings_tvt_side_%1_victory", _sideChar]] call BRM_FMK_fnc_endMission;
-						} else {
-							if (_sideChar == "a") then {
-								[endings_victory] call BRM_FMK_fnc_endMission;
-							};
-						};
-					};
-				} else {
-					_endDelayeds set [_forEachIndex, true];
+	if (_taskState == "") then {
+		if ([] call _predicateAssign) then {
+			[] call _callbackAssigned;
+
+			_init = true;
+			_taskState = "CREATED";
+			[_owner, [_id, _parentId], _texts, _position, false, 0, true, _type, true] call BIS_fnc_taskCreate;
+			["BRM_FMK_taskStateChanged", [_sideChar, _id, "CREATED"]] call CBA_fnc_localEvent;
+		} else {
+			continue;
+		};
+	};
+
+	if (!isNil "_positionUpdate" && { _taskState != "SUCCEEDED" && { time >= _nextPositionUpdate }}) then {
+		_positionUpdate params ["_object", "_delay"];
+
+		if (!isNull _object) then {
+			[_id, getPosASL _object] call BIS_fnc_taskSetDestination;
+			_y set [/*_nextPositionUpdate*/8, time + call _delay];
+		} else {
+			_y set [/*_positionUpdate*/7, nil];
+		};
+	};
+
+	if (_init) then { continue; };
+
+	if (call _predicateLose) then {
+		if (_priority == PRIORITY_PRIMARY || _priority == PRIORITY_ABORTIVE) then {
+			_taskState = "FAILED";
+			[_id, _taskState, true] call BIS_fnc_taskSetState;
+			call _callbackFailed;
+			["BRM_FMK_taskStateChanged", [_sideChar, _id, _taskState]] call CBA_fnc_localEvent;
+
+			if (mission_game_mode == "coop") then {
+				if (_sideChar == "a") then {
+					[endings_defeat] call BRM_FMK_fnc_endMission;
 				};
 			} else {
-				if (_endDelayed) then {
-					_endDelayeds set [_forEachIndex, false];
+				[missionNamespace getVariable format ["endings_tvt_side_%1_defeat", _sideChar]] call BRM_FMK_fnc_endMission;
+			};
+		} else { // PRIORITY_SECONDARY or PRIORITY_OPTIONAL
+			_taskState = "CANCELED";
+			[_id, _taskState, true] call BIS_fnc_taskSetState;
+			call _callbackFailed;
+			["BRM_FMK_taskStateChanged", [_sideChar, _id, _taskState]] call CBA_fnc_localEvent;
+		};
+
+		continue;
+	};
+
+	if (_taskState != "SUCCEEDED") then {
+		if (call _predicateWin) then {
+			_taskState = "SUCCEEDED";
+			[_id, _taskState, true] call BIS_fnc_taskSetState;
+			call _callbackCompleted;
+			["BRM_FMK_taskStateChanged", [_sideChar, _id, _taskState]] call CBA_fnc_localEvent;
+		};
+
+		if (_priority == PRIORITY_PRIMARY || _priority == PRIORITY_SECONDARY) then {
+			_sideMainTasks set [_sideId, _sideMainTasks#_sideId + 1];
+		};
+	};
+} forEach BRM_FMK_Engine_tasks;
+
+if (!mission_running) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
+
+if (_init) exitWith {};
+
+{
+	if (_sideTasks#_forEachIndex > 0 && _x == 0) then {
+		private _sideChar = ["a", "b", "c"] select _forEachIndex;
+		if ((missionNamespace getVariable format ["side_%1_side", _sideChar]) in mission_require_extraction) then {
+			missionNamespace getVariable format ["brm_fmk_extraction_%1", _sideChar] params ["_extractionObjects", "_extractionTargets"];
+
+			if (count _extractionTargets > 0) then {
+				[missionNamespace getVariable format ["side_%1_side", _sideChar], format ["%1Extract", _sideChar], PRIORITY_PRIMARY,
+					"Regroup", objNull,
+					[format ["!(side_%1_side in mission_require_extraction)", _sideChar]],
+					[{}, {}, { if (mission_extraction_enable_music) then { [selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal; }; }]
+				] spawn BRM_FMK_fnc_createTask;
+
+				[
+					_extractionObjects apply { if (_x isEqualType "") then { call compile _x } else { _x } },
+					_extractionTargets,
+					compile format ["mission_require_extraction = mission_require_extraction - [side_%1_side];", _sideChar],
+					100,
+					10
+				] call BRM_FMK_fnc_reachTarget;
+			} else {
+				["CLIENTS", "CHAT", format ["WARNING: Skipping extraction task. Mission requires extraction, but has no extraction points for %1.", missionNamespace getVariable format ["side_%1_side", _sideChar]]] call BRM_FMK_fnc_doLog;
+				mission_require_extraction = mission_require_extraction - [missionNamespace getVariable format ["side_%1_side", _sideChar]];
+			};
+		} else {
+			if (mission_game_mode != "coop") then {
+				[missionNamespace getVariable format ["endings_tvt_side_%1_victory", _sideChar]] call BRM_FMK_fnc_endMission;
+			} else {
+				if (_sideChar == "a") then {
+					[endings_victory] call BRM_FMK_fnc_endMission;
 				};
 			};
 		};
-	} forEach BRM_FMK_Engine_tasks;
-
-	sleep 3;
-};
+	};
+} forEach _sideMainTasks;
