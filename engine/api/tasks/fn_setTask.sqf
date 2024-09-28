@@ -18,33 +18,28 @@ USAGE:
     ["myTaskID", "FAILED"] call BRM_FMK_fnc_setTask
 
 RETURNS:
-    Nothing.
+    true if task exists and state was changed. (BOOLEAN)
 
 ================================================================================
 */
 
 if (!isServer) exitWith {};
 
-params ["_task", "_state"];
+params ["_id", "_state"];
 
-_state = toUpper _state;
+private _task = BRM_FMK_Engine_tasks get _id;
+if (isNil "_task" || { [_id] call BIS_fnc_taskState == _state }) exitWith { false };
 
-if ([_task] call BIS_fnc_taskState != _state) then {
-	[_task, _state, true] call BIS_fnc_taskSetState;
+[_id, toUpper _state, true] call BIS_fnc_taskSetState;
 
-	{
-		{
-			if (_x select 0 == _task) exitWith {
-				private _index = switch (_state) do {
-					case "SUCCEEDED": { 4 };
-					case "FAILED";
-					case "CANCELED":  { 5 };
-					default           { -1 };
-				};
-				if (_index != -1) then {
-					call (_x select _index);
-				};
-			};
-		} forEach _x;
-	} forEach BRM_FMK_Engine_tasks;
+private _index = switch (_state) do {
+	case "SUCCEEDED": { 12 };
+	case "FAILED";
+	case "CANCELED":  { 13 };
+	default           { -1 };
 };
+if (_index != -1) then {
+	call (_task select _index);
+};
+
+true
