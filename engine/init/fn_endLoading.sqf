@@ -51,10 +51,9 @@ _missionScripts pushBack ([] execVM "mission\custom-scripts\init.sqf");
 
 { if (side _x == civilian) then { _x setVariable ["BIS_enableRandomization", false] } } forEach allUnits;
 
-BRM_FMK_Engine_initTime = diag_tickTime - BRM_FMK_Engine_initTime;
-["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
-["LOCAL", "F_LOG", format ["BROMA FRAMEWORK INITIALIZED SUCCESSFULLY IN %1 SECONDS.", BRM_FMK_Engine_initTime]] call BRM_FMK_fnc_doLog;
-["LOCAL", "LOG", "=========================================================================================================="] call BRM_FMK_fnc_doLog;
+BRM_FMK_Engine_postInitTime = diag_tickTime - BRM_FMK_Engine_postInitTime;
+BRM_FMK_Engine_initTime = BRM_FMK_Engine_preInitTime + BRM_FMK_Engine_postInitTime;
+["LOCAL", "F_LOG", format ["%1 initialized in %2 seconds (Pre: %3, Post: %4)", getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "versionDesc"), BRM_FMK_Engine_initTime, BRM_FMK_Engine_preInitTime, BRM_FMK_Engine_postInitTime]] call BRM_FMK_fnc_doLog;
 
 ["BRM_FMK_Engine_initialized"] call CBA_fnc_localEvent;
 BRM_FMK_Engine_initialized = true;

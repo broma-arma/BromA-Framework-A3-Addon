@@ -30,7 +30,9 @@ if (isClass (missionConfigFile >> "CfgFunctions" >> "BRM" >> "init" >> "engine_p
 
 if (isNil "BRM_FMK_Engine_missionVersion") exitWith {};
 
-BRM_FMK_Engine_initTime = diag_tickTime;
+BRM_FMK_Engine_preInitTime = diag_tickTime;
 
 _this call BRM_FMK_Engine_fnc_initVariables;
 _this call BRM_FMK_Engine_fnc_loadPlugins;
+
+BRM_FMK_Engine_preInitTime = diag_tickTime - BRM_FMK_Engine_preInitTime;

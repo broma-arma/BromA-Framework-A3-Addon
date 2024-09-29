@@ -24,6 +24,8 @@ RETURNS:
 
 if (isNil "BRM_FMK_Engine_missionVersion") exitWith {};
 
+BRM_FMK_Engine_postInitTime = diag_tickTime;
+
 _this call BRM_FMK_Engine_fnc_loadSettings;
 _this call BRM_FMK_Engine_fnc_assignSideProperties;
 
