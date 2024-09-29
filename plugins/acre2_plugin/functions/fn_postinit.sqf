@@ -1,2 +1,1 @@
-if !(isClass (configFile >> "CfgPatches" >> "acre_api")) exitWith {};
-#include "includes\settings.sqf"
+if (!isClass (configFile >> "CfgPatches" >> "acre_api")) exitWith {};
