@@ -4,7 +4,7 @@ if (!isServer) exitWith {};
 
 mission_countdown = BRM_round_system_time_limit;
 
-["LOCAL", "CHAT", "Initializing round condition check...", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+["LOCAL", "CHAT", "Initializing round condition check...", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
 waitUntil {
 	mission_countdown = (mission_countdown - 1);
@@ -36,6 +36,6 @@ switch (true) do {
 		  (call compile round_side_c_victory_con)): { round_end_reason = "OBJECTIVE" };
 };
 
-["LOCAL", "CHAT", "Ending round condition check...", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+["LOCAL", "CHAT", "Ending round condition check...", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
 [] call BRM_FMK_Plugin_RoundSystem_fnc_roundEnd;

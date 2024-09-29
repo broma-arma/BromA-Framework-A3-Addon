@@ -2,7 +2,7 @@ if (!isServer) exitWith {};
 
 params["_sideCheck"];
 
-["LOCAL", "CHAT", "Initializing casualties cap.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+["LOCAL", "CHAT", "Initializing casualties cap.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
 while {(!round_over)} do {
 
@@ -35,10 +35,10 @@ while {(!round_over)} do {
 
 		round_dead_sides pushBackUnique _sideCheck;
 
-		["LOCAL", "CHAT", "A team was wiped out!", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+		["LOCAL", "CHAT", "A team was wiped out!", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 	};
 
 	sleep 3;
 };
 
-["LOCAL", "CHAT", "Casualties cap check aborted.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+["LOCAL", "CHAT", "Casualties cap check aborted.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;

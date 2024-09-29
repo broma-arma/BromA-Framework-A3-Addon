@@ -9,7 +9,7 @@ _AVictory = {
 	match_points_a = match_points_a + 1;
 	publicVariable "match_points_a";
 
-	["LOCAL", "CHAT", "BLUFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+	["LOCAL", "CHAT", "BLUFOR victory.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
 	_victory = [selectRandom win_messages_a, side_a_name];
 };
@@ -19,7 +19,7 @@ _BVictory = {
 	match_points_b = match_points_b + 1;
 	publicVariable "match_points_b";
 
-	["LOCAL", "CHAT", "OPFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+	["LOCAL", "CHAT", "OPFOR victory.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
 	_victory = [selectRandom win_messages_b, side_b_name];
 };
@@ -29,7 +29,7 @@ _CVictory = {
 	match_points_c = match_points_c + 1;
 	publicVariable "match_points_c";
 
-	["LOCAL", "CHAT", "INDFOR victory.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+	["LOCAL", "CHAT", "INDFOR victory.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
 	_victory = [selectRandom win_messages_c, side_c_name];
 };
@@ -38,7 +38,7 @@ _DrawVictory = {
 	_result set [1, "Alert"];
 	_victory = [selectRandom draw_messages, ""];
 
-	["LOCAL", "CHAT", "Draw.", ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+	["LOCAL", "CHAT", "Draw.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 };
 
 switch (round_end_reason) do {
@@ -75,7 +75,7 @@ switch (round_end_reason) do {
 						_percentB = floor ((100/_Bunits) * BRM_FMK_Plugin_RoundSystem_roundDeaths#1);
 						_percentC = floor ((100/_Cunits) * BRM_FMK_Plugin_RoundSystem_roundDeaths#2);
 
-						["LOCAL", "CHAT", format ["A: %1(%4) | B: %2(%5) | C: %3(%6)", _Aunits, _Bunits, _Cunits, _percentA, _percentB, _percentC], ROUND_SYSTEM_DEBUG] call BRM_FMK_fnc_doLog;
+						["LOCAL", "CHAT", format ["A: %1(%4) | B: %2(%5) | C: %3(%6)", _Aunits, _Bunits, _Cunits, _percentA, _percentB, _percentC], BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
 						_lowest = selectMin [_percentA,_percentB,_percentC];
 
