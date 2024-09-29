@@ -32,11 +32,5 @@ if (isNil "BRM_FMK_Engine_missionVersion") exitWith {};
 
 BRM_FMK_Engine_initTime = diag_tickTime;
 
-_this call BRM_FMK_Engine_fnc_loadSettings;
-_this call BRM_FMK_Engine_fnc_assignSideProperties;
 _this call BRM_FMK_Engine_fnc_initVariables;
-
-["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call BRM_FMK_fnc_doLog;
-[] call BRM_FMK_Engine_fnc_loadContentCargo;
-
 _this call BRM_FMK_Engine_fnc_loadPlugins;

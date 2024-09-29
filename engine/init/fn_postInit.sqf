@@ -24,6 +24,12 @@ RETURNS:
 
 if (isNil "BRM_FMK_Engine_missionVersion") exitWith {};
 
+_this call BRM_FMK_Engine_fnc_loadSettings;
+_this call BRM_FMK_Engine_fnc_assignSideProperties;
+
+["LOCAL", "F_LOG", format ["STARTING MISSION '%1'", briefingName]] call BRM_FMK_fnc_doLog;
+[] call BRM_FMK_Engine_fnc_loadContentCargo;
+
 if (hasInterface) then {
 	player createDiarySubject ["BRM_FMK_diary", "BromA Framework"];
 
