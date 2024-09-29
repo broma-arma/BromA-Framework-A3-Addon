@@ -30,9 +30,7 @@ RETURNS:
 	["mission_running", true],
 
 	["mission_AI_controller", false],
-	["mission_HC_enabled",    false],
 
-	["BRM_FRAMEWORK_ADDON", "BRM_FRAMEWORK"],
 	["BRM_FMK_frameworkMission", true],
 	["BRM_FMK_initialized", false],
 	["BRM_FMK_Engine_initialized", false],
