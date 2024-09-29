@@ -19,9 +19,7 @@ switch (true) do {
 		[true] call ace_spectator_fnc_setSpectator;
 	};
 	case ("vanilla_spectator" call BRM_FMK_fnc_isPluginActive): {
-		if (["Initialize", [] call BRM_FMK_Plugin_VanillaSpectator_fnc_getSettings] call BIS_fnc_EGSpectator) then {
-			[] call BRM_FMK_Plugin_VanillaSpectator_fnc_centerOnTarget;
-		};
+		[true] call BRM_FMK_Plugin_VanillaSpectator_fnc_setSpectator;
 	};
 	default { _unit setDamage 1; };
 };

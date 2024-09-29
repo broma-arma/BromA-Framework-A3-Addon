@@ -9,7 +9,7 @@ switch (true) do {
 		[false] call ace_spectator_fnc_setSpectator;
 	};
 	case ("vanilla_spectator" call BRM_FMK_fnc_isPluginActive): {
-		["Terminate"] call BIS_fnc_EGSpectator;
+		[false] call BRM_FMK_Plugin_VanillaSpectator_fnc_setSpectator;
 	};
 };
 
