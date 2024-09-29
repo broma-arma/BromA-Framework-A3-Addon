@@ -1,9 +1,9 @@
 params ["_unit"];
 
 private _playerID = getPlayerUID _unit;
-private _index = mission_players_lives findIf { _x select 0 == _playerID };
+private _index = BRM_FMK_Plugin_RespawnSystem_playerLives findIf { _x select 0 == _playerID };
 if (_index != -1) exitWith {
-	mission_players_lives select _index select 1
+	BRM_FMK_Plugin_RespawnSystem_playerLives select _index select 1
 };
 
 private _lives = switch (side _unit) do {

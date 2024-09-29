@@ -11,10 +11,10 @@ if (!isServer) exitWith {
 };
 
 private _playerID = getPlayerUID _target;
-private _index = mission_players_lives findIf { _x select 0 == _playerID };
+private _index = BRM_FMK_Plugin_RespawnSystem_playerLives findIf { _x select 0 == _playerID };
 if (_index > -1) then {
-	mission_players_lives select _index set [1, _lives];
+	BRM_FMK_Plugin_RespawnSystem_playerLives select _index set [1, _lives];
 } else {
-	mission_players_lives pushBack [_playerID, _lives];
+	BRM_FMK_Plugin_RespawnSystem_playerLives pushBack [_playerID, _lives];
 };
-publicVariable "mission_players_lives";
+publicVariable "BRM_FMK_Plugin_RespawnSystem_playerLives";

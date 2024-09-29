@@ -1,4 +1,2 @@
-if (isServer) then {
-	if (isNil "BRM_FMK_Plugin_RespawnSystem_deadPlayers") then { BRM_FMK_Plugin_RespawnSystem_deadPlayers = [] };
-};
-if (isNil "mission_players_lives") then { mission_players_lives = [] };
+if (isServer && isNil "BRM_FMK_Plugin_RespawnSystem_deadPlayers") then { BRM_FMK_Plugin_RespawnSystem_deadPlayers = [] };
+if (isNil "BRM_FMK_Plugin_RespawnSystem_playerLives") then { BRM_FMK_Plugin_RespawnSystem_playerLives = [] };
