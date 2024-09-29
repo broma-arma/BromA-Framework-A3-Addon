@@ -72,6 +72,10 @@ _this call BRM_FMK_Engine_fnc_defineGroups;
 _this call BRM_FMK_Engine_fnc_createPlayerVehicles;
 _this call BRM_FMK_Engine_fnc_readExtraction;
 
+_this call BRM_FMK_Engine_fnc_initPlayer;
+_this call BRM_FMK_Engine_fnc_loadBriefing;
+_this call BRM_FMK_Engine_fnc_loadPlugins;
+
 if (isServer) then {
 	BRM_FMK_Engine_players = [[], [], []]; // Side A, Side B, Side C
 	["BRM_FMK_Engine_initPlayerServer", {
@@ -80,18 +84,8 @@ if (isServer) then {
 			BRM_FMK_Engine_players select _i pushBackUnique _this;
 		};
 	}] call CBA_fnc_addEventHandler;
-};
 
-// Disables object recognition to save performance.
-if (mission_game_mode == "tvt") then { disableRemoteSensors true };
-
-_this call BRM_FMK_Engine_fnc_initPlayer;
-_this call BRM_FMK_Engine_fnc_loadBriefing;
-_this call BRM_FMK_Engine_fnc_loadPlugins;
-
-if (isServer) then {
 	BRM_FMK_Engine_deaths = [0, 0, 0]; // Side A, Side B, Side C
-
 	addMissionEventHandler ["EntityKilled", {
 		params ["_unit", "_killer", "_instigator", "_useEffects"];
 
@@ -101,6 +95,9 @@ if (isServer) then {
 		};
 	}];
 };
+
+// Disables object recognition to save performance.
+if (mission_game_mode == "tvt") then { disableRemoteSensors true };
 
 enableSentences false; // Hacky shit to try to stop low FPS.
 
