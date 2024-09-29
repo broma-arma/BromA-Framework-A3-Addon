@@ -1,4 +1,10 @@
-#include "includes\settings.sqf"
+{
+	_x params ["_var", "_default"];
+	if (isNil _var) then { missionNamespace setVariable [_var, _default]; };
+} forEach [
+	["co_lock_units", "[blu_0_0_1, op_0_0_1, ind_0_0_1]"],
+	["co_lock_tvt_mode", false]
+];
 
 call compile format ["co_lock_units = %1", co_lock_units];
 
