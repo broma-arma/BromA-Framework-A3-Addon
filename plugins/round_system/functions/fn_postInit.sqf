@@ -26,7 +26,7 @@
 
 	["respawn_markers_A", [format ["respawn_%1", toLower str side_a_side]]],
 	["respawn_markers_B", [format ["respawn_%1", toLower str side_b_side]]],
-	["respawn_markers_C", [format ["respawn_%1", toLower str side_c_side]]],
+	["respawn_markers_C", [format ["respawn_%1", toLower str side_c_side]]]
 ];
 
 BRM_round_system_rounds_needed = ["p_round_params", 3] call BIS_fnc_getParamValue; // 1="1", 2="2", 3="3", 4="4", 5="5"
