@@ -99,8 +99,6 @@ if (isServer) then {
 // Disables object recognition to save performance.
 if (mission_game_mode == "tvt") then { disableRemoteSensors true };
 
-enableSentences false; // Hacky shit to try to stop low FPS.
-
 if (isClass (configFile >> "CfgPatches" >> "zen_modules") && !isNil "zen_modules_saved") then {
 	// Change defaults of Zeus Enhanced's Update Editable Objects module
 	private _selections = zen_modules_saved getVariable ["zen_modules_editableObjects", [1, 1, 0, 100, [true, true, true, true]]];
