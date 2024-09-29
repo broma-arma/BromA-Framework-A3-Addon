@@ -170,6 +170,12 @@ class CfgFunctions {
 			class playCfgSound {};
 		};
 
+		class api_spectator {
+			file = "\broma_framework\engine\api\spectator";
+			class isSpectating {};
+			class setSpectating {};
+		};
+
 		class api_strings {
 			file = "\broma_framework\engine\api\strings";
 			class formatElapsedTime {};

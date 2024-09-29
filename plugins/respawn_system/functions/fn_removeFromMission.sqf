@@ -16,5 +16,5 @@ if (hasInterface && local _unit) then {
 	_unit setVariable ["isDead", true, true];
 	_unit setVariable ["respawnGroup", group _unit call BIS_fnc_netId, true];
 
-	[_unit] call BRM_FMK_Engine_fnc_initSpectator;
+	[true] call BRM_FMK_fnc_setSpectating;
 };
