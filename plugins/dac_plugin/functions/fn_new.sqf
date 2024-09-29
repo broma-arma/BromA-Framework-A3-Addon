@@ -64,7 +64,7 @@ switch (_command) do {
 		switch (_kind) do {
 			case "zone": {
 				if (ALIAS_RANDOM(_name)) then {
-					_name = format ["DACZone%1", count mission_dac_zones + 1];
+					_name = format ["DACZone%1", count BRM_FMK_Plugin_DAC_zones + 1];
 				};
 
 				_status = switch (_status) do {
@@ -75,7 +75,7 @@ switch (_command) do {
 				};
 
 				if (ALIAS_RANDOM(_id)) then {
-					_id = 999999 - count mission_dac_camps - count mission_dac_zones;
+					_id = 999999 - count BRM_FMK_Plugin_DAC_camps - count BRM_FMK_Plugin_DAC_zones;
 				} else {
 					_id = parseNumber _id;
 				};
@@ -134,7 +134,7 @@ switch (_command) do {
 			case "camp";
 			case "camps": {
 				if (ALIAS_RANDOM(_name)) then {
-					_name = format ["DACCamp%1", count mission_dac_camps + 1];
+					_name = format ["DACCamp%1", count BRM_FMK_Plugin_DAC_camps + 1];
 				};
 
 				_status = parseNumber _status;
@@ -144,7 +144,7 @@ switch (_command) do {
 				if !(ALIAS_RANDOM(_id)) then {
 					_id = parseNumber _id;
 
-					private _reinforceNetwork = mission_dac_zones select {
+					private _reinforceNetwork = BRM_FMK_Plugin_DAC_zones select {
 						_x params ["_zoneName", "_zoneId"];
 						_zoneId == _id
 					} apply {
@@ -154,7 +154,7 @@ switch (_command) do {
 					_reinforce append _reinforceNetwork;
 				};
 
-				_id = 999999 - count mission_dac_camps - count mission_dac_zones;
+				_id = 999999 - count BRM_FMK_Plugin_DAC_camps - count BRM_FMK_Plugin_DAC_zones;
 
 				_arguments params [
 					"_respawns",

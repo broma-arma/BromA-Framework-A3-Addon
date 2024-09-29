@@ -71,4 +71,4 @@ _trigger setTriggerActivation ["NONE", "NOT PRESENT", false];
 _trigger setTriggerStatements ["true", format (["['%1', [%2, %3, %4], %5, %6, %7, %8, [%9, %9, %10, 0]] call BRM_FMK_Plugin_DAC_fnc_DACZone"] + _this), ""];
 missionNamespace setVariable [_name, _trigger];
 
-mission_dac_zones pushBack [_name, _id];
+BRM_FMK_Plugin_DAC_zones pushBack [_name, _id];

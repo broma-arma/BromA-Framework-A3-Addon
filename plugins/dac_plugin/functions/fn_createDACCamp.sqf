@@ -40,4 +40,4 @@ _trigger setTriggerActivation ["NONE", "NOT PRESENT", false];
 _trigger setTriggerStatements ["true", format (["['%1', [%2, 0, %4], [], [], [], [%3, 3, 50, %6, 100, %5, [%7]], [%8, %8, %9, %8]] call BRM_FMK_Plugin_DAC_fnc_DACZone"] + _this), ""];
 missionNamespace setVariable [_name, _trigger];
 
-mission_dac_camps pushBack [_name, _id];
+BRM_FMK_Plugin_DAC_camps pushBack [_name, _id];
