@@ -14,7 +14,6 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_CivilianCasualtyCap {
 		class functions {
 			file = "\broma_framework\plugins\civilian_casualty_cap\functions";
-			class preInit {};
 			class postInit {};
 			class civInit {};
 			class civKilled {};
