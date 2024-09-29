@@ -267,7 +267,7 @@ switch (toLower _x) do {
 	};
 
 	default {
-		private _contentCargo = BRM_FMK_ContentCargo get toLower _x;
+		private _contentCargo = BRM_FMK_Engine_contentCargo get toLower _x;
 		if (!isNil "_contentCargo") then { //count | [name, count]
 			_contentCargo params ["_name", "_count"];
 			if (isNil "_count") then {
