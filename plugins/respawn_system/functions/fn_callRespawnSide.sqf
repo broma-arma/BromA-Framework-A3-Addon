@@ -27,7 +27,7 @@ RETURNS:
 ================================================================================
 */
 
-params ["_side", ["_amount", BRM_FMK_Plugin_RespawnSystem_respawnObjective], ["_lives", BRM_FMK_Plugin_RespawnSystem_playerLives]];
+params ["_side", ["_amount", BRM_FMK_Plugin_RespawnSystem_respawnObjective], ["_lives", BRM_FMK_Plugin_RespawnSystem_lives]];
 
 _amount = if (_amount > -1) then {
 	_amount min count BRM_FMK_Plugin_RespawnSystem_deadPlayers

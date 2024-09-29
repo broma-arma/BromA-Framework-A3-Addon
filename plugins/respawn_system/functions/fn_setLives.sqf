@@ -1,4 +1,4 @@
-params ["_target", ["_lives", BRM_FMK_Plugin_RespawnSystem_playerLives]];
+params ["_target", ["_lives", BRM_FMK_Plugin_RespawnSystem_lives]];
 
 if (_target isEqualType "") then {
 	_target = [_target] call BRM_FMK_fnc_unitFromName;

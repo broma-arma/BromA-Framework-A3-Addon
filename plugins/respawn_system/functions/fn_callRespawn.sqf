@@ -29,7 +29,7 @@ RETURNS:
 ================================================================================
 */
 
-params ["_target", ["_lives", BRM_FMK_Plugin_RespawnSystem_playerLives]];
+params ["_target", ["_lives", BRM_FMK_Plugin_RespawnSystem_lives]];
 
 if (!isServer) exitWith {
 	_this remoteExecCall ["BRM_FMK_Plugin_RespawnSystem_fnc_callRespawn", 2];

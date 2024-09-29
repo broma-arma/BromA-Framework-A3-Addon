@@ -1,5 +1,5 @@
 BRM_FMK_Plugin_RespawnSystem_allowRespawn = ["p_allow_respawn", 0] call BIS_fnc_getParamValue > 0; // 0="Disabled", 1="Enabled"
-BRM_FMK_Plugin_RespawnSystem_playerLives = ["p_player_lives", 3] call BIS_fnc_getParamValue; // 1="1", 3="3", 5="5",1 10="10"
+BRM_FMK_Plugin_RespawnSystem_lives = ["p_player_lives", 3] call BIS_fnc_getParamValue; // 1="1", 3="3", 5="5",1 10="10"
 BRM_FMK_Plugin_RespawnSystem_respawnObjective = ["p_respawn_objective", 10] call BIS_fnc_getParamValue; // 0="0", 3="3", 5="5", 10="10", 99="Everyone"
 
 if (isServer) then {
