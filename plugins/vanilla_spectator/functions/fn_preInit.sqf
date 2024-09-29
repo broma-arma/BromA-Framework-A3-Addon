@@ -1,4 +1,17 @@
-#include "includes\settings.sqf"
+{
+	_x params ["_var", "_default"];
+	if (isNil _var) then { missionNamespace setVariable [_var, _default]; };
+} forEach [
+	["vanillaspectator_whitelisted_sides", []],
+	["vanillaspectator_can_view_AI", true],
+	["vanillaspectator_free_camera_available", true],
+	["vanillaspectator_third_person_available", true],
+	["vanillaspectator_show_focus_available", true],
+	["vanillaspectator_show_buttons", true],
+	["vanillaspectator_show_controls", true],
+	["vanillaspectator_show_header", true],
+	["vanillaspectator_show_entities", true]
+];
 
 ["BRM_FMK_DisplayLoad_EGSpectator", {
 	if (vanillaspectator_can_view_AI) then {
