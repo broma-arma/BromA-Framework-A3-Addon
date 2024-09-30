@@ -13,7 +13,7 @@ class BRM_FMK {
 class CfgFunctions {
 	class BRM_FMK_Plugin_CasualtyCap {
 		class functions {
-			file = "\broma_framework\plugins\f_casualties_cap\functions";
+			file = "\broma_framework\plugins\casualty_cap\functions";
 			class postInit {};
 			class CasualtiesCapCheck {};
 		};
