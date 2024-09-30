@@ -15,12 +15,10 @@ class CfgFunctions {
 		class functions {
 			file = "\broma_framework\plugins\team_roster\functions";
 			class postInit {};
-			class roster {};
+			class update {};
 		};
 	};
 };
-
-#include "dialogs\dialog.hpp"
 
 class CfgPatches {
 	class BRM_FMK_TeamRoster {
