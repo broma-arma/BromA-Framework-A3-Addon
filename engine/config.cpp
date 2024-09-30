@@ -20,6 +20,12 @@ class CfgFunctions {
 			class endLoading {};
 		};
 
+		class diary {
+			file = "\broma_framework\engine\diary";
+			class initDiary {};
+			class onDiaryChanged {};
+		};
+
 		class ending {
 			file = "\broma_framework\engine\ending";
 			class endMission {};
@@ -277,5 +283,11 @@ class Extended_Killed_EventHandlers {
 		class BRM_FMK_Engine {
 			killed = "_this call BRM_FMK_Engine_fnc_handleKilled";
 		};
+	};
+};
+
+class Extended_DisplayLoad_EventHandlers {
+	class RscDiary {
+		BRM_FMK_Engine_initDiary = "[{ _this call (uiNamespace getVariable 'BRM_FMK_Engine_fnc_initDiary'); }, _this] call CBA_fnc_execNextFrame";
 	};
 };
