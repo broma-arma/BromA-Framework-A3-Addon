@@ -42,6 +42,8 @@ private _target = switch (toUpper _scope) do {
 	default       { 1 };
 };
 
+if (_msg isEqualType [] && { count _msg > 0 && { _msg#0 isEqualType "" }}) then { _msg = format _msg; };
+
 if !(_msg isEqualType "") then { _msg = str _msg };
 
 if (_target == 1) then {
