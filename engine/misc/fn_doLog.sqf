@@ -51,6 +51,7 @@ if (_target == 1) then {
 		case "HINT" : { hint _msg; };
 		case "CHAT" : { systemChat _msg; };
 		case "LOG"  : { diag_log text _msg; };
+		case "DEBUG": { systemChat _msg; diag_log text _msg; };
 		case "F_LOG": {
 			private _padding = "==========================================================================================================";
 			if (count _msg > 0) then {
