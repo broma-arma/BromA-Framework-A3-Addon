@@ -27,7 +27,8 @@ RETURNS:
 params ["_init"];
 
 if (_init == "preInit") exitWith {
-	BRM_FMK_Engine_activePlugins = "true" configClasses (missionConfigFile >> "CfgPlugins") apply { configName _x } select { isClass (configFile >> "BRM_FMK" >> "Plugins" >> _x) };
+	BRM_FMK_Engine_activePluginConfigs = "true" configClasses (configFile >> "BRM_FMK" >> "Plugins") select { isClass (missionConfigFile >> "CfgPlugins" >> configName _x) };
+	BRM_FMK_Engine_activePlugins = BRM_FMK_Engine_activePluginConfigs apply { configName _x };
 
 	if (isClass (configFile >> "CfgPatches" >> "ace_spectator")) then {
 		// Force ACE3 Spectator, instead of Vanilla Spectator
@@ -60,28 +61,20 @@ if (_init == "preInit") exitWith {
 
 	// Plugins preInit
 	{
-		private _configName = configName _x;
-		private _cfgPlugin = configFile >> "BRM_FMK" >> "Plugins" >> _configName;
-		if (isClass _cfgPlugin) then {
-			private _fnc = missionNamespace getVariable format ["%1_fnc_preInit", [_cfgPlugin, "tag", format ["BRM_FMK_Plugin_%1", _configName]] call BIS_fnc_returnConfigEntry];
-			if (!isNil "_fnc") then {
-				_this call _fnc;
-			};
+		private _fnc = missionNamespace getVariable format ["%1_fnc_preInit", [_x, "tag", format ["BRM_FMK_Plugin_%1", configName _x]] call BIS_fnc_returnConfigEntry];
+		if (!isNil "_fnc") then {
+			_this call _fnc;
 		};
-	} forEach ("true" configClasses (missionConfigFile >> "CfgPlugins"));
+	} forEach BRM_FMK_Engine_activePluginConfigs;
 };
 
 // Plugins postInit
 {
-	private _configName = configName _x;
-	private _cfgPlugin = configFile >> "BRM_FMK" >> "Plugins" >> _configName;
-	if (isClass _cfgPlugin) then {
-		private _fnc = missionNamespace getVariable format ["%1_fnc_postInit", [_cfgPlugin, "tag", format ["BRM_FMK_Plugin_%1", _configName]] call BIS_fnc_returnConfigEntry];
-		if (!isNil "_fnc") then {
-			_this call _fnc;
-		};
+	private _fnc = missionNamespace getVariable format ["%1_fnc_postInit", [_x, "tag", format ["BRM_FMK_Plugin_%1", configName _x]] call BIS_fnc_returnConfigEntry];
+	if (!isNil "_fnc") then {
+		_this call _fnc;
 	};
-} forEach ("true" configClasses (missionConfigFile >> "CfgPlugins"));
+} forEach BRM_FMK_Engine_activePluginConfigs;
 
 if (hasInterface) then {
 	["BRM_FMK_Engine_initialized", {
