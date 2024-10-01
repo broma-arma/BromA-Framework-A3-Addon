@@ -101,7 +101,6 @@ class CfgFunctions {
 
 		class misc {
 			file = "\broma_framework\engine\misc";
-			class getMusic {};
 			class doLog {};
 		};
 	};
@@ -180,6 +179,7 @@ class CfgFunctions {
 			file = "\broma_framework\engine\api\sounds";
 			class playGlobal {};
 			class playCfgSound {};
+			class getMusic {};
 		};
 
 		class api_spectator {
