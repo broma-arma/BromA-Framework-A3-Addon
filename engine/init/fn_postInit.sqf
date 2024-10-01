@@ -94,6 +94,8 @@ if (isServer) then {
 			BRM_FMK_Engine_deaths set [_i, BRM_FMK_Engine_deaths#_i + 1];
 		};
 	}];
+
+	call BRM_FMK_Engine_fnc_gc;
 };
 
 // Disables object recognition to save performance.
