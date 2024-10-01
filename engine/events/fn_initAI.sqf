@@ -29,15 +29,15 @@ RETURNS:
 
 params ["_unit", ["_faction", "*"]];
 
-if !(local _unit && _unit isKindOf "CAManBase") exitWith {};
+if !(local _unit && _unit isKindOf "CAManBase" && !isPlayer _unit) exitWith {};
 
 // Check if the unit already hasn't been initialized. ==========================
 
 if (_unit getVariable ["unit_initialized", false]) exitWith {};
 _unit setVariable ["unit_initialized", true];
 
-if (!BRM_FMK_initialized) exitWith {
-	[{ BRM_FMK_initialized }, { _this call BRM_FMK_fnc_initAI; }, _this] call CBA_fnc_waitUntilAndExecute;
+if (!BRM_FMK_Engine_initialized) exitWith {
+	[{ BRM_FMK_Engine_initialized }, { _this call BRM_FMK_fnc_initAI; }, _this] call CBA_fnc_waitUntilAndExecute;
 };
 
 _unit setVariable ["unit_side", side _unit, true]; // Backward compatibility

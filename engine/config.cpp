@@ -43,6 +43,7 @@ class CfgFunctions {
 			class initPlayer {};
 			class initSpectator {};
 			class endSpectator {};
+			class initAI {};
 		};
 
 		class loadout {
@@ -88,15 +89,6 @@ class CfgFunctions {
 			class handleKilled {};
 			class handleHit {};
 			class addScore {};
-		};
-	};
-
-	class BRM_FMK_Engine_API {
-		tag = "BRM_FMK";
-
-		class events {
-			file = "\broma_framework\engine\events";
-			class initAI {};
 		};
 	};
 
@@ -158,6 +150,7 @@ class CfgFunctions {
 		class api_missions_deprecated {
 			file = "\broma_framework\engine\api\missions\deprecated";
 			class callEnding {};
+			class initAI {};
 		};
 
 		class api_plugins {

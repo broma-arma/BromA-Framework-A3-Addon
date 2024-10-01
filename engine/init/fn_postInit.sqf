@@ -112,4 +112,8 @@ if (isClass (configFile >> "CfgPatches" >> "zen_modules") && !isNil "zen_modules
 	zen_modules_saved setVariable ["zen_modules_editableObjects", _selections];
 };
 
+if (BRM_FMK_Engine_compatVersion > 0) then {
+	["CAManBase", "InitPost", { _this call BRM_FMK_Engine_fnc_initAI; }, true, ["B_UAV_AI", "O_UAV_AI", "UAV_AI_base_F"], true] call CBA_fnc_addClassEventHandler;
+};
+
 _this call BRM_FMK_Engine_fnc_endLoading;
