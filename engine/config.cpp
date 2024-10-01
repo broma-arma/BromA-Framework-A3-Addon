@@ -98,11 +98,6 @@ class CfgFunctions {
 			file = "\broma_framework\engine\events";
 			class initAI {};
 		};
-
-		class misc {
-			file = "\broma_framework\engine\misc";
-			class doLog {};
-		};
 	};
 
 	class BRM_FMK_API {
@@ -115,6 +110,7 @@ class CfgFunctions {
 			class cas {};
 			class halo {};
 			class paratroop {};
+			class doLog {};
 		};
 
 		class api_ai {
