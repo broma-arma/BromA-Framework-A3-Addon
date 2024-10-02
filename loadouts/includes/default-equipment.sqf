@@ -10,6 +10,21 @@ private _sideChar = switch (_factionSide) do {
 	default { "B" };
 };
 
+_UAVBag = switch (toLower _UAVBag) do {
+	case "auto"; // Backward compatibility
+	case "vanilla";
+	case "ar2": { _sideChar + "_UAV_01_backpack_F" }; // UAV Bag (AR-2)
+	case "al6": { _sideChar + "_UAV_06_backpack_F" }; // UAV Bag (AL-6)
+	case "al6med": { _sideChar + "_UAV_06_medical_backpack_F" }; // UAV Bag (AL-6, Medical)
+	default { _UAVBag };
+};
+
+_UAVTerminal = switch (toLower _UAVTerminal) do {
+	case "auto"; // Backward compatibility
+	case "vanilla": { _sideChar + "_UavTerminal" };
+	default { _UAVTerminal };
+};
+
 if (isNil "_weaponsAT") then {
 	_weaponsAT = [format ["launch_%1_Titan_short_F", _sideChar], "Titan_AT"];
 

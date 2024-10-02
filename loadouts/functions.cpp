@@ -22,7 +22,6 @@ class loadouts_functions {
 	class linkItem {};
 	class stripUnit {};
 	class useUniform {};
-	class getSideUAV {};
 	class addWeaponAttachments {};
 	class addEarplugs {};
 	class getRadio {};

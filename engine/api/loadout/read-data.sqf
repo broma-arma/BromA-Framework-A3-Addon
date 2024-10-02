@@ -19,9 +19,6 @@ if (!isNil "_factionStructure") then { // SPRG
 	#include "\broma_framework\loadouts\includes\default-equipment.sqf"
 
 	if (_assignLoadoutMode) then {
-		if (_UAVBAg == "auto") then { _UAVBag = (([_unit, "vanilla"] call BRM_FMK_fnc_getSideUAV) select 0) };
-		if (_UAVTerminal == "auto") then { _UAVTerminal = (([_unit, "vanilla"] call BRM_FMK_fnc_getSideUAV) select 1) };
-
 		if (_factionStructure in read_local_structure_specific) then {
 			if (isNil "BRM_FMK_Engine_missionStructureList") then {
 				BRM_FMK_Engine_missionStructureList = compileFinal preprocessFileLineNumbers "mission\loadouts\structure-list.sqf";
