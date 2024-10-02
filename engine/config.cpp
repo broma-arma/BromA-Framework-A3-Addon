@@ -62,6 +62,7 @@ class CfgFunctions {
 			file = "\broma_framework\engine\mission";
 			class loadSettings {};
 			class loadBriefing {};
+			class logParams {};
 		};
 
 		class plugins {

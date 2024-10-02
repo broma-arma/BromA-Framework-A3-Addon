@@ -66,6 +66,8 @@ if (hasInterface) then {
 			setCurrentChannel 1;
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
+
+	_this call BRM_FMK_Engine_fnc_logParams;
 };
 
 _this call BRM_FMK_Engine_fnc_defineGroups;
