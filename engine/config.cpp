@@ -246,7 +246,7 @@ class CfgFunctions {
 			class loadBriefing { file = "\broma_framework\engine\mission\empty.sqf"; };
 		};
 		class overrides { // Force mission functions to use addon version
-			file = "\broma_framework\engine\mission\overrides";
+			file = "\broma_framework\engine\mission\compat0\overrides";
 			class callEnding {};
 			class onPlayerKilled { file = "\broma_framework\engine\mission\empty.sqf"; };
 			//class onPlayerRespawn { file = "\broma_framework\engine\mission\empty.sqf"; };
