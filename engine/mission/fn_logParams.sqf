@@ -48,7 +48,7 @@ private _fnc_pushToDiaryArray = {
 		if (_emptyValue && count _values == 1) then { // Section title
 			_diaryArray pushBack format ["<font size='16' face='RobotoCondensedBold'>%1</font>", _title trim [" =", 0]];
 		} else { // Parameter
-			_diaryArray pushBack format ["%1: <font size='16' face='PuristaLight'>%2</font>", _title, _value];
+			_diaryArray pushBack format ["%1: <font face='PuristaLight'>%2</font>", _title, _value];
 		};
 	};
 };
