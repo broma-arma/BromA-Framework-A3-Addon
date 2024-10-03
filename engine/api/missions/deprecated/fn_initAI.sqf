@@ -2,7 +2,7 @@
 ================================================================================
 
 DEPRECATED:
-    Remove use.
+    Remove usage.
 
 NAME:
     BRM_FMK_fnc_initAI
