@@ -25,21 +25,26 @@ RETURNS:
 
 {
 	_x params ["_var", "_default"];
-	if (isNil _var) then { missionNamespace setVariable [_var, _default]; };
+	if (isNil _var) then {
+		missionNamespace setVariable [_var, call _default];
+	};
 } forEach [
-	["mission_running", true],
+	["mission_running", { true }],
 
-	["mission_AI_controller", false],
+	//["mission_AI_controller", { false }],
 
-	["BRM_FMK_frameworkMission", true],
-	["BRM_FMK_initialized", false],
-	["BRM_FMK_Engine_initialized", false],
-	["pluginsLoaded", false], // Backward compatibility, use BRM_FMK_initialized event or var instead (Used by assignLoadout, assignCargo, and dac_config_creator in missions)
+	["BRM_FMK_frameworkMission",   { true }],
+	["BRM_FMK_initialized",        { false }],
+	["BRM_FMK_Engine_initialized", { false }],
+	["pluginsLoaded", { false }], // Backward compatibility, use BRM_FMK_initialized event or var instead (Used by dac_config_creator in missions)
 
-	["mission_AGM_enabled",   isClass (configFile >> "CfgPatches" >> "AGM_CORE")], // Backward compatibility
-	["mission_ACE3_enabled",  isClass (configFile >> "CfgPatches" >> "ACE_COMMON")],
-	["mission_TFAR_enabled",  isClass (configFile >> "CfgPatches" >> "task_force_radio")],
-	["mission_ACRE2_enabled", isClass (configFile >> "CfgPatches" >> "acre_api")]
+	["mission_AGM_enabled",   { isClass (configFile >> "CfgPatches" >> "AGM_CORE") }], // Backward compatibility
+	["mission_ACE3_enabled",  { isClass (configFile >> "CfgPatches" >> "ACE_COMMON") }],
+	["mission_TFAR_enabled",  { isClass (configFile >> "CfgPatches" >> "task_force_radio") }],
+	["mission_ACRE2_enabled", { isClass (configFile >> "CfgPatches" >> "acre_api") }],
+
+	// Task System
+	["BRM_FMK_Engine_tasks", { createHashMap }]
 ];
 
 // Initialize all possible groups and playable units whether they exist or not.

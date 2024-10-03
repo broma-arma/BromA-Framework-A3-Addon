@@ -67,8 +67,6 @@ params ["_owner", "_ids", "_priority", "_details", "_position", "_predicates", [
 
 _ids params ["_id", ["_parentId", ""]];
 
-if (isNil "BRM_FMK_Engine_tasks") then { BRM_FMK_Engine_tasks = createHashMap; };
-
 if (_id in BRM_FMK_Engine_tasks) exitWith { ["%1 task already created", _id] call BIS_fnc_error; };
 
 if (_details isEqualType "") then {
