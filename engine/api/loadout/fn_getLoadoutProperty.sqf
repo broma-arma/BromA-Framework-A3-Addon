@@ -16,7 +16,7 @@ if (!isNil "_cache") exitWith {
 #include "\broma_framework\loadouts\includes\faction-info-index.sqf"
 
 _assignLoadoutMode = false;
-_loadoutCondition = !(_faction in read_local_loadouts_specific);
+if (BRM_FMK_Engine_compatVersion == 0) then { _loadoutCondition = !(_faction in read_local_loadouts_specific); };
 
 #include "read-data.sqf"
 

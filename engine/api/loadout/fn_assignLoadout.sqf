@@ -12,7 +12,7 @@ private _isLeader = isFormationLeader _unit;
 _unit setVariable ["BIS_enableRandomization", false];
 
 #include "\broma_framework\loadouts\includes\private-variables.sqf"
-_loadoutCondition = (!((_faction) in read_local_loadouts_specific));
+if (BRM_FMK_Engine_compatVersion == 0) then { _loadoutCondition = (!((_faction) in read_local_loadouts_specific)); };
 _assignLoadoutMode = true;
 
 #include "\broma_framework\loadouts\includes\faction-info-index.sqf"

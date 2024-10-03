@@ -27,6 +27,10 @@ if (isClass (missionConfigFile >> "CfgFunctions" >> "BRM" >> "init" >> "engine_p
 	BRM_FMK_Engine_missionVersion = call compile preprocessFile "framework\local_version.txt"; // "075", "0745", "074", "073", "07"
 	BRM_FMK_Engine_compatVersion = 0;
 };
+if (isArray (missionConfigFile >> "BRM_FMK" >> "missionVersion")) then {
+	BRM_FMK_Engine_missionVersion = getArray (missionConfigFile >> "BRM_FMK" >> "missionVersion") joinString ".";
+	BRM_FMK_Engine_compatVersion = 1;
+};
 
 if (isNil "BRM_FMK_Engine_missionVersion") exitWith {};
 

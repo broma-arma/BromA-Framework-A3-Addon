@@ -36,20 +36,22 @@ private _isLeader = false;
 #include "\broma_framework\loadouts\content\content-list.sqf"
 #include "\broma_framework\loadouts\includes\get-faction.sqf"
 
-_loadoutCondition = !(_faction in read_local_cargo_specific);
+if (BRM_FMK_Engine_compatVersion == 0) then { _loadoutCondition = !(_faction in read_local_cargo_specific); };
 _assignLoadoutMode = false;
 
 #include "read-data.sqf"
 
-if (read_local_cargo) then {
-	if (isNil "BRM_FMK_Engine_missionCargoList") then {
-		BRM_FMK_Engine_missionCargoList = compileFinal preprocessFileLineNumbers "mission\loadouts\cargo-list.sqf";
-	};
+if (BRM_FMK_Engine_compatVersion > 0) then {
 	{
-		call BRM_FMK_Engine_missionCargoList;
+		_x = toLower _x;
+		private _overrideCargo = false;
+		call BRM_FMK_Engine_fnc_missionCargoList;
+		if (!_overrideCargo) then {
+			call BRM_FMK_Engine_fnc_cargoList;
+		};
 	} forEach _type;
 } else {
 	{
-		#include "\broma_framework\loadouts\cargo-list.sqf"
+		call BRM_FMK_Engine_fnc_cargoList;
 	} forEach _type;
 };

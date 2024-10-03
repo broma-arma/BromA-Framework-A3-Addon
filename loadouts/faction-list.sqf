@@ -1,2 +1,2 @@
-// File is included in mission framework
-call ([_faction] call BRM_FMK_Engine_fnc_getLoadoutCode);
+// File is included in mission framework <= 075
+// Exists only to prevent those missions from crashing

@@ -1,31 +1,42 @@
-// TODO Cache compiling "mission\loadouts\faction-list.sqf", "mission\loadouts\mod-list.sqf", and "mission\loadouts\structure-list.sqf"
-if (_loadoutCondition) then {
-	#include "\broma_framework\loadouts\faction-list.sqf"
+if (BRM_FMK_Engine_compatVersion > 0) then {
+	call ([_faction] call BRM_FMK_Engine_fnc_getLoadoutCode);
+
+	if (!isNil "_factionStructure") then { // SPRG
+		#include "\broma_framework\loadouts\includes\default-equipment.sqf"
+
+		if (_assignLoadoutMode) then {
+			call ([_factionStructure regexReplace ["-", "_"], /*STRUCTURE*/1] call BRM_FMK_Engine_fnc_getLoadoutCode);
+		};
+	};
 } else {
-	if (isNil "BRM_FMK_Engine_missionFactionList") then {
-		BRM_FMK_Engine_missionFactionList = compileFinal preprocessFileLineNumbers "mission\loadouts\faction-list.sqf";
+	if (_loadoutCondition) then {
+		call ([_faction] call BRM_FMK_Engine_fnc_getLoadoutCode);
+	} else {
+		if (isNil "BRM_FMK_Engine_missionFactionList") then {
+			BRM_FMK_Engine_missionFactionList = compileFinal preprocessFileLineNumbers "mission\loadouts\faction-list.sqf";
+		};
+		call BRM_FMK_Engine_missionFactionList;
 	};
-	call BRM_FMK_Engine_missionFactionList;
-};
 
-if (_factionID in modified_loadouts) then {
-	if (isNil "BRM_FMK_Engine_missionModList") then {
-		BRM_FMK_Engine_missionModList = compileFinal preprocessFileLineNumbers "mission\loadouts\mod-list.sqf";
+	if (_factionID in modified_loadouts) then {
+		if (isNil "BRM_FMK_Engine_missionModList") then {
+			BRM_FMK_Engine_missionModList = compileFinal preprocessFileLineNumbers "mission\loadouts\mod-list.sqf";
+		};
+		call BRM_FMK_Engine_missionModList;
 	};
-	call BRM_FMK_Engine_missionModList;
-};
 
-if (!isNil "_factionStructure") then { // SPRG
-	#include "\broma_framework\loadouts\includes\default-equipment.sqf"
+	if (!isNil "_factionStructure") then { // SPRG
+		#include "\broma_framework\loadouts\includes\default-equipment.sqf"
 
-	if (_assignLoadoutMode) then {
-		if (_factionStructure in read_local_structure_specific) then {
-			if (isNil "BRM_FMK_Engine_missionStructureList") then {
-				BRM_FMK_Engine_missionStructureList = compileFinal preprocessFileLineNumbers "mission\loadouts\structure-list.sqf";
+		if (_assignLoadoutMode) then {
+			if (_factionStructure in read_local_structure_specific) then {
+				if (isNil "BRM_FMK_Engine_missionStructureList") then {
+					BRM_FMK_Engine_missionStructureList = compileFinal preprocessFileLineNumbers "mission\loadouts\structure-list.sqf";
+				};
+				call BRM_FMK_Engine_missionStructureList;
+			} else {
+				call ([_factionStructure regexReplace ["-", "_"], /*STRUCTURE*/1] call BRM_FMK_Engine_fnc_getLoadoutCode);
 			};
-			call BRM_FMK_Engine_missionStructureList;
-		} else {
-			#include "\broma_framework\loadouts\structure-list.sqf"
 		};
 	};
 };

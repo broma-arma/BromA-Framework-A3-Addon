@@ -78,6 +78,18 @@ _this call BRM_FMK_Engine_fnc_initPlayer;
 _this call BRM_FMK_Engine_fnc_loadPlugins;
 _this call BRM_FMK_Engine_fnc_loadBriefing;
 
+if (BRM_FMK_Engine_compatVersion > 0) then {
+	BRM_FMK_Engine_fnc_missionCargoList = compileFinal preprocessFileLineNumbers "mission\loadouts\cargo.sqf";
+	BRM_FMK_Engine_fnc_cargoList = compileFinal preprocessFileLineNumbers "\broma_framework\loadouts\cargo.sqf";
+} else {
+	if (read_local_structure_specific isNotEqualTo [] || read_local_cargo) then {
+		GUN = 0;
+		RAMMO = 1;
+		GL = 2;
+	};
+	BRM_FMK_Engine_fnc_cargoList = compileFinal preprocessFileLineNumbers (["\broma_framework\loadouts\cargo.sqf", "mission\loadouts\cargo-list.sqf"] select read_local_cargo);
+};
+
 if (isServer) then {
 	BRM_FMK_Engine_players = [[], [], []]; // Side A, Side B, Side C
 	["BRM_FMK_Engine_initPlayerServer", {
@@ -115,7 +127,7 @@ if (isClass (configFile >> "CfgPatches" >> "zen_modules") && !isNil "zen_modules
 };
 
 if (BRM_FMK_Engine_compatVersion > 0) then {
-	["CAManBase", "InitPost", { _this call BRM_FMK_Engine_fnc_initAI; }, true, ["B_UAV_AI", "O_UAV_AI", "UAV_AI_base_F"], true] call CBA_fnc_addClassEventHandler;
+	["CAManBase", "InitPost", { _this call BRM_FMK_Engine_fnc_initAI; }, true, ["VirtualMan_F", "B_UAV_AI", "O_UAV_AI", "UAV_AI_base_F"], true] call CBA_fnc_addClassEventHandler;
 };
 
 _this call BRM_FMK_Engine_fnc_endLoading;

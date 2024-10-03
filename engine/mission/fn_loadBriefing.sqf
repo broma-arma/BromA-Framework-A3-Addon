@@ -25,21 +25,37 @@ RETURNS:
 if (!hasInterface) exitWith {};
 
 0 spawn {
-	private ["_radioChannel", "_radioFreq"];
+	private _sideID = side player call BIS_fnc_sideID;
 
-	private _sideIndex = [WEST, EAST, RESISTANCE, CIVILIAN] find side player;
-	private _autoRadio = "radiofreq" call BRM_FMK_fnc_isPluginActive;
-	if (_autoRadio) then {
-		private _autoRadioSide = ["BLU", "OP", "IND", "CIV"] select _sideIndex;
-		private _radioChannelVar = format ["mission_radiochannels_%1", _autoRadioSide];
-		private _radioFreqVar = format ["mission_radiochannels_add_%1", _autoRadioSide];
-		waitUntil { !isNil _radioChannelVar && !isNil _radioFreqVar };
-		_radioChannel = missionNamespace getVariable _radioChannelVar;
-		_radioFreq = missionNamespace getVariable _radioFreqVar;
+	private ["_autoRadio", "_radioChannel", "_radioFreq"];
+	if (BRM_FMK_Engine_compatVersion == 0) then {
+		_autoRadio = "radiofreq" call BRM_FMK_fnc_isPluginActive;
+		if (_autoRadio) then {
+			private _autoRadioSide = ["OP", "BLU", "IND", "CIV", "CIV", "CIV", "CIV", "CIV", "CIV", "CIV"] select _sideID;
+			private _radioChannelVar = format ["mission_radiochannels_%1", _autoRadioSide];
+			private _radioFreqVar = format ["mission_radiochannels_add_%1", _autoRadioSide];
+			waitUntil { !isNil _radioChannelVar && !isNil _radioFreqVar };
+			_radioChannel = missionNamespace getVariable _radioChannelVar;
+			_radioFreq = missionNamespace getVariable _radioFreqVar;
+		};
 	};
 
-	["LOCAL", "F_LOG", format ["PLAYER: ASSIGNING %1 BRIEFING", ["WEST", "EAST", "INDEPENDENT", "CIVILIAN"] select _sideIndex]] call BRM_FMK_fnc_doLog;
-	call compile preprocessFileLineNumbers format ["mission\briefings\briefing-%1.sqf", ["west", "east", "ind", "civ"] select _sideIndex];
+	private _briefing = (if (BRM_FMK_Engine_compatVersion == 0) then {[
+		"east", "west", "ind", "civ",
+		"unknown", "enemy", "friendly",
+		"logic", "empty", "ambient"
+	]} else {[
+		"opfor", "blufor", "indfor", "civfor",
+		"unknown", "enemy", "friendly",
+		"logic", "empty", "ambient"
+	]}) select _sideID;
+
+	private _file = format ["mission\briefings\%1%2.sqf", ["", "briefing-"] select (BRM_FMK_Engine_compatVersion == 0), _briefing];
+	private _exists = fileExists _file;
+	["LOCAL", "F_LOG", format ["PLAYER: %1 %2 BRIEFING", ["SKIPPING", "ASSIGNING"] select _exists, toUpper _briefing]] call BRM_FMK_fnc_doLog;
+	if (_exists) then {
+		call compile preprocessFileLineNumbers _file;
+	};
 
 	// Append mission authors and version to Briefing > Mission diary record.
 	{

@@ -30,24 +30,48 @@ pluginsLoaded = true; // Backward compatibility (Used by assignLoadout, assignCa
 private _missionScripts = [];
 
 if (isServer) then {
-	_missionScripts pushBack ([] execVM "mission\custom-scripts\initServer.sqf");
-	mission_settings = scriptNull; // tasks.sqf waits for `scriptDone mission_settings`
-	_missionScripts pushBack ([] execVM "mission\objectives\tasks.sqf");
+	if (BRM_FMK_Engine_compatVersion == 0) then {
+		_missionScripts pushBack ([] execVM "mission\custom-scripts\initServer.sqf");
+		mission_settings = scriptNull; // Backward compatibility (tasks.sqf waits for `scriptDone mission_settings`)
+		_missionScripts pushBack ([] execVM "mission\objectives\tasks.sqf");
 
-	[{ missionNamespace getVariable ["BRM_FMK_Engine_compat0_checkTasks", false] }, {
+		[{ missionNamespace getVariable ["BRM_FMK_Engine_compat0_checkTasks", false] }, {
+			BRM_FMK_Engine_checkTasksPFH = [{ _this call BRM_FMK_Engine_fnc_checkTasks; }, 1] call CBA_fnc_addPerFrameHandler;
+		}] call CBA_fnc_waitUntilAndExecute;
+	} else {
+		_missionScripts pushBack ([] execVM "mission\scripts\initServer.sqf");
+		[] call compile preprocessFileLineNumbers "mission\objectives\tasks.sqf";
 		BRM_FMK_Engine_checkTasksPFH = [{ _this call BRM_FMK_Engine_fnc_checkTasks; }, 1] call CBA_fnc_addPerFrameHandler;
-	}] call CBA_fnc_waitUntilAndExecute;
+	};
 };
 
 if (mission_AI_controller) then {
-	_missionScripts pushBack ([] execVM "mission\objectives\mission_AI.sqf");
+	if (BRM_FMK_Engine_compatVersion == 0) then {
+		_missionScripts pushBack ([] execVM "mission\objectives\mission_AI.sqf");
+	} else {
+		if ("dac_plugin" in BRM_FMK_Engine_activePlugins) then {
+			[{ !isNil "DAC_InCreate" || DAC_Basic_Value > 0 }, {
+				[] execVM "mission\objectives\ai.sqf";
+			}] call CBA_fnc_waitUntilAndExecute;
+		} else {
+			[] execVM "mission\objectives\ai.sqf";
+		};
+	};
 };
 
 if (hasInterface) then {
-	_missionScripts pushBack ([] execVM "mission\custom-scripts\initPlayer.sqf");
+	if (BRM_FMK_Engine_compatVersion == 0) then {
+		_missionScripts pushBack ([] execVM "mission\custom-scripts\initPlayer.sqf");
+	} else {
+		_missionScripts pushBack ([] execVM "mission\scripts\initPlayer.sqf");
+	};
 };
 
-_missionScripts pushBack ([] execVM "mission\custom-scripts\init.sqf");
+if (BRM_FMK_Engine_compatVersion == 0) then {
+	_missionScripts pushBack ([] execVM "mission\custom-scripts\init.sqf");
+} else {
+	_missionScripts pushBack ([] execVM "mission\scripts\init.sqf");
+};
 
 { if (side _x == civilian) then { _x setVariable ["BIS_enableRandomization", false] } } forEach allUnits;
 

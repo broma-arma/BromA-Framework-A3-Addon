@@ -10,8 +10,10 @@ mission_DAC_AI_skill = switch (_aiSkill) do {
 	default { [0.5, 0.5] };
 };
 
-waitUntil { !isNil "DAC_STRPlayers" };
+DAC_Path = ["DAC\", "\broma_framework\dac\"] select (BRM_FMK_Engine_compatVersion > 0);
 
-if (mission_AI_controller) then {
-	createGroup sideLogic createUnit ["DAC_Source_Extern", [0, 0, 0], [], 1, "NONE"];
-};
+[{ !isNil "mission_AI_controller" && missionNamespace getVariable ["BRM_FMK_initialized", false] }, {
+	if (mission_AI_controller) then {
+		createGroup sideLogic createUnit ["DAC_Source_Extern", [0, 0, 0], [], 1, "NONE"];
+	};
+}] call CBA_fnc_waitUntilAndExecute;

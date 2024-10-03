@@ -27,7 +27,12 @@ RETURNS:
 params ["_init"];
 
 if (_init == "preInit") exitWith {
-	BRM_FMK_Engine_activePluginConfigs = "true" configClasses (configFile >> "BRM_FMK" >> "Plugins") select { isClass (missionConfigFile >> "CfgPlugins" >> configName _x) };
+	if (BRM_FMK_Engine_compatVersion == 0) then {
+		BRM_FMK_Engine_activePluginConfigs = "true" configClasses (configFile >> "BRM_FMK" >> "Plugins") select { isClass (missionConfigFile >> "CfgPlugins" >> configName _x) };
+	} else {
+		private _activePlugins = getArray (missionConfigFile >> "BRM_FMK" >> "missionPlugins") select [1];
+		BRM_FMK_Engine_activePluginConfigs = "true" configClasses (configFile >> "BRM_FMK" >> "Plugins") select { configName _x in _activePlugins };
+	};
 	BRM_FMK_Engine_activePlugins = BRM_FMK_Engine_activePluginConfigs apply { configName _x };
 
 	if (isClass (configFile >> "CfgPatches" >> "ace_spectator")) then {
