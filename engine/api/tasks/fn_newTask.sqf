@@ -60,7 +60,7 @@ params ["_owner", "_id", "_details", "_predicates", "_priority", "_callbacks"];
 
 _details params ["_title", "_desc", "_type", ["_position", objNull, [[], objNull, ""]]];
 
-_predicates params ["_predicateAssign", "_predicateWin", "_predicateLose"];
+_predicates params ["_predicateAssign", "_predicateWin", ["_predicateLose", {false}]];
 _callbacks params ["_callbackAssigned", "_callbackCompleted", "_callbackFailed"];
 
 [

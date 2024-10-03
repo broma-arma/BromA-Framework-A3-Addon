@@ -63,7 +63,7 @@ RETURNS:
 
 if (!isServer) exitWith {};
 
-params ["_owner", "_ids", "_priority", "_details", "_position", "_predicates", "_callbacks"];
+params ["_owner", "_ids", "_priority", "_details", "_position", "_predicates", ["_callbacks", []]];
 
 _ids params ["_id", ["_parentId", ""]];
 
