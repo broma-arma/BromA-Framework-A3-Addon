@@ -75,8 +75,8 @@ _this call BRM_FMK_Engine_fnc_createPlayerVehicles;
 _this call BRM_FMK_Engine_fnc_readExtraction;
 
 _this call BRM_FMK_Engine_fnc_initPlayer;
-_this call BRM_FMK_Engine_fnc_loadBriefing;
 _this call BRM_FMK_Engine_fnc_loadPlugins;
+_this call BRM_FMK_Engine_fnc_loadBriefing;
 
 if (isServer) then {
 	BRM_FMK_Engine_players = [[], [], []]; // Side A, Side B, Side C
