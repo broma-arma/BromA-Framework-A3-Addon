@@ -44,7 +44,8 @@ RETURNS:
 	["mission_ACRE2_enabled", { isClass (configFile >> "CfgPatches" >> "acre_api") }],
 
 	// Task System
-	["BRM_FMK_Engine_tasks", { createHashMap }]
+	["BRM_FMK_Engine_tasks", { [] }],
+	["BRM_FMK_Engine_taskData", { createHashMap }]
 ];
 
 // Initialize all possible groups and playable units whether they exist or not.

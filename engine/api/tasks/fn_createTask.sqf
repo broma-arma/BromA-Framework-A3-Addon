@@ -129,7 +129,8 @@ private _sideId = switch (_side) do {
 
 private _priorityName = ["Primary", "Secondary", "Abortive", "Optional"] select _priority;
 
-BRM_FMK_Engine_tasks set [_id, [
+BRM_FMK_Engine_tasks pushBack _id;
+BRM_FMK_Engine_taskData set [_id, [
 	_sideId, _owner, _parentId, _priority,
 	[
 		format [

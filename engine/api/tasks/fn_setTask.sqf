@@ -27,7 +27,7 @@ if (!isServer) exitWith {};
 
 params ["_id", "_state"];
 
-private _task = BRM_FMK_Engine_tasks get _id;
+private _task = BRM_FMK_Engine_taskData get _id;
 if (isNil "_task" || { [_id] call BIS_fnc_taskState == _state }) exitWith { false };
 
 [_id, toUpper _state, true] call BIS_fnc_taskSetState;

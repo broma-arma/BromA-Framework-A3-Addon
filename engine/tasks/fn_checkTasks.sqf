@@ -45,12 +45,14 @@ private _init = getClientStateNumber > 0 && getClientStateNumber < 10;
 
 	private _taskState = [_id] call BIS_fnc_taskState;
 
-	_sideTasks set [_y#0, _sideTasks#(_y#0) + 1];
+	private _task = BRM_FMK_Engine_taskData get _id;
+
+	_sideTasks set [_task#0, _sideTasks#(_task#0) + 1];
 
 	if (_taskState == "FAILED" || _taskState == "CANCELED") then { continue; };
 
-	_y params [
-		"_sideId", "_owner", "_parentId", "_priority", "_texts", // ["_description", "_title"]
+	_task params [
+		"_sideId", "_owner", "_parentId", "_priority", "_texts",
 		"_type", "_position", "_positionUpdate", "_nextPositionUpdate",
 		"_predicateWin", "_predicateLose", "_predicateAssign",
 		"_callbackCompleted", "_callbackFailed", "_callbackAssigned"
@@ -76,9 +78,9 @@ private _init = getClientStateNumber > 0 && getClientStateNumber < 10;
 
 		if (!isNull _object) then {
 			[_id, getPosASL _object] call BIS_fnc_taskSetDestination;
-			_y set [/*_nextPositionUpdate*/8, time + call _delay];
+			_task set [/*_nextPositionUpdate*/8, time + call _delay];
 		} else {
-			_y set [/*_positionUpdate*/7, nil];
+			_task set [/*_positionUpdate*/7, nil];
 		};
 	};
 
