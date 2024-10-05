@@ -26,10 +26,6 @@
 #include "..\plugins\vanilla_spectator\params.hpp"
 #endif
 
-#ifdef TFAR_PLUGIN
-#include "..\plugins\tfar_plugin\params.hpp"
-#endif
-
 #ifdef ACRE2_PLUGIN
 #include "..\plugins\acre2_plugin\params.hpp"
 #endif

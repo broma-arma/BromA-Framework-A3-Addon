@@ -27,10 +27,6 @@ missionPlugins[] = {""
 ,"vanilla_spectator"
 #endif
 
-#ifdef TFAR_PLUGIN
-,"tfar_plugin"
-#endif
-
 #ifdef ACRE2_PLUGIN
 ,"acre2_plugin"
 #endif
