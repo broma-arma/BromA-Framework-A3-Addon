@@ -27,10 +27,6 @@ missionPlugins[] = {""
 ,"vanilla_spectator"
 #endif
 
-#ifdef ACRE2_PLUGIN
-,"acre2_plugin"
-#endif
-
 #ifdef SPAWN_AI
 ,"spawn_ai"
 #endif
