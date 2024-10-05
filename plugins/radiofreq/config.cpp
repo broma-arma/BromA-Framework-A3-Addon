@@ -13,6 +13,7 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_RadioFreq {
 		class functions {
 			file = "\broma_framework\plugins\radiofreq\functions";
+			class preInit {};
 			class postInit {};
 		};
 	};

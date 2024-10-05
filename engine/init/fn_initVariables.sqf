@@ -45,7 +45,9 @@ RETURNS:
 
 	// Task System
 	["BRM_FMK_Engine_tasks", { [] }],
-	["BRM_FMK_Engine_taskData", { createHashMap }]
+	["BRM_FMK_Engine_taskData", { createHashMap }],
+
+	["BRM_FMK_Engine_missionConfig", { loadConfig "mission.sqm" }]
 ];
 
 // Initialize all possible groups and playable units whether they exist or not.
