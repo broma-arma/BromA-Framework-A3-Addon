@@ -79,7 +79,7 @@ _this call BRM_FMK_Engine_fnc_loadPlugins;
 _this call BRM_FMK_Engine_fnc_loadBriefing;
 
 if (BRM_FMK_Engine_compatVersion > 0) then {
-	BRM_FMK_Engine_fnc_missionCargoList = compileFinal preprocessFileLineNumbers "mission\loadouts\cargo.sqf";
+	BRM_FMK_Engine_fnc_missionCargoList = compileFinal (if (fileExists "mission\loadouts\cargo.sqf") then { preprocessFileLineNumbers "mission\loadouts\cargo.sqf" } else { {} });
 	BRM_FMK_Engine_fnc_cargoList = compileFinal preprocessFileLineNumbers "\broma_framework\loadouts\cargo.sqf";
 } else {
 	if (read_local_structure_specific isNotEqualTo [] || read_local_cargo) then {
