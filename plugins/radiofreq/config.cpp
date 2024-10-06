@@ -15,6 +15,8 @@ class CfgFunctions {
 			file = "\broma_framework\plugins\radiofreq\functions";
 			class preInit {};
 			class postInit {};
+			class switchGroup {};
+			class editRadioSettings {};
 		};
 	};
 };
