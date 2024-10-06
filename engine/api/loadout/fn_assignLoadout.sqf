@@ -9,8 +9,6 @@ if (!BRM_FMK_Engine_initialized) exitWith {
 private _isMan = true;
 private _isLeader = isFormationLeader _unit;
 
-_unit setVariable ["BIS_enableRandomization", false];
-
 #include "\broma_framework\loadouts\includes\private-variables.sqf"
 if (BRM_FMK_Engine_compatVersion == 0) then { _loadoutCondition = (!((_faction) in read_local_loadouts_specific)); };
 _assignLoadoutMode = true;

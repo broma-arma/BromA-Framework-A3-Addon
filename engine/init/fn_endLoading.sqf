@@ -73,8 +73,6 @@ if (BRM_FMK_Engine_compatVersion == 0) then {
 	_missionScripts pushBack ([] execVM "mission\scripts\init.sqf");
 };
 
-{ if (side _x == civilian) then { _x setVariable ["BIS_enableRandomization", false] } } forEach allUnits;
-
 BRM_FMK_Engine_postInitTime = diag_tickTime - BRM_FMK_Engine_postInitTime;
 BRM_FMK_Engine_initTime = BRM_FMK_Engine_preInitTime + BRM_FMK_Engine_postInitTime;
 ["LOCAL", "F_LOG", format ["%1 initialized in %2 seconds (Pre: %3, Post: %4)", getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "versionDesc"), BRM_FMK_Engine_initTime, BRM_FMK_Engine_preInitTime, BRM_FMK_Engine_postInitTime]] call BRM_FMK_fnc_doLog;
