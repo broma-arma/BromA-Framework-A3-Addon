@@ -25,6 +25,6 @@ _assignLoadoutMode = true;
 #include "\broma_framework\loadouts\includes\set-identity.sqf"
 
 if (isPlayer _unit) then { // Weapon on back
-	player switchMove "AmovPercMstpSnonWnonDnon";
-	player action ["SwitchWeapon", player, player, -1];
+	_unit switchMove "AmovPercMstpSnonWnonDnon";
+	_unit action ["SwitchWeapon", _unit, _unit, -1];
 };
