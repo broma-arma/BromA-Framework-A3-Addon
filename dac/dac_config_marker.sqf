@@ -48,7 +48,7 @@ private _setMarkerClass = [
 ];
 
 if (fileExists "mission\settings\dac\dac_config_marker.sqf") then {
-	call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_marker.sqf";
+	[_type] call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_marker.sqf";
 };
 
 [

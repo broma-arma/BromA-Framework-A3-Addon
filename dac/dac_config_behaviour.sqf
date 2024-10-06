@@ -92,7 +92,7 @@ switch (_type) do {
 };
 
 if (fileExists "mission\settings\dac\dac_config_behaviour.sqf") then {
-	call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_behaviour.sqf";
+	[_type] call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_behaviour.sqf";
 };
 
 if (["_setSkill", "_setCombat", "_setBehav", "_setSpeed", "_setForm", "_setFleeing", "_setHeliVal", "_setPause", "_setBldgBeh", "_setPatrol", "_setSearch", "_setSupport", "_setJoin", "_setEmpVeh", "_setSupTime", "_setHidTime"] findIf { isNil _x } != -1) exitWith {

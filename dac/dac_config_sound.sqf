@@ -69,5 +69,5 @@ DAC_RadioArrayW = [
 ];
 
 if (fileExists "mission\settings\dac\dac_config_sound.sqf") then {
-	call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_sound.sqf";
+	[] call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_sound.sqf";
 };

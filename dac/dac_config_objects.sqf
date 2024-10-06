@@ -61,7 +61,7 @@ switch (_type) do {
 };
 
 if (fileExists "mission\settings\dac\dac_config_objects.sqf") then {
-	call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_objects.sqf";
+	[_type] call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_objects.sqf";
 };
 
 if (_params findIf { isNil _x } != -1) exitWith {

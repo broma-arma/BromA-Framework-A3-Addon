@@ -47,7 +47,7 @@ switch (_type) do {
 };
 
 if (fileExists "mission\settings\dac\dac_config_arti.sqf") then {
-	call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_arti.sqf";
+	[_type] call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_arti.sqf";
 };
 
 if (["_set0", "_set1", "_set2", "_set3", "_set4", "_set5", "_set6", "_set7", "_set8", "_set9", "_set10"] findIf { isNil _x } != -1) exitWith {

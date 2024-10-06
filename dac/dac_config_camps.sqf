@@ -26,7 +26,7 @@ if (_type >= 0 && _type < 3) then {
 };
 
 if (fileExists "mission\settings\dac\dac_config_camps.sqf") then {
-	call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_camps.sqf";
+	[_type] call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_camps.sqf";
 };
 
 if (_params findIf { isNil _x } != -1) exitWith {

@@ -142,7 +142,7 @@ DAC_Marker_Val = [];
 DAC_Zones = [];
 
 if (fileExists "mission\settings\dac\dac_config_creator.sqf") then {
-	call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_creator.sqf";
+	[] call compile preprocessFileLineNumbers "mission\settings\dac\dac_config_creator.sqf";
 };
 
 //=============================================================================================================|
