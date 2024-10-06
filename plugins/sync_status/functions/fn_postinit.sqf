@@ -9,7 +9,7 @@ if (hasInterface && didJIP) then {
 	0 spawn {
 		waitUntil { player getVariable ["unit_initialized", false] };
 
-		if (!player_is_spectator) then {
+		if !(player isKindOf "VirtualSpectator_F") then {
 			[getPlayerUID player] call BRM_FMK_Plugin_SyncStatus_fnc_loadStatus;
 		};
 	};

@@ -24,7 +24,7 @@ if (hasInterface) then {
 		};
 	}] call CBA_fnc_addEventHandler;
 
-	if (!player_is_spectator) then {
+	if !(player isKindOf "VirtualSpectator_F") then {
 		player addEventHandler ["Respawn", { _this call BRM_FMK_Plugin_RespawnSystem_fnc_onRespawn }];
 
 		if ([player] call BRM_FMK_Plugin_RespawnSystem_fnc_getLives == 0) then {

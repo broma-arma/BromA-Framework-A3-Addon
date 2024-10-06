@@ -3,9 +3,7 @@ if !(hasInterface) exitWith { intro_cutscene_over = true; };
 intro_cutscene_over = false;
 
 0 spawn {
-	waitUntil { sleep 0.1; !isNil "player_is_spectator" };
-
-	if !(isMultiplayer && !didJIP && !player_is_spectator) exitWith { intro_cutscene_over = true; };
+	if !(isMultiplayer && !didJIP && !(player isKindOf "VirtualSpectator_F")) exitWith { intro_cutscene_over = true; };
 
 	sleep 0.1; // After briefing
 

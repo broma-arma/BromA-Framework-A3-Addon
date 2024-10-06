@@ -1,6 +1,6 @@
 if (!isClass (configFile >> "CfgPatches" >> "ace_spectator")) exitWith {};
 
-if (mission_game_mode != "coop" && !player_is_spectator) then {
+if (mission_game_mode != "coop" && !(player isKindOf "VirtualSpectator_F")) then {
 	private _side = player call BIS_fnc_objectSide;
 	private _friendly = [];
 	private _enemy = [];

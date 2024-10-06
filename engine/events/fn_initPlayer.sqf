@@ -33,16 +33,16 @@ waitUntil { player == player && !isNull player };
 ["LOCAL", "F_LOG", format ["INITIALIZING %4PLAYER '%1' (%2) @ %3", name player, player, time, ["", "JIP "] select didJIP]] call BRM_FMK_fnc_doLog;
 
 player_is_jip = didJIP; // Backward compatibility
-player_is_spectator = player isKindOf "VirtualSpectator_F";
+player_is_spectator = player isKindOf "VirtualSpectator_F"; // Backward compatibility
 
-if (!mission_allow_jip && didJIP && !player_is_spectator) exitWith {
+if (!mission_allow_jip && didJIP && !(player isKindOf "VirtualSpectator_F")) exitWith {
 	[player] call BRM_FMK_Engine_fnc_removeJIP;
 	player setVariable ["unit_initialized", true, true];
 };
 
 [] call BRM_FMK_Engine_fnc_syncTime;
 
-if (player_is_spectator) exitWith {};
+if (player isKindOf "VirtualSpectator_F") exitWith {};
 
 if (player getVariable ["unit_initialized", false]) exitWith {};
 player setVariable ["unit_initialized", true, true];

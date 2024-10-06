@@ -1,4 +1,4 @@
-if (!hasInterface || { player_is_spectator }) exitWith {};
+if (!hasInterface || { player isKindOf "VirtualSpectator_F" }) exitWith {};
 
 0 spawn {
 	waitUntil {!isNull player && !isNil "mission_groups_init" && {mission_groups_init}};

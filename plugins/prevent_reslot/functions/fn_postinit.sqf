@@ -6,7 +6,7 @@ if (isServer) then {
 if (hasInterface) then {
 	if (isNil "mission_preventreslot_timer") then { mission_preventreslot_timer = 600 };
 
-	if (player_is_spectator) exitWith {};
+	if (player isKindOf "VirtualSpectator_F") exitWith {};
 
 	0 spawn {
 		waitUntil { !isNil "mission_player_slots" };

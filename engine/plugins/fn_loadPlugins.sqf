@@ -40,7 +40,7 @@ if (_init == "preInit") exitWith {
 		private _i = BRM_FMK_Engine_activePlugins find "vanilla_spectator";
 		if (_i != -1 && !("ace3_spectator" call BRM_FMK_fnc_isPluginActive)) then {
 			BRM_FMK_Engine_activePlugins set [_i, "ace3_spectator"];
-			[{ !isNil "mission_game_mode" && !isNil "player_is_spectator" }, { [] call BRM_FMK_Plugin_ACE3Spectator_fnc_postInit; }] call CBA_fnc_waitUntilAndExecute;
+			[{ !isNil "mission_game_mode" }, { [] call BRM_FMK_Plugin_ACE3Spectator_fnc_postInit; }] call CBA_fnc_waitUntilAndExecute;
 		};
 	};
 
