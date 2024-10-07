@@ -1,41 +1,94 @@
-{
-	_x params ["_var", "_default"];
-	if (isNil _var) then { missionNamespace setVariable [_var, _default]; };
-} forEach [
-	["round_prep_time_seconds", 10],
-	["round_alerted_minutes", [1, 5, 15]],
-	["round_seconds_between", 5],
+private _startDelay = 10;
+private _remainderAlert = [1, 5, 15];
+private _roundDelay = 5;
 
-	["round_side_a_victory_con", "sideAcondition"],
-	["round_side_b_victory_con", "sideBcondition"],
-	["round_side_c_victory_con", "sideCcondition"],
+private _victoryA = "sideAcondition";
+private _victoryB = "sideBcondition";
+private _victoryC = "sideCcondition";
 
-	["round_timeout_winner", "SCORE"], // Also accept "SCORE" and "DRAW" and a side
+private _timeoutScoring = "SCORE"; // Also accept "SCORE" and "DRAW" and a side
 
-	["win_messages_a", ["%1 victory!", "%1 have won the round!"]],
-	["win_messages_b", ["%1 victory!", "%1 have won the round!"]],
-	["win_messages_c", ["%1 victory!", "%1 have won the round!"]],
+private _victoryMessageA = ["%1 victory!", "%1 have won the round!"];
+private _victoryMessageB = ["%1 victory!", "%1 have won the round!"];
+private _victoryMessageC = ["%1 victory!", "%1 have won the round!"];
 
-	["draw_messages", ["The round has ended in a draw!", "Draw!", "Nobody wins!"]],
+private _drawMessage = ["The round has ended in a draw!", "Draw!", "Nobody wins!"];
 
-	["round_end_notification", "NOTIFICATION"],
+private _roundEndAlertType = "NOTIFICATION";
 
-	["round_display_score", true],
+private _displayScore = true;
 
-	["round_setup_size", 10],
+private _setupRadius = 10;
 
-	["respawn_markers_A", [format ["respawn_%1", toLower str side_a_side]]],
-	["respawn_markers_B", [format ["respawn_%1", toLower str side_b_side]]],
-	["respawn_markers_C", [format ["respawn_%1", toLower str side_c_side]]]
-];
+private _respawnMarkersA = [format ["respawn_%1", toLower str side_a_side]];
+private _respawnMarkersB = [format ["respawn_%1", toLower str side_b_side]];
+private _respawnMarkersC = [format ["respawn_%1", toLower str side_c_side]];
 
-BRM_round_system_rounds_needed = ["p_round_params", 3] call BIS_fnc_getParamValue; // 1="1", 2="2", 3="3", 4="4", 5="5"
-BRM_round_system_time_limit = (["p_round_time_limit", 15] call BIS_fnc_getParamValue) * 60; // 1="1 minute", 5="5 minutes", 15="15 minutes", 30="30 minutes", 60="1 hour", 99999999="No limit"
+if (BRM_FMK_Engine_compatVersion == 0) then {
+	if (!isNil "round_prep_time_seconds") then { _startDelay = round_prep_time_seconds; };
+	if (!isNil "round_alerted_minutes") then { _remainderAlert = round_alerted_minutes apply { _x * 60 }; };
+	if (!isNil "round_seconds_between") then { _roundDelay = round_seconds_between; };
+
+	if (!isNil "round_side_a_victory_con") then { _victoryA = compile round_side_a_victory_con; };
+	if (!isNil "round_side_b_victory_con") then { _victoryB = compile round_side_b_victory_con; };
+	if (!isNil "round_side_c_victory_con") then { _victoryC = compile round_side_c_victory_con; };
+
+	if (!isNil "round_timeout_winner") then { _timeoutScoring = round_timeout_winner; };
+
+	if (!isNil "win_messages_a") then { _victoryMessageA = win_messages_a; };
+	if (!isNil "win_messages_b") then { _victoryMessageB = win_messages_b; };
+	if (!isNil "win_messages_c") then { _victoryMessageC = win_messages_c; };
+
+	if (!isNil "draw_messages") then { _drawMessage = draw_messages; };
+
+	if (!isNil "round_end_notification") then { _roundEndAlertType = round_end_notification; };
+
+	if (!isNil "round_display_score") then { _displayScore = round_display_score; };
+
+	if (!isNil "round_setup_size") then { _setupRadius = round_setup_size; };
+
+	if (!isNil "respawn_markers_A") then { _respawnMarkersA = respawn_markers_A; };
+	if (!isNil "respawn_markers_B") then { _respawnMarkersB = respawn_markers_B; };
+	if (!isNil "respawn_markers_C") then { _respawnMarkersC = respawn_markers_C; };
+} else {
+	if (fileExists "mission\settings\plugins\round_system.sqf") then {
+		call compile preprocessFileLineNumbers "mission\settings\plugins\round_system.sqf";
+	};
+};
+
+BRM_FMK_Plugin_RoundSystem_startDelay = _startDelay;
+BRM_FMK_Plugin_RoundSystem_remainderAlert = _remainderAlert;
+BRM_FMK_Plugin_RoundSystem_roundDelay = _roundDelay;
+
+BRM_FMK_Plugin_RoundSystem_victoryA = _victoryA;
+BRM_FMK_Plugin_RoundSystem_victoryB = _victoryB;
+BRM_FMK_Plugin_RoundSystem_victoryC = _victoryC;
+
+BRM_FMK_Plugin_RoundSystem_timeoutScoring = _timeoutScoring;
+
+BRM_FMK_Plugin_RoundSystem_victoryMessageA = _victoryMessageA;
+BRM_FMK_Plugin_RoundSystem_victoryMessageB = _victoryMessageB;
+BRM_FMK_Plugin_RoundSystem_victoryMessageC = _victoryMessageC;
+
+BRM_FMK_Plugin_RoundSystem_drawMessage = _drawMessage;
+
+BRM_FMK_Plugin_RoundSystem_roundEndAlertType = _roundEndAlertType;
+
+BRM_FMK_Plugin_RoundSystem_displayScore = _displayScore;
+
+BRM_FMK_Plugin_RoundSystem_setupRadius = _setupRadius;
+
+BRM_FMK_Plugin_RoundSystem_respawnMarkersA = _respawnMarkersA;
+BRM_FMK_Plugin_RoundSystem_respawnMarkersB = _respawnMarkersB;
+BRM_FMK_Plugin_RoundSystem_respawnMarkersC = _respawnMarkersC;
+
+BRM_FMK_Plugin_RoundSystem_roundsNeeded = ["p_round_params", 3] call BIS_fnc_getParamValue; // 1="1", 2="2", 3="3", 4="4", 5="5"
+BRM_FMK_Plugin_RoundSystem_timeLimit = (["p_round_time_limit", 15] call BIS_fnc_getParamValue) * 60; // 1="1 minute", 5="5 minutes", 15="15 minutes", 30="30 minutes", 60="1 hour", 99999999="No limit"
 
 // Change non-existing "respawn_guer" marker to "respawn_resistance".
 if (getMarkerType "respawn_guer" == "") then {
 	{
-		private _respawnMarkers = missionNamespace getVariable ("respawn_markers_" + _x);
+		private _respawnMarkers = missionNamespace getVariable ("BRM_FMK_Plugin_RoundSystem_respawnMarkers" + _x);
 		private _guerIndex = _respawnMarkers find "respawn_guer";
 		if (_guerIndex != -1) then {
 			if !("respawn_resistance" in _respawnMarkers) then {
@@ -91,9 +144,9 @@ if (hasInterface) then {
 
 	sleep 3;
 
-	["Timer",[format ["The match begins in %1 seconds!", round_prep_time_seconds]]] call BIS_fnc_showNotification;
+	["Timer",[format ["The match begins in %1 seconds!", BRM_FMK_Plugin_RoundSystem_startDelay]]] call BIS_fnc_showNotification;
 
-	sleep round_prep_time_seconds;
+	sleep BRM_FMK_Plugin_RoundSystem_startDelay;
 
 	if (isServer) then {
 	// =========================================================================

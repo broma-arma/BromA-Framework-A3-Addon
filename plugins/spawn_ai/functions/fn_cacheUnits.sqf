@@ -8,7 +8,7 @@ while { count units _group > 0 } do {
 	private _leader = leader _group;
 	private _units = units _group;
 
-	if (playableUnits + switchableUnits findIf { getPos _leader distance getPos _x <= AI_spawn_cache_distance } != -1) then {
+	if (playableUnits + switchableUnits findIf { getPos _leader distance getPos _x <= BRM_FMK_Plugin_SpawnAI_cacheDistance } != -1) then {
 		if (count _groupCachedUnits > 0) then {
 			{
 				_x params ["_unitClass", "_vehicle", "_vehicleClass"];

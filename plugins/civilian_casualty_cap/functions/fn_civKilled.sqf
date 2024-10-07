@@ -23,7 +23,7 @@ if (side _unit == civilian) then {
 			if (_instigatorSide == side_c_side) exitWith { 2 };
 			-1
 		};
-		if (_instigatorSide in responsible_sides && _sideIndex > -1) then {
+		if (_instigatorSide in BRM_FMK_Plugin_CivilianCasualtyCap_sides && _sideIndex > -1) then {
 			private _deadCivilians = (BRM_FMK_Plugin_CivilianCasualtyCap_civsKilled select _sideIndex) + 1;
 			BRM_FMK_Plugin_CivilianCasualtyCap_civsKilled set [_sideIndex, _deadCivilians];
 

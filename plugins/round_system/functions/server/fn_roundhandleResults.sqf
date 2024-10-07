@@ -11,7 +11,7 @@ _AVictory = {
 
 	["LOCAL", "CHAT", "BLUFOR victory.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
-	_victory = [selectRandom win_messages_a, side_a_name];
+	_victory = [selectRandom BRM_FMK_Plugin_RoundSystem_victoryMessageA, side_a_name];
 };
 
 _BVictory = {
@@ -21,7 +21,7 @@ _BVictory = {
 
 	["LOCAL", "CHAT", "OPFOR victory.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
-	_victory = [selectRandom win_messages_b, side_b_name];
+	_victory = [selectRandom BRM_FMK_Plugin_RoundSystem_victoryMessageB, side_b_name];
 };
 
 _CVictory = {
@@ -31,12 +31,12 @@ _CVictory = {
 
 	["LOCAL", "CHAT", "INDFOR victory.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
-	_victory = [selectRandom win_messages_c, side_c_name];
+	_victory = [selectRandom BRM_FMK_Plugin_RoundSystem_victoryMessageC, side_c_name];
 };
 
 _DrawVictory = {
 	_result set [1, "Alert"];
-	_victory = [selectRandom draw_messages, ""];
+	_victory = [selectRandom BRM_FMK_Plugin_RoundSystem_drawMessage, ""];
 
 	["LOCAL", "CHAT", "Draw.", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 };
@@ -44,9 +44,9 @@ _DrawVictory = {
 switch (round_end_reason) do {
 	case "OBJECTIVE": {
 		switch (true) do {
-			case (call compile round_side_a_victory_con): { [] call _AVictory };
-			case (call compile round_side_b_victory_con): { [] call _BVictory };
-			case (call compile round_side_c_victory_con): { [] call _CVictory };
+			case (call BRM_FMK_Plugin_RoundSystem_victoryA): { [] call _AVictory };
+			case (call BRM_FMK_Plugin_RoundSystem_victoryB): { [] call _BVictory };
+			case (call BRM_FMK_Plugin_RoundSystem_victoryC): { [] call _CVictory };
 		};
 	};
 	case "DEATH": {
@@ -58,9 +58,9 @@ switch (round_end_reason) do {
 	};
 	case "TIME": {
 
-		switch (typeName round_timeout_winner) do {
+		switch (typeName BRM_FMK_Plugin_RoundSystem_timeoutScoring) do {
 			case ("STRING"): {
-				switch (round_timeout_winner) do {
+				switch (BRM_FMK_Plugin_RoundSystem_timeoutScoring) do {
 					case ("DRAW"): { [] call _DrawVictory };
 					case ("SCORE"): {
 						_Aunits = {(side _x == side_a_side)} count (allUnits);
@@ -97,7 +97,7 @@ switch (round_end_reason) do {
 				};
 			};
 			case ("SIDE"): {
-				switch (round_timeout_winner) do {
+				switch (BRM_FMK_Plugin_RoundSystem_timeoutScoring) do {
 					case (side_a_side): { [] call _AVictory };
 					case (side_b_side): { [] call _BVictory };
 					case (side_c_side): { [] call _CVictory };
@@ -108,9 +108,9 @@ switch (round_end_reason) do {
 };
 
 switch (true) do {
-	case (match_points_a >= BRM_round_system_rounds_needed): { match_ending_winner = ["side_a_victory"] };
-	case (match_points_b >= BRM_round_system_rounds_needed): { match_ending_winner = ["side_b_victory"] };
-	case (match_points_c >= BRM_round_system_rounds_needed): { match_ending_winner = ["side_c_victory"] };
+	case (match_points_a >= BRM_FMK_Plugin_RoundSystem_roundsNeeded): { match_ending_winner = ["side_a_victory"] };
+	case (match_points_b >= BRM_FMK_Plugin_RoundSystem_roundsNeeded): { match_ending_winner = ["side_b_victory"] };
+	case (match_points_c >= BRM_FMK_Plugin_RoundSystem_roundsNeeded): { match_ending_winner = ["side_c_victory"] };
 };
 
 _victoryText = format[_victory select 0, _victory select 1];

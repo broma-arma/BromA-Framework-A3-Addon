@@ -6,10 +6,6 @@ if (_timeLimit == -1) exitWith {};
 // Time added per objective
 BrmFmk_TimeLimit_timeAdd = (["p_time_added", 0] call BIS_fnc_getParamValue) * 60; // 0="Disabled", 5="5 minutes", 15="15 minutes", 30="30 minutes", 60="1 hour"
 
-if (isNil "time_alerted_minutes") then { time_alerted_minutes = [120, 60, 15, 1] };
-
-time_alerted_minutes = time_alerted_minutes apply { _x * 60 };
-
 BrmFmk_TimeLimit_countdown = _timeLimit;
 
 ["BRM_FMK_taskStateChanged", {
@@ -19,9 +15,19 @@ BrmFmk_TimeLimit_countdown = _timeLimit;
 	}
 }] call CBA_fnc_addEventHandler;
 
-0 spawn {
+private _remainderAlert = [60, 900, 3600, 7200];
+
+if (BRM_FMK_Engine_compatVersion == 0) then {
+	if (!isNil "time_alerted_minutes") then { _remainderAlert = time_alerted_minutes apply { _x * 60 }; };
+} else {
+	if (fileExists "mission\settings\plugins\time_limit.sqf") then {
+		call compile preprocessFileLineNumbers "mission\settings\plugins\time_limit.sqf";
+	};
+};
+
+_remainderAlert spawn {
 	while {BrmFmk_TimeLimit_countdown > 0} do {
-		if (BrmFmk_TimeLimit_countdown <= 10 || {BrmFmk_TimeLimit_countdown in time_alerted_minutes}) then {
+		if (BrmFmk_TimeLimit_countdown <= 10 || {BrmFmk_TimeLimit_countdown in _this}) then {
 			private _time = BrmFmk_TimeLimit_countdown;
 			private _timeUnit = "second";
 			if (_time >= 60) then {

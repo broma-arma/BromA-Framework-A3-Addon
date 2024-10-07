@@ -11,8 +11,8 @@ if (
 	isNull _instigator
 	|| { vehicle _unit == vehicle _instigator }
 	|| { name _instigator == "Error: No Unit" }
-	|| { !friendly_fire_count_AI && { !isPlayer _unit || !isPlayer _instigator } }
-	|| { !friendly_fire_civilians && { _unitSide isEqualTo CIVILIAN || _instigatorSide isEqualTo CIVILIAN } }
+	|| { !BRM_FMK_Plugin_FriendlyFire_showAI && { !isPlayer _unit || !isPlayer _instigator } }
+	|| { !BRM_FMK_Plugin_FriendlyFire_showCivilian && { _unitSide isEqualTo CIVILIAN || _instigatorSide isEqualTo CIVILIAN } }
 	|| { !([_unitSide, _instigatorSide] call BIS_fnc_sideIsFriendly) }
 ) exitWith {};
 
@@ -26,5 +26,5 @@ if !(BRM_FMK_Plugin_FriendlyFire_alerts set [_names, true]) then {
 	[{
 		["ALL", "CHAT", format (["FRIENDLY FIRE: %2 has wounded %1!"] + _this)] call BRM_FMK_fnc_doLog;
 		BRM_FMK_Plugin_FriendlyFire_alerts deleteAt _this;
-	}, _names, friendly_fire_timer_minutes * 60] call CBA_fnc_waitAndExecute;
+	}, _names, BRM_FMK_Plugin_FriendlyFire_delay] call CBA_fnc_waitAndExecute;
 };

@@ -1,18 +1,24 @@
 if (mission_game_mode == "coop") exitWith {};
 
-if (isNil "setup_zone_area") then {
-	setup_zone_area = 50;
+private _radius = 50;
+
+if (BRM_FMK_Engine_compatVersion == 0) then {
+	if (!isNil "setup_zone_area") then { _radius = setup_zone_area; };
+} else {
+	if (fileExists "mission\settings\plugins\setup_zone.sqf") then {
+		call compile preprocessFileLineNumbers "mission\settings\plugins\setup_zone.sqf";
+	};
 };
 
-0 spawn {
+_radius spawn {
 	// 0="15 seconds", 1="1 minute", 2="3 minutes", 3="5 minutes", 4="10 minutes"
 	private _setupTime = [15, 60, 180, 300, 600] select (["p_setup_time", 0] call BIS_fnc_getParamValue);
 
 	private _commanderLockTVT = false;
 	if ("commander_lock" call BRM_FMK_fnc_isPluginActive) then {
-		waitUntil { !isNil "co_lock_tvt_mode" };
+		waitUntil { !isNil "BRM_FMK_Plugin_CommanderLock_tvtMode" };
 
-		_commanderLockTVT = co_lock_tvt_mode;
+		_commanderLockTVT = BRM_FMK_Plugin_CommanderLock_tvtMode;
 	};
 
 	if (isServer) then {
@@ -63,7 +69,7 @@ if (isNil "setup_zone_area") then {
 		private _marker = createMarkerLocal ["setupZone", _markerPos];
 		_marker setMarkerDirLocal 0;
 		_marker setMarkerShapeLocal "ELLIPSE";
-		_marker setMarkerSizeLocal [setup_zone_area, setup_zone_area];
+		_marker setMarkerSizeLocal [_this, _this];
 		_marker setMarkerBrushLocal "Border";
 		_marker setMarkerColorLocal ("Color" + ([side player, "color"] call BRM_FMK_fnc_getSideInfo));
 
@@ -90,13 +96,13 @@ if (isNil "setup_zone_area") then {
 				_diff = _diff vectorDiff _markerPos;
 
 				private _distSqr = vectorMagnitudeSqr _diff;
-				if (_distSqr > setup_zone_area ^ 2) then {
+				if (_distSqr > _this ^ 2) then {
 					hintSilent _message;
-					_unit setPos (_markerPos vectorAdd (vectorNormalized _diff vectorMultiply (setup_zone_area - 0.01)) select [0, 2]);
+					_unit setPos (_markerPos vectorAdd (vectorNormalized _diff vectorMultiply (_this - 0.01)) select [0, 2]);
 					_unit setVelocity [0, 0, 0];
 					_sleep = 0.01;
 				} else {
-					if (_distSqr >= (setup_zone_area * 0.75) ^ 2) then {
+					if (_distSqr >= (_this * 0.75) ^ 2) then {
 						_sleep = 0.1;
 					};
 				};

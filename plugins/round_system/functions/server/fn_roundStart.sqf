@@ -1,7 +1,7 @@
 if (!isServer) exitWith {};
 
 0 spawn {
-	sleep round_seconds_between;
+	sleep BRM_FMK_Plugin_RoundSystem_roundDelay;
 	setupZoneEnd = true;
 	publicVariable "setupZoneEnd";
 };

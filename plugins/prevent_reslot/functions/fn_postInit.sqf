@@ -1,14 +1,22 @@
+private _delay = 600;
+
+if (BRM_FMK_Engine_compatVersion == 0) then {
+	if (!isNil "mission_preventreslot_timer") then { _delay = mission_preventreslot_timer; };
+} else {
+	if (fileExists "mission\settings\plugins\prevent_reslot.sqf") then {
+		call compile preprocessFileLineNumbers "mission\settings\plugins\prevent_reslot.sqf";
+	};
+};
+
 if (isServer) then {
 	mission_player_slots = [];
 	publicVariable "mission_player_slots";
 };
 
 if (hasInterface) then {
-	if (isNil "mission_preventreslot_timer") then { mission_preventreslot_timer = 600 };
-
 	if (player isKindOf "VirtualSpectator_F") exitWith {};
 
-	0 spawn {
+	_delay spawn {
 		waitUntil { !isNil "mission_player_slots" };
 
 		private _index = -1;
@@ -26,7 +34,7 @@ if (hasInterface) then {
 
 		if (_index == -1) exitWith {
 			player setVariable ["unit_valid_slot", true, true];
-			sleep mission_preventreslot_timer;
+			sleep _this;
 
 			["Alert", ["Your slot has been locked for the remainder of the mission."]] call BIS_fnc_showNotification;
 

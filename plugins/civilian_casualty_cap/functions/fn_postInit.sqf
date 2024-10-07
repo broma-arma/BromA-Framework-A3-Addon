@@ -2,8 +2,16 @@ private _limit = ["p_dead_civies", -1] call BIS_fnc_getParamValue; // -1="Disabl
 
 if (!isServer || _limit < 0) exitWith {};
 
-if (isNil "responsible_sides") then { responsible_sides = [side_a_side, side_b_side]; };
+private _sides = [side_a_side, side_b_side];
+if (BRM_FMK_Engine_compatVersion == 0) then {
+	if (!isNil "responsible_sides") then { _sides = responsible_sides; };
+} else {
+	if (fileExists "mission\settings\plugins\civilian_casualty_cap.sqf") then {
+		call compile preprocessFileLineNumbers "mission\settings\plugins\civilian_casualty_cap.sqf";
+	};
+};
 
+BRM_FMK_Plugin_CivilianCasualtyCap_sides = _sides;
 BRM_FMK_Plugin_CivilianCasualtyCap_civsKilled = [0, 0, 0]; // Side A, B, C
 BRM_FMK_Plugin_CivilianCasualtyCap_limit = _limit; // Side A, B, C
 

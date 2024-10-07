@@ -7,9 +7,9 @@ if (_index != -1) exitWith {
 };
 
 private _lives = switch (side _unit) do {
-	case side_a_side: { mission_lives_side_a };
-	case side_b_side: { mission_lives_side_b };
-	case side_c_side: { mission_lives_side_c };
+	case side_a_side: { BRM_FMK_Plugin_RespawnSystem_livesSideA };
+	case side_b_side: { BRM_FMK_Plugin_RespawnSystem_livesSideB };
+	case side_c_side: { BRM_FMK_Plugin_RespawnSystem_livesSideC };
 	default { -1 };
 };
 if (_lives < 0) then {

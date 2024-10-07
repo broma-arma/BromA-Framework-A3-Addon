@@ -48,8 +48,6 @@ if (BRM_FMK_Engine_compatVersion == 0) then {
 	mission_author_name = [getMissionConfigValue ["Author", "Unknown"]];
 	mission_version = missionName splitString "_" param [3, "v0"];
 
-	call compile preprocessFileLineNumbers "mission\settings\plugin.sqf";
-
 	mission_settings_loaded = true;
 };
 

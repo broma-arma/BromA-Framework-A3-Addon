@@ -1,7 +1,7 @@
 #ifndef PLANK_MACROS_H
 #define PLANK_MACROS_H
 
-#define FORTS_DATA                      plank_deploy_fortData
+#define FORTS_DATA                      BRM_FMK_Plugin_PlankBuilding_fortifications
 #define GET_FORT_DATA(FORTIDX,IDX)      (FORTS_DATA) select FORTIDX select IDX
 #define GET_FORT_DISPLAY_NAME(IDX)      (GET_FORT_DATA(IDX,0))
 #define GET_FORT_CLASS_NAME(IDX)        (GET_FORT_DATA(IDX,1))

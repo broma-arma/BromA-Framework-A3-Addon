@@ -1,8 +1,6 @@
 if (!isServer) exitWith {};
 
-{ round_alerted_minutes set [_forEachIndex, (round_alerted_minutes select _forEachIndex) * 60] } forEach round_alerted_minutes;
-
-mission_countdown = BRM_round_system_time_limit;
+mission_countdown = BRM_FMK_Plugin_RoundSystem_timeLimit;
 
 ["LOCAL", "CHAT", "Initializing round condition check...", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;
 
@@ -10,7 +8,7 @@ waitUntil {
 	mission_countdown = (mission_countdown - 1);
 	mission_countdown_minutes = floor (mission_countdown / 60);
 
-	if (mission_countdown in time_alerted_minutes) then {
+	if (mission_countdown in BRM_FMK_Plugin_RoundSystem_remainderAlert) then {
 		["CLIENTS", "HINT", format ["%1 minutes remaining in the round!", mission_countdown_minutes]] call BRM_FMK_fnc_doLog;
 	};
 
@@ -22,18 +20,18 @@ waitUntil {
 
 	(mission_countdown <= 0) ||
 	(count round_dead_sides == (match_sides - 1)) ||
-	call compile round_side_a_victory_con ||
-	call compile round_side_b_victory_con ||
-	call compile round_side_c_victory_con ||
+	call BRM_FMK_Plugin_RoundSystem_victoryA ||
+	call BRM_FMK_Plugin_RoundSystem_victoryB ||
+	call BRM_FMK_Plugin_RoundSystem_victoryC ||
 	(round_over)
 };
 
 switch (true) do {
 	case (mission_countdown <= 0): { round_end_reason = "TIME" };
 	case ((count round_dead_sides == (match_sides - 1))): { round_end_reason = "DEATH" };
-	case ((call compile round_side_a_victory_con) ||
-		  (call compile round_side_b_victory_con) ||
-		  (call compile round_side_c_victory_con)): { round_end_reason = "OBJECTIVE" };
+	case ((call BRM_FMK_Plugin_RoundSystem_victoryA) ||
+		  (call BRM_FMK_Plugin_RoundSystem_victoryB) ||
+		  (call BRM_FMK_Plugin_RoundSystem_victoryC)): { round_end_reason = "OBJECTIVE" };
 };
 
 ["LOCAL", "CHAT", "Ending round condition check...", BRM_FMK_Plugin_RoundSystem_debug] call BRM_FMK_fnc_doLog;

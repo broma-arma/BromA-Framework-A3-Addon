@@ -1,3 +1,17 @@
+if (BRM_FMK_Engine_compatVersion > 0) then {
+	private _allowNoGrass = mission_game_mode == "coop";
+	private _maxViewDistance = 40000;
+	private _maxObjectDistance = 40000;
+
+	if (fileExists "mission\settings\plugins\ch_view_distance.sqf") then {
+		call compile preprocessFileLineNumbers "mission\settings\plugins\ch_view_distance.sqf";
+	};
+
+	CHVD_allowNoGrass = _allowNoGrass;
+	CHVD_maxView = _maxViewDistance;
+	CHVD_maxObj = _maxObjectDistance;
+};
+
 [] spawn {
 	if (!hasInterface) exitWith {};
 	//Wait for mission init, in case there are variables defined some place else

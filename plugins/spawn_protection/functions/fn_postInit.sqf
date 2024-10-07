@@ -1,23 +1,28 @@
 if (!isServer) exitWith {};
 
-
 if (isNil "mission_spawn_protection_time") then {
 	// Duration of spawn protection, in minutes: 0 (Disable), 1, 15, 30, -1 (Infinite), 99999 (Infinite - Backward compatibility)
 	private _duration = ["p_spawn_protection_time", -1] call BIS_fnc_getParamValue;
 	mission_spawn_protection_time = if (_duration >= 0 && _duration <= /*24 hours*/1440) then { _duration * 60 } else { -1 };
 };
 
-0 spawn {
-	waitUntil { !isNil "mission_spawn_protection_time" };
+if (mission_spawn_protection_time == 0) exitWith {};
 
-	if (mission_spawn_protection_time == 0) exitWith {};
+private _radius = 50;
 
-	if (isNil "spawn_protection_area") then {
-		spawn_protection_area = 50;
+if (BRM_FMK_Engine_compatVersion == 0) then {
+	if (!isNil "spawn_protection_area") then { _radius = spawn_protection_area; };
+} else {
+	if (fileExists "mission\settings\plugins\spawn_protection.sqf") then {
+		call compile preprocessFileLineNumbers "mission\settings\plugins\spawn_protection.sqf";
 	};
+};
+
+[_radius] spawn {
+	params ["_radius"];
 
 	private _fnc_createTrigger = {
-		params ["_side"];
+		params ["_side", ["_radius", 50]];
 
 		private _sideStr = switch (_side) do {
 			case WEST:			{ "west" };
@@ -35,7 +40,7 @@ if (isNil "mission_spawn_protection_time") then {
 		};
 
 		private _pos = getMarkerPos ("respawn_" + _sideStr);
-		private _area = [spawn_protection_area, spawn_protection_area, 0, true];
+		private _area = [_radius, _radius, 0, true];
 
 		// Create marker on clients.
 		([_pos] + _area) remoteExec ["BRM_FMK_Plugin_SpawnProtection_fnc_clientMarker", _side, "BRM_FMK_SpawnProtection_" + _sideStr];
@@ -80,10 +85,10 @@ if (isNil "mission_spawn_protection_time") then {
 	};
 
 	// Create triggers for the sides
-	private _triggers = [side_a_side call _fnc_createTrigger];
+	private _triggers = [[side_a_side, _radius] call _fnc_createTrigger];
 
-	if (mission_game_mode != "coop") then { _triggers pushBack (side_b_side call _fnc_createTrigger); };
-	if (mission_enable_side_c) then {       _triggers pushBack (side_c_side call _fnc_createTrigger); };
+	if (mission_game_mode != "coop") then { _triggers pushBack ([side_b_side, _radius] call _fnc_createTrigger); };
+	if (mission_enable_side_c) then {       _triggers pushBack ([side_c_side, _radius] call _fnc_createTrigger); };
 
 	if (mission_spawn_protection_time > 0) then { // Finite
 		// Wait until spawn protection expires.

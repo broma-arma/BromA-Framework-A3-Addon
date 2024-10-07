@@ -73,7 +73,7 @@ plank_deploy_fnc_createFortification = {
         player playAction "medicStart";
 
         [
-            ((_duration/2)/(PLANK_FMK_buildSpeed))+1, _target,
+            ((_duration/2)/(BRM_FMK_Plugin_PlankBuilding_buildSpeedMultiplier))+1, _target,
             { deleteVehicle (_this select 0); player playAction "medicStop"; },
             { player playAction "medicStop" },
             format ["Removing %1...", _displayName]
@@ -226,7 +226,7 @@ plank_deploy_fnc_confirmFortPlacement = {
     player playAction "medicStart";
 
     [
-        (_duration / PLANK_FMK_buildSpeed), [_unit],
+        (_duration / BRM_FMK_Plugin_PlankBuilding_buildSpeedMultiplier), [_unit],
         {
             _args = _this select 0;
             _unit = _args select 0;

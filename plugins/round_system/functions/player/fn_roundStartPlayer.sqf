@@ -14,7 +14,7 @@ if (mission_ACE3_enabled) then {
 
 _respawn = [] call BRM_FMK_Plugin_RoundSystem_fnc_moveToRespawn;
 
-[_respawn, round_setup_size, round_seconds_between, [side player, "side"] call BRM_FMK_fnc_getSideInfo] spawn BRM_FMK_Plugin_RoundSystem_fnc_setupZone;
+[_respawn, BRM_FMK_Plugin_RoundSystem_setupRadius, BRM_FMK_Plugin_RoundSystem_roundDelay, [side player, "side"] call BRM_FMK_fnc_getSideInfo] spawn BRM_FMK_Plugin_RoundSystem_fnc_setupZone;
 
 player allowDamage true;
 

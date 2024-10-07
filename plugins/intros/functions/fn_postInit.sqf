@@ -1,8 +1,19 @@
 if !(hasInterface) exitWith { intro_cutscene_over = true; };
 
+private _type = "TEXT";
+if (BRM_FMK_Engine_compatVersion == 0) then {
+	if (!isNil "intro_cutscene") then {
+		_type = intro_cutscene;
+	};
+} else {
+	if (fileExists "mission\settings\plugins\intros.sqf") then {
+		call compile preprocessFileLineNumbers "mission\settings\plugins\intros.sqf";
+	};
+};
+
 intro_cutscene_over = false;
 
-0 spawn {
+_type spawn {
 	if !(isMultiplayer && !didJIP && !(player isKindOf "VirtualSpectator_F")) exitWith { intro_cutscene_over = true; };
 
 	sleep 0.1; // After briefing
@@ -15,8 +26,7 @@ intro_cutscene_over = false;
 		intro_cutscene_over = true;
 	};
 
-	if (isNil "intro_cutscene") then { intro_cutscene = "ESTABLISHING" };
-	switch (intro_cutscene) do {
+	switch (_this) do {
 		case "ESTABLISHING": {
 			0 spawn {
 				[player, format ["%1, %2", toUpper worldName, player call BIS_fnc_locationDescription], random [100, 150, 200], random [50, 75, 100]] call BIS_fnc_establishingShot;
