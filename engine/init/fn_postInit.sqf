@@ -130,4 +130,33 @@ if (BRM_FMK_Engine_compatVersion > 0) then {
 	["CAManBase", "InitPost", { _this call BRM_FMK_Engine_fnc_initAI; }, true, ["VirtualMan_F", "B_UAV_AI", "O_UAV_AI", "UAV_AI_base_F"], true] call CBA_fnc_addClassEventHandler;
 };
 
-_this call BRM_FMK_Engine_fnc_endLoading;
+pluginsLoaded = true; // Backward compatibility (Used by assignLoadout, assignCargo, and dac_config_creator)
+
+private _scripts = _this call BRM_FMK_Engine_fnc_loadScripts;
+
+BRM_FMK_Engine_postInitTime = diag_tickTime - BRM_FMK_Engine_postInitTime;
+BRM_FMK_Engine_initTime = BRM_FMK_Engine_preInitTime + BRM_FMK_Engine_postInitTime;
+["LOCAL", "F_LOG", format ["%1 initialized in %2 seconds (Pre: %3, Post: %4)", getText (configFile >> "CfgPatches" >> "BRM_FRAMEWORK" >> "versionDesc"), BRM_FMK_Engine_initTime, BRM_FMK_Engine_preInitTime, BRM_FMK_Engine_postInitTime]] call BRM_FMK_fnc_doLog;
+
+["BRM_FMK_Engine_initialized"] call CBA_fnc_localEvent;
+BRM_FMK_Engine_initialized = true;
+
+if (BRM_FMK_Engine_compatVersion == 0) then {
+	[{ _this findif { !scriptDone _x } == -1 }, {
+		["BRM_FMK_initialized"] call CBA_fnc_localEvent;
+		BRM_FMK_initialized = true;
+		["LOCAL", "F_LOG", format ["MISSION SCRIPTS INITIALIZED @ %1", time]] call BRM_FMK_fnc_doLog;
+	}, _scripts] call CBA_fnc_waitUntilAndExecute;
+} else {
+	_scripts spawn {
+		sleep 0.001;
+
+		{
+			[] call _x;
+		} forEach _this;
+
+		["BRM_FMK_initialized"] call CBA_fnc_localEvent;
+		BRM_FMK_initialized = true;
+		["LOCAL", "F_LOG", format ["MISSION SCRIPTS INITIALIZED @ %1", time]] call BRM_FMK_fnc_doLog;
+	}
+};

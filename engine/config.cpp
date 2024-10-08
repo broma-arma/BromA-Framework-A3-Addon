@@ -17,7 +17,6 @@ class CfgFunctions {
 			class assignSideProperties {};
 			class initVariables {};
 			class loadContentCargo {};
-			class endLoading {};
 		};
 
 		class diary {
@@ -63,6 +62,7 @@ class CfgFunctions {
 			class loadSettings {};
 			class loadBriefing {};
 			class logParams {};
+			class loadScripts {};
 		};
 
 		class plugins {
