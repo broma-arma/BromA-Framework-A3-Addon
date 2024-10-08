@@ -5,7 +5,7 @@ class BRM_FMK {
 			version = 1;
 			authors[] = {"Nife"};
 			description = "This plugin manages rounds for TvT/COTvT missions.";
-			conflict_plugins[] = {"spawn_protection", "f_casualties_cap", "commander_lock"};
+			conflict_plugins[] = {"spawn_protection", "casualty_cap", "commander_lock"};
 			tag = "BRM_FMK_Plugin_RoundSystem";
 		};
 	};
