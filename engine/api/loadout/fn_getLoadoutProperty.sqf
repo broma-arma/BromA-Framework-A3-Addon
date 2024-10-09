@@ -21,7 +21,6 @@ if (BRM_FMK_Engine_compatVersion == 0) then { _loadoutCondition = !(_faction in 
 #include "read-data.sqf"
 
 private _cache = createHashMapFromArray [
-	// TODO Does anything actually use "ALL"
 	["ALL", [_defaultSide, _defaultColor, _factionName, _factionSkill, _factionCallsigns, _factionUnits, _factionVehicles, _factionObjects, _factionDACCamps]],
 	["SIDE", _defaultSide],
 	["COLOR", _defaultColor],
