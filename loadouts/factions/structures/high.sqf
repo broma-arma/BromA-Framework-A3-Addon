@@ -52,11 +52,11 @@ switch (true) do {
 			[_unit,[[_commonRIFLEGL select GL, _count40mm]]] call BRM_FMK_fnc_addtoBackpack;
 		};
 		[_unit, _commonRIFLEGL, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
-		[_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
-		[_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "primary", if (!isNil "_commonEOT") then { _commonEOT } else { _commonCCO }] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
+		[_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
+		[_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 		[_unit, "LR"] call BRM_FMK_fnc_addRadio;
 		if (!_isCommonATDisposable) then {
@@ -71,11 +71,11 @@ switch (true) do {
 		[_unit, ["ItemGPS"]] call BRM_FMK_fnc_linkItem;
 		[_unit, _laserdesignator] call BRM_FMK_fnc_addOptics;
 		[_unit, _reconRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-		[_unit, _reconRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
 		[_unit, "primary", _commonSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "primary", _reconSCOPE] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
+		[_unit, _reconRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
 		[_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, "handgun", _commonPISTOLSUPPRESSOR] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "LR"] call BRM_FMK_fnc_addRadio;
@@ -418,8 +418,8 @@ switch (true) do {
 		[_unit, _sniperHEAD, _sniperUNIFORM, _commonVEST, if (_isLeader) then { "empty" } else { _commonBACKPACK }] call BRM_FMK_fnc_useUniform;
 		[_unit,[[_wSmoke,2],[_grenade,_countGRENADES],[_mapTools,1],[_flashlight,1],[_rangeCard,1],[_weatherMeter,1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonSNIPER, _countSNIPER] call BRM_FMK_fnc_addWeaponKit;
-		[_unit, _commonSNIPER select GUN, (_countSNIPER/2)+1, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
 		[_unit, "primary", _commonMAGNIFIED] call BRM_FMK_fnc_attachToWeapon;
+		[_unit, _commonSNIPER select GUN, (_countSNIPER/2)+1, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
 		if (_isLeader && _aiBackpackRadios) then { [_unit, "BP"] call BRM_FMK_fnc_addRadio };
 	};
 
