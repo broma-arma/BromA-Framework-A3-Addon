@@ -53,7 +53,7 @@ if (BRM_FMK_Engine_compatVersion == 0) then {
 		if (!fileExists _file) exitWith {};
 
 		private _script = [] call compile preprocessFileLineNumbers _file;
-		if !(_x isEqualType {}) exitWith {
+		if !(_script isEqualType {}) exitWith {
 			["%1 doesn't return code. Make sure there is nothing after the `}` in %2", _name, _file] call BIS_fnc_error;
 		};
 
