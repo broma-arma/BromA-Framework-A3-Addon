@@ -55,7 +55,7 @@ switch (true) do {
 		[_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
 		[_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
-		[_unit, "primary", _commonCCO] call BRM_FMK_fnc_attachToWeapon;
+		[_unit, "primary", if (!isNil "_commonEOT") then { _commonEOT } else { _commonCCO }] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 		[_unit, "LR"] call BRM_FMK_fnc_addRadio;
