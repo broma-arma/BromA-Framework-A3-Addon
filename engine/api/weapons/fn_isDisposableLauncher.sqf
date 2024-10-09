@@ -25,6 +25,6 @@ RETURNS:
 params [["_launcher", "", [""]]];
 
 private _cfgLauncher = configFile >> "CfgWeapons" >> _launcher;
-!isNil { cba_disposable_NormalLaunchers getVariable _launcher } // CBA
+!isNil { cba_disposable_NormalLaunchers get _launcher } // CBA
 || { getNumber (_cfgLauncher >> "rhs_disposable") != 0 } // RHS
 || { getText (_cfgLauncher >> "uk3cb_used_launcher") != "" }; // 3CB
