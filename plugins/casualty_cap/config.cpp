@@ -16,7 +16,6 @@ class CfgFunctions {
 		class functions {
 			file = "\broma_framework\plugins\casualty_cap\functions";
 			class postInit {};
-			class CasualtiesCapCheck {};
 		};
 	};
 };
