@@ -41,7 +41,7 @@ if (mission_TFAR_enabled) exitWith {
 	} else {
 		private _currentRadio = _unit getSlotItemName 611;
 		private _otherRadio = [_side, ["SR", "LR"] select parseNumber (_kind == "SR")] call BRM_FMK_fnc_getRadio;
-		if (_currentRadio find _radio != 0 || _currentRadio find _otherRadio != 0) then {
+		if (_currentRadio find _radio != 0 && _currentRadio find _otherRadio != 0) then {
 			_unit linkItem _radio;
 		};
 	};
