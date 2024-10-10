@@ -48,9 +48,13 @@ _weaponsAT              = _specAT;
 _commonSMG              = ["hlc_smg_MP5N","hlc_30Rnd_9x19_B_MP5"];
 _commonRCO              = "optic_MRCO";
 _commonCCO              = "R3F_AIMPOINT";
-_commonMAGNIFIED        = "optic_LRPS";
+_commonMAGNIFIED        = "R3F_J10_MILDOT";
 _commonSUPPRESSOR       = "rhsusf_acc_rotex5_grey";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
+_commonRAIL             = "R3F_PIRAT";
+_reconSCOPE             = "rhsusf_acc_su230";
+_marksmanSCOPE          = "optic_LRPS";
+_rifleSCOPE             = _commonCCO;
 _NVG                    = "rhsusf_ANPVS_14";
 
 // AMMO COUNT ==================================================================
