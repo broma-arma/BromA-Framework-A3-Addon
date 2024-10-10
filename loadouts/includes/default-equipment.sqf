@@ -59,11 +59,29 @@ if (isNil "_countWeaponsAACARGO") then { _countWeaponsAACARGO = _countWeaponsAA 
 if (isNil "_countCommonATCARGO") then { _countCommonATCARGO = _countATCARGO; };
 if (isNil "_countSpecATCARGO") then { _countSpecATCARGO = _countATCARGO; };
 
-if (isNil "_isCommonATDisposable" && _commonAT isEqualTo "") then { _isCommonATDisposable = true; };
-if (isNil "_isCommonATDisposable") then { _isCommonATDisposable = _commonAT select /*GUN*/0 call BRM_FMK_fnc_isDisposableLauncher; };
+if (isNil "_isCommonATDisposable") then {
+	if (_commonAT isEqualTo "") then {
+		_isCommonATDisposable = true;
+	} else {
+		_isCommonATDisposable = _commonAT select /*GUN*/0 call BRM_FMK_fnc_isDisposableLauncher;
+	}
+};
+if (_isCommonATDisposable) then {
+	_commonAT = +_commonAT;
+	_commonAT set [1, ""];
+};
 
-if (isNil "_isSpecATDisposable" && _specAT isEqualTo "") then { _isSpecATDisposable = true; };
-if (isNil "_isSpecATDisposable") then { _isSpecATDisposable = _specAT select /*GUN*/0 call BRM_FMK_fnc_isDisposableLauncher; };
+if (isNil "_isSpecATDisposable") then {
+	if (_specAT isEqualTo "") then {
+		_isSpecATDisposable = true;
+	} else {
+		_isSpecATDisposable = _specAT select /*GUN*/0 call BRM_FMK_fnc_isDisposableLauncher;
+	}
+};
+if (_isSpecATDisposable) then {
+	_specAT = +_specAT;
+	_specAT set [1, ""];
+};
 
 if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") then { 4 } else { _countCAT }; };
 if (isNil "_countTourniquetCARGO") then { _countTourniquetCARGO = _countTourniquet * 10; };
