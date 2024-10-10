@@ -46,7 +46,7 @@ switch (true) do {
 		} else {
 			[_unit,[[_commonRIFLEGL select GL, _count40mm]]] call BRM_FMK_fnc_addtoBackpack;
 		};
-		[_unit, _commonRIFLEGL, _countRIFLE, [_commonRAIL, if (!isNil "_commonEOT") then { _commonEOT } else { _commonCCO }, _commonBIPOD]] call BRM_FMK_fnc_addWeaponKit;
+		[_unit, _commonRIFLEGL, _countRIFLE, [_commonRAIL, _commonEOT, _commonBIPOD]] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _commonRIFLE select GUN, _countTracerRIFLE, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
 		[_unit, _commonPISTOL, _countPISTOL] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
