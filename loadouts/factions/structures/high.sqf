@@ -291,8 +291,7 @@ switch (true) do {
 
 	case (_isUAVOperator): {
 		[_unit, _commonHEAD, _commonUNIFORM, _slVEST, _UAVBag] call BRM_FMK_fnc_useUniform;
-		[_unit,[[_wSmoke,2],[_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
-		[_unit,[["ACE_UAVBattery", 3]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_grenade,_countGRENADES],["ACE_UAVBattery", 3]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRIFLE, _countRIFLE] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, "primary", _commonRAIL] call BRM_FMK_fnc_attachToWeapon;
 		[_unit, "primary", _commonBIPOD] call BRM_FMK_fnc_attachToWeapon;
