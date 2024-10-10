@@ -130,7 +130,7 @@ _randomVEST = selectRandom _vestsLIST;
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "H_Watchcap_blk";
-_officerHEAD = "empty";
+_officerHEAD = "";
 _medicHEAD = _commonHEAD;
 _crewmanHEAD = _commonHEAD;
 _pilotHEAD = _commonHEAD;

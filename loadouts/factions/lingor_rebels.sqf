@@ -99,7 +99,7 @@ _headsLIST = [
 	"H_Booniehat_oli",
 	"UK3CB_H_Bandanna_Green_Check",
 	"BRM_PatrolCap_green",
-	"empty"
+	""
 ];
 
 _uniformsLIST = [

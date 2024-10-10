@@ -173,7 +173,7 @@ if (_camo == 'anp') then {
 
 	_headsLIST = [
 		"UK3CB_ANP_B_H_Patrolcap_Off_BLU",
-		"empty"
+		""
 	];
 
 	_uniformsLIST = [

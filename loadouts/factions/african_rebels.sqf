@@ -101,7 +101,7 @@ _headsLIST = [
 	"UK3CB_H_Mil_Turban_Wrap",
 	"rhs_ssh68_2",
 	"rhs_ssh60",
-	"empty"
+	""
 ];
 
 _uniformsLIST = [

@@ -89,7 +89,7 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_commonHEAD = ["empty","BRM_Beanie_Green"] selectRandomWeighted [0.7,0.3];
+_commonHEAD = ["","BRM_Beanie_Green"] selectRandomWeighted [0.7,0.3];
 _leaderHEAD = "rhs_vkpo_cap";
 _officerHEAD = "UK3CB_H_Beret_Officer_Red_Star";
 _medicHEAD = _commonHEAD;
@@ -144,7 +144,7 @@ _reconBACKPACK = _bigBACKPACK;
 _commonGOGGLES = selectRandom ["G_Balaclava_blk","G_Balaclava_oli"];
 
 if (_assignLoadoutMode) then {
-	if (_commonHEAD == "empty" && !(_isTeamLeader  || _isOfficer || _isSquadLeader || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
+	if (_commonHEAD == "" && !(_isTeamLeader  || _isOfficer || _isSquadLeader || _isCrewman || _isHelicopterCrew || _isHelicopterPilot || _isPilot)) then {
 		_unit addGoggles _commonGOGGLES;
 	};
 };

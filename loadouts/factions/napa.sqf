@@ -115,7 +115,7 @@ if (_assignLoadoutMode) then {
 	if (!_isLeader && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
 };
 
-_commonHEAD = "empty";
+_commonHEAD = "";
 _leaderHEAD = _commonHEAD;
 _officerHEAD = _commonHEAD ;
 _medicHEAD = _commonHEAD;

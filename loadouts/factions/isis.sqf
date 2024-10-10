@@ -102,7 +102,7 @@ _headsLIST = [
 	"UK3CB_H_Turban_Facewrap_02_Blk",
 	"UK3CB_ADE_O_H_Turban_01_1",
 	"UK3CB_H_Mil_Turban_Wrap",
-	"empty"
+	""
 ];
 
 _uniformsLIST = [

@@ -90,7 +90,7 @@ _headsLIST = [
 	"UK3CB_H_Cap_Back_ION_BLK",
 	"UK3CB_H_Radio_Cap_Back_ION_BLK_ALT",
 	"BRM_BeanieCOMS_Black",
-	"empty"
+	""
 ];
 
 _uniformsLIST = [
