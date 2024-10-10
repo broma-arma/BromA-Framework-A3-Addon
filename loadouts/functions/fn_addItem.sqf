@@ -78,7 +78,7 @@ if (_object isKindOf "Man") then {
 				};
 				case "v": {
 					if (_object canAddItemToVest _kind) exitWith {
-						if (_isBackpack) exitWith { ["canAddItemToUniform returned true for a backpack: '%1'", _kind] call BIS_fnc_error; };
+						if (_isBackpack) exitWith { ["canAddItemToVest returned true for a backpack: '%1'", _kind] call BIS_fnc_error; };
 						_object addItemToVest _kind;
 
 						1 call _fnc_added
