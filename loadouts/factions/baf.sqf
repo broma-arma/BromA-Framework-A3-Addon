@@ -113,7 +113,7 @@ _headsLIST = [
 _goggleLIST = [
 	"UK3CB_G_Tactical_Clear_Shemagh_Green_Headset",
 	"UK3CB_G_Tactical_Black_Shemagh_Green",
-	"empty"
+	""
 ];
 
 _crewmanHEAD = "UK3CB_BAF_H_CrewHelmet_ESS_A";
@@ -152,7 +152,7 @@ switch (_camo) do {
 		_goggleLIST = [
 			"UK3CB_G_Tactical_Clear_Shemagh_Green_Headset",
 			"UK3CB_G_Tactical_Black_Shemagh_Green",
-			"empty"
+			""
 		];
 
 		_crewmanHEAD = "UK3CB_BAF_H_CrewHelmet_DDPM_ESS_A";
@@ -190,7 +190,7 @@ switch (_camo) do {
 		_goggleLIST = [
 			"UK3CB_G_Tactical_Clear_Shemagh_Green_Headset",
 			"UK3CB_G_Tactical_Black_Shemagh_Green",
-			"empty"
+			""
 		];
 
 		_crewmanHEAD = "UK3CB_BAF_H_CrewHelmet_DPMT_ESS_A";
@@ -244,7 +244,7 @@ _pilotVEST = "UK3CB_V_Pilot_Vest";
 
 _specATBACKPACK = _commonBACKPACK;
 
-if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
+if (_assignLoadoutMode && _randomGOGGLE != "") then { _unit addGoggles _randomGOGGLE; };
 
 // MISC EQUIPMENT ==============================================================
 

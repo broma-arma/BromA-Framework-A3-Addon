@@ -172,7 +172,7 @@ _medicalBACKPACK = "BRM_SqBackpack_Black";
 _specATBACKPACK = "rhs_rpg_2";
 _reconBACKPACK = "BRM_PatrolBP_Black";
 
-if (_assignLoadoutMode && _randomHEAD == "empty") then {
+if (_assignLoadoutMode && _randomHEAD == "") then {
 	_unit addGoggles selectRandom ["UK3CB_G_Face_Wrap_01","G_Balaclava_blk"];
 };
 

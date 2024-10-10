@@ -108,7 +108,7 @@ _uniformsLIST = [
 
 _randomHEAD = selectRandom _headsLIST;
 _randomUNIFORM = selectRandom _uniformsLIST;
-_randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+_randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black",""];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
@@ -151,7 +151,7 @@ _bigBACKPACK = _commonBACKPACK;
 _reconBACKPACK = "BRM_PatrolBPH_"+_camo;
 
 if (_assignLoadoutMode) then {
-	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "") then {
 		_unit addGoggles _randomGOGGLE;
 	};
 };

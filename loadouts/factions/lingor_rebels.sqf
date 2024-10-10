@@ -116,7 +116,7 @@ _uniformsLIST = [
 
 _randomHEAD = selectRandom _headsLIST;
 _randomUNIFORM = selectRandom _uniformsLIST;
-_randomGOGGLE = ["rhs_scarf","empty"] selectRandomWeighted [0.3,0.7];
+_randomGOGGLE = ["rhs_scarf",""] selectRandomWeighted [0.3,0.7];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = _commonHEAD;
@@ -158,7 +158,7 @@ _commonBACKPACK = "UK3CB_B_Alice_K";
 _bigBACKPACK = "UK3CB_B_Alice_K";
 _specATBACKPACK = "rhs_rpg_2";
 
-if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
+if (_assignLoadoutMode && _randomGOGGLE != "") then { _unit addGoggles _randomGOGGLE; };
 
 // MISC EQUIPMENT ==============================================================
 

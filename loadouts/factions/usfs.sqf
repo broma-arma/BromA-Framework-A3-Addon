@@ -92,7 +92,7 @@ _headsLIST = [
 _goggleLIST = [
 	"rhsusf_shemagh_grn",
 	"rhsusf_shemagh_gogg_grn",
-	"empty"
+	""
 ];
 
 _vestsLIST = [
@@ -143,7 +143,7 @@ _pilotVEST = "UK3CB_V_Pilot_Vest";
 _commonBACKPACK = "rhsusf_assault_eagleaiii_ocp";
 _bigBACKPACK = "B_Carryall_mcamo";
 
-if (_assignLoadoutMode && _randomGOGGLE != "empty") then { _unit addGoggles _randomGOGGLE; };
+if (_assignLoadoutMode && _randomGOGGLE != "") then { _unit addGoggles _randomGOGGLE; };
 
 // EXTRA EQUIPMENT =============================================================
 

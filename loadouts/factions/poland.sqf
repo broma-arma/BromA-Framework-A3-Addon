@@ -93,7 +93,7 @@ _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+_randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black",""];
 
 _commonHEAD = if (_camo == "wdl") then {
 	selectRandom [
@@ -152,7 +152,7 @@ _commonBACKPACK = ["BRM_PatrolBP_Brown", "BRM_PatrolBP_Green"] select (_camo == 
 _bigBACKPACK = ["BRM_PatrolBPH_Brown", "BRM_PatrolBP_Green"] select (_camo == "wdl");
 
 if (_assignLoadoutMode) then {
-	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "") then {
 		_unit addGoggles _randomGOGGLE;
 	};
 };

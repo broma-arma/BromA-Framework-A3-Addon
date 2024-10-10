@@ -91,7 +91,7 @@ _headsLIST = [
 ];
 
 _randomHEAD = selectRandom _headsLIST;
-_randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black","empty"];
+_randomGOGGLE = selectRandom ["rhsusf_oakley_goggles_clr","rhs_googles_black",""];
 
 _commonHEAD = _randomHEAD;
 _leaderHEAD = "UK3CB_BAF_H_Beret_RAMC_PRR_Over";
@@ -138,7 +138,7 @@ _bigBACKPACK = "BRM_PatrolBPH_Green";
 _reconBACKPACK = _bigBACKPACK;
 
 if (_assignLoadoutMode) then {
-	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "empty") then {
+	if (!(_isOfficer || _isCrewman ||_isHelicopterCrew || _isHelicopterPilot || _isPilot) && _randomGOGGLE != "") then {
 		_unit addGoggles _randomGOGGLE;
 	};
 };
