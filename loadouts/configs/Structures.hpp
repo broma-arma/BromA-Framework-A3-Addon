@@ -1,5 +1,5 @@
 #define QUOTE(VAR) #VAR
-#define STRUCTURE_ID(ID,FILE) ID = QUOTE(\broma_framework\loadouts\factions\structures\FILE.sqf)
+#define STRUCTURE_ID(ID,FILE) ID = QUOTE(\broma_framework\loadouts\structures\FILE.sqf)
 #define STRUCTURE(FILE) STRUCTURE_ID(FILE,FILE)
 #define DEPRECATED_STRUCTURE(DEP,ID) DEP[] = {#ID}
 class Structures {
