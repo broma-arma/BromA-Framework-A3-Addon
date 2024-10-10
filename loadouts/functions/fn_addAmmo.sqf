@@ -16,9 +16,9 @@ PARAMETERS:
     2 - (OPTIONAL) Amount to add, default 1. (NUMBER)
 
 USAGE:
-    [player, "100Rnd_65x39_caseless_mag"] call BRM_FMK_fnc_addItem;
-    [player, "100Rnd_65x39_caseless_mag", 2] call BRM_FMK_fnc_addItem;
-    [crate, "100Rnd_65x39_caseless_mag", 20] call BRM_FMK_fnc_addItem;
+    [player, "100Rnd_65x39_caseless_mag"] call BRM_FMK_fnc_addAmmo;
+    [player, "100Rnd_65x39_caseless_mag", 2] call BRM_FMK_fnc_addAmmo;
+    [crate, "100Rnd_65x39_caseless_mag", 20] call BRM_FMK_fnc_addAmmo;
 
 RETURNS:
     The amount that was added. (NUMBER)
