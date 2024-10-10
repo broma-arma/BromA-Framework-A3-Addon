@@ -35,7 +35,7 @@ private [
 	"_commonSUPPRESSOR", "_commonPISTOLSUPPRESSOR",
 	"_commonRAIL", "_commonBIPOD",
 
-	"_rifleSCOPE", "_mgSCOPE", "_reconSCOPE",
+	"_rifleSCOPE", "_arSCOPE", "_mgSCOPE", "_reconSCOPE",
 
 	"_countGRENADES", "_countGrenadesCARGO",
 

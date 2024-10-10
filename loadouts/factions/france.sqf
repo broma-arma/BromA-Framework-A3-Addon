@@ -52,9 +52,10 @@ _commonMAGNIFIED        = "R3F_J10_MILDOT";
 _commonSUPPRESSOR       = "rhsusf_acc_rotex5_grey";
 _commonPISTOLSUPPRESSOR = "muzzle_snds_L";
 _commonRAIL             = "R3F_PIRAT";
+_rifleSCOPE             = _commonCCO;
 _reconSCOPE             = "rhsusf_acc_su230";
 _marksmanSCOPE          = "optic_LRPS";
-_rifleSCOPE             = _commonCCO;
+_mgSCOPE                = "rhsusf_acc_ELCAN";
 _NVG                    = "rhsusf_ANPVS_14";
 
 // AMMO COUNT ==================================================================

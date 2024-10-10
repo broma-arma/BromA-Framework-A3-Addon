@@ -46,7 +46,7 @@ _NVG = "rhsusf_ANPVS_15";
 
 _rifleSCOPE = _commonCCO;
 _reconSCOPE = "rhsusf_acc_acog_rmr";
-_mgSCOPE = "rhsusf_acc_eotech_552";
+_arSCOPE = "rhsusf_acc_eotech_552";
 
 // AMMO COUNT ==================================================================
 

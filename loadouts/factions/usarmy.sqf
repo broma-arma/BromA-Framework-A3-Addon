@@ -59,7 +59,7 @@ _commonSUPPRESSOR = "r3f_silencieux_hk417";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_15";
 
-_mgSCOPE = _commonEOT;
+_arSCOPE = _commonEOT;
 _rifleSCOPE = _commonCCO;
 _reconSCOPE = "rhsusf_acc_su230_mrds_c";
 

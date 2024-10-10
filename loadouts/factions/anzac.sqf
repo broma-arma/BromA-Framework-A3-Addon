@@ -51,7 +51,7 @@ _commonSUPPRESSOR = "hlc_muzzle_556nato_m42000";
 _commonPISTOLSUPPRESSOR = "rhsusf_acc_omega9k";
 _NVG = "rhsusf_ANPVS_15";
 
-_mgSCOPE = _commonCCO;
+_arSCOPE = _commonCCO;
 _rifleSCOPE = _commonCCO;
 
 // AMMO COUNT ==================================================================

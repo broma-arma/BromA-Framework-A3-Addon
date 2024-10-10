@@ -63,7 +63,7 @@ _commonSUPPRESSOR = "rhsusf_acc_rotex5_grey";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_14";
 
-_mgSCOPE = _commonEOT;
+_arSCOPE = _commonEOT;
 _rifleSCOPE = _commonCCO;
 _reconSCOPE = "rhsusf_acc_acog_rmr";
 

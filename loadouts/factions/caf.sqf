@@ -52,7 +52,7 @@ _commonSUPPRESSOR = "hlc_muzzle_556nato_rotexiiic_grey";
 _commonPISTOLSUPPRESSOR = "";
 _NVG = "rhsusf_ANPVS_14";
 
-_mgSCOPE = "rhsusf_acc_eotech_552_wd";
+_arSCOPE = "rhsusf_acc_eotech_552_wd";
 _rifleSCOPE = "rhsusf_acc_eotech_552_wd";
 
 // AMMO COUNT ==================================================================

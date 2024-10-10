@@ -52,7 +52,7 @@ _commonSUPPRESSOR       = "hlc_muzzle_556NATO_KAC";
 _commonPISTOLSUPPRESSOR = "";
 _NVG                    = "rhsusf_ANPVS_14";
 
-_mgSCOPE = "rhsusf_acc_eotech_552";
+_arSCOPE = "rhsusf_acc_eotech_552";
 _rifleSCOPE = "hlc_optic_g36dualoptic15x";
 _reconSCOPE = "rhsusf_acc_g33_xps3_flip";
 
