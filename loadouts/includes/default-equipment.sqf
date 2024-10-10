@@ -67,7 +67,6 @@ if (isNil "_isCommonATDisposable") then {
 	}
 };
 if (_isCommonATDisposable) then {
-	_commonAT = +_commonAT;
 	_commonAT set [1, ""];
 };
 
@@ -79,7 +78,6 @@ if (isNil "_isSpecATDisposable") then {
 	}
 };
 if (_isSpecATDisposable) then {
-	_specAT = +_specAT;
 	_specAT set [1, ""];
 };
 
