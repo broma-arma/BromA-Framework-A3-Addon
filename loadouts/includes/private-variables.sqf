@@ -31,7 +31,7 @@ private [
 	"_weaponsAA", "_countWeaponsAA", "_countWeaponsAACARGO",
 	"_weaponsAT", "_countWeaponsAT", "_countWeaponsATCARGO",
 
-	"_commonRCO", "_commonCCO", "_commonEOT", "_commonMAGNIFIED", "_marksmanSCOPE", "_specATSCOPE",
+	"_commonRCO", "_commonCCO", "_commonEOT", "_commonMAGNIFIED", "_marksmanSCOPE", "_specATSCOPE", "_weaponsATSCOPE",
 	"_commonSUPPRESSOR", "_commonPISTOLSUPPRESSOR",
 	"_commonRAIL", "_commonBIPOD",
 

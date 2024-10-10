@@ -113,7 +113,7 @@ switch (true) do {
 	case (_isWeaponsAT): {
 		[_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
 		[_unit, _commonRIFLE, _countRIFLELOW, "", _commonRAIL, "", _commonBIPOD] call BRM_FMK_fnc_addWeaponKit;
-		[_unit, _weaponsAT, 1, "", "", ["", _specATSCOPE] select (_specATSCOPE != "" && _weaponsAT select GUN == _specAT select GUN), ""] call BRM_FMK_fnc_addWeaponKit;
+		[_unit, _weaponsAT, 1, "", "", _weaponsATSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
 	};
 
 	case (_isWeaponsATAssistant): {

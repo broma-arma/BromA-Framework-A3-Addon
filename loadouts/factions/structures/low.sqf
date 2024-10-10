@@ -100,7 +100,7 @@ switch (true) do {
 		[_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _bigBACKPACK] call BRM_FMK_fnc_useUniform;
 		[_unit,[[_wSmoke,2], [_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-		[_unit, _weaponsAT, 1, "", "", ["", _specATSCOPE] select (_specATSCOPE != "" && _weaponsAT select GUN == _specAT select GUN), ""] call BRM_FMK_fnc_addWeaponKit;
+		[_unit, _weaponsAT, 1, "", "", _weaponsATSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
 	};
 
 	case (_isWeaponsATAssistant): {
