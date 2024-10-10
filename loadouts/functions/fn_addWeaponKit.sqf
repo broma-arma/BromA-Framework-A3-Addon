@@ -15,8 +15,14 @@ PARAMETERS:
     1 - Array (ARRAY)
         0 - Config name of the weapon. (STRING)
         1 - Config name of the magazine. (STRING)
-    2 - Amount of magazines to add. (NUMBER)
-    3 - (OPTIONAL) Weapon attachments. Default []. (ARRAY)
+    2 - Amount of magazines to add. (NUMBER/ARRAY)
+        0 - Amount of primary magazines to add. (NUMBER)
+        1 - Amount of secondary magazines to add. (NUMBER)
+    3 - (OPTIONAL) Muzzle attachment, random if array. Default "". (STRING/ARRAY)
+    4 - (OPTIONAL) Rail attachment, random if array. Default "". (STRING/ARRAY)
+    5 - (OPTIONAL) Optic attachment, random if array. Default "". (STRING/ARRAY)
+    6 - (OPTIONAL) Bipod attachment, random if array. Default "". (STRING/ARRAY)
+    7 - (OPTIONAL) Cargo object only: Amount of weapons to add. Default 1. (NUMBER)
 
 USAGE:
     [player, ["arifle_MX_F", "30Rnd_65x39_caseless_mag"], 7] call BRM_FMK_fnc_addWeaponKit;
@@ -32,21 +38,39 @@ RETURNS:
 ================================================================================
 */
 
-params ["_unit", "_kind", "_amount", ["_attachments", [], [[]]]];
+params ["_unit", "_kind", "_amount", ["_muzzle", "", ["", []]], ["_rail", "", ["", []]], ["_optic", "", ["", []]], ["_bipod", "", ["", []]], ["_weaponAmount", 1, [0]]];
 
-if (_kind isEqualTo "") exitWith {};
-
-_kind params [["_weapon", "", [""]], ["_magazine", "", [""]]];
+_kind params [["_weapon", "", [""]], ["_primaryMagazine", "", [""]], ["_secondaryMagazine", "", [""]]];
 
 if (_weapon isEqualTo "") exitWith {};
 
-[_unit, _magazine, _amount] call BRM_FMK_fnc_addAmmo;
-[_unit, _weapon, 1] call BRM_FMK_fnc_addWeapon;
+_amount params ["_primaryAmount", ["_secondaryAmount", 0, [0]]];
 
-{
-	if (_x isEqualType []) then { _x = if (_x isEqualTo []) then { "" } else { selectRandom _x }; };
+if (_unit isKindOf "Man") then {
+	_unit addWeapon _weapon;
 
-	if (_x isNotEqualTo "") then {
-		_unit addWeaponItem [_weapon, _x, true];
+	{
+		if (_x isEqualType []) then { _x = if (_x isEqualTo []) then { "" } else { selectRandom _x }; };
+
+		if (_x isNotEqualTo "") then {
+			_unit addWeaponItem [_weapon, _x, true];
+		};
+	} forEach [_muzzle, _rail, _optic, _bipod];
+
+	if (_primaryMagazine != "") then {
+		_unit addWeaponItem [_weapon, _primaryMagazine, true];
+		[_unit, _primaryMagazine, _primaryAmount - 1] call BRM_FMK_fnc_addAmmo;
 	};
-} forEach _attachments;
+	if (_secondaryMagazine != "") then {
+		_unit addWeaponItem [_weapon, _secondaryMagazine, true];
+		[_unit, _secondaryMagazine, _secondaryAmount - 1] call BRM_FMK_fnc_addAmmo;
+	};
+} else {
+	_unit addWeaponWithAttachmentsCargoGlobal [[_weapon, _muzzle, _rail, _optic, [_primaryMagazine, -1], [_secondaryMagazine, -1], _bipod], _weaponAmount];
+	if (_primaryMagazine != "") then {
+		_unit addItemCargoGlobal [_primaryMagazine, _primaryAmount - _weaponAmount];
+	};
+	if (_secondaryMagazine != "") then {
+		_unit addItemCargoGlobal [_secondaryMagazine, _secondaryAmount - _weaponAmount];
+	};
+};
