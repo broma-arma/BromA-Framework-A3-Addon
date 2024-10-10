@@ -32,6 +32,8 @@ RETURNS:
 
 params ["_object", "_kind", ["_amount", 1], ["_order", "uvb"], ["_splitAdded", false]];
 
+if (_amount < 1) exitWith {};
+
 if (_kind isEqualType []) then {
 	_kind = _kind select 1;
 };
