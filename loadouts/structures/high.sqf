@@ -97,7 +97,7 @@ switch (true) do {
 			if (_specAT select GUN == _SMAW select GUN) then {
 				[_unit,[["rhs_mag_smaw_SR", 5]]] call BRM_FMK_fnc_addtoBackpack;
 			};
-			[_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+			[_unit, _specAT select GUN, _countHE, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
 		};
 	};
 
@@ -241,7 +241,7 @@ switch (true) do {
 			if (_specAT select GUN == _SMAW select GUN) then {
 				[_unit,[["rhs_mag_smaw_SR", 5]]] call BRM_FMK_fnc_addtoBackpack;
 			};
-			[_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+			[_unit, _specAT select GUN, _countHE, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
 		};
 	};
 

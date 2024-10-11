@@ -89,7 +89,7 @@ switch (true) do {
 		[_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _specAT, _countAT, "", "", _specATSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
 		if (!_isSpecATDisposable) then {
-			[_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+			[_unit, _specAT select GUN, _countHE, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
 		};
 	};
 
@@ -233,7 +233,7 @@ switch (true) do {
 		[_unit, _reconRIFLE, _countRIFLELOW, _commonSUPPRESSOR, "", _reconSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _specAT, _countAT, "", "", _specATSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
 		if (!_isSpecATDisposable) then {
-			[_unit, _specAT select GUN, 1, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+			[_unit, _specAT select GUN, _countHE, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
 		};
 	};
 
