@@ -16,9 +16,6 @@ _defaultName = [_nameAMERICAN];
 _defaultInsignia = "USP_PATCH_ROK_ARMY_9INF_DIV";
 _defaultColor = "blue";
 
-/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
-
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_ROKA

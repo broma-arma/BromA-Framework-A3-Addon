@@ -20,9 +20,6 @@ _defaultName = [_nameSPANISH];
 _defaultInsignia = "USP_PATCH_MORALE_LAMBDA_OCP";
 _defaultColor = "white";
 
-/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-_factionSkill = [[0.7,0.8],   [0.7,0.8],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
-
 // WEAPONS =====================================================================
 
 _commonRIFLE = _G36A1;

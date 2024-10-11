@@ -22,9 +22,6 @@ _defaultName     = [_nameAMERICAN];
 _defaultInsignia = "";
 _defaultColor    = "blue";
 
-/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
-
 // WEAPONS =====================================================================
 
 _commonRIFLE            = ["arifle_MX_khk_F", "30Rnd_65x39_caseless_mag"];

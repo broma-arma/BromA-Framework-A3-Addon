@@ -17,9 +17,6 @@ _defaultName = [_nameAMERICAN, _nameAFRICAN ,_nameARABIC, _nameRUSSIAN];
 _defaultInsignia = "";
 _defaultColor = "white";
 
-/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
-
 // WEAPONS =====================================================================
 
 _commonRIFLE = ["HLC_rifle_XM8_Carbine","hlc_30rnd_556x45_EPR_G36"];

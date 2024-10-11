@@ -19,9 +19,6 @@ _defaultName = [_nameARABIC];
 _defaultInsignia = "USP_PATCH_AFG_LOCAL_POLICE";
 _defaultColor = "blue";
 
-/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
-
 // CAMO ========================================================================
 /*
     Set in mission with: BRM_FMK_LoadoutCamo_AFGHANISTAN

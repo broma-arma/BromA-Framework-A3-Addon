@@ -17,9 +17,6 @@ _defaultName = [_nameAMERICAN];
 _defaultInsignia = "USP_PATCH_USA_ARMY_75RGR_1BTN_ACO";
 _defaultColor = "blue";
 
-/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
-
 // WEAPONS =====================================================================
 
 _commonRIFLE    = _ACRSHORTT;

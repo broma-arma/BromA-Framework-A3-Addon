@@ -16,9 +16,6 @@ _defaultName = [_nameFRENCH];
 _defaultInsignia = "";
 _defaultColor = "red";
 
-/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-_factionSkill = [[0.4,0.6],   [0.5,0.6],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.9,1]];
-
 // WEAPONS =====================================================================
 
 _rifleLIST = [
