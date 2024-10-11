@@ -91,6 +91,7 @@ if (isNil "_countSplint") then { _countSplint = 4; };
 if (isNil "_countSplintCARGO") then { _countSplintCARGO = _countSplint * 10; };
 
 if (isNil "_commonEOT") then { _commonEOT = _commonCCO; };
+if (isNil "_rifleSCOPE") then { _rifleSCOPE = ""; };
 if (isNil "_reconRIFLE") then { _reconRIFLE = _commonRIFLE; };
 if (isNil "_reconSCOPE") then { _reconSCOPE = _commonRCO; };
 if (isNil "_sniperSCOPE") then { _sniperSCOPE = if (isNil "_commonMAGNIFIED") then { "" } else { _commonMAGNIFIED }; };

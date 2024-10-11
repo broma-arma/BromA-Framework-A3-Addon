@@ -332,10 +332,8 @@ switch (true) do {
 
 // ADDS ESSENTIALS =============================================================
 
-if (!isNil '_rifleSCOPE') then {
-	if (primaryWeapon _unit == _commonRIFLE select GUN && _unit weaponAccessories primaryWeapon _unit select 2 == "") then {
-		[_unit, "primary", _rifleSCOPE] call BRM_FMK_fnc_attachToWeapon;
-	};
+if (_rifleSCOPE != "" && { primaryWeapon _unit == _commonRIFLE select GUN && { _unit weaponAccessories primaryWeapon _unit select 2 == "" } }) then {
+	[_unit, "primary", _rifleSCOPE] call BRM_FMK_fnc_attachToWeapon;
 };
 
 [_unit, _suppliesNORMAL] call BRM_FMK_fnc_addtoUniform;
