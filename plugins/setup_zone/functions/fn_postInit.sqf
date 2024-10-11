@@ -11,8 +11,12 @@ if (BRM_FMK_Engine_compatVersion == 0) then {
 };
 
 _radius spawn {
-	// 0="15 seconds", 1="1 minute", 2="3 minutes", 3="5 minutes", 4="10 minutes"
-	private _setupTime = [15, 60, 180, 300, 600] select (["p_setup_time", 0] call BIS_fnc_getParamValue);
+	private _setupTime = if (BRM_FMK_Engine_compatVersion == 0) then {
+		// 0="15 seconds", 1="1 minute", 2="3 minutes", 3="5 minutes", 4="10 minutes"
+		[15, 60, 180, 300, 600] select (["p_setup_time", 0] call BIS_fnc_getParamValue);
+	} else {
+		["p_setup_time", 15] call BIS_fnc_getParamValue
+	};
 
 	private _commanderLockTVT = false;
 	if ("commander_lock" call BRM_FMK_fnc_isPluginActive) then {
