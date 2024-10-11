@@ -18,36 +18,48 @@ _defaultName = [_nameAMERICAN];
 _defaultInsignia = "";
 _defaultColor = "blue";
 
-/*              "Accuracy", "Aiming Shake", "Aiming Speed", "Endurance", "Spoting Distance", "Spotting Time", "Courage", "Reloading Speed", "Commanding", "General" */
-_factionSkill = [[0.7,0.8],   [0.8,0.9],      [0.7,0.8],     [0.7,0.9],      [0.8,0.9],        [0.7,0.8],     [0.8,0.9],     [0.7,0.8],      [0.7,0.9],   [0.7,0.8]];
-
 // WEAPONS =====================================================================
 
 _commonRIFLE = _Mk20;
 _commonRIFLEGL = _Mk20GL;
-_commonPISTOL = _Rook;
 _commonAR = _Zafir;
 _commonMG = _Zafir;
-_commonMARKSMAN = _Mk20;
-_commonSNIPER = _GM6;
+_commonMarksman = _Mk20;
+_commonSniper = _GM6;
+_commonSMG = _Mk20C;
+
+_commonPistol = _Rook;
+
 _commonAT = _RPG42;
 _specAT = _RPG42;
-_commonSMG = _Mk20C;
+
 _commonRCO = _ARCO;
 _commonCCO = _EOT;
+_commonEOT = _commonCCO;
+
+_rifleSCOPE = "";
+_arSCOPE = "";
+_reconSCOPE = _commonRCO;
 _sniperSCOPE = _SOS;
-_commonSUPPRESSOR = "muzzle_snds_M";
-_commonPISTOLSUPPRESSOR = "muzzle_snds_L";
-_NVG = _NVGEN1;
+_marksmanSCOPE = _sniperSCOPE;
+_specATSCOPE = "";
+_mgSCOPE = "";
+_weaponsATSCOPE = "";
+
+_commonSUPPRESSOR = _sup556;
+_commonPISTOLSUPPRESSOR = _sup9mm;
+
+_commonRAIL = "";
+_commonBIPOD = "";
 
 // AMMO COUNT ==================================================================
 
-_countRIFLE = 6;
-_countRIFLELOW = 4;
+_countRifle = 6;
+_countRifleLOW = 4;
 _countPISTOL = 2;
 _countAR = 5;
 _countMG = 3;
-_countSNIPER = 4;
+_countSniper = 4;
 _countSpecAT = 3;
 _countSpecHE = 1;
 _countGRENADES = 3;
@@ -62,6 +74,7 @@ _countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
 _countSpecATCARGO = 15;
+_countSpecHECARGO = 15;
 _countGrenadesCARGO = 20;
 _count40mmCARGO = 40;
 
@@ -71,49 +84,21 @@ _countBANDAGE = 20;
 _countMORPHINE = 10;
 _countEPI = 5;
 _countTourniquet = 3;
+_countSplint = 4;
 _countBLOODBAG = 5;
 _countPAK = 2;
 
 _countBandageCARGO = 40;
 _countMorphineCARGO = 30;
 _countEpiCARGO = 20;
+_countTourniquetCARGO = 30;
+_countSplintCARGO = 40;
 _countBloodbagCARGO = 20;
 _countPAKCARGO = 10;
 
 // UNIFORMS ====================================================================
 
-_headsLIST = [
-	"H_Bandanna_khk",
-	"H_Bandanna_mcamo",
-	"H_Bandanna_sgg",
-	"H_Bandanna_sand"
-];
-
-_uniformsLIST = [
-	"U_C_Poloshirt_blue",
-	"U_C_Poloshirt_burgundy",
-	"U_C_Poloshirt_redwhite",
-	"U_C_Poloshirt_salmon",
-	"U_C_Poloshirt_stripped",
-	"U_C_Poloshirt_tricolour"
-];
-
-_vestsLIST = [
-	"V_BandollierB_blk",
-	"V_BandollierB_cbr",
-	"V_BandollierB_rgr",
-	"V_BandollierB_khk",
-	"V_BandollierB_oli"
-];
-
-_gogglesLIST = [
-];
-
-_randomHEAD = selectRandom _headsLIST;
-_randomUNIFORM = selectRandom _uniformsLIST;
-_randomVEST = selectRandom _vestsLIST;
-
-_commonHEAD = _randomHEAD;
+_commonHEAD = selectRandom ["H_Bandanna_khk", "H_Bandanna_mcamo", "H_Bandanna_sgg", "H_Bandanna_sand"];
 _leaderHEAD = _commonHEAD;
 _officerHEAD = _commonHEAD;
 _medicHEAD = "H_Bandanna_cbr";
@@ -125,7 +110,7 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = _commonHEAD;
 
-_commonUNIFORM = _randomUNIFORM;
+_commonUNIFORM = selectRandom ["U_C_Poloshirt_blue", "U_C_Poloshirt_burgundy", "U_C_Poloshirt_redwhite", "U_C_Poloshirt_salmon", "U_C_Poloshirt_stripped", "U_C_Poloshirt_tricolour"];
 _officerUNIFORM = "U_BG_Guerilla2_3";
 _pilotUNIFORM = "U_B_PilotCoveralls";
 _sniperUNIFORM = "U_B_GhillieSuit";
@@ -137,7 +122,7 @@ _medicUNIFORM = "U_Marshal";
 _demoUNIFORM = _commonUNIFORM;
 _reconUNIFORM = _commonUNIFORM;
 
-_commonVEST = _randomVEST;
+_commonVEST = selectRandom ["V_BandollierB_blk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_khk", "V_BandollierB_oli"];
 _officerVEST = _commonVEST;
 _ftlVEST = _commonVEST;
 _slVEST = _commonVEST;
@@ -147,9 +132,13 @@ _medicVEST = _commonVEST;
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVEST = _commonVEST;
 
 _commonBACKPACK = "B_AssaultPack_rgr";
 _bigBACKPACK = "B_Carryall_ocamo";
+_medicalBACKPACK = _bigBACKPACK;
+_specATBACKPACK = _bigBACKPACK;
+_reconBACKPACK = _bigBACKPACK;
 
 // EXTRA EQUIPMENT =============================================================
 
@@ -162,8 +151,12 @@ _ATTripod = "B_HMG_01_support_F";
 _mortar = "B_Mortar_01_weapon_F";
 _mortarTripod = "B_Mortar_01_support_F";
 
-_UAVBag = "auto";
-_UAVTerminal = "auto";
+_UAVBag = "vanilla";
+_UAVTerminal = "vanilla";
+
+_NVG = _NVGEN1;
+_nightOnlyNVGs = false;
+_aiBackpackRadios = false;
 
 // VEHICLES ====================================================================
 
