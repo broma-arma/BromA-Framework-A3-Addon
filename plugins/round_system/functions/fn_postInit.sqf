@@ -83,7 +83,9 @@ BRM_FMK_Plugin_RoundSystem_respawnMarkersB = _respawnMarkersB;
 BRM_FMK_Plugin_RoundSystem_respawnMarkersC = _respawnMarkersC;
 
 BRM_FMK_Plugin_RoundSystem_roundsNeeded = ["p_round_params", 3] call BIS_fnc_getParamValue; // 1="1", 2="2", 3="3", 4="4", 5="5"
-BRM_FMK_Plugin_RoundSystem_timeLimit = (["p_round_time_limit", 15] call BIS_fnc_getParamValue) * 60; // 1="1 minute", 5="5 minutes", 15="15 minutes", 30="30 minutes", 60="1 hour", 99999999="No limit"
+private _timeLimit = ["p_round_time_limit", 15] call BIS_fnc_getParamValue; // 1="1 minute", 5="5 minutes", 15="15 minutes", 30="30 minutes", 60="1 hour", 99999999 or -1="No limit"
+if (_timeLimit > 0) then { _timeLimit = _timeLimit * 60; };
+BRM_FMK_Plugin_RoundSystem_timeLimit = _timeLimit;
 
 // Change non-existing "respawn_guer" marker to "respawn_resistance".
 if (getMarkerType "respawn_guer" == "") then {
