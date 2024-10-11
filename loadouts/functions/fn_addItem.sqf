@@ -15,12 +15,13 @@ PARAMETERS:
     1 - Config name of the item to add. (STRING)
     2 - (OPTIONAL) Amount to add, default 1. (NUMBER)
     3 - (OPTIONAL) Man object only: priority of the uniform, vest, backpack, default "uvb". (STRING)
-    4 - (OPTIONAL) Man object only: True to return the amount added according to amount added to the uniform, vest, and backpack. (STRING)
+    4 - (OPTIONAL) Man object only: True to return the amount added to the uniform, vest, and backpack. (BOOLEAN)
 
 USAGE:
-    [player, "FirstAidKit"] call BRM_FMK_fnc_addItem; // [1, 0, 0]
-    [player, "FirstAidKit", 2] call BRM_FMK_fnc_addItem; // [2, 0, 0]
-    [player, "NLAW_F", 2, "bvu"] call BRM_FMK_fnc_addItem; // [0, 0, 2]
+    [player, "FirstAidKit"] call BRM_FMK_fnc_addItem; // 1
+    [player, "FirstAidKit", 2] call BRM_FMK_fnc_addItem; // 2
+    [player, "NLAW_F", 2, "bvu"] call BRM_FMK_fnc_addItem; // 2
+    [player, "NLAW_F", 2, "bvu", true] call BRM_FMK_fnc_addItem; // [0, 0, 2]
     [crate, "arifle_MX_F"] call BRM_FMK_fnc_addItem; // 1
     [crate, "B_AssaultPack_rgr", 2] call BRM_FMK_fnc_addItem; // 2
 
