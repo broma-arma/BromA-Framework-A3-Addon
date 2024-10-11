@@ -50,18 +50,18 @@ if (isNil "_commonAR") then { _commonAR = _commonMG; };
 if (isNil "_countAR") then { _countAR = _countMG; };
 if (isNil "_countArCARGO") then { _countArCARGO = _countAR * 4; };
 
-if (isNil "_countWeaponsAT") then { _countWeaponsAT = 2; };
-if (isNil "_countWeaponsATCARGO") then { _countWeaponsATCARGO = _countWeaponsAT * 5; };
-
-if (isNil "_countWeaponsAA") then { _countWeaponsAA = 2; };
-if (isNil "_countWeaponsAACARGO") then { _countWeaponsAACARGO = _countWeaponsAA * 5; };
-
 if (isNil "_countSpecAT") then { _countSpecAT = if (isNil "_countAT") then { 3 } else { _countAT }; };
 if (isNil "_countSpecHE") then { _countSpecHE = if (isNil "_countHE") then { 1 } else { _countHE }; };
 
 if (isNil "_countSpecATCARGO") then { _countSpecATCARGO = if (isNil "_countATCARGO") then { 15 } else { _countATCARGO }; };
 if (isNil "_countSpecHECARGO") then { _countSpecHECARGO = _countSpecATCARGO; };
 if (isNil "_countCommonATCARGO") then { _countCommonATCARGO = _countSpecATCARGO; };
+
+if (isNil "_countWeaponsAT") then { _countWeaponsAT = _countSpecAT; };
+if (isNil "_countWeaponsATCARGO") then { _countWeaponsATCARGO = _countSpecATCARGO; };
+
+if (isNil "_countWeaponsAA") then { _countWeaponsAA = _countSpecAT; };
+if (isNil "_countWeaponsAACARGO") then { _countWeaponsAACARGO = _countSpecATCARGO; };
 
 if (isNil "_isCommonATDisposable") then {
 	if (_commonAT isEqualTo "") then {
