@@ -44,9 +44,9 @@ _assignLoadoutMode = false;
 if (BRM_FMK_Engine_compatVersion > 0) then {
 	{
 		_x = toLower _x;
-		private _overrideCargo = false;
+		private _override = false;
 		call BRM_FMK_Engine_fnc_missionCargoList;
-		if (!_overrideCargo) then {
+		if (!_override) then {
 			call BRM_FMK_Engine_fnc_cargoList;
 		};
 	} forEach _type;
