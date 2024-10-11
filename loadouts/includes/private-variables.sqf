@@ -24,8 +24,8 @@ private [
 	"_commonMG", "_countMG", "_countMgCARGO", "_countTracerMG",
 	"_commonMarksman",
 	"_commonSniper", "_countSniper", "_countSniperCARGO",
-	"_commonAT", "_countAT", "_countATCARGO", "_countCommonATCARGO", "_isCommonATDisposable",
-	"_specAT", "_countSpecATCARGO", "_isSpecATDisposable",
+	"_commonAT", "_countCommonATCARGO", "_isCommonATDisposable",
+	"_specAT", "_countSpecAT", "_countSpecATCARGO", "_countSpecHE", "_countSpecHECARGO", "_isSpecATDisposable",
 	"_commonSMG",
 	"_commonGL",
 	"_weaponsAA", "_countWeaponsAA", "_countWeaponsAACARGO",
@@ -38,8 +38,6 @@ private [
 	"_rifleSCOPE", "_arSCOPE", "_mgSCOPE", "_reconSCOPE",
 
 	"_countGRENADES", "_countGrenadesCARGO",
-
-	"_countHE",
 
 	"_commonHEAD", "_leaderHEAD", "_officerHEAD", "_medicHEAD", "_crewmanHEAD", "_pilotHEAD", "_helicrewHEAD", "_helipilotHEAD", "_sniperHEAD", "_demoHEAD", "_reconHEAD",
 	"_commonUNIFORM", "_officerUNIFORM", "_pilotUNIFORM", "_sniperUNIFORM", "_marksmanUNIFORM", "_helicrewUNIFORM", "_crewUNIFORM", "_mgUNIFORM", "_medicUNIFORM", "_demoUNIFORM", "_reconUNIFORM",
@@ -71,6 +69,7 @@ private [
 
 	// Deprecated
 	"_countCAT", "_isATDisposable",
+	"_countAT", "_countATCARGO", "_countHE",
 
 	// Unused
 	"_commonRifleATTACHMENTS", "_commonHandgunATTACHMENTS", "_commonMGATTACHMENTS", "_commonMarksmanATTACHMENTS", "_commonSniperATTACHMENTS", "_commonSpecATATTACHMENTS", "_commonRifleGLATTACHMENTS", "_commonSMGATTACHMENTS",

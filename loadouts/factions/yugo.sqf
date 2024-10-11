@@ -48,20 +48,19 @@ _countPISTOL   = 2;
 _countAR       = 7;
 _countMG       = 5;
 _countSNIPER   = 5;
-_countAT       = 3;
+_countSpecAT   = 3;
 _countGRENADES = 3;
 _count40mm     = 10;
 
 _countTracerRIFLE = 2;
 _countTracerMG = 1;
-_countHE = 1;
 
 _countRifleCARGO = 30;
 _countPistolCARGO = 10;
 _countArCARGO = 20;
 _countMgCARGO = 20;
 _countSniperCARGO = 30;
-_countATCARGO = 15;
+_countSpecATCARGO = 15;
 _countGrenadesCARGO = 20;
 _count40mmCARGO = 40;
 

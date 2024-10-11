@@ -87,9 +87,9 @@ switch (true) do {
 		[_unit, _commonHEAD, _commonUNIFORM, _commonVEST, _specATBACKPACK] call BRM_FMK_fnc_useUniform;
 		[_unit,[[_wSmoke,2], [_grenade,_countGRENADES]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRIFLE, _countRIFLELOW] call BRM_FMK_fnc_addWeaponKit;
-		[_unit, _specAT, _countAT, "", "", _specATSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
+		[_unit, _specAT, _countSpecAT, "", "", _specATSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
 		if (!_isSpecATDisposable) then {
-			[_unit, _specAT select GUN, _countHE, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+			[_unit, _specAT select GUN, _countSpecHE, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
 		};
 	};
 
@@ -223,7 +223,7 @@ switch (true) do {
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 		[_unit,[[_wSmoke,2],[_rSmoke,2],[_gSmoke,2],[_grenade,_countGRENADES],[_rChemlight,2],[_bChemlight,2],[_wFlare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _reconRIFLE, _countRIFLE, _commonSUPPRESSOR, "", _commonRCO, ""] call BRM_FMK_fnc_addWeaponKit;
-		[_unit, _commonAT, _countAT] call BRM_FMK_fnc_addWeaponKit;
+		[_unit, _commonAT, 1] call BRM_FMK_fnc_addWeaponKit;
 	};
 
 	case (_isReconAT): {
@@ -231,9 +231,9 @@ switch (true) do {
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 		[_unit,[[_wSmoke,2],[_rSmoke,2],[_gSmoke,2],[_grenade,_countGRENADES],[_rChemlight,2],[_bChemlight,2],[_wFlare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _reconRIFLE, _countRIFLELOW, _commonSUPPRESSOR, "", _reconSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
-		[_unit, _specAT, _countAT, "", "", _specATSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
+		[_unit, _specAT, _countSpecAT, "", "", _specATSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
 		if (!_isSpecATDisposable) then {
-			[_unit, _specAT select GUN, _countHE, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
+			[_unit, _specAT select GUN, _countSpecHE, ["HE"]] call BRM_FMK_fnc_addAmmoAuto;
 		};
 	};
 
@@ -293,7 +293,7 @@ switch (true) do {
 			[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 			[_unit,[[_toolKit,1]]] call BRM_FMK_fnc_addtoBackpack;
 		} else {
-			[_unit, _commonAT, _countAT] call BRM_FMK_fnc_addWeaponKit;
+			[_unit, _commonAT, 1] call BRM_FMK_fnc_addWeaponKit;
 		};
 	};
 

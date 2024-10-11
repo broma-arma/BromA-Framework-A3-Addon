@@ -61,7 +61,10 @@ switch (toLower _x) do {
 		};
 
 		if (!_isSpecATDisposable) then {
-			_supplies pushBack [_specAT select RAMMO, _countSpecATCARGO];
+			_supplies append [
+				[_specAT select RAMMO, _countSpecATCARGO],
+				[[_specAT, ["HE"]] call BRM_FMK_fnc_getAmmoClass, _countSpecHECARGO]
+			];
 		};
 
 		if (!isNil "_reconRIFLE") then {
