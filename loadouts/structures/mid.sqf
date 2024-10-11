@@ -308,7 +308,7 @@ switch (true) do {
 		[_unit, _sniperHEAD, _sniperUNIFORM, _commonVEST, if (_isLeader) then { "" } else { _commonBACKPACK }] call BRM_FMK_fnc_useUniform;
 		if (_isLeader && _aiBackpackRadios) then { [_unit, "BP"] call BRM_FMK_fnc_addRadio };
 		[_unit,[[_wSmoke,2],[_grenade,_countGRENADES],[_mapTools,1],[_flashlight,1],[_weatherMeter,1]]] call BRM_FMK_fnc_addtoVest;
-		[_unit, _commonSNIPER, _countSNIPER, "", "", _commonMAGNIFIED, ""] call BRM_FMK_fnc_addWeaponKit;
+		[_unit, _commonSNIPER, _countSNIPER, "", "", _sniperSCOPE, ""] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _commonSNIPER select GUN, (_countSNIPER/2)+1, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
 	};
 

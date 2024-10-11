@@ -41,7 +41,7 @@ _weaponsAT = _TitanAT;
 
 _commonRCO = _ACOred;
 _commonCCO = "optic_ico_01_f";
-_commonMagnified = "optic_LRPS";
+_sniperSCOPE = "optic_LRPS";
 _marksmanScope = _SOS;
 _specATScope = "";
 _arSCOPE = _ACOred;
