@@ -59,7 +59,7 @@ if (_unit isKindOf "Man") then {
 
 	if (_primaryMagazine != "") then {
 		_unit addWeaponItem [_weapon, _primaryMagazine, true];
-		[_unit, _primaryMagazine, _primaryAmount - 1, ["vbu", "bvu"] select (getNumber (configFile >> "CfgMagazines" >> _secondaryMagazine >> "mass") > 10)] call BRM_FMK_fnc_addItem;
+		[_unit, _primaryMagazine, _primaryAmount - 1, ["vbu", "bvu"] select (getNumber (configFile >> "CfgMagazines" >> _primaryMagazine >> "mass") > 10)] call BRM_FMK_fnc_addItem;
 	};
 	if (_secondaryMagazine != "") then {
 		_unit addWeaponItem [_weapon, _secondaryMagazine, true];
