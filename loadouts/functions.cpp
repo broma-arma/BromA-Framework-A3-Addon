@@ -10,7 +10,6 @@ class loadouts_functions {
 	class addEmptyBackpack {};
 	class addItem {};
 	class addItems {};
-	class addMedicBasics {};
 	class addOptics {};
 	class addRadio {};
 	class addToBackpack {};
@@ -31,4 +30,5 @@ class loadouts_deprecated {
 	file = "\broma_framework\loadouts\functions\deprecated";
 	class addRadioToCargo {};
 	class addToCargo {};
+	class addMedicBasics {};
 };
