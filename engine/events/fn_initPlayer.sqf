@@ -27,12 +27,7 @@ RETURNS:
 
 if (!hasInterface) exitWith {};
 
-private _initPlayer_preState = [player, player == player, !isNull player, clientOwner, getClientState, didJIP, diag_tickTime];
-finishMissionInit;
-private _initPlayer_initState = [player, player == player, !isNull player, clientOwner, getClientState, didJIP, diag_tickTime];
-waitUntil { player == player && !isNull player };
-private _initPlayer_postState = [player, player == player, !isNull player, clientOwner, getClientState, didJIP, diag_tickTime];
-["SERVER", "LOG", format ["[BRM_FMK] DEBUG PLAYER INIT: %1, %2, %3", _initPlayer_preState, _initPlayer_initState, _initPlayer_postState]] call BRM_FMK_fnc_doLog;
+finishMissionInit; // TODO This seems to do something, ~0.268 delay, but what exactly and should it be kept here? Further testing required.
 
 ["LOCAL", "F_LOG", format ["INITIALIZING %4PLAYER '%1' (%2) @ %3", name player, player, time, ["", "JIP "] select didJIP]] call BRM_FMK_fnc_doLog;
 
