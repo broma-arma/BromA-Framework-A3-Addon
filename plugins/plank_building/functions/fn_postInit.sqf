@@ -61,6 +61,6 @@ BRM_FMK_Plugin_PlankBuilding_buildSpeedMultiplier = _buildSpeedMultiplier;
     plank_isInitialized = true;
 }, []] call CBA_fnc_waitUntilAndExecute;
 
-if !(hasInterface) then {
-	[] call BRM_FMK_PlankBuilding_fnc_playerPostInit;
+if (hasInterface) then {
+	[] call BRM_FMK_Plugin_PlankBuilding_fnc_playerPostInit;
 };
