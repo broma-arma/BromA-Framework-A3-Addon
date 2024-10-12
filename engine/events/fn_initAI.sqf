@@ -37,7 +37,10 @@ if (_unit getVariable ["unit_initialized", false]) exitWith {};
 _unit setVariable ["unit_initialized", true];
 
 if (!BRM_FMK_Engine_initialized) exitWith {
-	[{ BRM_FMK_Engine_initialized }, { _this call BRM_FMK_fnc_initAI; }, _this] call CBA_fnc_waitUntilAndExecute;
+	[{ BRM_FMK_Engine_initialized }, {
+		_this select 0 setVariable ["unit_initialized", false];
+		_this call BRM_FMK_fnc_initAI;
+	}, _this] call CBA_fnc_waitUntilAndExecute;
 };
 
 _unit setVariable ["unit_side", side _unit, true]; // Backward compatibility
