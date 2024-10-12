@@ -29,9 +29,9 @@ PARAMETERS:
         2 - Condition for failure. (STRING, but must evaluate to BOOLEAN)
     4 - Task priority. (NUMBER)
         2 - Primary, completion required to complete mission and failure causes mission failure.
-        0 - Secondary, completion or failure required to complete mission.
+        1 - Secondary, completion or failure required to complete mission.
         3 - Abortive, failure causes mission failure.
-        1 - Optional, outcome doesn't affect mission outcome.
+        0 - Optional, outcome doesn't affect mission outcome.
     5 - Task event callback. (ARRAY)
         0 - Code executed when the task is assigned to the players. (STRING, but must evaluate to CODE)
         1 - Code executed whenever the mission is completed. (STRING, but must evaluate to CODE)
@@ -64,7 +64,7 @@ _predicates params ["_predicateAssign", "_predicateWin", ["_predicateLose", {fal
 _callbacks params ["_callbackAssigned", "_callbackCompleted", "_callbackFailed"];
 
 [
-	_owner, _id, [1, 3, 0, 2] select _priority,
+	_owner, _id, [3, 1, 0, 2] select _priority,
 	[_title, _desc, _type], _position,
 	[_predicateWin, _predicateLose, _predicateAssign],
 	[_callbackCompleted, _callbackFailed, _callbackAssigned]
