@@ -41,7 +41,7 @@ if (hasInterface) then {
 		"Made possible using the BromA Framework, assembled by the BromA Mission Making Team @ https://broma.onozuka.info - all credits given to their respective creators."
 	] joinString "<br />"], taskNull, "NONE", false];
 
-	if (isMultiplayer) then {
+	if (isMultiplayer && getClientStateNumber < /*"BRIEFING READ"*/10) then {
 		// Enable channels during briefing.
 		0 spawn {
 			private _disableChannels = getMissionConfigValue "disableChannels";
