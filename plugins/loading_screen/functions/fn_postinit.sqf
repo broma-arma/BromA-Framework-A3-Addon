@@ -7,10 +7,17 @@ loading_screen_finished = false;
 if !(hasInterface && isMultiplayer) exitWith { loading_screen_finished = true; };
 
 0 spawn {
-	sleep 0.1; // After briefing
+	sleep 0.001; // After briefing
 
-	if (dialog) then { closeDialog 0; };
+	private _validSlot = if ("prevent_reslot" call BRM_FMK_fnc_isPluginActive) then {
+		waitUntil { sleep 0.01; !isNil { player getVariable "BRM_FMK_Plugin_PreventReslot_validSlot" } };
+
+		player getVariable ["BRM_FMK_Plugin_PreventReslot_validSlot", false];
+	} else { true };
+	if (!_validSlot) exitWith { loading_screen_finished = true; };
+
 	if (visibleMap) then { openMap false; };
+	while {dialog} do { closeDialog 0; };
 
 	disableUserInput true;
 

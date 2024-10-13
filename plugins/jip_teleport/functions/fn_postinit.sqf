@@ -4,9 +4,12 @@
 if !(hasInterface && isMultiplayer && didJIP) exitWith {};
 
 0 spawn {
-	if ("prevent_reslot" call BRM_FMK_fnc_isPluginActive) then {
-		waitUntil { player getVariable ["unit_valid_slot", false] };
-	};
+	private _validSlot = if ("prevent_reslot" call BRM_FMK_fnc_isPluginActive) then {
+		waitUntil { sleep 0.01; !isNil { player getVariable "BRM_FMK_Plugin_PreventReslot_validSlot" } };
+
+		player getVariable ["BRM_FMK_Plugin_PreventReslot_validSlot", false]
+	} else { true };
+	if (!_validSlot) exitWith {};
 
 	BRM_FMK_jipTP_timeout = TIMEOUT;
 

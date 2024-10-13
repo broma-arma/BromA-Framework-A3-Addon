@@ -83,8 +83,8 @@ if (!isRemoteExecuted && isMultiplayer || count _this == 1) then {
 		if (_showStats) then {
 			sleep 3;
 
-			if (dialog) then { closeDialog 0 };
 			if (visibleMap) then { openMap false; };
+			while {dialog} do { closeDialog 0; };
 
 			private _lines = [
 				"<t size='1.5' font='RobotoCondensedBold'>" + _title + "</t>",

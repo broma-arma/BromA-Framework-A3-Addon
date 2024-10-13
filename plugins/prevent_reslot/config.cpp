@@ -14,7 +14,12 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_PreventReslot {
 		class functions {
 			file = "\broma_framework\plugins\prevent_reslot\functions";
+			class preInit {};
 			class postInit {};
+			class checkSlot {};
+			class slotTaken {};
+			class slotValid {};
+			class lockSlot {};
 		};
 	};
 };

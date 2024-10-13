@@ -3,7 +3,7 @@ if !(isServer) exitWith {};
 params ["_unit", "_id", "_uid", "_name"];
 
 private _isAlive = _unit call BRM_FMK_fnc_alive;
-private _isValidSlot = !("prevent_reslot" call BRM_FMK_fnc_isPluginActive) || {_unit getVariable ["unit_valid_slot", false]};
+private _isValidSlot = !("prevent_reslot" call BRM_FMK_fnc_isPluginActive) || {_unit getVariable ["BRM_FMK_Plugin_PreventReslot_validSlot", false]};
 if (!_isAlive || !_isValidSlot) exitWith {};
 
 private _fnc_unitSeat = {

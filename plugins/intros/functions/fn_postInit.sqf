@@ -16,10 +16,17 @@ intro_cutscene_over = false;
 _type spawn {
 	if !(isMultiplayer && !didJIP && !(player isKindOf "VirtualSpectator_F")) exitWith { intro_cutscene_over = true; };
 
-	sleep 0.1; // After briefing
+	sleep 0.001; // After briefing
+
+	private _validSlot = if ("prevent_reslot" call BRM_FMK_fnc_isPluginActive) then {
+		waitUntil { sleep 0.01; !isNil { player getVariable "BRM_FMK_Plugin_PreventReslot_validSlot" } };
+
+		player getVariable ["BRM_FMK_Plugin_PreventReslot_validSlot", false]
+	} else { true };
+	if (!_validSlot) exitWith { intro_cutscene_over = true; };
 
 	if ("loading_screen" call BRM_FMK_fnc_isPluginActive) then {
-		waitUntil { sleep 0.1; missionNamespace getVariable ["loading_screen_finished", false] };
+		waitUntil { sleep 0.01; missionNamespace getVariable ["loading_screen_finished", false] };
 	};
 
 	if ("respawn_system" call BRM_FMK_fnc_isPluginActive && { [player] call BRM_FMK_Plugin_RespawnSystem_fnc_getLives == 0 }) exitWith {
