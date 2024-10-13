@@ -1,5 +1,9 @@
 if (!hasInterface) exitWith {};
 
+if (!BRM_FMK_Engine_initialized) exitWith {
+	[{ BRM_FMK_Engine_initialized }, { _this call BRM_FMK_Plugin_SpawnProtection_fnc_clientMarker; }, _this] call CBA_fnc_waitUntilAndExecute;
+};
+
 params [["_pos", []], ["_a", 50], ["_b", 50], ["_angle", 0], ["_isRectangle", true], ["_c", 0]];
 
 if (count _pos == 0) exitWith {
