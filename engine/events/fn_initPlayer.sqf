@@ -73,7 +73,7 @@ if !(_faction in ALIAS_NONE || units_player_useVanillaGear) then {
 };
 
 if (didJIP) then {
-	[player, _groupName, _role] call BRM_FMK_Engine_fnc_setAlias;
+	[player] call BRM_FMK_Engine_fnc_setUnitGroupId;
 };
 
 ["LOCAL", "F_LOG", "PLAYER INITIALIZED"] call BRM_FMK_fnc_doLog;

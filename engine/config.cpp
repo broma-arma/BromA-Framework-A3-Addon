@@ -81,7 +81,7 @@ class CfgFunctions {
 			file = "\broma_framework\engine\unit";
 			class removeJIP {};
 			class setHitFace {};
-			class setAlias {};
+			class setUnitGroupId {};
 			class defineGroups {};
 			class createPlayerVehicles {};
 			class generateRadioStructure {};
