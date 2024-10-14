@@ -35,10 +35,7 @@ if (hasInterface) then {
 			player setVariable ["isDead", false, true];
 
 			[false] call BRM_FMK_fnc_setSpectating;
-
-			[{
-				[player] joinSilent (player getVariable ["respawnGroup", ""] call BIS_fnc_groupFromNetId);
-			}, [], 5] call CBA_fnc_waitAndExecute;
+			[player, true] call BRM_FMK_Engine_fnc_handleDeadGroup;
 		};
 	}] call CBA_fnc_addEventHandler;
 

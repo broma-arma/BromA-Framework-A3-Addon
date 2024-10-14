@@ -85,7 +85,7 @@ class CfgFunctions {
 			class defineGroups {};
 			class createPlayerVehicles {};
 			class generateRadioStructure {};
-			class joinDeadGroup {};
+			class handleDeadGroup {};
 			class setUnitIdentity {};
 			class handleKilled {};
 			class handleHit {};

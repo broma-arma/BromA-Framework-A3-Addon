@@ -8,8 +8,6 @@ _unit allowDamage false;
 [_unit, true] remoteExec ["hideObjectGlobal", 2];
 [_unit, false] remoteExec ["enableSimulationGlobal", 2];
 
-[_unit] call BRM_FMK_Engine_fnc_joinDeadGroup;
-
 BRM_FMK_Engine_spectatorOxygenWorkaroundPFH = [{
 	player setOxygenRemaining 1;
 }, 10] call CBA_fnc_addPerFrameHandler;
