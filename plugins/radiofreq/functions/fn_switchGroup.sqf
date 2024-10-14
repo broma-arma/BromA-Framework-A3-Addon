@@ -77,12 +77,7 @@ if (_init) then {
 };
 
 // Short range nets
-_lines append [
-	"",
-	"<font color='#ffc030' size='16' face='RobotoCondensedBold'>Short Range Nets</font>",
-	"Group (Squad)"
-];
-
+_lines append ["", "<font color='#ffc030' size='16' face='RobotoCondensedBold'>Short Range Nets</font>", "Group (Squad)"];
 {
 	//[[_squad0Name, squad0Frequency], [group0Name, group0Frequency], [group1Name, group1Frequency], ...],
 	//...
@@ -100,7 +95,6 @@ _lines append [
 
 // Long range nets
 _lines append ["", "<font color='#ffc030' size='16' face='RobotoCondensedBold'>Long Range Nets</font>"];
-
 {
 	_lines pushBack format ["%1: CH%2 (%3)", _lrChannels#_forEachIndex, _forEachIndex + 1, _x];
 } forEach _radioNets#1;
@@ -122,11 +116,12 @@ if (_init) then {
 			BRM_FMK_Plugin_RadioFreq_diaryActiveLines = nil;
 		};
 	}, player] call TFAR_fnc_addEventHandler;
-
 } else {
 	{
 		[call ([TFAR_fnc_activeSwRadio, TFAR_fnc_activeLrRadio] select _forEachIndex), _x] call BRM_FMK_Plugin_RadioFreq_fnc_editRadioSettings;
 	} forEach BRM_FMK_Plugin_RadioFreq_radioSettings;
 
 	player setDiaryRecordText [["Diary", BRM_FMK_Plugin_RadioFreq_diaryRecord], ["Radio", _lines joinString "<br />", "\z\tfar\addons\core\ui\ACE_Interaction_Radio_Icon.paa"]];
+
+	[call TFAR_fnc_activeSwRadio, false] call TFAR_fnc_showRadioInfo;
 };

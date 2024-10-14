@@ -1,4 +1,4 @@
-if (!isServer || !isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
+if !(isMultiplayer && isServer && isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
 
 private _fnc_iterItems = {
 	params ["_code", "_cfg"];

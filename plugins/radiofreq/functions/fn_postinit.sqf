@@ -1,4 +1,4 @@
-if (!hasInterface || !isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
+if !(isMultiplayer && hasInterface && isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
 
 private _sideID = player call BIS_fnc_objectSide call BIS_fnc_sideID;
 if (_sideID > 3) exitWith {};
@@ -41,3 +41,15 @@ private _defaultCallsigns = [[OPFOR, BLUFOR, INDEPENDENT, CIVILIAN] select _side
 
 str player splitString "_" params ["", "_squadIndex", "_groupIndex"];
 [parseNumber _squadIndex, parseNumber _groupIndex, true] call BRM_FMK_Plugin_RadioFreq_fnc_switchGroup;
+
+["group", {
+    params ["_unit", "_oldGroup", "_newGroup"];
+
+	if (_unit == player) then {
+		private _groupVar = _newGroup getVariable "BRM_FMK_Engine_fnc_groupVar";
+		if (!isNil "_groupVar") then {
+			_groupVar splitString "_" params ["", "_squadIndex", "_groupIndex"];
+			[parseNumber _squadIndex, parseNumber _groupIndex, false] call BRM_FMK_Plugin_RadioFreq_fnc_switchGroup;
+		};
+	};
+}] call CBA_fnc_addPlayerEventHandler;

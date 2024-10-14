@@ -36,6 +36,9 @@ private _groupVar = _unitName select [0, 3] joinString "_";
 if (isNil _groupVar) then {
 	missionNamespace setVariable [_groupVar, _group, true];
 };
+if (isNil { _group getVariable "BRM_FMK_Engine_fnc_groupVar" }) then {
+	_group setVariable ["BRM_FMK_Engine_fnc_groupVar", _groupVar, true];
+};
 
 _unitInit params ["", "", "", ["_groupName", "*"]];
 
