@@ -1,7 +1,7 @@
 if (!hasInterface || !isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
 
 private _sideID = player call BIS_fnc_objectSide call BIS_fnc_sideID;
-if (_sideID > 3) exitWith {};
+if (_sideID > 2) exitWith {};
 
 params ["_squadIndex", "_groupIndex", ["_init", false]];
 
@@ -116,6 +116,25 @@ if (_init) then {
 			BRM_FMK_Plugin_RadioFreq_diaryActiveLines = nil;
 		};
 	}, player] call TFAR_fnc_addEventHandler;
+
+	player addEventHandler ["GetInMan", {
+		params ["_unit", "_role", "_vehicle", "_turret"];
+
+		[_unit] call BRM_FMK_Plugin_RadioFreq_fnc_handleVehicleRadio;
+	}];
+
+	player addEventHandler ["GetOutMan", {
+		params ["_unit", "_role", "_vehicle", "_turret", "_isEject"];
+
+		[_unit, true] call BRM_FMK_Plugin_RadioFreq_fnc_handleVehicleRadio;
+	}];
+
+	player addEventHandler ["SeatSwitchedMan", {
+		params ["_unit", "_otherUnit", "_vehicle"];
+
+		[_unit, true] call BRM_FMK_Plugin_RadioFreq_fnc_handleVehicleRadio;
+		[_unit] call BRM_FMK_Plugin_RadioFreq_fnc_handleVehicleRadio;
+	}];
 } else {
 	{
 		[call ([TFAR_fnc_activeSwRadio, TFAR_fnc_activeLrRadio] select _forEachIndex), _x] call BRM_FMK_Plugin_RadioFreq_fnc_editRadioSettings;

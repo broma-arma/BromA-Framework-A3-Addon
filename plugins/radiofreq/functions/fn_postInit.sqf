@@ -1,4 +1,4 @@
-if !(isMultiplayer && hasInterface && isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
+if !(isMultiplayer && hasInterface && isClass (configFile >> "CfgPatches" >> "task_force_radio") && { !(player isKindOf "VirtualMan_F") }) exitWith {};
 
 private _sideID = player call BIS_fnc_objectSide call BIS_fnc_sideID;
 if (_sideID > 3) exitWith {};

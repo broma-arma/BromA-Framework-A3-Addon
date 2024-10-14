@@ -17,6 +17,7 @@ class CfgFunctions {
 			class postInit {};
 			class switchGroup {};
 			class editRadioSettings {};
+			class handleVehicleRadio {};
 		};
 	};
 };
