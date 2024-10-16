@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Located on Island Duala, Afrenia is the neighbour country of Molatia, the two
     of them has been at war for a long time, their border is considered as a "DMZ".

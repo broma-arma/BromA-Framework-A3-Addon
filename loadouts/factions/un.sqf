@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     The United Nations Charter gives the United Nations Security Council the power and responsibility
 	to take collective action to maintain international peace and security. For this reason, the international

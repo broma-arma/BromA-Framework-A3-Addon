@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Chinese PLA loadout, available with multiple camos and use APEX weapons.
 */

@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Believed to be chiefly composed of former and defected members of the
     Altis Armed Forces, disparate fragments of opposition to the 2026 Kavala

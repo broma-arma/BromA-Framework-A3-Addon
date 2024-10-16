@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Decades of economic and political turbulence across member states has left
     NATO weakened and facing a strategic paradigm shift.
@@ -7,7 +6,6 @@
 
     *Hawaiian shirt not inclued.
 */
-// =============================================================================
 
 _factionID        = "NATOP";
 _factionName      = "NATO Pacific Troops";

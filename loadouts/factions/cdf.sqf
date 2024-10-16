@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Chernarussian military has been trained by Western armies in past years,
     but it retains weapons and equipment of the Soviet Army, its direct predecessor.

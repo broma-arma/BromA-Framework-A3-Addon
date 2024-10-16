@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Ukrainian army, Currently using ex-SSR weaponry and vehicles along with their newest camoflage.
 */

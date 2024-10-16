@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Although the communist insurgency has its roots as an underground movement,
     it is now a conventional force with military structure and weapon platforms

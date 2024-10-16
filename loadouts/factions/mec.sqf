@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     The Middle Eastern Coalition (Arabic: تحالف الشرق الأوسط), commonly
     abbreviated to MEC, is a military alliance of Middle Eastern states.

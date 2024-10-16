@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Formed at the apex of the Canton Protocol summits, this strategic alliance of
     states is built upon the goals of mutual defence, expanded global influence, and

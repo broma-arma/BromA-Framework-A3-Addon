@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     The Afghanistan National Army, tasked with defending the country from
     Mujahideen forces all the while molesting everything from goats to little boys.

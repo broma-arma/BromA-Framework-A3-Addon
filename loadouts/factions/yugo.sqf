@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     The Yugoslav People's Army was the military of Yugoslavia from 1945 to 1992 and primary part of Yugoslavia armed forces.
 */

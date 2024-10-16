@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     The Takistani Militia are a paramilitary group based in Takistan. Their operations are focused
 	on low-scale engagements and guerilla warfare with the usage of soviet-bloc equipment.

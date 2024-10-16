@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
    The British Armed Forces form the military of the United Kingdom, tasked with
    defence of the country, its overseas territories and the Crown dependencies;

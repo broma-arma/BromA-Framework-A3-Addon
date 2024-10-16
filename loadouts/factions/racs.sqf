@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     The Royal Army Corps of Sahrani is the main military force of the
     Kingdom of South Sahrani, engaged in a fight against their communist neighbours -

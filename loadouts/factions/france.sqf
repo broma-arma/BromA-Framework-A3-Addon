@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     French armed forces with now camo selections.
 */

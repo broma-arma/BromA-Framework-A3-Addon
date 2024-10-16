@@ -1,9 +1,7 @@
-// INFO ========================================================================
 /*
     Decades of economic and political turbulence across member states has left
     NATO weakened and facing a strategic paradigm shift.
 */
-// =============================================================================
 
 _factionID = "NATO";
 _factionName = "NATO Troops";

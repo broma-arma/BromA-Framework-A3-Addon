@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Islamic State of Iraq and the Levant (also known as ISIS) is a fictional religious jihad terror
     organisation that has claimed to have masterminded several terror operations across the world.

@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Requires Contact DLC
 
@@ -7,7 +6,6 @@
     Much of its equipment is available in distinctive woodland 'geometric' camouflage.
     Though limited in number, they are highly trained and make very effective use of their unique arsenal of small arms.
 */
-// =============================================================================
 
 _factionID = "LDF";
 _factionName = "Livonian Defense Force";

@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
     Formed after the socialist victory of the Takistani Civil War in 1992, the Takistani Army is the
 	socialist military force of Takistan.

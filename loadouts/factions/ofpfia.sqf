@@ -1,4 +1,3 @@
-// INFO ========================================================================
 /*
    FIA forces has been known aroudn the world due to the operation codename :
    OPERATION FLASHPOINT, they proved themselves to be successfull on guerilla
@@ -7,7 +6,6 @@
    Now they come back kick ass and resist agaisnt the Reds with training given
    by US Delta Force.
 */
-// =============================================================================
 
 _factionID        = "OFPFIA";
 _factionName      = "FIA forces";
