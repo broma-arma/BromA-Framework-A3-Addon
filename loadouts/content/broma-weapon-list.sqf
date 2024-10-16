@@ -541,7 +541,7 @@ private _K2GL        = ["BRM_K2GL",        "30Rnd_556x45_Stanag_red", _40mm];
 private _K2C1        = ["BRM_K2C1",        "30Rnd_556x45_Stanag_red"];
 private _K2C1GL      = ["BRM_K2C1GL",      "30Rnd_556x45_Stanag_red", _40mm];
 
-// R3F ARMES
+//R3F ARMES
 // AMMO
 private _5rndTAC         =   "R3F_5Rnd_127x99_TAC50";
 private _7rndPGM         =   "R3F_7Rnd_127x99_PGM";
