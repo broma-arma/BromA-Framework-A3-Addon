@@ -510,7 +510,38 @@ private _SBR9tg    = _SBR9;
 private _SBR9wdl   = _SBR9;
 private _VitorSBR  = ["hlc_rifle_CQBR",                  _30rnd556M855];
 
-// R3F ARMES
+//BROMA ARMORY
+// AMMO
+private _5rndsXM109HET   = "BRM_XM109Mag_HET";
+private _5rndsXM109HE    = "BRM_XM109Mag_HE";
+private _5rndsXM109APT   = "BRM_XM109Mag_APT";
+private _5rndsXM109AP    = "BRM_XM109Mag_AP";
+private _10rndsCZDuty    = "BRM_CZ75CompactMag_9x19";
+private _21rndsCZPHANTOM = "BRM_CZ75SP01Mag_9x19";
+private _20rndsAR10      = "BRM_AR10Mag_Mix";
+private _50rndsFNMAG     = "BRM_MAG_50rndBox";
+private _100rndsFNMAG    = "BRM_MAG_100rndBox";
+
+// WEAPONS
+private _XM109       = ["BRM_XM109",       _5rndsXM109APT];
+private _CZDuty      = ["BRM_CZ75Duty",    _10rndsCZDuty];
+private _CZPhantom   = ["BRM_CZ75Phantom", _21rndsCZPHANTOM];
+private _CZ805A1     = ["BRM_CZ805A1",     "30Rnd_556x45_Stanag_red"];
+private _CZ805A1SB   = ["BRM_CZ805A1SB",   "30Rnd_556x45_Stanag_red"];
+private _CZ805A1GL   = ["BRM_CZ805A1GL",   "30Rnd_556x45_Stanag_red", _40mm];
+private _CZ805A1SBGL = ["BRM_CZ805A1SBGL", "30Rnd_556x45_Stanag_red", _40mm];
+private _CZ805B1     = ["BRM_CZ805B1",     _20rndsAR10];
+private _CZ805B1SB   = ["BRM_CZ805B1SB",   _20rndsAR10];
+private _CZ805B1GL   = ["BRM_CZ805B1GL",   _20rndsAR10, _40mm];
+private _CZ805B1SBGL = ["BRM_CZ805B1SBGL", _20rndsAR10, _40mm];
+private _FNMAG       = ["BRM_FNMAG",       _100rndsFNMAG];
+private _TYPE89      = ["BRM_Type89",      "30Rnd_556x45_Stanag_red", "BRM_Type06_HE"];
+private _K2          = ["BRM_K2",          "30Rnd_556x45_Stanag_red"];
+private _K2GL        = ["BRM_K2GL",        "30Rnd_556x45_Stanag_red", _40mm];
+private _K2C1        = ["BRM_K2C1",        "30Rnd_556x45_Stanag_red"];
+private _K2C1GL      = ["BRM_K2C1GL",      "30Rnd_556x45_Stanag_red", _40mm];
+
+//R3F ARMES
 // AMMO
 private _5rndTAC         =   "R3F_5Rnd_127x99_TAC50";
 private _7rndPGM         =   "R3F_7Rnd_127x99_PGM";

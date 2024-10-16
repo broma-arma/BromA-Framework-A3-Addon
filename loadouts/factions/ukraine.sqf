@@ -1,9 +1,6 @@
 // INFO ========================================================================
 /*
-    Chernarussian military has been trained by Western armies in past years,
-    but it retains weapons and equipment of the Soviet Army, its direct predecessor.
-    Its main task during the past years for was to fight challenging counter-insurgecy
-    campaign in the mountaineous regions of Northern Chernarus.
+    Ukrainian army, Currently using ex-SSR weaponry and vehicles along with their newest camoflage.
 */
 
 _factionID = "UKRAINE";
@@ -23,11 +20,11 @@ _defaultColor = "green";
 
 _commonRIFLE = _AK74N;
 _commonRIFLEGL = _AK74NGL;
-_reconRIFLE = _AK74MZENIT;
+_reconRIFLE = _AK74MUUK;
 _commonPISTOL = _Makarov;
-_commonAR = selectRandom [_RPK,_PKM];
+_commonAR = selectRandom [_RPK74, _PKM];
 _commonMG = _commonAR;
-_commonMARKSMAN = ["UK3CB_SVD_OLD","rhs_10Rnd_762x54mmR_7N1"];
+_commonMARKSMAN = ["UK3CB_SVD_OLD", "rhs_10Rnd_762x54mmR_7N1"];
 _commonSNIPER = _AWMB;
 _commonAT = _RPG26;
 _specAT = _RPG7PGO;
@@ -104,7 +101,7 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = _commonHEAD;
 
-_commonUNIFORM = "BRM_BattleUNI_MCU";
+_commonUNIFORM = selectRandom ["BRM_BattleUNI_MM14", "BRM_BattleUNIRS_MM14"];
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15_tan";
 _sniperUNIFORM = "U_O_FullGhillie_ard";
