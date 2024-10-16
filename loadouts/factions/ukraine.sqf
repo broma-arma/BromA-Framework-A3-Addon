@@ -101,7 +101,7 @@ _sniperHEAD = _commonHEAD;
 _demoHEAD = _commonHEAD;
 _reconHEAD = _commonHEAD;
 
-_commonUNIFORM = selectRandom ["BRM_BattleUNI_MM14", "BRM_BattleUNIRS_MM14", "BRM_BattleUNIFLC_MM14"];
+_commonUNIFORM = selectRandom ["BRM_BattleUNI_MM14", "BRM_BattleUNIRS_MM14"];
 _officerUNIFORM = _commonUNIFORM;
 _pilotUNIFORM = "rhs_uniform_df15_tan";
 _sniperUNIFORM = "U_O_FullGhillie_ard";
