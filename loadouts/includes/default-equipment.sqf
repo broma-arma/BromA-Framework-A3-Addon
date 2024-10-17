@@ -99,7 +99,7 @@ if (isNil "_marksmanSCOPE") then { _marksmanSCOPE = _sniperSCOPE; };
 if (isNil "_mgSCOPE") then { _mgSCOPE = ""; };
 if (isNil "_arSCOPE") then { _arSCOPE = _mgSCOPE; };
 if (isNil "_specATSCOPE") then { _specATSCOPE = ""; };
-if (isNil "_weaponsATSCOPE") then { _specATSCOPE = ["", _specATSCOPE] select (_weaponsAT select /*GUN*/0 == _specAT select /*GUN*/0); };
+if (isNil "_weaponsATSCOPE") then { _weaponsATScope = ["", _specATSCOPE] select (_weaponsAT select /*GUN*/0 == _specAT select /*GUN*/0); };
 if (isNil "_specATBACKPACK") then { _specATBACKPACK = _bigBACKPACK; };
 if (isNil "_medicalBACKPACK") then { _medicalBACKPACK = _bigBACKPACK; };
 if (isNil "_reconBACKPACK") then { _reconBACKPACK = _commonBACKPACK; };
