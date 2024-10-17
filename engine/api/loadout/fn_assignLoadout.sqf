@@ -26,3 +26,5 @@ if (isPlayer _unit) then { // Weapon on back
 	_unit switchMove "AmovPercMstpSnonWnonDnon";
 	_unit action ["SwitchWeapon", _unit, _unit, -1];
 };
+
+["BRM_FMK_loadoutAssigned", _this] call CBA_fnc_localEvent;
