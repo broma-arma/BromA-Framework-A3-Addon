@@ -90,7 +90,7 @@ _headsLIST = [
 
 _uniformsLIST = [
 	"UK3CB_ION_B_U_SF_Uniform_SHIRT_07_URB",
-	"UK3CB_ION_B_U_SF_Uniform_SHIRT_03_URB ",
+	"UK3CB_ION_B_U_SF_Uniform_SHIRT_03_URB",
 	"UK3CB_ION_B_U_SF_Uniform_SHIRT_06_WDL",
 	"UK3CB_ION_B_U_SF_Uniform_Short_Shirt_01_URB",
 	"UK3CB_ION_B_U_SF_Uniform_Short_Shirt_06_URB",
