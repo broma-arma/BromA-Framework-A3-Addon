@@ -10,19 +10,19 @@ private _sideChar = switch (_factionSide) do {
 	default { "B" };
 };
 
-_UAVBag = switch (toLower _UAVBag) do {
+_uavBag = switch (toLower _uavBag) do {
 	case "auto"; // Backward compatibility
 	case "vanilla";
 	case "ar2": { _sideChar + "_UAV_01_backpack_F" }; // UAV Bag (AR-2)
 	case "al6": { _sideChar + "_UAV_06_backpack_F" }; // UAV Bag (AL-6)
 	case "al6med": { _sideChar + "_UAV_06_medical_backpack_F" }; // UAV Bag (AL-6, Medical)
-	default { _UAVBag };
+	default { _uavBag };
 };
 
-_UAVTerminal = switch (toLower _UAVTerminal) do {
+_uavTerminal = switch (toLower _uavTerminal) do {
 	case "auto"; // Backward compatibility
-	case "vanilla": { _sideChar + "_UavTerminal" };
-	default { _UAVTerminal };
+	case "vanilla": { _sideChar + "_uavTerminal" };
+	default { _uavTerminal };
 };
 
 if (isNil "_weaponsAT") then {
@@ -48,20 +48,20 @@ if (isNil "_weaponsAA") then {
 
 if (isNil "_commonAR") then { _commonAR = _commonMG; };
 if (isNil "_countAR") then { _countAR = _countMG; };
-if (isNil "_countArCARGO") then { _countArCARGO = _countAR * 4; };
+if (isNil "_countARCargo") then { _countARCargo = _countAR * 4; };
 
 if (isNil "_countSpecAT") then { _countSpecAT = if (isNil "_countAT") then { 3 } else { _countAT }; };
 if (isNil "_countSpecHE") then { _countSpecHE = if (isNil "_countHE") then { 1 } else { _countHE }; };
 
-if (isNil "_countSpecATCARGO") then { _countSpecATCARGO = if (isNil "_countATCARGO") then { 15 } else { _countATCARGO }; };
-if (isNil "_countSpecHECARGO") then { _countSpecHECARGO = _countSpecATCARGO; };
-if (isNil "_countCommonATCARGO") then { _countCommonATCARGO = _countSpecATCARGO; };
+if (isNil "_countSpecATCargo") then { _countSpecATCargo = if (isNil "_countATCargo") then { 15 } else { _countATCargo }; };
+if (isNil "_countSpecHECargo") then { _countSpecHECargo = _countSpecATCargo; };
+if (isNil "_countCommonATCargo") then { _countCommonATCargo = _countSpecATCargo; };
 
 if (isNil "_countWeaponsAT") then { _countWeaponsAT = _countSpecAT; };
-if (isNil "_countWeaponsATCARGO") then { _countWeaponsATCARGO = _countSpecATCARGO; };
+if (isNil "_countWeaponsATCargo") then { _countWeaponsATCargo = _countSpecATCargo; };
 
 if (isNil "_countWeaponsAA") then { _countWeaponsAA = _countSpecAT; };
-if (isNil "_countWeaponsAACARGO") then { _countWeaponsAACARGO = _countSpecATCARGO; };
+if (isNil "_countWeaponsAACargo") then { _countWeaponsAACargo = _countSpecATCargo; };
 
 if (isNil "_isCommonATDisposable") then {
 	if (_commonAT isEqualTo "") then {
@@ -86,25 +86,25 @@ if (_isSpecATDisposable) then {
 };
 
 if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") then { 4 } else { _countCAT }; };
-if (isNil "_countTourniquetCARGO") then { _countTourniquetCARGO = _countTourniquet * 10; };
+if (isNil "_countTourniquetCargo") then { _countTourniquetCargo = _countTourniquet * 10; };
 if (isNil "_countSplint") then { _countSplint = 4; };
-if (isNil "_countSplintCARGO") then { _countSplintCARGO = _countSplint * 10; };
+if (isNil "_countSplintCargo") then { _countSplintCargo = _countSplint * 10; };
 
 if (isNil "_commonEOT") then { _commonEOT = _commonCCO; };
-if (isNil "_rifleSCOPE") then { _rifleSCOPE = ""; };
-if (isNil "_reconRIFLE") then { _reconRIFLE = _commonRIFLE; };
-if (isNil "_reconSCOPE") then { _reconSCOPE = _commonRCO; };
-if (isNil "_sniperSCOPE") then { _sniperSCOPE = if (isNil "_commonMAGNIFIED") then { "" } else { _commonMAGNIFIED }; };
-if (isNil "_marksmanSCOPE") then { _marksmanSCOPE = _sniperSCOPE; };
-if (isNil "_mgSCOPE") then { _mgSCOPE = ""; };
-if (isNil "_arSCOPE") then { _arSCOPE = _mgSCOPE; };
-if (isNil "_specATSCOPE") then { _specATSCOPE = ""; };
-if (isNil "_weaponsATSCOPE") then { _weaponsATScope = ["", _specATSCOPE] select (_weaponsAT select /*GUN*/0 == _specAT select /*GUN*/0); };
-if (isNil "_specATBACKPACK") then { _specATBACKPACK = _bigBACKPACK; };
-if (isNil "_medicalBACKPACK") then { _medicalBACKPACK = _bigBACKPACK; };
-if (isNil "_reconBACKPACK") then { _reconBACKPACK = _commonBACKPACK; };
-if (isNil "_commonRAIL") then { _commonRAIL = ""; };
-if (isNil "_commonBIPOD") then { _commonBIPOD = ""; };
+if (isNil "_rifleScope") then { _rifleScope = ""; };
+if (isNil "_reconRifle") then { _reconRifle = _commonRifle; };
+if (isNil "_reconScope") then { _reconScope = _commonRCO; };
+if (isNil "_sniperScope") then { _sniperScope = if (isNil "_commonMagnified") then { "" } else { _commonMagnified }; };
+if (isNil "_marksmanScope") then { _marksmanScope = _sniperScope; };
+if (isNil "_mgScope") then { _mgScope = ""; };
+if (isNil "_arScope") then { _arScope = _mgScope; };
+if (isNil "_specATScope") then { _specATScope = ""; };
+if (isNil "_weaponsATScope") then { _weaponsATScope = ["", _specATScope] select (_weaponsAT select /*GUN*/0 == _specAT select /*GUN*/0); };
+if (isNil "_specATBackpack") then { _specATBackpack = _bigBackpack; };
+if (isNil "_medicalBackpack") then { _medicalBackpack = _bigBackpack; };
+if (isNil "_reconBackpack") then { _reconBackpack = _commonBackpack; };
+if (isNil "_commonRail") then { _commonRail = ""; };
+if (isNil "_commonBipod") then { _commonBipod = ""; };
 
 if (isNil "_binocular") then { _binocular = [_binoc, "Binocular"] select isNil "_binoc"; };
 if (isNil "_rangefinder") then { _rangefinder = "Rangefinder"; };

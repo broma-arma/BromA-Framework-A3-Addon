@@ -51,18 +51,18 @@ private _fieldDressing = "";
 private _packingBandage = "";
 private _elasticBandage = "";
 private _quickClot = "";
-CONTENT_CARGO(tourniquet,"",{_countTourniquetCARGO});
-CONTENT_CARGO(splint,"",{_countSplintCARGO});
-CONTENT_CARGO(morphine,"",{_countMorphineCARGO});
+CONTENT_CARGO(tourniquet,"",{_countTourniquetCargo});
+CONTENT_CARGO(splint,"",{_countSplintCargo});
+CONTENT_CARGO(morphine,"",{_countMorphineCargo});
 CONTENT_CARGO(epinephrine,"",{_countEpiCARGO});
 private _epi = _epinephrine; // DEPRECATED Use _epinephrine
 CONTENT_CARGO(adenosine,"",{_countEpiCARGO});
-CONTENT_CARGO(painkillers,"",{_countMorphineCARGO});
+CONTENT_CARGO(painkillers,"",{_countMorphineCargo});
 private _atrophine = ""; // DEPRECATED Remove usage
 private _bloodbag = "";
-CONTENT_CARGO(blood1000,"",{_countBloodbagCARGO});
-CONTENT_CARGO(blood500,"",{_countBloodbagCARGO});
-CONTENT_CARGO(blood250,"",{_countBloodbagCARGO});
+CONTENT_CARGO(blood1000,"",{_countBloodbagCargo});
+CONTENT_CARGO(blood500,"",{_countBloodbagCargo});
+CONTENT_CARGO(blood250,"",{_countBloodbagCargo});
 private _plasma1000 = "";
 private _plasma500 = "";
 private _plasma250 = "";
@@ -72,7 +72,7 @@ private _saline250 = "";
 CONTENT_CARGO(surgicalKit,"Medikit",5);
 private _surgKit = _surgicalKit; // DEPRECATED Use _surgicalKit
 CONTENT_CARGO(suture,"",50);
-CONTENT_CARGO(personalAidKit,"",{_countPAKCARGO});CONTENT_CARGO_A(pak,personalAidKit,{_countPAKCARGO})
+CONTENT_CARGO(personalAidKit,"",{_countPAKCargo});CONTENT_CARGO_A(pak,personalAidKit,{_countPAKCargo})
 CONTENT_CARGO(bodyBag,"",30);
 CONTENT_CARGO_N(bodyBagBlue,"",bodybag_blue,30);
 CONTENT_CARGO_N(bodyBagWhite,"",bodybag_white,30);
@@ -130,49 +130,49 @@ if (mission_ACE3_enabled) then {
 };
 
 // Smoke Grenades
-CONTENT_CARGO_N(wSmoke,"SmokeShell",smoke_white,{_countGRENADESCARGO}); // Smoke Grenade (White)
-CONTENT_CARGO_N(rSmoke,"SmokeShellRed",smoke_red,{_countGRENADESCARGO}); // Smoke Grenade (Red)
-CONTENT_CARGO_N(gSmoke,"SmokeShellGreen",smoke_green,{_countGRENADESCARGO}); // Smoke Grenade (Green)
-CONTENT_CARGO_N(ySmoke,"SmokeShellYellow",smoke_yellow,{_countGRENADESCARGO}); // Smoke Grenade (Yellow)
-CONTENT_CARGO_N(pSmoke,"SmokeShellPurple",smoke_purple,{_countGRENADESCARGO}); // Smoke Grenade (Purple)
-CONTENT_CARGO_N(bSmoke,"SmokeShellBlue",smoke_blue,{_countGRENADESCARGO}); // Smoke Grenade (Blue)
-CONTENT_CARGO_N(oSmoke,"SmokeShellOrange",smoke_orange,{_countGRENADESCARGO}); // Smoke Grenade (Orange)
+CONTENT_CARGO_N(wSmoke,"SmokeShell",smoke_white,{_countGrenadesCargo}); // Smoke Grenade (White)
+CONTENT_CARGO_N(rSmoke,"SmokeShellRed",smoke_red,{_countGrenadesCargo}); // Smoke Grenade (Red)
+CONTENT_CARGO_N(gSmoke,"SmokeShellGreen",smoke_green,{_countGrenadesCargo}); // Smoke Grenade (Green)
+CONTENT_CARGO_N(ySmoke,"SmokeShellYellow",smoke_yellow,{_countGrenadesCargo}); // Smoke Grenade (Yellow)
+CONTENT_CARGO_N(pSmoke,"SmokeShellPurple",smoke_purple,{_countGrenadesCargo}); // Smoke Grenade (Purple)
+CONTENT_CARGO_N(bSmoke,"SmokeShellBlue",smoke_blue,{_countGrenadesCargo}); // Smoke Grenade (Blue)
+CONTENT_CARGO_N(oSmoke,"SmokeShellOrange",smoke_orange,{_countGrenadesCargo}); // Smoke Grenade (Orange)
 
 // Chemlights
-CONTENT_CARGO_N(gChemlight,"Chemlight_green",chemlight_green,{_countGRENADESCARGO}); // Chemlight (Green)
-CONTENT_CARGO_N(rChemlight,"Chemlight_red",chemlight_red,{_countGRENADESCARGO}); // Chemlight (Red)
-CONTENT_CARGO_N(yChemlight,"Chemlight_yellow",chemlight_yellow,{_countGRENADESCARGO}); // Chemlight (Yellow)
-CONTENT_CARGO_N(bChemlight,"Chemlight_blue",chemlight_blue,{_countGRENADESCARGO}); // Chemlight (Blue)
-CONTENT_CARGO_N(wChemlight,"",chemlight_white,{_countGRENADESCARGO});
-CONTENT_CARGO_N(oChemlight,"",chemlight_orange,{_countGRENADESCARGO});
+CONTENT_CARGO_N(gChemlight,"Chemlight_green",chemlight_green,{_countGrenadesCargo}); // Chemlight (Green)
+CONTENT_CARGO_N(rChemlight,"Chemlight_red",chemlight_red,{_countGrenadesCargo}); // Chemlight (Red)
+CONTENT_CARGO_N(yChemlight,"Chemlight_yellow",chemlight_yellow,{_countGrenadesCargo}); // Chemlight (Yellow)
+CONTENT_CARGO_N(bChemlight,"Chemlight_blue",chemlight_blue,{_countGrenadesCargo}); // Chemlight (Blue)
+CONTENT_CARGO_N(wChemlight,"",chemlight_white,{_countGrenadesCargo});
+CONTENT_CARGO_N(oChemlight,"",chemlight_orange,{_countGrenadesCargo});
 
-CONTENT_CARGO_N(rChemlightHi,_rChemlight,chemlight_red_hi,{_countGRENADESCARGO});
-CONTENT_CARGO_N(gChemlightHi,_gChemlight,chemlight_green_hi,{_countGRENADESCARGO});
-CONTENT_CARGO_N(bChemlightHi,_bChemlight,chemlight_blue_hi,{_countGRENADESCARGO});
-CONTENT_CARGO_N(yChemlightHi,_yChemlight,chemlight_yellow_hi,{_countGRENADESCARGO});
-CONTENT_CARGO_N(wChemlightHi,_wChemlight,chemlight_white_hi,{_countGRENADESCARGO});
-CONTENT_CARGO_N(oChemlightHi,_oChemlight,chemlight_orange_hi,{_countGRENADESCARGO});
-CONTENT_CARGO_N(oChemlightHiU,_oChemlight,chemlight_orange_uhi,{_countGRENADESCARGO});
-CONTENT_CARGO(irChemlight,"",{_countGRENADESCARGO});
+CONTENT_CARGO_N(rChemlightHi,_rChemlight,chemlight_red_hi,{_countGrenadesCargo});
+CONTENT_CARGO_N(gChemlightHi,_gChemlight,chemlight_green_hi,{_countGrenadesCargo});
+CONTENT_CARGO_N(bChemlightHi,_bChemlight,chemlight_blue_hi,{_countGrenadesCargo});
+CONTENT_CARGO_N(yChemlightHi,_yChemlight,chemlight_yellow_hi,{_countGrenadesCargo});
+CONTENT_CARGO_N(wChemlightHi,_wChemlight,chemlight_white_hi,{_countGrenadesCargo});
+CONTENT_CARGO_N(oChemlightHi,_oChemlight,chemlight_orange_hi,{_countGrenadesCargo});
+CONTENT_CARGO_N(oChemlightHiU,_oChemlight,chemlight_orange_uhi,{_countGrenadesCargo});
+CONTENT_CARGO(irChemlight,"",{_countGrenadesCargo});
 
 // Grenades
-CONTENT_CARGO(grenade,"HandGrenade",{_countGRENADESCARGO}); // RGO Grenade
+CONTENT_CARGO(grenade,"HandGrenade",{_countGrenadesCargo}); // RGO Grenade
 private _grenadeOpfor = _grenade; // DEPRECATED Use _grenade (rund_co21_Norwegian_Fog_v2.tem_vinjesvingenc)
 private _m67Grenade = _grenade; // DEPRECATED Use _grenade (Engee_co24_Snowmen_v02.Chernarus_Winter)
-CONTENT_CARGO(grenadeOffensive,"MiniGrenade",{_countGRENADESCARGO}); // RGN Grenade
+CONTENT_CARGO(grenadeOffensive,"MiniGrenade",{_countGrenadesCargo}); // RGN Grenade
 
-CONTENT_CARGO(irGrenade,"B_IR_Grenade",{_countGRENADESCARGO}); // IR Grenade [NATO]
+CONTENT_CARGO(irGrenade,"B_IR_Grenade",{_countGrenadesCargo}); // IR Grenade [NATO]
 //"O_IR_Grenade"; // IR Grenade [CSAT]
 //"I_IR_Grenade"; // IR Grenade [AAF]
-CONTENT_CARGO(flashbang,"rhs_mag_mk84",{_countGRENADESCARGO});
+CONTENT_CARGO(flashbang,"rhs_mag_mk84",{_countGrenadesCargo});
 private _cs = "rhs_mag_m7a3_cs";
-CONTENT_CARGO(incendiary,"rhs_mag_an_m14_th3",{_countGRENADESCARGO});
+CONTENT_CARGO(incendiary,"rhs_mag_an_m14_th3",{_countGrenadesCargo});
 
 // Hand Held Flares
-CONTENT_CARGO(wFlare,"",{_countGRENADESCARGO});
-CONTENT_CARGO(rFlare,"",{_countGRENADESCARGO});
-CONTENT_CARGO(gFlare,"",{_countGRENADESCARGO});
-CONTENT_CARGO(yFlare,"",{_countGRENADESCARGO});
+CONTENT_CARGO(wFlare,"",{_countGrenadesCargo});
+CONTENT_CARGO(rFlare,"",{_countGrenadesCargo});
+CONTENT_CARGO(gFlare,"",{_countGrenadesCargo});
+CONTENT_CARGO(yFlare,"",{_countGrenadesCargo});
 
 if (mission_ACE3_enabled) then {
 	_wChemlight = "ACE_Chemlight_White";

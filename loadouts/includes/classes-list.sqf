@@ -1,39 +1,39 @@
 // File is included in mission framework
-private _isOfficer = _type == "Officer";
-private _isSquadLeader = _type == "Squad Leader";
-private _isTeamLeader = _type == "Team Leader";
-private _isRifleman = _type == "Rifleman";
-private _isRiflemanAT = _type == "Rifleman (AT)";
-private _isMarksman = _type == "Marksman" || _type == "Sharpshooter";
-private _isAutorifleman = _type == "Autorifleman";
-private _isAutoriflemanAsst = _type == "Asst. Autorifleman";
-private _isLifeSaver = _type == "Combat Life Saver";
-private _isGrenadier = _type == "Grenadier";
-private _isHelicopterPilot = _type == "Helicopter Pilot";
-private _isHelicopterCrew = _type == "Helicopter Crew";
-private _isEngineer = _type == "Engineer" || _type == "Repair Specialist";
-private _isCrewman = _type == "Crewman";
-private _isPilot = _type == "Pilot";
-private _isRTO = _type == "JTAC" || _type == "Recon JTAC";
-private _isReconLeader = _type == "Recon Team Leader";
-private _isRecon = _type == "Recon Scout";
-private _isReconDemo = _type == "Recon Demo Specialist";
-private _isReconMedic = _type == "Recon Paramedic";
-private _isReconAT = _type == "Recon Scout (AT)";
-private _isReconMarksman = _type == "Recon Marksman";
-private _isDemo = _type == "Explosive Specialist";
-private _isHMG = _type == "Gunner (HMG)";
-private _isStaticAT = _type == "Gunner (AT)";
-private _isUAVOperator = _type == "UAV Operator";
-private _isHMGTripod = _type == "Asst. Gunner (HMG/GMG)";
-private _isATTripod = _type == "Asst. Gunner (AT)";
-private _isMortar = _type == "Gunner (Mk6)";
-private _isMortarAssistant = _type == "Asst. Gunner (Mk6)";
-private _isWeaponsAT = _type == "Missile Specialist (AT)";
-private _isWeaponsATAssistant = _type == "Asst. Missile Specialist (AT)";
-private _isWeaponsAA = _type == "Missile Specialist (AA)";
-private _isWeaponsAAAssistant = _type == "Asst. Missile Specialist (AA)";
-private _isSniper = _type == "Sniper";
-private _isSpotter = _type == "Spotter";
-private _isMMG = _type == "Heavy Gunner";
-private _isMMGAsst = _type == "Ammo Bearer";
+private _isOfficer = _type == "Officer"; // "B_officer_F"
+private _isSquadLeader = _type == "Squad Leader"; // "B_Soldier_SL_F"
+private _isTeamLeader = _type == "Team Leader"; // "B_Soldier_TL_F"
+private _isRifleman = _type == "Rifleman"; // "B_Soldier_F"
+private _isRiflemanAT = _type == "Rifleman (AT)"; // "B_soldier_LAT_F"
+private _isMarksman = _type == "Marksman" || _type == "Sharpshooter"; // "B_soldier_M_F" || "B_Sharpshooter_F"
+private _isAutorifleman = _type == "Autorifleman"; // "B_soldier_AR_F"
+private _isAutoriflemanAsst = _type == "Asst. Autorifleman"; // "B_soldier_AAR_F"
+private _isLifeSaver = _type == "Combat Life Saver"; // "B_medic_F"
+private _isGrenadier = _type == "Grenadier"; // "B_Soldier_GL_F"
+private _isHelicopterPilot = _type == "Helicopter Pilot"; // "B_Helipilot_F"
+private _isHelicopterCrew = _type == "Helicopter Crew"; // "B_helicrew_F"
+private _isEngineer = _type == "Engineer" || _type == "Repair Specialist"; // "B_engineer_F" || "B_soldier_repair_F"
+private _isCrewman = _type == "Crewman"; // "B_crew_F"
+private _isPilot = _type == "Pilot"; // "B_Pilot_F"
+private _isRTO = _type == "JTAC" || _type == "Recon JTAC"; // "B_recon_JTAC_F"
+private _isReconLeader = _type == "Recon Team Leader"; // "B_recon_TL_F"
+private _isRecon = _type == "Recon Scout"; // "B_recon_F"
+private _isReconDemo = _type == "Recon Demo Specialist"; // "B_recon_exp_F"
+private _isReconMedic = _type == "Recon Paramedic"; // "B_recon_medic_F"
+private _isReconAT = _type == "Recon Scout (AT)"; // "B_recon_LAT_F"
+private _isReconMarksman = _type == "Recon Marksman"; // "B_recon_M_F"
+private _isDemo = _type == "Explosive Specialist"; // "B_soldier_exp_F"
+private _isHMG = _type == "Gunner (HMG)"; // "B_support_MG_F"
+private _isStaticAT = _type == "Gunner (AT)"; // role "staticat"
+private _isUAVOperator = _type == "UAV Operator"; // "B_soldier_UAV_F"
+private _isHMGTripod = _type == "Asst. Gunner (HMG/GMG)"; // "B_support_AMG_F"
+private _isATTripod = _type == "Asst. Gunner (AT)"; // role "attripod"
+private _isMortar = _type == "Gunner (Mk6)"; // "B_support_Mort_F"
+private _isMortarAssistant = _type == "Asst. Gunner (Mk6)"; // "B_support_AMort_F"
+private _isWeaponsAT = _type == "Missile Specialist (AT)"; // "B_soldier_AT_F"
+private _isWeaponsATAssistant = _type == "Asst. Missile Specialist (AT)"; // "B_soldier_AAT_F"
+private _isWeaponsAA = _type == "Missile Specialist (AA)"; // "B_soldier_AA_F"
+private _isWeaponsAAAssistant = _type == "Asst. Missile Specialist (AA)"; // "B_soldier_AAA_F"
+private _isSniper = _type == "Sniper"; // "B_sniper_F"
+private _isSpotter = _type == "Spotter"; // "B_spotter_F"
+private _isMMG = _type == "Heavy Gunner"; // "B_HeavyGunner_F"
+private _isMMGAsst = _type == "Ammo Bearer"; // "B_Soldier_A_F"

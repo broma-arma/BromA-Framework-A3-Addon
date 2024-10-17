@@ -15,62 +15,62 @@ private [
 
 	"_factionSkill", "_factionUnits", "_factionVehicles", "_factionObjects", "_factionDACCamps",
 
-	"_randomLIST", "_rifleLIST", "_rifleGLList", "_arLIST", "_smgLIST",
-	"_commonRIFLE", "_countRifle", "_countRifleLOW", "_countTracerRIFLE", "_countRifleCARGO",
-	"_reconRIFLE",
-	"_commonRIFLEGL", "_count40mm", "_count40mmCARGO",
-	"_commonPistol", "_countPISTOL", "_countPistolCARGO",
-	"_commonAR", "_countAR", "_countArCARGO",
-	"_commonMG", "_countMG", "_countMgCARGO", "_countTracerMG",
+	"_rifleList", "_rifleGLList", "_arList", "_smgList",
+	"_commonRifle", "_countRifle", "_countRifleLow", "_countTracerRifle", "_countRifleCargo",
+	"_reconRifle",
+	"_commonRifleGL", "_count40mm", "_count40mmCargo",
+	"_commonPistol", "_countPistol", "_countPistolCargo",
+	"_commonAR", "_countAR", "_countARCargo",
+	"_commonMG", "_countMG", "_countMGCargo", "_countTracerMG",
 	"_commonMarksman",
-	"_commonSniper", "_countSniper", "_countSniperCARGO",
-	"_commonAT", "_countCommonATCARGO", "_isCommonATDisposable",
-	"_specAT", "_countSpecAT", "_countSpecATCARGO", "_countSpecHE", "_countSpecHECARGO", "_isSpecATDisposable",
+	"_commonSniper", "_countSniper", "_countSniperCargo",
+	"_commonAT", "_countCommonATCargo", "_isCommonATDisposable",
+	"_specAT", "_countSpecAT", "_countSpecATCargo", "_countSpecHE", "_countSpecHECargo", "_isSpecATDisposable",
 	"_commonSMG",
 	"_commonGL",
-	"_weaponsAA", "_countWeaponsAA", "_countWeaponsAACARGO",
-	"_weaponsAT", "_countWeaponsAT", "_countWeaponsATCARGO",
+	"_weaponsAA", "_countWeaponsAA", "_countWeaponsAACargo",
+	"_weaponsAT", "_countWeaponsAT", "_countWeaponsATCargo",
 
-	"_commonRCO", "_commonCCO", "_commonEOT", "_sniperSCOPE", "_marksmanSCOPE", "_specATSCOPE", "_weaponsATSCOPE",
-	"_commonSUPPRESSOR", "_commonPISTOLSUPPRESSOR",
-	"_commonRAIL", "_commonBIPOD",
+	"_commonRCO", "_commonCCO", "_commonEOT", "_sniperScope", "_marksmanScope", "_specATScope", "_weaponsATScope",
+	"_commonSuppressor", "_commonPistolSuppressor",
+	"_commonRail", "_commonBipod",
 
-	"_rifleSCOPE", "_arSCOPE", "_mgSCOPE", "_reconSCOPE",
+	"_rifleScope", "_arScope", "_mgScope", "_reconScope",
 
-	"_countGRENADES", "_countGrenadesCARGO",
+	"_countGrenades", "_countGrenadesCargo",
 
-	"_commonHEAD", "_leaderHEAD", "_officerHEAD", "_medicHEAD", "_crewmanHEAD", "_pilotHEAD", "_helicrewHEAD", "_helipilotHEAD", "_sniperHEAD", "_demoHEAD", "_reconHEAD",
-	"_commonUNIFORM", "_officerUNIFORM", "_pilotUNIFORM", "_sniperUNIFORM", "_marksmanUNIFORM", "_helicrewUNIFORM", "_crewUNIFORM", "_mgUNIFORM", "_medicUNIFORM", "_demoUNIFORM", "_reconUNIFORM",
-	"_commonVEST", "_officerVEST", "_ftlVEST", "_slVEST", "_mgVEST", "_grenadierVEST", "_medicVEST", "_demoVEST", "_marksmanVEST", "_reconVEST", "_pilotVEST",
-	"_commonBACKPACK", "_bigBACKPACK", "_medicalBACKPACK", "_specATBACKPACK", "_reconBACKPACK",
+	"_commonHead", "_leaderHead", "_officerHead", "_medicHead", "_crewmanHead", "_pilotHead", "_helicrewHead", "_helipilotHead", "_sniperHead", "_demoHead", "_reconHead",
+	"_commonUniform", "_officerUniform", "_pilotUniform", "_sniperUniform", "_marksmanUniform", "_helicrewUniform", "_crewUniform", "_mgUniform", "_medicUniform", "_demoUniform", "_reconUniform",
+	"_commonVest", "_officerVest", "_ftlVest", "_slVest", "_mgVest", "_grenadierVest", "_medicVest", "_demoVest", "_marksmanVest", "_reconVest", "_pilotVest",
+	"_commonBackpack", "_bigBackpack", "_medicalBackpack", "_specATBackpack", "_reconBackpack",
 
-	"_StaticAT", "_ATTripod",
-	"_HMG", "_HMGTripod",
+	"_staticAT", "_atTripod",
+	"_hmg", "_hmgTripod",
 	"_mortar", "_mortarTripod",
 
-	"_UAVBag", "_UAVTerminal",
+	"_uavBag", "_uavTerminal",
 
-	"_countBANDAGE", "_countBandageCARGO",
-	"_countTourniquet", "_countTourniquetCARGO",
-	"_countSplint", "_countSplintCARGO",
+	"_countBandage", "_countBandageCargo",
+	"_countTourniquet", "_countTourniquetCargo",
+	"_countSplint", "_countSplintCargo",
 
-	"_countMORPHINE", "_countMorphineCARGO",
-	"_countEPI", "_countEpiCARGO",
+	"_countMorphine", "_countMorphineCargo",
+	"_countEpi", "_countEpiCargo",
 
-	"_countBLOODBAG", "_countBloodbagCARGO",
+	"_countBloodbag", "_countBloodbagCargo",
 
-	"_countPAK", "_countPAKCARGO",
+	"_countPAK", "_countPAKCargo",
 
 	"_nightOnlyNVGs",
 
 	"_aiBackpackRadios",
 
-	"_suppliesNORMAL", "_suppliesMEDIC",
+	"_suppliesNormal", "_suppliesMedic",
 
 	// Deprecated
 	"_countCAT", "_isATDisposable",
-	"_countAT", "_countATCARGO", "_countHE",
-	"_commonMAGNIFIED",
+	"_countAT", "_countATCargo", "_countHE",
+	"_commonMagnified",
 
 	// Unused
 	"_commonRifleATTACHMENTS", "_commonHandgunATTACHMENTS", "_commonMGATTACHMENTS", "_commonMarksmanATTACHMENTS", "_commonSniperATTACHMENTS", "_commonSpecATATTACHMENTS", "_commonRifleGLATTACHMENTS", "_commonSMGATTACHMENTS",

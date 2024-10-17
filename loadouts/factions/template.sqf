@@ -6,21 +6,20 @@
 
 _factionID = "TEMPLATE";
 _factionName = "Template";
-_factionStructure = "HIGH-TIER";
+_factionStructure = "HIGH";
 
 _factionCallsigns = _defaultCallsignBLUFOR;
 
 _defaultSide = WEST;
-_defaultVoice = [_voiceALTIAN, _voiceAMERICAN, _voiceBRITISH, _voiceFARSI, _voiceRUSSIAN, _voiceCHINESE];
-_defaultFace = [_faceGREEK, _faceWHITE, _faceBLACK, _faceASIAN, _facePERSIAN, _faceTANOAN];
-_defaultName = [_nameAMERICAN];
+_defaultVoice = [_voiceAltian, _voiceAmerican, _voiceBritish, _voiceFarsi, _voiceRussian, _voiceChinese];
+_defaultFace = [_faceGreek, _faceWhite, _faceBlack, _faceAsian, _facePersian, _faceTanoan];
+_defaultName = [_nameAmerican];
 _defaultInsignia = "";
 _defaultColor = "blue";
 
 // WEAPONS =====================================================================
-
-_commonRIFLE = _Mk20;
-_commonRIFLEGL = _Mk20GL;
+_commonRifle = _Mk20;
+_commonRifleGL = _Mk20GL;
 _commonAR = _Zafir;
 _commonMG = _Zafir;
 _commonMarksman = _Mk20;
@@ -36,151 +35,154 @@ _commonRCO = _ARCO;
 _commonCCO = _EOT;
 _commonEOT = _commonCCO;
 
-_rifleSCOPE = "";
-_arSCOPE = "";
-_reconSCOPE = _commonRCO;
-_sniperSCOPE = _SOS;
-_marksmanSCOPE = _sniperSCOPE;
-_specATSCOPE = "";
-_mgSCOPE = "";
-_weaponsATSCOPE = "";
+_rifleScope = "";
+_reconScope = _commonRCO;
+_arScope = "";
+_mgScope = "";
+_marksmanScope = _SOS;
+_sniperScope = _marksmanScope;
 
-_commonSUPPRESSOR = _sup556;
-_commonPISTOLSUPPRESSOR = _sup9mm;
+_specATScope = "";
+_weaponsATScope = "";
 
-_commonRAIL = "";
-_commonBIPOD = "";
+_commonSuppressor = _sup556;
+_commonPistolSuppressor = _sup9mm;
+
+_commonRail = "";
+_commonBipod = "";
 
 // AMMO COUNT ==================================================================
-
 _countRifle = 6;
-_countRifleLOW = 4;
-_countPISTOL = 2;
+_countRifleLow = 4;
 _countAR = 5;
 _countMG = 3;
 _countSniper = 4;
 _countSpecAT = 3;
 _countSpecHE = 1;
-_countGRENADES = 3;
 _count40mm = 10;
+_countPistol = 2;
+_countGrenades = 3;
 
-_countTracerRIFLE = 2;
+_countTracerRifle = 2;
 _countTracerMG = 1;
 
-_countRifleCARGO = 30;
-_countPistolCARGO = 10;
-_countArCARGO = 20;
-_countMgCARGO = 20;
-_countSniperCARGO = 30;
-_countSpecATCARGO = 15;
-_countSpecHECARGO = 15;
-_countGrenadesCARGO = 20;
-_count40mmCARGO = 40;
+_countRifleCargo = 30;
+_countARCargo = 20;
+_countMGCargo = 20;
+_countSniperCargo = 30;
+_countSpecATCargo = 15;
+_countSpecHECargo = 15;
+_count40mmCargo = 40;
+_countPistolCargo = 10;
+_countGrenadesCargo = 20;
 
 // MEDICAL =====================================================================
-
-_countBANDAGE = 20;
-_countMORPHINE = 10;
-_countEPI = 5;
+_countBandage = 20;
+_countMorphine = 10;
+_countEpi = 5;
 _countTourniquet = 3;
 _countSplint = 4;
-_countBLOODBAG = 5;
+_countBloodbag = 5;
 _countPAK = 2;
 
-_countBandageCARGO = 40;
-_countMorphineCARGO = 30;
+_countBandageCargo = 40;
+_countMorphineCargo = 30;
 _countEpiCARGO = 20;
-_countTourniquetCARGO = 30;
-_countSplintCARGO = 40;
-_countBloodbagCARGO = 20;
-_countPAKCARGO = 10;
+_countTourniquetCargo = 30;
+_countSplintCargo = 40;
+_countBloodbagCargo = 20;
+_countPAKCargo = 10;
 
 // UNIFORMS ====================================================================
+_commonHead = selectRandom ["H_Bandanna_khk", "H_Bandanna_mcamo", "H_Bandanna_sgg", "H_Bandanna_sand"];
+_leaderHead = _commonHead;
+_officerHead = _commonHead;
+_medicHead = "H_Bandanna_cbr";
+_crewmanHead = "H_HelmetCrew_B";
+_pilotHead = "H_PilotHelmetFighter_B";
+_helicrewHead = "H_CrewHelmetHeli_B";
+_helipilotHead = "H_PilotHelmetHeli_B";
+_sniperHead = _commonHead;
+_demoHead = _commonHead;
+_reconHead = _commonHead;
 
-_commonHEAD = selectRandom ["H_Bandanna_khk", "H_Bandanna_mcamo", "H_Bandanna_sgg", "H_Bandanna_sand"];
-_leaderHEAD = _commonHEAD;
-_officerHEAD = _commonHEAD;
-_medicHEAD = "H_Bandanna_cbr";
-_crewmanHEAD = "H_HelmetCrew_B";
-_pilotHEAD = "H_PilotHelmetFighter_B";
-_helicrewHEAD = "H_CrewHelmetHeli_B";
-_helipilotHEAD = "H_PilotHelmetHeli_B";
-_sniperHEAD = _commonHEAD;
-_demoHEAD = _commonHEAD;
-_reconHEAD = _commonHEAD;
+_commonUniform = selectRandom ["U_C_Poloshirt_blue", "U_C_Poloshirt_burgundy", "U_C_Poloshirt_redwhite", "U_C_Poloshirt_salmon", "U_C_Poloshirt_stripped", "U_C_Poloshirt_tricolour"];
+_officerUniform = "U_BG_Guerilla2_3";
+_pilotUniform = "U_B_PilotCoveralls";
+_sniperUniform = "U_B_GhillieSuit";
+_marksmanUniform = _commonUniform;
+_helicrewUniform = _commonUniform;
+_crewUniform = _commonUniform;
+_mgUniform = _commonUniform;
+_medicUniform = "U_Marshal";
+_demoUniform = _commonUniform;
+_reconUniform = _commonUniform;
 
-_commonUNIFORM = selectRandom ["U_C_Poloshirt_blue", "U_C_Poloshirt_burgundy", "U_C_Poloshirt_redwhite", "U_C_Poloshirt_salmon", "U_C_Poloshirt_stripped", "U_C_Poloshirt_tricolour"];
-_officerUNIFORM = "U_BG_Guerilla2_3";
-_pilotUNIFORM = "U_B_PilotCoveralls";
-_sniperUNIFORM = "U_B_GhillieSuit";
-_marksmanUNIFORM = _commonUNIFORM;
-_helicrewUNIFORM = _commonUNIFORM;
-_crewUNIFORM = _commonUNIFORM;
-_mgUNIFORM = _commonUNIFORM;
-_medicUNIFORM = "U_Marshal";
-_demoUNIFORM = _commonUNIFORM;
-_reconUNIFORM = _commonUNIFORM;
+_commonVest = selectRandom ["V_BandollierB_blk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_khk", "V_BandollierB_oli"];
+_officerVest = _commonVest;
+_ftlVest = _commonVest;
+_slVest = _commonVest;
+_mgVest = _commonVest;
+_grenadierVest = _commonVest;
+_medicVest = _commonVest;
+_demoVest = _commonVest;
+_marksmanVest = _commonVest;
+_reconVest = _commonVest;
+_pilotVest = _commonVest;
 
-_commonVEST = selectRandom ["V_BandollierB_blk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_khk", "V_BandollierB_oli"];
-_officerVEST = _commonVEST;
-_ftlVEST = _commonVEST;
-_slVEST = _commonVEST;
-_mgVEST = _commonVEST;
-_grenadierVEST = _commonVEST;
-_medicVEST = _commonVEST;
-_demoVEST = _commonVEST;
-_marksmanVEST = _commonVEST;
-_reconVEST = _commonVEST;
-_pilotVEST = _commonVEST;
+_commonBackpack = "B_AssaultPack_rgr";
+_bigBackpack = "B_Carryall_ocamo";
+_medicalBackpack = _bigBackpack;
+_specATBackpack = _bigBackpack;
+_reconBackpack = _bigBackpack;
 
-_commonBACKPACK = "B_AssaultPack_rgr";
-_bigBACKPACK = "B_Carryall_ocamo";
-_medicalBACKPACK = _bigBACKPACK;
-_specATBACKPACK = _bigBACKPACK;
-_reconBACKPACK = _bigBACKPACK;
+// MISC EQUIPMENT =============================================================
+//_grenade = "HandGrenade";
+//_wSmoke = "SmokeShell";
+//_binocular = "Binocular";
+//_rangefinder = "Rangefinder";
+//_NVG = "NVGoggles";
+//_nightOnlyNVGs = false;
 
 // EXTRA EQUIPMENT =============================================================
+_hmg = "B_HMG_01_high_weapon_F";
+_hmgTripod = "B_HMG_01_support_F";
 
-_HMG = "B_HMG_01_high_weapon_F";
-_HMGTripod = "B_HMG_01_support_F";
-
-_StaticAT = "B_AT_01_weapon_F";
-_ATTripod = "B_HMG_01_support_F";
+_staticAT = "B_AT_01_weapon_F";
+_atTripod = "B_HMG_01_support_F";
 
 _mortar = "B_Mortar_01_weapon_F";
 _mortarTripod = "B_Mortar_01_support_F";
 
-_UAVBag = "vanilla";
-_UAVTerminal = "vanilla";
+_uavBag = "vanilla";
+_uavTerminal = "vanilla";
 
 _NVG = _NVGEN1;
 _nightOnlyNVGs = false;
 _aiBackpackRadios = false;
 
 // VEHICLES ====================================================================
-
 _factionVehicles = [
-/*  Anti Air Vehicles */ ["B_APC_Tracked_01_AA_F"]
-/*  Attack Helos      */,["B_Heli_Attack_01_F","B_Heli_Light_01_armed_F"]
-/*  Attack Planes     */,["B_Plane_CAS_01_F"]
-/*  Heavy Vehicles    */,["B_MBT_01_cannon_F","B_MBT_01_TUSK_F"]
-/*  Light Vehicles    */,["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F"]
-/*  Medium Vehicles   */,["B_APC_Tracked_01_rcws_F","B_APC_Wheeled_01_cannon_F"]
-/*  Mobile Artillery  */,["B_MBT_01_arty_F","B_MBT_01_mlrs_F"]
-/*  Transport Helos   */,["B_Heli_Light_01_F","B_Heli_Transport_01_F","B_Heli_Transport_01_camo_F"]
-/*  Transport Planes  */,[]
-/*  Transport Trucks  */,["B_Truck_01_transport_F","B_Truck_01_covered_F"]
-/*  Static Defence    */,["B_HMG_01_high_F","B_static_AA_F","B_static_AT_F","B_Mortar_01_F"]
-/*  Boats             */,["B_Boat_Armed_01_minigun_F"]
-/*  UAV               */,["B_UAV_02_CAS_F","B_UAV_02_F"]
-/*  UGV               */,["B_UGV_01_F","B_UGV_01_rcws_F"]
-/*  Support           */,["B_Truck_01_Repair_F","B_Truck_01_ammo_F","B_Truck_01_fuel_F", "B_Truck_01_medical_F"]
-/*  Submarines        */,["B_SDV_01_F"]
-/*  MRAP Vehicles     */,["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F"]
+/* Anti Air Vehicles */ ["B_APC_Tracked_01_AA_F"]
+/* Attack Helos      */,["B_Heli_Attack_01_F", "B_Heli_Light_01_armed_F"]
+/* Attack Planes     */,["B_Plane_CAS_01_F"]
+/* Heavy Vehicles    */,["B_MBT_01_cannon_F", "B_MBT_01_TUSK_F"]
+/* Light Vehicles    */,["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F"]
+/* Medium Vehicles   */,["B_APC_Tracked_01_rcws_F", "B_APC_Wheeled_01_cannon_F"]
+/* Mobile Artillery  */,["B_MBT_01_arty_F", "B_MBT_01_mlrs_F"]
+/* Transport Helos   */,["B_Heli_Light_01_F", "B_Heli_Transport_01_F", "B_Heli_Transport_01_camo_F"]
+/* Transport Planes  */,[]
+/* Transport Trucks  */,["B_Truck_01_transport_F", "B_Truck_01_covered_F"]
+/* Static Defence    */,["B_HMG_01_high_F", "B_static_AA_F", "B_static_AT_F", "B_Mortar_01_F"]
+/* Boats             */,["B_Boat_Armed_01_minigun_F"]
+/* UAV               */,["B_UAV_02_CAS_F", "B_UAV_02_F"]
+/* UGV               */,["B_UGV_01_F", "B_UGV_01_rcws_F"]
+/* Support           */,["B_Truck_01_Repair_F", "B_Truck_01_ammo_F", "B_Truck_01_fuel_F", "B_Truck_01_medical_F"]
+/* Submarines        */,["B_SDV_01_F"]
+/* MRAP Vehicles     */,["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F"]
 ];
 
 // OBJECTS =====================================================================
-
 _factionObjects = [
 /* Flag       */ "Flag_NATO_F"
 /* Objects    */,["B_CargoNet_01_ammo_F"]

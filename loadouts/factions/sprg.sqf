@@ -19,11 +19,8 @@ _defaultName = [_nameAmerican];
 _defaultInsignia = "";
 _defaultColor = "civilian";
 
-// =============================================================================
 if (!_assignLoadoutMode) exitWith {};
 switch (true) do {
-// =============================================================================
-
 	case (_type == "reporter"): {
 		private _helmets = [
 			"H_Cap_press", 0.25,
@@ -60,6 +57,5 @@ switch (true) do {
 };
 
 // ADDS ESSENTIALS =============================================================
-
 [_unit, [[_NVGEN1, 1]]] call BRM_FMK_fnc_addtoUniform;
 [_unit, ["ItemMap", "ItemCompass", "ItemWatch"]] call BRM_FMK_fnc_linkItem;

@@ -33,3 +33,5 @@ private _nameEnglish = "English";
 private _nameSpanish = "Spanish";
 private _nameRussian = "Russian";
 private _nameFrench = "French";
+
+private _allNames = [_nameAfrican, _nameAmerican, _nameArabic, _nameChinese, _nameEnglish, _nameSpanish, _nameRussian, _nameFrench];

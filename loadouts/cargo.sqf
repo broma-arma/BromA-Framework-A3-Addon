@@ -3,25 +3,25 @@ switch (toLower _x) do {
 	case "medical": { [_object,
 		[_earPlugs, 25],
 
-		[_bandage, _countBandageCARGO],
-		[_fieldDressing, _countBandageCARGO],
-		[_packingBandage, _countBandageCARGO],
-		[_elasticBandage, _countBandageCARGO],
-		[_quickClot, _countBandageCARGO],
+		[_bandage, _countBandageCargo],
+		[_fieldDressing, _countBandageCargo],
+		[_packingBandage, _countBandageCargo],
+		[_elasticBandage, _countBandageCargo],
+		[_quickClot, _countBandageCargo],
 
-		[_painkillers, _countMorphineCARGO],
-		[_morphine, _countMorphineCARGO],
+		[_painkillers, _countMorphineCargo],
+		[_morphine, _countMorphineCargo],
 		[_epinephrine, _countEpiCARGO],
-		[_adenosine, _countMorphineCARGO],
+		[_adenosine, _countMorphineCargo],
 
-		[_tourniquet, _countTourniquetCARGO],
-		[_splint, _countSplintCARGO],
+		[_tourniquet, _countTourniquetCargo],
+		[_splint, _countSplintCargo],
 
-		[_blood250, _countBloodbagCARGO],
-		[_blood500, _countBloodbagCARGO],
-		[_blood1000, _countBloodbagCARGO],
-		[_personalAidKit, _countPAKCARGO],
-		[_bodyBag, _countBloodbagCARGO],
+		[_blood250, _countBloodbagCargo],
+		[_blood500, _countBloodbagCargo],
+		[_blood1000, _countBloodbagCargo],
+		[_personalAidKit, _countPAKCargo],
+		[_bodyBag, _countBloodbagCargo],
 
 		[_surgKit, [5, 50] select (ace_medical_treatment_consumeSurgicalKit == 1)],
 		[_suture, 100]] call BRM_FMK_fnc_addItems;
@@ -30,80 +30,80 @@ switch (toLower _x) do {
 	case "ammo_big";
 	case "ammo": {
 		private _supplies = [
-			[_commonRIFLE select RAMMO, _countRifleCARGO],
-			[_commonMG select RAMMO, _countMGCARGO],
-			[_commonAR select RAMMO, _countARCARGO],
-			[_commonMARKSMAN select RAMMO, _countRifleCARGO],
-			[_commonSNIPER select RAMMO, _countSNIPERCARGO],
-			[_commonSMG select RAMMO, _countRifleCARGO],
-			[_commonRIFLEGL select GL, _count40mmCARGO],
-			[_commonRIFLEGL select RAMMO, _countRifleCARGO],
-			[_commonPISTOL select RAMMO, _countPistolCARGO],
-			[_grenade, _countGRENADESCARGO],
-			[_rChemlight, _countGRENADESCARGO],
-			[_gChemlight, _countGRENADESCARGO],
-			[_bChemlight, _countGRENADESCARGO],
-			[_yChemlight, _countGRENADESCARGO],
-			[_wChemlight, _countGRENADESCARGO],
-			[_oChemlight, _countGRENADESCARGO],
-			[_irChemlight, _countGRENADESCARGO],
-			[_wSmoke, _countGRENADESCARGO],
-			[_rSmoke, _countGRENADESCARGO],
-			[_gSmoke, _countGRENADESCARGO],
-			[_ySmoke, _countGRENADESCARGO],
-			[_pSmoke, _countGRENADESCARGO],
-			[_bSmoke, _countGRENADESCARGO],
-			[_oSmoke, _countGRENADESCARGO]
+			[_commonRifle select RAMMO, _countRifleCargo],
+			[_commonMG select RAMMO, _countMGCargo],
+			[_commonAR select RAMMO, _countARCargo],
+			[_commonMarksman select RAMMO, _countRifleCargo],
+			[_commonSniper select RAMMO, _countSniperCargo],
+			[_commonSMG select RAMMO, _countRifleCargo],
+			[_commonRifleGL select GL, _count40mmCargo],
+			[_commonRifleGL select RAMMO, _countRifleCargo],
+			[_commonPistol select RAMMO, _countPistolCargo],
+			[_grenade, _countGrenadesCargo],
+			[_rChemlight, _countGrenadesCargo],
+			[_gChemlight, _countGrenadesCargo],
+			[_bChemlight, _countGrenadesCargo],
+			[_yChemlight, _countGrenadesCargo],
+			[_wChemlight, _countGrenadesCargo],
+			[_oChemlight, _countGrenadesCargo],
+			[_irChemlight, _countGrenadesCargo],
+			[_wSmoke, _countGrenadesCargo],
+			[_rSmoke, _countGrenadesCargo],
+			[_gSmoke, _countGrenadesCargo],
+			[_ySmoke, _countGrenadesCargo],
+			[_pSmoke, _countGrenadesCargo],
+			[_bSmoke, _countGrenadesCargo],
+			[_oSmoke, _countGrenadesCargo]
 		];
 
 		if (!_isCommonATDisposable) then {
-			_supplies pushBack [_commonAT select RAMMO, _countCommonATCARGO];
+			_supplies pushBack [_commonAT select RAMMO, _countCommonATCargo];
 		};
 
 		if (!_isSpecATDisposable) then {
 			_supplies append [
-				[_specAT select RAMMO, _countSpecATCARGO],
-				[[_specAT, ["HE"]] call BRM_FMK_fnc_getAmmoClass, _countSpecHECARGO]
+				[_specAT select RAMMO, _countSpecATCargo],
+				[[_specAT, ["HE"]] call BRM_FMK_fnc_getAmmoClass, _countSpecHECargo]
 			];
 		};
 
-		if (!isNil "_reconRIFLE") then {
-			_supplies pushBack [_reconRIFLE select RAMMO, _countRifleCARGO];
+		if (!isNil "_reconRifle") then {
+			_supplies pushBack [_reconRifle select RAMMO, _countRifleCargo];
 		};
 
-		if (!isNil "_rifleLIST") then {
+		if (!isNil "_rifleList") then {
 			{
-				if (_x select GUN != _commonRIFLE select GUN) then {
-					_supplies pushBack [_x select RAMMO, _countRifleCARGO];
+				if (_x select GUN != _commonRifle select GUN) then {
+					_supplies pushBack [_x select RAMMO, _countRifleCargo];
 				};
-			} forEach _rifleLIST;
+			} forEach _rifleList;
 		};
 
 		if (!isNil "_rifleGLList") then {
 			{
-				if (_x select GUN != _commonRIFLEGL select GUN) then {
+				if (_x select GUN != _commonRifleGL select GUN) then {
 					_supplies append [
-						[_x select GL, _count40mmCARGO],
-						[_x select RAMMO, _countRifleCARGO]
+						[_x select GL, _count40mmCargo],
+						[_x select RAMMO, _countRifleCargo]
 					];
 				};
 			} forEach _rifleGLList;
 		};
 
-		if (!isNil "_arLIST") then {
+		if (!isNil "_arList") then {
 			{
 				if (_x select GUN != _commonAR select GUN) then {
-					_supplies pushBack [_x select RAMMO, _countARCARGO];
+					_supplies pushBack [_x select RAMMO, _countARCargo];
 				};
-			} forEach _arLIST;
+			} forEach _arList;
 		};
 
-		if (!isNil "_smgLIST") then {
+		if (!isNil "_smgList") then {
 			{
 				if (_x select GUN != _commonSMG select GUN) then {
-					_supplies pushBack [_x select RAMMO, _countRifleCARGO];
+					_supplies pushBack [_x select RAMMO, _countRifleCargo];
 				};
-			} forEach _smgLIST;
+			} forEach _smgList;
 		};
 
 		if (_x == "ammo_big") then {
@@ -115,10 +115,10 @@ switch (toLower _x) do {
 
 	case "at": {
 		private _supplies = [
-			[_specAT select ([RAMMO, GUN] select _isSpecATDisposable), _countSpecATCARGO],
-			[_weaponsAT select RAMMO, _countWeaponsATCARGO],
-			[_weaponsAA select RAMMO, _countWeaponsAACARGO],
-			[_commonAT select ([RAMMO, GUN] select _isCommonATDisposable), _countCommonATCARGO]
+			[_specAT select ([RAMMO, GUN] select _isSpecATDisposable), _countSpecATCargo],
+			[_weaponsAT select RAMMO, _countWeaponsATCargo],
+			[_weaponsAA select RAMMO, _countWeaponsAACargo],
+			[_commonAT select ([RAMMO, GUN] select _isCommonATDisposable), _countCommonATCargo]
 		];
 
 		if (!("rpg7_ammo" in _type) && _specAT select 0 select [0, 13] isEqualTo "rhs_weap_rpg7") then {
@@ -169,90 +169,90 @@ switch (toLower _x) do {
 	};
 
 	case "rpg7_ammo": { [_object,
-		[_RPGV, _countSpecATCARGO],
-		[_RPGVL, _countSpecATCARGO],
-		[_RPGVOGV, _countSpecATCARGO],
-		[_RPGVM, _countSpecATCARGO],
-		[_RPGVMHEAT, _countSpecATCARGO],
-		[_RPGVR, _countSpecATCARGO],
-		[_RPGVS, _countSpecATCARGO],
-		[_RPGVS, _countSpecATCARGO],
-		[_RPGTBG, _countSpecATCARGO],
-		[_RPGTYPE69, _countSpecATCARGO]] call BRM_FMK_fnc_addItems;
+		[_RPGV, _countSpecATCargo],
+		[_RPGVL, _countSpecATCargo],
+		[_RPGVOGV, _countSpecATCargo],
+		[_RPGVM, _countSpecATCargo],
+		[_RPGVMHEAT, _countSpecATCargo],
+		[_RPGVR, _countSpecATCargo],
+		[_RPGVS, _countSpecATCargo],
+		[_RPGVS, _countSpecATCargo],
+		[_RPGTBG, _countSpecATCargo],
+		[_RPGTYPE69, _countSpecATCargo]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "Type06_ammo": { [_object,
-		["BRM_Type06_HE", _count40mmCARGO],
-		["BRM_Type06_HEAT", _count40mmCARGO],
-		["BRM_Type06_SMK_W", _count40mmCARGO],
-		["BRM_Type06_SMK_G", _count40mmCARGO],
-		["BRM_Type06_SMK_R", _count40mmCARGO],
-		["BRM_Type06_SMK_P", _count40mmCARGO],
-		["BRM_Type06_FLR_W", _count40mmCARGO],
-		["BRM_Type06_FLR_G", _count40mmCARGO],
-		["BRM_Type06_FLR_R", _count40mmCARGO]] call BRM_FMK_fnc_addItems;
+		["BRM_Type06_HE", _count40mmCargo],
+		["BRM_Type06_HEAT", _count40mmCargo],
+		["BRM_Type06_SMK_W", _count40mmCargo],
+		["BRM_Type06_SMK_G", _count40mmCargo],
+		["BRM_Type06_SMK_R", _count40mmCargo],
+		["BRM_Type06_SMK_P", _count40mmCargo],
+		["BRM_Type06_FLR_W", _count40mmCargo],
+		["BRM_Type06_FLR_G", _count40mmCargo],
+		["BRM_Type06_FLR_R", _count40mmCargo]] call BRM_FMK_fnc_addItems;
 	};
 
-	case "rifle": { [_object, _commonRIFLE select RAMMO, _countRifleCARGO] call BRM_FMK_fnc_addItem; };
+	case "rifle": { [_object, _commonRifle select RAMMO, _countRifleCargo] call BRM_FMK_fnc_addItem; };
 	case "riflegl": { [_object,
-		[_commonRIFLEGL select RAMMO, _countRifleCARGO],
-		[_commonRIFLEGL select GL, _count40mmCARGO]] call BRM_FMK_fnc_addItems;
+		[_commonRifleGL select RAMMO, _countRifleCargo],
+		[_commonRifleGL select GL, _count40mmCargo]] call BRM_FMK_fnc_addItems;
 	};
-	case "pistol": { [_object, _commonPISTOL select RAMMO, _countPistolCARGO] call BRM_FMK_fnc_addItem; };
-	case "ar": { [_object, _commonAR select RAMMO, _countARCARGO] call BRM_FMK_fnc_addItem; };
-	case "mg": { [_object, _commonMG select RAMMO, _countMGCARGO] call BRM_FMK_fnc_addItem; };
-	case "marksman": { [_object, _commonMARKSMAN select RAMMO, _countRifleCARGO] call BRM_FMK_fnc_addItem; };
-	case "sniper": { [_object, _commonSNIPER select RAMMO, _countSNIPERCARGO] call BRM_FMK_fnc_addItem; };
-	case "smg": { [_object, _commonSMG select RAMMO, _countRifleCARGO] call BRM_FMK_fnc_addItem; };
-	case "lat": { [_object, _commonAT select ([RAMMO, GUN] select _isCommonATDisposable), _countCommonATCARGO] call BRM_FMK_fnc_addItem; };
-	case "mat": { [_object, _specAT select ([RAMMO, GUN] select _isSpecATDisposable), _countSpecATCARGO] call BRM_FMK_fnc_addItem; };
-	case "hat": { [_object, _weaponsAT select RAMMO, _countWeaponsATCARGO] call BRM_FMK_fnc_addItem; };
-	case "haa": { [_object, _weaponsAA select RAMMO, _countWeaponsAACARGO] call BRM_FMK_fnc_addItem; };
-	case "rifle_recon": { [_object, _reconRIFLE select RAMMO, _countRifleCARGO] call BRM_FMK_fnc_addItem; };
-	case "gl": { [_object, _commonGL select RAMMO, _count40mmCARGO] call BRM_FMK_fnc_addItem; };
+	case "pistol": { [_object, _commonPistol select RAMMO, _countPistolCargo] call BRM_FMK_fnc_addItem; };
+	case "ar": { [_object, _commonAR select RAMMO, _countARCargo] call BRM_FMK_fnc_addItem; };
+	case "mg": { [_object, _commonMG select RAMMO, _countMGCargo] call BRM_FMK_fnc_addItem; };
+	case "marksman": { [_object, _commonMarksman select RAMMO, _countRifleCargo] call BRM_FMK_fnc_addItem; };
+	case "sniper": { [_object, _commonSniper select RAMMO, _countSniperCargo] call BRM_FMK_fnc_addItem; };
+	case "smg": { [_object, _commonSMG select RAMMO, _countRifleCargo] call BRM_FMK_fnc_addItem; };
+	case "lat": { [_object, _commonAT select ([RAMMO, GUN] select _isCommonATDisposable), _countCommonATCargo] call BRM_FMK_fnc_addItem; };
+	case "mat": { [_object, _specAT select ([RAMMO, GUN] select _isSpecATDisposable), _countSpecATCargo] call BRM_FMK_fnc_addItem; };
+	case "hat": { [_object, _weaponsAT select RAMMO, _countWeaponsATCargo] call BRM_FMK_fnc_addItem; };
+	case "haa": { [_object, _weaponsAA select RAMMO, _countWeaponsAACargo] call BRM_FMK_fnc_addItem; };
+	case "rifle_recon": { [_object, _reconRifle select RAMMO, _countRifleCargo] call BRM_FMK_fnc_addItem; };
+	case "gl": { [_object, _commonGL select RAMMO, _count40mmCargo] call BRM_FMK_fnc_addItem; };
 
 	case "chemlight": { [_object,
-		[_rChemlight, _countGRENADESCARGO],
-		[_gChemlight, _countGRENADESCARGO],
-		[_bChemlight, _countGRENADESCARGO],
-		[_yChemlight, _countGRENADESCARGO],
-		[_wChemlight, _countGRENADESCARGO],
-		[_oChemlight, _countGRENADESCARGO],
-		[_irChemlight, _countGRENADESCARGO]] call BRM_FMK_fnc_addItems;
+		[_rChemlight, _countGrenadesCargo],
+		[_gChemlight, _countGrenadesCargo],
+		[_bChemlight, _countGrenadesCargo],
+		[_yChemlight, _countGrenadesCargo],
+		[_wChemlight, _countGrenadesCargo],
+		[_oChemlight, _countGrenadesCargo],
+		[_irChemlight, _countGrenadesCargo]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "chemlight_hi": { [_object,
-		[_rChemlightHi, _countGRENADESCARGO],
-		[_gChemlightHi, _countGRENADESCARGO],
-		[_bChemlightHi, _countGRENADESCARGO],
-		[_yChemlightHi, _countGRENADESCARGO],
-		[_wChemlightHi, _countGRENADESCARGO],
-		[_oChemlightHi, _countGRENADESCARGO],
-		[_oChemlightHiU, _countGRENADESCARGO]] call BRM_FMK_fnc_addItems;
+		[_rChemlightHi, _countGrenadesCargo],
+		[_gChemlightHi, _countGrenadesCargo],
+		[_bChemlightHi, _countGrenadesCargo],
+		[_yChemlightHi, _countGrenadesCargo],
+		[_wChemlightHi, _countGrenadesCargo],
+		[_oChemlightHi, _countGrenadesCargo],
+		[_oChemlightHiU, _countGrenadesCargo]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "smoke": { [_object,
-		[_wSmoke, _countGRENADESCARGO],
-		[_rSmoke, _countGRENADESCARGO],
-		[_gSmoke, _countGRENADESCARGO],
-		[_ySmoke, _countGRENADESCARGO],
-		[_pSmoke, _countGRENADESCARGO],
-		[_bSmoke, _countGRENADESCARGO],
-		[_oSmoke, _countGRENADESCARGO]] call BRM_FMK_fnc_addItems;
+		[_wSmoke, _countGrenadesCargo],
+		[_rSmoke, _countGrenadesCargo],
+		[_gSmoke, _countGrenadesCargo],
+		[_ySmoke, _countGrenadesCargo],
+		[_pSmoke, _countGrenadesCargo],
+		[_bSmoke, _countGrenadesCargo],
+		[_oSmoke, _countGrenadesCargo]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "bandage": { [_object,
-		[_bandage, _countBandageCARGO],
-		[_fieldDressing, _countBandageCARGO],
-		[_packingBandage, _countBandageCARGO],
-		[_elasticBandage, _countBandageCARGO],
-		[_quickClot, _countBandageCARGO]] call BRM_FMK_fnc_addItems;
+		[_bandage, _countBandageCargo],
+		[_fieldDressing, _countBandageCargo],
+		[_packingBandage, _countBandageCargo],
+		[_elasticBandage, _countBandageCargo],
+		[_quickClot, _countBandageCargo]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "blood": { [_object,
-		[_blood250, _countBloodbagCARGO],
-		[_blood500, _countBloodbagCARGO],
-		[_blood1000, _countBloodbagCARGO]] call BRM_FMK_fnc_addItems;
+		[_blood250, _countBloodbagCargo],
+		[_blood500, _countBloodbagCargo],
+		[_blood1000, _countBloodbagCargo]] call BRM_FMK_fnc_addItems;
 	};
 
 	case "rangetables": { [_object,
