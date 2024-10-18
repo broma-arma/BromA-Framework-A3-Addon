@@ -1,7 +1,7 @@
 /*
     Chinese PLA loadout, available with multiple camos and use APEX weapons.
 
-    Camo: ""UNI", "NAVY", "ARTY", "PLAT" (BRM_FMK_LoadoutCamo_PLA)
+    Camo: "UNI", "NAVY", "ARTY", "PLAT" (BRM_FMK_LoadoutCamo_PLA)
 */
 
 _factionID = "PLA";
