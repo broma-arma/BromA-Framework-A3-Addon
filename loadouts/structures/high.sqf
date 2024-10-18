@@ -89,7 +89,7 @@ switch (true) do {
 	};
 
 	case (_isRiflemanAT): {
-		[_unit, _commonHead, _commonUniform, _commonVest, _bigBackpack] call BRM_FMK_fnc_useUniform;
+		[_unit, _commonHead, _commonUniform, _commonVest, _specATBackpack] call BRM_FMK_fnc_useUniform;
 		[_unit,[[_wSmoke,2],[_grenade,_countGrenades]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRifle, _countRifleLow, "", _commonRail, "", _commonBipod] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _specAT, _countSpecAT, "", "", _specATScope, ""] call BRM_FMK_fnc_addWeaponKit;
@@ -232,7 +232,7 @@ switch (true) do {
 	};
 
 	case (_isReconAT): {
-		[_unit, _reconHead, _reconUniform, _reconVest, _reconBackpack] call BRM_FMK_fnc_useUniform;
+		[_unit, _reconHead, _reconUniform, _reconVest, _specATBackpack] call BRM_FMK_fnc_useUniform;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 		[_unit,[[_wSmoke,2],[_rSmoke,2],[_gSmoke,2],[_grenade,_countGrenades],[_rChemlight,2],[_bChemlight,2],[_wFlare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _reconRifle, _countRifleLow, _commonSuppressor, _commonRail, _reconScope, _commonBipod] call BRM_FMK_fnc_addWeaponKit;
