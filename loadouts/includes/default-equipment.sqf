@@ -50,10 +50,12 @@ if (isNil "_commonAR") then { _commonAR = _commonMG; };
 if (isNil "_countAR") then { _countAR = _countMG; };
 if (isNil "_countARCargo") then { _countARCargo = _countAR * 4; };
 
-if (isNil "_countSpecAT") then { _countSpecAT = if (isNil "_countAT") then { 3 } else { _countAT }; };
+if (isNil "_countAT") then { _countAT = if (isNil "_countSpecAT") then { 3 } else { _countSpecAT }; }; // Backward compatibility
+if (isNil "_countSpecAT") then { _countSpecAT = _countAT; };
 if (isNil "_countSpecHE") then { _countSpecHE = if (isNil "_countHE") then { 1 } else { _countHE }; };
 
-if (isNil "_countSpecATCargo") then { _countSpecATCargo = if (isNil "_countATCargo") then { 15 } else { _countATCargo }; };
+if (isNil "_countATCargo") then { _countATCargo = if (isNil "_countSpecATCargo") then { 15 } else { _countSpecATCargo }; }; // Backward compatibility
+if (isNil "_countSpecATCargo") then { _countSpecATCargo = _countATCargo; };
 if (isNil "_countSpecHECargo") then { _countSpecHECargo = _countSpecATCargo; };
 if (isNil "_countCommonATCargo") then { _countCommonATCargo = _countSpecATCargo; };
 
@@ -85,7 +87,8 @@ if (_isSpecATDisposable) then {
 	_specAT set [1, ""];
 };
 
-if (isNil "_countTourniquet") then { _countTourniquet = if (isNil "_countCAT") then { 4 } else { _countCAT }; };
+if (isNil "_countCAT") then { _countCAT = if (isNil "_countTourniquet") then { 4 } else { _countTourniquet }; }; // Backward compatibility
+if (isNil "_countTourniquet") then { _countTourniquet = _countCAT; };
 if (isNil "_countTourniquetCargo") then { _countTourniquetCargo = _countTourniquet * 10; };
 if (isNil "_countSplint") then { _countSplint = 4; };
 if (isNil "_countSplintCargo") then { _countSplintCargo = _countSplint * 10; };
@@ -94,7 +97,9 @@ if (isNil "_commonEOT") then { _commonEOT = _commonCCO; };
 if (isNil "_rifleScope") then { _rifleScope = ""; };
 if (isNil "_reconRifle") then { _reconRifle = _commonRifle; };
 if (isNil "_reconScope") then { _reconScope = _commonRCO; };
-if (isNil "_sniperScope") then { _sniperScope = if (isNil "_commonMagnified") then { "" } else { _commonMagnified }; };
+
+if (isNil "_commonMagnified") then { _commonMagnified = if (isNil "_sniperScope") then { "" } else { _sniperScope }; }; // Backward compatibility
+if (isNil "_sniperScope") then { _sniperScope = _commonMagnified; };
 if (isNil "_marksmanScope") then { _marksmanScope = _sniperScope; };
 if (isNil "_mgScope") then { _mgScope = ""; };
 if (isNil "_arScope") then { _arScope = _mgScope; };
