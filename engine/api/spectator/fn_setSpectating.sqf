@@ -26,4 +26,8 @@ params [["_set", true, [true]]];
 
 if (_set == [] call BRM_FMK_fnc_isSpectating) exitWith {};
 
-[player] call (if (_set) then { BRM_FMK_Engine_fnc_initSpectator } else { BRM_FMK_Engine_fnc_endSpectator });
+if (_set) then {
+	[{ [player] call BRM_FMK_Engine_fnc_initSpectator; }] call CBA_fnc_execNextFrame;
+} else {
+	[player] call BRM_FMK_Engine_fnc_endSpectator;
+};
