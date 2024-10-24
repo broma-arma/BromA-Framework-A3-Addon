@@ -1,11 +1,19 @@
 if (BRM_FMK_Engine_compatVersion > 0) then {
 	call ([_faction] call BRM_FMK_Engine_fnc_getLoadoutCode);
 
+	if (!isNil "BRM_FMK_Engine_fnc_toolLoadoutMod") then {
+		call BRM_FMK_Engine_fnc_toolLoadoutMod;
+	};
+
 	if (!isNil "_factionStructure") then { // SPRG
 		#include "\broma_framework\loadouts\includes\default-equipment.sqf"
 
 		if (_assignLoadoutMode) then {
-			call ([_factionStructure regexReplace ["-", "_"], /*STRUCTURE*/1] call BRM_FMK_Engine_fnc_getLoadoutCode);
+			if (isNil "BRM_FMK_Engine_fnc_toolStructure") then {
+				call ([_factionStructure regexReplace ["-", "_"], /*STRUCTURE*/1] call BRM_FMK_Engine_fnc_getLoadoutCode);
+			} else {
+				call BRM_FMK_Engine_fnc_toolStructure;
+			};
 		};
 	};
 } else {
