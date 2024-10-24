@@ -25,12 +25,6 @@ class CfgFunctions {
 			class onDiaryChanged {};
 		};
 
-		class gc {
-			file = "\broma_framework\engine\gc";
-			class gc {};
-			class gcProcess {};
-		};
-
 		class ending {
 			file = "\broma_framework\engine\ending";
 			class endMission {};
@@ -43,6 +37,12 @@ class CfgFunctions {
 			class initSpectator {};
 			class endSpectator {};
 			class initAI {};
+		};
+
+		class gc {
+			file = "\broma_framework\engine\gc";
+			class gc {};
+			class gcProcess {};
 		};
 
 		class loadout {
