@@ -1,10 +1,10 @@
 params ["_unit"];
 
-if (isServer) then {
-	if !(isRemoteExecuted || hasInterface) exitWith {
-		_this remoteExecCall ["BRM_FMK_Plugin_RespawnSystem_fnc_removeFromMission", _unit];
-	};
+if (isServer && !isRemoteExecuted && !hasInterface) exitWith {
+	_this remoteExecCall ["BRM_FMK_Plugin_RespawnSystem_fnc_removeFromMission", _unit];
+};
 
+if (isServer) then {
 	BRM_FMK_Plugin_RespawnSystem_deadPlayers pushBackUnique [getPlayerUID _unit, name _unit, _unit call BIS_fnc_objectSide];
 };
 
