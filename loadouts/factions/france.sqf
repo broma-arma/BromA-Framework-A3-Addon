@@ -129,8 +129,8 @@ _marksmanVest = _commonVest;
 _reconVest = ["BRM_RRV_BROWN_REC1", "UK3CB_V_MBAV_LIGHT_WIN"] select (_camo == "WINTER");
 _pilotVest = "";
 
-_commonBackpack = "UK3CB_ION_B_B_ASS_WIN_01";
-_bigBackpack = "UK3CB_ION_B_B_RIF_WIN_01";
+_commonBackpack = ["BRM_PatrolBP_"+_camo, "UK3CB_ION_B_B_ASS_WIN_01"] select (_camo == "WINTER");
+_bigBackpack = ["BRM_PatrolBPH_"+_camo, "UK3CB_ION_B_B_RIF_WIN_01"] select (_camo == "WINTER");
 
 // MISC EQUIPMENT =============================================================
 _NVG = "rhsusf_ANPVS_14";
