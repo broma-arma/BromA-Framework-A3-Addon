@@ -119,17 +119,17 @@ _medicUniform = _commonUniform;
 _demoUniform = _commonUniform;
 _reconUniform = _commonUniform;
 
-_commonVest = "BRM_Protec_JIEITAIW_RFL";
-_officerVest = "BRM_Protec_JIEITAIW_SL";
-_ftlVest = "BRM_Protec_JIEITAIW_TL";
+_commonVest = ["BRM_Protec_JIEITAIW_RFL", "BRM_Protec_CADPATD_RFL"] select (_camo == "JIEITAID");
+_officerVest = ["BRM_Protec_JIEITAIW_SL", "BRM_Protec_CADPATD_SL"] select (_camo == "JIEITAID");
+_ftlVest = ["BRM_Protec_JIEITAIW_TL", "BRM_Protec_CADPATD_TL"] select (_camo == "JIEITAID");
 _slVest = _officerVest;
-_mgVest = "BRM_Protec_JIEITAIW_MG";
-_grenadierVest = "BRM_Protec_JIEITAIW_GL";
+_mgVest = ["BRM_Protec_JIEITAIW_MG", "BRM_Protec_CADPATD_MG"] select (_camo == "JIEITAID");
+_grenadierVest = ["BRM_Protec_JIEITAIW_GL", "BRM_Protec_CADPATD_GL"] select (_camo == "JIEITAID");
 _medicVest = _commonVest;
 _demoVest = _commonVest;
 _marksmanVest = _commonVest;
-_reconVest = "BMR_MLBVARMOR_GREEN_RFL";
-_pilotVest = "UK3CB_V_Pilot_Vest";
+_reconVest = _commonVest;
+_pilotVest = ["UK3CB_BAF_V_Pilot_DPMW", "UK3CB_BAF_V_Pilot_DDPM"] select (_camo == "JIEITAID");
 
 _commonBackpack = "BRM_PatrolBP_JIEITAIW";
 _bigBackpack = "BRM_PatrolBPH_JIEITAIW";
