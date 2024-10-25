@@ -117,3 +117,7 @@
 #ifdef ACE3_SPECTATOR
 #include "..\plugins\ace3_spectator\params.hpp"
 #endif
+
+#ifdef GROUP_MARKERS
+#include "..\plugins\group_markers\params.hpp"
+#endif

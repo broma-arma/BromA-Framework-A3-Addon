@@ -118,4 +118,8 @@ missionPlugins[] = {""
 #ifdef ACE3_SPECTATOR
 ,"ace3_spectator"
 #endif
+
+#ifdef GROUP_MARKERS
+,"group_markers"
+#endif
 };
