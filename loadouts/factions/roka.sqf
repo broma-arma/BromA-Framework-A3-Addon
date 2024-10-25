@@ -19,7 +19,7 @@ _defaultColor = "blue";
 
 // CAMO ========================================================================
 _camo = missionNamespace getVariable ["BRM_FMK_LoadoutCamo_ROKA", "GRANITE"];
-_lp = ["GraniteB", "ROKMC"] select (_camo == "ROKMC"); // Loadout Pattern
+_lp = ["GraniteB", ["ROKMC", "MARPATD"] select (_camo == "DESERT")] select (_camo != "GRANITE"); // Loadout Pattern
 _rhp = ["fg", "paint"] select (_camo == "DESERT"); // Recon Head Pattern
 
 // WEAPONS =====================================================================
@@ -97,14 +97,14 @@ _countPAKCargo = 10;
 // UNIFORMS ====================================================================
 _randomGOGGLE = selectRandom ["rhs_googles_black", "rhsusf_oakley_goggles_clr", ""];
 
-_commonHead = selectRandom ([[
+_commonHead = selectRandom [
 	"BRM_LWH_"+_lp,
 	"BRM_LWH_COMS_"+_lp,
 	"BRM_LWH_COMS_GHILLIE_"+_lp,
 	"BRM_LWH_MASK_"+_lp,
 	"BRM_LWH_MASK_COMS_"+_lp,
 	"BRM_LWH_GHILLIE_"+_lp
-], ["BRM_LWH_COMS_GraniteB", "BRM_LWH_MASK_COMS_GraniteB"]] select (_camo == "DESERT"));
+];
 _leaderHead = _commonHead;
 _officerHead = "BRM_beret_green";
 _medicHead = _commonHead;
@@ -120,7 +120,7 @@ _reconHead = selectRandom [
 	"rhsusf_opscore_"+_rhp+"_pelt_nsw"
 ];
 
-_commonUniform = selectRandom ([["BRM_BattleUNI_"+_lp, "BRM_BattleUNIRS_"+_lp], ["BRM_BattleUNI_MARPATD", "BRM_BattleUNIRS_MARPATD"]] select (_camo == "DESERT"));
+_commonUniform = selectRandom ["BRM_BattleUNI_"+_lp, "BRM_BattleUNIRS_"+_lp];
 _officerUniform = _commonUniform;
 _pilotUniform = "UK3CB_CHC_C_U_Overall_01";
 _sniperUniform = ["U_I_FullGhillie_lsh", "U_I_FullGhillie_ard"] select (_camo == "DESERT");
@@ -130,18 +130,18 @@ _crewUniform = "U_Simc_OG107_mk3_tuck_nomex_blench";
 _mgUniform = _commonUniform;
 _medicUniform = _commonUniform;
 _demoUniform = _commonUniform;
-_reconUniform = "rhs_uniform_g3_mc";
+_reconUniform = _commonUniform;
 
-_commonVest = "BRM_Protec_"+_lp+"_RFL";
+_commonVest = ["BRM_Protec_"+_lp+"_RFL", "BRM_LBT_AOR1_RFL"] select (_camo == "DESERT");
 _officerVest = _commonVest;
-_ftlVest = "BRM_Protec_"+_lp+"_TL";
-_slVest = "BRM_Protec_"+_lp+"_SL";
-_mgVest = "BRM_Protec_"+_lp+"_MG";
-_grenadierVest = "BRM_Protec_"+_lp+"_GL";
-_medicVest = _commonVest;
+_ftlVest = ["BRM_Protec_"+_lp+"_TL", "BRM_LBT_AOR1_TL"] select (_camo == "DESERT");
+_slVest = ["BRM_Protec_"+_lp+"_SL", "BRM_LBT_AOR1_SL"] select (_camo == "DESERT");
+_mgVest = ["BRM_Protec_"+_lp+"_MG", "BRM_LBT_AOR1_MG"] select (_camo == "DESERT");
+_grenadierVest = ["BRM_Protec_"+_lp+"_GL", "BRM_LBT_AOR1_GL"] select (_camo == "DESERT");
+_medicVest = [_commonVest, "BRM_LBT_AOR1_MED"] select (_camo == "DESERT");
 _demoVest = _commonVest;
 _marksmanVest = _commonVest;
-_reconVest = "BRM_LBT_MLTCAM_RFL";
+_reconVest = _commonVest;
 _pilotVest = "BMR_MLBV_GraniteB_RFL";
 
 _commonBackpack = "BRM_PatrolBP_GraniteB";
