@@ -33,7 +33,7 @@ if !(count _unitName == 4 && _unit == leader _unit) exitWith {};
 private _group = group _unit;
 
 private _groupVar = _unitName select [0, 3] joinString "_";
-if (isNil _groupVar) then {
+if (isNull (missionNamespace getVariable [_groupVar, grpNull])) then {
 	missionNamespace setVariable [_groupVar, _group, true];
 };
 if (isNil { _group getVariable "BRM_FMK_Engine_fnc_groupVar" }) then {
