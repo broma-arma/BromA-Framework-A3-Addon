@@ -1,7 +1,7 @@
 /*
     Finnish Armed Forces
 
-    Camo: "frost", "sum" (BRM_FMK_LoadoutCamo_FINLAND)
+    Camo: "sum", "frost" (BRM_FMK_LoadoutCamo_FINLAND)
 */
 
 _factionID = "FINLAND";

@@ -275,7 +275,7 @@ switch (_mode) do {
 			case "BAF": { ["mpt", "dpm", "ddpm"] };
 			case "CAF": { ["CADPATD", "CADPATW"] };
 			case "CSAT": { ["BRN", "GRY"] };
-			case "FINLAND": { ["frost", "sum"] };
+			case "FINLAND": { ["sum", "frost"] };
 			case "FRANCE": { ["CCE", "DAGUET", "WINTER"] };
 			case "GERMAN": { ["FLECK", "TROPEN"] };
 			case "JSDF": { ["JIEITAIW", "JIEITAID"] };
