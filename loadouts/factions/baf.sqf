@@ -88,17 +88,13 @@ _countBloodbagCargo = 20;
 _countPAKCargo = 10;
 
 // UNIFORMS ====================================================================
-_randomGOGGLE = selectRandom [
-	["UK3CB_G_Tactical_Clear_Shemagh_Green_Headset", "UK3CB_G_Tactical_Black_Shemagh_Green", ""], [
-	["UK3CB_G_Tactical_Clear_Shemagh_Green_Headset", "UK3CB_G_Tactical_Black_Shemagh_Green", ""],
-	["UK3CB_G_Tactical_Clear_Shemagh_Green_Headset", "UK3CB_G_Tactical_Black_Shemagh_Green", ""]
-] select (_camo == "ddpm")] select (_camo != "mpt");
+_randomGOGGLE = selectRandom ["UK3CB_G_Tactical_Clear_Shemagh_Green_Headset", "UK3CB_G_Tactical_Black_Shemagh_Green", ""];
 
-_commonHead = selectRandom [
+_commonHead = selectRandom ([
 	["UK3CB_BAF_H_Mk7_Camo_B", "UK3CB_BAF_H_Mk7_Camo_ESS_B", "UK3CB_BAF_H_Mk7_Net_CESS_B", "UK3CB_BAF_H_Mk7_Scrim_D", "UK3CB_BAF_H_Mk7_Scrim_ESS_B"], [
 	["UK3CB_BAF_H_Mk6_DPMT_A", "UK3CB_BAF_H_Mk6_DPMT_B", "UK3CB_BAF_H_Mk6_DPMT_C", "UK3CB_BAF_H_Mk6_DPMT_E", "UK3CB_BAF_H_Mk6_DPMT_F"],
 	["UK3CB_BAF_H_Mk6_DDPM_A", "UK3CB_BAF_H_Mk6_DDPM_B", "UK3CB_BAF_H_Mk6_DDPM_C", "UK3CB_BAF_H_Mk6_DDPM_D", "UK3CB_BAF_H_Mk6_DDPM_F"]
-] select (_camo == "ddpm")] select (_camo != "mpt");
+] select (_camo == "ddpm")] select (_camo != "mpt"));
 _leaderHead = _commonHead;
 _officerHead = "UK3CB_BAF_H_Beret_PR_PRR_Over";
 _medicHead = _commonHead;
@@ -110,11 +106,11 @@ _sniperHead = _commonHead;
 _demoHead = _commonHead;
 _reconHead = ["UK3CB_BAF_H_Boonie_MTP_PRR", ["UK3CB_BAF_H_Boonie_DPMT_PRR", "UK3CB_BAF_H_Boonie_DDPM_PRR"] select (_camo == "ddpm")] select (_camo != "mpt");
 
-_commonUniform = selectRandom [
+_commonUniform = selectRandom ([
 	["UK3CB_BAF_U_CombatUniform_MTP", "UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve"], [
 	["UK3CB_BAF_U_CombatUniform_DPMT_ShortSleeve", "UK3CB_BAF_U_CombatUniform_DPMT"],
 	["UK3CB_BAF_U_CombatUniform_DDPM", "UK3CB_BAF_U_CombatUniform_DDPM_ShortSleeve"]
-] select (_camo == "ddpm")] select (_camo != "mpt");
+] select (_camo == "ddpm")] select (_camo != "mpt"));
 _officerUniform = _commonUniform;
 _pilotUniform = "UK3CB_CHC_C_U_Overall_01";
 _sniperUniform = ["U_B_FullGhillie_ard", "U_B_FullGhillie_lsh"] select (_camo == "dpm");
