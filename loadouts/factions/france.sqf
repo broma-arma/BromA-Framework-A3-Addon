@@ -92,7 +92,7 @@ _countPAKCargo = 10;
 // UNIFORMS ====================================================================
 _commonHead = selectRandom ([
 	["BRM_LWH_COMS_"+_camo, "BRM_LWH_MASK_COMS_"+_camo],
-	["rhsusf_ach_bare_headset", "rhsusf_ach_bare_wood_headset"]
+	["UK3CB_CSAT_S_O_H_6b47_WIN", "UK3CB_CSAT_S_O_H_6b47_bala_WIN", "UK3CB_CSAT_S_O_H_6b47_ess_WIN", "UK3CB_CSAT_S_O_H_6b47_ess_bala_WIN"]
 ] select (_camo == "WINTER"));
 _leaderHead = _commonHead;
 _officerHead = ["BRM_PatrolCap_"+_camo, _commonHead] select (_camo == "WINTER");
@@ -117,16 +117,16 @@ _medicUniform = _commonUniform;
 _demoUniform = _commonUniform;
 _reconUniform = _commonUniform;
 
-_commonVest = ["BRM_Protec_BROWN_RFL", selectRandom ["UK3CB_V_MBAV_RIFLEMAN_WIN", "UK3CB_V_MBAV_MG_WIN"]] select (_camo == "WINTER");
-_officerVest = "BRM_Protec_BROWN_SL";
-_ftlVest = "BRM_Protec_BROWN_TL";
+_commonVest = ["BRM_Protec_BROWN_RFL", "UK3CB_V_MBAV_RIFLEMAN_WIN"] select (_camo == "WINTER");
+_officerVest = ["BRM_Protec_BROWN_SL", "UK3CB_V_MBAV_GRENADIER_WIN"] select (_camo == "WINTER");
+_ftlVest = ["BRM_Protec_BROWN_TL", "UK3CB_V_MBAV_GRENADIER_WIN"] select (_camo == "WINTER");
 _slVest = _officerVest;
-_mgVest = "BRM_Protec_BROWN_MG";
-_grenadierVest = "BRM_Protec_BROWN_GL";
-_medicVest = _commonVest;
+_mgVest = ["BRM_Protec_BROWN_MG", "UK3CB_V_MBAV_MG_WIN"] select (_camo == "WINTER");
+_grenadierVest = ["BRM_Protec_BROWN_GL", "UK3CB_V_MBAV_GRENADIER_WIN"] select (_camo == "WINTER");
+_medicVest = [_commonVest, "UK3CB_V_MBAV_MEDIC_WIN"] select (_camo == "WINTER");
 _demoVest = _commonVest;
 _marksmanVest = _commonVest;
-_reconVest = "BRM_RRV_BROWN_REC1";
+_reconVest = ["BRM_RRV_BROWN_REC1", "UK3CB_V_MBAV_LIGHT_WIN"] select (_camo == "WINTER");
 _pilotVest = "";
 
 _commonBackpack = "UK3CB_ION_B_B_ASS_WIN_01";
