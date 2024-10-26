@@ -116,16 +116,16 @@ _medicUniform = _commonUniform;
 _demoUniform = _commonUniform;
 _reconUniform = _commonUniform;
 
-_commonVest = ["BRM_RRV_BROWN_RFL", "BRM_RRV_GREEN_RFL"] select (_camo == "m90w");
-_officerVest = ["BRM_RRV_BROWN_RECLEAD", "BRM_RRV_GREEN_RECLEAD"] select (_camo == "m90w");
-_ftlVest = _officerVest;
-_slVest = _ftlVest;
-_mgVest = ["BRM_RRV_BROWN_MG", "BRM_RRV_GREEN_MG"] select (_camo == "m90w");
+_commonVest = ["BRM_RRV_GREEN_RFL", "BRM_IBA_ALICE_DCU_RFL"] select (_camo == "m90d");
+_officerVest = ["BRM_RRV_GREEN_RECLEAD", "BRM_IBA_ALICE_DCU_COM"] select (_camo == "m90d");
+_ftlVest = [_officerVest, "BRM_IBA_ALICE_DCU_SL"] select (_camo == "m90d");
+_slVest = [_officerVest, "BRM_IBA_ALICE_DCU_TL"] select (_camo == "m90d");
+_mgVest = ["BRM_RRV_GREEN_MG", "BRM_IBA_ALICE_DCU_MG"] select (_camo == "m90d");
 _grenadierVest = _commonVest;
-_medicVest = ["BRM_RRV_BROWN_RECMED", "BRM_RRV_GREEN_RECMED"] select (_camo == "m90w");
+_medicVest = ["BRM_RRV_GREEN_RECMED", "BRM_IBA_ALICE_DCU_SF2"] select (_camo == "m90d");
 _demoVest = _commonVest;
 _marksmanVest = _commonVest;
-_reconVest = _commonVest;
+_reconVest = [_commonVest, selectRandom ["BRM_IBA_ALICE_DCU_SF1", "BRM_IBA_ALICE_DCU_SF2"]] select (_camo == "m90d");;
 _pilotVest = "UK3CB_V_Pilot_Vest";
 
 _commonBackpack = "BRM_PatrolBP_"+_camo;
