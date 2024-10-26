@@ -85,14 +85,14 @@ _countBloodbagCargo = 20;
 _countPAKCargo = 10;
 
 // UNIFORMS ====================================================================
-_commonHead = selectRandom ["BRM_LWH_UN", "BRM_LWH_MASK_UN"];
+_commonHead = selectRandom ["BRM_LWH_UN", "BRM_6B7_UN", "BRM_ACH_UN", "UK3CB_UN_B_H_6b27m", "UK3CB_UN_B_H_6b27m_Cov", "rhssaf_helmet_m97_nostrap_blue"];
 _leaderHead = _commonHead;
 _officerHead = "rhssaf_beret_blue_un";
 _medicHead = _commonHead;
 _crewmanHead = "H_HelmetCrew_I";
-_pilotHead = "BRM_SPH4_WHITE";
-_helicrewHead = "BRM_SPH4_WHITE";
-_helipilotHead = "BRM_SPH4_WHITE";
+_pilotHead = _commonHead;
+_helicrewHead = _commonHead;
+_helipilotHead = _commonHead;
 _sniperHead = _commonHead;
 _demoHead = _commonHead;
 _reconHead = _commonHead;
@@ -109,24 +109,21 @@ _medicUniform = _commonUniform;
 _demoUniform = _commonUniform;
 _reconUniform = _commonUniform;
 
-_commonVest = "BRM_IBA_ALICE_UN_RFL";
-_officerVest = "BRM_IBA_ALICE_UN_SL";
-_ftlVest = _commonVest;
-_slVest = "BRM_IBA_ALICE_UN_SL";
+_commonVest = selectRandom ["BRM_IBA_ALICE_UN_RFL", "UK3CB_UN_B_V_6b23_ml_01", "UK3CB_UN_B_V_6b23_ml_02", "UK3CB_UN_B_V_6b23_vydra_3m"];
+_officerVest = selectRandom ["BRM_IBA_ALICE_UN_COM", "UK3CB_UN_B_V_6b23_ML_6sh92_radio"];
+_ftlVest = selectRandom ["BRM_IBA_ALICE_UN_TL", "UK3CB_UN_B_V_6b23_ML_6sh92_radio"];
+_slVest = selectRandom ["BRM_IBA_ALICE_UN_SL", "UK3CB_UN_B_V_6b23_ML_6sh92_radio"];
 _mgVest = "BRM_IBA_ALICE_UN_MG";
 _heliVEST = _commonVest;
-_grenadierVest = _commonVest;
-_medicVest = _commonVest;
+_grenadierVest = "UK3CB_UN_B_V_6b23_ml_6sh92_vog";
+_medicVest = "UK3CB_UN_B_V_6b23_medic";
 _demoVest = _commonVest;
 _marksmanVest = _commonVest;
 _reconVest = _commonVest;
 _pilotVest = "BRM_ALICE_SL";
 
 _commonBackpack = "BRM_SqBackpack_Green";
-_bigBackpack = _commonBackpack;
-_medicalBackpack = "BRM_SqBackpackMED_Green";
-_specATBackpack = _commonBackpack;
-_reconBackpack = _commonBackpack;
+_bigBackpack = "BRM_SqBpH_Green";
 
 // MISC EQUIPMENT ==============================================================
 _grenade = "rhssaf_mag_br_m84";
