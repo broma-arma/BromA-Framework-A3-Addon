@@ -86,9 +86,8 @@ _commonHead = [
 	"UK3CB_TKA_I_H_SSh68_Oli",
 	"UK3CB_H_Turban_Neckwrap_03_Tan"
 ] selectRandomWeighted [0.7, 0.3];
-
-_leaderHead = "rhs_beret_omon";
-_officerHead = "rhs_beret_omon";
+_leaderHead = selectRandom ["UK3CB_TKA_I_H_Patrolcap_OLI", "UK3CB_TKA_I_H_Patrolcap_OFF_OLI"];
+_officerHead = "UK3CB_TKA_B_H_Beret";
 _medicHead = _commonHead;
 _crewmanHead = "rhs_tsh4";
 _pilotHead = "rhs_zsh7a";
