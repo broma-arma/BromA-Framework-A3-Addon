@@ -87,11 +87,11 @@ _countPAKCargo = 10;
 // UNIFORMS ====================================================================
 _randomGOGGLE = ["rhs_balaclava", ""] selectRandomWeighted [0.4, 0.6];
 
-_commonHead = selectRandom ([["rhs_6b47_emr_1", "rhs_6b47_emr", "rhs_6b47_6B50"], ["rhs_6b7_1m", "rhs_6b7_1m_bala2"]] select (_camo == "emrd"));
+_commonHead = [selectRandom ["rhs_6b47_emr_1", "rhs_6b47_emr", "rhs_6b47_6B50"], "rhs_6b47_bare_d"] select (_camo == "emrd");
 _leaderHead = _commonHead;
-_officerHead = "rhs_fieldcap_digi";
+_officerHead = ["rhs_fieldcap_digi", "rhs_fieldcap_m88"] select (_camo == "emrd");
 _medicHead = _commonHead;
-_crewmanHead = "rhs_6b48";
+_crewmanHead = ["rhs_6b48", "UK3CB_H_Crew_Cap"] select (_camo == "emrd");
 _pilotHead = "rhs_zsh7a";
 _helicrewHead = "rhs_zsh7a_mike";
 _helipilotHead = "rhs_zsh7a_mike";
@@ -111,12 +111,12 @@ _medicUniform = _commonUniform;
 _demoUniform = _commonUniform;
 _reconUniform = _commonUniform;
 
-_commonVest = "rhs_6b45_rifleman";
-_officerVest = "rhs_6b45_off";
-_ftlVest = "rhs_6b45_off";
-_slVest = "rhs_6b45_off";
-_mgVest = "rhs_6b45_mg";
-_grenadierVest = "rhs_6b45_grn";
+_commonVest = [selectRandom ["rhs_6b45_rifleman", "rhs_6b45_rifleman_2"], "rhs_6b45_desert"] select (_camo == "emrd");
+_officerVest = ["rhs_6b45_off", _commonVest] select (_camo == "emrd");
+_ftlVest = _officerVest;
+_slVest = _officerVest;
+_mgVest = ["rhs_6b45_mg", _commonVest] select (_camo == "emrd");
+_grenadierVest = ["rhs_6b45_grn", _commonVest] select (_camo == "emrd");
 _medicVest = _commonVest;
 _demoVest = _commonVest;
 _marksmanVest = _commonVest;
