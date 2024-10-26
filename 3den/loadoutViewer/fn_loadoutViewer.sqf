@@ -69,25 +69,29 @@ switch (_mode) do {
 
 		_display setVariable ["ehDraw3D", addMissionEventHandler ["Draw3D", { ["Draw3D", _this] call BRM_FMK_3DEN_fnc_loadoutViewer }]];
 
-		private _units = [];
-		_display setVariable ["units", _units];
-		private _pos = POS vectorAdd [-9 / 2, 0, 0];
-		{
-			private _posXOffset = _forEachIndex;
-			{
-				private _posYOffset = _forEachIndex;
+		["createUnits", []] call BRM_FMK_3DEN_fnc_loadoutViewer;
+	};
+	case "onUnload": {
+		{ deleteVehicle _x } forEach (_display getVariable "units");
 
-				_x params ["_type", "_label", ["_role", "*"]];
-				private _unitPos = _pos vectorAdd [_posXOffset, _posYOffset];
-				private _unit = createVehicleLocal [_type, _unitPos, [], 0, "CAN_COLLIDE"];
-				_units pushBack _unit;
-				_unit setVariable ["label", _label];
-				_unit setVariable ["role", _role];
-				_unit setPosASL _unitPos;
-				_unit setDir 180;
-				_unit enableSimulation false;
-			} forEach _x;
-		} forEach [
+		removeMissionEventHandler ["Draw3D", _display getVariable "ehDraw3D"];
+
+		setViewDistance (_display getVariable "viewDistance");
+		private _camera = _display getVariable "camera";
+		_camera cameraEffect ["Terminate", "BACK"];
+		camDestroy _camera;
+
+		if (is3DEN) then {
+			BRM_FMK_Engine_initialized = nil; BRM_FMK_Engine_compatVersion = nil;
+			get3DENCamera cameraEffect ["Internal", "BACK"];
+			["showInterface", true] call BIS_fnc_3DENInterface;
+		};
+		uiNamespace setVariable ["BRM_FMK_3DEN_fnc_loadoutViewer_display", nil];
+	};
+	case "createUnits": {
+		params [["_faction", ""]];
+
+		private _unitTypes = [
 			[
 				["B_officer_F", "Officer"],
 				["B_Soldier_SL_F", "Squad Leader"],
@@ -147,23 +151,60 @@ switch (_mode) do {
 				["B_Pilot_F", "Pilot"]
 			]
 		];
-	};
-	case "onUnload": {
-		{ deleteVehicle _x } forEach (_display getVariable "units");
 
-		removeMissionEventHandler ["Draw3D", _display getVariable "ehDraw3D"];
-
-		setViewDistance (_display getVariable "viewDistance");
-		private _camera = _display getVariable "camera";
-		_camera cameraEffect ["Terminate", "BACK"];
-		camDestroy _camera;
-
-		if (is3DEN) then {
-			BRM_FMK_Engine_initialized = nil; BRM_FMK_Engine_compatVersion = nil;
-			get3DENCamera cameraEffect ["Internal", "BACK"];
-			["showInterface", true] call BIS_fnc_3DENInterface;
+		if (_faction == "SPRG") then {
+			_unitTypes = [
+				[
+					["C_journalist_F", "Reporter", "reporter"],
+					["C_journalist_F", "Cameraman", "cameraman"]
+				]
+			];
 		};
-		uiNamespace setVariable ["BRM_FMK_3DEN_fnc_loadoutViewer_display", nil];
+
+		private _lastUnitTypes = _display getVariable ["unitTypes", []];
+		if (_unitTypes isEqualTo _lastUnitTypes) exitWith {};
+		{ deleteVehicle _x } forEach (_display getVariable ["units", []]);
+
+		private _units = [];
+		_display setVariable ["units", _units];
+		_display setVariable ["unitTypes", _unitTypes];
+		private _pos = POS vectorAdd [-9 / 2, 0, 0];
+
+		{
+			private _posXOffset = _forEachIndex;
+			{
+				private _posYOffset = _forEachIndex;
+
+				_x params ["_type", "_label", ["_role", "*"]];
+				private _unitPos = _pos vectorAdd [_posXOffset, _posYOffset];
+				private _unit = createVehicleLocal [_type, _unitPos, [], 0, "CAN_COLLIDE"];
+				_units pushBack _unit;
+				_unit setVariable ["label", _label];
+				_unit setVariable ["role", _role];
+				_unit setPosASL _unitPos;
+				_unit setDir 180;
+				_unit enableSimulation false;
+			} forEach _x;
+		} forEach _unitTypes;
+	};
+	case "assignLoadout": {
+		params ["_faction", ["_camo", ""]];
+
+		["createUnits", [_faction]] call BRM_FMK_3DEN_fnc_loadoutViewer;
+
+		missionNamespace setVariable ["BRM_FMK_LoadoutCamo_" + _faction, if (_camo != "") then { _camo } else { nil }];
+		private _modCode = _display getVariable "modCode";
+		if (!isNil "_modCode") then { BRM_FMK_Engine_fnc_toolLoadoutMod = _modCode; };
+		private _structureCode = _display getVariable "structureCode";
+		if (!isNil "_structureCode") then { BRM_FMK_Engine_fnc_toolStructure = _structureCode; };
+
+		{
+			[_x, _faction, _x getVariable ["role", "*"]] call BRM_FMK_fnc_assignLoadout;
+		} forEach (_display getVariable "units");
+
+		if (!isNil "_modCode") then { BRM_FMK_Engine_fnc_toolLoadoutMod = nil; };
+		if (!isNil "_structureCode") then { BRM_FMK_Engine_fnc_toolStructure = nil; };
+		if (_camo != "") then { missionNamespace setVariable ["BRM_FMK_LoadoutCamo_" + _faction, nil]; };
 	};
 	case "onLoadStructure": {
 		params ["_dialog"];
@@ -244,23 +285,6 @@ switch (_mode) do {
 		} else {
 			closeDialog 1;
 		};
-	};
-	case "assignLoadout": {
-		params ["_faction", ["_camo", ""]];
-
-		missionNamespace setVariable ["BRM_FMK_LoadoutCamo_" + _faction, if (_camo != "") then { _camo } else { nil }];
-		private _modCode = _display getVariable "modCode";
-		if (!isNil "_modCode") then { BRM_FMK_Engine_fnc_toolLoadoutMod = _modCode; };
-		private _structureCode = _display getVariable "structureCode";
-		if (!isNil "_structureCode") then { BRM_FMK_Engine_fnc_toolStructure = _structureCode; };
-
-		{
-			[_x, _faction, _x getVariable ["role", "*"]] call BRM_FMK_fnc_assignLoadout;
-		} forEach (_display getVariable "units");
-
-		if (!isNil "_modCode") then { BRM_FMK_Engine_fnc_toolLoadoutMod = nil; };
-		if (!isNil "_structureCode") then { BRM_FMK_Engine_fnc_toolStructure = nil; };
-		if (_camo != "") then { missionNamespace setVariable ["BRM_FMK_LoadoutCamo_" + _faction, nil]; };
 	};
 	case "onFactionLBSelChanged": {
 		params ["_control", "_curSel"];
