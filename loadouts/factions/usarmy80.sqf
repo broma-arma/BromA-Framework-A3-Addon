@@ -112,17 +112,17 @@ _medicUniform = _commonUniform;
 _demoUniform = _commonUniform;
 _reconUniform = _commonUniform;
 
-_commonVest = "UK3CB_CW_US_B_LATE_V_PASGT_Rif_Vest";
-_officerVest = "UK3CB_CW_US_B_LATE_V_PASGT_MG_Vest";
-_ftlVest = "UK3CB_CW_US_B_LATE_V_PASGT_MG_Vest";
-_slVest = "UK3CB_CW_US_B_LATE_V_PASGT_MG_Vest";
-_mgVest = "UK3CB_CW_US_B_LATE_V_PASGT_MG_Vest";
+_commonVest = ["UK3CB_CW_US_B_LATE_V_PASGT_Rif_Vest", "BRM_IBA_DCU_RFL"] select (_camo == "des");
+_officerVest = ["UK3CB_CW_US_B_LATE_V_PASGT_MG_Vest", "BRM_IBA_DCU_COM"] select (_camo == "des");
+_ftlVest = ["UK3CB_CW_US_B_LATE_V_PASGT_MG_Vest", "BRM_IBA_DCU_TL"] select (_camo == "des");
+_slVest = ["UK3CB_CW_US_B_LATE_V_PASGT_MG_Vest", "BRM_IBA_DCU_SL"] select (_camo == "des");
+_mgVest = ["UK3CB_CW_US_B_LATE_V_PASGT_MG_Vest", "BRM_IBA_DCU_MG"] select (_camo == "des");
 _grenadierVest = _commonVest;
-_medicVest = "UK3CB_CW_US_B_LATE_V_PASGT_Medic_Vest";
+_medicVest = ["UK3CB_CW_US_B_LATE_V_PASGT_Medic_Vest", "BRM_IBA_DCU_RFL"] select (_camo == "des");
 _demoVest = _commonVest;
 _marksmanVest = _commonVest;
 _reconVest = _commonVest;
-_pilotVest = ["UK3CB_V_Pilot_Vest", "UK3CB_V_Pilot_Vest_Black"] select (_camo == "des");
+_pilotVest = ["UK3CB_BAF_V_Pilot_DPMW", "UK3CB_BAF_V_Pilot_DDPM"] select (_camo == "des");
 
 _commonBackpack = ["BRM_SqBackpack_Green", "BRM_SqBackpack_Brown"] select (_camo == "des");
 _bigBackpack = ["BRM_SqBpH_Green", "BRM_SqBpH_Brown"] select (_camo == "des");
