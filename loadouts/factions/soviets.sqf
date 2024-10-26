@@ -81,7 +81,11 @@ _countBloodbagCargo = 20;
 _countPAKCargo = 10;
 
 // UNIFORMS ====================================================================
-_commonHead = ["UK3CB_TKA_I_H_SSh68_Oli", ["rhs_ssh68_2", selectRandom ["rhs_ssh60", "rhs_pilotka"]] select (_camo == "khk")] select (_camo != "vsr");
+_commonHead = [
+	"rhsgref_ssh68_ttsko_forest", [
+	"UK3CB_TKA_I_H_SSh68_Khk",
+	"UK3CB_H_SSH60_Helmet_Covered_TAN"
+] select (_camo == "khk")] select (_camo != "vsr");
 _leaderHead = ["rhsgref_fieldcap_ttsko_forest", [selectRandom ["rhs_fieldcap_m88", "rhs_fieldcap_m88_back"], "rhs_fieldcap_khk"] select (_camo == "khk")] select (_camo != "vsr");
 _officerHead = ["rhs_beret_mvd", ["UK3CB_CW_SOV_O_EARLY_H_Officer_Cap", "rhs_beret_vdv_early"] select (_camo == "khk")] select (_camo != "vsr");
 _medicHead = _commonHead;
@@ -105,15 +109,15 @@ _medicUniform = _commonUniform;
 _demoUniform = _commonUniform;
 _reconUniform = _commonUniform;
 
-_commonVest = ["rhs_6b5_rifleman", selectRandom ["rhs_lifchik", "rhs_lifchik_light"]] select (_camo != "vsr");
-_officerVest = ["rhs_6b5_officer", "rhs_lifchik_NCO"] select (_camo != "vsr");
+_commonVest = ["rhs_6b5_rifleman_ttsko", selectRandom ["rhs_lifchik", "rhs_lifchik_light"]] select (_camo != "vsr");
+_officerVest = ["rhs_6b5_officer_ttsko", "rhs_lifchik_NCO"] select (_camo != "vsr");
 _ftlVest = [_commonVest, "rhs_lifchik_vog"] select (_camo != "vsr");
 _slVest = _officerVest;
 _mgVest = _commonVest;
 _grenadierVest = _ftlVest;
-_medicVest = ["rhs_6b5_medic", _commonVest] select (_camo != "vsr");
+_medicVest = ["rhs_6b5_medic_ttsko", _commonVest] select (_camo != "vsr");
 _demoVest = _commonVest;
-_marksmanVest = _commonVest;
+_marksmanVest = ["rhs_6b5_sniper_ttsko", _commonVest] select (_camo != "vsr");;
 _reconVest = _commonVest;
 _pilotVest = "rhs_vest_commander";
 
