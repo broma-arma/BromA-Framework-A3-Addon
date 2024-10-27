@@ -81,16 +81,18 @@ _lines append ["", "<font color='#ffc030' size='16' face='RobotoCondensedBold'>S
 {
 	//[[_squad0Name, squad0Frequency], [group0Name, group0Frequency], [group1Name, group1Frequency], ...],
 	//...
-	private _squadIndex = _forEachIndex;
-	_x#0 params ["_squadName", "_squadFrequency"];
-	{
-		private _groupIndex = _forEachIndex - 1;
-		if (_forEachIndex == 0) then { continue; };
-		if (!isNil "_x") then {
-			_x params ["_groupName", "_frequency"];
-			_lines pushBack format ["<execute expression=""private _radio = call TFAR_fnc_activeSwRadio; [_radio, 6, '%2'] call TFAR_fnc_setChannelFrequency; [_radio, 5] call TFAR_fnc_setSwChannel; [_radio, false] call TFAR_fnc_showRadioInfo;"">%1</execute> (<execute expression=""private _radio = call TFAR_fnc_activeSwRadio; [_radio, 6, '%4'] call TFAR_fnc_setChannelFrequency; [_radio, 5] call TFAR_fnc_setSwChannel; [_radio, false] call TFAR_fnc_showRadioInfo;"">%3</execute>) - <execute expression=""[%5, %6] call BRM_FMK_Plugin_RadioFreq_fnc_switchGroup;"">Join</execute> Group", _groupName, _frequency, _squadName, _squadFrequency, _squadIndex, _groupIndex];
-		};
-	} forEach _x;
+	if (!isNil "_x") then {
+		private _squadIndex = _forEachIndex;
+		_x#0 params ["_squadName", "_squadFrequency"];
+		{
+			private _groupIndex = _forEachIndex - 1;
+			if (_forEachIndex == 0) then { continue; };
+			if (!isNil "_x") then {
+				_x params ["_groupName", "_frequency"];
+				_lines pushBack format ["<execute expression=""private _radio = call TFAR_fnc_activeSwRadio; [_radio, 6, '%2'] call TFAR_fnc_setChannelFrequency; [_radio, 5] call TFAR_fnc_setSwChannel; [_radio, false] call TFAR_fnc_showRadioInfo;"">%1</execute> (<execute expression=""private _radio = call TFAR_fnc_activeSwRadio; [_radio, 6, '%4'] call TFAR_fnc_setChannelFrequency; [_radio, 5] call TFAR_fnc_setSwChannel; [_radio, false] call TFAR_fnc_showRadioInfo;"">%3</execute>) - <execute expression=""[%5, %6] call BRM_FMK_Plugin_RadioFreq_fnc_switchGroup;"">Join</execute> Group", _groupName, _frequency, _squadName, _squadFrequency, _squadIndex, _groupIndex];
+			};
+		} forEach _x;
+	};
 } forEach _radioNets#0;
 
 // Long range nets
