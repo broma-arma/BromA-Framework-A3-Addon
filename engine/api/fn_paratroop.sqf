@@ -52,7 +52,13 @@ if (_action != -1) exitWith {
 			[_vehicle, _staticLine, _backpack] spawn {
 				params ["_vehicle", "_staticLine", "_backpack"];
 
-				player disableCollisionWith _vehicle;
+				if (isDamageAllowed player) then {
+					player allowDamage false;
+					0 spawn {
+						sleep 2;
+						player allowDamage true;
+					};
+				};
 
 				unassignVehicle player;
 				moveOut player;
