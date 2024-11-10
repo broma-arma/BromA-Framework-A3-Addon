@@ -103,8 +103,22 @@ private _synchronizedObjects = synchronizedObjects _vehicle;
 if (_synchronizedObjects isEqualTo []) then {
 	_synchronizedObjects = call BIS_fnc_listPlayers;
 };
+private _cargoIndices = [];
 {
-	_x moveInCargo _vehicle;
+	_x params ["_unit", "_role", "_cargoIndex", "_turretPath", "_personTurret"];
+
+	if (isNull _unit) then {
+		switch (_role) do {
+			case "cargo": { _cargoIndices pushBack _cargoIndex; };
+			case "turret": { if (_personTurret) then { _cargoIndices pushBack _cargoIndex; }; };
+			default { };
+		};
+	};
+} forEach fullCrew [_vehicle, "cargo", true];
+{
+	private _cargoIndex = _cargoIndices deleteAt 0;
+	if (isNil "_cargoIndex") then { break; };
+	[_x, [_vehicle, _cargoIndex, true]] remoteExec ["moveInCargo", _x];
 } forEach _synchronizedObjects;
 
 private _altitude = getPosASL _vehicle select 2;
