@@ -109,9 +109,9 @@ if (count _waypoints != 2) exitWith { ["No waypoint for drop location."] call BI
 private _dropWaypoint = _waypoints select 1;
 
 waypointStatements _dropWaypoint params ["_condition", "_statement"];
-_statement = _statement + format ["; [objectParent this, %1, %2, 0] call BRM_FMK_fnc_paratroop", _staticLine, str _backpack];
+_statement = _statement + format ["; if (local this) then { [objectParent this, %1, %2, 0] call BRM_FMK_fnc_paratroop; };", _staticLine, str _backpack];
 _dropWaypoint setWaypointStatements [_condition, _statement];
 
 private _posASL = getPosASL _vehicle;
 private _deleteWaypoint = group _vehicle addWaypoint [_posASL vectorAdd (AGLToASL waypointPosition _dropWaypoint vectorDiff _posASL vectorMultiply 2), -1];
-_deleteWaypoint setWaypointStatements ["true", format ["[objectParent this, %1, %2, 2] call BRM_FMK_fnc_paratroop", _staticLine, str _backpack]];
+_deleteWaypoint setWaypointStatements ["true", format ["if (local this) then { [objectParent this, %1, %2, 2] call BRM_FMK_fnc_paratroop; };", _staticLine, str _backpack]];
