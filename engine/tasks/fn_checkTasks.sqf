@@ -139,7 +139,7 @@ if (_init) exitWith {};
 					"Regroup", objNull,
 					[format ["!(side_%1_side in mission_require_extraction)", _sideChar]],
 					[{}, {}, { if (mission_extraction_enable_music) then { [selectRandom mission_extraction_tracks] call BRM_FMK_fnc_playGlobal; }; }]
-				] spawn BRM_FMK_fnc_createTask;
+				] call BRM_FMK_fnc_createTask;
 
 				[
 					_extractionObjects apply { if (_x isEqualType "") then { call compile _x } else { _x } },
