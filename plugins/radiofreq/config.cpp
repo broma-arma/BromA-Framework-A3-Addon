@@ -18,6 +18,7 @@ class CfgFunctions {
 			class switchGroup {};
 			class editRadioSettings {};
 			class handleVehicleRadio {};
+			class saveVehicleRadioSettings {};
 		};
 	};
 };

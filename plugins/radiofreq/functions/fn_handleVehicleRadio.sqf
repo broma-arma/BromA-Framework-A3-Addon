@@ -18,19 +18,24 @@ if (!isNil "_vehicleRadio") then {
 		_unit setVariable ["BRM_FMK_Plugin_RadioFreq_previousLrRadio", _lrRadio];
 		_vehicleRadio call TFAR_fnc_setActiveLrRadio;
 	} else {
-		private _sideID = _unit call BIS_fnc_objectSide call BIS_fnc_sideID;
-		if (!TFAR_radioCodesDisabled) then {
-			private _unitEncryption = [TFAR_radiocode_east, TFAR_radiocode_west, TFAR_radiocode_independent] select _sideID;
-			if (_vehicleRadio call TFAR_fnc_getLrRadioCode != _unitEncryption) then {
-				[_vehicleRadio, _unitEncryption] call TFAR_fnc_setLrRadioCode;
+		private _vehicleLrRadioSettings = _unit getVariable "BRM_FMK_Plugin_RadioFreq_vehicleLrRadioSettings";
+		if (!isNil "_vehicleLrRadioSettings") then {
+			[_vehicleRadio, +(_unit getVariable "BRM_FMK_Plugin_RadioFreq_vehicleLrRadioSettings")] call TFAR_fnc_setLRSettings;
+		} else {
+			private _sideID = _unit call BIS_fnc_objectSide call BIS_fnc_sideID;
+			if (!TFAR_radioCodesDisabled) then {
+				private _unitEncryption = [TFAR_radiocode_east, TFAR_radiocode_west, TFAR_radiocode_independent] select _sideID;
+				if (_vehicleRadio call TFAR_fnc_getLrRadioCode != _unitEncryption) then {
+					[_vehicleRadio, _unitEncryption] call TFAR_fnc_setLrRadioCode;
+				};
 			};
+
+			{
+				[_vehicleRadio, _forEachIndex + 1, _x] call TFAR_fnc_setChannelFrequency;
+			} foreach BRM_FMK_Plugin_RadioFreq_radioNets#_sideID#1; // [_lrChannel0 frequency, _lrChannel1 frequency, ...]
+
+			[_vehicleRadio, 1] call TFAR_fnc_setLrChannel; // Active channel 2
+			[_vehicleRadio, 2] call TFAR_fnc_setLrStereo; // Stereo, Right
 		};
-
-		{
-			[_vehicleRadio, _forEachIndex + 1, _x] call TFAR_fnc_setChannelFrequency;
-		} foreach BRM_FMK_Plugin_RadioFreq_radioNets#_sideID#1; // [_lrChannel0 frequency, _lrChannel1 frequency, ...]
-
-		[_vehicleRadio, 1] call TFAR_fnc_setLrChannel; // Active channel 2
-		[_vehicleRadio, 2] call TFAR_fnc_setLrStereo; // Stereo, Right
 	};
 };
