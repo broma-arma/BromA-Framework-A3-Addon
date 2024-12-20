@@ -15,28 +15,30 @@ private _defaultCallsigns = [[OPFOR, BLUFOR, INDEPENDENT, CIVILIAN] select _side
 
 {
 	private _squadIndex = _forEachIndex;
-	{
-		private _groupIndex = _forEachIndex - 1;
-		if (!isNil "_x") then {
-			_x params ["_name", ""];
+	if (!isNil "_x") then {
+		{
+			private _groupIndex = _forEachIndex - 1;
+			if (!isNil "_x") then {
+				_x params ["_name", ""];
 
-			if (_name == "") then {
-				if (_defaultCallsigns isEqualType []) then {
-					private _groupName = _defaultCallsigns param [_squadIndex, ""];
-					if (_groupIndex > 0 && _groupName != "") then {
-						_groupName = format ["%1 %2", _groupName, _groupIndex];
-					};
-					_x set [0, if (_groupIndex == -1) then {
-						_groupName splitString " " param [0, ""]
+				if (_name == "") then {
+					if (_defaultCallsigns isEqualType []) then {
+						private _groupName = _defaultCallsigns param [_squadIndex, ""];
+						if (_groupIndex > 0 && _groupName != "") then {
+							_groupName = format ["%1 %2", _groupName, _groupIndex];
+						};
+						_x set [0, if (_groupIndex == -1) then {
+							_groupName splitString " " param [0, ""]
+						} else {
+							_groupName
+						}];
 					} else {
-						_groupName
-					}];
-				} else {
-					_x set [0, _defaultCallsigns];
+						_x set [0, _defaultCallsigns];
+					};
 				};
 			};
-		};
-	} forEach _x;
+		} forEach _x;
+	};
 } forEach _radioNets#0;
 
 str player splitString "_" params ["", "_squadIndex", "_groupIndex"];
