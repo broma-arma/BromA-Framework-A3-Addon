@@ -15,6 +15,7 @@ for "_i" from 0 to 270 step 90 do {
 	_marker setMarkerBrushLocal "Solid";
 	_marker setMarkerColorLocal "ColorBlack";
 	_marker setMarkerAlphaLocal 1;
+	_marker setMarkerDrawPriority -1e38;
 };
 
 private _fnc_configOptions = {
