@@ -26,6 +26,15 @@ RETURNS:
 
 params ["_unit", "_killer", "_instigator"];
 
+// Add secondary to primary weapon holder
+getCorpseWeaponholders _unit params ["_primaryWeaponHolder", "_secondaryWeaponHolder"];
+if (!isNull _secondaryWeaponHolder) then {
+	{
+		_primaryWeaponHolder addWeaponWithAttachmentsCargoGlobal [_x, 1];
+	} forEach weaponsItemsCargo _secondaryWeaponHolder;
+	deleteVehicle _secondaryWeaponHolder;
+};
+
 if (isPlayer _unit) then {
 	_unit setVariable ["unit_deaths", (_unit getVariable ["unit_deaths", 0]) + 1];
 };
