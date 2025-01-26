@@ -38,8 +38,8 @@ _specAT = ["rhs_weap_maaws", "rhs_mag_maaws_HEAT"];
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 
-_commonRCO = "";
-_commonCCO = "";
+_commonRCO = "BRM_T89_ACOG";
+_commonCCO = "BRM_T89_CompM4";
 
 _rifleScope = _commonCCO;
 _reconScope = "rhsusf_acc_acog_rmr";
