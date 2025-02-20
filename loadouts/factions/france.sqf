@@ -22,35 +22,35 @@ _defaultColor = "blue";
 _camo = missionNamespace getVariable ["BRM_FMK_LoadoutCamo_FRANCE", missionNamespace getVariable ["BRM_FMK_UNIFORMS_FRACammo", "CCE"]];
 
 // WEAPONS =====================================================================
-_commonRifle = ["R3F_Famas_G2_HG", "30Rnd_556x45_Stanag"];
-_commonRifleGL = ["R3F_Famas_G2_M203", "30Rnd_556x45_Stanag", "1Rnd_HE_Grenade_shell"];
-_reconRifle = ["rhs_weap_hk416d145_grip2", "30Rnd_556x45_Stanag"];
-_commonAR = ["hlc_lmg_minimipara_railed", "rhs_200rnd_556x45_M_SAW"];
+_commonRifle = ["UK3CB_FAMAS_F1", "UK3CB_FAMAS_25rnd_556x45"];
+_commonRifleGL = ["UK3CB_FAMAS_F1_GLM203", "UK3CB_FAMAS_25rnd_556x45", "1Rnd_HE_Grenade_shell"];
+_reconRifle = ["rhs_weap_hk416d145", "rhs_mag_30Rnd_556x45_M855A1_Stanag"];
+_commonAR = ["rhs_weap_minimi_para_railed", "rhsusf_200Rnd_556x45_box"];
 _commonMG = _M240G;
 _commonMarksman = ["arifle_SPAR_03_blk_F", "20Rnd_762x51_Mag"];
-_commonSniper = ["R3F_PGM_Hecate_II_POLY", "R3F_7Rnd_127x99_PEI_PGM"];
-_commonSMG = ["hlc_smg_MP5N", "hlc_30Rnd_9x19_B_MP5"];
+_commonSniper = ["rhs_weap_m82a1", "rhsusf_mag_10Rnd_STD_50BMG_mk211"];
+_commonSMG = ["UK3CB_MP5N", "UK3CB_MP5_30Rnd_9x19_Magazine"];
 
-_commonPistol = ["R3F_PAMAS", "R3F_15Rnd_9x19_PAMAS"];
+_commonPistol = ["rhsusf_weap_m9", "rhsusf_mag_15Rnd_9x19_JHP"];
 
 _commonAT = ["rhs_weap_M136", "rhs_m136_mag"];
-_specAT = ["R3F_ERYX", "R3F_ERYX_mag"];
+_specAT = ["rhs_weap_fgm148", "rhs_fgm148_magazine_AT"];
 _weaponsAA = _STINGER;
 _weaponsAT = _specAT;
 
 _commonRCO = "optic_MRCO";
-_commonCCO = "R3F_AIMPOINT";
+_commonCCO = "rhsusf_acc_compm4";
 
 _rifleScope = _commonCCO;
 _reconScope = "rhsusf_acc_su230";
 _mgScope = "rhsusf_acc_ELCAN";
 _marksmanScope = "optic_LRPS";
-_sniperScope = "R3F_J10_MILDOT";
+_sniperScope = "rhsusf_acc_premier";
 
 _commonSuppressor = "rhsusf_acc_rotex5_grey";
 _commonPistolSuppressor = "muzzle_snds_L";
 
-_commonRail = "R3F_PIRAT";
+_commonRail = "rhsusf_acc_anpeq15A";
 
 // AMMO COUNT ==================================================================
 _countRifle = 13;

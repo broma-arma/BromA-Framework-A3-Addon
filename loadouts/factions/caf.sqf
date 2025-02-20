@@ -46,7 +46,7 @@ _sniperScope = "rksl_optic_pmii_525_des";
 
 _specATScope = "rhs_optic_maaws";
 
-_commonSuppressor = "hlc_muzzle_556nato_rotexiiic_grey";
+_commonSuppressor = "rhsusf_acc_nt4_black";
 _commonPistolSuppressor = "";
 
 // AMMO COUNT ==================================================================

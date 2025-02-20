@@ -19,10 +19,10 @@ _defaultColor = "blue";
 _commonRifle = ["rhs_weap_m14", "rhsusf_20Rnd_762x51_m80_Mag"];
 _commonRifleGL = _commonRifle;
 _commonGL = ["rhs_weap_m79", "rhs_mag_M441_HE"];
-_commonAR = ["r3f_fn_mag58", "rhsusf_100Rnd_762x51"];
+_commonAR = ["BRM_FNMAG", "BRM_MAG_100rndBoxT"];
 _commonMG = _commonAR;
-_commonMarksman = ["hlc_rifle_M1903A1_unertl", "hlc_5rnd_3006_1903"];
-_commonSniper = ["hlc_rifle_M1903A1_unertl", "hlc_5rnd_3006_1903"];
+_commonMarksman = ["UK3CB_M1903A1_unertl", "UK3CB_M1903A1_3006_5rnd_Magazine_R"];
+_commonSniper = ["UK3CB_M1903A1_unertl", "UK3CB_M1903A1_3006_5rnd_Magazine_R"];
 _commonSMG = ["rhs_weap_m3a1", "rhsgref_30rnd_1143x23_M1T_2mag_SMG"];
 
 _commonPistol = _M1911;

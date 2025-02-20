@@ -22,7 +22,7 @@ _defaultColor = "red";
 _commonRifle = _FNFAL;
 _commonRifleGL = _commonRifle;
 _commonGL = ["rhs_weap_m79", "rhs_mag_M441_HE"];
-_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
+_commonAR = ["UK3CB_RPK_74N", "rhs_45Rnd_545X39_AK_Green"];
 _commonMG = _PKM;
 _commonMarksman = ["UK3CB_SVD_OLD", "rhs_10Rnd_762x54mmR_7N1"];
 _commonSniper = _commonMarksman;
@@ -35,7 +35,7 @@ _specAT = _RPG7PGO;
 _weaponsAA = _IGLA;
 _weaponsAT = _RPG7PGO;
 
-_commonRCO = "hlc_optic_suit";
+_commonRCO = "uk3cb_optic_SUIT_FNFAL";
 _commonCCO = "";
 
 _marksmanScope = "rhs_acc_pso1m2";

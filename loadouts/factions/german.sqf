@@ -27,27 +27,27 @@ _reconRifle = _G36KV;
 _commonAR = _MG3KWSB;
 _commonMG = _MG3KWSB;
 _commonMarksman = ["arifle_SPAR_03_snd_F", "20Rnd_762x51_Mag"];
-_commonSniper = _AWMCAMO;
+_commonSniper = ["rhs_weap_m82a1", "rhsusf_mag_10Rnd_STD_50BMG_mk211"];
 _commonSMG = _G36C;
 
-_commonPistol = ["hlc_pistol_P226WestGerman", "hlc_15Rnd_9x19_B_P226"];
+_commonPistol = ["RH_p226", "RH_15Rnd_9x19_SIG"];
 
 _commonAT = _M136;
 _specAT = _SMAW;
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 
-_commonRCO = "hlc_optic_g36export35x";
+_commonRCO = "UK3CB_Optic_G36Export35x";
 _commonCCO = "rhsusf_acc_RX01";
 
-_rifleScope = "hlc_optic_g36dualoptic15x";
+_rifleScope = "UK3CB_Optic_G36Dualoptic15x";
 _reconScope = "rhsusf_acc_g33_xps3_flip";
 _arScope = "rhsusf_acc_eotech_552";
 _sniperScope = "rhsusf_acc_M8541";
 
 _specATScope = "rhs_weap_optic_smaw";
 
-_commonSuppressor = "hlc_muzzle_556NATO_KAC";
+_commonSuppressor = "rhsusf_acc_nt4_black";
 _commonPistolSuppressor = "";
 
 // AMMO COUNT ==================================================================

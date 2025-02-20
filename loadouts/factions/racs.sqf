@@ -23,7 +23,7 @@ _defaultColor = "white";
 _commonRifle = _G36A1;
 _commonRifleGL = _G36A1GL;
 _reconRifle = _G36C;
-_commonAR = ["r3f_fn_mag58", "rhsusf_100Rnd_762x51"];
+_commonAR = ["BRM_FNMAG", "BRM_MAG_100rndBox"];
 _commonMG = _commonAR;
 _commonMarksman = _commonRifle;
 _commonSniper = ["rhs_weap_m24sws_d", "rhsusf_5Rnd_762x51_m118_special_Mag"];
@@ -39,9 +39,9 @@ _weaponsAT = _JAVELIN;
 _commonRCO = _FHQACOG;
 _commonCCO = "hlc_optic_g36export35x";
 
-_rifleScope = "hlc_optic_g36dualoptic15x";
+_rifleScope = "UK3CB_Optic_G36Dualoptic15x";
 _reconScope = "rhsusf_acc_acog2";
-_marksmanScope = "hlc_optic_g36dualoptic35x";
+_marksmanScope = "UK3CB_Optic_G36dualoptic35x";
 _sniperScope = "rhsusf_acc_m8541_d";
 
 _specATScope = "rhs_optic_maaws";

@@ -19,8 +19,7 @@ _defaultColor = "red";
 // WEAPONS =====================================================================
 _rifleList = [
 	_AK74N,
-	["hlc_wp_xm4", "hlc_30rnd_556x45_EPR"],
-	_HLCM16A2,
+	["UK3CB_M16A2","UK3CB_M16_30rnd_556x45"],
 	_RHSAKM,
 	_RHSAKMS,
 	["rhs_weap_pm63", "rhs_30Rnd_762x39mm"]

@@ -17,28 +17,29 @@ _defaultInsignia = "USP_PATCH_USA_ARMY_75RGR_1BTN_ACO";
 _defaultColor = "blue";
 
 // WEAPONS =====================================================================
-_commonRifle = _ACRSHORTT;
-_commonRifleGL = _ACRSHORTGLT;
-_commonAR = _MK46MOD1;
-_commonMG = _MK48MOD0;
-_commonMarksman = _ACR68LONGT;
+_commonRifle = ["UK3CB_ACR_Rifle","UK3CB_ACR_30rnd_556x45"];
+_commonRifleGL = ["UK3CB_ACR_Carbine_UGL","UK3CB_ACR_30rnd_556x45",_40mm];
+_commonAR = ["rhs_weap_m249_pip_S","rhsusf_200rnd_556x45_M855_mixed_box"];
+_commonMG = _commonAR;
+_commonMarksman = ["UK3CB_ACR_Rifle_Long","UK3CB_ACR_30rnd_556x45"];
 _commonSniper = _M2010;
-_commonSMG = _ACRCOMPACTT;
+_commonSMG = ["UK3CB_ACR_Crew","UK3CB_ACR_30rnd_556x45"];
 
-_commonPistol = _MK25TR;
+_commonPistol = ["UK3CB_P320_BLK","UK3CB_P320_9x19_17Rnd"];
 
 _commonAT = _AT4;
 _specAT = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F"];
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 
-_commonRCO = "hlc_optic_ATACR";
+_commonRCO = "rhsusf_acc_ACOG_RMR";
 _commonCCO = "rhsusf_acc_eotech_552_d";
 
+_marksmanScope = "rhsusf_acc_M8541_mrds";
 _sniperScope = "rhsusf_acc_LEUPOLDMK4_2";
 
 _commonSuppressor = "rhsusf_acc_rotex5_grey";
-_commonPistolSuppressor = "hlc_muzzle_TiRant9S";
+_commonPistolSuppressor = "rhsusf_acc_omega9k";
 
 // AMMO COUNT ==================================================================
 _countRifle = 9;

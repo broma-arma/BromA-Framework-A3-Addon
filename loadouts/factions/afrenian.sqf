@@ -20,13 +20,13 @@ _defaultColor = "blue";
 _commonRifle = _AUGAA1;
 _commonRifleGL = _commonRifle;
 _commonGL = _M320;
-_commonAR = ["hlc_rifle_aughbar_B", "hlc_40Rnd_556x45_B_AUG"];
+_commonAR = _AUGAA1HBAR;
 _commonMG = _M60E4;
 _commonMarksman = _STG58;
 _commonSniper = ["rhs_weap_t5000", "rhs_5Rnd_338lapua_t5000"];
 _commonSMG = _AUGA1PARA;
 
-_commonPistol = ["hlc_pistol_P226R_Combat", "hlc_15Rnd_9x19_B_P226"];
+_commonPistol = ["RH_p226", "RH_15Rnd_9x19_SIG"];
 
 _commonAT = ["rhs_weap_m72a7", "rhs_m72a7_mag"];
 _specAT = ["rhs_weap_smaw", "rhs_mag_smaw_HEAA"];
@@ -40,8 +40,8 @@ _sniperScope = "rhsusf_acc_premier_low";
 
 _specATScope = "rhs_weap_optic_smaw";
 
-_commonSuppressor = "hlc_muzzle_556NATO_KAC";
-_commonPistolSuppressor = "hlc_muzzle_TiRant9";
+_commonSuppressor = "rhsusf_acc_nt4_black";
+_commonPistolSuppressor = "RH_suppr9";
 
 // AMMO COUNT ==================================================================
 _countRifle = 10;

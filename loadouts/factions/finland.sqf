@@ -25,7 +25,7 @@ _commonRifle = ["ffp_rk95", "ffp_30Rnd_762x39"];
 _commonRifleGL = _commonRifle;
 _reconRifle = ["rhs_weap_SCARH_CQC", "rhs_mag_20Rnd_SCAR_762x51_m80_ball_bk"];
 _commonGL = ["rhs_weap_M320", "rhs_mag_M441_HE"];
-_commonAR = ["PSZ_PKM", "rhs_100Rnd_762x54mmR"];
+_commonAR = ["rhs_weap_pkm", "rhs_100Rnd_762x54mmR"];
 _commonMG = _commonAR;
 _commonMarksman = _commonRifle;
 _commonSniper = ["rhs_weap_m82a1", "rhsusf_mag_10Rnd_STD_50BMG_mk211"];
@@ -43,11 +43,11 @@ _commonCCO = "rhsusf_acc_compm4";
 
 _rifleScope = _commonCCO;
 _reconScope = "rhsusf_acc_acog_rmr";
-_sniperScope = "hlc_optic_LeupoldM3A";
+_sniperScope = "rhsusf_acc_premier";
 
 _specATScope = "rhs_optic_maaws";
 
-_commonSuppressor = "r3f_silencieux_hk417";
+_commonSuppressor = "rhsusf_acc_aac_762sdn6_silencer";
 _commonPistolSuppressor = "";
 
 // AMMO COUNT ==================================================================

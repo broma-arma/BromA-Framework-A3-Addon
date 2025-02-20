@@ -52,7 +52,7 @@ _sniperScope = "optic_LRPS";
 
 _specATScope = "rhs_weap_optic_smaw";
 
-_commonSuppressor = "r3f_silencieux_hk417";
+_commonSuppressor = "rhsusf_acc_nt4_black";
 _commonPistolSuppressor = "";
 
 _commonRail = "rhsusf_acc_anpeq15side_bk";

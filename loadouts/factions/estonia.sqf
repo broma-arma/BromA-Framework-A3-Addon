@@ -25,7 +25,7 @@ _commonMarksman = _commonRifle;
 _commonSniper = _L115A3CAMO;
 _commonSMG = _MP5A5;
 
-_commonPistol = ["R3F_HKUSP","R3F_15Rnd_9x19_HKUSP"];
+_commonPistol = ["RH_usp","RH_12Rnd_45cal_usp"];
 
 _commonAT = _M72A7;
 _specAT = _GUSTAV;
@@ -33,10 +33,10 @@ _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 
 _commonRCO = "";
-_commonCCO = "r3f_comp_m5";
+_commonCCO = "rhsusf_acc_compm4";
 
 _reconScope = "rhsusf_acc_acog_rmr";
-_marksmanScope = "hlc_optic_zfsg1";
+_marksmanScope = "uk3cb_optic_ZFSG1";
 _sniperScope = "UK3CB_BAF_SB31250_Ghillie";
 
 _specATScope = "rhs_optic_maaws";
