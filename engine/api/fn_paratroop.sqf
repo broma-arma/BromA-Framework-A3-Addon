@@ -18,7 +18,7 @@ PARAMETERS:
 
 USAGE:
     this call BRM_FMK_fnc_paratroop;
-    [this, false] call BRM_FMK_fnc_halo; // Manual parachute deployment
+    [this, false] call BRM_FMK_fnc_paratroop; // Manual parachute deployment
 
 RETURNS:
     Nothing.
