@@ -11,15 +11,16 @@ DESCRIPTION:
     Logs or displays any desired value, targeting any desired environment.
 
 PARAMETERS:
-    0 - Scope or environment where the argument will be logged. (STRING)
-    1 - The type of logging. (STRING)
-    2 - The value to be logged. (ANY)
+    0 - Scope or environment where the argument will be logged: "SERVER_ONLY", "CLIENT_ONLY", "LOCAL", "SERVER", "CLIENTS", "ALL" (STRING)
+    1 - The type of logging: "HINT", "CHAT", "LOG", "DEBUG" (CHAT + LOG), "F_LOG" (STRING)
+    2 - The value or format args to be logged. (ANY)
     3 - Condition for the logging to happen. (BOOL)
 
 USAGE:
     ["ALL", "HINT", "Loaded the message!"] call BRM_FMK_fnc_doLog;
-    ["LOCAL", "LOG", (name player)] call BRM_FMK_fnc_doLog;
+    ["LOCAL", "LOG", name player] call BRM_FMK_fnc_doLog;
     ["SERVER", "F_LOG", "All events initialized."] call BRM_FMK_fnc_doLog;
+    ["LOCAL", "LOG", ["Hello %1!", name player]] call BRM_FMK_fnc_doLog;
     ["LOCAL", "CHAT", "Debug mode is on!", DEBUG_MODE] call BRM_FMK_fnc_doLog;
 
 RETURNS:
