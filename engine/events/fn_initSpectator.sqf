@@ -5,8 +5,7 @@
 params ["_unit"];
 
 _unit allowDamage false;
-[_unit, true] remoteExec ["hideObjectGlobal", 2];
-[_unit, false] remoteExec ["enableSimulationGlobal", 2];
+[_unit, true] call BRM_FMK_fnc_disableObject;
 
 BRM_FMK_Engine_spectatorOxygenWorkaroundPFH = [{
 	player setOxygenRemaining 1;

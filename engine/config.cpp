@@ -204,6 +204,7 @@ class CfgFunctions {
 		class api_unit {
 			file = "\broma_framework\engine\api\unit";
 			class alive {};
+			class disableObject {};
 			class respawn {};
 			class unitFromName {};
 		};
