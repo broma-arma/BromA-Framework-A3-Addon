@@ -11,7 +11,7 @@ DESCRIPTION:
     Check if a unit is alive.
 
 PARAMETERS:
-    0 - Name (STRING)
+    0 - Unit (OBJECT)
 
 USAGE:
     player call BRM_FMK_fnc_alive
