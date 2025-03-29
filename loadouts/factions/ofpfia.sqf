@@ -27,7 +27,7 @@ _commonAR = _M249L;
 _commonMG = _M240G;
 _commonMarksman = _PSG1;
 _commonSniper = _M2010;
-_commonSMG = _HK51;
+_commonSMG = _MP5A2;
 
 _commonPistol = _M9;
 

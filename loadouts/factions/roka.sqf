@@ -29,7 +29,7 @@ _reconRifle = ["BRM_K2C1", "rhs_mag_30Rnd_556x45_M855_Stanag"];
 _commonAR = _FNMINIMIRIS;
 _commonMG = ["rhs_weap_minimi_para_railed", "rhsusf_100Rnd_556x45_soft_pouch"];
 _commonMarksman = _DMRRIS;
-_commonSniper = _AWM;
+_commonSniper = _DMRRIS;
 _commonSMG = _RHSM4;
 
 _commonPistol = _P228;

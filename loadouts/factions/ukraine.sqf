@@ -22,7 +22,7 @@ _reconRifle = _AK74MUUK;
 _commonAR = selectRandom [_RPK74, _PKM];
 _commonMG = _commonAR;
 _commonMarksman = ["UK3CB_SVD_OLD", "rhs_10Rnd_762x54mmR_7N1"];
-_commonSniper = _AWMB;
+_commonSniper = ["UK3CB_SVD_OLD", "rhs_10Rnd_762x54mmR_7N1"];
 _commonSMG = _AK74UN;
 
 _commonPistol = _Makarov;
