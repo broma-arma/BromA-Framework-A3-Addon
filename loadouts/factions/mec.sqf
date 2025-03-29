@@ -19,25 +19,25 @@ _defaultColor = "red";
 // WEAPONS =====================================================================
 _commonRifle = _G3A3;
 _commonRifleGL = _G3KA4GL;
-_commonAR = ["hlc_lmg_MG3KWS_b", "hlc_50Rnd_762x51_B_MG3"];
-_commonMG = ["hlc_lmg_MG3KWS_b", "hlc_250Rnd_762x51_B_MG3"];
-_commonMarksman = ["hlc_rifle_g3sg1", "hlc_20rnd_762x51_b_G3"];
-_commonSniper = ["hlc_rifle_g3sg1", "hlc_20rnd_762x51_b_G3"];
-_commonSMG = ["hlc_smg_mp5a3", "hlc_30Rnd_9x19_B_MP5"];
+_commonAR = ["UK3CB_MG3_KWS_B", "UK3CB_MG3_250rnd_762x51_R"];
+_commonMG = ["UK3CB_MG3_KWS_B", "UK3CB_MG3_250rnd_762x51_R"];
+_commonMarksman = ["UK3CB_PSG1A1", "UK3CB_G3_20rnd_762x51"];
+_commonSniper = ["UK3CB_PSG1A1", "UK3CB_G3_20rnd_762x51"];
+_commonSMG = ["UK3CB_MP5A3", "UK3CB_MP5_30Rnd_9x19_Magazine"];
 
 _commonPistol = ["rhs_weap_pya", "rhs_mag_9x19_17"];
 
 _commonAT = _RPG26;
-_specAT = ["R3F_ERYX", "R3F_ERYX_mag"];
+_specAT = _RPG7PGO;
 _weaponsAA = _IGLA;
 _weaponsAT = _specAT;
 
-_commonRCO = "HLC_Optic_ZFSG1";
-_commonCCO = "HLC_Optic_ZFSG1";
+_commonRCO = "uk3cb_optic_STANAGZF_G3";
+_commonCCO = "uk3cb_optic_STANAGZF_G3";
 
-_sniperScope = "HLC_Optic_ZFSG1";
+_sniperScope = "uk3cb_optic_accupoint_g3";
 
-_commonSuppressor = "hlc_muzzle_300blk_KAC";
+_commonSuppressor = "uk3cb_muzzle_snds_g3";
 _commonPistolSuppressor = "";
 
 // AMMO COUNT ==================================================================

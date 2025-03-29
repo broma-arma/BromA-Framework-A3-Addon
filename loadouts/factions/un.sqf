@@ -23,10 +23,10 @@ _defaultColor = "blue";
 _commonRifle = _G3A3WIDE;
 _commonRifleGL = _G3A3WIDE;
 _commonGL = ["rhs_weap_m79", "rhs_mag_M441_HE"];
-_commonAR = ["r3f_fn_mag58", "rhsusf_100Rnd_762x51"];
+_commonAR = ["BRM_FNMAG", "BRM_MAG_100rndBox"];
 _commonMG = _commonAR;
 _commonMarksman = _G3A3WIDE;
-_commonSniper = ["hlc_rifle_FN3011_20rnd", "hlc_20Rnd_762x51_B_fal"];
+_commonSniper = ["UK3CB_PSG1A1", "UK3CB_G3_20rnd_762x51"];
 _commonSMG = _MP5A2;
 
 _commonPistol = ["rhs_weap_cz99", "rhssaf_mag_15Rnd_9x19_FMJ"];
@@ -36,11 +36,11 @@ _specAT = _GUSTAV;
 _weaponsAA = _STINGER;
 _weaponsAT = _specAT;
 
-_commonRCO = "hlc_optic_stanagzf_g3";
+_commonRCO = "uk3cb_optic_STANAGZF_G3";
 _commonCCO = "";
 
-_marksmanScope = "hlc_optic_zf95_g3";
-_sniperScope = "hlc_optic_leupoldm3a_3011";
+_marksmanScope = "uk3cb_optic_ZFSG1";
+_sniperScope = "uk3cb_optic_accupoint_g3";
 
 _specATScope = "rhs_optic_maaws";
 

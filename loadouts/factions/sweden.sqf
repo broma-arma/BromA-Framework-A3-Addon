@@ -24,7 +24,7 @@ _camo = missionNamespace getVariable ["BRM_FMK_LoadoutCamo_SWEDEN", "m90w"];
 _commonRifle = ["sfp_ak5c", "rhs_mag_30Rnd_556x45_M855A1_PMAG"];
 _commonRifleGL = ["sfp_ak5c_m203", "30Rnd_556x45_Stanag", "rhs_mag_M433_HEDP"];
 _commonAR = ["rhs_weap_m249", "rhsusf_100Rnd_556x45_M855_soft_pouch"];
-_commonMG = ["r3f_fn_mag58", "rhsusf_100Rnd_762x51"];
+_commonMG = ["BRM_FNMAG_TAC", "BRM_MAG_100rndBox"];
 _commonMarksman = _commonRifle;
 _commonSniper = ["hlc_rifle_awcovert", "hlc_5rnd_300WM_FMJ_AWM"];
 _commonSMG = _MP5A5;
@@ -44,7 +44,7 @@ _sniperScope = "rksl_optic_pmii_525_des";
 
 _specATScope = "rhs_optic_maaws";
 
-_commonSuppressor = "hlc_muzzle_556nato_rotexiiic_grey";
+_commonSuppressor = "rhsusf_acc_nt4_black";
 _commonPistolSuppressor = "";
 
 // AMMO COUNT ==================================================================

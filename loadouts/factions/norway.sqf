@@ -21,10 +21,10 @@ _commonRifleGL = _RHSHK416D145M320;
 _commonAR = ["rhs_weap_minimi_para_railed", "rhsusf_100Rnd_556x45_soft_pouch"];
 _commonMG = _commonAR;
 _commonMarksman = ["arifle_SPAR_03_blk_F", "20Rnd_762x51_Mag"];
-_commonSniper = ["hlc_rifle_awcovert", "hlc_5rnd_300WM_FMJ_AWM"];
+_commonSniper = ["rhs_weap_m82a1", "rhsusf_mag_10Rnd_STD_50BMG_mk211"];
 _commonSMG = _RHSMP7;
 
-_commonPistol = ["R3F_G17", "R3F_17Rnd_9x19_G17"];
+_commonPistol = ["rhsusf_weap_glock17g4", "rhsusf_mag_17Rnd_9x19_FMJ"];
 
 _commonAT = _M72A7;
 _specAT = _GUSTAV;
@@ -38,7 +38,7 @@ _rifleScope = _commonCCO;
 _reconScope = "rhsusf_acc_acog_rmr";
 _arScope = "rhsusf_acc_eotech_552";
 _marksmanScope = "rksl_optic_pmii_312_pip";
-_sniperScope = "rksl_optic_pmii_525_des";
+_sniperScope = "rhsusf_acc_premier";
 
 _specATScope = "rhs_optic_maaws";
 

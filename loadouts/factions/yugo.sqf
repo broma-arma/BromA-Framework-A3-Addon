@@ -18,7 +18,7 @@ _defaultColor = "red";
 // WEAPONS =====================================================================
 _commonRifle = ["rhs_weap_m70b3n", "rhssaf_30Rnd_762x39mm_M67"];
 _commonRifleGL = ["rhs_weap_m70b3n_pbg40", "rhssaf_30Rnd_762x39mm_M67", "rhs_VOG25"];
-_commonAR = ["hlc_rifle_rpk74n", "hlc_45Rnd_545x39_t_rpk"];
+_commonAR = ["UK3CB_RPK_74N", "rhs_45Rnd_545X39_AK_Green"];
 _commonMG = _M84;
 _commonMarksman = ["rhs_weap_m76", "rhsgref_10Rnd_792x57_m76"];
 _commonSniper = ["rhs_weap_m76", "rhsgref_10Rnd_792x57_m76"];

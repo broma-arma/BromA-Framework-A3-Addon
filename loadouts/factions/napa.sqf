@@ -27,7 +27,7 @@ _commonAR = _RPK;
 _commonMG = _PKM;
 _commonMarksman = ["UK3CB_SVD_OLD", "rhs_10Rnd_762x54mmR_7N1"];
 _commonSniper = _commonMarksman;
-_commonSMG = _AKS74U;
+_commonSMG = _AK74UN;
 
 _commonPistol = _Makarov;
 

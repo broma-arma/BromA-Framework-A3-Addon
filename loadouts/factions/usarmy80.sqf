@@ -21,9 +21,9 @@ _defaultColor = "blue";
 _camo = missionNamespace getVariable ["BRM_FMK_LoadoutCamo_USARMY80", "wdl"];
 
 // WEAPONS =====================================================================
-_commonRifle = _HLCM16A2;
-_commonRifleGL = _HLCM16A2GL;
-_reconRifle = ["hlc_wp_mod727", "hlc_30rnd_556x45_EPR"];
+_commonRifle = ["UK3CB_M16A2","rhs_mag_30Rnd_556x45_M855A1_Stanag"];
+_commonRifleGL = ["UK3CB_M16A2_UGL","rhs_mag_30Rnd_556x45_M855A1_Stanag",_40mm];
+_reconRifle = ["FP_XM177", "rhs_mag_30Rnd_556x45_M855A1_Stanag"];
 _commonAR = ["rhs_weap_m249", "rhsusf_200rnd_556x45_M855_box"];
 _commonMG = _M240B;
 _commonMarksman = ["UK3CB_M14DMR", "rhsusf_20Rnd_762x51_m80_Mag"];
@@ -40,7 +40,7 @@ _weaponsAT = _JAVELIN;
 _commonRCO = "";
 _commonCCO = "";
 
-_reconScope = "r3f_comp_m5";
+_reconScope = "rhsusf_acc_compm4";
 _marksmanScope = "uk3cb_optic_artel_m14";
 _sniperScope = "rhsusf_acc_m8541_wd";
 

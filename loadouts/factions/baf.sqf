@@ -39,8 +39,8 @@ _specAT = _NLAW_3CB;
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 
-_commonRCO = "r3f_elcan_5_56";
-_commonCCO = "r3f_comp_m5";
+_commonRCO = "optic_Arco_blk_F";
+_commonCCO = "rhsusf_acc_compm4";
 
 _rifleScope = _commonCCO;
 _arScope = _FHQHWS;

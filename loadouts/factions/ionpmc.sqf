@@ -17,12 +17,12 @@ _defaultInsignia = "";
 _defaultColor = "white";
 
 // WEAPONS =====================================================================
-_commonRifle = ["HLC_rifle_XM8_Carbine", "hlc_30rnd_556x45_EPR_G36"];
+_commonRifle = ["rhs_weap_hk416d145", "rhs_mag_30Rnd_556x45_M855A1_Stanag"];
 _commonRifleGL = _commonRifle;
 _commonAR = ["rhs_weap_m249_pip_L_para", "rhsusf_100Rnd_556x45_M855_mixed_soft_pouch"];
 _commonMG = _commonAR;
-_commonMarksman = ["hlc_rifle_XM8_DMAR", "hlc_30rnd_556x45_M_G36"];
-_commonSniper = ["hlc_rifle_psg1", "hlc_20rnd_762x51_b_G3"];
+_commonMarksman = ["rhs_weap_SCARH_LB", "rhs_mag_20Rnd_SCAR_762x51_m80_ball_bk"];
+_commonSniper = ["UK3CB_PSG1A1", "UK3CB_G3_20rnd_762x51_RT"];
 _commonSMG = _MP5A2;
 
 _commonPistol = _P226WG;
@@ -32,11 +32,11 @@ _specAT = _GUSTAV;
 _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 
-_commonRCO = "hlc_optic_amo_pcap";
-_commonCCO = "hlc_optic_ism_pcap";
+_commonRCO = "rhsusf_acc_eotech_552";
+_commonCCO = "rhsusf_acc_eotech_552";
 
-_marksmanScope = "hlc_optic_amo_pcap";
-_sniperScope = "";
+_marksmanScope = "rhsusf_acc_ACOG_RMR";
+_sniperScope = "uk3cb_optic_accupoint_g3";
 
 _specATScope = "rhs_optic_maaws";
 

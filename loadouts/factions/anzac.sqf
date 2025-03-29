@@ -23,10 +23,10 @@ _camo = missionNamespace getVariable ["BRM_FMK_LoadoutCamo_ANZAC", "DPCU"];
 // WEAPONS =====================================================================
 _commonRifle = _AUGA3;
 _commonRifleGL = _AUGA3GL;
-_commonAR = _HLCM249LGRIP;
-_commonMG = ["r3f_fn_mag58", "hlc_100Rnd_762x51_M_M60E4"];
+_commonAR = _M249S;
+_commonMG = ["BRM_FNMAG_TAC", "BRM_MAG_100rndBoxT"];
 _commonMarksman = _SR25;
-_commonSniper = _AWM;
+_commonSniper = ["BRM_XM109","BRM_XM109Mag_HET"];
 _commonSMG = _AUGA2PARATAN;
 
 _commonPistol = _G17;
@@ -41,11 +41,11 @@ _commonCCO = "rksl_optic_eot552";
 
 _rifleScope = _commonCCO;
 _arScope = _commonCCO;
-_sniperScope = "hlc_optic_LeupoldM3A";
+_sniperScope = "rhsusf_acc_premier";
 
 _specATScope = "rhs_optic_maaws";
 
-_commonSuppressor = "hlc_muzzle_556nato_m42000";
+_commonSuppressor = "rhsusf_acc_nt4_black";
 _commonPistolSuppressor = "rhsusf_acc_omega9k";
 
 // AMMO COUNT ==================================================================

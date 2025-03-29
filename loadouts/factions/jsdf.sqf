@@ -24,7 +24,7 @@ _camo = missionNamespace getVariable ["BRM_FMK_LoadoutCamo_JSDF", "JIEITAIW"];
 // WEAPONS =====================================================================
 _commonRifle = ["BRM_Type89", _30rnd556STANAG];
 _commonRifleGL = ["BRM_Type89", _30rnd556STANAG, "BRM_Type06_HE"];
-_reconRifle = _HLC416D10;
+_reconRifle = _HK416D10;
 _commonAR = _M249E1;
 _commonMG = _M240G;
 _commonMarksman = _DMRRIS;

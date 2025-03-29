@@ -22,7 +22,7 @@ _reconRifle = _AK74MUUK;
 _commonAR = selectRandom [_RPK74, _PKM];
 _commonMG = _commonAR;
 _commonMarksman = ["UK3CB_SVD_OLD", "rhs_10Rnd_762x54mmR_7N1"];
-_commonSniper = _AWMB;
+_commonSniper = ["UK3CB_SVD_OLD", "rhs_10Rnd_762x54mmR_7N1"];
 _commonSMG = _AK74UN;
 
 _commonPistol = _Makarov;
@@ -81,12 +81,14 @@ _countPAKCargo = 10;
 
 // UNIFORMS ====================================================================
 _commonHead = selectRandom [
+	"rhsusf_opscore_fg_pelt",
 	"BRM_ACH_MASK_MM14",
 	"BRM_ACH_MM14",
 	"PSZ_H_wz2005_OLIVE",
 	"PSZ_H_wz2005_OLIVE_ESS",
 	"rhssaf_helmet_m97_olive_nocamo",
-	"rhssaf_helmet_m97_olive_nocamo_black_ess"
+	"rhssaf_helmet_m97_olive_nocamo_black_ess",
+	"rhsusf_opscore_rg_cover_pelt"
 ];
 _leaderHead = _commonHead;
 _officerHead = "BRM_PatrolCap_MM14";
