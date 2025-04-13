@@ -4,7 +4,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 1;
-		requiredAddons[] = {"BRM_FRAMEWORK"};
+		requiredAddons[] = {"BRM_FRAMEWORK", "cba_events"};
 	};
 };
 
