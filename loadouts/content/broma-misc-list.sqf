@@ -232,7 +232,7 @@ private _deadManSwitch = _clackerDM; // DEPRECATED Use _clackerDM
 CONTENT_CARGO(defusalKit,"",5);
 CONTENT_CARGO(cellphone,"",5);
 CONTENT_CARGO(earPlugs,"",25);
-CONTENT_CARGO(_dagr,"",5);
+CONTENT_CARGO(dagr,"",5);
 CONTENT_CARGO(mapTools,"",5);
 CONTENT_CARGO(uavBattery,"",5);
 CONTENT_CARGO(weatherMeter,"",5);
