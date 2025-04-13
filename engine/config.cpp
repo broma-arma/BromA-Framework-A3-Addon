@@ -124,6 +124,11 @@ class CfgFunctions {
 			class setVehiclesArray {};
 		};
 
+		class api_diagnostic {
+			file = "\broma_framework\engine\api\diagnostic";
+			class error { headerType = 1; };
+		};
+
 		class api_faction {
 			file = "\broma_framework\engine\api\faction";
 			class getFactionInfo {};
@@ -157,6 +162,15 @@ class CfgFunctions {
 		class api_plugins {
 			file = "\broma_framework\engine\api\plugins";
 			class isPluginActive {};
+		};
+
+		class api_position {
+			file = "\broma_framework\engine\api\position";
+			class getPos {};
+			class distance {};
+			class distance2D {};
+			class distance2DSqr {};
+			class distanceSqr {};
 		};
 
 		class api_sides {
