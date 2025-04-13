@@ -223,6 +223,11 @@ class CfgFunctions {
 			class unitFromName {};
 		};
 
+		class api_vehicle {
+			file = "\broma_framework\engine\api\vehicle";
+			class respawnVehicle {};
+		};
+
 		class api_weapons {
 			file = "\broma_framework\engine\api\weapons";
 			class isDisposableLauncher {};
