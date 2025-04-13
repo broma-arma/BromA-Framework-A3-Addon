@@ -39,4 +39,17 @@ BRM_FMK_Engine_preInitTime = diag_tickTime;
 _this call BRM_FMK_Engine_fnc_initVariables;
 _this call BRM_FMK_Engine_fnc_loadPlugins;
 
+if (isClass (configFile >> "CfgPatches" >> "diwako_dui_radar")) then {
+	["CBA_settingsInitialized", {
+		if (!isNil "diwako_dui_radar_sortNamespace") then {
+			// Default is: red, green, blue, yellow, main
+			diwako_dui_radar_sortNamespace setVariable ["main", 0];
+			diwako_dui_radar_sortNamespace setVariable ["yellow", 1];
+			diwako_dui_radar_sortNamespace setVariable ["green", 2];
+			diwako_dui_radar_sortNamespace setVariable ["blue", 3];
+			diwako_dui_radar_sortNamespace setVariable ["red", 4];
+		};
+	}] call CBA_fnc_addEventHandler;
+};
+
 BRM_FMK_Engine_preInitTime = diag_tickTime - BRM_FMK_Engine_preInitTime;
