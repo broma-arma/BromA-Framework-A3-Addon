@@ -20,6 +20,8 @@ if (!mission_ai_controller) exitWith {};
 if (!isNil "BRM_FMK_Plugin_AIS_spawnerManager" && { !isNull BRM_FMK_Plugin_AIS_spawnerManager }) exitWith {};
 
 BRM_FMK_Plugin_AIS_spawnerManager = [{
+	if (isGamePaused) exitWith {};
+
 	private _deleted = [];
 
 	{
