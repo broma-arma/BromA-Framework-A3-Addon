@@ -23,6 +23,9 @@ Author:
 			_lines pushBack "No active spawners.";
 		} else {
 			{
+				private _state = _y get "state";
+				if (_state < SPAWNER_INIT || _state == SPAWNER_DEAD) then { continue; };
+
 				private _config = _y get "config";
 
 				private _totalUnits = 0;
