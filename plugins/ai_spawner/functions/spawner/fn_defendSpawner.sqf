@@ -117,7 +117,7 @@ switch (_state) do {
 
 				//sleep _delay; TODO Fix delay
 
-				private _group = [_camp call BRM_FMK_fnc_getPos select [0, 2], _type, CONFIG_SIDE, CONFIG_LOADOUT, CONFIG_SETTINGS] call BRM_FMK_Plugin_AIS_fnc_createGroup;
+				private _group = [_camp call BRM_FMK_fnc_getPos select [0, 2], 0, _type, CONFIG_SIDE, CONFIG_LOADOUT, CONFIG_SETTINGS] call BRM_FMK_Plugin_AIS_fnc_createGroup;
 				[_group, _target, 10, "AWARE"] spawn BRM_FMK_Plugin_AIS_fnc_taskPatrol;
 				_spawnedGroups pushBack _group;
 				_spawner set ["groupCount", (_spawner get "groupCount") + 1];
