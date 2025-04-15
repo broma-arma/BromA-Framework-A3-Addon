@@ -43,7 +43,6 @@ switch (_state) do {
 					[_group, _zone, _waypointCount, _waypointSettings] spawn BRM_FMK_Plugin_AIS_fnc_taskPatrol;
 					_spawnedGroups pushBack _group;
 					_groupCount = _groupCount + 1;
-					sleep 0.001;
 				};
 			};
 		} forEach CONFIG_GROUPS;
@@ -116,7 +115,7 @@ switch (_state) do {
 				private _campConfig = selectRandom (_campTypes getOrDefault [_type, []]);
 				_campConfig params ["_camp", "", "_campCount", "_delay", "_inactivePlayerDistance"];
 
-				sleep _delay;
+				//sleep _delay; TODO Fix delay
 
 				private _group = [_camp call BRM_FMK_fnc_getPos select [0, 2], _type, CONFIG_SIDE, CONFIG_LOADOUT, CONFIG_SETTINGS] call BRM_FMK_Plugin_AIS_fnc_createGroup;
 				[_group, _target, 10, "AWARE"] spawn BRM_FMK_Plugin_AIS_fnc_taskPatrol;
