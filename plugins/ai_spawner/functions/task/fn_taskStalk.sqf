@@ -41,7 +41,7 @@ _group setVariable ["BRM_FMK_Plugin_AIS_taskStalk", [{
 
 	if (units _group findIf { alive _x } != -1 && units _target findIf { _x call BRM_FMK_fnc_alive } != -1) then {
 		{ deleteWaypoint _x; } forEachReversed waypoints _group;
-		_group addWaypoint [leader _target];
+		_group addWaypoint [leader _target, 0];
 	} else {
 		_group setVariable ["BRM_FMK_Plugin_AIS_taskStalk", nil];
 

@@ -32,7 +32,7 @@ switch (_state) do {
 		private _spawnedTypes = createHashMap;
 		private _spawnedGroups = _spawner get "groups";
 		private _target = CONFIG_TARGET;
-		if (units _target findIf { _x call BRM_FMK_fnc_alive }) exitWith { 30 };
+		if (units _target findIf { _x call BRM_FMK_fnc_alive } == -1) exitWith { 30 };
 
 		private _minRadius = CONFIG_SETTINGS select 1/*_safeSpawnDistance*/;
 		CONFIG_TYPECONFIG params ["_maxRadius"];
