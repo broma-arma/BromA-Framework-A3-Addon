@@ -114,8 +114,6 @@ _aiSkill = _aiSkill call BRM_FMK_Plugin_AIS_fnc_getSkillSettings;
 {
 	private _unit = _x;
 
-	[_unit, _loadout] call BRM_fnc_initAI;
-
 	if (_aiAggressive) then {
 		_unit disableAI "COVER";
 		_unit disableAI "SUPPRESSION";
@@ -132,6 +130,13 @@ _aiSkill = _aiSkill call BRM_FMK_Plugin_AIS_fnc_getSkillSettings;
 		_unit setSkill _x;
 	} forEach _aiSkill;
 } forEach units _group;
+
+[{ // initAI next frame, fixes identity not being set
+	params ["_group", "_loadout"];
+	{
+		[_x, _loadout] call BRM_FMK_fnc_initAI;
+	} forEach units _group;
+}, [_group, _loadout]] call CBA_fnc_execNextFrame;
 
 if (BRM_FMK_Plugin_AIS_debug) then {
 	[_group, _groupType] call BRM_FMK_Plugin_AIS_fnc_createGroupMarker;
