@@ -30,7 +30,7 @@ RETURNS:
 
 if !(_this isEqualType []) then { _this = [_this]; };
 
-if (_this select 0 isEqualType "") then {
+if !(_this select 0 isEqualType "") then {
 	private _count = count _this;
 	if (_count > 0) then {
 		private _params = [];
