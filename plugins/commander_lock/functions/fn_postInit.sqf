@@ -157,7 +157,7 @@ if (!hasInterface || { BRM_FMK_Plugin_CommanderLock_tvtMode && co_lock_allSidesR
 		params ["_side"];
 		_thisArgs params ["_playerSide", "_firedManEH", "_getInManEH", "_aceExplosivesSetupEH"];
 
-		if (isNil "_playerSide" || { _playerSide == _side }) then {
+		if (isNil "_side" || { _playerSide == _side }) then {
 			[_thisType, _thisId] call CBA_fnc_removeEventHandler;
 
 			if (player in BRM_FMK_Plugin_CommanderLock_units) then {
