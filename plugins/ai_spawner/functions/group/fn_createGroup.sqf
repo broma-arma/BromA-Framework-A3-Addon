@@ -137,7 +137,7 @@ if (BRM_FMK_Plugin_AIS_debug) then {
 	[_group, _groupType] call BRM_FMK_Plugin_AIS_fnc_createGroupMarker;
 };
 
-if (_cachingDistances isNotEqualTo [0, 0]) then {
+if (_cachingDistances isNotEqualTo false and _cachingDistances isNotEqualTo [0, 0]) then {
 	[_group, _cachingDistances] call BRM_FMK_Plugin_AIS_fnc_cacheGroup;
 };
 
