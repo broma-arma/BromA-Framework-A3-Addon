@@ -101,6 +101,8 @@ private _sideChar = ["B", "O", "I", "C"] select ([BLUFOR, OPFOR, INDEPENDENT, CI
 			};
 		} forEach ([_vehicle, ["turret", "cargo"]] call BRM_FMK_Plugin_AIS_fnc_getVehicleSeats);
 	};
+
+	sleep 0.001;
 } forEach ([_groupType, _side, _loadout] call BRM_FMK_Plugin_AIS_fnc_getGroupSettings);
 
 _group allowFleeing 0;
