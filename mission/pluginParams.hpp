@@ -121,3 +121,7 @@
 #ifdef GROUP_MARKERS
 #include "..\plugins\group_markers\params.hpp"
 #endif
+
+#ifdef AI_SPAWNER
+#include "..\plugins\ai_spawner\params.hpp"
+#endif

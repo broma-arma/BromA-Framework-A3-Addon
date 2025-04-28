@@ -122,4 +122,8 @@ missionPlugins[] = {""
 #ifdef GROUP_MARKERS
 ,"group_markers"
 #endif
+
+#ifdef AI_SPAWNER
+,"ai_spawner"
+#endif
 };
