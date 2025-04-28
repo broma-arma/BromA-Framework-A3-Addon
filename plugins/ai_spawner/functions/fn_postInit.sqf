@@ -180,7 +180,9 @@ if (_compat == 0) then {
 					if (_x == "") then { continue; };
 					private _value = _settings select _forEachIndex;
 					if (_x == "aiSpawners") then {
-						_value call BRM_FMK_AIS_fnc_createSpawner;
+						{
+							_x call BRM_FMK_AIS_fnc_createSpawner;
+						} forEach _value;
 					} else {
 						missionNamespace getVariable "BRM_FMK_Plugin_AIS_" + _x merge [createHashMapFromArray _value, true];
 					};
