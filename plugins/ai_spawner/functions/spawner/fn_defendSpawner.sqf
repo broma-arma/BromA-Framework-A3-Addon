@@ -93,7 +93,9 @@ switch (_state) do {
 						format ["BRM_FMK_Plugin_AIS_ico_%1_%2", _id, _camp] setMarkerText "Deactivated";
 					};
 				} else {
-					_campTypes getOrDefault [_groupType, [], true] pushBack _x;
+					if (time >= _camp getVariable ["BRM_FMK_Plugin_AIS_nextSpawn", 0]) then {
+						_campTypes getOrDefault [_groupType, [], true] pushBack _x;
+					};
 				};
 			};
 		} forEach _camps;
@@ -115,8 +117,6 @@ switch (_state) do {
 				private _campConfig = selectRandom (_campTypes getOrDefault [_type, []]);
 				_campConfig params ["_camp", "", "_campCount", "_delay", "_inactivePlayerDistance"];
 
-				sleep _delay;
-
 				private _group = [_camp call BRM_FMK_fnc_getPos select [0, 2], 0, _type, CONFIG_SIDE, CONFIG_LOADOUT, CONFIG_SETTINGS] call BRM_FMK_Plugin_AIS_fnc_createGroup;
 				[_group, _target, 10, "AWARE"] spawn BRM_FMK_Plugin_AIS_fnc_taskPatrol;
 				_spawnedGroups pushBack _group;
@@ -125,6 +125,12 @@ switch (_state) do {
 				_campConfig set [2, _campCount - 1];
 
 				CONFIG_EVENT_WAVE_SPAWN call { privateAll; [] call _this; };
+
+				if (_delay > 0) then {
+					private _campConfigs = _campTypes getOrDefault [_type, []];
+					_campConfigs deleteAt (_campConfigs find _campConfig);
+				};
+				_camp setVariable ["BRM_FMK_Plugin_AIS_nextSpawn", time + _delay];
 			} forEach _spawnableTypes;
 
 			CONFIG_EVENT_WAVE_END call { privateAll; [] call _this; };
