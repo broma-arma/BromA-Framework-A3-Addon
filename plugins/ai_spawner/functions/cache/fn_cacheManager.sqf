@@ -18,6 +18,7 @@ Author:
 if (!isNil "BRM_FMK_Plugin_AIS_cacheManager") exitWith {};
 
 BRM_FMK_Plugin_AIS_cacheManager = 0 spawn {
+	scriptName "BRM_FMK_Plugin_AIS_cacheManager";
 	while { true } do {
 		private _remove = [];
 		private _playableUnits = playableUnits + switchableUnits;
