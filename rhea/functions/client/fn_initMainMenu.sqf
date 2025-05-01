@@ -43,4 +43,17 @@ _ctrlTasksList ctrlAddEventHandler ["MouseButtonClick", {
 	};
 }];
 
+[_display] spawn {
+	disableSerialization;
+
+	params ["_display"];
+
+	private _ctrlPlayersList = _display displayCtrl 2100;
+	while { !isNull _ctrlPlayersList } do {
+		_ctrlPlayersList call BRM_FMK_RHEA_fnc_listPlayers;
+
+		uiSleep 1;
+	};
+};
+
 [_display] call BRM_FMK_RHEA_fnc_initDisplay;
