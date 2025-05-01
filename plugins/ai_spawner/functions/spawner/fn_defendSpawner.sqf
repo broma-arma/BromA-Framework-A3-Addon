@@ -94,7 +94,6 @@ switch (_state) do {
 		CONFIG_TYPECONFIG params ["_camps"];
 
 		private _campTypes = createHashMap;
-		private _active = false;
 		{
 
 			_x params ["_camp", "_groupType", "_count", "_delay", "_safeDistance"];
@@ -107,7 +106,6 @@ switch (_state) do {
 						format ["BRM_FMK_Plugin_AIS_fnc_defendSpawner_%1_camp_%2", _id, _camp] setMarkerText "Deactivated";
 					};
 				} else {
-					_active = true;
 					if (time >= _camp getVariable ["BRM_FMK_Plugin_AIS_nextSpawn", 0]) then {
 						_campTypes getOrDefault [_groupType, [], true] pushBack _x;
 					};
@@ -188,7 +186,7 @@ switch (_state) do {
 			} forEach _camps;
 		};
 
-		[true, [false, CONFIG_WAVE_DELAY] select _spawned] select _active
+		[false, CONFIG_WAVE_DELAY] select _spawned
 	};
 	case SPAWNER_DELETE: {
 		{ deleteVehicle (_x select 0); } forEach (CONFIG_TYPECONFIG select 0);
