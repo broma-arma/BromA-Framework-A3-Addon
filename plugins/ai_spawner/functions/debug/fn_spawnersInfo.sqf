@@ -33,7 +33,14 @@ Author:
 					_totalUnits = _totalUnits + ({ alive _x } count units _x);
 				} forEach (_y get "groups");
 
-				_lines pushBack format ["%1 (%2)", _x, CONFIG_TYPE];
+				private _pause = _y get "pause";
+				if (_pause isEqualType 0) then {
+					_pause = format [" (<t color='#ffff00'>Pause %1s</t>)", _pause - time toFixed 1];
+				} else {
+					_pause = ["", " (<t color='#ff0000'>Pause</t>)"] select _pause;
+				};
+				_lines pushBack format ["[%1] %2%3", toUpperANSI (CONFIG_TYPE select [0, 1]), _x, _pause];
+
 				//_lines pushBack format ["<t size='0.8'>Total Units: %1/%2", _totalUnits, _unitTotal];
 				_lines pushBack format ["<t size='0.8'>Total Units: %1", _totalUnits];
 				//_lines pushBack format ["Spawn Count: %1/%2", _y get "groupCount", [_spawnLimit, "INF"] select (_spawnLimit == 9999)];
