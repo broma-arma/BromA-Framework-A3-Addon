@@ -27,8 +27,21 @@ switch (_state) do {
 		private _zone = CONFIG_TARGET;
 
 		if (BRM_FMK_Plugin_AIS_debug) then {
-			[_id, _zone] call BRM_FMK_Plugin_AIS_fnc_createZoneMarker;
-			[_id, _zone, CONFIG_TYPECONFIG select 0/*_camps*/] call BRM_FMK_Plugin_AIS_fnc_createCampsMarkers;
+			private _debugMarkers = _spawner get "debugMarkers";
+
+			triggerArea _zone params ["_areaX", "_areaY", "_angle", "_isRectangle"];
+
+			private _color = [CONFIG_SIDE, true] call BIS_fnc_sideColor;
+			_debugMarkers pushBack ([true, format ["BRM_FMK_Plugin_AIS_defendSpawner_%1_targetArea_%2", _id, _zone], getPos _zone, ["ELLIPSE", "RECTANGLE"] select _isRectangle, nil, nil, _color, [_areaX, _areaY], nil, _angle, 0.25] call BRM_FMK_fnc_newMarker);
+			_debugMarkers pushBack ([true, format ["BRM_FMK_Plugin_AIS_fnc_defendSpawner_%1_target_%2", _id, _zone], _zone call BRM_FMK_fnc_getPos, nil, nil, "mil_dot_noShadow", _color] call BRM_FMK_fnc_newMarker);
+
+			{
+				_x params ["_camp"];
+
+				private _position = _camp call BRM_FMK_fnc_getPos;
+				_debugMarkers pushBack ([true, format ["BRM_FMK_Plugin_AIS_fnc_defendSpawner_%1_camp_%2", _id, _camp], _position, nil, nil, "mil_start_noShadow", _color] call BRM_FMK_fnc_newMarker);
+				_debugMarkers pushBack ([_id, _position, _zone, _color] call BRM_FMK_Plugin_AIS_fnc_createLineMarker);
+			} forEach (CONFIG_TYPECONFIG select 0/*_camps*/);
 		};
 
 		private _spawnedGroups = _spawner get "groups";
@@ -91,7 +104,7 @@ switch (_state) do {
 					_x set [2, 0]; // TODO Don't change count?
 					_camp setVariable ["BRM_FMK_Plugin_AIS_campDisabled", true];
 					if (BRM_FMK_Plugin_AIS_debug) then {
-						format ["BRM_FMK_Plugin_AIS_ico_%1_%2", _id, _camp] setMarkerText "Deactivated";
+						format ["BRM_FMK_Plugin_AIS_fnc_defendSpawner_%1_camp_%2", _id, _camp] setMarkerText "Deactivated";
 					};
 				} else {
 					_active = true;
@@ -139,8 +152,40 @@ switch (_state) do {
 		};
 
 		if (BRM_FMK_Plugin_AIS_debug) then {
-			[_id, _target] call BRM_FMK_Plugin_AIS_fnc_updateZoneMarker;
-			[_id, _target, _camps] call BRM_FMK_Plugin_AIS_fnc_updateCampsMarkers;
+			private _groups = _spawner get "groups";
+
+			private _totalUnits = 0;
+			private _activeUnits = 0;
+			{
+				{
+					if (alive _x) then {
+						_totalUnits = _totalUnits + 1;
+						if !(_x getVariable ["BRM_FMK_Plugin_AIS_cached", false]) then {
+							_activeUnits = _activeUnits + 1;
+						};
+					};
+				} forEach units _x;
+			} forEach _groups;
+
+			format ["BRM_FMK_Plugin_AIS_fnc_defendSpawner_%1_target_%2", _id, _target] setMarkerText format [
+				"%1 (%2,%3/%4)",
+				_id,
+				count _groups,
+				_activeUnits,
+				_totalUnits
+			];
+
+			{
+				_x params ["_camp", "_type", "_spawns"];
+
+				if (_spawns > 0) then {
+					private _nextSpawn = _camp getVariable ["BRM_FMK_Plugin_AIS_nextSpawn", 0];
+					if (_nextSpawn > 0) then {
+						_nextSpawn = (_nextSpawn - time) max 0;
+					};
+					format ["BRM_FMK_Plugin_AIS_fnc_defendSpawner_%1_camp_%2", _id, _camp] setMarkerText format ["%1 (%2, %3)", _type, _spawns, _nextSpawn];
+				};
+			} forEach _camps;
 		};
 
 		[true, [false, CONFIG_WAVE_DELAY] select _spawned] select _active

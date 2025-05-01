@@ -78,7 +78,7 @@ BRM_FMK_Plugin_AIS_spawnerManager = 0 spawn {
 
 					if (BRM_FMK_Plugin_AIS_debug) then {
 						systemChat format ["Spawner %1 has been deleted!", _id];
-						{ deleteMarker _x; } forEach (allMapMarkers select { _x find _id != -1 }); // TODO Have _fnc_spawner handle deleting it's markers
+						{ deleteMarker _x; } forEach (_y get "markers");
 					};
 
 					private _cleanup = CONFIG_SETTINGS select 0;

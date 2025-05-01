@@ -67,11 +67,6 @@ class CfgFunctions {
 			file = "\broma_framework\plugins\ai_spawner\functions\debug";
 			class spawnersInfo {};
 			class createGroupMarker {};
-			class createZoneMarker {};
-			class createCampsMarkers {};
-			class updateZoneMarker {};
-			class updateCampsMarkers {};
-			class createAttackMarkers {};
 			class createLineMarker {};
 		};
 	};

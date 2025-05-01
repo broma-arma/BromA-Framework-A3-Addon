@@ -237,7 +237,8 @@ try {
 		["state", 0],
 		["groupCount", 0], // Number of groups that the spawner has created
 		["groups", []], // Active groups [GROUP, GROUP, ...]
-		["pause", false]
+		["pause", false],
+		["debugMarkers", []]
 		//["spawnLimit", -1] // Number of groups that the spawner can create
 	]];
 } catch {

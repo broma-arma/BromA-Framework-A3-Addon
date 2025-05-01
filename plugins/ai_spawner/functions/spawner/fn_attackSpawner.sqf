@@ -24,7 +24,23 @@ params ["_state", "_id", "_spawner"];
 switch (_state) do {
 	case SPAWNER_CREATED: {
 		if (BRM_FMK_Plugin_AIS_debug) then {
-			[_id, CONFIG_TARGET, CONFIG_TYPECONFIG select 0] spawn BRM_FMK_Plugin_AIS_fnc_createAttackMarkers;
+			private _target = CONFIG_TARGET;
+			private _spawnPositions = CONFIG_TYPECONFIG select 0;
+
+			private _color = [CONFIG_SIDE, true] call BIS_fnc_sideColor;
+
+			private _debugMarkers = _spawner get "debugMarkers";
+			{
+				private _icon = ["mil_start_noShadow", "mil_dot"] select (_forEachIndex == 0);
+				if (_forEachIndex != 0) then {
+					_debugMarkers pushBack ([_id, _x, _target, _color] call BRM_FMK_Plugin_AIS_fnc_createLineMarker);
+				};
+
+				private _marker = format ["BRM_FMK_Plugin_AIS_%1_%2", _id, _x];
+				if (getMarkerType _marker == "") then {
+					_debugMarkers pushBack ([true, _marker, _x call BRM_FMK_fnc_getPos select [0, 2], "ICON", nil, _icon, _color, nil, ["target", "spawn"] select (_forEachIndex != 0)] call BRM_FMK_fnc_newMarker);
+				};
+			} forEach [_target] + _spawnPositions;
 		};
 	};
 	//case SPAWNER_INIT: {};
