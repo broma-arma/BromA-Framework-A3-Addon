@@ -191,4 +191,9 @@ switch (_state) do {
 	case SPAWNER_DELETE: {
 		{ deleteVehicle (_x select 0); } forEach (CONFIG_TYPECONFIG select 0);
 	};
+	case SPAWNER_DEBUGINFO: {
+		if !(_spawner getOrDefault ["defendAlarm", false]) then {
+			_lines pushBack "Undetected";
+		};
+	};
 };

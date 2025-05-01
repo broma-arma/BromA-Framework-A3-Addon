@@ -45,7 +45,9 @@ Author:
 				_lines pushBack format ["<t size='0.8'>Total Units: %1", _totalUnits];
 				//_lines pushBack format ["Spawn Count: %1/%2", _y get "groupCount", [_spawnLimit, "INF"] select (_spawnLimit == 9999)];
 				_lines pushBack format ["Spawn Count: %1", _y get "groupCount"];
-				_lines pushBack format ["Side: %1</t>", CONFIG_SIDE];
+				_lines pushBack format ["Side: %1", CONFIG_SIDE];
+				[SPAWNER_DEBUGINFO, _x, _y] call (missionNamespace getVariable format ["BRM_FMK_Plugin_AIS_fnc_%1Spawner", CONFIG_TYPE]);
+				_lines pushBack "</t>";
 			} forEach BRM_FMK_Plugin_AIS_spawners;
 		};
 
