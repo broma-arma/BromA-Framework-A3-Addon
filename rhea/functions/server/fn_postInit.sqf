@@ -6,7 +6,7 @@ TRACE_1("fn_postInit: %1", _this);
 
 activateAddons ("true" configClasses (configFile >> "CfgPatches") apply { configName _x });
 
-BRM_FMK_RHEA_Channel = radioChannelCreate [[1, 0, 0, 1], "RHEA", "%UNIT_NAME: ", [], false];
+BRM_FMK_RHEA_Channel = radioChannelCreate [[1, 0, 0, 1], "RHEA", "%UNIT_NAME: ", [], true];
 
 addMissionEventHandler ["EntityRespawned", {
 	params ["_entity", "_corpse"];
