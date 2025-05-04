@@ -10,7 +10,7 @@ if (isNull _player || { _player isKindOf "HeadlessClient_F" }) exitWith {
 	["BRM_FMK_RHEA_zeusStarted", [1], _player] call CBA_fnc_targetEvent;
 };
 
-if (!(_player getVariable ["BRM_FMK_RHEA_loggedIn", false])) exitWith {
+if (!(_player call BRM_FMK_RHEA_fnc_isLoggedIn)) exitWith {
 	["BRM_FMK_RHEA_zeusStarted", [2], _player] call CBA_fnc_targetEvent;
 };
 

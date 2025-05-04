@@ -6,7 +6,7 @@ TRACE_1("fn_logoutPlayer: %1", _this);
 
 params [["_player", objNull]];
 
-if (_player getVariable ["BRM_FMK_RHEA_loggedIn", false]) then {
+if (_player call BRM_FMK_RHEA_fnc_isLoggedIn) then {
 	BRM_FMK_RHEA_Channel radioChannelRemove [_player];
 
 	private _module = getAssignedCuratorLogic _player;

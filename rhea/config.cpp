@@ -42,6 +42,7 @@ class CfgFunctions {
 	
 			class open { RECOMPILE; };
 			class isOpen { RECOMPILE; };
+			class isLoggedIn { RECOMPILE; };
 	
 			class initMainMenu { RECOMPILE; };
 	

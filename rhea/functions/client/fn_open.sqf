@@ -12,7 +12,7 @@ if (!isNull _mainDisplay) then {
 	if (!isNull _loginDialog) then {
 		_loginDialog closeDisplay 0;
 	} else {
-		private _display = _parentDisplay createDisplay (if !(player getVariable ["BRM_FMK_RHEA_loggedIn", false]) then {
+		private _display = _parentDisplay createDisplay (if !([] call BRM_FMK_RHEA_fnc_isLoggedIn) then {
 			"BRM_FMK_RHEA_login"
 		} else {
 			"BRM_FMK_RHEA_main"

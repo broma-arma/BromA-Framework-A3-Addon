@@ -45,7 +45,7 @@ if (isMultiplayer) then {
 			profilenamespace getvariable ["IGUI_ERROR_RGB_A",1.0]
 		];
 
-		if !(player getVariable ["BRM_FMK_RHEA_loggedIn", false]) then {
+		if !([] call BRM_FMK_RHEA_fnc_isLoggedIn) then {
 			_ctrlErrorText ctrlSetText "Bad credentials!";
 		} else {
 			_ctrlErrorText ctrlSetText "";

@@ -11,7 +11,7 @@ BRM_FMK_RHEA_Channel = radioChannelCreate [[1, 0, 0, 1], "RHEA", "%UNIT_NAME: ",
 addMissionEventHandler ["EntityRespawned", {
 	params ["_entity", "_corpse"];
 
-	if (_entity getVariable ["BRM_FMK_RHEA_loggedIn", false]) then {
+	if (_entity call BRM_FMK_RHEA_fnc_isLoggedIn) then {
 		BRM_FMK_RHEA_Channel radioChannelAdd [_entity];
 
 		private _index = _entity getVariable "BRM_FMK_RHEA_server_zeus";
@@ -23,7 +23,7 @@ addMissionEventHandler ["EntityRespawned", {
 
 addMissionEventHandler ["HandleDisconnect", {
 	params ["_unit", "_id", "_uid", "_name"];
-	if (_unit getVariable ["BRM_FMK_RHEA_loggedIn", false]) then {
+	if (_unit call BRM_FMK_RHEA_fnc_isLoggedIn) then {
 		_unit call BRM_FMK_RHEA_SERVER_fnc_logoutPlayer;
 	};
 }];
