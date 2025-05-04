@@ -28,7 +28,9 @@ if !(hasInterface) exitWith {};
 		};
 	}] call CBA_fnc_addEventHandler;
 
+	["BRM_FMK_RHEA_receiveMessage", { _this call BRM_FMK_RHEA_fnc_receiveMessage; }] call CBA_fnc_addEventHandler;
+
+	["ace_spectator_displayLoaded", { _this call BRM_FMK_RHEA_fnc_initDisplay; }] call CBA_fnc_addEventHandler;
+
 	[player, ""] remoteExec ["BRM_FMK_RHEA_SERVER_fnc_loginPlayer", 2];
 }] call CBA_fnc_waitUntilAndExecute;
-
-["ace_spectator_displayLoaded", { _this call BRM_FMK_RHEA_fnc_initDisplay; }] call CBA_fnc_addEventHandler;

@@ -12,3 +12,7 @@ class RscCombo;
 class ctrlMenu;
 class RscFrame;
 class RscButtonMenu;
+
+class RscControlsGroupNoScrollbars;
+class RscTitle;
+class RscEditMulti;

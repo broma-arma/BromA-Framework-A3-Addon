@@ -8,3 +8,5 @@
 #include "dialogs\playerMenu.hpp"
 #include "dialogs\taskMenu.hpp"
 #include "dialogs\debug.hpp"
+
+#include "dialogs\messages.hpp"

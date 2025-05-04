@@ -67,6 +67,9 @@ class CfgFunctions {
 			class debug { RECOMPILE; };
 	
 			class message { RECOMPILE; };
+
+			class receiveMessage { RECOMPILE; };
+			class sendMessage { RECOMPILE; };
 		};
 	};
 };
