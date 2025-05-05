@@ -20,6 +20,8 @@ class CfgFunctions {
 			class slotTaken {};
 			class slotValid {};
 			class lockSlot {};
+			class unlockSlots {};
+			class utility {};
 		};
 	};
 };
@@ -30,6 +32,26 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 1;
-		requiredAddons[] = { "BRM_FRAMEWORK" };
+		requiredAddons[] = { "BRM_FRAMEWORK", "BRM_FMK_Rhea" };
+	};
+};
+
+class ctrlMenuStrip;
+class BRM_FMK_RHEA_main {
+	class Controls {
+		class MenuStrip: ctrlMenuStrip {
+			class Items {
+				class Utility {
+					items[] += {"prevent_reslot_SlotUnlocker"};
+				};
+				class prevent_reslot_SlotUnlocker {
+					text = "Prevent Reslot - Slot Unlocker";
+					tooltip = "Shows a list of locked slots and allows easy unlocking.";
+					action = "call BRM_FMK_Plugin_PreventReslot_fnc_utility";
+
+					BRM_FMK_RHEA_enable = "isMultiplayer && ""prevent_reslot"" call BRM_FMK_fnc_isPluginActive";
+				};
+			};
+		};
 	};
 };
