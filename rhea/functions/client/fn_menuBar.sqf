@@ -53,10 +53,10 @@ switch (_action) do {
 						_control menuSetCheck [_path, _checked];
 					};
 				} else {
-						for "_i" from 0 to _size - 1 do {
-							(_this + [_i]) call _fnc_initMenu;
-						};
+					for "_i" from 0 to _size - 1 do {
+						(_this + [_i]) call _fnc_initMenu;
 					};
+				};
 			} else {
 				_disabledPaths pushBack _path;
 			};
