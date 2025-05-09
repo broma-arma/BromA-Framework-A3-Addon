@@ -110,6 +110,34 @@ switch (toLower _x) do {
 			_supplies apply { [_x select 0, (_x select 1) * 3] };
 		};
 
+		if (isClass (configFile >> "CfgPatches" >> "UK3CB_BAF_Vehicles_Weapons") && { configSourceMod configOf _object == "@3CB BAF Vehicles" }) then {
+			// 3CB Vehicle Ammo
+			{
+				_x params ["_type", "_ammo"];
+				if (_object isKindOf _type) then {
+					_supplies append _ammo;
+					break;
+				};
+			} forEach [
+				["UK3CB_BAF_Merlin_HC3_Armed_Base", [["UK3CB_BAF_762_200Rnd_T", 15]]],
+				["UK3CB_BAF_Coyote_L111A1_Base", [["UK3CB_BAF_762_200Rnd_T", 9], ["UK3CB_BAF_127_100Rnd", 9]]],
+				["UK3CB_BAF_Coyote_L134A1_Base", [["UK3CB_BAF_762_200Rnd_T", 9], ["UK3CB_BAF_32Rnd_40mm_G_Box", 9]]],
+				["UK3CB_BAF_Husky_GMG_Base", [["UK3CB_BAF_32Rnd_40mm_G_Box", 6]]],
+				["UK3CB_BAF_Husky_GPMG_Base", [["UK3CB_BAF_762_200Rnd", 6], ["UK3CB_BAF_762_200Rnd_T", 6]]],
+				["UK3CB_BAF_Husky_HMG_Base", [["UK3CB_BAF_127_100Rnd", 8]]],
+				["UK3CB_BAF_LandRover_WMIK_HMG_Base", [["UK3CB_BAF_762_200Rnd_T", 6], ["UK3CB_BAF_127_100Rnd", 6]]],
+				["UK3CB_BAF_LandRover_WMIK_GMG_Base", [["UK3CB_BAF_762_200Rnd_T", 6], ["UK3CB_BAF_32Rnd_40mm_G_Box", 6]]],
+				["UK3CB_BAF_LandRover_WMIK_GPMG_Base", [["UK3CB_BAF_762_200Rnd_T", 12]]],
+				["UK3CB_BAF_LandRover_WMIK_Milan_Base", [["UK3CB_BAF_762_200Rnd_T", 6], ["UK3CB_BAF_1Rnd_Milan", 4]]],
+				["UK3CB_BAF_FV432_Mk3_GPMG_Sand", [["UK3CB_BAF_762_200Rnd_T", 9]]],
+				["UK3CB_BAF_FV432_Mk3_RWS_Sand", [["UK3CB_BAF_127_100Rnd", 9]]],
+				["UK3CB_BAF_Panther_GPMG_Sand_A", [["UK3CB_BAF_762_200Rnd_T", 9]]],
+				["UK3CB_BAF_RHIB_HMG", [["UK3CB_BAF_127_100Rnd", 9]]],
+				["UK3CB_BAF_RHIB_GPMG", [["UK3CB_BAF_762_200Rnd", 6], ["UK3CB_BAF_762_200Rnd_T", 6]]],
+				["UK3CB_BAF_Warrior_A3_Base", [["UK3CB_BAF_6Rnd_30mm_L21A1_APDS", 17], ["UK3CB_BAF_6Rnd_30mm_L21A1_HE", 17], ["UK3CB_BAF_762_800Rnd_T", 1], ["UK3CB_BAF_762_200Rnd_T", 3]]]
+			];
+		};
+
 		[_object] + _supplies call BRM_FMK_fnc_addItems;
 	};
 
