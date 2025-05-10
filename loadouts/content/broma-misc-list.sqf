@@ -54,9 +54,9 @@ private _quickClot = "";
 CONTENT_CARGO(tourniquet,"",{_countTourniquetCargo});
 CONTENT_CARGO(splint,"",{_countSplintCargo});
 CONTENT_CARGO(morphine,"",{_countMorphineCargo});
-CONTENT_CARGO(epinephrine,"",{_countEpiCARGO});
+CONTENT_CARGO(epinephrine,"",{_countEpiCargo});
 private _epi = _epinephrine; // DEPRECATED Use _epinephrine
-CONTENT_CARGO(adenosine,"",{_countEpiCARGO});
+CONTENT_CARGO(adenosine,"",{_countEpiCargo});
 CONTENT_CARGO(painkillers,"",{_countMorphineCargo});
 private _atrophine = ""; // DEPRECATED Remove usage
 private _bloodbag = "";

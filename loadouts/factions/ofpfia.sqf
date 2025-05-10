@@ -78,7 +78,7 @@ _countPAK = 2;
 
 _countBandageCargo = 40;
 _countMorphineCargo = 30;
-_countEpiCARGO = 30;
+_countEpiCargo = 30;
 _countBloodbagCargo = 30;
 _countPAKCargo = 40;
 
