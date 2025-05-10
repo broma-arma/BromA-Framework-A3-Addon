@@ -147,6 +147,7 @@ _medicVEST = "BRM_LBT_BROWN_MED";
 _demoVEST = _commonVEST;
 _marksmanVEST = _commonVEST;
 _reconVEST = _commonVEST;
+_pilotVest = "V_BandollierB_khk";
 
 _commonBACKPACK = "B_AssaultPack_cbr";
 _bigBACKPACK = "B_Kitbag_cbr";
