@@ -26,6 +26,7 @@ class Factions {
 	FACTION(finland);
 	FACTION(france);
 	FACTION(german);
+	FACTION(india);
 	FACTION(ionpmc);
 	FACTION(isis);
 	FACTION(jsdf);
@@ -36,6 +37,7 @@ class Factions {
 	FACTION(napa);
 	FACTION(norway);
 	FACTION(ofpfia);
+	FACTION(pakistan);
 	FACTION(pla);
 	FACTION(poland);
 	FACTION(portugal);
