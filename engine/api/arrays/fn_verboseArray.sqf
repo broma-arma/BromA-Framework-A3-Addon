@@ -14,7 +14,7 @@ PARAMETERS:
     0+ - Item (ANY)
 
 USAGE:
-    ["Nife", "Royal", "Knite"] call BRM_FMK_fnc_verboseArray; // "Nife, Royal and Knite"
+    ["Nife", "Royal", "Cory", "Knite"] call BRM_FMK_fnc_verboseArray; // "Nife, Royal, Cory and Knite"
 
 RETURNS:
     Verbosed array (STRING)
