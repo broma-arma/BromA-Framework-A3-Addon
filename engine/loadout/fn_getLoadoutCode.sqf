@@ -58,7 +58,7 @@ BRM_FMK_Engine_fnc_getLoadoutCodeCache getOrDefaultCall [_key, {
 
 			// Faction mod
 			if (BRM_FMK_Engine_compatVersion > 0 && _cfgSource == 2 && { fileExists ("mission\loadouts\factions\" + _id + ".sqf") }) then {
-				_parentCode = _parentCode + format ["call ([""%1"", 2] call BRM_FMK_Engine_fnc_getLoadoutCode);%2", _parentID, toString [10]];
+				_parentCode = _parentCode + format ["call ([""%1"", 2] call BRM_FMK_Engine_fnc_getLoadoutCode);%2", _id, toString [10]];
 			};
 
 			if (_file != "" && { fileExists _file }) then {
