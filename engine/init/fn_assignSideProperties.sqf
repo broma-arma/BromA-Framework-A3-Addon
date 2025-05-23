@@ -3,6 +3,8 @@
 private _properties = ["_side", "_color", "_name", "_skill", "_callsigns", "_units", "_vehicles", "_objects", "_dacCamps"];
 
 {
+	if (_x == "c" && { !mission_enable_side_c }) then { continue; };
+
 	private _sideChar = _x;
 	private _sideProperties = [missionNamespace getVariable format ["side_%1_faction", _sideChar]] call BRM_FMK_fnc_getLoadoutProperty;
 	{
