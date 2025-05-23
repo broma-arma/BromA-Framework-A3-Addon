@@ -43,7 +43,9 @@ switch (_state) do {
 			} forEach [_target] + _spawnPositions;
 		};
 	};
-	//case SPAWNER_INIT: {};
+	case SPAWNER_INIT: {
+		_spawner set ["spawnPositionIndex", 0];
+	};
 	case SPAWNER_TICK: {
 		private _spawnedTypes = createHashMap;
 		private _spawnedGroups = _spawner get "groups";
@@ -69,11 +71,18 @@ switch (_state) do {
 		if (count _spawnableTypes > 0) then {
 			CONFIG_TYPECONFIG params [["_spawnPositions", [], [[]]]];
 
-			_spawnPositions = _spawnPositions select {
-				!([_x, CONFIG_SETTINGS select 1/*_safeSpawnDistance*/] call BRM_FMK_Plugin_AIS_fnc_isPlayerNear)
+			private _spawnablePositions = [];
+			private _spawnPosIndex = _spawner get "spawnPositionIndex";
+			private _spawnPosCount = count _spawnPositions;
+			for "_i" from 0 to _spawnPosCount do {
+				private _j = (_spawnPosIndex + _i) % _spawnPosCount;
+				private _spawnPosition = _spawnPositions select _j;
+				if !([_spawnPosition, CONFIG_SETTINGS select 1/*_safeSpawnDistance*/] call BRM_FMK_Plugin_AIS_fnc_isPlayerNear) then {
+					_spawnablePositions pushBack _spawnPosition;
+				};
 			};
 
-			if (count _spawnPositions > 0) then {
+			if (count _spawnablePositions > 0) then {
 				_spawned = true;
 				CONFIG_EVENT_WAVE_START call { privateAll; [] call _this; };
 
@@ -81,8 +90,8 @@ switch (_state) do {
 				{
 					_x params ["_type", "", "_waypointSettings"];
 
-					private _count = count _spawnPositions;
-					private _spawnPosition = (_spawnPositions deleteAt floor random _count) call BRM_FMK_fnc_getPos select [0, 2];
+					_spawner set ["spawnPositionIndex", (_spawner get "spawnPositionIndex") + 1];
+					private _spawnPosition = _spawnablePositions deleteAt 0 call BRM_FMK_fnc_getPos select [0, 2];
 
 					private _group = [_spawnPosition, _spawnPosition getDir _targetPos, _type, CONFIG_SIDE, CONFIG_LOADOUT, CONFIG_SETTINGS] call BRM_FMK_Plugin_AIS_fnc_createGroup;
 					[_group, _targetPos, _waypointSettings, CONFIG_EVENT_WAYPOINT] spawn BRM_FMK_Plugin_AIS_fnc_taskAttack;
@@ -91,7 +100,7 @@ switch (_state) do {
 
 					CONFIG_EVENT_WAVE_SPAWN call { privateAll; [] call _this; };
 
-					if (_count == 1) then { break; };
+					if (count _spawnablePositions == 0) then { break; };
 				} forEach _spawnableTypes;
 
 				CONFIG_EVENT_WAVE_END call { privateAll; [] call _this; };
