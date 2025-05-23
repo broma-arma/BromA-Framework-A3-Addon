@@ -51,7 +51,7 @@ _position = [];
 
 // BIS_fnc_findSafePos
 // TODO Use findEmptyPosition?
-private _maxGradient = 0.05;
+private _maxGradient = 0; // 0.05
 private _checkProximity = _objectRadius > 0;
 private _gradientRadius = 1 max _objectRadius * 0.1;
 
