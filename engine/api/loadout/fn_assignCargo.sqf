@@ -55,3 +55,8 @@ if (BRM_FMK_Engine_compatVersion > 0) then {
 		call BRM_FMK_Engine_fnc_cargoList;
 	} forEach _type;
 };
+
+private _load = loadAbs _object + 1000;
+if (_load > maxLoad _object) then {
+	_object setMaxLoad ceil (_load / 1000) * 1000;
+};
