@@ -2,7 +2,7 @@
 
 params ["_init"];
 
-private _configFile = "mission\objectives\ai_spawner.sqf";
+private _configFile = "mission\settings\plugins\ai_spawner.sqf";
 private _compat = 1;
 if (_init == "postInitScript") then {
 	_configFile = "mission\custom-scripts\ai_spawner\includes\configs.sqf";
