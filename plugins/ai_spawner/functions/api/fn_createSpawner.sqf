@@ -162,7 +162,7 @@ try {
 
 	_conditions params [
 		["_startCondition", { true }, [{}, 0, []]],
-		["_endCondition", { false }, [{}, 0]]
+		["_endCondition", { false }, [{}, 0, []]]
 	];
 
 	if (_startCondition isEqualType []) then {
