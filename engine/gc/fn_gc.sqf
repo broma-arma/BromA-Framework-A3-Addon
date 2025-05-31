@@ -53,7 +53,8 @@ addMissionEventHandler ["EntityKilled", {
 	if (isGamePaused) exitWith {};
 
 	[
-		BRM_FMK_Engine_fnc_gc_queue, { hideBody _this }, BRM_FMK_Engine_fnc_gc_distanceSqr,
+		//BRM_FMK_Engine_fnc_gc_queue, { [_this] remoteExec ["hideBody", _this] }, BRM_FMK_Engine_fnc_gc_distanceSqr, // Large interval between deleting bodies
+		BRM_FMK_Engine_fnc_gc_queue, { deleteVehicle _this }, BRM_FMK_Engine_fnc_gc_distanceSqr,
 		BRM_FMK_Engine_fnc_gc_limit, BRM_FMK_Engine_fnc_gc_time,
 		BRM_FMK_Engine_fnc_gc_maxLimit, BRM_FMK_Engine_fnc_gc_maxTime
 	] call BRM_FMK_Engine_fnc_gcProcess;
