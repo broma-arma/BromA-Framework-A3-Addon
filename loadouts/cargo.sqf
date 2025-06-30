@@ -259,6 +259,13 @@ switch (toLower _x) do {
 		[_oChemlightHiU, _countGrenadesCargo]] call BRM_FMK_fnc_addItems;
 	};
 
+	case "handheldflares": { [_object,
+		[_wFlare, _countGrenadesCargo],
+		[_rFlare, _countGrenadesCargo],
+		[_gFlare, _countGrenadesCargo],
+		[_yFlare, _countGrenadesCargo]] call BRM_FMK_fnc_addItems;
+	};
+
 	case "smoke": { [_object,
 		[_wSmoke, _countGrenadesCargo],
 		[_rSmoke, _countGrenadesCargo],
@@ -295,6 +302,38 @@ switch (toLower _x) do {
 		[_cigpack, 50],
 		[_cigar, 50],
 		[_poppack, 50]] call BRM_FMK_fnc_addItems;
+	};
+
+
+	case "spraypaint": { [_object,
+		[_spraypaintBlack, 50],
+		[_spraypaintBlue, 50],
+		[_spraypaintGreen, 50],
+		[_spraypaintRed, 50],
+		[_spraypaintWhite, 50],
+		[_spraypaintYellow, 50]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "markerflags": { [_object,
+		[_markerFlagBlack, 50],
+		[_markerFlagBlue, 50],
+		[_markerFlagGreen, 50],
+		[_markerFlagOrange, 50],
+		[_markerFlagPurple, 50],
+		[_markerFlagRed, 50],
+		[_markerFlagWhite, 50],
+		[_markerFlagYellow, 50]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "towropes": { [_object,
+		[_towRope, 50],
+		[_towRope3, 50],
+		[_towRope6, 50],
+		[_towRope12, 50],
+		[_towRope15, 50],
+		[_towRope18, 50],
+		[_towRope27, 50],
+		[_towRope36, 50]] call BRM_FMK_fnc_addItems;
 	};
 
 	default {
