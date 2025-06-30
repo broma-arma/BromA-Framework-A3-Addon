@@ -9,8 +9,7 @@ if (mission_ACE3_enabled) then {
 		];
 		_suppliesNormal = [
 			[_bandage, _countBandage / 4],
-			[_morphine, _countMorphine / 4],
-			[_epinephrine, _countEpi / 4],
+			[_morphine, _countMorphine / 4], [_painkillers, 1 max _countMorphine / 20], [_epinephrine, _countEpi / 4],
 			[_tourniquet, _countTourniquet]
 		];
 	} else { // Enabled
@@ -22,7 +21,7 @@ if (mission_ACE3_enabled) then {
 		_suppliesNormal = [
 			[_packingBandage, _countBandage / 4], [_quickClot, _countBandage / 4], [_elasticBandage, _countBandage / 4],
 			[_tourniquet, _countTourniquet],
-			[_morphine, _countMorphine / 4], [_epinephrine, _countEpi / 4]
+			[_morphine, _countMorphine / 4], [_painkillers, 1 max _countMorphine / 20], [_epinephrine, _countEpi / 4]
 		];
 
 		if (ace_medical_treatment_advancedBandages == 2) then { // Can Reopen
