@@ -146,7 +146,7 @@ if (!hasInterface || { BRM_FMK_Plugin_CommanderLock_tvtMode && co_lock_allSidesR
 		// Enable text channels, until commander starts mission
 		BRM_FMK_Plugin_CommanderLock_channelSettings = [];
 		for "_i" from 0 to 5 do {
-			private _channelEnabled = channelEnabled _i;
+			private _channelEnabled = channelEnabled _i select [0, 2];
 			BRM_FMK_Plugin_CommanderLock_channelSettings pushBack +_channelEnabled;
 			_channelEnabled set [0, true];
 			_i enableChannel _channelEnabled;
