@@ -101,6 +101,7 @@ class CfgFunctions {
 			class reachTarget {};
 			class artillery {};
 			class cas {};
+			class driverless {};
 			class halo {};
 			class paratroop {};
 			class doLog {};
