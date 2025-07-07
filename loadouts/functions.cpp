@@ -24,6 +24,7 @@ class loadouts_functions {
 	class addWeaponAttachments {};
 	class addEarplugs {};
 	class getRadio {};
+	class addMedicalSupplies {};
 };
 
 class loadouts_deprecated {
