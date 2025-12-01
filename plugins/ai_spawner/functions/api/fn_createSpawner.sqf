@@ -102,6 +102,7 @@ try {
 	if (isNil { _settingAISkill call BRM_FMK_Plugin_AIS_fnc_getSkillSettings }) then { throw ["Invalid AI skill in ""%1"" spawner, doesn't exist: %2", _id, _settingAISkill]; };
 
 	if (_target isEqualTypeAny [objNull, grpNull, locationNull] && { isNull _target }) then { throw ["Invalid target in ""%1"" spawner, target cannot be null", _id]; };
+	if (_target isEqualType objNull && { _target isKindOf "EmptyDetector" && ASLToAGL getPosASL _target select 2 < 0 }) then { ["Invalid target in ""%1"" spawner, trigger is underground", _id] call BRM_FMK_fnc_error; };
 	if (_target isEqualType "" && { markerShape _target == "" }) then { throw ["Invalid target in ""%1"" spawner, target doesn't exist", _id]; };
 	if (_waveDelay < 1) then { throw ["Invalid waveDelay in ""%1"" spawner, less than 1: %2", _id, _waveDelay]; };
 	if (_groups isEqualTo []) then { throw ["Invalid groups in ""%1"" spawner, no groups defined", _id]; };
