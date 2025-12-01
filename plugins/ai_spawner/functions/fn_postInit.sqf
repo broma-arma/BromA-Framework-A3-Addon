@@ -99,6 +99,7 @@ if (_compat == 0) then {
 			];
 
 			BRM_FMK_Plugin_AIS_debug = missionNamespace getVariable ["AIS_debug", !isMultiplayer];
+			BRM_FMK_Plugin_AIS_trace = BRM_FMK_Plugin_AIS_debug && missionNamespace getVariable ["AIS_trace", false];
 
 			AIS_fnc_defenseSpawner = {
 				params [
@@ -194,6 +195,32 @@ if (_compat == 0) then {
 			};
 
 			BRM_FMK_Plugin_AIS_debug = missionNamespace getVariable ["BRM_FMK_AIS_debug", !isMultiplayer];
+			BRM_FMK_Plugin_AIS_trace = BRM_FMK_Plugin_AIS_debug && missionNamespace getVariable ["BRM_FMK_AIS_trace", false];
+		};
+
+		if (BRM_FMK_Plugin_AIS_trace) then {
+			BRM_FMK_Plugin_AIS_traceLines = [];
+			BRM_FMK_Plugin_AIS_traceIcons = [];
+			BRM_FMK_Plugin_AIS_traceDrawHandler = addMissionEventHandler ["Draw3D", {
+				private _time = time;
+				for "_i" from count BRM_FMK_Plugin_AIS_traceLines - 1 to 0 step -1 do {
+					BRM_FMK_Plugin_AIS_traceLines select _i params ["_removeTime", "_args"];
+					if (_removeTime <= _time) then {
+						BRM_FMK_Plugin_AIS_traceLines deleteAt _i;
+					} else {
+						drawLine3D _args;
+					};
+				};
+
+				for "_i" from count BRM_FMK_Plugin_AIS_traceIcons - 1 to 0 step -1 do {
+					BRM_FMK_Plugin_AIS_traceIcons select _i params ["_removeTime", "_args"];
+					if (_removeTime <= _time) then {
+						BRM_FMK_Plugin_AIS_traceIcons deleteAt _i;
+					} else {
+						drawIcon3D _args;
+					};
+				};
+			}];
 		};
 
 		BRM_FMK_Plugin_AIS_cacheManager_groups = createHashMap;
