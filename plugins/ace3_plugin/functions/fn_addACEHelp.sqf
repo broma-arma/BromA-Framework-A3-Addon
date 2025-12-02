@@ -228,7 +228,7 @@ if (ace_medical_treatment_advancedMedication) then {
 			if (_description != "") then {
 				_description = " - " + _description;
 			};
-			_lines pushBack _picture + "<font color='#FFFF00' size='15' face='RobotoCondensedBold'>" + _name + "</font>" + _description + " (" + _configName + ")";
+			_lines pushBack _picture + "<font color='#FFFF00' size='15' face='RobotoCondensedBold'>" + _name + "</font>" + _description;
 
 			if (_configName == "Epinephrine") then {
 				_lines pushBack "    " + ([configFile >> "ace_medical_treatment_actions" >> "Epinephrine" >> "medicRequired"] call _fnc_medicItem);
