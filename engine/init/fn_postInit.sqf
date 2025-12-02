@@ -33,6 +33,29 @@ _this call BRM_FMK_Engine_fnc_assignSideProperties;
 [] call BRM_FMK_Engine_fnc_loadContentCargo;
 
 if (hasInterface) then {
+	// Remove side-specific markers
+	private _playerSide = side player;
+	{
+		_x params ["_side", "_layerName"];
+
+		if (_playerSide != _side) then {
+			private _layerEntities = getMissionLayerEntities _layerName;
+			if (_layerEntities isNotEqualTo []) then {
+				{
+					deleteMarkerLocal _x;
+				} forEach (_layerEntities select 1);
+			};
+		};
+	} forEach [
+		[side_a_side, "SIDE_A"],
+		[side_b_side, "SIDE_B"],
+		[side_c_side, "SIDE_C"],
+		[BLUFOR, "BLU"],
+		[OPFOR, "OP"],
+		[INDEPENDENT, "IND"],
+		[CIVILIAN, "CIV"]
+	];
+
 	player createDiarySubject ["BRM_FMK_diary", "BromA Framework"];
 
 	player createDiaryRecord ["BRM_FMK_diary", ["Credits", [
