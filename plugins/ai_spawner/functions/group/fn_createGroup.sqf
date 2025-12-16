@@ -40,7 +40,9 @@ private _sideChar = ["B", "O", "I", "C"] select ([BLUFOR, OPFOR, INDEPENDENT, CI
 		_unit setDir _dir;
 	} else {
 		private _vehicle = createVehicle [_type, _position, [], 0, ["NONE", "FLY"] select (_type isKindOf "Air")];
+		private _velocity = velocity _vehicle;
 		_vehicle setDir _dir;
+		_vehicle setVelocity _velocity;
 		_vehicles pushBack _vehicle;
 		_vehicle allowCrewInImmobile [true, true];
 
