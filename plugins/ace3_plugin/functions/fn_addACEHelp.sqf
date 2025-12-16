@@ -146,13 +146,13 @@ private _fnc_isMedicalItem = "getNumber (_x >> ""ACE_isMedicalItem"") isEqualTo 
 private _medicalItemsAction = createHashMap;
 private _medicalActionsItem = createHashMap;
 {
-	private _cfgAction = _x;
-	{
-		if (!isNil { _medicalItems get _x }) then {
-			_medicalItemsAction set [_x, _cfgAction];
-			_medicalActionsItem set [_cfgAction, _medicalItems getOrDefault [_x, _x]];
+	private _item = getArray (_x >> "items") param [0, ""];
+	if (_item != "") then {
+		if (!isNil { _medicalItems get _item } && !(_item in _medicalItemsAction)) then {
+			_medicalItemsAction set [_item, _x];
+			_medicalActionsItem set [_x, _medicalItems getOrDefault [_item, _item]];
 		};
-	} forEach getArray (_x >> "items");
+	};
 } forEach configProperties [configFile >> "ace_medical_treatment_actions", "isClass _x && { count getArray (_x >> ""items"") > 0 }"];
 
 private _medicationDefaults = configFile >> "ace_medical_treatment" >> "Medication";
