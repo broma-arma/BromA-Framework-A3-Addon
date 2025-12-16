@@ -15,7 +15,7 @@ PARAMETERS:
     1 - Array (ARRAY)
         0 - Config name of the weapon. (STRING)
         1 - Config name of the magazine. (STRING)
-    2 - Amount of magazines to add. (NUMBER/ARRAY)
+    2 - (OPTIONAL) Amount of magazines to add. Default 1. (NUMBER/ARRAY)
         0 - Amount of primary magazines to add. (NUMBER)
         1 - Amount of secondary magazines to add. (NUMBER)
     3 - (OPTIONAL) Muzzle attachment, random if array. Default "". (STRING/ARRAY)
@@ -38,7 +38,7 @@ RETURNS:
 ================================================================================
 */
 
-params ["_unit", "_kind", "_amount", ["_muzzle", "", ["", []]], ["_rail", "", ["", []]], ["_optic", "", ["", []]], ["_bipod", "", ["", []]], ["_weaponAmount", 1, [0]]];
+params ["_unit", "_kind", ["_amount", 1, [0, []]], ["_muzzle", "", ["", []]], ["_rail", "", ["", []]], ["_optic", "", ["", []]], ["_bipod", "", ["", []]], ["_weaponAmount", 1, [0]]];
 
 _kind params [["_weapon", "", [""]], ["_primaryMagazine", "", [""]], ["_secondaryMagazine", "", [""]]];
 
