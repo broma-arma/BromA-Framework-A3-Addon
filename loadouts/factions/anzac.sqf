@@ -1,7 +1,7 @@
 /*
     ANZAC Forces
 
-    Camo: "DPDU", "DPCU" (BRM_FMK_LoadoutCamo_ANZAC)
+    Camo: "DPCU", "DPDU" (BRM_FMK_LoadoutCamo_ANZAC)
 */
 
 _factionID = "ANZAC";

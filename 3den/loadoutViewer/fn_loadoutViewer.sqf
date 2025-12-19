@@ -295,7 +295,7 @@ switch (_mode) do {
 		private _camos = switch (_faction) do {
 			case "AAF": { ["plain", "camo"] };
 			case "AFGHANISTAN": { ["ana", "anp"] };
-			case "ANZAC": { ["DPDU", "DPCU"] };
+			case "ANZAC": { ["DPCU", "DPDU"] };
 			case "BAF": { ["mpt", "dpm", "ddpm"] };
 			case "CAF": { ["CADPATD", "CADPATW"] };
 			case "CSAT": { ["BRN", "GRY"] };
