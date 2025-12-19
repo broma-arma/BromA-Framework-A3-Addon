@@ -6,7 +6,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 1;
-		requiredAddons[] = {"BRM_FRAMEWORK", "A3_Modules_F", "A3_UI_F", "3DEN", "cba_xeh", "cba_settings"};
+		requiredAddons[] = {"BRM_FRAMEWORK", "A3_Modules_F", "A3_Ui_F", "3DEN", "cba_xeh", "cba_settings"};
 	};
 };
 
