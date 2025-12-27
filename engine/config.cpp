@@ -17,6 +17,7 @@ class CfgFunctions {
 			class assignSideProperties {};
 			class initVariables {};
 			class loadContentCargo {};
+			class mapHold {};
 		};
 
 		class diary {

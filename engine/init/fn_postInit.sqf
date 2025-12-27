@@ -90,6 +90,8 @@ if (hasInterface) then {
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
 
+	_this call BRM_FMK_Engine_fnc_mapHold;
+
 	_this call BRM_FMK_Engine_fnc_logParams;
 };
 
