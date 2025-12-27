@@ -2,7 +2,8 @@
 #define MINOR 84
 #define REVISION 13
 
-#define VERSION MAJOR.MINOR.REVISION
+#define VERSION MAJOR.MINOR
+#define VERSION_STR MAJOR.MINOR.REVISION
 #define VERSION_AR MAJOR,MINOR,REVISION
 
 #define QUOTE(var1) #var1
@@ -16,7 +17,7 @@ class CfgPatches {
 		author = "BromA";
 		versionDesc = "Broma Framework MK 4 APEX";
 		version = VERSION;
-		versionStr = QUOTE(VERSION);
+		versionStr = QUOTE(VERSION_STR);
 		versionAr[] = {VERSION_AR};
 	};
 };
