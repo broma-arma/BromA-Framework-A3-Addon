@@ -42,6 +42,21 @@ private _sideChar = ["B", "O", "I", "C"] select ([BLUFOR, OPFOR, INDEPENDENT, CI
 		private _vehicle = createVehicle [_type, _position, [], 0, ["NONE", "FLY"] select (_type isKindOf "Air")];
 		private _velocity = velocity _vehicle;
 		_vehicle setDir _dir;
+		if (_type isKindOf "Air") then {
+			private _flyInHeight = random [100, 200, 300];
+			if (_type isKindOf "Plane") then {
+				private _machSpeed = getNumber (configOf _vehicle >> "maxSpeed") / 1234.8;
+				if (_machSpeed >= 0.5) then {
+					_flyInHeight = random [1250, 1500, 1750];
+				} else {
+					_flyInHeight = random [500, 750, 1000];
+				};
+			};
+			_vehicle flyInHeight _flyInHeight;
+			private _posATL = getPosATL _vehicle;
+			_posATL set [2, _flyInHeight];
+			_vehicle setPosATL _posATL;
+		};
 		_vehicle setVelocity _velocity;
 		_vehicles pushBack _vehicle;
 		_vehicle allowCrewInImmobile [true, true];
