@@ -23,7 +23,9 @@ RETURNS:
 ================================================================================
 */
 
-params [["_a", [], [objNull, grpNull, "", locationNull, 0, controlNull, []]]];
-params [["_b", [], [objNull, grpNull, "", locationNull, 0, controlNull, []]]];
+params [
+	["_a", [], [objNull, grpNull, "", locationNull, 0, controlNull, []]],
+	["_b", [], [objNull, grpNull, "", locationNull, 0, controlNull, []]]
+];
 
 _a call BRM_FMK_fnc_getPos select [0, 2] vectorDistance (_b call BRM_FMK_fnc_getPos select [0, 2])
