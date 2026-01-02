@@ -3,10 +3,38 @@ if !(isClass (configFile >> "CfgPatches" >> "ace_medical")) exitWith {};
 // Backward compatibility
 mission_ace3_medical_level = if (mission_ACE3_enabled) then { [2, 1] select (ace_medical_treatment_advancedBandages == 0) } else { 0 };
 
+// Allow preventing AI death in CardiacArrest state.
+private _deathAITransition = ace_medical_STATE_MACHINE getVariable ["cardiacarrest_transitions", ""] select { _x select 0 == "DeathAI" } param [0, []];
+if (_deathAITransition param [1, {}] isEqualTo {!ace_medical_statemachine_AIUnconsciousness && {!isPlayer _this}}) then {
+	_deathAITransition set [1, {!(_this getVariable ["ace_medical_statemachine_AIUnconsciousness", ace_medical_statemachine_AIUnconsciousness]) && {!isPlayer _this}}];
+};
+
+if (mission_KAT_enabled) then {
+	BRM_FMK_Plugin_ACE3_CBA_SettingsInitializing = true;
+	["CBA_SettingsInitialized", {
+		[] call BRM_FMK_Plugin_ACE3_fnc_updateKatFAKs;
+		BRM_FMK_Plugin_ACE3_CBA_SettingsInitializing = false;
+	}] call CBA_fnc_addEventHandler;
+
+	["CBA_SettingChanged", {
+		params ["_setting", "_value"];
+		// "kat_misc_.FAK.*SlotItem"
+		if (!BRM_FMK_Plugin_ACE3_CBA_SettingsInitializing && _setting in [_setting select [0, 9] == "kat_misc_" && _setting select [10, 3] == "FAK" && _setting select [count _setting - 8] == "SlotItem"]) then {
+			[] call BRM_FMK_Plugin_ACE3_fnc_updateKatFAKs;
+		};
+	}] call CBA_fnc_addEventHandler;
+} else {
+	// Allow preventing AI death in FatalInjury state.
+	private _deathAITransition = ace_medical_STATE_MACHINE getVariable ["fatalinjury_transitions", ""] select { _x select 0 == "SecondChance" } param [0, []];
+	if (_deathAITransition param [1, {}] isEqualTo (missionNamespace getVariable "ace_medical_statemachine_fnc_conditionSecondChance")) then {
+		_deathAITransition set [1, {params ["_unit"]; _unit getVariable ["ace_medical_deathBlocked", false] || _this call ace_medical_statemachine_fnc_conditionSecondChance}];
+	};
+};
+
 if (hasInterface) then {
 	if (["p_ace3_everyone_medic", 0] call BIS_fnc_getParamValue > 0) then {
 		// Everyone is a medic
-		player setvariable ["ACE_medical_medicClass", 1, true]
+		player setVariable ["ACE_medical_medicClass", 1, true]
 	};
 
 	// Revive system lives

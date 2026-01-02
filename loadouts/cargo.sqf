@@ -1,30 +1,87 @@
 #include "\broma_framework\mission\cargo.hpp"
 switch (toLower _x) do {
-	case "medical": { [_object,
-		[_earPlugs, 25],
+	case "medical": {
+		private _supplies = [
+			[_earPlugs, 25],
 
-		[_bandage, _countBandageCargo],
-		[_fieldDressing, _countBandageCargo],
-		[_packingBandage, _countBandageCargo],
-		[_elasticBandage, _countBandageCargo],
-		[_quickClot, _countBandageCargo],
+			[_bandage, _countBandageCargo],
+			[_fieldDressing, _countBandageCargo],
+			[_packingBandage, _countBandageCargo],
+			[_elasticBandage, _countBandageCargo],
+			[_quickClot, _countBandageCargo],
 
-		[_painkillers, _countMorphineCargo],
-		[_morphine, _countMorphineCargo],
-		[_epinephrine, _countEpiCargo],
-		[_adenosine, _countMorphineCargo],
+			[_painkillers, _countMorphineCargo],
+			[_morphine, _countMorphineCargo],
+			[_epinephrine, _countEpiCargo]
+		];
 
-		[_tourniquet, _countTourniquetCargo],
-		[_splint, _countSplintCargo],
+		if (!mission_KAT_enabled) then {
+			_supplies pushBack [_adenosine, _countMorphineCargo];
+		};
 
-		[_blood250, _countBloodbagCargo],
-		[_blood500, _countBloodbagCargo],
-		[_blood1000, _countBloodbagCargo],
-		[_personalAidKit, _countPAKCargo],
-		[_bodyBag, _countBloodbagCargo],
+		_supplies append [
+			[_tourniquet, _countTourniquetCargo],
+			[_splint, _countSplintCargo]
+		];
 
-		[_surgKit, [5, 50] select (ace_medical_treatment_consumeSurgicalKit == 1)],
-		[_suture, 100]] call BRM_FMK_fnc_addItems;
+		if (!mission_KAT_enabled) then {
+			_supplies append [
+				[_blood250, _countBloodbagCargo],
+				[_blood500, _countBloodbagCargo],
+				[_blood1000, _countBloodbagCargo]
+			];
+		};
+
+		_supplies append [
+			[_personalAidKit, _countPAKCargo],
+			[_bodyBag, _countBloodbagCargo],
+
+			[_surgKit, [5, 50] select (ace_medical_treatment_consumeSurgicalKit == 1)],
+			[_suture, 100]
+		];
+
+		if (mission_KAT_enabled) then {
+			if (kat_hypothermia_hypothermiaActive) then {
+				_supplies pushBack ["kat_handWarmer", _countBandageCargo];
+			};
+
+			_supplies append [
+				["kat_IFAK", _countBandageCargo],
+				["kat_MFAK", _countBandageCargo / 2],
+				["kat_AFAK", _countBandageCargo / 8],
+				[["kat_ncdKit", "kat_aatKit"] select kat_breathing_advPtxEnable, _countEpiCargo]
+			];
+
+			if (kat_airway_enable) then {
+				_supplies pushBack ["kat_larynx", [_countBandageCargo, _countBandageCargo / 4] select kat_airway_ReusableAirwayItems];
+			};
+
+			_supplies append [
+				["kat_Carbonate", _countEpiCargo],
+				["kat_fentanyl", _countMorphineCargo / 3],
+				["kat_EACA", _countPAKCargo],
+				["kat_TXA", _countPAKCargo],
+				["kat_naloxone", _countMorphineCargo],
+				["kat_nitroglycerin", _countEpiCargo],
+				["kat_phenylephrineAuto", _countEpiCargo],
+				["kat_chestSeal", _countEpiCargo],
+				["kat_IV_16", [_countMorphineCargo, _countMorphineCargo / 2] select kat_pharma_IVreuse],
+				["kat_IO_FAST", [_countEpiCargo, _countEpiCargo / 3] select kat_pharma_IVreuse],
+				["kat_epinephrineIV", _countEpiCargo / 2],
+				["kat_Painkiller", _countMorphineCargo],
+				["kat_bloodIV_O_N", _countBloodbagCargo],
+				["ACE_salineIV", _countBloodbagCargo]
+			];
+
+			if (kat_hypothermia_hypothermiaActive) then {
+				_supplies pushBack ["kat_fluidWarmer", _countBloodbagCargo];
+			};
+
+			_supplies append [
+				["ACE_plasmaIV", _countBloodbagCargo]
+			];
+		};
+		[_object] + _supplies call BRM_FMK_fnc_addItems;
 	};
 
 	case "ammo_big";

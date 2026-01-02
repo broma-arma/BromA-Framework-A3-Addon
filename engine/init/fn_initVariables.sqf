@@ -38,10 +38,11 @@ RETURNS:
 	["BRM_FMK_Engine_initialized", { false }],
 	["pluginsLoaded", { false }], // Backward compatibility, use BRM_FMK_initialized event or var instead (Used by dac_config_creator in missions)
 
-	["mission_AGM_enabled",   { isClass (configFile >> "CfgPatches" >> "AGM_CORE") }], // Backward compatibility
-	["mission_ACE3_enabled",  { isClass (configFile >> "CfgPatches" >> "ACE_COMMON") }],
+	["mission_AGM_enabled",   { isClass (configFile >> "CfgPatches" >> "agm_core") }], // Backward compatibility
+	["mission_ACE3_enabled",  { isClass (configFile >> "CfgPatches" >> "ace_common") }],
 	["mission_TFAR_enabled",  { isClass (configFile >> "CfgPatches" >> "task_force_radio") }],
 	["mission_ACRE2_enabled", { isClass (configFile >> "CfgPatches" >> "acre_api") }],
+	["mission_KAT_enabled",  { isClass (configFile >> "CfgPatches" >> "kat_main") }],
 
 	// Task System
 	["BRM_FMK_Engine_tasks", { [] }],

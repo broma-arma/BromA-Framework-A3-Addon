@@ -16,6 +16,15 @@ class CfgFunctions {
 			file = "\broma_framework\plugins\ace3_plugin\functions";
 			class postInit {};
 			class addACEHelp {};
+			class updateKatFAKs {};
+		};
+	};
+
+	class BRM_FMK_ACE {
+		class api {
+			file = "\broma_framework\plugins\ace3_plugin\functions\api";
+			class createPatient {};
+			class actionPatient {};
 		};
 	};
 };
