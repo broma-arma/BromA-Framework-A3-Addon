@@ -1,3 +1,4 @@
+// BRM_FMK_Plugin_MPGarage_fnc_onLeftListSelected
 #include "../../defines.hpp"
 
 params ["_display", "_control", "_index"];
@@ -9,10 +10,7 @@ private _selectedVehicle = configName (_cfgVehicles select ((_control lbValue lb
 
 if (typeOf _vehicle == _selectedVehicle) exitWith {};
 
-private _camera = _display getVariable "MPG_camera";
-private _cameraData = _display getVariable "MPG_cameraData";
-
-if (!isNil "_vehicle" && {!isNull _vehicle}) then {
+if (!isNil "_vehicle" && {!isNull _vehicle}) exitWith {
 	{
 		ctrlDelete (_display displayCtrl (IDC_MPG_LOADOUT_PYLONS_CREATE + _forEachIndex * 2)); // ctrlPylonBackground
 		ctrlDelete (_display displayCtrl (IDC_MPG_LOADOUT_PYLONS_CREATE + _forEachIndex * 2 + 1)); // ctrlPylon
@@ -21,23 +19,27 @@ if (!isNil "_vehicle" && {!isNull _vehicle}) then {
 	_vehicle enableSimulation false;
 	_vehicle allowDamage false;
 	deleteVehicle _vehicle;
+
+	[{ call BRM_FMK_Plugin_MPGarage_fnc_onLeftListSelected }, _this] call CBA_fnc_execNextFrame;
 };
 
 _display getVariable "MPG_config" params ["_position", "_direction"/*, "_allowExternal", "_vehicleFilter", "_spawnHandler", "_allowIncompatiblePylons"*/];
 
-_vehicle = _selectedVehicle createVehicleLocal _position;
+_vehicle = createVehicleLocal [_selectedVehicle, [_position, _selectedVehicle] call BRM_FMK_Plugin_MPGarage_fnc_convertPosition];
 _vehicle enableSimulation false;
 _vehicle allowDamage false;
-_vehicle setPos _position;
 _vehicle setDir _direction;
 _vehicle spawn { sleep 0.001; _this enableSimulation true; };
 
+private _camera = _display getVariable "MPG_camera";
 _camera camSetTarget _vehicle;
 
 _display setVariable ["MPG_vehicle", _vehicle];
 
 boundingBoxReal _vehicle params ["_bb1", "_bb2"];
 private _bbDiag = _bb1 vectorDistance _bb2;
+
+private _cameraData = _display getVariable "MPG_cameraData";
 _cameraData set [2, _bbDiag * 1.5]; // distance
 _cameraData set [3, [_bbDiag * 0.25, _bbDiag * 2]]; // minDistance, maxDistance
 

@@ -2,7 +2,7 @@
 Open the Multiplayer Garage.
 
 Arguments
-	0: Object/Array/String position    - The position of the shown vehicles
+	0: Object/Array/String position    - The position of the shown vehicles (ATL, ATL + surface if Position2D)
 		Object - position and direction of object
 		Array  - position and optional direction (direction: index 3)
 		String - position and direction of Marker
@@ -68,44 +68,13 @@ private _direction = switch (typeName _position) do {
 };
 
 _position = switch (typeName _position) do {
-	case "OBJECT": { position _position };
+	case "OBJECT": { getPosATL _position };
 	case "ARRAY":  { _position };
-	case "STRING": { getMarkerPos _position };
+	case "STRING": { private _pos = getMarkerPos _position; _pos set [2, nil]; _pos };
 };
 
 if (isNil "_spawnHandler") then {
-	_spawnHandler = {
-		params ["_position", "_direction", "_vehicleClass", "_texture", "_animations", "_loadout"];
-
-		// Create vehicle
-		private _vehicle = _vehicleClass createVehicle _position;
-		_vehicle setDir _direction;
-
-		// Apply vehicle textures and animations
-		[_vehicle, _texture, _animations] call BIS_fnc_initVehicle;
-
-		// Remove all pylon weapons.
-		private _vehicleTurrets = [[-1]] + allTurrets _vehicle;
-		{ private _weapon = _x; { _vehicle removeWeaponTurret [_weapon, _x]; } forEach _vehicleTurrets; } forEach ((getPylonMagazines _vehicle) apply { getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon") });
-
-		// Set pylon loadouts
-		private _pylonsPriority = [];
-		{
-			_x params ["_pylonIndex", "_pylonPriority", "_pylonMagazineName", "_pylonTurret"];
-
-			_pylonsPriority set [_pylonIndex - 1, _pylonPriority];
-
-			_vehicle setPylonLoadOut [_pylonIndex, _pylonMagazineName, true, _pylonTurret];
-		} forEach _loadout;
-
-		// Set pylon priorities
-		_vehicle setPylonsPriority _pylonsPriority;
-
-		// Create UAV crew
-		if (getText (configFile >> "CfgVehicles" >> _vehicleClass >> "vehicleClass") == "Autonomous") then {
-			createVehicleCrew _vehicle;
-		};
-	};
+	_spawnHandler = { call BRM_FMK_Plugin_MPGarage_fnc_spawnHandler; };
 };
 
 if (_vehicleFilter isEqualType "") then {

@@ -229,12 +229,15 @@ switch (_event) do {
 
 		_display closeDisplay 1;
 
-		[_vehicle, _spawnHandler, _position, _direction, _vehicleType, _texture, _animations, _loadout] spawn {
+		[_vehicle, _spawnHandler, [_position, _vehicleType] call BRM_FMK_Plugin_MPGarage_fnc_convertPosition, _direction, _vehicleType, _texture, _animations, _loadout] spawn {
 			params ["_vehicle", "_spawnHandler", "_position", "_direction", "_vehicleClass", "_texture", "_animations", "_loadout"];
 
 			waitUntil { isNull _vehicle };
 
-			[_position, _direction, _vehicleClass, _texture, _animations, _loadout] call _spawnHandler;
+			_vehicle = [_position, _direction, _vehicleClass, _texture, _animations, _loadout] call _spawnHandler;
+			if (!isNil "_vehicle" && { _vehicle isEqualType objNull }) then {
+				[_vehicle, _texture, _animations, _loadout] call BRM_FMK_Plugin_MPGarage_fnc_initVehicle;
+			};
 		};
 	};
 

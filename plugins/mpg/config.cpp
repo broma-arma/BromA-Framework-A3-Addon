@@ -18,6 +18,9 @@ class CfgFunctions {
 			class loadRightContent {};
 			class getPylons {};
 			class setPylonLoadout {};
+			class initVehicle {};
+			class spawnHandler {};
+			class convertPosition {};
 		};
 		class eventHandlers {
 			file = "\broma_framework\plugins\mpg\functions\events";
