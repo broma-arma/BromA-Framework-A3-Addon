@@ -76,6 +76,7 @@ class CfgFunctions {
 			file = "\broma_framework\plugins\ai_spawner\functions\api";
 			class createSpawner {};
 			class pauseSpawner {};
+			class isSpawnerPaused {};
 		};
 	};
 };
