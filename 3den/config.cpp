@@ -5,6 +5,7 @@ class CfgPatches {
 		weapons[] = {};
 		requiredVersion = 1;
 		requiredAddons[] = {"3DEN", "BRM_FRAMEWORK"};
+		is3DENmod = 1;
 	};
 };
 
@@ -33,6 +34,27 @@ class Display3DEN {
 				class BRM_FMK_3DEN_LoadoutViewer {
 					text = "Loadout Viewer";
 					action = "[] call BRM_FMK_3DEN_fnc_loadoutViewer;";
+				};
+			};
+		};
+	};
+};
+
+class Cfg3DEN {
+	class Mission {
+		class Scenario {
+			class AttributeCategories {
+				class Loading {
+					class Attributes {
+						class BRM_FMK_OnLoadName {
+							property = "OnLoadName";
+							control = "Edit";
+							displayName = "$STR_3DEN_Scenario_Attribute_BriefingName_displayName";
+							tooltip = "Loading scenario name. Overrides the scenario name displayed in loading screens. Use @STR_ prefix to link to localization keys.";
+							defaultValue = "''";
+							isLocalized = 1;
+						};
+					};
 				};
 			};
 		};
