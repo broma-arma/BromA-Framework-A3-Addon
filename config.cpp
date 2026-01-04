@@ -50,6 +50,7 @@ class BRM_FMK {
 #include "CfgNotifications.hpp"
 #include "CfgDebriefing.hpp"
 #include "CfgTaskDescriptions.hpp"
+#include "CfgUnitInsignia.hpp"
 
 class Extended_DisplayLoad_EventHandlers {
 	class RscDisplayEGSpectator {
