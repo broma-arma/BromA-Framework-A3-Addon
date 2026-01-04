@@ -8,6 +8,9 @@
 	#ifndef RESPAWNSYS_PARAM_OBJECTIVE
 	#define RESPAWNSYS_PARAM_OBJECTIVE -1
 	#endif
+	#ifndef RESPAWNSYS_PARAM_WAVE
+	#define RESPAWNSYS_PARAM_WAVE -1
+	#endif
 
 	class p_allow_respawn {
 		title = "Instant respawn";
@@ -28,5 +31,12 @@
 		values[] = { 0,   3,   5,   10,         -1};
 		texts[] = {"0", "3", "5", "10", "Everyone"};
 		default = RESPAWNSYS_PARAM_OBJECTIVE;
+	};
+
+	class p_respawn_wave {
+		title = "Respawn wave, in minutes";
+		values[] = {      -1,         0,   1,   2,   3,   4,   5,   10,   15,   20,   25,   30,   40,   50,   60};
+		texts[] = {"Mission", "Disable", "1", "2", "3", "4", "5", "10", "15", "20", "25", "30", "40", "50", "60"};
+		default = RESPAWNSYS_PARAM_WAVE;
 	};
 #endif
