@@ -114,4 +114,20 @@ if (!_assignLoadoutMode && !isNil "_object" && !read_local_cargo) then { // assi
 			_x
 		}
 	} select { _x != "" };
+
+	if ("ammo" in _type) then {
+		private _weapon = _commonRifleGL param [0, ""];
+		if (_weapon != "") then {
+			private _cfgWeapon = configFile >> "CfgWeapons" >> _weapon;
+			private _muzzle = getArray (_cfgWeapon >> "muzzles") param [1, ""];
+			if (_muzzle != "") then {
+				private _magazineWell = getArray ((if (_muzzle == "this") then { _cfgWeapon } else { _cfgWeapon >> _muzzle }) >> "magazineWell");
+				switch (true) do {
+					case ("UGL_40x36" in _magazineWell): { _type pushBackUnique "m203"; };
+					case ("VOG_40mm" in _magazineWell): { _type pushBackUnique "gp"; };
+					case ("BRM_Type06_grenades" in _magazineWell): { _type pushBackUnique "type06_ammo"; };
+				};
+			};
+		};
+	};
 };

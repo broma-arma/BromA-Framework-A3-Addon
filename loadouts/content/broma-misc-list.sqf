@@ -194,6 +194,11 @@ if (mission_ACE3_enabled) then {
 	_rFlare = "ACE_HandFlare_Red";
 	_gFlare = "ACE_HandFlare_Green";
 	_yFlare = "ACE_HandFlare_Yellow";
+
+	_40mmIwhite = "ACE_40mm_Flare_white"; // M583 Illumination Flare (White)
+	_40mmIred   = "ACE_40mm_Flare_red"; // M662 Illumination Flare (Red)
+	_40mmIgreen = "ACE_40mm_Flare_green"; // M661 Illumination Flare (Green)
+	_40mmIir    = "ACE_40mm_Flare_ir"; // M992 Illumination Flare (IR)
 };
 
 // IEDs

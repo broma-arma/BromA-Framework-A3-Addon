@@ -266,7 +266,35 @@ switch (toLower _x) do {
 		[_RPGTYPE69, _countSpecATCargo]] call BRM_FMK_fnc_addItems;
 	};
 
-	case "Type06_ammo": { [_object,
+	case "m203": { [_object,
+		[_40mmSwhite, _count40mmCargo],
+		[_40mmSred, _count40mmCargo],
+		[_40mmSgreen, _count40mmCargo],
+		[_40mmSyellow, _count40mmCargo],
+		[_40mmSpurple, _count40mmCargo],
+		[_40mmSblue, _count40mmCargo],
+		[_40mmSorange, _count40mmCargo],
+
+		[_40mmFwhite, _count40mmCargo],
+		[_40mmFred, _count40mmCargo],
+		[_40mmFgreen, _count40mmCargo],
+		[_40mmFyellow, _count40mmCargo],
+		[_40mmFir, _count40mmCargo],
+
+		[_40mmIwhite, _count40mmCargo],
+		[_40mmIir, _count40mmCargo]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "gp": { [_object,
+		["rhs_GRD40_Green", _count40mmCargo],
+		["rhs_GRD40_Red", _count40mmCargo],
+		["rhs_GRD40_White", _count40mmCargo],
+		["rhs_VG40OP_green", _count40mmCargo],
+		["rhs_VG40OP_red", _count40mmCargo],
+		["rhs_VG40OP_white", _count40mmCargo]] call BRM_FMK_fnc_addItems;
+	};
+
+	case "type06_ammo": { [_object,
 		["BRM_Type06_HE", _count40mmCargo],
 		["BRM_Type06_HEAT", _count40mmCargo],
 		["BRM_Type06_SMK_W", _count40mmCargo],

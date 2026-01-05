@@ -155,33 +155,41 @@ private _6rnd12GSlug      = "6Rnd_12Gauge_Slug"; // 12 Gauge 6Rnd Slug
 //"APERSMineDispenser_Mag"; // APERS Mine Dispenser
 //"TrainingMine_Mag"; // Training Mine
 
-private _40mm       = "1Rnd_HE_Grenade_shell"; // 40 mm HE Grenade Round
-//"3Rnd_HE_Grenade_shell"; // 40 mm 3Rnd HE Grenade
-private _40mmSwhite = "1Rnd_Smoke_Grenade_shell"; // Smoke Round (White)
-//"3Rnd_Smoke_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (White)
-private _40mmSred   = "1Rnd_SmokeRed_Grenade_shell"; // Smoke Round (Red)
-//"3Rnd_SmokeRed_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Red)
-private _40mmSgreen = "1Rnd_SmokeGreen_Grenade_shell"; // Smoke Round (Green)
-//"3Rnd_SmokeGreen_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Green)
-//"1Rnd_SmokeYellow_Grenade_shell"; // Smoke Round (Yellow)
-//"3Rnd_SmokeYellow_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Yellow)
-//"1Rnd_SmokePurple_Grenade_shell"; // Smoke Round (Purple)
-//"3Rnd_SmokePurple_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Purple)
-private _40mmSblue  = "1Rnd_SmokeBlue_Grenade_shell"; // Smoke Round (Blue)
-//"3Rnd_SmokeBlue_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Blue)
-//"1Rnd_SmokeOrange_Grenade_shell"; // Smoke Round (Orange)
-//"3Rnd_SmokeOrange_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Orange)
+private _40mm        = "1Rnd_HE_Grenade_shell"; // 40 mm HE Grenade Round
+private _40mmSwhite  = "1Rnd_Smoke_Grenade_shell"; // Smoke Round (White)
+private _40mmSred    = "1Rnd_SmokeRed_Grenade_shell"; // Smoke Round (Red)
+private _40mmSgreen  = "1Rnd_SmokeGreen_Grenade_shell"; // Smoke Round (Green)
+private _40mmSyellow = "1Rnd_SmokeYellow_Grenade_shell"; // Smoke Round (Yellow)
+private _40mmSpurple = "1Rnd_SmokePurple_Grenade_shell"; // Smoke Round (Purple)
+private _40mmSblue   = "1Rnd_SmokeBlue_Grenade_shell"; // Smoke Round (Blue)
+private _40mmSorange = "1Rnd_SmokeOrange_Grenade_shell"; // Smoke Round (Orange)
 
-private _40mmFwhite = "UGL_FlareWhite_F"; // Flare Round (White)
-//"3Rnd_UGL_FlareWhite_F"; // 3Rnd 3GL Flares (White)
-private _40mmFgreen = "UGL_FlareGreen_F"; // Flare Round (Green)
-//"3Rnd_UGL_FlareGreen_F"; // 3Rnd 3GL Flares (Green)
-private _40mmFred   = "UGL_FlareRed_F"; // Flare Round (Red)
-//"3Rnd_UGL_FlareRed_F"; // 3Rnd 3GL Flares (Red)
-//"UGL_FlareYellow_F"; // Flare Round (Yellow)
-//"3Rnd_UGL_FlareYellow_F"; // 3Rnd 3GL Flares (Yellow)
-//"UGL_FlareCIR_F"; // Flare Round (IR)
-//"3Rnd_UGL_FlareCIR_F"; // 3Rnd 3GL Flares (IR)
+private _40mm3        = "3Rnd_HE_Grenade_shell"; // 40 mm 3Rnd HE Grenade
+private _40mm3Swhite  = "3Rnd_Smoke_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (White)
+private _40mm3Sred    = "3Rnd_SmokeRed_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Red)
+private _40mm3Sgreen  = "3Rnd_SmokeGreen_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Green)
+private _40mm3Syellow = "3Rnd_SmokeYellow_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Yellow)
+private _40mm3Spurple = "3Rnd_SmokePurple_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Purple)
+private _40mm3Sblue   = "3Rnd_SmokeBlue_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Blue)
+private _40mm3Sorange = "3Rnd_SmokeOrange_Grenade_shell"; // 3Rnd 3GL Smoke Rounds (Orange)
+
+private _40mmFwhite  = "UGL_FlareWhite_F"; // Flare Round (White)
+private _40mmFred    = "UGL_FlareRed_F"; // Flare Round (Red)
+private _40mmFgreen  = "UGL_FlareGreen_F"; // Flare Round (Green)
+private _40mmFyellow = "UGL_FlareYellow_F"; // Flare Round (Yellow)
+private _40mmFir     = "UGL_FlareCIR_F"; // Flare Round (IR)
+
+private _40mm3Fwhite  = "3Rnd_UGL_FlareWhite_F"; // 3Rnd 3GL Flares (White)
+private _40mm3Fred    = "3Rnd_UGL_FlareRed_F"; // 3Rnd 3GL Flares (Red)
+private _40mm3Fgreen  = "3Rnd_UGL_FlareGreen_F"; // 3Rnd 3GL Flares (Green)
+private _40mm3Fyellow = "3Rnd_UGL_FlareYellow_F"; // 3Rnd 3GL Flares (Yellow)
+private _40mm3Fir     = "3Rnd_UGL_FlareCIR_F"; // 3Rnd 3GL Flares (IR)
+
+private _40mmIwhite   = "UGL_FlareWhite_Illumination_F"; // Illumination Round (White)
+private _40mmIred     = "UGL_FlareRed_Illumination_F"; // Illumination Round (Red)
+private _40mmIgreen   = "UGL_FlareGreen_Illumination_F"; // Illumination Round (Green)
+private _40mmIyellow  = "UGL_FlareYellow_Illumination_F"; // Illumination Round (Yellow)
+private _40mmIir      = "";
 
 // Rifle - copyToClipboard ("getNumber (_x >> 'scope') == 2 && configName _x call BIS_fnc_itemType select 0 == 'Weapon' && { !isClass (_x >> 'LinkedItems') || getText (_x >> 'baseWeapon') == configName _x }" configClasses (configfile >> "CfgWeapons") apply { private _dlcInfo = getAssetDLCInfo [configName _x, configfile >> "CfgWeapons"]; format ["""%1""; // %2 - %3%4 %5", configName _x, getText (_x >> "displayName"), ["", format ["%2 (%1), ", _dlcInfo#4, _dlcInfo#5]] select _dlcInfo#0, configSourceModList _x, configName _x call BIS_fnc_itemType] } joinString toString [13])
 private _Katiba     = ["arifle_Katiba_F",        _30rnd65green]; // Katiba 6.5 mm
