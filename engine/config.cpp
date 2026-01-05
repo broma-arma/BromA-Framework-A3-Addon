@@ -223,6 +223,7 @@ class CfgFunctions {
 			class disableObject {};
 			class respawn {};
 			class unitFromName {};
+			class unitInit {};
 		};
 
 		class api_vehicle {
