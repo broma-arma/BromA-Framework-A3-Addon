@@ -46,7 +46,12 @@ if (BRM_FMK_Engine_compatVersion == 0) then {
 	units_AI_useVanillaGear = mission_vanilla_ai_loadouts;
 	read_local_cargo = false;
 	mission_author_name = [getMissionConfigValue ["Author", "Unknown"]];
-	mission_version = missionName splitString "_" param [3, "v0"];
+
+	private _version = missionName splitString "_" select -1;
+	if (_version select [0, 1] != "v" || !(_version select [1, 1] in "0123456789")) then { // v\d.*
+		_version = "v0";
+	};
+	mission_version = _version;
 
 	mission_settings_loaded = true;
 };
