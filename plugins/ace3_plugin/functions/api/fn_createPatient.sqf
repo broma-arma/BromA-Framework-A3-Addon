@@ -65,7 +65,7 @@ if (mission_KAT_enabled) then {
 
 	// Disable simplified vital calculations, if enabled.
 	if (_patient getVariable ["kat_vitals_simpleMedical", false]) then {
-		_patient getVariable ["kat_vitals_simpleMedical", false, true];
+		_patient setVariable ["kat_vitals_simpleMedical", false, true];
 	};
 };
 
