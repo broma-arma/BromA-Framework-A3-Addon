@@ -22,7 +22,6 @@ Author:
 
 #define BODY_PARTS ["head", "body", "leftarm", "rightarm", "leftleg", "rightleg"]
 #define DAMAGE_TYPES ["bullet", "grenade", "explosive", "shell", "backblast"]
-#define PULSEOXIMETER_CHANCE 0.8
 #define WOUND_COUNT floor random [2, 4, 6]
 #define WOUND_DAMAGE random [0.2, 0.5, 1]
 
@@ -73,7 +72,7 @@ if (mission_KAT_enabled) then {
 // https://github.com/acemod/ACE3/blob/d0449d8f6f65b73377ef1c816e40e005aca39c50/addons/medical_ai/functions/fnc_isSafe.sqf#L18
 _patient setVariable ["ace_medical_ai_lastFired", CBA_missionTime + 86400]; // 1 day
 
-if (mission_KAT_enabled && { random 1 < PULSEOXIMETER_CHANCE }) then {
+if (mission_KAT_enabled) then {
 	// Attach kat_Pulseoximeter
 	["kat_breathing_pulseoxLocal", [_patient, _patient, "rightarm"]] call CBA_fnc_localEvent;
 };
