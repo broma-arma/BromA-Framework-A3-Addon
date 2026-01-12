@@ -19,6 +19,10 @@ Author:
 	Coryf88
 ---------------------------------------------------------------------------- */
 
+if (!isServer) exitWith {
+	_this remoteExec ["BRM_FMK_ACE_fnc_actionPatient", 2];
+};
+
 params ["_target", "_caller", "_actionId", ["_arguments", [], [[]]]];
 _arguments params [["_offset", [0, 2, 0]], ["_flip", false, [false]]];
 
