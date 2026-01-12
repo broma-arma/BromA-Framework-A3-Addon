@@ -14,6 +14,7 @@ class CfgFunctions {
 	class BRM_FMK_Plugin_ACE3 {
 		class functions {
 			file = "\broma_framework\plugins\ace3_plugin\functions";
+			class preInit {};
 			class postInit {};
 			class addACEHelp {};
 			class updateKatFAKs {};

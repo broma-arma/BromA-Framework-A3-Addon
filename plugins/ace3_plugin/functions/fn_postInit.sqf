@@ -1,3 +1,4 @@
+// BRM_FMK_Plugin_ACE3_fnc_postInit
 if !(isClass (configFile >> "CfgPatches" >> "ace_medical")) exitWith {};
 
 // Backward compatibility
@@ -10,16 +11,10 @@ if (_deathAITransition param [1, {}] isEqualTo {!ace_medical_statemachine_AIUnco
 };
 
 if (mission_KAT_enabled) then {
-	BRM_FMK_Plugin_ACE3_CBA_SettingsInitializing = true;
-	["CBA_SettingsInitialized", {
-		[] call BRM_FMK_Plugin_ACE3_fnc_updateKatFAKs;
-		BRM_FMK_Plugin_ACE3_CBA_SettingsInitializing = false;
-	}] call CBA_fnc_addEventHandler;
-
 	["CBA_SettingChanged", {
 		params ["_setting", "_value"];
 		// "kat_misc_.FAK.*SlotItem"
-		if (!BRM_FMK_Plugin_ACE3_CBA_SettingsInitializing && _setting in [_setting select [0, 9] == "kat_misc_" && _setting select [10, 3] == "FAK" && _setting select [count _setting - 8] == "SlotItem"]) then {
+		if (BRM_FMK_Plugin_ACE3_CBA_SettingsInitialized && { _setting in [_setting select [0, 9] == "kat_misc_" && _setting select [10, 3] == "FAK" && _setting select [count _setting - 8] == "SlotItem"] }) then {
 			[] call BRM_FMK_Plugin_ACE3_fnc_updateKatFAKs;
 		};
 	}] call CBA_fnc_addEventHandler;
@@ -48,7 +43,8 @@ if (hasInterface) then {
 	};
 
 	if (isNil "mission_ace3_legs") then {
-		mission_ace3_legs = missionNamespace getVariable ["ace_medical_treatment_clearTrauma", 0] == 0; // 0: Never, 1: After Stitch, 2: After Bandage
+		mission_ace3_legs = missionNamespace getVariable ["ace_medical_treatment_clearTrauma", 0] == 0 // 0: Never, 1: After Stitch, 2: After Bandage
+						&& missionNamespace getVariable ["ace_medical_fractures", 0] > 1; // 0: Disabled, 1: Splints Fully Heal Fractures, 2: Splints Heal, but Cannot Jog, 3: Splints Heal, but Cannot Sprint
 	};
 
 	if (mission_ace3_legs) then {

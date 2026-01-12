@@ -49,7 +49,8 @@ if (mission_ACE3_enabled) then {
 	if (mission_KAT_enabled) then {
 		_uniform append [
 			["kat_chestSeal", _countBandage / 6],
-			["kat_Carbonate", 1]
+			["kat_Carbonate", 1],
+			["kat_Caffeine", 1]
 		];
 
 		["kat_breathing_pulseoxLocal", [_unit, _unit, "rightarm"]] call CBA_fnc_localEvent; // kat_Pulseoximeter
@@ -114,16 +115,22 @@ if (_isMedic) then {
 			_backpack append [
 				["kat_MFAK", 1],
 				["ACE_elasticBandage", _countBandage / 2],
-				["ACE_epinephrine", _countEpi],
-				[["kat_ncdKit", "kat_aatKit"] select kat_breathing_advPtxEnable, _countEpi]
+				["ACE_epinephrine", _countEpi]
 			];
 
+			if (kat_breathing_advPtxEnable) then {
+				_backpack append [
+					["kat_aatKit", _countEpi / 2],
+					["kat_ncdKit", _countEpi]
+				];
+			};
+
 			if (kat_airway_enable) then {
-				_backpack pushBack ["kat_larynx", [_countEpi, 1] select kat_airway_ReusableAirwayItems];
+				_backpack pushBack ["kat_larynx", [_countEpi * 2, _countEpi] select kat_airway_ReusableAirwayItems];
 			};
 
 			_backpack append [
-				["kat_Carbonate", _countMorphine * 2 / 10],
+				["kat_Carbonate", _countMorphine / 10],
 				["kat_fentanyl", _countMorphine / 2],
 				["kat_EACA", _countMorphine],
 				["kat_TXA", _countMorphine],
@@ -134,7 +141,6 @@ if (_isMedic) then {
 				["kat_IV_16", [_countEpi * 2, _countEpi] select kat_pharma_IVreuse],
 				["kat_IO_FAST", [_countEpi, _countEpi / 2] select kat_pharma_IVreuse],
 				["kat_epinephrineIV", _countEpi],
-				["kat_Painkiller", _countMorphine],
 				["kat_bloodIV_O_N", _countBloodbag],
 				["ACE_salineIV", _countBloodbag]
 			];
