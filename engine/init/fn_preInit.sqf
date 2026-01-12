@@ -38,6 +38,9 @@ BRM_FMK_Engine_preInitTime = diag_tickTime;
 
 _this call BRM_FMK_Engine_fnc_initVariables;
 _this call BRM_FMK_Engine_fnc_loadPlugins;
+if (isServer) then {
+	_this call BRM_FMK_Engine_fnc_initDiag;
+};
 
 if (isClass (configFile >> "CfgPatches" >> "diwako_dui_radar")) then {
 	["CBA_settingsInitialized", {

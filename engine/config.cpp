@@ -20,6 +20,12 @@ class CfgFunctions {
 			class mapHold {};
 		};
 
+		class diagnostic {
+			file = "\broma_framework\engine\diagnostic";
+			class initDiag {};
+			class updateDiag {};
+		};
+
 		class diary {
 			file = "\broma_framework\engine\diary";
 			class initDiary {};
