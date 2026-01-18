@@ -162,7 +162,7 @@ if (_isMedic) then {
 		_backpack pushBack ["kat_IFAK", 1];
 	};
 
-	if (ace_medical_treatment_consumePAK > 0) then {
+	if (ace_medical_treatment_consumePAK > 0 && (isPlayer _unit || { random 1 < 0.3 })) then {
 		_backpack pushBack [_personalAidKit, 1];
 	};
 };
