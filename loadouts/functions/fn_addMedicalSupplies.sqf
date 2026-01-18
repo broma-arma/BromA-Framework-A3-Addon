@@ -66,6 +66,11 @@ if (mission_ACE3_enabled) then {
 } else {
 	_uniform pushBack ["FirstAidKit", _countBandage / 4];
 };
+if (!isPlayer _unit) then {
+	{
+		_x set [1, _x#1 * random [0, 1, 1]];
+	} forEach _uniform;
+};
 [_unit, _uniform] call BRM_FMK_fnc_addtoUniform;
 
 private _backpack = [];
@@ -166,5 +171,9 @@ if (_isMedic) then {
 		_backpack pushBack [_personalAidKit, 1];
 	};
 };
-
+if (!isPlayer _unit) then {
+	{
+		_x set [1, _x#1 * random [0, 1, 1]];
+	} forEach _backpack;
+};
 [_unit, _backpack] call BRM_FMK_fnc_addtoBackpack;
