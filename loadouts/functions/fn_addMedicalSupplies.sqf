@@ -163,7 +163,7 @@ if (_isMedic) then {
 	};
 
 	if (ace_medical_treatment_consumePAK > 0) then {
-		_backpack pushBack [_personalAidKit, _countPAK];
+		_backpack pushBack [_personalAidKit, 1];
 	};
 };
 
