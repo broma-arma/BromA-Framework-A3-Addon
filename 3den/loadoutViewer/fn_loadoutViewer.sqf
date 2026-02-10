@@ -297,7 +297,7 @@ switch (_mode) do {
 			case "AFGHANISTAN": { ["ana", "anp"] };
 			case "ANZAC": { ["DPCU", "DPDU"] };
 			case "BAF": { ["mpt", "dpm", "ddpm"] };
-			case "CAF": { ["CADPATD", "CADPATW"] };
+			case "CAF": { ["CADPATW", "CADPATD"] };
 			case "CSAT": { ["BRN", "GRY"] };
 			case "FINLAND": { ["sum", "frost"] };
 			case "FRANCE": { ["CCE", "DAGUET", "WINTER"] };
