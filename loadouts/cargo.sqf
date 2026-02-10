@@ -1,5 +1,6 @@
 #include "\broma_framework\mission\cargo.hpp"
 switch (toLower _x) do {
+	// Note: Update zeus\functions\fn_rscAttributeCargo.sqf if adding additional cargo types.
 	case "medical": {
 		private _supplies = [
 			[_earPlugs, 25],

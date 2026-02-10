@@ -8,7 +8,7 @@ if (!isServer) exitWith {};
 
 params ["_object", "_faction", "_type"];
 
-if (_object isKindOf "Man" || _object getVariable ["unit_initialized", false]) exitWith {};
+if (isNull _object || _object isKindOf "Man" || _object getVariable ["unit_initialized", false]) exitWith {};
 
 if (!BRM_FMK_Engine_initialized) exitWith {
 	if !(_object getVariable ["BRM_FMK_fnc_assignCargo_delayed", false]) then {
@@ -22,8 +22,6 @@ if (!BRM_FMK_Engine_initialized) exitWith {
 
 _object setVariable ["unit_initialized", true, true];
 
-if (isNull _object) exitWith {};
-
 private _unit = _object;
 if !(_type isEqualType []) then { _type = [_type]; };
 
@@ -35,6 +33,8 @@ private _isLeader = false;
 #include "\broma_framework\loadouts\includes\clear-object.sqf"
 #include "\broma_framework\loadouts\content\content-list.sqf"
 #include "\broma_framework\loadouts\includes\get-faction.sqf"
+
+_object setVariable ["BRM_FMK_fnc_assignCargo", [_faction, _type apply { toLowerANSI _x }], true];
 
 if (BRM_FMK_Engine_compatVersion == 0) then { _loadoutCondition = !(_faction in read_local_cargo_specific); };
 _assignLoadoutMode = false;

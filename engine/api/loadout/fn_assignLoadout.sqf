@@ -17,6 +17,7 @@ _assignLoadoutMode = true;
 #include "\broma_framework\loadouts\includes\get-faction.sqf"
 #include "\broma_framework\loadouts\includes\clear-object.sqf"
 #include "\broma_framework\loadouts\includes\get-type.sqf"
+_unit setVariable ["BRM_FMK_fnc_assignLoadout", [_faction, toLowerANSI _type], true];
 #include "\broma_framework\loadouts\includes\classes-list.sqf"
 #include "\broma_framework\loadouts\content\content-list.sqf"
 #include "read-data.sqf"
