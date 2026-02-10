@@ -34,10 +34,10 @@ _specAT = _RPG7PGO;
 _weaponsAA = _IGLA;
 _weaponsAT = _specAT;
 
-_commonRCO = "hlc_optic_1p29";
+_commonRCO = "rhs_acc_1p29";
 _commonCCO = "";
 
-_reconScope = "hlc_optic_1p29";
+_reconScope = "rhs_acc_1p29";
 _sniperScope = "rhs_acc_pso1m21_ak";
 
 _commonSuppressor = "rhs_acc_tgpa";

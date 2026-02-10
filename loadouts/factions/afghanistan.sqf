@@ -24,7 +24,7 @@ _defaultColor = "blue";
 _camo = missionNamespace getVariable ["BRM_FMK_LoadoutCamo_AFGHANISTAN", "ana"];
 
 // WEAPONS =====================================================================
-_rifleList = [_RHSAKM, _RHSAKMS, _AK74N, ["hlc_wp_m16a2", "hlc_30rnd_556x45_EPR"]];
+_rifleList = [_RHSAKM, _RHSAKMS, _AK74N, ["UK3CB_M16A2", "UK3CB_M16_30rnd_556x45"]];
 _commonRifle = selectRandom _rifleList;
 _commonRifleGL = selectRandom [_RHSAKMGL, _RHSAKMSGL];
 _reconRifle = ["rhs_weap_m4a1_carryhandle", "rhs_mag_30Rnd_556x45_M855A1_Stanag"];

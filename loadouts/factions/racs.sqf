@@ -37,7 +37,7 @@ _weaponsAA = _STINGER;
 _weaponsAT = _JAVELIN;
 
 _commonRCO = _FHQACOG;
-_commonCCO = "hlc_optic_g36export35x";
+_commonCCO = "UK3CB_Optic_G36Export35x";
 
 _rifleScope = "UK3CB_Optic_G36Dualoptic15x";
 _reconScope = "rhsusf_acc_acog2";

@@ -1,7 +1,7 @@
 /*
     Unified military of Canada.
 
-    Camo: "CADPATD", "CADPATW" (BRM_FMK_LoadoutCamo_CAF)
+    Camo: "CADPATW", "CADPATD" (BRM_FMK_LoadoutCamo_CAF)
 */
 
 _factionID = "CAF";
@@ -25,8 +25,8 @@ _commonRifle = ["tfc_w_c7a2", "rhs_mag_30Rnd_556x45_M855A1_Stanag"];
 _commonRifleGL = ["tfc_w_c7a2_m203", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_M441_HE"];
 _commonAR = ["tfc_w_c9a2", "rhsusf_200rnd_556x45_M855_mixed_box"];
 _commonMG = ["UK3CB_BAF_L7A2", "UK3CB_BAF_762_100Rnd_T"];
-_commonMarksman = ["hlc_rifle_samr2", "hlc_30rnd_556x45_EPR"];
-_commonSniper = ["R3F_TAC50", "R3F_5Rnd_127x99_TAC50"];
+_commonMarksman = _commonRifle;
+_commonSniper = [["UK3CB_BAF_L118A1_Covert", "UK3CB_BAF_L118A1_Covert_DE"] select (_camo == "CADPATD"), "UK3CB_BAF_762_L42A1_10Rnd"];
 _commonSMG = _MP5A5;
 
 _commonPistol = ["UK3CB_BHP", "UK3CB_BHP_9_13Rnd"];
@@ -41,8 +41,8 @@ _commonCCO = "rhsusf_acc_eotech_552_wd";
 
 _rifleScope = "rhsusf_acc_eotech_552_wd";
 _arScope = "rhsusf_acc_eotech_552_wd";
-_marksmanScope = "rhsusf_acc_m8541";
-_sniperScope = "rksl_optic_pmii_525_des";
+_marksmanScope = "optic_Hamr";
+_sniperScope = ["RKSL_optic_PMII_525_wdl", "RKSL_optic_PMII_525_des"] select (_camo == "CADPATD");
 
 _specATScope = "rhs_optic_maaws";
 

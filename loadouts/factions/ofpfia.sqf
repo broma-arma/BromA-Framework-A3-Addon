@@ -39,7 +39,7 @@ _weaponsAT = _JAVELIN;
 _commonRCO = "rhsusf_acc_ELCAN";
 _commonCCO = "rhsusf_acc_eotech_552";
 
-_marksmanScope = "";
+_marksmanScope = "uk3cb_optic_STANAGZF_G3";
 _sniperScope = "optic_LRPS";
 
 _commonSuppressor = _sup762;

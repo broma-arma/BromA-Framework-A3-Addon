@@ -26,7 +26,7 @@ _commonRifleGL = ["sfp_ak5c_m203", "30Rnd_556x45_Stanag", "rhs_mag_M433_HEDP"];
 _commonAR = ["rhs_weap_m249", "rhsusf_100Rnd_556x45_M855_soft_pouch"];
 _commonMG = ["BRM_FNMAG_TAC", "BRM_MAG_100rndBox"];
 _commonMarksman = _commonRifle;
-_commonSniper = ["hlc_rifle_awcovert", "hlc_5rnd_300WM_FMJ_AWM"];
+_commonSniper = [["UK3CB_BAF_L118A1_Covert", "UK3CB_BAF_L118A1_Covert_DE"] select (_camo == "m90d"), "UK3CB_BAF_762_L42A1_10Rnd"];
 _commonSMG = _MP5A5;
 
 _commonPistol = ["R3F_G17", "R3F_17Rnd_9x19_G17"];
@@ -40,7 +40,7 @@ _commonRCO = "rhsusf_acc_acog_rmr";
 _commonCCO = "rhsusf_acc_compm4";
 
 _rifleScope = "rhsusf_acc_compm4";
-_sniperScope = "rksl_optic_pmii_525_des";
+_sniperScope = ["RKSL_optic_PMII_525_wdl", "RKSL_optic_PMII_525_des"] select (_camo == "m90d");
 
 _specATScope = "rhs_optic_maaws";
 

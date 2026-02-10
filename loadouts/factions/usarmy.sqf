@@ -47,7 +47,7 @@ _commonEOT = "rhsusf_acc_eotech_552";
 _rifleScope = _commonCCO;
 _reconScope = "rhsusf_acc_su230_mrds_c";
 _arScope = _commonEOT;
-_marksmanScope = "hlc_optic_leupoldm3a";
+_marksmanScope = "optic_Hamr";
 _sniperScope = "optic_LRPS";
 
 _specATScope = "rhs_weap_optic_smaw";
