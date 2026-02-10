@@ -227,7 +227,7 @@ switch (_action) do {
 	};
 
 	case "DisableSpawnProtection": {
-		if (USES_BRMFMK_PLUGIN("spawn_protection")) then {
+		if ("spawn_protection" call BRM_FMK_fnc_isPluginActive) then {
 			{
 				if (mission_spawn_protection_time > 0) then {
 					mission_spawn_protection_time = 0;
@@ -241,7 +241,7 @@ switch (_action) do {
 	};
 
 	case "DisableCommanderLock": {
-		if (USES_BRMFMK_PLUGIN("commander_lock")) then {
+		if ("commander_lock" call BRM_FMK_fnc_isPluginActive) then {
 			if !(co_lock_allSidesReady) then {
 				BRM_FMK_Plugin_CommanderLock_lockedSides = createHashMap;
 				publicVariable "BRM_FMK_Plugin_CommanderLock_lockedSides";
@@ -260,7 +260,7 @@ switch (_action) do {
 	};
 
 	case "TimeLimit": {
-		if (USES_BRMFMK_PLUGIN("time_limit")) then {
+		if ("time_limit" call BRM_FMK_fnc_isPluginActive) then {
 			0 spawn {
 				(["Add to Time Limit", "Minutes to add:", "5"] call BRM_FMK_RHEA_fnc_inputDialog) params ["_status", "_text"];
 				if (_status) then {

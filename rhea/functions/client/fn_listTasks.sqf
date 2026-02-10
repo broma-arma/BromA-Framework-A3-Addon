@@ -8,7 +8,6 @@ params ["_ctrlTasksList"];
 
 private _selection = lbSelection _ctrlTasksList;
 private _size = lbSize _ctrlTasksList;
-_ctrlTasksList lbSetCurSel -1;
 lbClear _ctrlTasksList;
 
 private _ctrlPlayersList = ctrlParent _ctrlTasksList displayCtrl 2100;
@@ -53,6 +52,16 @@ private _current = _selectedPlayer call BIS_fnc_taskCurrent;
 		_stateIcon = [configFile >> "CfgDiary" >> "Icons", "taskNone", ""] call BIS_fnc_returnConfigEntry;
 	};
 	_ctrlTasksList lbSetPicture [_index, _stateIcon];
+	private _color = switch (_state) do {
+		case "ASSIGNED":  { [1,   0.7, 0,   1] };
+		case "SUCCEEDED": { [0.7, 1,   0.3, 1] };
+		case "FAILED":    { [1,   0.3, 0.2, 1] };
+		case "CANCELED":  { [0.7, 0.7, 0.7, 1] };
+		case "CREATED";
+		default           { [1,   1,   1,   1] };
+	};
+	_ctrlTasksList lbSetPictureColor [_index, _color];
+	_ctrlTasksList lbSetPictureColorSelected [_index, _color];
 	_ctrlTasksList lbSetPictureRight [_index, [[_x, _selectedPlayer] call _fnc_taskType] call BIS_fnc_taskTypeIcon];
 } forEach ([_selectedPlayer] call BIS_fnc_tasksUnit);
 if (_size == lbSize _ctrlTasksList) then {

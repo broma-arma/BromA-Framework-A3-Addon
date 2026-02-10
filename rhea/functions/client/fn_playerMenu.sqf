@@ -51,14 +51,14 @@ switch (_action) do {
 
 			if (isNull _other) exitWith {};
 
-			if (!alive _other || { _other getVariable ["isDead", false] }) then {
+			if (!alive _other) then {
 				_other = objNull;
 			};
 
 			if (_action == "GoTo") then {
 				if !(isNull _other) then {
 					private _to = _selectedPlayers select 0;
-					if !(isNull _to || { !alive _to } || { _to getVariable ["isDead", false] }) then {
+					if !(isNull _to || { !alive _to }) then {
 						[_other, _to] remoteExecCall ["BRM_FMK_RHEA_REMOTE_fnc_teleport", _other];
 					} else {
 						"Cannot teleport to the dead" call BRM_FMK_RHEA_fnc_message;
@@ -70,7 +70,7 @@ switch (_action) do {
 				if !(isNull _other) then {
 					private _fails = [];
 					{
-						if !(isNull _x || { !alive _x } || { _x getVariable ["isDead", false] }) then {
+						if !(isNull _x || { !alive _x }) then {
 							[_x, _other] remoteExecCall ["BRM_FMK_RHEA_REMOTE_fnc_teleport", _x];
 						} else {
 							_fails pushBack _x;
@@ -91,9 +91,10 @@ switch (_action) do {
 
 	case "Heal": {
 		if (HAS_ADDON("ace_medical")) then {
-			private _fnc_fullHeal = if (HAS_ADDON("ace_medical_treatment")) then { ace_medical_treatment_fnc_fullHeal } else { ace_medical_fnc_treatmentAdvanced_fullHeal };
+			private _logArgs = [[player, false, true] call ace_common_fnc_getName];
 			{
-				[player, _x] call _fnc_fullHeal;
+				[_x, player] call ace_medical_fnc_fullHeal;
+				[_x, "activity", "%1 used Rhea Heal", _logArgs] call ace_medical_treatment_fnc_addToLog;
 			} forEach _selectedPlayers;
 		} else {
 			{
@@ -159,34 +160,26 @@ switch (_action) do {
 	};
 
 	case "AssignLoadout": {
-		if !(isNil "BRM_fnc_assignLoadout") then {
-			[{
-				[player, toLower str (player getVariable ["unit_side", side player])] call BRM_fnc_assignLoadout;
-			}] remoteExec ["call", _selectedPlayers];
-		} else {
-			"Broma mission framework not loaded" call BRM_FMK_RHEA_fnc_message;
-		};
+		[{
+			[player, toLower str (player getVariable ["unit_side", side player])] call BRM_fnc_assignLoadout;
+		}] remoteExec ["call", _selectedPlayers];
 	};
 
 	case "Notify": {
 		_selectedPlayers spawn {
 			(["Notification message", "Enter the notification message:", ""] call BRM_FMK_RHEA_fnc_inputDialog) params ["_status", "_text"];
 			if (_status) then {
-				if (isNil "BRM_fnc_initPlayer") then {
-					["TaskDescriptionUpdatedIcon", ["\A3\ui_f\data\map\markers\military\warning_ca.paa", _text]] remoteExec ["BIS_fnc_showNotification", _this];
-				} else {
-					["Alert", [_text]] remoteExec ["BIS_fnc_showNotification", _this];
-				};
+				["BRM_FMK_Rhea_Notify", [_text, name player]] remoteExec ["BIS_fnc_showNotification", _this];
 			};
 		};
 	};
 
 	case "Respawn": {
-		if (USES_BRMFMK_PLUGIN("respawn_system")) then {
+		if ("respawn_system" call BRM_FMK_fnc_isPluginActive) then {
 			private _deadPlayers = _selectedPlayers select { _x getVariable ["isDead", false] } apply { name _x };
 			if (count _deadPlayers > 0) then {
 				{
-					[name _x] remoteExecCall ["BRM_FMK_RespawnSystem_fnc_callRespawn", 2];
+					[_x] remoteExecCall ["BRM_FMK_fnc_respawn", 2];
 				} forEach _selectedPlayers;
 				_refreshPlayerList = true;
 			};

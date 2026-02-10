@@ -7,7 +7,6 @@ disableSerialization;
 params ["_ctrlPlayersList"];
 
 private _selection = lbSelection _ctrlPlayersList apply { _ctrlPlayersList lbText _x };
-_ctrlPlayersList lbSetCurSel -1;
 lbClear _ctrlPlayersList;
 
 private _colors = [
@@ -21,35 +20,56 @@ private _colors = [
 private _showDead = profileNamespace getVariable ["RHEA_cfg_showdead", false];
 private _showAI = profileNamespace getVariable ["RHEA_cfg_showai", true];
 
+private _allUnits = allUnits;
+{ // Workaround allUnits failing to have all players
+	_allUnits pushBackUnique _x;
+} forEach allPlayers;
+
 {
 	if !(isNil "_x" || {isNull _x}) then {
-		private _isPlayer = isPlayer _x;
-		private _alive = !(_x getVariable ["isDead", false]);
-		if (alive _x && (_showDead || _alive) && (_showAI || _isPlayer)) then {
-			private _sideIndex = [west, east, independent, civilian] find side _x;
+		private _unit = _x;
+		private _isPlayer = isPlayer _unit;
+		private _alive = !(_unit getVariable ["isDead", false]);
+		if (alive _unit && (_showDead || _alive) && (_showAI || _isPlayer)) then {
+			private _sideIndex = [west, east, independent, civilian] find side _unit;
 			if (_sideIndex == -1) then { _sideIndex = 4; };
-			private _i = _ctrlPlayersList lbAdd format ["%1%2%3", _sideIndex, if (_isPlayer) then {"0"} else {"1[AI] "}, name _x]; // Note: name doesn't work with !alive units.
+			private _i = _ctrlPlayersList lbAdd format ["%1%2%3", _sideIndex, if (_isPlayer) then {"0"} else {"1[AI] "}, name _unit]; // Note: name doesn't work with !alive units.
 			_ctrlPlayersList lbSetColor [_i, _colors select _sideIndex];
-			_ctrlPlayersList lbSetData [_i, _x call BIS_fnc_objectVar];
-			private _picture = if !(simulationEnabled _x) then {
-				"\A3\Ui_f\data\GUI\Rsc\RscDisplaySingleMission\locked_ca.paa"
-			} else {
-				if (_alive) then {
-					if (_x getVariable ["ace_isunconscious", false]) then {
-						"\A3\Ui_f\data\IGUI\Cfg\Revive\overlayIcons\r100_ca.paa"
+			_ctrlPlayersList lbSetData [_i, _unit call BIS_fnc_objectVar];
+			private _vehicle = objectParent _unit;
+			private _picture = switch (true) do {
+				case (!_alive): { "\A3\Ui_f\data\IGUI\Cfg\Revive\overlayIcons\d100_ca.paa" };
+				case (!simulationEnabled _unit): { "\A3\Ui_f\data\GUI\Rsc\RscDisplaySingleMission\locked_ca.paa" };
+				case (_unit getVariable ["ACE_isUnconscious", false]): { "\A3\Ui_f\data\IGUI\Cfg\Revive\overlayIcons\r100_ca.paa" };
+				case (!isNull _vehicle): {
+					private _crew = fullCrew _vehicle;
+					private _i = _crew findIf { _x select 0 == _unit };
+					if (_i != -1) then {
+						_crew select _i params ["", "_role", "", "", "_personTurret", "", ""];
+						if (_role == "turret" && _personTurret) then {
+							_role == "turretFFV";
+						};
+						switch (_role) do {
+							case "driver": { "\A3\ui_f\data\igui\rscingameui\rscunitinfo\role_driver_ca.paa" };
+							case "commander": { "\A3\ui_f\data\igui\rscingameui\rscunitinfo\role_commander_ca.paa" };
+							case "turret";
+							case "gunner": { "\A3\ui_f\data\igui\rscingameui\rscunitinfo\role_gunner_ca.paa" };
+							case "turretFFV";
+							case "cargo": { "\A3\ui_f\data\igui\rscingameui\rscunitinfo\role_cargo_ca.paa" };
+							default { "" };
+						}
 					} else {
 						""
-					}
-				} else {
-					"\A3\Ui_f\data\IGUI\Cfg\Revive\overlayIcons\d100_ca.paa"
+					};
 				};
+				default { "" };
 			};
 			_ctrlPlayersList lbSetPicture [_i, _picture];
 		};
 	} else {
 		WARNING("Entry in allUnits is nil/null");
 	};
-} forEach allUnits;
+} forEach _allUnits;
 
 lbSort _ctrlPlayersList;
 for "_i" from 0 to lbSize _ctrlPlayersList - 1 do {

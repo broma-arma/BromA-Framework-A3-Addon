@@ -164,6 +164,5 @@
 #endif
 
 #define HAS_ADDON(ADDON) (isClass (configFile >> 'CfgPatches' >> ADDON))
-#define USES_BRMFMK_PLUGIN(PLUGIN) (HAS_ADDON('BRM_FRAMEWORK') && {isClass (missionConfigFile >> 'CfgPlugins' >> PLUGIN)})
 
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"

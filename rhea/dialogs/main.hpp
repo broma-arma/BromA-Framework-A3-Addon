@@ -159,19 +159,19 @@ class BRM_FMK_RHEA_main {
 					text = "Disable Protection";
 					data = "DisableSpawnProtection";
 
-					BRM_FMK_RHEA_enable = QUOTE(USES_BRMFMK_PLUGIN('spawn_protection'));
+					BRM_FMK_RHEA_enable = QUOTE('spawn_protection' call BRM_FMK_fnc_isPluginActive;);
 				};
 				class Mission_DisableCommanderLock {
 					text = "Disable Commander Lock";
 					data = "DisableCommanderLock";
 
-					BRM_FMK_RHEA_enable = QUOTE(USES_BRMFMK_PLUGIN('commander_lock'));
+					BRM_FMK_RHEA_enable = QUOTE('commander_lock' call BRM_FMK_fnc_isPluginActive;);
 				};
 				class Mission_TimeLimit {
 					text = "Time Limit";
 					data = "TimeLimit";
 
-					BRM_FMK_RHEA_enable = QUOTE(USES_BRMFMK_PLUGIN('time_limit'));
+					BRM_FMK_RHEA_enable = QUOTE('time_limit' call BRM_FMK_fnc_isPluginActive;);
 				};
 				class Mission_Conditions {
 					text = "Conditions";
