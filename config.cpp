@@ -1,6 +1,6 @@
 #define MAJOR 0
 #define MINOR 84
-#define REVISION 16
+#define REVISION 17
 
 #define VERSION MAJOR.MINOR
 #define VERSION_STR MAJOR.MINOR.REVISION
