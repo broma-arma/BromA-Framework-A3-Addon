@@ -176,7 +176,7 @@ switch (_action) do {
 
 	case "Respawn": {
 		if ("respawn_system" call BRM_FMK_fnc_isPluginActive) then {
-			private _deadPlayers = _selectedPlayers select { _x getVariable ["isDead", false] } apply { name _x };
+			private _deadPlayers = _selectedPlayers select { _x getVariable ["isDead", false] };
 			if (count _deadPlayers > 0) then {
 				{
 					[_x] remoteExecCall ["BRM_FMK_fnc_respawn", 2];
