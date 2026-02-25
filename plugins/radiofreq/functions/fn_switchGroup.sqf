@@ -105,52 +105,6 @@ _lines append ["", format ["Reset to: <execute expression=""(str player splitStr
 
 if (_init) then {
 	BRM_FMK_Plugin_RadioFreq_diaryActiveLines = _lines;
-
-	["BRM_FMK_Plugin_RadioFreq_OnRadiosReceived", "OnRadiosReceived", {
-		if (!isNil "BRM_FMK_Plugin_RadioFreq_diaryActiveLines") then {
-			/*Yelling*/60 call TFAR_fnc_setVoiceVolume;
-
-			{
-				[call ([TFAR_fnc_activeSwRadio, TFAR_fnc_activeLrRadio] select _forEachIndex), _x] call BRM_FMK_Plugin_RadioFreq_fnc_editRadioSettings;
-			} forEach BRM_FMK_Plugin_RadioFreq_radioSettings;
-
-			player setDiaryRecordText [["Diary", BRM_FMK_Plugin_RadioFreq_diaryRecord], ["Radio", BRM_FMK_Plugin_RadioFreq_diaryActiveLines joinString "<br />", "\z\tfar\addons\core\ui\ACE_Interaction_Radio_Icon.paa"]];
-			BRM_FMK_Plugin_RadioFreq_diaryActiveLines = nil;
-		};
-	}, player] call TFAR_fnc_addEventHandler;
-
-	private _fnc_saveVehicleRadioSettings = {
-		params ["_unit", "_radio", "_radioID"];
-		[_unit, [_radio, _radioID]] call BRM_FMK_Plugin_RadioFreq_fnc_saveVehicleRadioSettings;
-	};
-	{
-		[format ["BRM_FMK_Plugin_RadioFreq_%1", _x], _x, _fnc_saveVehicleRadioSettings, player] call TFAR_fnc_addEventHandler;
-	} forEach ["OnLRchannelSet", "OnLRstereoSet", "OnLRvolumeSet", "OnLRspeakersSet"];
-	["BRM_FMK_Plugin_RadioFreq_OnFrequencyChanged", "OnFrequencyChanged", {
-		params ["_unit", "_radio"];
-
-		// Frequency is set after the event is fired...
-		[{ _this call BRM_FMK_Plugin_RadioFreq_fnc_saveVehicleRadioSettings; }, [_unit, _radio]] call CBA_fnc_execNextFrame;
-	}, player] call TFAR_fnc_addEventHandler;
-
-	player addEventHandler ["GetInMan", {
-		params ["_unit", "_role", "_vehicle", "_turret"];
-
-		[_unit] call BRM_FMK_Plugin_RadioFreq_fnc_handleVehicleRadio;
-	}];
-
-	player addEventHandler ["GetOutMan", {
-		params ["_unit", "_role", "_vehicle", "_turret", "_isEject"];
-
-		[_unit, true] call BRM_FMK_Plugin_RadioFreq_fnc_handleVehicleRadio;
-	}];
-
-	player addEventHandler ["SeatSwitchedMan", {
-		params ["_unit", "_otherUnit", "_vehicle"];
-
-		[_unit, true] call BRM_FMK_Plugin_RadioFreq_fnc_handleVehicleRadio;
-		[_unit] call BRM_FMK_Plugin_RadioFreq_fnc_handleVehicleRadio;
-	}];
 } else {
 	{
 		[call ([TFAR_fnc_activeSwRadio, TFAR_fnc_activeLrRadio] select _forEachIndex), _x] call BRM_FMK_Plugin_RadioFreq_fnc_editRadioSettings;
