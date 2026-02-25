@@ -22,7 +22,9 @@ private _showAI = profileNamespace getVariable ["RHEA_cfg_showai", true];
 
 private _allUnits = allUnits;
 { // Workaround allUnits failing to have all players
-	_allUnits pushBackUnique _x;
+	if !(_x isKindOf "HeadlessClient_F") then {
+		_allUnits pushBackUnique _x;
+	};
 } forEach allPlayers;
 
 {
