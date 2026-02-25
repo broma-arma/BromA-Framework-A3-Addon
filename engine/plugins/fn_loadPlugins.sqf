@@ -27,31 +27,32 @@ RETURNS:
 params ["_init"];
 
 if (_init == "preInit") exitWith {
-	if (BRM_FMK_Engine_compatVersion == 0) then {
-		BRM_FMK_Engine_activePluginConfigs = "true" configClasses (configFile >> "BRM_FMK" >> "Plugins") select { isClass (missionConfigFile >> "CfgPlugins" >> configName _x) };
+	private _missionPlugins = if (BRM_FMK_Engine_compatVersion == 0) then {
+		"true" configClasses (missionConfigFile >> "CfgPlugins") apply { configName _x }
 	} else {
-		private _activePlugins = getArray (missionConfigFile >> "BRM_FMK" >> "missionPlugins") select [1];
-		BRM_FMK_Engine_activePluginConfigs = "true" configClasses (configFile >> "BRM_FMK" >> "Plugins") select { configName _x in _activePlugins };
+		getArray (missionConfigFile >> "BRM_FMK" >> "missionPlugins") select [1];
 	};
-	BRM_FMK_Engine_activePlugins = BRM_FMK_Engine_activePluginConfigs apply { configName _x };
 
 	if (isClass (configFile >> "CfgPatches" >> "ace_spectator")) then {
-		// Force ACE3 Spectator, instead of Vanilla Spectator
-		private _i = BRM_FMK_Engine_activePlugins find "vanilla_spectator";
-		if (_i != -1 && !("ace3_spectator" call BRM_FMK_fnc_isPluginActive)) then {
-			BRM_FMK_Engine_activePlugins set [_i, "ace3_spectator"];
-			[{ !isNil "mission_game_mode" }, { [] call BRM_FMK_Plugin_ACE3Spectator_fnc_postInit; }] call CBA_fnc_waitUntilAndExecute;
+		// Replace Vanilla Spectator with ACE3 Spectator
+		private _i = _missionPlugins find "vanilla_spectator";
+		if (_i != -1 && !("ace3_spectator" in _missionPlugins)) then {
+			_missionPlugins set [_i, "ace3_spectator"];
 		};
+	};
+
+	BRM_FMK_Engine_activePluginConfigs = "true" configClasses (configFile >> "BRM_FMK" >> "Plugins") select {
+		configName _x in _missionPlugins && (getNumber (_x >> "multiplayer") == 0 || isMultiplayer)
 	};
 
 	private _pluginConflicts = [];
 	{
-		private _conflicts = getArray (configFile >> "BRM_FMK" >> "Plugins" >> _x >> "conflict_plugins") select { _x call BRM_FMK_fnc_isPluginActive };
+		private _conflicts = getArray (_x >> "conflict_plugins") select { _x call BRM_FMK_fnc_isPluginActive };
 		if (count _conflicts > 0) then {
-			BRM_FMK_Engine_activePlugins deleteAt _forEachIndex;
-			_pluginConflicts pushBack format ["  %1: %2", _x, [_conflicts] call BRM_FMK_fnc_verboseArray];
+			BRM_FMK_Engine_activePluginConfigs deleteAt _forEachIndex;
+			_pluginConflicts pushBack format ["  %1: %2", configName _x, [_conflicts] call BRM_FMK_fnc_verboseArray];
 		}
-	} forEachReversed BRM_FMK_Engine_activePlugins;
+	} forEachReversed BRM_FMK_Engine_activePluginConfigs;
 	if (count _pluginConflicts > 0) then {
 		private _error = "The following plugins were not activated, due to conflicting with other active plugins:";
 		"BromA Framework - Plugin Conflict" hintC [_error] + _pluginConflicts;
@@ -61,6 +62,7 @@ if (_init == "preInit") exitWith {
 		} forEach _pluginConflicts;
 	};
 
+	BRM_FMK_Engine_activePlugins = BRM_FMK_Engine_activePluginConfigs apply { configName _x };
 	BRM_FMK_Engine_activePlugins sort true;
 	usedPlugins = +BRM_FMK_Engine_activePlugins; // Backward compatibility
 
