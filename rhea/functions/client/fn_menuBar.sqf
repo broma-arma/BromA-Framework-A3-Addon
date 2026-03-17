@@ -283,7 +283,7 @@ switch (_action) do {
 
 	case "EndMission": {
 		0 spawn {
-			private _options = if (isNil "BRM_FMK_fnc_callEnding") then {
+			private _options = if (isNil "BRM_FMK_fnc_endMission") then {
 				[
 					["Everyone Won", "EveryoneWon", "Mission Completed"],
 					["Everyone Lost", "EveryoneLost", "Mission Failed"],
@@ -310,7 +310,7 @@ switch (_action) do {
 
 			(["End Mission", "Select the ending:", 0, _options] call BRM_FMK_RHEA_fnc_inputDialog) params ["_status", "_text", "_data", "_value"];
 			if (_status) then {
-				[_data] remoteExec [if (isNil "BRM_FMK_fnc_callEnding") then { "BIS_fnc_endMissionServer" } else { "BRM_FMK_fnc_callEnding" }, 2];
+				[_data] remoteExec [if (isNil "BRM_FMK_fnc_endMission") then { "BIS_fnc_endMissionServer" } else { "BRM_FMK_fnc_endMission" }, 2];
 			};
 		};
 	};
