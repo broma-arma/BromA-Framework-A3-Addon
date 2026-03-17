@@ -36,7 +36,7 @@ switch (true) do {
 	case (_isTeamLeader): {
 		[_unit, _leaderHead, _commonUniform, _ftlVest, _commonBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2],[_rSmoke,2],[_grenade,_countGrenades],[_flashlight,1]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_rSmoke,2],[_grenade,_countGrenades],[_flashlight,1], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		if (!isNil "_commonGL") then {
 			[_unit,[[_commonGL select RAMMO, _count40mm]]] call BRM_FMK_fnc_addtoBackpack;
 			[_unit,[[_commonGL select GUN,1]]] call BRM_FMK_fnc_addtoBackpack;
@@ -64,7 +64,7 @@ switch (true) do {
 		[_unit, _commonHead, _commonUniform, _commonVest, ""] call BRM_FMK_fnc_useUniform;
 		if (_aiBackpackRadios) then {[_unit, "BP"] call BRM_FMK_fnc_addRadio};
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2], [_grenade,_countGrenades],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2], [_grenade,_countGrenades],[_mapTools,1], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRifle, _countRifle] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 	};
@@ -72,7 +72,7 @@ switch (true) do {
 	case (_isRifleman): {
 		[_unit, _commonHead, _commonUniform, _commonVest, _commonBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2],[_grenade, _countGrenades]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_grenade, _countGrenades], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRifle, _countRifle] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _commonRifle select GUN, _countTracerRifle, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
 	};
@@ -132,7 +132,7 @@ switch (true) do {
 	case (_isMarksman): {
 		[_unit, _commonHead, _marksmanUniform, _marksmanVest, _commonBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2], [_grenade,_countGrenades]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2], [_grenade,_countGrenades], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonMarksman, _countRifle, "", "", _marksmanScope, ""] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _commonMarksman select GUN, _countTracerRifle, ["TRACER"]] call BRM_FMK_fnc_addAmmoAuto;
 	};
@@ -148,7 +148,7 @@ switch (true) do {
 	case (_isAutoriflemanAsst): {
 		[_unit, _commonHead, _commonUniform, _commonVest, _bigBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2],[_spareBarrel,1],[_grenade,_countGrenades]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_spareBarrel,1],[_grenade,_countGrenades], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRifle, _countRifleLow] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _commonAR select RAMMO, _countAR/2] call BRM_FMK_fnc_addAmmo;
 	};
@@ -164,7 +164,7 @@ switch (true) do {
 		[_unit, _commonHead, _commonUniform, _commonVest, _bigBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
 		[_unit, _commonRifle, _countRifleLow] call BRM_FMK_fnc_addWeaponKit;
-		[_unit,[[_wSmoke,2],[_grenade,_countGrenades]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_grenade,_countGrenades], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit,[[_commonMG select RAMMO, (_countMG)]]] call BRM_FMK_fnc_addtoBackpack;
 	};
 
@@ -182,7 +182,7 @@ switch (true) do {
 	case (_isLifeSaver): {
 		[_unit, _medicHead, _medicUniform, _medicVest, _medicalBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2], [_gSmoke,3],[_grenade,_countGrenades]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2], [_gSmoke,3],[_grenade,_countGrenades], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRifle, _countRifleLow] call BRM_FMK_fnc_addWeaponKit;
 		_defaultInsignia = _medicInsignia;
 	};
@@ -204,14 +204,14 @@ switch (true) do {
 	case (_isHMGTripod): {
 		[_unit, _commonHead, _commonUniform, _commonVest, _hmgTripod] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2],[_grenade,_countGrenades]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_grenade,_countGrenades], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRifle, _countRifle] call BRM_FMK_fnc_addWeaponKit;
 	};
 
 	case (_isATTripod): {
 		[_unit, _commonHead, _commonUniform, _commonVest, _atTripod] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2],[_grenade,_countGrenades]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_grenade,_countGrenades], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRifle, _countRifle] call BRM_FMK_fnc_addWeaponKit;
 	};
 
@@ -225,15 +225,14 @@ switch (true) do {
 	case (_isMortarAssistant): {
 		[_unit, _commonHead, _commonUniform, _commonVest, _mortarTripod] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2],[_grenade,_countGrenades],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_grenade,_countGrenades],[_mapTools,1], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRifle, _countRifle] call BRM_FMK_fnc_addWeaponKit;
 	};
 
 	case (_isUAVOperator): {
 		[_unit, _commonHead, _commonUniform, _slVest, _uavBag] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke, 2],[_grenade,_countGrenades]]] call BRM_FMK_fnc_addtoVest;
-		[_unit,[["ACE_UAVBattery", 3]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke, 2],[_grenade,_countGrenades], ["ACE_UAVBattery", 3]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _commonRifle, _countRifle] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
 		[_unit, [_uavTerminal]] call BRM_FMK_fnc_linkItem;
@@ -243,7 +242,7 @@ switch (true) do {
 		[_unit, _reconHead, _reconUniform, _reconVest, _reconBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
-		[_unit,[[_wSmoke,2],[_rSmoke,2],[_gSmoke,2],[_grenade,_countGrenades],[_rChemlight,2],[_bChemlight,2],[_wFlare,2],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_rSmoke,2],[_gSmoke,2],[_grenade,_countGrenades],[_rChemlight,2],[_bChemlight,2],[_wFlare,2],[_mapTools,1], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _reconRifle, _countRifle, _commonSuppressor, "", _commonRCO, ""] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _commonAT, 1] call BRM_FMK_fnc_addWeaponKit;
 	};
@@ -273,7 +272,7 @@ switch (true) do {
 		[_unit, _reconHead, _reconUniform, _reconVest, _reconBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
-		[_unit,[[_wSmoke,2],[_rSmoke,2],[_gSmoke,2],[_grenade,_countGrenades],[_mapTools,1]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_rSmoke,2],[_gSmoke,2],[_grenade,_countGrenades],[_mapTools,1], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit, _reconRifle, _countRifle, _commonSuppressor, "", _reconScope, ""] call BRM_FMK_fnc_addWeaponKit;
 		_defaultInsignia = _medicInsignia;
 	};
@@ -339,7 +338,7 @@ switch (true) do {
 		[_unit, _sniperHead, _sniperUniform, _commonVest, if (_isLeader) then { "" } else { _commonBackpack }] call BRM_FMK_fnc_useUniform;
 		if (_isLeader && _aiBackpackRadios) then { [_unit, "BP"] call BRM_FMK_fnc_addRadio };
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit,[[_wSmoke,2],[_rSmoke,2],[_gSmoke,2],[_grenade,_countGrenades],[_mapTools,1],[_weatherMeter,1]]] call BRM_FMK_fnc_addtoVest;
+		[_unit,[[_wSmoke,2],[_rSmoke,2],[_gSmoke,2],[_grenade,_countGrenades],[_mapTools,1],[_weatherMeter,1], [_entrenchingTool, 1]]] call BRM_FMK_fnc_addtoVest;
 		[_unit,[[_commonSniper select RAMMO, (_countSniper*2)]]] call BRM_FMK_fnc_addtoBackpack;
 		[_unit, _commonRifle, _countRifleLow] call BRM_FMK_fnc_addWeaponKit;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
