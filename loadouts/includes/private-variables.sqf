@@ -15,7 +15,7 @@ private [
 
 	"_factionSkill", "_factionUnits", "_factionVehicles", "_factionObjects", "_factionDACCamps",
 
-	"_rifleList", "_rifleGLList", "_arList", "_smgList",
+	"_rifleList", "_rifleGLList", "_pistolList", "_arList", "_mgList", "_marksmanList", "_sniperList", "_smgList",
 	"_commonRifle", "_countRifle", "_countRifleLow", "_countTracerRifle", "_countRifleCargo",
 	"_reconRifle",
 	"_commonRifleGL", "_count40mm", "_count40mmCargo",

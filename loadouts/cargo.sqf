@@ -129,40 +129,28 @@ switch (toLower _x) do {
 			_supplies pushBack [_reconRifle select RAMMO, _countRifleCargo];
 		};
 
-		if (!isNil "_rifleList") then {
-			{
-				if (_x select GUN != _commonRifle select GUN) then {
-					_supplies pushBack [_x select RAMMO, _countRifleCargo];
-				};
-			} forEach _rifleList;
-		};
-
-		if (!isNil "_rifleGLList") then {
-			{
-				if (_x select GUN != _commonRifleGL select GUN) then {
-					_supplies append [
-						[_x select GL, _count40mmCargo],
-						[_x select RAMMO, _countRifleCargo]
-					];
-				};
-			} forEach _rifleGLList;
-		};
-
-		if (!isNil "_arList") then {
-			{
-				if (_x select GUN != _commonAR select GUN) then {
-					_supplies pushBack [_x select RAMMO, _countARCargo];
-				};
-			} forEach _arList;
-		};
-
-		if (!isNil "_smgList") then {
-			{
-				if (_x select GUN != _commonSMG select GUN) then {
-					_supplies pushBack [_x select RAMMO, _countRifleCargo];
-				};
-			} forEach _smgList;
-		};
+		{
+			_x params ["_var", "_weapon", "_count"];
+			if (!isNil _var) then {
+				{
+					if (_x select GUN != _weapon select GUN) then {
+						if (_var == "_rifleGLList") then {
+							_supplies pushBack [_x select GL, _count40mmCargo];
+						};
+						_supplies pushBack [_x select RAMMO, _count];
+					};
+				} forEach (call compile _var);
+			};
+		} forEach [
+			["_rifleList", _commonRifle, _countRifleCargo],
+			["_rifleGLList", _commonRifleGL, _countRifleCargo],
+			["_pistolList", _commonPistol, _countPistolCargo],
+			["_arList", _commonAR, _countARCargo],
+			["_mgList", _commonMG, _countMGCargo],
+			["_marksmanList", _commonMarksman, _countRifleCargo],
+			["_sniperList", _commonSniper, _countSniperCargo],
+			["_smgList", _commonSMG, _countRifleCargo]
+		];
 
 		if (_x == "ammo_big") then {
 			_supplies apply { [_x select 0, (_x select 1) * 3] };
