@@ -28,6 +28,8 @@ RETURNS:
 
 params ["_unit", "_kind", "_backpack"];
 
+if (_kind == "BP" && !_aiBackpackRadios) exitWith {};
+
 private _side = _unit call BIS_fnc_objectSide;
 private _radio = [_side, _kind] call BRM_FMK_fnc_getRadio;
 if (_radio == "") exitWith {};

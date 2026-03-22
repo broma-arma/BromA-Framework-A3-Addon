@@ -46,6 +46,8 @@ if (isNil "_weaponsAA") then {
 	};
 };
 
+if (isNil "_reconRifle") then { _reconRifle = _commonRifle; };
+
 if (isNil "_commonAR") then { _commonAR = _commonMG; };
 if (isNil "_countAR") then { _countAR = _countMG; };
 if (isNil "_countARCargo") then { _countARCargo = _countAR * 4; };
@@ -93,11 +95,9 @@ if (isNil "_countTourniquetCargo") then { _countTourniquetCargo = _countTourniqu
 if (isNil "_countSplint") then { _countSplint = 4; };
 if (isNil "_countSplintCargo") then { _countSplintCargo = _countSplint * 10; };
 
+if (isNil "_commonRail") then { _commonRail = ""; };
+if (isNil "_commonBipod") then { _commonBipod = ""; };
 if (isNil "_commonEOT") then { _commonEOT = _commonCCO; };
-if (isNil "_rifleScope") then { _rifleScope = ""; };
-if (isNil "_reconRifle") then { _reconRifle = _commonRifle; };
-if (isNil "_reconScope") then { _reconScope = _commonRCO; };
-
 if (isNil "_commonMagnified") then { _commonMagnified = if (isNil "_sniperScope") then { "" } else { _sniperScope }; }; // Backward compatibility
 if (isNil "_sniperScope") then { _sniperScope = _commonMagnified; };
 if (isNil "_marksmanScope") then { _marksmanScope = _sniperScope; };
@@ -105,11 +105,12 @@ if (isNil "_mgScope") then { _mgScope = ""; };
 if (isNil "_arScope") then { _arScope = _mgScope; };
 if (isNil "_specATScope") then { _specATScope = ""; };
 if (isNil "_weaponsATScope") then { _weaponsATScope = ["", _specATScope] select (_weaponsAT select /*GUN*/0 == _specAT select /*GUN*/0); };
+if (isNil "_rifleScope") then { _rifleScope = _commonRail; };
+if (isNil "_reconScope") then { _reconScope = _commonRCO; };
+
 if (isNil "_specATBackpack") then { _specATBackpack = _bigBackpack; };
 if (isNil "_medicalBackpack") then { _medicalBackpack = _bigBackpack; };
 if (isNil "_reconBackpack") then { _reconBackpack = _commonBackpack; };
-if (isNil "_commonRail") then { _commonRail = ""; };
-if (isNil "_commonBipod") then { _commonBipod = ""; };
 
 if (isNil "_binocular") then { _binocular = [_binoc, "Binocular"] select isNil "_binoc"; };
 if (isNil "_rangefinder") then { _rangefinder = "Rangefinder"; };
