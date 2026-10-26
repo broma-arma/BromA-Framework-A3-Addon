@@ -66,7 +66,7 @@ private _bleedingScale = [
 	[0.2, "Extremely fast"]
 ];
 private _painScale = ["None", "Mild", "Minor", "Uncomfortable", "Moderate", "Distracting", "Distressing", "Severe", "Intense", "Excruciating", "Unspeakable"];
-private _woundsInfo = createHashMapFromArray [
+private _woundsInfo = [
 	// https://github.com/acemod/ACE3/blob/dd293945223ec3b090e51a1e495fee6d1cbe53e9/addons/medical_damage/ACE_Medical_Injuries.hpp#L6
 	["Abrasion", ["Scrape", "Skin is rubbed away by friction against another rough surface. Also known as an abrasion."]],
 	["Avulsion", ["Avulsion", "Occur when an entire structure or part of it is forcibly pulled away, such as the loss of a permanent tooth or an ear lobe."]],
@@ -78,6 +78,13 @@ private _woundsInfo = createHashMapFromArray [
 	["PunctureWound", ["Puncture Wound", "Deep, narrow wound produced by sharp objects such as nails, knives, and broken glass."]],
 	["ThermalBurn", ["Thermal Burn", "Caused by making or being in contact with heat."]]
 ];
+if (_katActive) then {
+	_woundsInfo append [
+		// https://github.com/KAT-Advanced-Medical/KAM/blob/9c021545a6c050c2b2607438c6b10b4dba10123f/addons/chemical/ACE_Medical_Injuries.hpp
+		["KAT_ChemicalBurn", ["Chemical Burn", "Caused by being in contact with a harsh or corrosive substance."]]
+	];
+};
+_woundsInfo = createHashMapFromArray _woundsInfo;
 
 private _woundSources = createHashMap;
 
@@ -99,7 +106,7 @@ private _lines = ["Note: Bleeding and pain is for the worst possible wound of th
 
 {
 	private _configName = configName _x;
-	_woundsInfo get _configName params [["_name", _configName], ["_description", ""]];
+	_woundsInfo getOrDefault [_configName, []] params [["_name", _configName], ["_description", ""]];
 
 	_lines pushBack "<font color='#FFFF00' size='15' face='RobotoCondensedBold'>" + _name + "</font> - " + _description;
 
