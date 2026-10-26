@@ -77,9 +77,8 @@ switch (true) do {
 	case (_isDemo): {
 		[_unit, _commonHead, _commonUniform, _commonVest, _bigBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
-		[_unit, [[_clacker, 1], [_mineDetector, 1], [_defusalKit, 1]]] call BRM_FMK_fnc_addtoUniform;
-		[_unit, [[_apMine, 2], [_apMineBounding, 2], [_grenade, _countGrenades]]] call BRM_FMK_fnc_addtoVest;
-		[_unit, [[_demoCharge, 3], [_demoSatchel, 1], [_clackerDM, 1]]] call BRM_FMK_fnc_addtoBackpack;
+		[_unit, [[_grenade, _countGrenades]]] call BRM_FMK_fnc_addtoVest;
+		[_unit, [[_clacker, 1], [_mineDetector, 1], [_defusalKit, 1], [_demoCharge, 3], [_demoSatchel, 1], [_clackerDM, 1], [_apMine, 2], [_apMineBounding, 2]]] call BRM_FMK_fnc_addtoBackpack;
 		[_unit, _commonRifle, _countRifleLow] call BRM_FMK_fnc_addWeaponKit;
 	};
 
@@ -281,9 +280,8 @@ switch (true) do {
 		[_unit, _reconHead, _reconUniform, _reconVest, _reconBackpack] call BRM_FMK_fnc_useUniform;
 		call BRM_FMK_fnc_addMedicalSupplies;
 		[_unit, _binocular] call BRM_FMK_fnc_addOptics;
-		[_unit, [[_clacker, 1], [_mineDetector, 1], [_defusalKit, 1]]] call BRM_FMK_fnc_addtoUniform;
 		[_unit, [[_wSmoke, 2], [_rSmoke, 2], [_gSmoke, 2], [_grenade, _countGrenades], [_mapTools, 1]]] call BRM_FMK_fnc_addtoVest;
-		[_unit, [[_demoCharge, 3], [_demoSatchel, 1], [_clackerDM, 1]]] call BRM_FMK_fnc_addtoBackpack;
+		[_unit, [[_clacker, 1], [_mineDetector, 1], [_defusalKit, 1], [_demoCharge, 3], [_demoSatchel, 1], [_clackerDM, 1], [_apMine, 2], [_apMineBounding, 2]]] call BRM_FMK_fnc_addtoBackpack;
 		[_unit, _reconRifle, _countRifleLow, _commonSuppressor, "", _reconScope, ""] call BRM_FMK_fnc_addWeaponKit;
 	};
 
